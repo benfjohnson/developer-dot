@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Site title and subtitle. This is used in _includes/header.html
 title: 'jekyll-docs-template'
 subtitle: 'Painless documentation for your projects'
@@ -43,6 +44,28 @@ future: true
 exclude: ['bin', 'README.md']
 
 # Use the kramdown Markdown renderer
+=======
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Devdot Test
+email: devdot-aws@avalara.com
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: avalara
+github_username:  avalara
+
+# Build settings
+>>>>>>> d4df62fcee1400b3213d16e711bdb2fc0310b89b
 markdown: kramdown
 redcarpet:
     extensions: [

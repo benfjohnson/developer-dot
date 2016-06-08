@@ -1,3 +1,5 @@
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/bruth/jekyll-docs-template/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+=======
+# developer-dot
+Content for developer-dot
 
-Read the docs: http://bruth.github.io/jekyll-docs-template
+[![Build Status](https://travis-ci.org/Avalara/developer-dot.svg?branch=master)](https://travis-ci.org/Avalara/developer-dot)
