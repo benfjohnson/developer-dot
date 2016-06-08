@@ -1,4 +1,4 @@
 # developer-dot
 Content for developer-dot
 
-https://travis-ci.org/Avalara/developer-dot.svg?branch=master
+[![Build Status](https://travis-ci.org/Avalara/developer-dot.svg?branch=master)](https://travis-ci.org/Avalara/developer-dot)
