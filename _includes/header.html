@@ -1,4 +1,27 @@
-<h4><img src="http://developer.avalara.com/wp-content/uploads/2016/01/Avalara-Developer-Network-Nav-Retina1.png" 
-    width="140" height="30" alt="Avalara Developer Network" style="max-height: 30px; height: auto;">
-    {% if site.subtitle %}<small>{{ site.subtitle }}</small>{% endif %}
+<h4>
+    <a href="//developer.avalara.com">
+        <img src="images/adn_nav.png" width="140" height="30" alt="Avalara Developer Network" >
+    </a>
+
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">APIs</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          {% for api in site.apis %}
+            <li><a href="{{ api[1] }}">{{ api[0] }}</a></li>
+          {% endfor %}
+<!--             <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li> -->
+          </ul>
+        </li>
+        <li><a href="#">Avalara Certified</a></li>
+        <li><a href="#">Community</a></li>
+
+    </ul>
 </h4>

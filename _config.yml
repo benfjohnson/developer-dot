@@ -26,6 +26,15 @@ sections: [
     ['post', 'Posts']
 ]
 
+apis: [
+    ['AvaTax','/avatax'],
+    ['LandedCost','/landedcost'],
+    ['Excise','/excise'],
+    ['Certcapture','/CertCapture'],
+    ['TrustFile','/trustfile'],
+    ['Onboarding','/onboarding']
+]
+
 # Keep as an empty string if served up at the root. If served up at a specific
 # path (e.g. on GitHub pages) leave off the trailing slash, e.g. /my-project
 baseurl: ''

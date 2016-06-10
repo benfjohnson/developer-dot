@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Horadan's House of Whoop Ass"
+title: "Avalara Developer"
 ---
 
-### Get Started
+# Avalara Developer
 
 BOOM BOOM POW
