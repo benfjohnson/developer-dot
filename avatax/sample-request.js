@@ -28,7 +28,7 @@ var renderPostBody = function(showPostBody, postBody, samplePostBody) {
     }
 
     return [
-        m('textarea', {rows: "10", cols: "50"}, JSON.stringify(postBody(), null, 2)),
+        m('textarea', {rows: "10", cols: "50", onchange: m.withAttr('value', postBody), value: postBody()}),
         m('br'),
         m('button', {onclick: function(e) {postBody(samplePostBody)}}, 'Fill sample data')
     ];
@@ -40,8 +40,8 @@ var controller = function(data) {
             metadata: data.metadata,
             querystring: data.querystring,
             showPostBody: data.postBody ? true : false,
-            samplePostBody: data.postBody,
-            postBody: m.prop({})
+            samplePostBody: JSON.stringify(data.postBody, null, 2),
+            postBody: m.prop('')
         };
 
         return vm;
