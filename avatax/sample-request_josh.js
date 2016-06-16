@@ -75,6 +75,29 @@ $(function() {
         });
 
         console.log('isValid', isValid);
+        if (isValid) {
+            var addressData = {};
+            $('.validateAddress input').each(function() {
+                addressData[$(this).attr('name')] = $(this).val()
+            });
+            console.log('addressData', addressData);
+            
+            $.ajax({
+                type: 'GET',
+                url: 'https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod/address/validate',
+                headers: {
+                    'api-key': 'b24757b69083fa34d27a7d814ea3a59c'
+                },
+                data: addressData,
+                dataType:'jsonp',
+                success:function(data) {
+                    console.log('success', data)
+                },
+                error: function(err) {
+                    console.log('ajax error', err)
+                }
+            });
+        }
     });
 
     $('.showGetTaxSamplePost').on('click', function(e) {
