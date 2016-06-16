@@ -66,6 +66,7 @@ $(function() {
     $('.validateAddress').on('submit', function(e) {
         e.preventDefault();
         var isValid = true;
+
         $('input[data-required]').each(function() {
             $(this).parent().removeClass('error');
             if (!$(this).val()) {
@@ -77,24 +78,34 @@ $(function() {
         console.log('isValid', isValid);
         if (isValid) {
             var addressData = {};
+
             $('.validateAddress input').each(function() {
                 addressData[$(this).attr('name')] = $(this).val()
             });
             console.log('addressData', addressData);
-            
+
             $.ajax({
                 type: 'GET',
-                url: 'https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod/address/validate',
-                headers: {
-                    'api-key': 'b24757b69083fa34d27a7d814ea3a59c'
-                },
-                data: addressData,
-                dataType:'jsonp',
-                success:function(data) {
-                    console.log('success', data)
+                url: 'https://s3-us-west-2.amazonaws.com/api-proxy-key/test-key',
+                done: function(data) {
+                    console.log('success', data);
+                    $.ajax({
+                        type: 'GET',
+                        url: 'https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod/address/validate',
+                        headers: {'api-key': 'b24757b69083fa34d27a7d814ea3a59c'},
+                        data: addressData,
+                        dataType: 'jsonp',
+                        crossDomain: true,
+                        success: function(data) {
+                            console.log('success', data)
+                        },
+                        error: function(err) {
+                            console.log('ajax error', err)
+                        }
+                    });
                 },
                 error: function(err) {
-                    console.log('ajax error', err)
+                    console.log('ajax error getting key', err)
                 }
             });
         }
@@ -106,11 +117,10 @@ $(function() {
     });
 
     $('.fillSampleAddressData').on('click', function(e) {
-        console.log('yolo');
         e.preventDefault();
-        $('.addr.Line1').val(validateAddress.querystring[0].default);
-        $('.addr.City').val(validateAddress.querystring[3].default);
-        $('.addr.Country').val(validateAddress.querystring[5].default);
-        $('.addr.PostalCode').val(validateAddress.querystring[6].default);
+        $('.validateAddress input').each(function() {
+            $(this).parent().removeClass('error');
+            $(this).val($(this).attr('placeHolder'));
+        });
     });
 });
