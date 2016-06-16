@@ -20,7 +20,7 @@ var renderQuerystring = function(querystring) {
     return m('form', [
         querystring.map(function(qs) {
             return m('fieldset', [
-                m('label', {for: qs.name}, qs.name),
+                m('label', {for: qs.name}, qs.name + (qs.required ? '*' : '')),
                 m('input', {name: qs.name, placeholder: qs.default})
             ]);
         })
