@@ -20,12 +20,12 @@ title: "Avalara Developer"
             {name: 'Line1', default: '1100 2nd Ave', required: true},
             {name: 'Line2', default: 'Suite 300', required: false},
             {name: 'Line3', default: '', required: false},
-            {name: 'City', default: 'Seattle', required: false},
+            {name: 'City', default: 'Seattle', required: true},
             {name: 'Region', default: 'WA', required: false},
             {name: 'Country', default: 'United States', required: true},
-            {name: 'PostalCode', default: '', required: false}
+            {name: 'PostalCode', default: '', required: true}
         ],
-        postBody: {}
+        postBody: null
     };
 
     var getTax = {
@@ -68,6 +68,14 @@ title: "Avalara Developer"
                     }
                 ]
             }
+        }
+    };
+
+    // app wrapper
+    var App = {
+        controller: function(data) {return data;},
+        view: function(data) {
+            return data.map(function(reqObj) {return m.component(SampleReq, reqObj)});
         }
     };
 
