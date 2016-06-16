@@ -34,6 +34,15 @@ var renderPostBody = function(showPostBody, postBody, samplePostBody) {
     ];
 };
 
+var renderResBody = function(resBody) {
+    var sendRes = m('button', {onclick: m.withAttr('')})
+
+    if (!resBody()) {
+        return;
+    }
+    return m('div', JSON.stringify(resBody(), null, 2));
+};
+
 var controller = function(data) {
         var vm = {
             title: data.title,
@@ -41,7 +50,8 @@ var controller = function(data) {
             querystring: data.querystring,
             showPostBody: data.postBody ? true : false,
             samplePostBody: JSON.stringify(data.postBody, null, 2),
-            postBody: m.prop('')
+            postBody: m.prop(''),
+            responseBody: m.prop('')
         };
 
         return vm;
@@ -54,6 +64,7 @@ var view = function(vm) {
         m('table', renderMetadata(vm.metadata)),
         renderQuerystring(vm.querystring),
         renderPostBody(vm.showPostBody, vm.postBody, vm.samplePostBody),
+        renderResBody(vm.responseBody)
     ]);
 };
 

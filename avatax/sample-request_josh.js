@@ -14,7 +14,7 @@ var validateAddress = {
         {name: 'City', default: 'Seattle', required: true},
         {name: 'Region', default: 'WA', required: false},
         {name: 'Country', default: 'United States', required: true},
-        {name: 'PostalCode', default: '', required: true}
+        {name: 'PostalCode', default: '98103', required: true}
     ],
     postBody: null
 };
@@ -82,5 +82,12 @@ $(function() {
         $('.getTaxPostBody').val(JSON.stringify(getTax.postBody['body-json'], null, 2));
     });
 
-
+    $('.fillSampleAddressData').on('click', function(e) {
+        console.log('yolo');
+        e.preventDefault();
+        $('.addr.Line1').val(validateAddress.querystring[0].default);
+        $('.addr.City').val(validateAddress.querystring[3].default);
+        $('.addr.Country').val(validateAddress.querystring[5].default);
+        $('.addr.PostalCode').val(validateAddress.querystring[6].default);
+    });
 });

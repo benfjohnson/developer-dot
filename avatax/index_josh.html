@@ -20,14 +20,15 @@ title: "Avalara Developer"
         </tr>
     </table>
     <form class="validateAddress">
-        <fieldset><label for="Line1">Line1*</label><input name="Line1" data-required=true placeholder="1100 2nd Ave"></fieldset>
+        <fieldset><label for="Line1">Line1*</label><input name="Line1" class="addr Line1" data-required=true placeholder="1100 2nd Ave"></fieldset>
         <fieldset><label for="Line2">Line2</label><input name="Line2" placeholder="Suite 300"></fieldset>
         <fieldset><label for="Line3">Line3</label><input name="Line3"></fieldset>
-        <fieldset><label for="City">City*</label><input name="City" data-required=true placeholder="Seattle"></fieldset>
+        <fieldset><label for="City">City*</label><input name="City" class="addr City" data-required=true placeholder="Seattle"></fieldset>
         <fieldset><label for="Region">Region</label><input name="Region" placeholder="WA"></fieldset>
-        <fieldset><label for="Country">Country*</label><input name="Country" data-required=true placeholder="United States"></fieldset>
-        <fieldset><label for="PostalCode">PostalCode*</label><input name="PostalCode" data-required=true></fieldset>
+        <fieldset><label for="Country">Country*</label><input name="Country" class="addr Country" data-required=true placeholder="United States"></fieldset>
+        <fieldset><label for="PostalCode">PostalCode*</label><input name="PostalCode" class="addr PostalCode" data-required=true></fieldset>
         <br />
+        <button class="fillSampleAddressData">Fill Sample Data</button>
         <button type="submit" value="Submit">Submit</button>
         <button type="reset" value="Reset">Reset</button>
     </form>
@@ -51,7 +52,7 @@ title: "Avalara Developer"
     <form>
         <textarea class="getTaxPostBody" rows="10" cols="50"></textarea>
         <br/>
-        <button class="showGetTaxSamplePost">Fill sample data</button>
+        <button class="showGetTaxSamplePost">Fill Sample Data</button>
     </form>
 </div>
 
