@@ -1,82 +1,128 @@
 'use strict';
 
-// renders sample request metadata
-var renderMetadata = function(metadata) {
-    return metadata.map(function(md) {
-        return m('tr', [
-            m('td', [m('strong', md.header)]),
-            m('td', md.val)
-        ]);
+var getTaxSample = {
+    title: 'Get Tax',
+    metadata: [
+        {header: 'Description', val: 'Calculates taxes on a document such as a sales order, sales invoice or purchase order'},
+        {header: 'Endpoint', val: 'https://developer.avalara.com/1.0/tax/get'},
+        {header: 'HTTP Method', val: 'POST'}
+    ],
+    querystring: [],
+    postBody: {
+        "context": {
+            "resource-path": "/tax/get",
+            "http-method": "POST"
+        },
+        "params": {
+            "header": {
+                "api-key": ""
+            }
+        },
+        "body-json": {
+            "DocDate": "2016-02-11",
+            "CustomerCode": "0000",
+            "CompanyCode": "APITrialCompany",
+            "Addresses": [
+                {
+                    "AddressCode": "1",
+                    "Line1": "435 Ericksen Avenue Northeast",
+                    "Line2": "#250",
+                    "PostalCode": "98110"
+                }
+            ],
+            "Lines": [
+                {
+                    "LineNo": "1",
+                    "DestinationCode": "1",
+                    "OriginCode": "1",
+                    "Qty": 1,
+                    "Amount": 10
+                }
+            ]
+        }
+    }
+};
+
+var busyCursor = function() {
+    $('body').css('cursor', 'progress');
+};
+
+var resetCursor = function() {
+    $('body').css('cursor', 'default');
+};
+
+var getApiKey = function(callback) {
+    $.ajax({
+        type: 'GET',
+        url: 'https://s3-us-west-2.amazonaws.com/api-proxy-key/key',
+        success: function(data) {
+            callback(data);
+        },
+        error: function(err) {
+            console.error('s3 error', err);
+            callback();
+        }
     });
 };
 
-// renders query string info
-var renderQuerystring = function(querystring) {
-    return m('form', [
-        querystring.map(function(qs) {
-            return m('fieldset', [
-                m('label', {for: qs.name}, qs.name + (qs.required ? '*' : '')),
-                m('input', {name: qs.name, placeholder: qs.default})
-            ]);
-        })
-    ]);
-};
+$(function() {
+// ADDRESS VALIDATION API STUFF
+    var $validateAddress = $('#validateAddress');
+    var $validateAddressResponse = $('#validateAddressResponse');
 
-var renderPostBody = function(showPostBody, postBody, samplePostBody) {
-    if (!showPostBody) {
-        return;
-    }
+    $validateAddressResponse.hide();
+    $validateAddress.on('submit', function(e) {
+        e.preventDefault();
+        var isAddressValidationFormValid = true;
 
-    return [
-        m('textarea', {rows: "10", cols: "50", onchange: m.withAttr('value', postBody), value: postBody()}),
-        m('br'),
-        m('button', {onclick: function(e) {postBody(samplePostBody)}}, 'Fill sample data')
-    ];
-};
+        $validateAddress.find('input[data-required]').each(function() {
+            $(this).parent().removeClass('error');
+            if (!$(this).val()) {
+                $(this).parent().addClass('error');
+                isAddressValidationFormValid = false;
+            }
+        });
 
-var renderResBody = function(resBody) {
-    var sendRes = m('button', {onclick: m.withAttr('')})
+        if (isAddressValidationFormValid) {
+            var addressData = {};
 
-    if (!resBody()) {
-        return;
-    }
-    return m('div', JSON.stringify(resBody(), null, 2));
-};
+            $validateAddress.find('input').each(function() {
+                addressData[$(this).attr('name')] = $(this).val()
+            });
 
-var controller = function(data) {
-        var vm = {
-            title: data.title,
-            metadata: data.metadata,
-            querystring: data.querystring,
-            showPostBody: data.postBody ? true : false,
-            samplePostBody: JSON.stringify(data.postBody, null, 2),
-            postBody: m.prop(''),
-            responseBody: m.prop('')
-        };
+            busyCursor();
+            getApiKey(function(apiKey) {
+                if (!apiKey) {
+                    resetCursor();
+                } else {
+                    $.ajax({
+                        type: 'GET',
+                        url: 'https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod/address/validate',
+                        headers: {'api-key': apiKey},
+                        data: addressData,
+                        success: function(data) {
+                            $validateAddressResponse.show().find('textarea').val(JSON.stringify(data, null, 2));
+                            resetCursor();
+                        },
+                        error: function(err) {
+                            console.error('validate address error', err);
+                            resetCursor();
+                        }
+                    });
+                }
+            });
+        }
+    });
+    $('#fillSampleAddressData').on('click', function(e) {
+        e.preventDefault();
+        $validateAddress.find('input').each(function() {
+            $(this).val($(this).attr('placeHolder')).parent().removeClass('error');
+        });
+    });
 
-        return vm;
-};
-
-var view = function(vm) {
-    logState(vm);
-    return m('div', [
-        m('h3', vm.title),
-        m('table', renderMetadata(vm.metadata)),
-        renderQuerystring(vm.querystring),
-        renderPostBody(vm.showPostBody, vm.postBody, vm.samplePostBody),
-        renderResBody(vm.responseBody)
-    ]);
-};
-
-var viewModel = {};
-
-// view for a Sample API Request
-var SampleReq = {
-    controller: controller,
-    view: view,
-    viewModel: viewModel
-};
-
-function logState(vm) {
-    console.log('Post Body', JSON.stringify(vm.postBody(), null, 2));
-}
+// GET TAX API STUFF
+    $('#showGetTaxSamplePost').on('click', function(e) {
+        e.preventDefault();
+        $('#getTaxPostBody').val(JSON.stringify(getTaxSample.postBody['body-json'], null, 2));
+    });
+});
