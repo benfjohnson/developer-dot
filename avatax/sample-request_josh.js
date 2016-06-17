@@ -86,16 +86,14 @@ $(function() {
 
             $.ajax({
                 type: 'GET',
-                url: 'https://s3-us-west-2.amazonaws.com/api-proxy-key/test-key',
-                done: function(data) {
-                    console.log('success', data);
+                url: 'https://s3-us-west-2.amazonaws.com/api-proxy-key/key',
+                success: function(data) {
+                    console.log('s3 success', data);
                     $.ajax({
                         type: 'GET',
                         url: 'https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod/address/validate',
-                        headers: {'api-key': 'b24757b69083fa34d27a7d814ea3a59c'},
+                        headers: {'api-key': data},
                         data: addressData,
-                        dataType: 'jsonp',
-                        crossDomain: true,
                         success: function(data) {
                             console.log('success', data)
                         },
@@ -105,7 +103,7 @@ $(function() {
                     });
                 },
                 error: function(err) {
-                    console.log('ajax error getting key', err)
+                    console.log('s3 error', err)
                 }
             });
         }
