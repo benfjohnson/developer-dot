@@ -4,3 +4,11 @@ table {width:600px;}
 .error{
     color:red;
 }
+
+body {
+    background-color: #fcfcfc;
+}
+
+table {
+    background: white;
+}
