@@ -5,7 +5,6 @@ title: "Avalara Developer"
 
 <link rel="stylesheet" type="text/css" href="style.css">
 <div class="loading">Loading&#8230;</div>
-<form id="validateAddress">
     <h3>Validate Address</h3>
     <table>
         <tr>
@@ -20,9 +19,10 @@ title: "Avalara Developer"
             <td><strong>HTTP Method</strong></td>
             <td>GET</td>
         </tr>
-        <tr>
-            <td colspan="2"><strong>Request</strong></td>
-        </tr>
+        </table>
+        <form id="validateAddress">
+            <h4>Request</h4>
+            <table>
         <tr>
             <td><label for="Line1">Line1*</label></td>
             <td><input id="Line1" name="Line1" data-required=true placeholder="1100 2nd Ave"></td>
@@ -55,6 +55,8 @@ title: "Avalara Developer"
     <button type="submit">Submit</button>
     <button id="fillSampleAddressData">Fill Sample Data</button>
     <button type="reset">Reset</button>
+    </form>
+    <br />
     <div id="validateAddressResponse">
         <table>
             <tr>
@@ -69,8 +71,6 @@ title: "Avalara Developer"
             </tr>
         </table>
     </div>
-</form>
-<form id="getTax">
     <h3>Get Tax</h3>
     <table>
         <tr>
@@ -85,9 +85,10 @@ title: "Avalara Developer"
             <td><strong>HTTP Method</strong></td>
             <td>POST</td>
         </tr>
-        <tr>
-            <td colspan="2"><strong>Request</strong></td>
-        </tr>
+        </table>
+        <form id="getTax">
+            <h4>Request</h4>
+            <table>
         <tr id="gtRequest">
             <td colspan="2">
                 <table>
@@ -164,6 +165,8 @@ title: "Avalara Developer"
     <button type="submit">Submit</button>
     <button id="fillGetTaxSamplePost">Fill Sample Data</button>
     <button type="reset">Reset</button>
+    </form>
+    <br/>
     <div id="getTaxResponse">
         <table>
             <tr>
@@ -178,7 +181,6 @@ title: "Avalara Developer"
             </tr>
         </table>
     </div>
-</form>
 
 <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
 <script src="sample-request.js"></script>
