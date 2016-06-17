@@ -1,52 +1,8 @@
 'use strict';
 
-var getTaxSample = {
-    title: 'Get Tax',
-    metadata: [
-        {header: 'Description', val: 'Calculates taxes on a document such as a sales order, sales invoice or purchase order'},
-        {header: 'Endpoint', val: 'https://developer.avalara.com/1.0/tax/get'},
-        {header: 'HTTP Method', val: 'POST'}
-    ],
-    querystring: [],
-    postBody: {
-        "context": {
-            "resource-path": "/tax/get",
-            "http-method": "POST"
-        },
-        "params": {
-            "header": {
-                "api-key": ""
-            }
-        },
-        "body-json": {
-            "DocDate": "2016-02-11",
-            "CustomerCode": "0000",
-            "CompanyCode": "APITrialCompany",
-            "Addresses": [
-                {
-                    "AddressCode": "1",
-                    "Line1": "435 Ericksen Avenue Northeast",
-                    "Line2": "#250",
-                    "PostalCode": "98110"
-                }
-            ],
-            "Lines": [
-                {
-                    "LineNo": "1",
-                    "DestinationCode": "1",
-                    "OriginCode": "1",
-                    "Qty": 1,
-                    "Amount": 10
-                }
-            ]
-        }
-    }
-};
-
 var busyCursor = function() {
     $('body').css('cursor', 'progress');
 };
-
 var resetCursor = function() {
     $('body').css('cursor', 'default');
 };
@@ -65,25 +21,39 @@ var getApiKey = function(callback) {
     });
 };
 
+var fillSampleData = function(e) {
+    e.preventDefault();
+    $(e.currentTarget).parent('form').find('input').each(function() {
+        $(this).val($(this).attr('placeHolder')).parents('tr').removeClass('error');
+    });
+
+};
+var validateForm = function(form) {
+    var isFormValid = true;
+
+    form.find('input[data-required]').each(function() {
+        var $parent = $(this).parents('tr').removeClass('error');
+
+        if (!$(this).val()) {
+            $parent.addClass('error');
+            isFormValid = false;
+        }
+    });
+    return isFormValid;
+};
+var showResponse = function(field, data) {
+    field.show().find('textarea').val(JSON.stringify(data, null, 2));
+};
+
 $(function() {
 // ADDRESS VALIDATION API STUFF
     var $validateAddress = $('#validateAddress');
-    var $validateAddressResponse = $('#validateAddressResponse');
+    var $validateAddressResponse = $('#validateAddressResponse').hide();
 
-    $validateAddressResponse.hide();
     $validateAddress.on('submit', function(e) {
         e.preventDefault();
-        var isAddressValidationFormValid = true;
 
-        $validateAddress.find('input[data-required]').each(function() {
-            $(this).parent().removeClass('error');
-            if (!$(this).val()) {
-                $(this).parent().addClass('error');
-                isAddressValidationFormValid = false;
-            }
-        });
-
-        if (isAddressValidationFormValid) {
+        if (validateForm($validateAddress)) {
             var addressData = {};
 
             $validateAddress.find('input').each(function() {
@@ -101,7 +71,7 @@ $(function() {
                         headers: {'api-key': apiKey},
                         data: addressData,
                         success: function(data) {
-                            $validateAddressResponse.show().find('textarea').val(JSON.stringify(data, null, 2));
+                            showResponse($validateAddressResponse, data);
                             resetCursor();
                         },
                         error: function(err) {
@@ -113,16 +83,54 @@ $(function() {
             });
         }
     });
-    $('#fillSampleAddressData').on('click', function(e) {
-        e.preventDefault();
-        $validateAddress.find('input').each(function() {
-            $(this).val($(this).attr('placeHolder')).parent().removeClass('error');
-        });
-    });
+    $('#fillSampleAddressData').on('click', fillSampleData);
 
 // GET TAX API STUFF
-    $('#showGetTaxSamplePost').on('click', function(e) {
+    var $getTax = $('#getTax');
+    var $getTaxResponse = $('#getTaxResponse').hide();
+
+    $getTax.on('submit', function(e) {
         e.preventDefault();
-        $('#getTaxPostBody').val(JSON.stringify(getTaxSample.postBody['body-json'], null, 2));
+
+        if (validateForm($getTax)) {
+            var getTaxData = {
+                Addresses: [],
+                Lines: []
+            };
+
+            $getTax.find('#gtRequest input').each(function() {
+                getTaxData[$(this).attr('name')] = $(this).val();
+            });
+            $getTax.find('#gtRequestAddresses input').each(function() {
+                getTaxData.Addresses[$(this).attr('name')] = $(this).val();
+            });
+            $getTax.find('#gtRequestLines input').each(function() {
+                getTaxData.Lines[$(this).attr('name')] = $(this).val();
+            });
+            console.log('getTaxData', getTaxData);
+
+            busyCursor();
+            getApiKey(function(apiKey) {
+                if (!apiKey) {
+                    resetCursor();
+                } else {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod/tax/get',
+                        headers: {'api-key': apiKey},
+                        data: getTaxData,
+                        success: function(data) {
+                            showResponse($getTaxResponse, data);
+                            resetCursor();
+                        },
+                        error: function(err) {
+                            console.error('get tax error', err);
+                            resetCursor();
+                        }
+                    });
+                }
+            });
+        }
     });
+    $('#fillGetTaxSamplePost').on('click', fillSampleData);
 });
