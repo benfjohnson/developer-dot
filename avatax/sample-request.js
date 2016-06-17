@@ -117,7 +117,7 @@ $(function() {
                     $.ajax({
                         type: 'POST',
                         url: 'https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod/tax/get',
-                        headers: {'api-key': apiKey},
+                        headers: {'api-key': apiKey, 'content-type': 'application/json'},
                         data: getTaxData,
                         success: function(data) {
                             showResponse($getTaxResponse, data);
