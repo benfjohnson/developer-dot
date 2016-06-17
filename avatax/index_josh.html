@@ -19,18 +19,25 @@ title: "Avalara Developer"
             <td>GET</td>
         </tr>
     </table>
-    <form class="validateAddress">
-        <fieldset><label for="Line1">Line1*</label><input name="Line1" class="addr Line1" data-required=true placeholder="1100 2nd Ave"></fieldset>
-        <fieldset><label for="Line2">Line2</label><input name="Line2" placeholder="Suite 300"></fieldset>
-        <fieldset><label for="Line3">Line3</label><input name="Line3"></fieldset>
-        <fieldset><label for="City">City*</label><input name="City" class="addr City" data-required=true placeholder="Seattle"></fieldset>
-        <fieldset><label for="Region">Region</label><input name="Region"></fieldset>
-        <fieldset><label for="Country">Country*</label><input name="Country" class="addr Country" data-required=true placeholder="United States"></fieldset>
-        <fieldset><label for="PostalCode">PostalCode*</label><input name="PostalCode" class="addr PostalCode" data-required=true placeholder="98134"></fieldset>
+    <form id="validateAddress">
+        <fieldset><label for="Line1">Line1*</label><input id="Line1" name="Line1" data-required=true placeholder="1100 2nd Ave"></fieldset>
+        <fieldset><label for="Line2">Line2</label><input id="Line2" name="Line2" placeholder="Suite 300"></fieldset>
+        <fieldset><label for="Line3">Line3</label><input id="Line3" name="Line3"></fieldset>
+        <fieldset><label for="City">City*</label><input id="City" name="City" data-required=true placeholder="Seattle"></fieldset>
+        <fieldset><label for="Region">Region</label><input id="Region" name="Region"></fieldset>
+        <fieldset><label for="Country">Country*</label><input id="Country" name="Country" data-required=true placeholder="United States"></fieldset>
+        <fieldset><label for="PostalCode">PostalCode*</label><input id="PostalCode" name="PostalCode" data-required placeholder="98134"></fieldset>
         <br />
-        <button class="fillSampleAddressData">Fill Sample Data</button>
+        <button id="fillSampleAddressData">Fill Sample Data</button>
         <button type="submit" value="Submit">Submit</button>
         <button type="reset" value="Reset">Reset</button>
+        <div id="validateAddressResponse">
+            <br />
+            <p><strong>HTTP Response Code: </strong>200 (Success)</p>
+            <p><strong style="vertical-align:top">HTTP Response Body: </strong>
+                <textarea rows="15" cols="50"></textarea>
+            </p>
+        </div>
     </form>
 </div>
 <div>
@@ -50,9 +57,9 @@ title: "Avalara Developer"
         </tr>
     </table>
     <form>
-        <textarea class="getTaxPostBody" rows="10" cols="50"></textarea>
+        <textarea id="getTaxPostBody" rows="10" cols="50"></textarea>
         <br/>
-        <button class="showGetTaxSamplePost">Fill Sample Data</button>
+        <button id="showGetTaxSamplePost">Fill Sample Data</button>
     </form>
 </div>
 

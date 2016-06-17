@@ -1,25 +1,6 @@
 'use strict';
 
-var validateAddress = {
-    title: 'Validate Address',
-    metadata: [
-        {header: 'Description', val: 'Validate an address'},
-        {header: 'Endpoint', val: 'https://developer.avalara.com/1.0/address/validate'},
-        {header: 'HTTP Method', val: 'GET'}
-    ],
-    querystring: [
-        {name: 'Line1', default: '1100 2nd Ave', required: true},
-        {name: 'Line2', default: 'Suite 300', required: false},
-        {name: 'Line3', default: '', required: false},
-        {name: 'City', default: 'Seattle', required: true},
-        {name: 'Region', default: 'WA', required: false},
-        {name: 'Country', default: 'United States', required: true},
-        {name: 'PostalCode', default: '98103', required: true}
-    ],
-    postBody: null
-};
-
-var getTax = {
+var getTaxSample = {
     title: 'Get Tax',
     metadata: [
         {header: 'Description', val: 'Calculates taxes on a document such as a sales order, sales invoice or purchase order'},
@@ -62,63 +43,90 @@ var getTax = {
     }
 };
 
-$(function() {
-    $('.validateAddress').on('submit', function(e) {
-        e.preventDefault();
-        var isValid = true;
+var busyCursor = function() {
+    $('body').css('cursor', 'progress');
+};
 
-        $('input[data-required]').each(function() {
+var resetCursor = function() {
+    $('body').css('cursor', 'default');
+};
+
+var getApiKey = function(callback) {
+    $.ajax({
+        type: 'GET',
+        url: 'https://s3-us-west-2.amazonaws.com/api-proxy-key/key',
+        success: function(data) {
+            console.log('s3 success', data);
+            callback(data);
+        },
+        error: function(err) {
+            console.log('s3 error', err);
+            callback();
+        }
+    });
+};
+
+$(function() {
+// ADDRESS VALIDATION API STUFF
+    var $validateAddress = $('#validateAddress');
+    var $validateAddressResponse = $('#validateAddressResponse');
+
+    $validateAddressResponse.hide();
+    $validateAddress.on('submit', function(e) {
+        e.preventDefault();
+        var isAddressValidationFormValid = true;
+
+        $validateAddress.find('input[data-required]').each(function() {
             $(this).parent().removeClass('error');
             if (!$(this).val()) {
                 $(this).parent().addClass('error');
-                isValid = false;
+                isAddressValidationFormValid = false;
             }
         });
 
-        console.log('isValid', isValid);
-        if (isValid) {
+        console.log('isAddressValidationFormValid', isAddressValidationFormValid);
+        if (isAddressValidationFormValid) {
             var addressData = {};
 
-            $('.validateAddress input').each(function() {
+            $validateAddress.find('input').each(function() {
                 addressData[$(this).attr('name')] = $(this).val()
             });
             console.log('addressData', addressData);
+            busyCursor();
 
-            $.ajax({
-                type: 'GET',
-                url: 'https://s3-us-west-2.amazonaws.com/api-proxy-key/key',
-                success: function(data) {
-                    console.log('s3 success', data);
+            getApiKey(function(apiKey) {
+                if (!apiKey) {
+                    resetCursor();
+                } else {
                     $.ajax({
                         type: 'GET',
                         url: 'https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod/address/validate',
-                        headers: {'api-key': data},
+                        headers: {'api-key': apiKey},
                         data: addressData,
                         success: function(data) {
-                            console.log('success', data)
+                            console.log('validate address success', data);
+                            $validateAddressResponse.show().find('textarea').val(JSON.stringify(data, null, 2));
+                            resetCursor();
                         },
                         error: function(err) {
-                            console.log('ajax error', err)
+                            console.log('validate address error', err);
+                            resetCursor();
                         }
                     });
-                },
-                error: function(err) {
-                    console.log('s3 error', err)
                 }
             });
         }
     });
-
-    $('.showGetTaxSamplePost').on('click', function(e) {
+    $('#fillSampleAddressData').on('click', function(e) {
         e.preventDefault();
-        $('.getTaxPostBody').val(JSON.stringify(getTax.postBody['body-json'], null, 2));
+        $validateAddress.find('input').each(function() {
+            $(this).val($(this).attr('placeHolder')).parent().removeClass('error');
+        });
     });
 
-    $('.fillSampleAddressData').on('click', function(e) {
+// GET TAX API STUFF
+    $('#showGetTaxSamplePost').on('click', function(e) {
         e.preventDefault();
-        $('.validateAddress input').each(function() {
-            $(this).parent().removeClass('error');
-            $(this).val($(this).attr('placeHolder'));
-        });
+        $('#getTaxPostBody').val(JSON.stringify(getTaxSample.postBody['body-json'], null, 2));
     });
 });
