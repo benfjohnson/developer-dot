@@ -53,44 +53,43 @@ title: "Avalara Developer"
             <td><input id="PostalCode" name="PostalCode" data-required placeholder="98134"></td>
         </tr>
     </table>
-    <button type="submit">Submit</button>
-    <button id="fillSampleAddressData">Fill Sample Data</button>
-    <button type="reset">Reset</button>
-</form>
-<br/>
-<div id="validateAddressResponse">
+    <button class="btn btn-success" type="submit">Submit</button>
+    <button class="btn btn-default" id="fillSampleAddressData">Fill Sample Data</button>
+    <button class="btn btn-default" type="reset">Reset</button>
+    </form>
+    <br />
+    <div id="validateAddressResponse">
+        <table>
+            <tr>
+                <td><strong>HTTP Response Code</strong></td>
+                <td>200 (Success)</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:top"><strong>HTTP Response Body</strong></td>
+                <td>
+                    <textarea class='responseBody' rows="15" cols="50"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h3>Get Tax</h3>
     <table>
         <tr>
-            <td><strong>HTTP Response Code</strong></td>
-            <td>200 (Success)</td>
+            <td><strong>Description</strong></td>
+            <td>Calculates taxes on a document such as a sales order, sales invoice or purchase order</td>
         </tr>
         <tr>
-            <td style="vertical-align:top"><strong>HTTP Response Body</strong></td>
-            <td>
-                <textarea rows="15" cols="50"></textarea>
-            </td>
+            <td><strong>Endpoint</strong></td>
+            <td>https://developer.avalara.com/1.0/tax/get</td>
         </tr>
-    </table>
-</div>
-
-<h3>Get Tax</h3>
-<table>
-    <tr>
-        <td><strong>Description</strong></td>
-        <td>Calculates taxes on a document such as a sales order, sales invoice or purchase order</td>
-    </tr>
-    <tr>
-        <td><strong>Endpoint</strong></td>
-        <td>https://developer.avalara.com/1.0/tax/get</td>
-    </tr>
-    <tr>
-        <td><strong>HTTP Method</strong></td>
-        <td>POST</td>
-    </tr>
-</table>
-<form id="getTax">
-    <h4>Request</h4>
-    <table>
+        <tr>
+            <td><strong>HTTP Method</strong></td>
+            <td>POST</td>
+        </tr>
+        </table>
+        <form id="getTax">
+            <h4>Request</h4>
+            <table>
         <tr id="gtRequest">
             <td colspan="2">
                 <table>
@@ -164,25 +163,25 @@ title: "Avalara Developer"
             </td>
         </tr>
     </table>
-    <button type="submit">Submit</button>
-    <button id="fillGetTaxSamplePost">Fill Sample Data</button>
-    <button type="reset">Reset</button>
-</form>
-<br/>
-<div id="getTaxResponse">
-    <table>
-        <tr>
-            <td><strong>HTTP Response Code</strong></td>
-            <td>200 (Success)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align:top"><strong>HTTP Response Body</strong></td>
-            <td>
-                <textarea rows="15" cols="50"></textarea>
-            </td>
-        </tr>
-    </table>
-</div>
+    <button class="btn btn-success" type="submit">Submit</button>
+    <button class="btn btn-default" id="fillGetTaxSamplePost">Fill Sample Data</button>
+    <button class="btn btn-default" type="reset">Reset</button>
+    </form>
+    <br/>
+    <div id="getTaxResponse">
+        <table>
+            <tr>
+                <td><strong>HTTP Response Code</strong></td>
+                <td>200 (Success)</td>
+            </tr>
+            <tr>
+                <td style="vertical-align:top"><strong>HTTP Response Body</strong></td>
+                <td>
+                    <textarea class='responseBody' rows="15" cols="50"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
 
 <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
 <script src="sample-request.js"></script>

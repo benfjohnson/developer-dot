@@ -141,3 +141,8 @@ body {
 table {
     background: white;
 }
+
+.responseBody {
+    border: none;
+}
+
