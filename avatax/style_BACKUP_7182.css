@@ -5,7 +5,7 @@ table {width:600px;}
     color:red;
 }
 
-
+<<<<<<< HEAD
 body {
     background-color: #fcfcfc;
 }
@@ -13,6 +13,9 @@ body {
 table {
     background: white;
 }
+=======
+
+
 
 /* Absolute Center Spinner */
 .loading {
@@ -134,3 +137,4 @@ table {
         transform: rotate(360deg);
     }
 }
+>>>>>>> josh/master

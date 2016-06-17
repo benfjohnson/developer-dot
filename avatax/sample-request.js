@@ -2,9 +2,11 @@
 
 var busyCursor = function() {
     $('body').css('cursor', 'progress');
+    $('.loading').fadeIn();
 };
 var resetCursor = function() {
     $('body').css('cursor', 'default');
+    $('.loading').fadeOut();
 };
 
 var getApiKey = function(callback) {
@@ -51,7 +53,6 @@ $(function() {
     var $validateAddressResponse = $('#validateAddressResponse').hide();
 
     $validateAddress.on('submit', function(e) {
-        console.log('??');
         e.preventDefault();
 
         if (validateForm($validateAddress)) {
@@ -64,10 +65,8 @@ $(function() {
             busyCursor();
             getApiKey(function(apiKey) {
                 if (!apiKey) {
-                    console.log('boo');
                     resetCursor();
                 } else {
-                    console.log('makes req');
                     $.ajax({
                         type: 'GET',
                         url: 'https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod/address/validate',
@@ -116,7 +115,7 @@ $(function() {
                 line[$(this).attr('name')] = $(this).val();
             });
             getTaxData.Lines.push(line);
-            
+
             busyCursor();
             getApiKey(function(apiKey) {
                 if (!apiKey) {

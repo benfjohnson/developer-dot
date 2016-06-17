@@ -1,0 +1,14 @@
+input {width:100%;}
+table {width:600px;}
+
+.error{
+    color:red;
+}
+
+body {
+    background-color: #fcfcfc;
+}
+
+table {
+    background: white;
+}
