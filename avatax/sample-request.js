@@ -101,14 +101,19 @@ $(function() {
             $getTax.find('#gtRequest input').each(function() {
                 getTaxData[$(this).attr('name')] = $(this).val();
             });
-            $getTax.find('#gtRequestAddresses input').each(function() {
-                getTaxData.Addresses[$(this).attr('name')] = $(this).val();
-            });
-            $getTax.find('#gtRequestLines input').each(function() {
-                getTaxData.Lines[$(this).attr('name')] = $(this).val();
-            });
-            console.log('getTaxData', getTaxData);
 
+            var address = {};
+            $getTax.find('#gtRequestAddresses input').each(function() {
+                address[$(this).attr('name')] = $(this).val();
+            });
+            getTaxData.Addresses.push(address);
+
+            var line = {};
+            $getTax.find('#gtRequestLines input').each(function() {
+                line[$(this).attr('name')] = $(this).val();
+            });
+            getTaxData.Lines.push(line);
+            
             busyCursor();
             getApiKey(function(apiKey) {
                 if (!apiKey) {
@@ -117,8 +122,8 @@ $(function() {
                     $.ajax({
                         type: 'POST',
                         url: 'https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod/tax/get',
-                        headers: {'api-key': apiKey},
-                        data: getTaxData,
+                        headers: {'api-key': apiKey, 'content-type': 'application/json'},
+                        data: JSON.stringify(getTaxData),
                         success: function(data) {
                             showResponse($getTaxResponse, data);
                             resetCursor();
