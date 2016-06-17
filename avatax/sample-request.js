@@ -51,6 +51,7 @@ $(function() {
     var $validateAddressResponse = $('#validateAddressResponse').hide();
 
     $validateAddress.on('submit', function(e) {
+        console.log('??');
         e.preventDefault();
 
         if (validateForm($validateAddress)) {
@@ -63,8 +64,10 @@ $(function() {
             busyCursor();
             getApiKey(function(apiKey) {
                 if (!apiKey) {
+                    console.log('boo');
                     resetCursor();
                 } else {
+                    console.log('makes req');
                     $.ajax({
                         type: 'GET',
                         url: 'https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod/address/validate',

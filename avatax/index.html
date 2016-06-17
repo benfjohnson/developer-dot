@@ -5,7 +5,6 @@ title: "Avalara Developer"
 <link rel="stylesheet" type="text/css" href="style.css">
 <div>
     <h3>Validate Address</h3>
-    <form id="validateAddress">
         <table>
             <tr>
                 <td><strong>Description</strong></td>
@@ -19,41 +18,46 @@ title: "Avalara Developer"
                 <td><strong>HTTP Method</strong></td>
                 <td>GET</td>
             </tr>
-            <tr>
-                <td colspan="2"><strong>Request</strong></td>
-            </tr>
-            <tr>
-                <td><label for="Line1">Line1*</label></td>
-                <td><input id="Line1" name="Line1" data-required=true placeholder="1100 2nd Ave"></td>
-            </tr>
-            <tr>
-                <td><label for="Line2">Line2</label></td>
-                <td><input id="Line2" name="Line2" placeholder="Suite 300"></td>
-            </tr>
-            <tr>
-                <td><label for="Line3">Line3</label></td>
-                <td><input id="Line3" name="Line3"></td>
-            </tr>
-            <tr>
-                <td><label for="City">City*</label></td>
-                <td><input id="City" name="City" data-required=true placeholder="Seattle"></td>
-            </tr>
-            <tr>
-                <td><label for="Region">Region</label></td>
-                <td><input id="Region" name="Region"></td>
-            </tr>
-            <tr>
-                <td><label for="Country">Country*</label></td>
-                <td><input id="Country" name="Country" data-required=true placeholder="United States"></td>
-            </tr>
-            <tr>
-                <td><label for="PostalCode">PostalCode*</label></td>
-                <td><input id="PostalCode" name="PostalCode" data-required placeholder="98134"></td>
-            </tr>
         </table>
-        <button id="fillSampleAddressData">Fill Sample Data</button>
-        <button type="submit">Submit</button>
-        <button type="reset">Reset</button>
+        <form id="validateAddress">
+            <table>
+                <tr>
+                    <td colspan="2"><strong>Request</strong></td>
+                </tr>
+                <tr>
+                    <td><label for="Line1">Line1*</label></td>
+                    <td><input id="Line1" name="Line1" data-required=true placeholder="1100 2nd Ave"></td>
+                </tr>
+                <tr>
+                    <td><label for="Line2">Line2</label></td>
+                    <td><input id="Line2" name="Line2" placeholder="Suite 300"></td>
+                </tr>
+                <tr>
+                    <td><label for="Line3">Line3</label></td>
+                    <td><input id="Line3" name="Line3"></td>
+                </tr>
+                <tr>
+                    <td><label for="City">City*</label></td>
+                    <td><input id="City" name="City" data-required=true placeholder="Seattle"></td>
+                </tr>
+                <tr>
+                    <td><label for="Region">Region</label></td>
+                    <td><input id="Region" name="Region"></td>
+                </tr>
+                <tr>
+                    <td><label for="Country">Country*</label></td>
+                    <td><input id="Country" name="Country" data-required=true placeholder="United States"></td>
+                </tr>
+                <tr>
+                    <td><label for="PostalCode">PostalCode*</label></td>
+                    <td><input id="PostalCode" name="PostalCode" data-required placeholder="98134"></td>
+                </tr>
+            </table>
+            <button type="submit">Submit</button>
+            <button id="fillSampleAddressData">Fill Sample Data</button>
+            <button type="reset">Reset</button>
+        </form>
+        <br/>
         <div id="validateAddressResponse">
             <table>
                 <tr>
@@ -68,11 +72,9 @@ title: "Avalara Developer"
                 </tr>
             </table>
         </div>
-    </form>
 </div>
 <div>
     <h3>Get Tax</h3>
-    <form id="getTax">
         <table>
             <tr>
                 <td><strong>Description</strong></td>
@@ -86,6 +88,9 @@ title: "Avalara Developer"
                 <td><strong>HTTP Method</strong></td>
                 <td>POST</td>
             </tr>
+            </table>
+            <form id="getTax">
+                <table>
             <tr>
                 <td colspan="2"><strong>Request</strong></td>
             </tr>
@@ -162,9 +167,11 @@ title: "Avalara Developer"
                 </td>
             </tr>
         </table>
-        <button id="fillGetTaxSamplePost">Fill Sample Data</button>
         <button type="submit">Submit</button>
+        <button id="fillGetTaxSamplePost">Fill Sample Data</button>
         <button type="reset">Reset</button>
+    </form>
+        <br/>
         <div id="getTaxResponse">
             <table>
                 <tr>
@@ -179,7 +186,6 @@ title: "Avalara Developer"
                 </tr>
             </table>
         </div>
-    </form>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
