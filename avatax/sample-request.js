@@ -2,9 +2,11 @@
 
 var busyCursor = function() {
     $('body').css('cursor', 'progress');
+    $('.loading').fadeIn();
 };
 var resetCursor = function() {
     $('body').css('cursor', 'default');
+    $('.loading').fadeOut();
 };
 
 var getApiKey = function(callback) {
@@ -113,7 +115,7 @@ $(function() {
                 line[$(this).attr('name')] = $(this).val();
             });
             getTaxData.Lines.push(line);
-            
+
             busyCursor();
             getApiKey(function(apiKey) {
                 if (!apiKey) {
