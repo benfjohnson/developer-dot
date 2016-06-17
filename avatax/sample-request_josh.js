@@ -56,11 +56,10 @@ var getApiKey = function(callback) {
         type: 'GET',
         url: 'https://s3-us-west-2.amazonaws.com/api-proxy-key/key',
         success: function(data) {
-            console.log('s3 success', data);
             callback(data);
         },
         error: function(err) {
-            console.log('s3 error', err);
+            console.error('s3 error', err);
             callback();
         }
     });
@@ -84,16 +83,14 @@ $(function() {
             }
         });
 
-        console.log('isAddressValidationFormValid', isAddressValidationFormValid);
         if (isAddressValidationFormValid) {
             var addressData = {};
 
             $validateAddress.find('input').each(function() {
                 addressData[$(this).attr('name')] = $(this).val()
             });
-            console.log('addressData', addressData);
-            busyCursor();
 
+            busyCursor();
             getApiKey(function(apiKey) {
                 if (!apiKey) {
                     resetCursor();
@@ -104,12 +101,11 @@ $(function() {
                         headers: {'api-key': apiKey},
                         data: addressData,
                         success: function(data) {
-                            console.log('validate address success', data);
                             $validateAddressResponse.show().find('textarea').val(JSON.stringify(data, null, 2));
                             resetCursor();
                         },
                         error: function(err) {
-                            console.log('validate address error', err);
+                            console.error('validate address error', err);
                             resetCursor();
                         }
                     });
