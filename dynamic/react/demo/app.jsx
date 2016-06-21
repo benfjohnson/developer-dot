@@ -34,6 +34,6 @@ App.swaggerDoc = fetch(API_SWAGGER_URLS[API]).then(checkFetchStatus).then((swagg
 }).catch((err) => {
     render(<App api={{}} error={{
         status: false,
-        error: err.response.statusText
+        error: err.response ? err.response.statusText : ''
     }}/>, document.getElementById('api-demo'));
 });
