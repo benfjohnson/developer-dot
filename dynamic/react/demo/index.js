@@ -1,47 +1,39 @@
 import React from 'react';
 import {render} from 'react-dom';
+import request from 'request';
 
 import App from './components/App';
-import {createStore} from 'redux';
+import {store, actionTypes} from './store';
 
-const actionTypes = {
-    FETCH_API_DATA: 'FETCH_API_DATA',
-    FETCH_API_DATA_DONE: 'FETCH_API_DATA_DONE'
-};
+store.subscribe(() => {
+    const state = store.getState();
+    const api = state.apiInfo;
+    const error = state.error;
 
-const initialState = {
-    api: [],
-    error: {}
-};
+    console.log('NEW STATE', state);
+    render(<App api={api} error={error}/>, document.getElementById('api-demo'));
+});
 
-const reducer = (state = initialState, action) => {
-    switch (action.type) {
-        case actionTypes.FETCH_API_DATA:
-            return state;
-        case actionTypes.FETCH_API_DATA_DONE:
-            return {
-                apiInfo: action.apiInfo,
-                error: action.error
-            };
-        default:
-            return state;
+const API = window.location.search.split('api=')[1].toLowerCase() || 'invalid';
+const API_SWAGGER_URLS = {
+    landedcost: {
+        base: 'http://localhost:8082',
+        api: '/v3/api-definition'
     }
 };
-
-let store = createStore(reducer);
-
-// const API = window.location.hash.match(/[^/]*$/)[0];
-const API = window.location.search.split('api=')[1].toLowerCase() || 'invalid';
-
-const API_SWAGGER_URLS = {
-    landedcost: 'http://localhost:8082/v3/api-definition'
-};
+const API_SWAGGER_URL = API_SWAGGER_URLS[API].base + API_SWAGGER_URLS[API].api;
 
 const sanitizeSwagger = (api) => {
     const routes = Object.keys(api.paths).map((path) => {
         return Object.keys(api.paths[path]).map((action) => {
+            let routePath = API_SWAGGER_URLS[API].base + path;
+
+            if (api.schemes[0] && api.host && api.basePath) {
+                routePath = api.schemes[0] + '://' + api.host + (api.basePath !== '/' ? api.basePath : '') + path;
+            }
+
             return {
-                path: path,
+                path: routePath,
                 action: action,
                 name: api.paths[path][action].summary,
                 description: api.paths[path][action].description,
@@ -53,38 +45,20 @@ const sanitizeSwagger = (api) => {
     return [].concat(...routes);
 };
 
-const checkFetchStatus = (response) => {
-    if (response.status >= 200 && response.status < 300) {
-        return response.json();
+request(API_SWAGGER_URL, (error, response, body) => {
+    if (error || response.statusCode !== 200) {
+        store.dispatch({
+            type: actionTypes.FETCH_API_DATA_DONE,
+            apiInfo: [],
+            error: error ? error.message : response.statusMessage || ''
+        });
+        return;
     }
-    const error = new Error(response.statusText);
+    // todo try/catch around JSON.parse
+    const apiInfo = sanitizeSwagger(JSON.parse(body));
 
-    error.response = response;
-    throw error;
-};
-
-store.subscribe(() => {
-    const state = store.getState();
-
-    const api = state.apiInfo;
-    const error = state.error;
-    console.log('NEW STATE', state);
-    render(<App api={api} error={error} />, document.getElementById('api-demo'));
-});
-
-fetch(API_SWAGGER_URLS[API]).then(checkFetchStatus).then(sanitizeSwagger).then((apiInfo) => {
     store.dispatch({
         type: actionTypes.FETCH_API_DATA_DONE,
-        apiInfo: apiInfo,
-        error: { status: false }
-    });
-}).catch((err) => {
-    store.dispatch({
-        type: actionTypes.FETCH_API_DATA_DONE,
-        apiInfo: [],
-        error: {
-            status: true,
-            error: err.response ? err.response.statusText : ''
-        }
+        apiInfo: apiInfo
     });
 });
