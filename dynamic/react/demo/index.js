@@ -44,7 +44,8 @@ const sanitizeSwagger = (api) => {
                 path: path,
                 action: action,
                 name: api.paths[path][action].summary,
-                description: api.paths[path][action].description
+                description: api.paths[path][action].description,
+                parameters: api.paths[path][action].parameters || []
             };
         });
     });

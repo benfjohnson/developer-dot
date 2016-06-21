@@ -1,5 +1,10 @@
 import React from 'react';
 
+const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('submitted.');
+};
+
 const ApiComponent = (props) => {
     const routeHTML = props.api.map((r, i) => (
         <div key={i}>
@@ -20,6 +25,11 @@ const ApiComponent = (props) => {
                     </tr>
                 </tbody>
             </table>
+            <form>
+                <button className="btn btn-success" onClick={handleSubmit}>Submit</button>
+                <button className="btn btn-default">Fill Sample Data</button>
+                <button className="btn btn-default" type="reset">Reset</button>
+            </form>
         </div>
     ));
 
