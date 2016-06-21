@@ -1,0 +1,4 @@
+{
+    "plugins": ["transform-strict-mode"],
+    "presets": ["react", "es2015"]
+}

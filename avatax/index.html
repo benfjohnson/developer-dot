@@ -5,24 +5,25 @@ title: "Avalara Developer"
 
 <link rel="stylesheet" type="text/css" href="style.css">
 <div class="loading">Loading&#8230;</div>
-    <h3>Validate Address</h3>
+
+<h3>Validate Address</h3>
+<table>
+    <tr>
+        <td><strong>Description</strong></td>
+        <td>Validate an address</td>
+    </tr>
+    <tr>
+        <td><strong>Endpoint</strong></td>
+        <td>https://developer.avalara.com/1.0/address/validate</td>
+    </tr>
+    <tr>
+        <td><strong>HTTP Method</strong></td>
+        <td>GET</td>
+    </tr>
+</table>
+<form id="validateAddress">
+    <h4>Request</h4>
     <table>
-        <tr>
-            <td><strong>Description</strong></td>
-            <td>Validate an address</td>
-        </tr>
-        <tr>
-            <td><strong>Endpoint</strong></td>
-            <td>https://developer.avalara.com/1.0/address/validate</td>
-        </tr>
-        <tr>
-            <td><strong>HTTP Method</strong></td>
-            <td>GET</td>
-        </tr>
-        </table>
-        <form id="validateAddress">
-            <h4>Request</h4>
-            <table>
         <tr>
             <td><label for="Line1">Line1*</label></td>
             <td><input id="Line1" name="Line1" data-required=true placeholder="1100 2nd Ave"></td>
