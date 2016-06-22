@@ -6,8 +6,24 @@ const actionTypes = {
     INPUT_CHANGE: 'INPUT_CHANGE'
 };
 
+const buildQueryString = (endpoint) => {
+    if (!endpoint.parameters || !endpoint.parameters.queryString ||
+        !Object.keys(endpoint.parameters.queryString).some((p) => endpoint.parameters.queryString[p].value)) {
+        return '';
+    }
+
+    return Object.keys(endpoint.parameters.queryString).reduce((qs, param, i) => {
+        console.table(endpoint.parameters.queryString.value);
+        if (endpoint.parameters.queryString[param].value.length) {
+            return `${qs}${i > 0 ? '&' : ''}${param}=${endpoint.parameters.queryString[param].value}`;
+        }
+        return qs;
+    }, '?');
+};
+
 const buildCurlFromProps = (endpoint) => {
-    return Object.assign({}, endpoint, {curl: `curl -X ${endpoint.action.toUpperCase()} "${endpoint.path}" -H "Accept: application/json"`});
+    console.table(endpoint);
+    return {...endpoint, curl: `curl -X ${endpoint.action.toUpperCase()} "${endpoint.path}${buildQueryString(endpoint)}" -H "Accept: application/json"`}
 };
 
 const reducer = (state, action) => {
@@ -35,6 +51,7 @@ const reducer = (state, action) => {
     case actionTypes.INPUT_CHANGE:
         // const newApiInfo = [].concat(state.apiInfo);
         updatedState.apiInfo[action.apiId].parameters.queryString[action.queryParamName].value = action.inputVal;
+        updatedState.apiInfo[action.apiId] = buildCurlFromProps(updatedState.apiInfo[action.apiId]);
 
         break;
     default:

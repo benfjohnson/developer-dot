@@ -27,8 +27,6 @@ const handleSubmit = (endpoint, id) => {
 };
 
 const handleInputChange = (e, qpName, id) => {
-    console.log('handling input!', e);
-
     store.dispatch({
         type: actionTypes.INPUT_CHANGE,
         inputVal: e.target.value,
@@ -44,7 +42,17 @@ const renderParams = (queryParams, id) => (
             {Object.keys(queryParams).map((name, i) => (
                 <tr key={i}>
                     <td><label htmlFor={queryParams[name].name}>{queryParams[name].name}</label></td>
-                    <td><input id={queryParams[name].name} onChange={(e) => {handleInputChange(e, queryParams[name].name, id);}} placeholder={queryParams[name].placeholder} value={queryParams[name].value}/></td>
+                    <td>
+                        <input
+                            id={queryParams[name].name}
+                            onChange={
+                            (e) => {
+                                handleInputChange(e, queryParams[name].name, id);
+                            }}
+                            placeholder={queryParams[name].placeholder}
+                            value={queryParams[name].value}
+                        />
+                    </td>
                 </tr>)
             )}
         </tbody>
@@ -72,19 +80,24 @@ const EndPoint = (props) => (
         </table>
         <form>
             {props.endpoint.parameters && props.endpoint.parameters.queryString ? renderParams(props.endpoint.parameters.queryString, props.id) : null}
-            <button className='btn btn-success' onClick={(e) => {
-                e.preventDefault();
-                handleSubmit(props.endpoint, props.id);
-            }}>{'Submit'}</button>
+            <button
+                className='btn btn-success'
+                onClick={(e) => {
+                    e.preventDefault();
+                    handleSubmit(props.endpoint, props.id);
+                }}
+            >
+            {'Submit'}
+            </button>
             {props.endpoint.parameters ?
             <span>
                 <button className='btn btn-default'>{'Fill Sample Data'}</button>
                 <button className='btn btn-default' type='reset'>{'Reset'}</button>
-            </span>
-                : null}
+            </span> :
+            null}
         </form>
-
-        <textarea cols='50' readOnly={true} rows='5' style={{border: 'none'}} value={props.endpoint.curl}/>
+        <br/>
+        <div>{props.endpoint.curl}</div>
 
         {props.endpoint.apiResponse ?
             <table>
@@ -118,7 +131,9 @@ EndPoint.propTypes = {
         apiResponse: React.PropTypes.shape({
             status: React.PropTypes.string.isRequired,
             statusMessage: React.PropTypes.string.isRequired,
-            body: React.PropTypes.object.isRequired
+            body: React.PropTypes.oneOfType([
+                React.PropTypes.object, React.PropTypes.array
+            ]).isRequired
         })
     }).isRequired,
     id: React.PropTypes.number.isRequired
