@@ -1,16 +1,17 @@
 import React from 'react';
 
-import {store, actionTypes} from '../store';
+import {store} from '../store';
+import {actionTypes} from '../reducers/reducer';
 
 const handleInputChange = (e, qpName, id) => {
     store.dispatch({
-        type: actionTypes.INPUT_CHANGE,
+        type: actionTypes.QUERY_STRING_CHANGED,
         inputVal: e.target.value,
         queryParamName: qpName,
         apiId: id
     });
 };
-const RenderParamsComponent = (props) => (
+const QueryString = (props) => (
     <table>
         <tbody>
         <tr><td colSpan='2'><h4>{'Request'}</h4></td></tr>
@@ -35,10 +36,10 @@ const RenderParamsComponent = (props) => (
     </table>
 );
 
-RenderParamsComponent.displayName = 'Render Endpoint Parameters';
-RenderParamsComponent.propTypes = {
+QueryString.displayName = 'Query String';
+QueryString.propTypes = {
     id: React.PropTypes.number.isRequired,
     queryString: React.PropTypes.object
 };
 
-export default RenderParamsComponent;
+export default QueryString;

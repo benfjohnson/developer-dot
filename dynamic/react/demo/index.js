@@ -1,9 +1,10 @@
 import React from 'react';
 import {render} from 'react-dom';
 import request from 'request';
-
 import App from './App';
-import {store, actionTypes} from './store';
+import {store} from './store';
+
+import {actionTypes} from './reducers/reducer';
 
 store.subscribe(() => {
     const state = store.getState();
@@ -53,7 +54,7 @@ const sanitizeSwagger = (api) => {
             };
 
             if (Object.keys(queryString).length) {
-                endpointInfo.parameters = {queryString};
+                endpointInfo.queryString = queryString;
             }
             return endpointInfo;
         });

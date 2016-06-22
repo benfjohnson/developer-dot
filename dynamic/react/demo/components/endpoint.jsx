@@ -1,13 +1,23 @@
 import React from 'react';
 import request from 'request';
 
-import {store, actionTypes} from '../store';
-import RenderParamsComponent from './renderParams';
+import {store} from '../store';
+import {actionTypes} from '../reducers/reducer';
+import QueryString from './queryString';
 
 const handleSubmit = (endpoint, id) => {
     // todo don't forget form validation!
 
-    request(endpoint.path + endpoint.qsPath, (error, response, body) => {
+    const apiReq = {
+        url: endpoint.path + (endpoint.qsPath || '')
+    };
+
+    if (endpoint.postBody) {
+        apiReq.headers = {'Content-Type': 'application/json'};
+        apiReq.body = JSON.stringify(endpoint.postBody);
+    }
+
+    request[endpoint.action](apiReq, (error, response, body) => {
         if (error || response.statusCode !== 200) {
             store.dispatch({
                 type: actionTypes.SUBMIT_DONE,
@@ -45,7 +55,7 @@ const EndPointComponent = (props) => (
             </tbody>
         </table>
         <form>
-            {props.endpoint.parameters && props.endpoint.parameters.queryString ? <RenderParamsComponent id={props.id} queryString={props.endpoint.parameters.queryString} /> : null}
+            {props.endpoint.queryString ? <QueryString id={props.id} queryString={props.endpoint.queryString} /> : null}
             <button
                 className='btn btn-success'
                 onClick={(e) => {
@@ -55,7 +65,7 @@ const EndPointComponent = (props) => (
             >
             {'Submit'}
             </button>
-            {props.endpoint.parameters ?
+            {props.endpoint.queryString ?
             <span>
                 <button className='btn btn-default'>{'Fill Sample Data'}</button>
                 <button className='btn btn-default' type='reset'>{'Reset'}</button>
@@ -91,9 +101,7 @@ EndPointComponent.propTypes = {
         curl: React.PropTypes.string.isRequired,
         path: React.PropTypes.string.isRequired,
         action: React.PropTypes.string.isRequired,
-        parameters: React.PropTypes.shape({
-            queryString: React.PropTypes.object
-        }),
+        queryString: React.PropTypes.object,
         apiResponse: React.PropTypes.shape({
             status: React.PropTypes.string.isRequired,
             statusMessage: React.PropTypes.string.isRequired,
