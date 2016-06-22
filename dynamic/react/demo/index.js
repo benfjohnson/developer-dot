@@ -32,13 +32,30 @@ const sanitizeSwagger = (api) => {
                 routePath = api.schemes[0] + '://' + api.host + (api.basePath !== '/' ? api.basePath : '') + path;
             }
 
-            return {
+            const params = api.paths[path][action].parameters || [];
+            const queryString = params.filter((p) => p.in === 'query').reduce((queryObj, param) => {
+                queryObj[param.name] = {
+                    name: param.name,
+                    description: param.description,
+                    required: param.required,
+                    value: '',
+                    placeholder: param.example || ''
+                };
+                return queryObj;
+            }, {});
+
+            // const postBodyParams = api.paths[path][action].parameters.filter((p) => p.in === 'body');
+            const endpointInfo = {
                 path: routePath,
                 action: action,
                 name: api.paths[path][action].summary,
-                description: api.paths[path][action].description,
-                parameters: api.paths[path][action].parameters || []
+                description: api.paths[path][action].description
             };
+
+            if (Object.keys(queryString).length) {
+                endpointInfo.parameters = {queryString};
+            }
+            return endpointInfo;
         });
     });
 
