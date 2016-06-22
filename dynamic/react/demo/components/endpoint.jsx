@@ -7,7 +7,7 @@ import RenderParamsComponent from './renderParams';
 const handleSubmit = (endpoint, id) => {
     // todo don't forget form validation!
 
-    request(endpoint.path, (error, response, body) => {
+    request(endpoint.path + endpoint.qsPath, (error, response, body) => {
         if (error || response.statusCode !== 200) {
             store.dispatch({
                 type: actionTypes.SUBMIT_DONE,

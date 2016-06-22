@@ -7,20 +7,21 @@ const actionTypes = {
 };
 
 const buildQueryString = (endpoint) => {
-    if (!endpoint.parameters || !endpoint.parameters.queryString || !Object.keys(endpoint.parameters.queryString).some((p) => endpoint.parameters.queryString[p].value)) {
-        return '';
-    }
+    let qsPath = '';
 
-    return Object.keys(endpoint.parameters.queryString).reduce((qs, param, i) => {
-        if (endpoint.parameters.queryString[param].value.length) {
-            return `${qs}${i > 0 ? '&' : ''}${param}=${endpoint.parameters.queryString[param].value}`;
-        }
-        return qs;
-    }, '?');
+    if (endpoint.parameters && endpoint.parameters.queryString && Object.keys(endpoint.parameters.queryString).some((p) => endpoint.parameters.queryString[p].value)) {
+        qsPath = Object.keys(endpoint.parameters.queryString).reduce((qs, param, i) => {
+            if (endpoint.parameters.queryString[param].value.length) {
+                return `${qs}${i > 0 ? '&' : ''}${param}=${endpoint.parameters.queryString[param].value}`;
+            }
+            return qs;
+        }, '?');
+    }
+    return {...endpoint, qsPath};
 };
 
 const buildCurlFromProps = (endpoint) => (
-{...endpoint, curl: `curl -X ${endpoint.action.toUpperCase()} "${endpoint.path}${buildQueryString(endpoint)}" -H "Accept: application/json"`}
+{...endpoint, curl: `curl -X ${endpoint.action.toUpperCase()} "${endpoint.path}${endpoint.qsPath}" -H "Accept: application/json"`}
 );
 
 const reducer = (state, action) => {
@@ -30,6 +31,7 @@ const reducer = (state, action) => {
     case actionTypes.FETCH_API_DATA:
         break;
     case actionTypes.FETCH_API_DATA_DONE:
+        updatedState.apiInfo = action.apiInfo.map(buildQueryString);
         updatedState.apiInfo = action.apiInfo.map(buildCurlFromProps);
         if (action.error) {
             updatedState.error = action.error;
@@ -46,8 +48,8 @@ const reducer = (state, action) => {
         }
         break;
     case actionTypes.INPUT_CHANGE:
-
         updatedState.apiInfo[action.apiId].parameters.queryString[action.queryParamName].value = action.inputVal;
+        updatedState.apiInfo[action.apiId] = buildQueryString(updatedState.apiInfo[action.apiId]);
         updatedState.apiInfo[action.apiId] = buildCurlFromProps(updatedState.apiInfo[action.apiId]);
 
         break;
