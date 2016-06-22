@@ -2,7 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import request from 'request';
 
-import App from './components/App';
+import App from './App';
 import {store, actionTypes} from './store';
 
 store.subscribe(() => {

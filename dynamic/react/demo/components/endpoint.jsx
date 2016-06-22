@@ -2,7 +2,7 @@ import React from 'react';
 import request from 'request';
 
 import {store, actionTypes} from '../store';
-
+import RenderParamsComponent from './renderParams';
 
 const handleSubmit = (endpoint, id) => {
     // todo don't forget form validation!
@@ -25,41 +25,7 @@ const handleSubmit = (endpoint, id) => {
         });
     });
 };
-
-const handleInputChange = (e, qpName, id) => {
-    store.dispatch({
-        type: actionTypes.INPUT_CHANGE,
-        inputVal: e.target.value,
-        queryParamName: qpName,
-        apiId: id
-    });
-};
-
-const renderParams = (queryParams, id) => (
-    <table>
-        <tbody>
-            <tr><td colSpan='2'><h4>{'Request'}</h4></td></tr>
-            {Object.keys(queryParams).map((name, i) => (
-                <tr key={i}>
-                    <td><label htmlFor={queryParams[name].name}>{queryParams[name].name}</label></td>
-                    <td>
-                        <input
-                            id={queryParams[name].name}
-                            onChange={
-                            (e) => {
-                                handleInputChange(e, queryParams[name].name, id);
-                            }}
-                            placeholder={queryParams[name].placeholder}
-                            value={queryParams[name].value}
-                        />
-                    </td>
-                </tr>)
-            )}
-        </tbody>
-    </table>
-);
-
-const EndPoint = (props) => (
+const EndPointComponent = (props) => (
     <div>
         <h2>{props.endpoint.name}</h2>
         <table>
@@ -79,7 +45,7 @@ const EndPoint = (props) => (
             </tbody>
         </table>
         <form>
-            {props.endpoint.parameters && props.endpoint.parameters.queryString ? renderParams(props.endpoint.parameters.queryString, props.id) : null}
+            {props.endpoint.parameters && props.endpoint.parameters.queryString ? <RenderParamsComponent id={props.id} queryString={props.endpoint.parameters.queryString} /> : null}
             <button
                 className='btn btn-success'
                 onClick={(e) => {
@@ -117,8 +83,8 @@ const EndPoint = (props) => (
     </div>
 );
 
-EndPoint.displayName = 'EndPoint';
-EndPoint.propTypes = {
+EndPointComponent.displayName = 'EndPoint';
+EndPointComponent.propTypes = {
     endpoint: React.PropTypes.shape({
         name: React.PropTypes.string.isRequired,
         description: React.PropTypes.string.isRequired,
@@ -139,4 +105,4 @@ EndPoint.propTypes = {
     id: React.PropTypes.number.isRequired
 };
 
-export default EndPoint;
+export default EndPointComponent;

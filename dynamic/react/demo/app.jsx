@@ -1,11 +1,11 @@
 import React from 'react';
 
-import ErrorComponent from './error';
-import ApiComponent from './api';
+import ApiPage from './pages/api';
+import ErrorPage from './pages/error';
 
 const App = (props) => (
     <div>
-        {props.error ? <ErrorComponent error={props.error}/> : <ApiComponent api={props.api}/>}
+        {props.error ? <ErrorPage error={props.error}/> : <ApiPage api={props.api}/>}
     </div>
 );
 
