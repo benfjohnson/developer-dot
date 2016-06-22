@@ -30,7 +30,7 @@ apis: [
     ['AvaTax','/avatax'],
     ['LandedCost','/landedcost'],
     ['Excise','/excise'],
-    ['Certcapture','/CertCapture'],
+    ['CertCapture','/certcapture'],
     ['TrustFile','/trustfile'],
     ['Onboarding','/onboarding']
 ]
