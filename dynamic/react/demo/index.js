@@ -98,7 +98,6 @@ const sanitizeSwagger = (api) => {
             const params = api.paths[path][action].parameters || [];
             const queryString = params.filter((p) => p.in === 'query').reduce((queryObj, param) => {
                 queryObj[param.name] = {
-                    name: param.name,
                     description: param.description,
                     required: param.required,
                     value: '',

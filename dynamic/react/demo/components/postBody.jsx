@@ -21,16 +21,21 @@ const PostBody = (props) => (
             <tr key={i}>
                 <td><label htmlFor={props.name.replace(/ /g, '_') + '_' + name + '_' + props.id}>{name}</label></td>
                 <td>
-                    <input
-                        defaultValue={''}
-                        id={props.name.replace(/ /g, '_') + '_' + name + '_' + props.id}
-                        onChange={
+                    {props.postBody[name].enum && props.postBody[name].enum.length ?
+                        <select id={props.name.replace(/ /g, '_') + '_' + name + '_' + props.id}>
+                            {props.postBody[name].enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
+                        </select>
+                        : <input
+                            defaultValue={''}
+                            id={props.name.replace(/ /g, '_') + '_' + name + '_' + props.id}
+                            onChange={
                             (e) => {
                                 handleInputChange(e, name, props.id);
                             }
                         }
-                        placeholder={props.postBody[name].example}
-                    />
+                            placeholder={props.postBody[name].example}
+                        />
+                    }
                 </td>
             </tr>)
         )}
