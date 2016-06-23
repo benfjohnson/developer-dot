@@ -3,21 +3,21 @@ import React from 'react';
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
 
-const handleInputChange = (e, qpName, id) => {
+const handleInputChange = (e, pbName, id) => {
     store.dispatch({
-        type: actionTypes.QUERY_STRING_CHANGED,
+        type: actionTypes.POST_BODY_CHANGED,
         inputVal: e.target.value,
-        queryParamName: qpName,
+        postBodyParamName: pbName,
         apiId: id
     });
 };
-const QueryString = (props) => (
+const PostBody = (props) => (
     <table>
         <tbody>
         <tr>
             <td colSpan='2'><h4>{'Request'}</h4></td>
         </tr>
-        {Object.keys(props.queryString).map((name, i) => (
+        {Object.keys(props.postBody).map((name, i) => (
             <tr key={i}>
                 <td><label htmlFor={props.name.replace(/ /g, '_') + '_' + name + '_' + props.id}>{name}</label></td>
                 <td>
@@ -29,7 +29,7 @@ const QueryString = (props) => (
                                 handleInputChange(e, name, props.id);
                             }
                         }
-                        placeholder={props.queryString[name].example}
+                        placeholder={props.postBody[name].example}
                     />
                 </td>
             </tr>)
@@ -38,10 +38,10 @@ const QueryString = (props) => (
     </table>
 );
 
-QueryString.displayName = 'Query String';
-QueryString.propTypes = {
+PostBody.displayName = 'Post Body';
+PostBody.propTypes = {
     id: React.PropTypes.number.isRequired,
-    queryString: React.PropTypes.object
+    postBody: React.PropTypes.object
 };
 
-export default QueryString;
+export default PostBody;

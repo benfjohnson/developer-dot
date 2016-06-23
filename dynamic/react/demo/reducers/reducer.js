@@ -4,7 +4,8 @@ import {buildQsPath, buildCurl} from '../helpers';
 const actionTypes = {
     FETCH_API_DATA_DONE: 'FETCH_API_DATA_DONE',
     SUBMIT_DONE: 'SUBMIT_DONE',
-    QUERY_STRING_CHANGED: 'QUERY_STRING_CHANGED'
+    QUERY_STRING_CHANGED: 'QUERY_STRING_CHANGED',
+    POST_BODY_CHANGED: 'POST_BODY_CHANGED'
 };
 
 const reducer = (state, action) => {
@@ -21,6 +22,7 @@ const reducer = (state, action) => {
         break;
 
     case actionTypes.SUBMIT_DONE:
+    case actionTypes.POST_BODY_CHANGED:
     case actionTypes.QUERY_STRING_CHANGED:
         const endpoint = state.apiInfo[action.apiId];
 

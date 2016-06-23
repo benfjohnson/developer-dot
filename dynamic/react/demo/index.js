@@ -33,7 +33,6 @@ const createPostBody = (endpoint, definitions) => {
             }).reduce((accum, obj) => ({...accum, ...obj}), {});
         }
 
-
         if (schema.$ref) {
             const refArray = schema.$ref.split('/');
             const ref = refArray[refArray.length - 1];
@@ -51,7 +50,7 @@ const createPostBody = (endpoint, definitions) => {
             return {type: schema.type, items: buildSchema(schemaName, schema.items)};
         }
 
-        const objToReturn = {type: schema.type};
+        const objToReturn = {type: schema.type, value: ''};
 
         if (schema.example) {
             objToReturn.example = schema.example;
@@ -103,7 +102,7 @@ const sanitizeSwagger = (api) => {
                     description: param.description,
                     required: param.required,
                     value: '',
-                    placeholder: param.example || ''
+                    example: param.example || ''
                 };
                 return queryObj;
             }, {});

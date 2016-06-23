@@ -4,6 +4,7 @@ import request from 'request';
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
 import QueryString from './queryString';
+import PostBody from './postBody';
 
 const handleSubmit = (endpoint, id) => {
     // todo don't forget form validation!
@@ -55,7 +56,8 @@ const EndPointComponent = (props) => (
             </tbody>
         </table>
         <form>
-            {props.endpoint.queryString ? <QueryString id={props.id} queryString={props.endpoint.queryString} /> : null}
+            {props.endpoint.queryString ? <QueryString id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} queryString={props.endpoint.queryString}/> : null}
+            {props.endpoint.postBody ? <PostBody id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.postBody}/> : null}
             <button
                 className='btn btn-success'
                 onClick={(e) => {
@@ -63,14 +65,14 @@ const EndPointComponent = (props) => (
                     handleSubmit(props.endpoint, props.id);
                 }}
             >
-            {'Submit'}
+                {'Submit'}
             </button>
             {props.endpoint.queryString ?
-            <span>
+                <span>
                 <button className='btn btn-default'>{'Fill Sample Data'}</button>
                 <button className='btn btn-default' type='reset'>{'Reset'}</button>
             </span> :
-            null}
+                null}
         </form>
         <br/>
         <div>{props.endpoint.curl}</div>
