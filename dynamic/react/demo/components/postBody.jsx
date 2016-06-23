@@ -11,34 +11,64 @@ const handleInputChange = (e, pbName, id) => {
         apiId: id
     });
 };
+
+const renderPostBodyItem = (itemName, item, itemIndex, endpointName, endpointId) => {
+    if (item.fieldType) {
+        return (<tr key={itemIndex}>
+            <td><label htmlFor={endpointName.replace(/ /g, '_') + '_' + itemName + '_' + endpointId}>{itemName}</label></td>
+            <td>
+                {item.enum && item.enum.length ?
+                    <select id={endpointName.replace(/ /g, '_') + '_' + itemName + '_' + endpointId}>
+                        {item.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
+                    </select> : <input
+                        defaultValue={''}
+                        id={endpointName.replace(/ /g, '_') + '_' + itemName + '_' + endpointId}
+                        onChange={
+                        (e) => {
+                            handleInputChange(e, itemName, endpointId);
+                        }
+                    }
+                        placeholder={item.example}
+                    />
+                }
+            </td>
+        </tr>);
+    }
+    const returnHTML = (
+        <tr key={itemIndex}>
+            <td colSpan="2">
+                <table style={{width: '100%'}}>
+                    <tbody>
+                        <tr>
+                            <td colSpan="2"><label>{itemName}</label></td>
+                        </tr>
+                        {Object.keys(item).map((itemKey, itemKeyIdx) => {
+                            return renderPostBodyItem(itemKey, item[itemKey], itemIndex + '_' + itemKeyIdx, endpointName, endpointId);
+                        })}
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        );
+
+    return returnHTML;
+};
+
 const PostBody = (props) => (
     <table>
         <tbody>
         <tr>
-            <td colSpan='2'><h4>{'Request'}</h4></td>
+            <td colSpan='2'><h4>{'Post Body'}</h4></td>
         </tr>
-        {Object.keys(props.postBody).map((name, i) => (
-            <tr key={i}>
-                <td><label htmlFor={props.name.replace(/ /g, '_') + '_' + name + '_' + props.id}>{name}</label></td>
-                <td>
-                    {props.postBody[name].enum && props.postBody[name].enum.length ?
-                        <select id={props.name.replace(/ /g, '_') + '_' + name + '_' + props.id}>
-                            {props.postBody[name].enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
-                        </select>
-                        : <input
-                            defaultValue={''}
-                            id={props.name.replace(/ /g, '_') + '_' + name + '_' + props.id}
-                            onChange={
-                            (e) => {
-                                handleInputChange(e, name, props.id);
-                            }
-                        }
-                            placeholder={props.postBody[name].example}
-                        />
-                    }
-                </td>
-            </tr>)
-        )}
+        {
+            props.postBody.fieldType && props.postBody.fieldType === 'array' ?
+            Object.keys(props.postBody.items).map((name, i) => {
+                return (renderPostBodyItem(name, props.postBody.items[name], i, props.name, props.id));
+            }) :
+            Object.keys(props.postBody).map((name, i) => {
+                return (renderPostBodyItem(name, props.postBody[name], i, props.name, props.id));
+            })
+        }
         </tbody>
     </table>
 );

@@ -47,10 +47,10 @@ const createPostBody = (endpoint, definitions) => {
         }
 
         if (schema.type && schema.type === 'array') {
-            return {type: schema.type, items: buildSchema(schemaName, schema.items)};
+            return {fieldType: schema.type, items: buildSchema(schemaName, schema.items), value: []};
         }
 
-        const objToReturn = {type: schema.type, value: ''};
+        const objToReturn = {fieldType: schema.type, value: ''};
 
         if (schema.example) {
             objToReturn.example = schema.example;

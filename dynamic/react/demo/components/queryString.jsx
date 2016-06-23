@@ -15,7 +15,7 @@ const QueryString = (props) => (
     <table>
         <tbody>
         <tr>
-            <td colSpan='2'><h4>{'Request'}</h4></td>
+            <td colSpan='2'><h4>{'Query String'}</h4></td>
         </tr>
         {Object.keys(props.queryString).map((name, i) => (
             <tr key={i}>
