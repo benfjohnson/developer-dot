@@ -14,12 +14,17 @@ const buildQsPath = (queryString) => {
 
 const buildPostBodyData = (name, body) => {
     if (body.hasOwnProperty('value')) {
-        return {[name]: body.value};
+        return body.value;
     }
 
-    return Object.keys(body).map((propName) => {
-        return buildPostBodyData(propName, body[propName]);
-    });
+    return Object.keys(body).reduce((accum, propName) => {
+        // if (body[propName].hasOwnProperty('value') && body[propName].value === '') {
+        //     console.log('do not show', propName);
+        //     return accum;
+        // }
+
+        return {...accum, [propName]: buildPostBodyData(propName, body[propName])};
+    }, {});
 };
 
 const buildCurl = (endpoint) => {

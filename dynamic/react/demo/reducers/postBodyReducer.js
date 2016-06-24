@@ -6,7 +6,6 @@ export default (state, action) => {
     switch (action.type) {
     case actionTypes.POST_BODY_CHANGED:
         if (action.postBodyParamName.indexOf('null') !== -1) {
-            console.log('action', action, newState);
             newState[action.postBodyParamName.split(';')[1]].value = action.inputVal;
         } else {
             action.postBodyParamName.split(';').reduce((accum, paramName) => accum[paramName], newState).value = action.inputVal;
