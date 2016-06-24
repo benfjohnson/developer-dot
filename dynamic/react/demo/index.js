@@ -47,10 +47,10 @@ const createPostBody = (endpoint, definitions) => {
         }
 
         if (schema.type && schema.type === 'array') {
-            return {fieldType: schema.type, items: buildSchema(schemaName, schema.items), value: []};
+            return {fieldType: schema.type, items: buildSchema(schemaName, schema.items), value: [], visibility: schema['x-visibility'] || 'visible'};
         }
 
-        const objToReturn = {fieldType: schema.type, value: ''};
+        const objToReturn = {fieldType: schema.type, value: '', visibility: schema['x-visibility'] || 'visible'};
 
         if (schema.example) {
             objToReturn.example = schema.example;
@@ -101,7 +101,8 @@ const sanitizeSwagger = (api) => {
                     description: param.description,
                     required: param.required,
                     value: '',
-                    example: param.example || ''
+                    example: param.example || '',
+                    visibility: param['x-visibility'] || 'visible'
                 };
                 return queryObj;
             }, {});
