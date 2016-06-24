@@ -20,8 +20,8 @@ export default (state, action) => {
         break;
     case actionTypes.POST_BODY_CHANGED:
         newState = {...newState, postBody: postBodyReducer(newState.postBody, action)};
-        newState.postBodyData = buildPostBodyData(newState.postBody);
-//         newState.curl = buildCurl(newState);
+        newState.postBodyData = buildPostBodyData('postBodyData', newState.postBody);
+        newState.curl = buildCurl(newState);
 
         break;
     default:

@@ -41,6 +41,7 @@ const renderPostBodyItem = (parentName, itemName, item, itemIndex, endpointName,
             </td>
         </tr>);
     }
+
     return (
         <tr key={itemIndex}>
             <td colSpan='2'>

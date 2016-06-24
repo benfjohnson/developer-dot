@@ -12,11 +12,14 @@ const buildQsPath = (queryString) => {
     return qsPath;
 };
 
-const buildPostBodyData = (postBody) => {
-//     console.log('received postBody', postBody);
-    const postbodyData = {};
+const buildPostBodyData = (name, body) => {
+    if (body.hasOwnProperty('value')) {
+        return {[name]: body.value};
+    }
 
-    return postbodyData;
+    return Object.keys(body).map((propName) => {
+        return buildPostBodyData(propName, body[propName]);
+    });
 };
 
 const buildCurl = (endpoint) => {

@@ -15,7 +15,7 @@ const handleSubmit = (endpoint, id) => {
 
     if (endpoint.postBody) {
         apiReq.headers = {'Content-Type': 'application/json'};
-        apiReq.body = JSON.stringify(endpoint.postBody);
+        apiReq.body = JSON.stringify(endpoint.postBodyData);
     }
 
     request[endpoint.action](apiReq, (error, response, body) => {
@@ -65,13 +65,18 @@ const EndPointComponent = (props) => (
                     handleSubmit(props.endpoint, props.id);
                 }}
             >
-                {'Submit'}
+            {'Submit'}
             </button>
             {props.endpoint.queryString || props.endpoint.postBody ?
-                <span>
-                <button className='btn btn-default' onClick={(e) => {
-                    e.preventDefault();
-                }}>{'Fill Sample Data'}</button>
+            <span>
+                <button
+                    className='btn btn-default'
+                    onClick={(e) => {
+                        e.preventDefault();
+                    }}
+                >
+                {'Fill Sample Data'}
+                </button>
                 <button className='btn btn-default' type='reset'>{'Reset'}</button>
             </span> : null}
         </form>
