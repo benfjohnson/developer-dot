@@ -27,6 +27,10 @@ const API_SWAGGER_URL = API_SWAGGER_URLS[API].base + API_SWAGGER_URLS[API].api;
 
 const createPostBody = (endpoint, definitions) => {
     const buildSchema = (schemaName, schema) => {
+        if (schema['x-visibility'] === 'hidden') {
+            return;
+        }
+
         if (schema.hasOwnProperty('allOf')) {
             return schema.allOf.map((allofItem) => {
                 return buildSchema(null, allofItem);
@@ -42,15 +46,23 @@ const createPostBody = (endpoint, definitions) => {
 
         if (schema.type && schema.type === 'object') {
             return Object.assign({}, ...Object.keys(schema.properties).map((name) => {
+                if (schema.properties[name] && schema.properties[name]['x-visibility'] && schema.properties[name]['x-visibility'] === 'hidden') {
+                    return;
+                }
+
                 return {[name]: buildSchema(name, schema.properties[name])};
             }));
         }
 
         if (schema.type && schema.type === 'array') {
-            return {fieldType: schema.type, items: buildSchema(schemaName, schema.items), value: [], visibility: schema['x-visibility'] || 'visible'};
+            if (schema.items[schemaName] && schema.items[schemaName]['x-visibility'] && schema.items[schemaName]['x-visibility'] === 'hidden') {
+                return;
+            }
+
+            return {fieldType: schema.type, items: buildSchema(schemaName, schema.items), value: []};
         }
 
-        const objToReturn = {fieldType: schema.type, value: '', visibility: schema['x-visibility'] || 'visible'};
+        const objToReturn = {fieldType: schema.type, value: ''};
 
         if (schema.example) {
             objToReturn.example = schema.example;
@@ -101,8 +113,7 @@ const sanitizeSwagger = (api) => {
                     description: param.description,
                     required: param.required,
                     value: '',
-                    example: param.example || '',
-                    visibility: param['x-visibility'] || 'visible'
+                    example: param.example || ''
                 };
                 return queryObj;
             }, {});
