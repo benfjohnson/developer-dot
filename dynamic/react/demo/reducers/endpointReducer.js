@@ -1,7 +1,7 @@
 import queryStringReducer from './queryStringReducer';
 import postBodyReducer from './postBodyReducer';
 import {actionTypes} from './reducer';
-import {buildQsPath, buildCurl} from '../helpers';
+import {buildQsPath, buildPostBodyData, buildCurl} from '../helpers';
 
 export default (state, action) => {
     let newState = {...state};
@@ -20,8 +20,9 @@ export default (state, action) => {
         break;
     case actionTypes.POST_BODY_CHANGED:
         newState = {...newState, postBody: postBodyReducer(newState.postBody, action)};
-//         newState.qsPath = buildQsPath(newState.queryString);
+        newState.postBodyData = buildPostBodyData(newState.postBody);
 //         newState.curl = buildCurl(newState);
+
         break;
     default:
         break;

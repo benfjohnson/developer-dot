@@ -12,46 +12,51 @@ const handleInputChange = (e, pbName, id) => {
     });
 };
 
-const renderPostBodyItem = (itemName, item, itemIndex, endpointName, endpointId) => {
+const renderPostBodyItem = (parentName, itemName, item, itemIndex, endpointName, endpointId) => {
     if (item.fieldType) {
         return (<tr key={itemIndex}>
             <td><label htmlFor={endpointName.replace(/ /g, '_') + '_' + itemName + '_' + endpointId}>{itemName}</label></td>
             <td>
                 {item.enum && item.enum.length ?
-                    <select id={endpointName.replace(/ /g, '_') + '_' + itemName + '_' + endpointId}>
-                        {item.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
-                    </select> : <input
-                        defaultValue={''}
+                    <select
                         id={endpointName.replace(/ /g, '_') + '_' + itemName + '_' + endpointId}
                         onChange={
                         (e) => {
-                            handleInputChange(e, itemName, endpointId);
+                            handleInputChange(e, parentName + ';' + itemName, endpointId);
                         }
                     }
-                        placeholder={item.example}
-                    />
+                    >
+                        {item.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
+                    </select> : <input
+                    defaultValue={''}
+                    id={endpointName.replace(/ /g, '_') + '_' + itemName + '_' + endpointId}
+                    onChange={
+                        (e) => {
+                            handleInputChange(e, parentName + ';' + itemName, endpointId);
+                        }
+                    }
+                    placeholder={item.example}
+                />
                 }
             </td>
         </tr>);
     }
-    const returnHTML = (
+    return (
         <tr key={itemIndex}>
-            <td colSpan="2">
+            <td colSpan='2'>
                 <table style={{width: '100%'}}>
                     <tbody>
-                        <tr>
-                            <td colSpan="2"><label>{itemName}</label></td>
-                        </tr>
-                        {Object.keys(item).map((itemKey, itemKeyIdx) => {
-                            return renderPostBodyItem(itemKey, item[itemKey], itemIndex + '_' + itemKeyIdx, endpointName, endpointId);
-                        })}
+                    <tr>
+                        <td colSpan='2'><label>{itemName}</label></td>
+                    </tr>
+                    {Object.keys(item).map((itemKey, itemKeyIdx) => {
+                        return renderPostBodyItem(itemName, itemKey, item[itemKey], itemIndex + '_' + itemKeyIdx, endpointName, endpointId);
+                    })}
                     </tbody>
                 </table>
             </td>
         </tr>
-        );
-
-    return returnHTML;
+    );
 };
 
 const PostBody = (props) => (
@@ -62,12 +67,12 @@ const PostBody = (props) => (
         </tr>
         {
             props.postBody.fieldType && props.postBody.fieldType === 'array' ?
-            Object.keys(props.postBody.items).map((name, i) => {
-                return (renderPostBodyItem(name, props.postBody.items[name], i, props.name, props.id));
-            }) :
-            Object.keys(props.postBody).map((name, i) => {
-                return (renderPostBodyItem(name, props.postBody[name], i, props.name, props.id));
-            })
+                Object.keys(props.postBody.items).map((name, i) => {
+                    return (renderPostBodyItem(null, name, props.postBody.items[name], i, props.name, props.id));
+                }) :
+                Object.keys(props.postBody).map((name, i) => {
+                    return (renderPostBodyItem(null, name, props.postBody[name], i, props.name, props.id));
+                })
         }
         </tbody>
     </table>
@@ -76,6 +81,7 @@ const PostBody = (props) => (
 PostBody.displayName = 'Post Body';
 PostBody.propTypes = {
     id: React.PropTypes.number.isRequired,
+    name: React.PropTypes.string.isRequired,
     postBody: React.PropTypes.object
 };
 

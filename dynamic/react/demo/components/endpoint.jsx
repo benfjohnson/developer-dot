@@ -67,12 +67,13 @@ const EndPointComponent = (props) => (
             >
                 {'Submit'}
             </button>
-            {props.endpoint.queryString ?
+            {props.endpoint.queryString || props.endpoint.postBody ?
                 <span>
-                <button className='btn btn-default'>{'Fill Sample Data'}</button>
+                <button className='btn btn-default' onClick={(e) => {
+                    e.preventDefault();
+                }}>{'Fill Sample Data'}</button>
                 <button className='btn btn-default' type='reset'>{'Reset'}</button>
-            </span> :
-                null}
+            </span> : null}
         </form>
         <br/>
         <div>{props.endpoint.curl}</div>
@@ -104,6 +105,7 @@ EndPointComponent.propTypes = {
         path: React.PropTypes.string.isRequired,
         action: React.PropTypes.string.isRequired,
         queryString: React.PropTypes.object,
+        postBody: React.PropTypes.object,
         apiResponse: React.PropTypes.shape({
             status: React.PropTypes.string.isRequired,
             statusMessage: React.PropTypes.string.isRequired,

@@ -12,6 +12,21 @@ const buildQsPath = (queryString) => {
     return qsPath;
 };
 
-const buildCurl = (endpoint) => `curl -X ${endpoint.action.toUpperCase()} "${endpoint.path}${endpoint.qsPath || ''}" -H "Accept: application/json"`;
+const buildPostBodyData = (postBody) => {
+//     console.log('received postBody', postBody);
+    const postbodyData = {};
 
-export {buildQsPath, buildCurl};
+    return postbodyData;
+};
+
+const buildCurl = (endpoint) => {
+    let curl = `curl -X ${endpoint.action.toUpperCase()} "${endpoint.path}${endpoint.qsPath || ''}" -H "Accept: application/json"`;
+
+    if (endpoint.postBodyData) {
+        curl += ` -H "Content-Type: application/json" --data '${JSON.stringify(endpoint.postBodyData)}'`;
+    }
+
+    return curl;
+};
+
+export {buildQsPath, buildPostBodyData, buildCurl};

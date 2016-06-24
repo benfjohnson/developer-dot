@@ -3,10 +3,9 @@ import {actionTypes} from './reducer';
 export default (state, action) => {
     switch (action.type) {
     case actionTypes.POST_BODY_CHANGED:
-        const postBodyParam = {...(state[action.postBodyParamName])};
-        const updatedPostBodyParam = {...postBodyParam, value: action.inputVal};
+        action.postBodyParamName.split(';').reduce((accum, paramName) => accum[paramName], state).value = action.inputVal;
 
-        return {...state, [action.postBodyParamName]: updatedPostBodyParam};
+        return state;
     default:
         return state;
     }
