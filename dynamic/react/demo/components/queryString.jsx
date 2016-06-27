@@ -3,12 +3,12 @@ import React from 'react';
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
 
-const handleInputChange = (e, qpName, id) => {
+const handleInputChange = (e, qpName, endpointId) => {
     store.dispatch({
         type: actionTypes.QUERY_STRING_CHANGED,
         inputVal: e.target.value,
         queryParamName: qpName,
-        apiId: id
+        endpointId: endpointId
     });
 };
 const QueryString = (props) => (

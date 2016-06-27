@@ -97,7 +97,6 @@ const createPostBody = (endpoint, definitions) => {
     return postBody;
 };
 
-
 const sanitizeSwagger = (api) => {
     const routes = Object.keys(api.paths).map((path) => {
         return Object.keys(api.paths[path]).map((action) => {

@@ -22,7 +22,7 @@ const handleSubmit = (endpoint, id) => {
         if (error || response.statusCode !== 200) {
             store.dispatch({
                 type: actionTypes.SUBMIT_DONE,
-                apiId: id,
+                endpointId: id,
                 apiResponse: {body: JSON.parse(body), status: response ? response.statusCode.toString() : '', statusMessage: error ? error.message : response.statusMessage || ''}
             });
             return;
@@ -31,7 +31,7 @@ const handleSubmit = (endpoint, id) => {
 
         store.dispatch({
             type: actionTypes.SUBMIT_DONE,
-            apiId: id,
+            endpointId: id,
             apiResponse: {body: JSON.parse(body), status: response.statusCode.toString(), statusMessage: response.statusMessage}
         });
     });

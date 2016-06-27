@@ -26,9 +26,9 @@ const reducer = (state, action) => {
     case actionTypes.POST_BODY_CHANGED:
     case actionTypes.QUERY_STRING_CHANGED:
     case actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY:
-        const endpoint = state.apiInfo[action.apiId];
+        const endpoint = state.apiInfo[action.endpointId];
 
-        newState.apiInfo[action.apiId] = endpointReducer(endpoint, action);
+        newState.apiInfo[action.endpointId] = endpointReducer(endpoint, action);
         break;
 
     default:

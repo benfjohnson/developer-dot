@@ -4,20 +4,32 @@ import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
 import shortid from 'shortid';
 
-const handleInputChange = (e, pbName, id) => {
+const handleInputChange = (e, pbName, endpointId) => {
     store.dispatch({
         type: actionTypes.POST_BODY_CHANGED,
         inputVal: e.target.value,
         postBodyParamName: pbName,
-        apiId: id
+        endpointId: endpointId
     });
 };
 
-const handleToggleVisibility = (e, pbName, id) => {
+const handleInputChangeArray = (e, pbName, endpointId, arrayIndex) => {
+    store.dispatch({
+        type: actionTypes.POST_BODY_CHANGED,
+        inputVal: e.target.value,
+        postBodyParamName: pbName,
+        endpointId: endpointId
+    });
+};
+
+
+
+
+const handleToggleVisibility = (e, pbName, endpointId) => {
     store.dispatch({
         type: actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY,
         postBodyParamName: pbName,
-        apiId: id
+        endpointId: endpointId
     });
 };
 
@@ -25,29 +37,61 @@ const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
     const uid = shortid.generate();
 
     if (item.fieldType) {
+        if (item.fieldType !== 'array') {
+            return (
+                <tr>
+                    <td>
+                        <label htmlFor={uid}>{itemName}</label>
+                    </td>
+                    <td>
+                        {item.enum && item.enum.length ?
+                            <select
+                                id={uid}
+                                onChange={(e) => {
+                                handleInputChange(e, parentName + ';' + itemName, endpointId);
+                            }}
+                                defaultValue={'*select*'}
+                            >
+                                <option disabled={true} value={'*select*'}>{''}</option>
+                                {item.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
+                            </select> :
+                            <input
+                                defaultValue={''}
+                                id={uid}
+                                onChange={
+                                (e) => {
+                                    handleInputChange(e, parentName + ';' + itemName, endpointId);
+                                }}
+                                placeholder={item.example}
+                            />
+                        }
+                    </td>
+                </tr>
+            );
+        }
         return (
             <tr>
                 <td>
-                    <label htmlFor={uid}>{itemName}</label>
+                    <label htmlFor={uid}>{itemName + 'array'}</label>
                 </td>
                 <td>
-                    {item.enum && item.enum.length ?
+                    {item.items.enum && item.items.enum.length ?
                         <select
                             id={uid}
                             onChange={(e) => {
-                                handleInputChange(e, parentName + ';' + itemName, endpointId);
+                                handleInputChangeArray(e, parentName + ';' + itemName, endpointId);
                             }}
                             defaultValue={'*select*'}
                         >
-                        <option disabled={true} value={'*select*'}>{''}</option>
-                        {item.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
+                            <option disabled={true} value={'*select*'}>{''}</option>
+                            {item.items.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
                         </select> :
                         <input
                             defaultValue={''}
                             id={uid}
                             onChange={
                                 (e) => {
-                                    handleInputChange(e, parentName + ';' + itemName, endpointId);
+                                    handleInputChangeArray(e, parentName + ';' + itemName, endpointId);
                                 }}
                             placeholder={item.example}
                         />
@@ -66,10 +110,10 @@ const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
                         <td
                             colSpan='2'
                             onClick={
-                                (e) => {
-                                    handleToggleVisibility(e, parentName + ';' + itemName, endpointId);
+                                    (e) => {
+                                        handleToggleVisibility(e, parentName + ';' + itemName, endpointId);
+                                    }
                                 }
-                            }
                         ><label>{itemName}</label></td>
                     </tr>
                     {uiState.visible ? Object.keys(item).filter((name) => name !== 'uiState').map((itemKey, i) => {
@@ -80,8 +124,7 @@ const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
                             key={i}
                             parentName={itemName}
                         />);
-                    }) : null
-                    }
+                    }) : null}
                     </tbody>
                 </table>
             </td>
