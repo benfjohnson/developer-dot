@@ -13,7 +13,15 @@ const handleInputChange = (e, pbName, id) => {
     });
 };
 
-const PostBodyItem = ({parentName, itemName, item, endpointId}) => {
+const handleToggleVisibility = (e, pbName, id) => {
+    store.dispatch({
+        type: actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY,
+        postBodyParamName: pbName,
+        apiId: id
+    });
+};
+
+const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
     const uid = shortid.generate();
 
     if (item.fieldType) {
@@ -53,9 +61,16 @@ const PostBodyItem = ({parentName, itemName, item, endpointId}) => {
                 <table style={{width: '100%'}}>
                     <tbody>
                     <tr>
-                        <td colSpan='2'><label>{itemName}</label></td>
+                        <td
+                            colSpan='2'
+                            onClick={
+                                (e) => {
+                                    handleToggleVisibility(e, parentName + ';' + itemName, endpointId);
+                                }
+                            }
+                        ><label>{itemName}</label></td>
                     </tr>
-                    {Object.keys(item).map((itemKey, i) => {
+                    {uiState.visible ? Object.keys(item).filter((name) => name !== 'uiState').map((itemKey, i) => {
                         return (<PostBodyItem
                             endpointId={endpointId}
                             item={item[itemKey]}
@@ -63,7 +78,8 @@ const PostBodyItem = ({parentName, itemName, item, endpointId}) => {
                             key={i}
                             parentName={itemName}
                         />);
-                    })}
+                    }) : null
+                    }
                     </tbody>
                 </table>
             </td>
@@ -76,7 +92,10 @@ PostBodyItem.propTypes = {
     parentName: React.PropTypes.string,
     itemName: React.PropTypes.string.isRequired,
     item: React.PropTypes.object.isRequired,
-    endpointId: React.PropTypes.number.isRequired
+    endpointId: React.PropTypes.number.isRequired,
+    uiState: React.PropTypes.shape({
+        visible: React.PropTypes.bool
+    })
 };
 
 export default PostBodyItem;

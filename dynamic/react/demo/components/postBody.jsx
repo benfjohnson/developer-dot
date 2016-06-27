@@ -2,6 +2,12 @@ import React from 'react';
 
 import PostBodyItem from './PostBodyItem';
 
+const getPostBodyItems = (props) => (
+    props.postBody.fieldType && props.postBody.fieldType === 'array' ?
+        props.postBody.items :
+        props.postBody
+);
+
 const PostBody = (props) => (
     <table>
         <tbody>
@@ -9,26 +15,17 @@ const PostBody = (props) => (
             <td colSpan='2'><h4>{'Post Body'}</h4></td>
         </tr>
         {
-            props.postBody.fieldType && props.postBody.fieldType === 'array' ?
-                Object.keys(props.postBody.items).map((name, i) => {
-                    return (<PostBodyItem
-                        endpointId={props.id}
-                        item={props.postBody.items[name]}
-                        itemName={name}
-                        key={i}
-                        parentName={null}
-                    />);
-                }) :
-                Object.keys(props.postBody).map((name, i) => {
-                    return (<PostBodyItem
-                        endpointId={props.id}
-                        item={props.postBody[name]}
-                        itemName={name}
-                        key={i}
-                        parentName={null}
-                    />);
-                })
-            }
+            Object.keys(getPostBodyItems(props)).filter((name) => name !== 'uiState').map((name, i) => {
+                return (<PostBodyItem
+                    endpointId={props.id}
+                    item={getPostBodyItems(props)[name]}
+                    itemName={name}
+                    key={i}
+                    parentName={null}
+                    uiState={getPostBodyItems(props)[name].uiState}
+                />);
+            })
+        }
         </tbody>
     </table>
 );

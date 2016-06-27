@@ -45,7 +45,7 @@ const createPostBody = (endpoint, definitions) => {
         }
 
         if (schema.type && schema.type === 'object') {
-            return Object.assign({}, ...Object.keys(schema.properties).map((name) => {
+            return Object.assign({uiState: {visible: false}}, ...Object.keys(schema.properties).map((name) => {
                 if (schema.properties[name] && schema.properties[name]['x-visibility'] && schema.properties[name]['x-visibility'] === 'hidden') {
                     return;
                 }
@@ -59,7 +59,7 @@ const createPostBody = (endpoint, definitions) => {
                 return;
             }
 
-            return {fieldType: schema.type, items: buildSchema(schemaName, schema.items), value: []};
+            return {uiState: {visible: false}, fieldType: schema.type, items: buildSchema(schemaName, schema.items), value: []};
         }
 
         const objToReturn = {fieldType: schema.type, value: ''};
