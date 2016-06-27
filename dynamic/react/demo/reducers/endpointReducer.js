@@ -20,6 +20,7 @@ export default (state, action) => {
         break;
     case actionTypes.POST_BODY_CHANGED:
     case actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY:
+    case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
         newState = {...newState, postBody: postBodyReducer(newState.postBody, action)};
         newState.postBodyData = buildPostBodyData('postBodyData', newState.postBody);
         newState.curl = buildCurl(newState);

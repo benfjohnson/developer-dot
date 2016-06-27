@@ -19,6 +19,9 @@ export default (state, action) => {
             action.postBodyParamName.split(';').reduce((accum, paramName) => accum[paramName], newState).visible = !(action.postBodyParamName.split(';').reduce((accum, paramName) => accum[paramName], newState).visible);
         }
         return newState;
+    case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
+        newState[action.postBodyParamName.split(';')[1]].value.push(action.itemSchema);
+        return newState;
     default:
         return newState;
     }
