@@ -18,11 +18,11 @@ const buildPostBodyData = (name, body) => {
     }
 
     return Object.keys(body).reduce((accum, propName) => {
-        // if (body[propName].hasOwnProperty('value') && body[propName].value === '') {
-        //     console.log('do not show', propName);
-        //     return accum;
-        // }
+        if (body[propName].hasOwnProperty('value') && body[propName].value === '') {
+            return accum;
+        }
 
+        // return buildPostBodyData(propName, body[propName]);
         return {...accum, [propName]: buildPostBodyData(propName, body[propName])};
     }, {});
 };
