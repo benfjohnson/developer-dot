@@ -37,7 +37,9 @@ const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
                             onChange={(e) => {
                                 handleInputChange(e, parentName + ';' + itemName, endpointId);
                             }}
+                            defaultValue={'*select*'}
                         >
+                        <option disabled={true} value={'*select*'}>{''}</option>
                         {item.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
                         </select> :
                         <input
@@ -90,9 +92,9 @@ const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
 PostBodyItem.displayName = 'Post Body Item';
 PostBodyItem.propTypes = {
     parentName: React.PropTypes.string,
-    itemName: React.PropTypes.string.isRequired,
-    item: React.PropTypes.object.isRequired,
     endpointId: React.PropTypes.number.isRequired,
+    item: React.PropTypes.object.isRequired,
+    itemName: React.PropTypes.string.isRequired,
     uiState: React.PropTypes.shape({
         visible: React.PropTypes.bool
     })
