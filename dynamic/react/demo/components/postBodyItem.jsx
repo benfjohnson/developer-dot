@@ -13,10 +13,13 @@ const handleInputChange = (e, pbName, endpointId) => {
     });
 };
 
-const handleInputChangeArray = (e, pbName, endpointId, arrayIndex) => {
+const handleInputChangeArray = (e, pbName, endpointId, array, arrayIndex) => {
+    const newArray = [...array];
+    newArray[arrayIndex] = e.target.value;
+
     store.dispatch({
         type: actionTypes.POST_BODY_CHANGED,
-        inputVal: e.target.value,
+        inputVal: newArray,
         postBodyParamName: pbName,
         endpointId: endpointId
     });
@@ -43,8 +46,7 @@ const handleAddItem = (paramName, endpointId, itemSchema) => {
 const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
     const uid = shortid.generate();
 
-    if (item.fieldType) {
-        if (item.fieldType !== 'array') {
+    if (item.fieldType && item.fieldType !== 'array') {
             return (
                 <tr>
                     <td>
@@ -55,8 +57,13 @@ const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
                             <select
                                 id={uid}
                                 onChange={(e) => {
-                                    handleInputChange(e, parentName + ';' + itemName, endpointId);
-                                } }
+                                    if (itemName.indexOf('[') !== -1) {
+                                        const index = parseInt(itemName.slice(itemName.indexOf('[') + 1, itemName.indexOf(']')), 10);
+                                        handleInputChangeArray(e, 'null;' + parentName, endpointId, item, index);
+                                    } else {
+                                        handleInputChange(e, parentName + ';' + itemName, endpointId);
+                                    }
+                                }}
                                 defaultValue={'*select*'}
                                 >
                                 <option disabled={true} value={'*select*'}>{''}</option>
@@ -75,9 +82,9 @@ const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
                     </td>
                 </tr>
             );
-        }
+    }
 
-        // If here, then item has a fieldtype of ARRAY
+    if (item.fieldType === 'array') {
         return (
             <tr>
                 <td colSpan='2'>
@@ -121,39 +128,10 @@ const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
                 </td>
             </tr>
         );
-
-
-        // return (
-        //     <tr>
-        //         <td colSpan='2'>
-
-        //             <label htmlFor={uid}>{itemName + ' (Collection)'}</label>
-        //             <button onClick={
-        //                 (e) => {
-        //                     e.preventDefault();
-        //                     handleAddItem(parentName + ';' + itemName, endpointId, item.items);
-        //                 }
-        //             }>
-        //             {'Add Item'}
-        //             </button>
-        //             <table style={{width: '100%'}}>
-        //                 <tbody>
-        //                     {item.value.map((collectionItem, i) => {
-        //                         return (<PostBodyItem
-        //                             endpointId={endpointId}
-        //                             item={collectionItem}
-        //                             itemName={`${itemName}[${i}]`}
-        //                             key={i}
-        //                             parentName={itemName}
-        //                         />);
-        //                     })}
-        //                 </tbody>
-        //             </table>
-        //             </td>
-        //     </tr>
-        // );
     }
 
+    // If no field type exists, the item is of type object, and it's renderable properties are nested
+    // Need to recurse through them
     return (
         <tr>
             <td colSpan='2'>
