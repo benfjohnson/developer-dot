@@ -13,6 +13,7 @@ export default (state, action) => {
 
         return newState;
     case actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY:
+        console.log('TOGGLE VISIBILITY ACTION', action);
         if (action.postBodyParamName.indexOf('null') !== -1) {
             newState[action.postBodyParamName.split(';')[1]].uiState.visible = !newState[action.postBodyParamName.split(';')[1]].uiState.visible;
         } else {
@@ -20,6 +21,9 @@ export default (state, action) => {
         }
         return newState;
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
+        console.log('ADD TO COLLECTION ACTION', action);
+        // Want to unhide section if hidden to emphasize we've added an item:
+        newState[action.postBodyParamName.split(';')[1]].uiState.visible = true;
         newState[action.postBodyParamName.split(';')[1]].value.push(action.itemSchema);
         return newState;
     default:

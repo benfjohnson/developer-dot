@@ -55,112 +55,133 @@ const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
                             <select
                                 id={uid}
                                 onChange={(e) => {
-                                handleInputChange(e, parentName + ';' + itemName, endpointId);
-                            }}
+                                    handleInputChange(e, parentName + ';' + itemName, endpointId);
+                                } }
                                 defaultValue={'*select*'}
-                            >
+                                >
                                 <option disabled={true} value={'*select*'}>{''}</option>
-                                {item.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
+                                {item.enum.map((option, i) => (<option key={i} value={option}>{option}</option>)) }
                             </select> :
                             <input
                                 defaultValue={''}
                                 id={uid}
                                 onChange={
-                                (e) => {
-                                    handleInputChange(e, parentName + ';' + itemName, endpointId);
-                                }}
+                                    (e) => {
+                                        handleInputChange(e, parentName + ';' + itemName, endpointId);
+                                    } }
                                 placeholder={item.example}
-                            />
+                                />
                         }
                     </td>
                 </tr>
             );
         }
+
         // If here, then item has a fieldtype of ARRAY
         return (
             <tr>
-                <td
-                colSpan='2'
-                onClick={
-                    (e) => {
-                        handleToggleVisibility(e, parentName + ';' + itemName, endpointId);
-                    }
-                }>
-                    <label htmlFor={uid}>{itemName + ' (Collection)'}</label>
-                    <button onClick={
-                        (e) => {
-                            e.preventDefault();
-                            handleAddItem(parentName + ';' + itemName, endpointId, item.items);
-                        }
-                    }>
-                    {'Add Item'}
-                    </button>
+                <td colSpan='2'>
                     <table style={{width: '100%'}}>
                         <tbody>
-                            {item.value.map((collectionItem, i) => {
-                                // return (collectionItem.enum && collectionItem.enum.length ?
-                                //     <select
-                                //         id={uid}
-                                //         key={i}
-                                //         onChange={(e) => {
-                                //             handleInputChangeArray(e, parentName + ';' + itemName, endpointId);
-                                //         }}
-                                //         defaultValue={'*select*'}
-                                //     >
-                                //         <option disabled={true} value={'*select*'}>{''}</option>
-                                //         {collectionItem.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
-                                //     </select> :
-                                //     <input
-                                //         defaultValue={''}
-                                //         id={uid}
-                                //         key={i}
-                                //         onChange={
-                                //             (e) => {
-                                //                 handleInputChangeArray(e, parentName + ';' + itemName, endpointId);
-                                //             }}
-                                //         placeholder={item.example}
-                                //     />);
-                                console.log('ARRAY ITEM', collectionItem);
+                            <tr>
+                                <td
+                                    colSpan='2'
+                                    onClick={
+                                        (e) => {
+                                            handleToggleVisibility(e, parentName + ';' + itemName, endpointId);
+                                        }
+                                    }
+                                    style={{cursor: 'pointer'}}
+                                    >
+                                    <label style={{cursor: 'pointer'}}>{itemName}</label>
+                                </td>
+                                <td>
+                                    <button onClick={
+                                        (e) => {
+                                            e.preventDefault();
+                                            handleAddItem(parentName + ';' + itemName, endpointId, item.items);
+                                        }
+                                    }>
+                                        {'Add Item'}
+                                    </button>
+                                </td>
+                            </tr>
+                            {uiState.visible ? item.value.map((itm, i) => {
                                 return (<PostBodyItem
                                     endpointId={endpointId}
-                                    item={collectionItem}
-                                    itemName={`${itemName}[${i}]`}
+                                    item={itm}
+                                    itemName={`[${i}]`}
                                     key={i}
                                     parentName={itemName}
-                                />);
-                            })}
+                                    uiState={itm.uiState}
+                                    />);
+                            }) : null}
                         </tbody>
                     </table>
-                    </td>
+                </td>
             </tr>
         );
+
+
+        // return (
+        //     <tr>
+        //         <td colSpan='2'>
+
+        //             <label htmlFor={uid}>{itemName + ' (Collection)'}</label>
+        //             <button onClick={
+        //                 (e) => {
+        //                     e.preventDefault();
+        //                     handleAddItem(parentName + ';' + itemName, endpointId, item.items);
+        //                 }
+        //             }>
+        //             {'Add Item'}
+        //             </button>
+        //             <table style={{width: '100%'}}>
+        //                 <tbody>
+        //                     {item.value.map((collectionItem, i) => {
+        //                         return (<PostBodyItem
+        //                             endpointId={endpointId}
+        //                             item={collectionItem}
+        //                             itemName={`${itemName}[${i}]`}
+        //                             key={i}
+        //                             parentName={itemName}
+        //                         />);
+        //                     })}
+        //                 </tbody>
+        //             </table>
+        //             </td>
+        //     </tr>
+        // );
     }
 
     return (
         <tr>
             <td colSpan='2'>
-                <table style={{width: '100%'}}>
+                <table style={{ width: '100%' }}>
                     <tbody>
-                    <tr>
-                        <td
-                            colSpan='2'
-                            onClick={
-                                (e) => {
-                                    handleToggleVisibility(e, parentName + ';' + itemName, endpointId);
+                        <tr>
+                            <td
+                                colSpan='2'
+                                onClick={
+                                    (e) => {
+                                        handleToggleVisibility(e, parentName + ';' + itemName, endpointId);
+                                    }
                                 }
-                            }
-                            style={{cursor: 'pointer'}}
-                        ><label style={{cursor: 'pointer'}}>{itemName}</label></td>
-                    </tr>
-                    {uiState.visible ? Object.keys(item).filter((name) => name !== 'uiState').map((itemKey, i) => {
-                        return (<PostBodyItem
-                            endpointId={endpointId}
-                            item={item[itemKey]}
-                            itemName={itemKey}
-                            key={i}
-                            parentName={itemName}
-                        />);
-                    }) : null}
+                                style={{ cursor: 'pointer' }}
+                                >
+                                <label style={{ cursor: 'pointer' }}>{itemName}</label>
+                            </td>
+                        </tr>
+                        {uiState.visible ? Object.keys(item).filter((name) => name !== 'uiState').map((itemKey, i) => {
+                            return (<PostBodyItem
+                                endpointId={endpointId}
+                                item={item[itemKey]}
+                                itemName={itemKey}
+                                key={i}
+                                parentName={itemName}
+                                uiState={item[itemKey].uiState}
+                                />);
+                        }) : null}
                     </tbody>
                 </table>
             </td>
