@@ -25,7 +25,18 @@ export default (state, action) => {
     switch (action.type) {
     case actionTypes.POST_BODY_CHANGED:
 //         console.log('POST BODY CHANGED', action);
-        newStateProperty.value = action.inputVal;
+
+        switch(newStateProperty.fieldType) {
+        case 'number':
+            newStateProperty.value = parseFloat(action.inputVal);
+            break;
+        case 'boolean':
+            newStateProperty.value = action.inputVal === 'true';
+            break;
+        default:
+            newStateProperty.value = action.inputVal;
+        }
+
 
         return newState;
     case actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY:
