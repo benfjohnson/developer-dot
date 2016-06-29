@@ -38,8 +38,10 @@ export default (state, action) => {
 
         newStateProperty.uiState.visible = true;
         newStateProperty.value = newStateProperty.value.concat(action.itemSchema);
-        newStateProperty.value[newStateProperty.value.length - 1].uiState.visible = true;
-
+        // Should only set visibility on the array item if it's an object/array, not simple property:
+        if (newStateProperty.value[newStateProperty.value.length - 1].uiState) {
+            newStateProperty.value[newStateProperty.value.length - 1].uiState.visible = true;
+        }
         return newState;
     default:
         return newState;
