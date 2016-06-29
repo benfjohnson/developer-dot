@@ -91,11 +91,11 @@ function buildSchema(schemaName, schema, definitions) {
             return { [propName]: buildSchema(propName, schema.properties[propName], definitions) };
         });
 
-        return Object.assign({ uiState: { visible: false } }, ...nestedSchemaProps);
+        return Object.assign({ uiState: { visible: true } }, ...nestedSchemaProps);
     }
 
     if (schema.type && schema.type === 'array') {
-        return { uiState: { visible: false }, fieldType: schema.type, items: buildSchema(schemaName, schema.items, definitions), value: [] };
+        return { uiState: { visible: true }, fieldType: schema.type, items: buildSchema(schemaName, schema.items, definitions), value: [] };
     }
 
     const objToReturn = { fieldType: schema.type, value: '' };

@@ -29,26 +29,26 @@ const handleInputChangeArray = (e, pbName, endpointId, array, arrayIndex) => {
     });
 };
 
-const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
+const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
     const uid = shortid.generate();
 
     if (item.fieldType && item.fieldType !== 'array') {
         return (
             <tr>
                 <td>
-                    <label htmlFor={uid}>{itemName}</label>
+                    <label htmlFor={uid}>{displayName}</label>
                 </td>
                 <td>
                     {item.enum && item.enum.length ?
                         <select
                             id={uid}
                             onChange={(e) => {
-                                if (itemName.indexOf('[') !== -1) {
-                                    const index = parseInt(itemName.slice(itemName.indexOf('[') + 1, itemName.indexOf(']')), 10);
+                                if (name.indexOf('[') !== -1) {
+                                    const index = parseInt(name.slice(name.indexOf('[') + 1, name.indexOf(']')), 10);
 
-                                    handleInputChangeArray(e, 'null;' + parentName, endpointId, item, index);
+                                    handleInputChangeArray(e, name, endpointId, item, index);
                                 } else {
-                                    handleInputChange(e, parentName + ';' + itemName, endpointId);
+                                    handleInputChange(e, name, endpointId);
                                 }
                             }}
                             defaultValue={'*select*'}
@@ -61,7 +61,7 @@ const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
                             id={uid}
                             onChange={
                                 (e) => {
-                                    handleInputChange(e, parentName + ';' + itemName, endpointId);
+                                    handleInputChange(e, name, endpointId);
                                 } }
                             placeholder={item.example}
                             />
@@ -76,8 +76,7 @@ const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
             <PostBodyCollection
                 collection={item.value}
                 endpointId={endpointId}
-                parentName={parentName}
-                propertyName={`${parentName};${itemName}`}
+                propertyName={name}
                 schema={item.items}
                 uiState={uiState}
             />
@@ -85,14 +84,15 @@ const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
     }
 
     return (
-        <PostBodySectionHeader endpointId={endpointId} propertyName={`${parentName};${itemName}`}>
-            {uiState.visible ? Object.keys(item).filter((name) => name !== 'uiState').map((itemKey, i) => {
+        <PostBodySectionHeader endpointId={endpointId} propertyName={name}>
+            {uiState.visible ? Object.keys(item).filter((n) => n !== 'uiState').map((itemKey, i) => {
                 return (<PostBodyItem
+                    displayName={itemKey}
                     endpointId={endpointId}
                     item={item[itemKey]}
                     itemName={itemKey}
                     key={i}
-                    parentName={itemName}
+                    name={name + ';' + itemKey}
                     uiState={item[itemKey].uiState}
                 />);
             }) : null}
@@ -102,10 +102,9 @@ const PostBodyItem = ({parentName, itemName, item, endpointId, uiState}) => {
 
 PostBodyItem.displayName = 'Post Body Item';
 PostBodyItem.propTypes = {
-    parentName: React.PropTypes.string,
     endpointId: React.PropTypes.number.isRequired,
     item: React.PropTypes.object.isRequired,
-    itemName: React.PropTypes.string.isRequired,
+    name: React.PropTypes.string.isRequired,
     uiState: React.PropTypes.shape({
         visible: React.PropTypes.bool
     })

@@ -45,10 +45,10 @@ const PostBodySectionHeader = ({endpointId, propertyName, children}) => {
     );
 };
 
-PostBodySectionHeader.displayName = 'Post Body Array';
+PostBodySectionHeader.displayName = 'Post Item Section Header';
 
 PostBodySectionHeader.propTypes = {
-    //children: React.PropTypes.element.isRequired,
+    //children: React.PropTypes.element,
     endpointId: React.PropTypes.number.isRequired,
     propertyName: React.PropTypes.string.isRequired,
     uiState: React.PropTypes.shape({

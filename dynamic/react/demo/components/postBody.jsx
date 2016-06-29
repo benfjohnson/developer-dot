@@ -11,20 +11,24 @@ const getPostBodyItems = (props) => (
 const PostBody = (props) => (
     <table>
         <tbody>
-        <tr>
-            <td colSpan='2'><h4>{'Post Body'}</h4></td>
-        </tr>
         {
-            Object.keys(getPostBodyItems(props)).filter((name) => name !== 'uiState').map((name, i) => {
-                return (<PostBodyItem
-                    endpointId={props.id}
-                    item={getPostBodyItems(props)[name]}
-                    itemName={name}
-                    key={i}
-                    parentName={null}
-                    uiState={getPostBodyItems(props)[name].uiState}
-                />);
-            })
+            <PostBodyItem
+                endpointId={props.id}
+                item={props.postBody}
+                name={''}
+                displayName={'Post Body'}
+                uiState={props.postBody.uiState}
+            />
+            // Object.keys(getPostBodyItems(props)).filter((name) => name !== 'uiState').map((name, i) => {
+            //     return (<PostBodyItem
+            //         endpointId={props.id}
+            //         item={getPostBodyItems(props)[name]}
+            //         itemName={name}
+            //         key={i}
+            //         parentName={null}
+            //         uiState={getPostBodyItems(props)[name].uiState}
+            //     />);
+            // })
         }
         </tbody>
     </table>

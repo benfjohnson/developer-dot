@@ -26,8 +26,8 @@ const API_SWAGGER_URLS = {
     }
 };
 
-const API_SWAGGER_URL = './uber.yaml';
-//const API_SWAGGER_URL = API_SWAGGER_URLS[API].base + API_SWAGGER_URLS[API].api;
+// const API_SWAGGER_URL = './uber.yaml';
+const API_SWAGGER_URL = API_SWAGGER_URLS[API].base + API_SWAGGER_URLS[API].api;
 
 window.swaggerUi = new SwaggerUi({
     url: API_SWAGGER_URL,
@@ -35,8 +35,6 @@ window.swaggerUi = new SwaggerUi({
     supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
     onComplete: function(swaggerApi, swaggerUi) {
         const apiInfo = parseSwaggerUi(swaggerApi, API_SWAGGER_URL);
-
-        console.log('PARSED DATA', apiInfo);
 
         store.dispatch({
             type: actionTypes.FETCH_API_DATA_DONE,

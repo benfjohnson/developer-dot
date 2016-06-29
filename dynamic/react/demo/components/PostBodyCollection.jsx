@@ -33,11 +33,11 @@ const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiSta
                     return (
                     <tr key={i}>
                         <PostBodyItem
-                        endpointId={endpointId}
-                        item={itm}
-                        itemName={`[${i}]`}
-                        parentName={propertyName}
-                        uiState={itm.uiState}
+                            endpointId={endpointId}
+                            item={itm}
+                            name={`${propertyName ? propertyName + ';' : ''}[${i}]`}
+                            uiState={itm.uiState}
+                            displayName={i}
                         />
                     </tr>);
                 }) : null}
