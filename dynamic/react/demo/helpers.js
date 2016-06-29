@@ -12,18 +12,26 @@ const buildQsPath = (queryString) => {
     return qsPath;
 };
 
-const buildPostBodyData = (name, body) => {
-    if (body.hasOwnProperty('value')) {
+const buildPostBodyData = (body) => {
+    if (body.hasOwnProperty('value') && body.fieldType !== 'array') {
         return body.value;
     }
 
-    return Object.keys(body).reduce((accum, propName) => {
+    if (body.fieldType === 'array') {
+        return body.value.reduce((accum, prop) => {
+            if (prop.hasOwnProperty('value') && prop.value === '') {
+                return accum;
+            }
+            return accum.concat(buildPostBodyData(prop));
+        }, []);
+    }
+
+    return Object.keys(body).filter((n) => n !== 'uiState').reduce((accum, propName) => {
         if (body[propName].hasOwnProperty('value') && body[propName].value === '') {
             return accum;
         }
 
-        // return buildPostBodyData(propName, body[propName]);
-        return {...accum, [propName]: buildPostBodyData(propName, body[propName])};
+        return {...accum, [propName]: buildPostBodyData(body[propName])};
     }, {});
 };
 

@@ -19,16 +19,6 @@ const PostBody = (props) => (
                 displayName={'Post Body'}
                 uiState={props.postBody.uiState}
             />
-            // Object.keys(getPostBodyItems(props)).filter((name) => name !== 'uiState').map((name, i) => {
-            //     return (<PostBodyItem
-            //         endpointId={props.id}
-            //         item={getPostBodyItems(props)[name]}
-            //         itemName={name}
-            //         key={i}
-            //         parentName={null}
-            //         uiState={getPostBodyItems(props)[name].uiState}
-            //     />);
-            // })
         }
         </tbody>
     </table>

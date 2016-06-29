@@ -19,7 +19,7 @@ const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiSta
         <PostBodySectionHeader endpointId={endpointId} propertyName={propertyName}>
             <tr>
                 <td>
-                    <button onClick={
+                    <button type={'button'} onClick={
                     (e) => {
                         e.preventDefault();
                         handleAddItem(propertyName, endpointId, schema);

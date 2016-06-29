@@ -16,19 +16,6 @@ const handleInputChange = (e, pbName, endpointId) => {
     });
 };
 
-const handleInputChangeArray = (e, pbName, endpointId, array, arrayIndex) => {
-    const newArray = [...array];
-
-    newArray[arrayIndex] = e.target.value;
-
-    store.dispatch({
-        type: actionTypes.POST_BODY_CHANGED,
-        inputVal: newArray,
-        postBodyParamName: pbName,
-        endpointId: endpointId
-    });
-};
-
 const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
     const uid = shortid.generate();
 
@@ -42,17 +29,9 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
                     {item.enum && item.enum.length ?
                         <select
                             id={uid}
-                            onChange={(e) => {
-                                if (name.indexOf('[') !== -1) {
-                                    const index = parseInt(name.slice(name.indexOf('[') + 1, name.indexOf(']')), 10);
-
-                                    handleInputChangeArray(e, name, endpointId, item, index);
-                                } else {
-                                    handleInputChange(e, name, endpointId);
-                                }
-                            }}
+                            onChange={(e) => {handleInputChange(e, name, endpointId);}}
                             defaultValue={'*select*'}
-                            >
+                        >
                             <option disabled={true} value={'*select*'}>{''}</option>
                             {item.enum.map((option, i) => (<option key={i} value={option}>{option}</option>)) }
                         </select> :
@@ -64,7 +43,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
                                     handleInputChange(e, name, endpointId);
                                 } }
                             placeholder={item.example}
-                            />
+                        />
                     }
                 </td>
             </tr>
@@ -96,7 +75,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
                     uiState={item[itemKey].uiState}
                 />);
             }) : null}
-       </PostBodySectionHeader>
+        </PostBodySectionHeader>
     );
 };
 

@@ -59,6 +59,7 @@ const EndPointComponent = (props) => (
             {props.endpoint.queryString ? <QueryString id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} queryString={props.endpoint.queryString}/> : null}
             {props.endpoint.postBody ? <PostBody id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.postBody}/> : null}
             <button
+                type={'button'}
                 className='btn btn-success'
                 onClick={(e) => {
                     e.preventDefault();
@@ -70,6 +71,7 @@ const EndPointComponent = (props) => (
             {props.endpoint.queryString || props.endpoint.postBody ?
             <span>
                 <button
+                    type={'button'}
                     className='btn btn-default'
                     onClick={(e) => {
                         e.preventDefault();
