@@ -28,20 +28,17 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
                 <td>
                     {item.enum && item.enum.length ?
                         <select
-                            id={uid}
-                            onChange={(e) => {handleInputChange(e, name, endpointId);}}
                             defaultValue={'*select*'}
+                            id={uid}
+                            onChange={(e) => (handleInputChange(e, name, endpointId))}
                         >
                             <option disabled={true} value={'*select*'}>{''}</option>
-                            {item.enum.map((option, i) => (<option key={i} value={option}>{option}</option>)) }
+                            {item.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
                         </select> :
                         <input
                             defaultValue={''}
                             id={uid}
-                            onChange={
-                                (e) => {
-                                    handleInputChange(e, name, endpointId);
-                                } }
+                            onChange={(e) => (handleInputChange(e, name, endpointId))}
                             placeholder={item.example}
                         />
                     }
@@ -54,17 +51,17 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
         return (
             <PostBodyCollection
                 collection={item.value}
+                displayName={displayName}
                 endpointId={endpointId}
                 propertyName={name}
                 schema={item.items}
                 uiState={uiState}
-                displayName={displayName}
             />
         );
     }
 
     return (
-        <PostBodySectionHeader endpointId={endpointId} propertyName={name} displayName={displayName}>
+        <PostBodySectionHeader displayName={displayName} endpointId={endpointId} propertyName={name}>
             {uiState.visible ? Object.keys(item).filter((n) => n !== 'uiState').map((itemKey, i) => {
                 return (<PostBodyItem
                     displayName={itemKey}
@@ -82,6 +79,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
 
 PostBodyItem.displayName = 'Post Body Item';
 PostBodyItem.propTypes = {
+    displayName: React.PropTypes.string.isRequired,
     endpointId: React.PropTypes.number.isRequired,
     item: React.PropTypes.object.isRequired,
     name: React.PropTypes.string.isRequired,

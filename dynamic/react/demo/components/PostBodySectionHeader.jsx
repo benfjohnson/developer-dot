@@ -16,9 +16,6 @@ const handleToggleVisibility = (e, propertyName, endpointId) => {
  * array items in a PostBodyå
  * */
 const PostBodySectionHeader = ({endpointId, propertyName, displayName, children}) => {
-//     const namePath = propertyName.split(';');
-//     const sectionName = namePath[namePath.length - 1];
-
     return (
         <tr>
             <td colSpan='2'>
@@ -46,9 +43,12 @@ const PostBodySectionHeader = ({endpointId, propertyName, displayName, children}
 };
 
 PostBodySectionHeader.displayName = 'Post Item Section Header';
-
 PostBodySectionHeader.propTypes = {
-    //children: React.PropTypes.element,
+    children: React.PropTypes.oneOfType([
+        React.PropTypes.element,
+        React.PropTypes.array
+    ]),
+    displayName: React.PropTypes.string.isRequired,
     endpointId: React.PropTypes.number.isRequired,
     propertyName: React.PropTypes.string.isRequired,
     uiState: React.PropTypes.shape({

@@ -16,23 +16,24 @@ const handleAddItem = (paramName, endpointId, itemSchema) => {
 
 const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiState, displayName}) => {
     return (
-        <PostBodySectionHeader endpointId={endpointId} propertyName={propertyName} displayName={displayName}>
+        <PostBodySectionHeader displayName={displayName} endpointId={endpointId} propertyName={propertyName}>
             <tr>
                 <td>
-                    <button type={'button'} onClick={
-                    (e) => {
-                        e.preventDefault();
-                        handleAddItem(propertyName, endpointId, schema);
-                    }
-                }>
-                        {'Add Item'}
-                    </button>
+                    <button
+                        onClick={
+                            (e) => {
+                                e.preventDefault();
+                                handleAddItem(propertyName, endpointId, schema);
+                            }
+                        }
+                        type={'button'}
+                    >{'Add Item'}</button>
                 </td>
             </tr>
             {uiState.visible ? collection.map((itm, i) => {
                 return (
                     <PostBodyItem
-                        displayName={i}
+                        displayName={i.toString()}
                         endpointId={endpointId}
                         item={itm}
                         key={i}
@@ -47,8 +48,11 @@ const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiSta
 PostBodyCollection.displayName = 'Post Body Collection';
 
 PostBodyCollection.propTypes = {
+    collection: React.PropTypes.array.isRequired,
+    displayName: React.PropTypes.string.isRequired,
     endpointId: React.PropTypes.number.isRequired,
     propertyName: React.PropTypes.string.isRequired,
+    schema: React.PropTypes.object.isRequired,
     uiState: React.PropTypes.shape({
         visible: React.PropTypes.bool
     })

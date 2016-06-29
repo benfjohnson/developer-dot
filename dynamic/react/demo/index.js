@@ -1,3 +1,4 @@
+/* global SwaggerUi */
 import React from 'react';
 import {render} from 'react-dom';
 import App from './App';
@@ -30,10 +31,12 @@ const API_SWAGGER_URLS = {
 const API_SWAGGER_URL = API_SWAGGER_URLS[API].base + API_SWAGGER_URLS[API].api;
 
 window.swaggerUi = new SwaggerUi({
+    /* eslint camelcase:1  */
     url: API_SWAGGER_URL,
-    dom_id: "swagger-ui-container",
+    dom_id: 'swagger-ui-container',
     supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
     onComplete: function(swaggerApi, swaggerUi) {
+        /* eslint no-unused-vars:1  */
         const apiInfo = parseSwaggerUi(swaggerApi, API_SWAGGER_URL);
 
         store.dispatch({
@@ -44,9 +47,12 @@ window.swaggerUi = new SwaggerUi({
         $('#swagger-ui-container').remove();
     },
     onFailure: function(data) {
-        log("Unable to Load SwaggerUI");
+        /* eslint no-unused-vars:1  */
+        /* eslint no-console:1  */
+
+        console.log('Unable to Load SwaggerUI');
     },
-    docExpansion: "none",
+    docExpansion: 'none',
     jsonEditor: false,
     defaultModelRendering: 'schema',
     showRequestHeaders: false
