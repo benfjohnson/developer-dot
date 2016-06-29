@@ -14,9 +14,9 @@ const handleAddItem = (paramName, endpointId, itemSchema) => {
     });
 };
 
-const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiState}) => {
+const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiState, displayName}) => {
     return (
-        <PostBodySectionHeader endpointId={endpointId} propertyName={propertyName}>
+        <PostBodySectionHeader endpointId={endpointId} propertyName={propertyName} displayName={displayName}>
             <tr>
                 <td>
                     <button type={'button'} onClick={

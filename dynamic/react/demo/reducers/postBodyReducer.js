@@ -38,6 +38,7 @@ export default (state, action) => {
 
         newStateProperty.uiState.visible = true;
         newStateProperty.value = newStateProperty.value.concat(action.itemSchema);
+        newStateProperty.value[newStateProperty.value.length - 1].uiState.visible = true;
 
         return newState;
     default:

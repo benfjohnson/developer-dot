@@ -15,9 +15,9 @@ const handleToggleVisibility = (e, propertyName, endpointId) => {
  * Defines a wrapper to nest object properties or
  * array items in a PostBodyå
  * */
-const PostBodySectionHeader = ({endpointId, propertyName, children}) => {
-    const namePath = propertyName.split(';');
-    const sectionName = namePath[namePath.length - 1];
+const PostBodySectionHeader = ({endpointId, propertyName, displayName, children}) => {
+//     const namePath = propertyName.split(';');
+//     const sectionName = namePath[namePath.length - 1];
 
     return (
         <tr>
@@ -34,7 +34,7 @@ const PostBodySectionHeader = ({endpointId, propertyName, children}) => {
                                 }
                             style={{cursor: 'pointer'}}
                         >
-                            <label style={{cursor: 'pointer'}}>{sectionName}</label>
+                            <label style={{cursor: 'pointer'}}>{displayName}</label>
                         </td>
                     </tr>
                     {children}

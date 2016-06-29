@@ -58,12 +58,13 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
                 propertyName={name}
                 schema={item.items}
                 uiState={uiState}
+                displayName={displayName}
             />
         );
     }
 
     return (
-        <PostBodySectionHeader endpointId={endpointId} propertyName={name}>
+        <PostBodySectionHeader endpointId={endpointId} propertyName={name} displayName={displayName}>
             {uiState.visible ? Object.keys(item).filter((n) => n !== 'uiState').map((itemKey, i) => {
                 return (<PostBodyItem
                     displayName={itemKey}
@@ -71,7 +72,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
                     item={item[itemKey]}
                     itemName={itemKey}
                     key={i}
-                    name={name + ';' + itemKey}
+                    name={`${name ? name + ';' : ''}` + itemKey}
                     uiState={item[itemKey].uiState}
                 />);
             }) : null}
