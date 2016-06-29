@@ -1,10 +1,11 @@
+import R from 'ramda';
 import queryStringReducer from './queryStringReducer';
 import postBodyReducer from './postBodyReducer';
 import {actionTypes} from './reducer';
 import {buildQsPath, buildPostBodyData, buildCurl} from '../helpers';
 
 export default (state, action) => {
-    let newState = {...state};
+    let newState = R.clone(state);
 
     switch (action.type) {
     case actionTypes.SUBMIT_DONE:

@@ -1,3 +1,4 @@
+import R from 'ramda';
 import endpointReducer from './endpointReducer';
 import {buildQsPath, buildCurl} from '../helpers';
 
@@ -10,8 +11,8 @@ const actionTypes = {
     ADD_ITEM_TO_POST_BODY_COLLECTION: 'ADD_ITEM_TO_POST_BODY_COLLECTION'
 };
 
-const reducer = (state, action) => {
-    const newState = {...state};
+const reducer = (state = {}, action) => {
+    const newState = R.clone(state);
 
     switch (action.type) {
 
