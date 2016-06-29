@@ -1,10 +1,14 @@
 const buildQsPath = (queryString) => {
     let qsPath = '';
-
+    console.log('QUERY STRING', queryString);
     if (queryString && Object.keys(queryString).some((p) => queryString[p].value)) {
-        qsPath = Object.keys(queryString).reduce((qs, param, i) => {
-            if (queryString[param].value.length) {
-                return `${qs}${i > 0 ? '&' : ''}${param}=${queryString[param].value}`;
+        let addedQsParamCount = 0;
+        qsPath = Object.keys(queryString).reduce((qs, param) => {
+            if (queryString[param].value) {
+                const newQs = `${qs}${addedQsParamCount > 0 ? '&' : ''}${param}=${queryString[param].value}`;
+
+                addedQsParamCount++;
+                return newQs;
             }
             return qs;
         }, '?');
