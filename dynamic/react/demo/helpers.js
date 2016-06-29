@@ -18,21 +18,25 @@ const buildPostBodyData = (body) => {
     }
 
     if (body.fieldType === 'array') {
-        return body.value.reduce((accum, prop) => {
+        const arrayBody = body.value.reduce((accum, prop) => {
             if (prop.hasOwnProperty('value') && prop.value === '') {
                 return accum;
             }
             return accum.concat(buildPostBodyData(prop));
         }, []);
+
+        return arrayBody.length ? arrayBody : undefined;
     }
 
-    return Object.keys(body).filter((n) => n !== 'uiState').reduce((accum, propName) => {
+    const objBody = Object.keys(body).filter((n) => n !== 'uiState').reduce((accum, propName) => {
         if (body[propName].hasOwnProperty('value') && body[propName].value === '') {
             return accum;
         }
 
         return {...accum, [propName]: buildPostBodyData(body[propName])};
     }, {});
+
+    return Object.keys(objBody).length ? objBody : undefined;
 };
 
 const buildCurl = (endpoint) => {
