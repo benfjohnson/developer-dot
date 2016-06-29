@@ -1,6 +1,5 @@
 import React from 'react';
 import {render} from 'react-dom';
-import request from 'request';
 import App from './App';
 import {store} from './store';
 
@@ -28,7 +27,7 @@ const API_SWAGGER_URLS = {
 };
 
 const API_SWAGGER_URL = './uber.yaml';
-// const API_SWAGGER_URL = API_SWAGGER_URLS[API].base + API_SWAGGER_URLS[API].api;
+//const API_SWAGGER_URL = API_SWAGGER_URLS[API].base + API_SWAGGER_URLS[API].api;
 
 window.swaggerUi = new SwaggerUi({
     url: API_SWAGGER_URL,
