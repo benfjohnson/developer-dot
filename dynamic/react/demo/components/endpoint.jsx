@@ -83,7 +83,13 @@ const EndPointComponent = (props) => (
             </span> : null}
         </form>
         <br/>
-        <div>{props.endpoint.curl}</div>
+        <div style={{
+            background: '#48483e',
+            color: '#e5eae4',
+            font: '13px Menlo',
+            padding: '8px',
+            borderRadius: '2px'
+        }}>{props.endpoint.curl}</div>
 
         {props.endpoint.apiResponse ?
             <table>

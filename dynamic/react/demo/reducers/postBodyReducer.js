@@ -11,6 +11,7 @@ const traversePropertyPath = (propertyPath, state) => {
     return pathArray.reduce((accum, paramName) => {
         if (paramName.indexOf('[') !== -1) {
             const index = parseInt(paramName.slice(paramName.indexOf('[') + 1, paramName.indexOf(']')), 10);
+
             return accum.value[index];
         }
         return accum[paramName];
