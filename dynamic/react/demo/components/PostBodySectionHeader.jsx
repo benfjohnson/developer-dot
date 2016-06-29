@@ -24,20 +24,20 @@ const PostBodySectionHeader = ({endpointId, propertyName, children}) => {
             <td colSpan='2'>
                 <table style={{width: '100%'}}>
                     <tbody>
-                        <tr>
-                            <td
-                                colSpan='2'
-                                onClick={
+                    <tr>
+                        <td
+                            colSpan='2'
+                            onClick={
                                     (e) => {
                                         handleToggleVisibility(e, propertyName, endpointId);
                                     }
                                 }
-                                style={{cursor: 'pointer'}}
-                            >
-                                <label style={{cursor: 'pointer'}}>{sectionName}</label>
-                            </td>
-                        </tr>
-                        {children}
+                            style={{cursor: 'pointer'}}
+                        >
+                            <label style={{cursor: 'pointer'}}>{sectionName}</label>
+                        </td>
+                    </tr>
+                    {children}
                     </tbody>
                 </table>
             </td>

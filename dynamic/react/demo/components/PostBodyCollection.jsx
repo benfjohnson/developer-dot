@@ -19,28 +19,27 @@ const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiSta
         <PostBodySectionHeader endpointId={endpointId} propertyName={propertyName}>
             <tr>
                 <td>
-                <button onClick={
+                    <button onClick={
                     (e) => {
                         e.preventDefault();
                         handleAddItem(propertyName, endpointId, schema);
                     }
                 }>
-                    {'Add Item'}
-                </button>
+                        {'Add Item'}
+                    </button>
                 </td>
             </tr>
-                {uiState.visible ? collection.map((itm, i) => {
-                    return (
-                    <tr key={i}>
-                        <PostBodyItem
-                            endpointId={endpointId}
-                            item={itm}
-                            name={`${propertyName ? propertyName + ';' : ''}[${i}]`}
-                            uiState={itm.uiState}
-                            displayName={i}
-                        />
-                    </tr>);
-                }) : null}
+            {uiState.visible ? collection.map((itm, i) => {
+                return (
+                    <PostBodyItem
+                        displayName={i}
+                        endpointId={endpointId}
+                        item={itm}
+                        key={i}
+                        name={`${propertyName ? propertyName + ';' : ''}[${i}]`}
+                        uiState={itm.uiState}
+                    />);
+            }) : null}
         </PostBodySectionHeader>
     );
 };

@@ -6,15 +6,15 @@ export default (api, rootPath) => {
         rootPath = api.schemes[0] + '://' + api.host + (api.basePath !== '/' ? api.basePath : '');
     }
 
-    var swagData = [];
+    const swagData = [];
 
     api.apisArray.forEach(function(apiDef) {
         // For every endpoint (api path + method) build a req 
         apiDef.operationsArray.forEach(function(endpoint) {
             // If we've already seen this endpoint in a different operationsArray, ignore:
             if (swagData.some(function(ep) {
-                return ep.name === endpoint.summary;
-            })) {
+                    return ep.name === endpoint.summary;
+                })) {
                 return;
             }
 
@@ -88,17 +88,17 @@ function buildSchema(schemaName, schema, definitions) {
 
     if (schema.type && schema.type === 'object') {
         var nestedSchemaProps = Object.keys(schema.properties).map(function(propName) {
-            return { [propName]: buildSchema(propName, schema.properties[propName], definitions) };
+            return {[propName]: buildSchema(propName, schema.properties[propName], definitions)};
         });
 
-        return Object.assign({ uiState: { visible: true } }, ...nestedSchemaProps);
+        return Object.assign({uiState: {visible: true}}, ...nestedSchemaProps);
     }
 
     if (schema.type && schema.type === 'array') {
-        return { uiState: { visible: true }, fieldType: schema.type, items: buildSchema(schemaName, schema.items, definitions), value: [] };
+        return {uiState: {visible: true}, fieldType: schema.type, items: buildSchema(schemaName, schema.items, definitions), value: []};
     }
 
-    const objToReturn = { fieldType: schema.type, value: '' };
+    const objToReturn = {fieldType: schema.type, value: ''};
 
     if (schema.example) {
         objToReturn.example = schema.example;
