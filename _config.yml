@@ -30,23 +30,24 @@ apis: [
     ['AvaTax','/avatax'],
     ['LandedCost','/landedcost'],
     ['Excise','/excise'],
-    ['Certcapture','/CertCapture'],
+    ['CertCapture','/certcapture'],
     ['TrustFile','/trustfile'],
-    ['Onboarding','/onboarding']
+    ['Onboarding','/onboarding'],
+    ['Communications', '/communications']
 ]
+
 
 # Keep as an empty string if served up at the root. If served up at a specific
 # path (e.g. on GitHub pages) leave off the trailing slash, e.g. /my-project
 baseurl: ''
-
-# Dates are not included in permalinks
-permalink: none
 
 # Syntax highlighting
 highlighter: rouge
 
 # Since these are pages, it doesn't really matter
 future: true
+
+include: ['_pages']
 
 # Exclude non-site files
 exclude: ['bin', 'README.md']
@@ -64,3 +65,12 @@ redcarpet:
         'tables',
         'hardwrap'
     ]
+
+# applies to _posts only for some reason
+permalink: blog/:year/:month/:day/:title
+
+collections:
+    pages:
+        output: true
+        permalink: :path
+        layout: "page"
