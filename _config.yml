@@ -78,6 +78,5 @@ permalink: blog/:year/:month/:day/:title
 
 collections:
     pages:
-        output: true
         permalink: :path
         layout: "page"
