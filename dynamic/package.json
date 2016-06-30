@@ -4,16 +4,18 @@
   "private": true,
   "scripts": {
     "start": "watchify -t babelify --extension=.jsx -vd react/demo/index.js --outfile public/javascript/build/demo.js",
-    "build-static-page": "watchify -t babelify --extension=.jsx -vd react/demo/index-static.js --outfile public/javascript/build/build-static-page.js",
+    "start:static": "watchify -t babelify --extension=.jsx -vd react/demo-static/index.js --outfile public/javascript/build/demo-static.js",
     "eslint": "eslint --ext .js,.jsx ."
   },
   "devDependencies": {
+    "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
     "babel-eslint": "^6.1.0",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-plugin-transform-strict-mode": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
-    "babel-preset-react": "^6.1.18",
+    "babel-preset-es2016": "^6.11.0",
+    "babel-preset-react": "^6.11.1",
     "babelify": "^7.2.0",
     "browserify": "^13.0.1",
     "eslint": "^2.13.1",
