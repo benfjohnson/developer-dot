@@ -1,6 +1,7 @@
 ---
 layout: frontpage
 title: "Avalara Developer"
+disqus: 1
 ---
 
 <h1>Avalara AvaTax</h1>
@@ -24,3 +25,4 @@ Get involved with Avalara's Developer Network and access our community resources
 By creating Certified for Avalara AvaTax integration, your customers and potential customers will know that they can use the entire breadth of Avalara services with confidence.
 
 <a href="http://developer.avalara.com/avalara-certified">Learn more about becoming a certified partner.</a>
+
