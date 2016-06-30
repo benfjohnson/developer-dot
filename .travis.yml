@@ -1,6 +1,9 @@
 language: ruby
 rvm:
   - 2.1
-install: gem install jekyll && gem install s3_website
-script: jekyll build
+install: gem install jekyll && gem install s3_website && gem install algoliasearch-jekyll
+cache: bundler
+script: 
+  - jekyll build
+  - bundle exec jekyll algolia push
 after_success: s3_website push
