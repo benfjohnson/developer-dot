@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "watchify -t babelify --extension=.jsx -vd react/demo/index.js --outfile public/javascript/build/demo.js",
-    "build-static-page": "watchify -t babelify --extension=.jsx -vd react/demo/index-static.js --outfile public/javascript/build/build-static-page.js",
+    "start-static": "watchify -t babelify --extension=.jsx -vd react/demo/index-static.js --outfile public/javascript/build/demo-static.js",
+    "build-static-page": "watchify -t babelify --node --extension=.jsx -vd react/demo/build-static-page.js --outfile public/javascript/build/build-static-page.js",
     "eslint": "eslint --ext .js,.jsx ."
   },
   "devDependencies": {
