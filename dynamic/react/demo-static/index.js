@@ -1235,6 +1235,6 @@ const staticState = {
     ]
 };
 
-const staticHtml = renderToStaticMarkup(<App api={staticState.apiInfo} error={null}/>, document.getElementById('api-demo'));
+const staticHtml = renderToStaticMarkup(<App api={staticState.apiInfo} error={null}/>, document.getElementById('api-console'));
 
 console.log(staticHtml);

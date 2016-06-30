@@ -2,6 +2,11 @@
 import React from 'react';
 import App from './app';
 import {renderToString} from 'react-dom/server';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import {reducer} from './reducers/reducer';
+
+const store = createStore(reducer);
 
 const staticState = {
     "apiInfo": [
@@ -1235,6 +1240,18 @@ const staticState = {
     ]
 };
 
-const staticHtml = renderToString(<App api={staticState.apiInfo} error={null}/>);
+const buildHtml = (reactHtml, initialState) => (
+`---
+layout: default
+title: "Avalara Developer"
+---
+<div id="api-console">${reactHtml}</div>
+<script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
+<script src="public/javascript/build/demo-static.js"></script>
+`
+);
 
-console.log(staticHtml);
+const staticHtml = renderToString(<Provider store={store}><App api={staticState.apiInfo} error={null}/></Provider>);
+
+console.log(buildHtml(staticHtml, staticState));
+

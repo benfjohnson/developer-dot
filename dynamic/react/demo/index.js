@@ -16,7 +16,7 @@ store.subscribe(() => {
 
     /* eslint no-console:1  */
     console.log('NEW STATE', state);
-    render(<App api={api} error={error}/>, document.getElementById('api-demo'));
+    render(<App api={api} error={error}/>, document.getElementById('api-console'));
 });
 
 const API = window.location.search.split('api=')[1].toLowerCase() || 'invalid';

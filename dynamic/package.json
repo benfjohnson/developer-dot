@@ -4,12 +4,8 @@
   "private": true,
   "scripts": {
     "start": "watchify -t babelify --extension=.jsx -vd react/demo/index.js --outfile public/javascript/build/demo.js",
-<<<<<<< HEAD
-    "start:static": "watchify -t babelify --extension=.jsx -vd react/demo-static/index.js --outfile public/javascript/build/demo-static.js",
-=======
     "start-static": "watchify -t babelify --extension=.jsx -vd react/demo/index-static.js --outfile public/javascript/build/demo-static.js",
     "build-static-page": "watchify -t babelify --node --extension=.jsx -vd react/demo/build-static-page.js --outfile public/javascript/build/build-static-page.js",
->>>>>>> ae4a6c3
     "eslint": "eslint --ext .js,.jsx ."
   },
   "devDependencies": {
@@ -28,6 +24,7 @@
     "ramda": "^0.21.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-redux": "^4.4.5",
     "redux": "^3.5.2",
     "request": "^2.72.0",
     "shortid": "^2.2.6",
