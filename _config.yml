@@ -36,6 +36,13 @@ apis: [
     ['Communications', '/communications']
 ]
 
+gems: 
+    - algoliasearch-jekyll
+
+algolia:
+    application_id: '19A6FWAAB3'
+    index_name: 'developer-dot'
+
 
 # Keep as an empty string if served up at the root. If served up at a specific
 # path (e.g. on GitHub pages) leave off the trailing slash, e.g. /my-project
@@ -50,7 +57,7 @@ future: true
 include: ['_pages']
 
 # Exclude non-site files
-exclude: ['bin', 'README.md']
+exclude: ['bin', 'README.md', vendor]
 
 # Use the kramdown Markdown renderer
 markdown: kramdown
@@ -71,6 +78,5 @@ permalink: blog/:year/:month/:day/:title
 
 collections:
     pages:
-        output: true
         permalink: :path
         layout: "page"
