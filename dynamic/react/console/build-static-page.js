@@ -1249,8 +1249,7 @@ title: "Avalara Developer"
 ---
 <div id="api-console">${reactHtml}</div>
 <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
-<script src="public/javascript/build/demo-static.js"></script>
-`
+<script src="public/javascript/build/console-static.js"></script>`
 );
 
 const staticHtml = renderToString(<Provider store={store}><App api={staticState.apiInfo} error={null}/></Provider>);
@@ -1258,4 +1257,3 @@ const staticHtml = renderToString(<Provider store={store}><App api={staticState.
 /* eslint-disable no-console */
 console.log(buildHtml(staticHtml, staticState));
 /* eslint-enable no-console */
-

@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "watchify -t babelify --extension=.jsx -vd react/demo/index.js --outfile public/javascript/build/demo.js",
-    "start-static": "watchify -t babelify --extension=.jsx -vd react/demo/index-static.js --outfile public/javascript/build/demo-static.js",
-    "build-static-page": "watchify -t babelify --node --extension=.jsx -vd react/demo/build-static-page.js --outfile public/javascript/build/build-static-page.js",
+    "start": "watchify -t babelify --extension=.jsx -vd react/console/index.js --outfile public/javascript/build/console.js",
+
+    "start-static": "watchify -t babelify --extension=.jsx -vd react/console/index-static.js --outfile public/javascript/build/console-static.js",
+    "build-static-page": "browserify -t babelify --node --extension=.jsx -vd react/console/build-static-page.js --outfile /tmp/build-static-page.js && node /tmp/build-static-page.js",
+
     "eslint": "eslint --ext .js,.jsx ."
   },
   "devDependencies": {
