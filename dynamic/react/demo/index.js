@@ -29,6 +29,7 @@ const API_SWAGGER_URLS = {
 
 // const API_SWAGGER_URL = './uber.yaml';
 const API_SWAGGER_URL = API_SWAGGER_URLS[API].base + API_SWAGGER_URLS[API].api;
+// const API_SWAGGER_URL = './cqa-swagger.json';
 
 window.swaggerUi = new SwaggerUi({
     /* eslint camelcase:1  */
