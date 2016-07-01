@@ -2,8 +2,6 @@
 import React from 'react';
 import {render} from 'react-dom';
 import App from './App';
-import {createStore} from 'redux';
-import {reducer} from './reducers/reducer';
 import {Provider} from 'react-redux';
 import {store} from './store';
 
@@ -19,8 +17,9 @@ store.subscribe(() => {
     const api = state.apiInfo;
     const error = state.error;
 
-    /* eslint no-console:1  */
+    /* eslint-disable no-console */
     console.log('NEW STATE', state);
+    /* eslint-enable no-console */
     render(<App api={api} error={error}/>, document.getElementById('api-console'));
 });
 

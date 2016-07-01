@@ -1,13 +1,21 @@
 /* global SwaggerUi */
 import React from 'react';
 import {render} from 'react-dom';
-import App from './App';
-import {store} from './store';
+import SwaggerParser from 'swagger-parser';
 
-// import * as SwaggerUi from '../../dist/swagger-ui';
+import App from './app';
+import {store} from './store';
+import {actionTypes} from './reducers/reducer';
 import parseSwaggerUi from './parseSwaggerUI';
 
-import {actionTypes} from './reducers/reducer';
+const API = window.location.search.split('api=')[1].toLowerCase() || 'invalid';
+const API_SWAGGER_URLS = {
+    landedcost: {
+        base: 'http://localhost:8082',
+        api: '/v3/api-definition'
+    }
+};
+const API_SWAGGER_URL = API_SWAGGER_URLS[API].base + API_SWAGGER_URLS[API].api;
 
 store.subscribe(() => {
     const state = store.getState();
@@ -19,43 +27,9 @@ store.subscribe(() => {
     render(<App api={api} error={error}/>, document.getElementById('api-console'));
 });
 
-const API = window.location.search.split('api=')[1].toLowerCase() || 'invalid';
-const API_SWAGGER_URLS = {
-    landedcost: {
-        base: 'http://localhost:8082',
-        api: '/v3/api-definition'
-    }
-};
-
-// const API_SWAGGER_URL = './uber.yaml';
-const API_SWAGGER_URL = API_SWAGGER_URLS[API].base + API_SWAGGER_URLS[API].api;
-
-window.swaggerUi = new SwaggerUi({
-    /* eslint camelcase:1  */
-    url: API_SWAGGER_URL,
-    dom_id: 'swagger-ui-container',
-    supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
-    onComplete: function(swaggerApi, swaggerUi) {
-        /* eslint no-unused-vars:1  */
-        const apiInfo = parseSwaggerUi(swaggerApi, API_SWAGGER_URL);
-
-        store.dispatch({
-            type: actionTypes.FETCH_API_DATA_DONE,
-            apiInfo: apiInfo
-        });
-
-        $('#swagger-ui-container').remove();
-    },
-    onFailure: function(data) {
-        /* eslint no-unused-vars:1  */
-        /* eslint no-console:1  */
-
-        console.log('Unable to Load SwaggerUI');
-    },
-    docExpansion: 'none',
-    jsonEditor: false,
-    defaultModelRendering: 'schema',
-    showRequestHeaders: false
+new SwaggerParser().dereference(API_SWAGGER_URL).then(function(swggerDoc) {
+    store.dispatch({
+        type: actionTypes.FETCH_API_DATA_DONE,
+        apiInfo: parseSwaggerUi(swggerDoc, API_SWAGGER_URL)
+    });
 });
-
-window.swaggerUi.load();

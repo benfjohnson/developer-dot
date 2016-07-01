@@ -8,6 +8,7 @@ import {reducer} from './reducers/reducer';
 
 const store = createStore(reducer);
 
+/* eslint-disable quotes, quote-props */
 const staticState = {
     "apiInfo": [
         {
@@ -1239,6 +1240,7 @@ const staticState = {
         }
     ]
 };
+/* eslint-enable quotes, quote-props */
 
 const buildHtml = (reactHtml, initialState) => (
 `---
@@ -1253,5 +1255,7 @@ title: "Avalara Developer"
 
 const staticHtml = renderToString(<Provider store={store}><App api={staticState.apiInfo} error={null}/></Provider>);
 
+/* eslint-disable no-console */
 console.log(buildHtml(staticHtml, staticState));
+/* eslint-enable no-console */
 

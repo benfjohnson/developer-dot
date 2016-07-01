@@ -1,8 +1,9 @@
 const buildQsPath = (queryString) => {
     let qsPath = '';
-    console.log('QUERY STRING', queryString);
+
     if (queryString && Object.keys(queryString).some((p) => queryString[p].value)) {
         let addedQsParamCount = 0;
+
         qsPath = Object.keys(queryString).reduce((qs, param) => {
             if (queryString[param].value) {
                 const newQs = `${qs}${addedQsParamCount > 0 ? '&' : ''}${param}=${queryString[param].value}`;

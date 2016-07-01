@@ -8,13 +8,6 @@ const buildSchema = (schemaName, schema, definitions) => {
         }, {});
     }
 
-    if (schema.$ref) {
-        const refArray = schema.$ref.split('/');
-        const ref = refArray[refArray.length - 1];
-
-        return buildSchema(ref, definitions[ref], definitions);
-    }
-
     if (schema.type && schema.type === 'object') {
         const nestedSchemaProps = Object.keys(schema.properties).map(function(propName) {
             return {[propName]: buildSchema(propName, schema.properties[propName], definitions)};
@@ -71,27 +64,21 @@ const buildPostBody = (endpointParams) => {
 
 export default (api, rootPath) => {
     // Build base URL path (e.g. http://localhost:8082/v3)
-    // var rootPath = api.scheme + '://' + api.host + api.basePath === '/' ? '' : api.basePath;
     const root = (api.schemes[0] && api.host && api.basePath) ? api.schemes[0] + '://' + api.host + (api.basePath !== '/' ? api.basePath : '') : rootPath;
+    const swaggerData = [];
 
-    const swagData = [];
+    Object.keys(api.paths).forEach((k) => {
+        const endpoint = api.paths[k];
 
-    api.apisArray.forEach((apiDef) => {
-        // For every endpoint (api path + method) build a req
-        apiDef.operationsArray.forEach((endpoint) => {
-            // If we've already seen this endpoint in a different operationsArray, ignore:
-            if (swagData.some((ep) => (ep.name === endpoint.summary))) {
-                return;
-            }
-
+        Object.keys(endpoint).forEach((method) => {
             const apiMethod = {
-                name: endpoint.summary,
-                description: endpoint.description,
-                path: root + endpoint.path,
-                action: endpoint.method
+                name: endpoint[method].summary,
+                description: endpoint[method].description,
+                path: root + endpoint[method].path,
+                action: method
             };
 
-            const endpointParams = endpoint.parameters || [];
+            const endpointParams = endpoint[method].parameters || [];
             const queryString = buildQueryString(endpointParams);
             const postBody = buildPostBody(endpointParams);
 
@@ -102,9 +89,9 @@ export default (api, rootPath) => {
                 apiMethod.postBody = postBody;
             }
 
-            swagData.push(apiMethod);
+            swaggerData.push(apiMethod);
         });
     });
 
-    return swagData;
+    return swaggerData;
 };
