@@ -34,8 +34,6 @@ store.subscribe(() => {
 });
 
 new SwaggerParser().dereference(API_SWAGGER_URL).then(function(swaggerDoc) {
-    console.log(swaggerDoc);
-
     store.dispatch({
         type: actionTypes.FETCH_API_DATA_DONE,
         apiInfo: parseSwaggerUi(swaggerDoc, API_SWAGGER_URL)

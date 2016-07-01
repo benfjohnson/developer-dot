@@ -65,7 +65,6 @@ const buildPostBody = (endpointParams) => {
 };
 
 export default (api, rootPath) => {
-    console.log('rootPath', rootPath);
     // Build base URL path (e.g. http://localhost:8082/v3)
     const root = (api.schemes[0] && api.host && api.basePath) ? api.schemes[0] + '://' + api.host + (api.basePath !== '/' ? api.basePath : '') : rootPath;
 
@@ -75,7 +74,6 @@ export default (api, rootPath) => {
         const endpoint = api.paths[k];
 
         Object.keys(endpoint).forEach((method) => {
-            console.log('root', root, k);
             const apiMethod = {
                 name: endpoint[method].summary,
                 description: endpoint[method].description,
