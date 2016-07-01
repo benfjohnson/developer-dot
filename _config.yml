@@ -54,8 +54,6 @@ highlighter: rouge
 # Since these are pages, it doesn't really matter
 future: true
 
-include: ['_pages']
-
 # Exclude non-site files
 exclude: ['bin', 'README.md', vendor]
 
@@ -78,5 +76,5 @@ permalink: blog/:year/:month/:day/:title
 
 collections:
     pages:
-        permalink: :path
+        permalink: :basename
         layout: "page"
