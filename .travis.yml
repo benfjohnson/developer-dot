@@ -5,6 +5,6 @@ install: gem install jekyll && gem install s3_website
 cache: bundler
 script: 
   - bundle install
-  - jekyll build
+  - bundle exec jekyll build
   - bundle exec jekyll algolia push
 after_success: s3_website push

@@ -98,7 +98,6 @@ PLATFORMS
 DEPENDENCIES
   algoliasearch-jekyll (~> 0.7.0)
   jekyll (~> 2.5.3)
-  rb-fsevent (<= 0.9.4)
 
 BUNDLED WITH
    1.11.2
