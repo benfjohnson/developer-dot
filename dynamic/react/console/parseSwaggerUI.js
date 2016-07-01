@@ -1,3 +1,5 @@
+import {buildQsPath, buildCurl} from './helpers';
+
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
 const buildSchema = (schemaName, schema, definitions) => {
     if (schema.hasOwnProperty('allOf')) {
@@ -63,18 +65,21 @@ const buildPostBody = (endpointParams) => {
 };
 
 export default (api, rootPath) => {
+    console.log('rootPath', rootPath);
     // Build base URL path (e.g. http://localhost:8082/v3)
     const root = (api.schemes[0] && api.host && api.basePath) ? api.schemes[0] + '://' + api.host + (api.basePath !== '/' ? api.basePath : '') : rootPath;
+
     const swaggerData = [];
 
     Object.keys(api.paths).forEach((k) => {
         const endpoint = api.paths[k];
 
         Object.keys(endpoint).forEach((method) => {
+            console.log('root', root, k);
             const apiMethod = {
                 name: endpoint[method].summary,
                 description: endpoint[method].description,
-                path: root + endpoint[method].path,
+                path: root + k,
                 action: method
             };
 
@@ -88,6 +93,8 @@ export default (api, rootPath) => {
             if (postBody) {
                 apiMethod.postBody = postBody;
             }
+            apiMethod.qsPath = buildQsPath(queryString);
+            apiMethod.curl = buildCurl(apiMethod);
 
             swaggerData.push(apiMethod);
         });

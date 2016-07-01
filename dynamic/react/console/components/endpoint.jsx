@@ -8,9 +8,11 @@ import PostBody from './postBody';
 
 const handleSubmit = (endpoint, id) => {
     // todo don't forget form validation!
-
     const apiReq = {
-        url: endpoint.path + (endpoint.qsPath || '')
+        url: endpoint.path + (endpoint.qsPath || ''),
+        headers: {
+            Authorization: 'Token ZXqnd8Q3pRH_eyyYrk5xqpJXOhcdpTFJ4saXIJsw'
+        }
     };
 
     if (endpoint.postBody) {
@@ -23,7 +25,7 @@ const handleSubmit = (endpoint, id) => {
             store.dispatch({
                 type: actionTypes.SUBMIT_DONE,
                 endpointId: id,
-                apiResponse: {body: JSON.parse(body), status: response ? response.statusCode.toString() : '', statusMessage: error ? error.message : response.statusMessage || ''}
+                apiResponse: {body: {}, status: response ? response.statusCode.toString() : '', statusMessage: error ? error.message : response.statusMessage || ''}
             });
             return;
         }

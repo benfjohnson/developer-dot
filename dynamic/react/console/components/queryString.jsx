@@ -29,7 +29,7 @@ const QueryString = (props) => (
                                 handleInputChange(e, name, props.id);
                             }
                         }
-                        placeholder={props.queryString[name].example}
+                        placeholder={props.queryString[name] ? props.queryString[name].example : null}
                     />
                 </td>
             </tr>)

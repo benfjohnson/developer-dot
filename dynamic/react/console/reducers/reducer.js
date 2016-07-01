@@ -1,6 +1,5 @@
 import R from 'ramda';
 import endpointReducer from './endpointReducer';
-import {buildQsPath, buildCurl} from '../helpers';
 
 const actionTypes = {
     FETCH_API_DATA_DONE: 'FETCH_API_DATA_DONE',
@@ -17,8 +16,7 @@ const reducer = (state = {}, action) => {
     switch (action.type) {
 
     case actionTypes.FETCH_API_DATA_DONE:
-        newState.apiInfo = action.apiInfo.map((ep) => ({...ep, qsPath: buildQsPath(ep.queryString)}));
-        newState.apiInfo = action.apiInfo.map((ep) => ({...ep, curl: buildCurl(ep)}));
+        newState.apiInfo = action.apiInfo;
         if (action.error) {
             newState.error = action.error;
         }

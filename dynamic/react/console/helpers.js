@@ -1,7 +1,7 @@
 const buildQsPath = (queryString) => {
     let qsPath = '';
 
-    if (queryString && Object.keys(queryString).some((p) => queryString[p].value)) {
+    if (queryString && Object.keys(queryString).some((p) => queryString[p] && queryString[p].value)) {
         let addedQsParamCount = 0;
 
         qsPath = Object.keys(queryString).reduce((qs, param) => {
@@ -50,7 +50,6 @@ const buildCurl = (endpoint) => {
     if (endpoint.postBodyData) {
         curl += ` -H "Content-Type: application/json" --data '${JSON.stringify(endpoint.postBodyData)}'`;
     }
-
     return curl;
 };
 
