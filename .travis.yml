@@ -4,6 +4,7 @@ rvm:
 install: gem install jekyll && gem install s3_website
 cache: bundler
 script: 
+  - bundle install
   - bundle exec jekyll build
   - bundle exec ALGOLIA_API_KEY=<%= ENV['ALGOLIA_API_KEY'] %> jekyll algolia push
 after_success: s3_website push
