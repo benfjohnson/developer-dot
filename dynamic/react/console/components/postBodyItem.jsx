@@ -28,7 +28,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
                 <td>
                     {item.enum && item.enum.length ?
                         <select
-                            defaultValue={'*select*'}
+                            defaultValue={item.value || '*select*'}
                             id={uid}
                             onChange={(e) => (handleInputChange(e, name, endpointId))}
                         >
@@ -36,7 +36,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
                             {item.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
                         </select> :
                         <input
-                            defaultValue={''}
+                            defaultValue={item.value}
                             id={uid}
                             onChange={(e) => (handleInputChange(e, name, endpointId))}
                             placeholder={item.example}
