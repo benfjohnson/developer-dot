@@ -2,7 +2,7 @@ import R from 'ramda';
 import queryStringReducer from './queryStringReducer';
 import postBodyReducer from './postBodyReducer';
 import {actionTypes} from './reducer';
-import {buildQsPath, buildPostBodyData, buildCurl} from '../helpers';
+import {buildQsPath, buildPostBodyData, buildCurl, fillSampleData} from '../helpers';
 
 export default (state, action) => {
     let newState = R.clone(state);
@@ -13,6 +13,9 @@ export default (state, action) => {
         if (action.error) {
             newState.error = action.error;
         }
+        break;
+    case actionTypes.FILL_REQUEST_SAMPLE_DATA:
+        newState = fillSampleData(newState);
         break;
     case actionTypes.QUERY_STRING_CHANGED:
         newState = {...newState, queryString: queryStringReducer(newState.queryString, action)};

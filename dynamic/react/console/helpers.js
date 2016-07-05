@@ -53,4 +53,8 @@ const buildCurl = (endpoint) => {
     return curl;
 };
 
-export {buildQsPath, buildPostBodyData, buildCurl};
+const fillSampleData = (endpointState) => {
+    return false;
+};
+
+export {buildQsPath, buildPostBodyData, buildCurl, fillSampleData};
