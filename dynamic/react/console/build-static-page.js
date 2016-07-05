@@ -8,6 +8,7 @@ import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import {reducer} from './reducers/reducer';
 import parseSwaggerUi from './parseSwaggerUI';
+import fs from 'fs';
 
 const store = createStore(reducer);
 
@@ -29,14 +30,16 @@ new SwaggerParser().dereference(swaggerPath).then(function(swaggerDoc) {
     }
 
     const buildHtml = (reactHtml, initialState) => (
-        `---
+`---
 layout: default
-title: "Avalara Developer"
+title: "API Console"
+api_console: 1
 ---
 <div id="api-console">${reactHtml}</div>
 <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
 <script src="public/javascript/build/console-static.js"></script>`
     );
+
     const staticHtml = renderToString(<Provider store={store}><App api={staticState.apiInfo} error={null}/></Provider>);
     const HTML = buildHtml(staticHtml, staticState);
 

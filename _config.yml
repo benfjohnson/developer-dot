@@ -35,6 +35,16 @@ apis: [
     ['Onboarding','/onboarding']
 ]
 
+# Navigation links for the API console
+console_links: [
+    ['Landed Cost','/console/landedcost'],
+    ['Avatax','/console/avatax'],
+    ['TrustFile','/console/trustfile'],
+    ['Certcapture','/console/CertCapture'],
+    ['Excise','/console/excise'],
+    ['Onboarding','/console/onboarding']
+]
+
 # Keep as an empty string if served up at the root. If served up at a specific
 # path (e.g. on GitHub pages) leave off the trailing slash, e.g. /my-project
 baseurl: ''
