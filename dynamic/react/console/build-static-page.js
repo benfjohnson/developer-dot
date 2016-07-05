@@ -8,12 +8,13 @@ import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import {reducer} from './reducers/reducer';
 import parseSwaggerUi from './parseSwaggerUI';
+import mkdirp from 'mkdirp';
 import fs from 'fs';
 
 const store = createStore(reducer);
 
-if (!process.env.API_SWAGGER_URL && !process.env.API_SWAGGER_FILE) {
-    throw new Error('process.env.API_SWAGGER_URL or process.env.API_SWAGGER_FILE is required');
+if ((!process.env.API_SWAGGER_URL && !process.env.API_SWAGGER_FILE) || !process.env.API_NAME) {
+    throw new Error('process.env.API_SWAGGER_URL or process.env.API_SWAGGER_FILE is required, as well as a process.env.API_NAME');
 }
 const swaggerPath = process.env.API_SWAGGER_FILE ? path.join(__dirname, '..', '..', 'swagger/') + process.env.API_SWAGGER_FILE : process.env.API_SWAGGER_URL;
 
@@ -37,13 +38,28 @@ api_console: 1
 ---
 <div id="api-console">${reactHtml}</div>
 <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
-<script src="public/javascript/build/console-static.js"></script>`
+<script src="../../dynamic/public/javascript/build/console-static.js"></script>`
     );
 
     const staticHtml = renderToString(<Provider store={store}><App api={staticState.apiInfo} error={null}/></Provider>);
     const HTML = buildHtml(staticHtml, staticState);
 
-    /* eslint-disable no-console */
-    console.log(HTML);
-    /* eslint-enable no-console */
+    const savePath = path.join(__dirname, '..', '..', '..', 'console', process.env.API_NAME);
+
+    // console.log(HTML);
+    mkdirp(savePath, (err) => {
+        if (err) {
+            throw err;
+            process.exit(1);
+        }
+
+        fs.writeFile(`${savePath}/index.html`, HTML, (writeErr) => {
+            if (writeErr) {
+                throw writeErr;
+                process.exit(1);
+            }
+            /* eslint-disable no-console */
+            console.log(`/console/${process.env.API_NAME}/index.html saved successfully!`);
+        });
+    });
 });
