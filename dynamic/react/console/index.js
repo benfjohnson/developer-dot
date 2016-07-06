@@ -11,7 +11,7 @@ import parseSwaggerUi from './parseSwaggerUI';
 import path from 'path';
 let API_SWAGGER_URL = path.join(__dirname, '..', '..', 'dynamic', 'swagger', 'uber.yaml');
 
-if (window.location.search.split('api=').length >=2) {
+if (window.location.search.split('api=').length >= 2) {
     const API = window.location.search.split('api=')[1].toLowerCase() || 'invalid';
     const API_SWAGGER_URLS = {
         landedcost: {
@@ -28,8 +28,9 @@ store.subscribe(() => {
     const api = state.apiInfo;
     const error = state.error;
 
-    /* eslint no-console:1  */
+    /* eslint-disable no-console */
     console.log('NEW STATE', state);
+    /* eslint-enable no-console */
     render(<App api={api} error={error}/>, document.getElementById('api-console'));
 });
 

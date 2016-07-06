@@ -28,7 +28,7 @@ sections: [
 
 apis: [
     ['AvaTax','/avatax'],
-    ['LandedCost','/landedcost'],
+    ['LandedCost','/landedcost/console'],
     ['Excise','/excise'],
     ['Certcapture','/CertCapture'],
     ['TrustFile','/trustfile'],
@@ -37,7 +37,7 @@ apis: [
 
 # Navigation links for the API console
 console_links: [
-    ['Landed Cost','/console/landedcost'],
+    ['Landed Cost','/landedcost/console'],
     ['Avatax','/console/avatax'],
     ['TrustFile','/console/trustfile'],
     ['Certcapture','/console/CertCapture'],
