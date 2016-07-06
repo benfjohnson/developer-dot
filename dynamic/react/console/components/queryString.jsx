@@ -18,24 +18,37 @@ const QueryString = (props) => {
             <tr>
                 <td colSpan='2'><h4>{'Query String'}</h4></td>
             </tr>
-            {Object.keys(props.queryString).map((name, i) => {
-                return (
-                    <tr key={i}>
-                        <td><label htmlFor={`${props.id}-qs-${i}`}>{name}</label></td>
-                        <td>
+            {Object.keys(props.queryString).map((name, i) => (
+                <tr key={i}>
+                    <td>
+                        <label htmlFor={`${props.id}-qs-${i}`}>{name}</label>&nbsp;
+                        <span className={'glyphicon glyphicon-info-sign'} title={props.queryString[name].description}/>
+                    </td>
+                    <td>
+
+
+                        {props.queryString[name].enum && props.queryString[name].enum.length ?
+                            <select
+                                defaultValue={props.queryString[name].value || '*select*'}
+                                id={`${props.id}-qs-${i}`}
+                                onChange={(e) => (handleInputChange(e, name, props.id))}
+                            >
+                                <option disabled={true} value={'*select*'}>{''}</option>
+                                {props.queryString[name].enum.map((option, ii) => (<option key={ii} value={option}>{option}</option>))}
+                            </select> :
+
+
                             <input id={`${props.id}-qs-${i}`}
-                                onChange={
-                                    (e) => {
-                                        handleInputChange(e, name, props.id);
-                                    }
-                                }
-                                placeholder={props.queryString[name] ? props.queryString[name].example : null}
-                                value={props.queryString[name].value}
+                                   onChange={(e) => (handleInputChange(e, name, props.id))}
+                                   placeholder={props.queryString[name] ? props.queryString[name].example : null}
+                                   value={props.queryString[name].value}
                             />
-                        </td>
-                    </tr>
-                );
-            })}
+                        }
+
+
+                    </td>
+                </tr>
+            ))}
             </tbody>
         </table>
     );
