@@ -2,6 +2,10 @@ import {buildQsPath, buildCurl} from './helpers';
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
 const buildSchema = (schemaName, schema, definitions) => {
+    if (schema.hasOwnProperty('x-visibility') && schema['x-visibility'] === 'hidden') {
+        return undefined;
+    }
+
     if (schema.hasOwnProperty('allOf')) {
         return schema.allOf.map(function(chunk) {
             return buildSchema(null, chunk, definitions);
@@ -51,7 +55,7 @@ const buildSchema = (schemaName, schema, definitions) => {
 
 const buildQueryString = (endpointParams) => {
     return endpointParams.filter((p) => (p.in === 'query')).reduce((queryObj, p) => (
-        {...queryObj, [p.name]: {description: p.description, required: p.required, value: '', example: p.example || p['x-example'] || '', enum:p.enum}}
+    {...queryObj, [p.name]: {description: p.description, required: p.required, value: '', example: p.example || p['x-example'] || '', enum: p.enum}}
     ), {});
 };
 
