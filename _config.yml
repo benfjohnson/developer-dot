@@ -28,12 +28,22 @@ sections: [
 
 apis: [
     ['AvaTax','/avatax'],
-    ['LandedCost','/landedcost'],
+    ['LandedCost','/landedcost/console'],
     ['Excise','/excise'],
     ['CertCapture','/certcapture'],
     ['TrustFile','/trustfile'],
     ['Onboarding','/onboarding'],
     ['Communications', '/communications']
+]
+
+# Navigation links for the API console
+console_links: [
+    ['Landed Cost','/landedcost/console'],
+    ['Avatax','/console/avatax'],
+    ['TrustFile','/console/trustfile'],
+    ['Certcapture','/console/CertCapture'],
+    ['Excise','/console/excise'],
+    ['Onboarding','/console/onboarding']
 ]
 
 gems: 

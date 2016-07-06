@@ -1,0 +1,5 @@
+<ul class='nav nav-pills nav-stacked'>
+    {% for console_link in site.console_links %}
+        <li><a href="{{ console_link[1] }}">{{ console_link[0] }}</a></li>
+    {% endfor %}
+</ul>

@@ -10,6 +10,10 @@
 /test/version_tmp/
 /tmp/
 
+# Don't need these --BEN
+/_site/
+/dynamic/_site/
+
 ## Specific to RubyMotion:
 .dat*
 .repl_history
