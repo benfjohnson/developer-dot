@@ -23,7 +23,8 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
         return (
             <tr>
                 <td>
-                    <label htmlFor={uid}>{displayName}</label>
+                    <label htmlFor={uid}>{displayName}</label>&nbsp;
+                    {item.description && item.description.length ? <span className={'glyphicon glyphicon-info-sign'} title={item.description}/> : null}
                 </td>
                 <td>
                     {item.enum && item.enum.length ?

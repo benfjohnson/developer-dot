@@ -19,15 +19,14 @@ const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiSta
         <PostBodySectionHeader displayName={displayName} endpointId={endpointId} propertyName={propertyName}>
             <tr>
                 <td>
-                    <button
-                        onClick={
+                    <span className={'glyphicon glyphicon-plus-sign'}
+                          onClick={
                             (e) => {
                                 e.preventDefault();
                                 handleAddItem(propertyName, endpointId, schema);
                             }
                         }
-                        type={'button'}
-                    >{'Add Item'}</button>
+                          title={'Add Item'}/>
                 </td>
             </tr>
             {uiState.visible ? collection.map((itm, i) => {

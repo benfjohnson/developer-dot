@@ -8,8 +8,6 @@ import parseSwaggerUi from './parseSwaggerUI';
 import mkdirp from 'mkdirp';
 import fs from 'fs';
 
-// const store = createStore(reducer);
-
 if ((!process.env.API_SWAGGER_URL && !process.env.API_SWAGGER_FILE) || !process.env.API_NAME) {
     throw new Error('process.env.API_SWAGGER_URL or process.env.API_SWAGGER_FILE is required, as well as a process.env.API_NAME');
 }
