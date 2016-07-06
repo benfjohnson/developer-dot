@@ -53,8 +53,21 @@ const buildCurl = (endpoint) => {
     return curl;
 };
 
+const fillQueryStringSampleData = (queryString) => {
+    return Object.keys(queryString).reduce((newQueryString, qParam) => {
+        if (queryString[qParam].example) {
+            newQueryString[qParam] = {...queryString[qParam], value: queryString[qParam].example};
+        }
+        return newQueryString;
+    }, {});
+};
+
 const fillSampleData = (endpointState) => {
-    return false;
+    if (endpointState.queryString) {
+        endpointState.queryString = fillQueryStringSampleData(endpointState.queryString);
+    }
+
+    return endpointState;
 };
 
 export {buildQsPath, buildPostBodyData, buildCurl, fillSampleData};

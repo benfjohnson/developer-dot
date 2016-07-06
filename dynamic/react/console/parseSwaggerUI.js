@@ -48,7 +48,7 @@ const buildSchema = (schemaName, schema, definitions) => {
 
 const buildQueryString = (endpointParams) => {
     return endpointParams.filter((p) => (p.in === 'query')).reduce((queryObj, p) => (
-        {...queryObj, [p.name]: {description: p.description, required: p.required, value: '', example: p.example || ''}}
+        {...queryObj, [p.name]: {description: p.description, required: p.required, value: '', example: p.example || p['x-example'] || ''}}
     ), {});
 };
 

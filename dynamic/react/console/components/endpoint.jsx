@@ -38,6 +38,14 @@ const handleSubmit = (endpoint, id) => {
         });
     });
 };
+
+const handleFillSampleData = (id) => {
+    store.dispatch({
+        type: actionTypes.FILL_REQUEST_SAMPLE_DATA,
+        endpointId: id
+    });
+};
+
 const EndPointComponent = (props) => (
     <div>
         <h2>{props.endpoint.name}</h2>
@@ -76,6 +84,7 @@ const EndPointComponent = (props) => (
                     className='btn btn-default'
                     onClick={(e) => {
                         e.preventDefault();
+                        handleFillSampleData(props.id);
                     }}
                     type={'button'}
                 >
