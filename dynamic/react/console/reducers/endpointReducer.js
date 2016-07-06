@@ -16,7 +16,9 @@ export default (state, action) => {
         break;
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
         newState = fillSampleData(newState);
-        // newState.postBodyData = buildPostBodyData(newState.postBody);
+        if (newState.postBody) {
+            newState.postBodyData = buildPostBodyData(newState.postBody);
+        }
         newState.qsPath = buildQsPath(newState.queryString);
         newState.curl = buildCurl(newState);
         break;

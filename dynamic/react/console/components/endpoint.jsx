@@ -80,6 +80,7 @@ const EndPointComponent = (props) => (
             </button>
             {props.endpoint.queryString || props.endpoint.postBody ?
             <span>
+                &nbsp;
                 <button
                     className='btn btn-default'
                     onClick={(e) => {
@@ -90,6 +91,7 @@ const EndPointComponent = (props) => (
                 >
                 {'Fill Sample Data'}
                 </button>
+                &nbsp;
                 <button className='btn btn-default' type='reset'>{'Reset'}</button>
             </span> : null}
         </form>
@@ -101,7 +103,7 @@ const EndPointComponent = (props) => (
             padding: '8px',
             borderRadius: '2px'
         }}>{props.endpoint.curl}</div>
-
+        <br/>
         {props.endpoint.apiResponse ?
             <table>
                 <tbody>

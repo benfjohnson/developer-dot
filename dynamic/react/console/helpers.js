@@ -58,13 +58,45 @@ const fillQueryStringSampleData = (queryString) => {
         if (queryString[qParam].example) {
             newQueryString[qParam] = {...queryString[qParam], value: queryString[qParam].example};
         }
+
         return newQueryString;
     }, {});
+};
+
+const fillPostBodySampleData = (postBody) => {
+    if (postBody.hasOwnProperty('value') && postBody.fieldType !== 'array') {
+        return {...postBody, value: postBody.example || ''};
+    }
+
+    if (postBody.fieldType === 'array') {
+        const arrayBody = postBody.value.reduce((accum, prop) => {
+            if (prop.hasOwnProperty('value')) {
+                return accum.concat({...prop, value: (prop.example || '')});
+            }
+            return accum.concat(fillPostBodySampleData(prop));
+        }, []);
+
+        return {...postBody, value: arrayBody};
+    }
+
+    if (postBody.hasOwnProperty('visible')) {
+        return {...postBody, visible: true};
+    }
+
+    const objBody = Object.keys(postBody).reduce((accum, propName) => {
+        return {...accum, [propName]: fillPostBodySampleData(postBody[propName])};
+    }, {});
+
+    return objBody;
 };
 
 const fillSampleData = (endpointState) => {
     if (endpointState.queryString) {
         endpointState.queryString = fillQueryStringSampleData(endpointState.queryString);
+    }
+
+    if (endpointState.postBody) {
+        endpointState.postBody = fillPostBodySampleData(endpointState.postBody);
     }
 
     return endpointState;

@@ -19,7 +19,10 @@ const buildSchema = (schemaName, schema, definitions) => {
     }
 
     if (schema.type && schema.type === 'array') {
-        return {uiState: {visible: false}, fieldType: schema.type, items: buildSchema(schemaName, schema.items, definitions), value: []};
+        const arraySchema = buildSchema(schemaName, schema.items, definitions);
+
+        // items holds the schema definition of objects in our array, and value holds the actual objects of said schema...
+        return {uiState: {visible: true}, fieldType: schema.type, items: arraySchema, value: [arraySchema]};
     }
 
     const objToReturn = {fieldType: schema.type, value: ''};
