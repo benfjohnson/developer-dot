@@ -12,8 +12,9 @@ query: <input type="text" id="query" />
 product: 
 <select id="product-facet">
 	<option value="">Any</option>
-	<option value="avatax">AvaTax</option>
-	<option value="landedcost">LandedCost</option>
+    {% for api in site.apis %}
+    <option value="{{ api[1] }}">{{ api[0] }}</option>
+    {% endfor %}
 </select>
 
 doctype:
@@ -84,7 +85,7 @@ function getParameterByName(name, url) {
 
 <script>
 	$('.search-button').click( function(e) {
-		var newurl = '/search-demo.html/?q=' + encodeURIComponent($("#query").val()) 
+		var newurl = '/search.html/?q=' + encodeURIComponent($("#query").val()) 
 		if ($("#product-facet").val()) newurl += "&product="+ encodeURIComponent($("#product-facet").val());
 		if ($("#doctype-facet").val()) newurl += "&doctype="+ encodeURIComponent($("#doctype-facet").val());
 		location.href = newurl;

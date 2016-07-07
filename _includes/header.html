@@ -25,7 +25,7 @@
 
 <script>
   $('.nav-search-button').click( function(e) {
-    var newurl = '/search-demo.html/?q=' + encodeURIComponent($("#nav-query").val());
+    var newurl = '/search.html/?q=' + encodeURIComponent($("#nav-query").val());
     if ($("#product").text()) newurl += "&product="+ encodeURIComponent($("#product").text());
     location.href = newurl;
   });
