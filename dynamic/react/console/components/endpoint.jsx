@@ -57,11 +57,23 @@ const EndPointComponent = (props) => (
             </tr>
             <tr>
                 <td><strong>{'Endpoint'}</strong></td>
-                <td>{props.endpoint.path}</td>
+                <td></td>
             </tr>
             <tr>
                 <td><strong>{'HTTP Method'}</strong></td>
-                <td>{props.endpoint.action}</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+        <table>
+            <tbody>
+            <tr>
+                <td><strong>{'Request'}</strong></td>
+                <td>{props.endpoint.description}</td>
+            </tr>
+            <tr>
+                <td><strong>{'Response'}</strong></td>
+                <td>{props.endpoint.path}</td>
             </tr>
             </tbody>
         </table>
@@ -76,13 +88,12 @@ const EndPointComponent = (props) => (
                 }}
                 type={'button'}
             >
-            {'Submit'}
+                {'Submit'}
             </button>
             {props.endpoint.queryString || props.endpoint.postBody ?
-            <span>
-                &nbsp;
+                <span>
                 <button
-                    className='btn btn-default'
+                    className='btn btn-default m-l-1'
                     onClick={(e) => {
                         e.preventDefault();
                         handleFillSampleData(props.id);
@@ -91,30 +102,21 @@ const EndPointComponent = (props) => (
                 >
                 {'Fill Sample Data'}
                 </button>
-                &nbsp;
-                <button className='btn btn-default' type='reset'>{'Reset'}</button>
+                <button className='btn btn-default m-l-1' type='reset'>{'Reset'}</button>
             </span> : null}
         </form>
-        <br/>
-        <div style={{
-            background: '#48483e',
-            color: '#e5eae4',
-            font: '13px Menlo',
-            padding: '8px',
-            borderRadius: '2px'
-        }}>{props.endpoint.curl}</div>
-        <br/>
+        <p className={'curl'}>{props.endpoint.curl}</p>
         {props.endpoint.apiResponse ?
-            <table>
+            <table className={'responseBody'}>
                 <tbody>
                 <tr>
                     <td><strong>{'HTTP Response Code'}</strong></td>
                     <td>{props.endpoint.apiResponse.status + ' - ' + props.endpoint.apiResponse.statusMessage}</td>
                 </tr>
                 <tr>
-                    <td style={{verticalAlign: 'top'}}><strong>{'HTTP Response Body'}</strong></td>
+                    <td><strong>{'HTTP Response Body'}</strong></td>
                     <td>
-                        <textarea cols='50' readOnly={true} rows='15' style={{border: 'none'}} value={JSON.stringify(props.endpoint.apiResponse.body, null, 2)}/>
+                        <textarea cols='50' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.apiResponse.body, null, 2)}/>
                     </td>
                 </tr>
                 </tbody>

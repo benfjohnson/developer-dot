@@ -21,8 +21,8 @@ const QueryString = (props) => {
             {Object.keys(props.queryString).map((name, i) => (
                 <tr key={i}>
                     <td>
-                        <label htmlFor={`${props.id}-qs-${i}`}>{name}</label>&nbsp;
-                        {props.queryString[name].description && props.queryString[name].description.length ? <span className={'glyphicon glyphicon-info-sign'} title={props.queryString[name].description}/> : null}
+                        <label htmlFor={`${props.id}-qs-${i}`}>{name}</label>
+                        {props.queryString[name].description && props.queryString[name].description.length ? <span className={'m-l-1 glyphicon glyphicon-info-sign'} title={props.queryString[name].description}/> : null}
                     </td>
                     <td>
                         {props.queryString[name].enum && props.queryString[name].enum.length ?
