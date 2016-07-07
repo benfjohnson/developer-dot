@@ -52,6 +52,8 @@ gems:
 algolia:
     application_id: '19A6FWAAB3'
     index_name: 'developer-dot'
+    settings:
+        attributesForFaceting: ['doctype', 'product']
 
 
 # Keep as an empty string if served up at the root. If served up at a specific
