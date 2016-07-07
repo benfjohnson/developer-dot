@@ -4,8 +4,8 @@ import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
 import shortid from 'shortid';
 
-import PostBodySectionHeader from './PostBodySectionHeader';
-import PostBodyCollection from './PostBodyCollection';
+import PostBodySectionHeader from './postBodySectionHeader';
+import PostBodyCollection from './postBodyCollection';
 
 const handleInputChange = (e, pbName, endpointId) => {
     store.dispatch({

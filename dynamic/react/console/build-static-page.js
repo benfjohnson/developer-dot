@@ -1,4 +1,3 @@
-/* global SwaggerUi */
 import path from 'path';
 import React from 'react';
 import SwaggerParser from 'swagger-parser';
