@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Blog
+title: Page List
 date: 2012-02-19 12:36
 author: avalara
 comments: true
