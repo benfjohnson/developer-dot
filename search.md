@@ -90,7 +90,7 @@ function getParameterByName(name, url) {
 
 <script>
 	$('.search-button').click( function(e) {
-		var newurl = '/search.html/?q=' + encodeURIComponent($("#query").val()) 
+		var newurl = '/search.html?q=' + encodeURIComponent($("#query").val()) 
 		if ($("#product-facet").val()) newurl += "&product="+ encodeURIComponent($("#product-facet").val());
 		if ($("#doctype-facet").val()) newurl += "&doctype="+ encodeURIComponent($("#doctype-facet").val());
 		location.href = newurl;
