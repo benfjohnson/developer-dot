@@ -3,7 +3,7 @@ import request from 'request';
 
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
-import RequestParams from './RequestParams';
+import RequestParams from './requestParams';
 import PostBody from './postBody';
 import {replacePathParams} from '../helpers';
 
