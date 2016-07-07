@@ -49,8 +49,9 @@ const handleFillSampleData = (id) => {
     });
 };
 
+// Give our endpoint an id based on its name for our clientside routing in jekyll
 const EndPointComponent = (props) => (
-    <div>
+    <div id={props.endpoint.name.replace(/\s/g, '_')}>
         <h2>{props.endpoint.name}</h2>
         <table>
             <tbody>

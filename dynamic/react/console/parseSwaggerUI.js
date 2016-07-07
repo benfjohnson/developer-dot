@@ -72,10 +72,10 @@ const buildPostBody = (endpointParams) => {
 };
 
 export default (api, rootPath) => {
-
-    console.log('swaggerDoc', api);
     // Build base URL path (e.g. http://localhost:8082/v3)
-    const root = (api.schemes[0] && api.host && api.basePath) ? api.schemes[0] + '://' + api.host + (api.basePath !== '/' ? api.basePath : '') : rootPath;
+
+    const scheme = api.schemes && api.schemes[0] ? api.schemes[0] : 'http';
+    const root = (scheme && api.host && api.basePath) ? scheme + '://' + api.host + (api.basePath !== '/' ? api.basePath : '') : rootPath;
 
     const swaggerData = [];
 

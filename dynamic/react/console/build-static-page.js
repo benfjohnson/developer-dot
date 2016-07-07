@@ -24,16 +24,24 @@ new SwaggerParser().dereference(swaggerPath).then(function(swaggerDoc) {
         throw new Error('Error parsing swaggerDoc', e);
     }
 
-    const buildHtml = (reactHtml, initialState) => (
+    const buildHtml = (reactHtml, initialState) => {
+        const endpointLinks = initialState.apiInfo.map((endpt) => endpt.name).reduce((accum, endpt) => `${accum}["#${endpt.replace(/\s/g, '_')}", "${endpt}"],\n`, '');
+
+        return (
 `---
 layout: default
 title: "API Console"
 api_console: 1
+api_name: ${process.env.API_NAME}
+endpoint_links: [
+    ${endpointLinks}
+]
 ---
 <div id="api-console">${reactHtml}</div>
 <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
 <script src="../../dynamic/public/javascript/build/console-static.js"></script>`
-    );
+        );
+    };
 
     const staticHtml = renderToString(<App api={staticState.apiInfo} error={null}/>);
 
