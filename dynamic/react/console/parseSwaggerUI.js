@@ -53,9 +53,14 @@ const buildSchema = (schemaName, schema, definitions) => {
     return objToReturn;
 };
 
-const buildQueryString = (endpointParams) => {
-    return endpointParams.filter((p) => (p.in === 'query')).reduce((queryObj, p) => (
-    {...queryObj, [p.name]: {description: p.description, required: p.required, value: '', example: p.example || p['x-example'] || '', enum: p.enum}}
+// Used to generate either query string or path parameters for our console app:
+// paramType should be either 'query' or 'path'
+const buildRequestParams = (params, paramType) => {
+    if (paramType !== 'query' && paramType !== 'path') {
+        throw new Error('In parseSwaggerUI.buildRequestParams: Invalid `paramType` ' + paramType);
+    }
+    return params.filter((p) => (p.in === paramType)).reduce((paramObj, p) => (
+        {...paramObj, [p.name]: {description: p.description, required: p.required, value: '', example: p.example || p['x-example'] || ''}}
     ), {});
 };
 
@@ -86,8 +91,9 @@ export default (api, rootPath) => {
             };
 
             const endpointParams = endpoint[action].parameters || [];
-            const queryString = buildQueryString(endpointParams);
+            const queryString = buildRequestParams(endpointParams, 'query');
             const postBody = buildPostBody(endpointParams);
+            const pathParams = buildRequestParams(endpointParams, 'path');
 
             if (Object.keys(queryString).length) {
                 apiMethod.queryString = queryString;
@@ -95,6 +101,10 @@ export default (api, rootPath) => {
             if (postBody) {
                 apiMethod.postBody = postBody;
             }
+            if (Object.keys(pathParams).length) {
+                apiMethod.pathParams = pathParams;
+            }
+
             apiMethod.qsPath = buildQsPath(queryString);
             apiMethod.curl = buildCurl(apiMethod);
 

@@ -22,9 +22,13 @@ export default (state, action) => {
         newState.qsPath = buildQsPath(newState.queryString);
         newState.curl = buildCurl(newState);
         break;
-    case actionTypes.QUERY_STRING_CHANGED:
+    case actionTypes.QUERY_PARAM_CHANGED:
         newState = {...newState, queryString: queryStringReducer(newState.queryString, action)};
         newState.qsPath = buildQsPath(newState.queryString);
+        newState.curl = buildCurl(newState);
+        break;
+    case actionTypes.PATH_PARAM_CHANGED:
+        newState.pathParams[action.paramName].value = action.inputVal;
         newState.curl = buildCurl(newState);
         break;
     case actionTypes.POST_BODY_CHANGED:

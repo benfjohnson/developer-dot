@@ -3,13 +3,16 @@ import request from 'request';
 
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
-import QueryString from './queryString';
+import RequestParams from './RequestParams';
 import PostBody from './postBody';
+import {replacePathParams} from '../helpers';
 
 const handleSubmit = (endpoint, id) => {
     // todo don't forget form validation!
+    const url = (endpoint.pathParams ? replacePathParams(endpoint.path, endpoint.pathParams) : endpoint.path) + (endpoint.qsPath || '');
+
     const apiReq = {
-        url: endpoint.path + (endpoint.qsPath || ''),
+        url: url,
         headers: {
             Authorization: 'Token ZXqnd8Q3pRH_eyyYrk5xqpJXOhcdpTFJ4saXIJsw'
         }
@@ -57,11 +60,11 @@ const EndPointComponent = (props) => (
             </tr>
             <tr>
                 <td><strong>{'Endpoint'}</strong></td>
-                <td></td>
+                <td>{props.endpoint.path}</td>
             </tr>
             <tr>
                 <td><strong>{'HTTP Method'}</strong></td>
-                <td></td>
+                <td>{props.endpoint.action}</td>
             </tr>
             </tbody>
         </table>
@@ -69,16 +72,17 @@ const EndPointComponent = (props) => (
             <tbody>
             <tr>
                 <td><strong>{'Request'}</strong></td>
-                <td>{props.endpoint.description}</td>
+                <td></td>
             </tr>
             <tr>
                 <td><strong>{'Response'}</strong></td>
-                <td>{props.endpoint.path}</td>
+                <td></td>
             </tr>
             </tbody>
         </table>
         <form>
-            {props.endpoint.queryString ? <QueryString id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} queryString={props.endpoint.queryString}/> : null}
+            {props.endpoint.queryString ? <RequestParams endpointId={props.id} paramType={'QUERY_STRING'} params={props.endpoint.queryString}/> : null}
+            {props.endpoint.pathParams ? <RequestParams endpointId={props.id} paramType={'PATH'} params={props.endpoint.pathParams}/> : null}
             {props.endpoint.postBody ? <PostBody id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.postBody}/> : null}
             <button
                 className='btn btn-success'

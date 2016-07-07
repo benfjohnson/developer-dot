@@ -2,11 +2,11 @@ import {actionTypes} from './reducer';
 
 export default (state, action) => {
     switch (action.type) {
-    case actionTypes.QUERY_STRING_CHANGED:
-        const queryParam = {...(state[action.queryParamName])};
+    case actionTypes.QUERY_PARAM_CHANGED:
+        const queryParam = {...(state[action.paramName])};
         const updatedQueryParam = {...queryParam, value: action.inputVal};
 
-        return {...state, [action.queryParamName]: updatedQueryParam};
+        return {...state, [action.paramName]: updatedQueryParam};
     default:
         return state;
     }

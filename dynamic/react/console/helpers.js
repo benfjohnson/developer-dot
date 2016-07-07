@@ -44,8 +44,24 @@ const buildPostBodyData = (body) => {
     return Object.keys(objBody).length ? objBody : undefined;
 };
 
+const replacePathParams = (path, pathParams) => {
+    let newPath = path;
+
+    if (pathParams && Object.keys(pathParams).some((k) => pathParams[k].value)) {
+        Object.keys(pathParams).forEach((key) => {
+            // Replace all path param placeholders with their values, only if it's non-empty/null
+            if (pathParams[key].value) {
+                newPath = newPath.replace(`{${key}}`, pathParams[key].value);
+            }
+        });
+    }
+    return newPath;
+};
+
 const buildCurl = (endpoint) => {
-    let curl = `curl -X ${endpoint.action.toUpperCase()} "${endpoint.path}${endpoint.qsPath || ''}" -H "Accept: application/json"`;
+    const endpointPath = replacePathParams(endpoint.path, endpoint.pathParams);
+
+    let curl = `curl -X ${endpoint.action.toUpperCase()} "${endpointPath}${endpoint.qsPath || ''}" -H "Accept: application/json"`;
 
     if (endpoint.postBodyData) {
         curl += ` -H "Content-Type: application/json" --data '${JSON.stringify(endpoint.postBodyData)}'`;
@@ -53,7 +69,7 @@ const buildCurl = (endpoint) => {
     return curl;
 };
 
-const fillQueryStringSampleData = (queryString) => {
+const fillRequestParamSampleData = (queryString) => {
     return Object.keys(queryString).reduce((newQueryString, qParam) => {
         if (queryString[qParam].example) {
             newQueryString[qParam] = {...queryString[qParam], value: queryString[qParam].example};
@@ -92,7 +108,11 @@ const fillPostBodySampleData = (postBody) => {
 
 const fillSampleData = (endpointState) => {
     if (endpointState.queryString) {
-        endpointState.queryString = fillQueryStringSampleData(endpointState.queryString);
+        endpointState.queryString = fillRequestParamSampleData(endpointState.queryString);
+    }
+
+    if (endpointState.pathParams) {
+        endpointState.pathParams = fillRequestParamSampleData(endpointState.pathParams);
     }
 
     if (endpointState.postBody) {
@@ -102,4 +122,4 @@ const fillSampleData = (endpointState) => {
     return endpointState;
 };
 
-export {buildQsPath, buildPostBodyData, buildCurl, fillSampleData};
+export {buildQsPath, buildPostBodyData, buildCurl, replacePathParams, fillSampleData};
