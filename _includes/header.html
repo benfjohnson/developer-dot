@@ -2,7 +2,7 @@
     <a href="/">
         <img src="/images/adn_nav.png" width="140" height="30" alt="Avalara Developer Network" >
     </a>
-
+    <a href='/{{page.product}}' id="product">{{page.product}}</a>
     <ul class="nav navbar-nav navbar-right">
         <li><a href="#">APIs</a></li>
         <li class="dropdown">
@@ -15,6 +15,18 @@
         </li>
         <li><a href="/certification">Avalara Certified</a></li>
         <li><a href="/blog">Community</a></li>
+        <li>
+          <input type="text" id="nav-query" />
+          <button class="nav-search-button">Search</button>
+        </li>
 
     </ul>
 </h4>
+
+<script>
+  $('.nav-search-button').click( function(e) {
+    var newurl = '/search-demo.html/?q=' + encodeURIComponent($("#nav-query").val());
+    if ($("#product").text()) newurl += "&product="+ encodeURIComponent($("#product").text());
+    location.href = newurl;
+  });
+</script>
