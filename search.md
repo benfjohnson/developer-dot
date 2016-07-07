@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Search demo"
-permalink: search-demo.html
+permalink: search.html
 ---
 
 
@@ -12,10 +12,15 @@ query: <input type="text" id="query" />
 product: 
 <select id="product-facet">
 	<option value="">Any</option>
-    {% for api in site.apis %}
-    <option value="{{ api[1] }}">{{ api[0] }}</option>
-    {% endfor %}
+	<option value="avatax">AvaTax</option>
+	<option value="landedcost">LandedCost</option>
+	<option value="excise">Excise</option>
+	<option value="certcapture">CertCapture</option>
+	<option value="trustfile">TrustFile</option>
+	<option value="onboarding">Onboarding</option>
+	<option value="communications">Communications</option>
 </select>
+
 
 doctype:
 <select id="doctype-facet">
