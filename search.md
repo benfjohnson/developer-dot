@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Search demo"
-permalink: search-demo.html
+permalink: search.html
 ---
 
 
@@ -14,7 +14,13 @@ product:
 	<option value="">Any</option>
 	<option value="avatax">AvaTax</option>
 	<option value="landedcost">LandedCost</option>
+	<option value="excise">Excise</option>
+	<option value="certcapture">CertCapture</option>
+	<option value="trustfile">TrustFile</option>
+	<option value="onboarding">Onboarding</option>
+	<option value="communications">Communications</option>
 </select>
+
 
 doctype:
 <select id="doctype-facet">
@@ -84,7 +90,7 @@ function getParameterByName(name, url) {
 
 <script>
 	$('.search-button').click( function(e) {
-		var newurl = '/search-demo.html/?q=' + encodeURIComponent($("#query").val()) 
+		var newurl = '/search.html/?q=' + encodeURIComponent($("#query").val()) 
 		if ($("#product-facet").val()) newurl += "&product="+ encodeURIComponent($("#product-facet").val());
 		if ($("#doctype-facet").val()) newurl += "&doctype="+ encodeURIComponent($("#doctype-facet").val());
 		location.href = newurl;
