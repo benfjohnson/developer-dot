@@ -7,8 +7,9 @@ comments: true
 categories: [Sales Tax APIs]
 product: avatax
 doctype: blog
+imgsrc: /images/2015/06/zce_logo-150x150.jpg
 ---
-<img class="alignleft size-thumbnail wp-image-9188" src="http://developer.avalara.com/wp-content/uploads/2015/06/zce_logo-150x150.jpg" alt="Zend Certified Engineer Logo" width="150" height="150" /> As I said in my <a href="http://developer.avalara.com/blog/2015/05/05/subject-so-much-new-we-cant-even-was-because-awesome">introduction</a>, I'm a <a href="http://www.zend.com/en/services/certification/php-5-certification">Zend Certified PHP Engineer</a>. I may not have mentioned that, like many developers, I tend to trust my abilities probably more than I should, jump into projects head first, and only start to <i>read the fine manual</i> when something doesn't work as expected.
+<img class="alignleft size-thumbnail wp-image-9188" src="/images/2015/06/zce_logo-150x150.jpg" alt="Zend Certified Engineer Logo" width="150" height="150" /> As I said in my <a href="http://developer.avalara.com/blog/2015/05/05/subject-so-much-new-we-cant-even-was-because-awesome">introduction</a>, I'm a <a href="http://www.zend.com/en/services/certification/php-5-certification">Zend Certified PHP Engineer</a>. I may not have mentioned that, like many developers, I tend to trust my abilities probably more than I should, jump into projects head first, and only start to <i>read the fine manual</i> when something doesn't work as expected.
 
 Setting up my Avalara laptop, one of the first things I did was install a basic WAMP stack (like <a href="http://en.wikipedia.org/wiki/LAMP_(software_bundle)">LAMP</a> but with Windows). That may be sacrilege to some, but it works.
 
@@ -22,7 +23,7 @@ I'd missed that this set of samples uses <a href="https://getcomposer.org/">Comp
 
 It will set up Composer and make sure it's in your Windows path. If you had any command windows open, they <strong>will not know</strong> about the changes to the Windows path. You'll need to open a new one in the directory you downloaded our samples to. I recommend this handy shortcut:
 
-<img class="alignright size-medium wp-image-9189" src="http://developer.avalara.com/wp-content/uploads/2015/06/rightshiftclick-300x141.jpg" alt="shift + right click on a directory" width="300" height="141" /> In the File manager, hold down SHIFT while right-clicking the directory where your copy of the Avalara code is. You'll see an option to "Open a command window here." Choose it.
+<img class="alignright size-medium wp-image-9189" src="/images/2015/06/rightshiftclick-300x141.jpg" alt="shift + right click on a directory" width="300" height="141" /> In the File manager, hold down SHIFT while right-clicking the directory where your copy of the Avalara code is. You'll see an option to "Open a command window here." Choose it.
 
 You can then run "<code style="font-family: Courier, Courier New; font-size: 12px; font-weight: bold; background-color: #f0f0f0; border: 1px solid #bbb;">composer install</code>" in the command window.
 

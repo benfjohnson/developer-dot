@@ -7,6 +7,7 @@ comments: true
 categories: [Development, exempt status, nexus, sales tax, taxability]
 product: avatax
 doctype: blog
+imgsrc: /images/2012/03/sales-tax-logic1.png
 ---
 <em>This is the second of three posts aimed at giving developers a basic understanding of the complexities of sales tax.</em>
 
@@ -16,7 +17,7 @@ doctype: blog
 	<li><em><strong>Should I Tax It?</strong></em></li>
 	<li><em>I Taxed It: Now What?</em></li>
 </ol>
-<a href="https://developer.avalara.com/wp-content/uploads/2012/03/sales-tax-logic1.png"><img class="size-large wp-image-209" title="sales-tax-logic" src="http://developer.avalara.com/wp-content/uploads/2012/03/sales-tax-logic1-550x479.png" alt="" width="472" height="411" /></a>
+<a href="/images/2012/03/sales-tax-logic1.png"><img class="size-large wp-image-209" title="sales-tax-logic" src="/images/2012/03/sales-tax-logic1-550x479.png" alt="" width="472" height="411" /></a>
 
 <div class="caption">Before you apply a sales tax rate, you need to know the status of the seller, the product and the buyer.</div>
 

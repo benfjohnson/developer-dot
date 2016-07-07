@@ -7,8 +7,9 @@ comments: true
 categories: [Uncategorized]
 product: none
 doctype: blog
+imgsrc = /images/2015/05/headshot-279x300.jpg
 ---
-<img class="alignleft size-medium wp-image-9157" src="http://developer.avalara.com/wp-content/uploads/2015/05/headshot-279x300.jpg" alt="headshot" width="279" height="300" /> I'm Greg Bulmash, and as the FNG (Fabulous New Guru) on the Avalara Developer Relations team, I have been given the lofty assignment of laying down some awesome on the Avalara Developer Network blog the first Tuesday of every month. My first assignment from the powers that be: "Introduce yourself."
+<img class="alignleft size-medium wp-image-9157" src="/images/2015/05/headshot-279x300.jpg" alt="headshot" width="279" height="300" /> I'm Greg Bulmash, and as the FNG (Fabulous New Guru) on the Avalara Developer Relations team, I have been given the lofty assignment of laying down some awesome on the Avalara Developer Network blog the first Tuesday of every month. My first assignment from the powers that be: "Introduce yourself."
 
 The first thing that happens if you <a href="https://www.google.com/#newwindow=1&amp;q=%22Greg+Bulmash%22">Google my name as an exact phrase</a> is you come up with about 9,000 results. The first result is a <a href="http://www.snopes.com/humor/letters/mcdonaldsapp.asp">McDonalds/WalMart Application</a> link to Snopes.com, the encyclopedia of urban legends.
 

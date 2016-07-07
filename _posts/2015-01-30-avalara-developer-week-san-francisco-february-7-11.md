@@ -7,8 +7,9 @@ comments: true
 categories: [api, developer week, developers, Development, event, hackathon, Launches, Presentations, tax rates, Workshop]
 product: none
 doctype: blog
+imgsrc: /images/uploads/2015/01/Screen-Shot-2015-01-30-at-12.26.38-PM-1024x523.png
 ---
-<a href="https://developer.avalara.com/wp-content/uploads/2015/01/Screen-Shot-2015-01-30-at-12.26.38-PM.png"><img class="alignnone size-large wp-image-9081" src="https://developer.avalara.com/wp-content/uploads/2015/01/Screen-Shot-2015-01-30-at-12.26.38-PM-1024x523.png" alt="Screen Shot 2015-01-30 at 12.26.38 PM" width="669" height="341" /></a>
+<a href="/images/2015/01/Screen-Shot-2015-01-30-at-12.26.38-PM.png"><img class="alignnone size-large wp-image-9081" src="/images/uploads/2015/01/Screen-Shot-2015-01-30-at-12.26.38-PM-1024x523.png" alt="Screen Shot 2015-01-30 at 12.26.38 PM" width="669" height="341" /></a>
 
 Avalara's Developer Relations &amp; Engineering team will be at the upcoming <a href="http://developerweek.com">DeveloperWeek &amp; Accelerate Hackathon</a> events down in San Francisco, CA from February 7th till February 11th. We will be sponsoring the Hackathon event and posting a <a href="http://www.accelerate.im/challenges/59">challenge</a> to build something cool with the new <a href="http://taxratesapi.avalara.com">Avalara TaxRates API</a>. There is a prize of $500 for the team that builds the coolest application with it.
 
