@@ -67,6 +67,8 @@ const buildPostBody = (endpointParams) => {
 };
 
 export default (api, rootPath) => {
+
+    console.log('swaggerDoc', api);
     // Build base URL path (e.g. http://localhost:8082/v3)
     const root = (api.schemes[0] && api.host && api.basePath) ? api.schemes[0] + '://' + api.host + (api.basePath !== '/' ? api.basePath : '') : rootPath;
 
@@ -75,15 +77,15 @@ export default (api, rootPath) => {
     Object.keys(api.paths).forEach((k) => {
         const endpoint = api.paths[k];
 
-        Object.keys(endpoint).forEach((method) => {
+        Object.keys(endpoint).forEach((action) => {
             const apiMethod = {
-                name: endpoint[method].summary,
-                description: endpoint[method].description,
+                name: endpoint[action].summary,
+                description: endpoint[action].description,
                 path: root + k,
-                action: method
+                action: action
             };
 
-            const endpointParams = endpoint[method].parameters || [];
+            const endpointParams = endpoint[action].parameters || [];
             const queryString = buildQueryString(endpointParams);
             const postBody = buildPostBody(endpointParams);
 
@@ -95,6 +97,12 @@ export default (api, rootPath) => {
             }
             apiMethod.qsPath = buildQsPath(queryString);
             apiMethod.curl = buildCurl(apiMethod);
+
+
+            apiMethod.response = {
+                description: endpoint[action].responses[200].description,
+                body: {}
+            };
 
             swaggerData.push(apiMethod);
         });
