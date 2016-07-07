@@ -27,6 +27,8 @@ doctype:
 	<option value="">Any</option>
 	<option value="api-reference">API Reference</option>
 	<option value="documentation">Documentation</option>
+	<option value="certification">Certification</option>
+	<option value="blog">Blog Posts</option>
 </select>
 
 <button class="search-button">Search</button>
