@@ -49,6 +49,13 @@ const handleFillSampleData = (id) => {
     });
 };
 
+const toggleResponseModelExample = (id) => {
+    store.dispatch({
+        type: actionTypes.TOGGLE_RESPONSE_MODEL_EXAMPLE,
+        endpointId: id
+    });
+};
+
 const EndPointComponent = (props) => (
     <div>
         <h2>{props.endpoint.name}</h2>
@@ -66,18 +73,43 @@ const EndPointComponent = (props) => (
                 <td><strong>{'HTTP Method'}</strong></td>
                 <td>{props.endpoint.action}</td>
             </tr>
-            </tbody>
-        </table>
-        <table>
-            <tbody>
-            <tr>
-                <td><strong>{'Request'}</strong></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td><strong>{'Response'}</strong></td>
-                <td></td>
-            </tr>
+            {props.endpoint.response ?
+                <tr>
+                    <td><strong>{'Response'}</strong></td>
+                    <td>
+                        <span
+                            className={`${props.endpoint.response.currentVisibility === 'example' ? ' active' : 'mouse'}`}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (props.endpoint.response.currentVisibility !== 'example') {
+                                    toggleResponseModelExample(props.id);
+                                }
+                            }
+                        }>{'Example'}</span>
+                        <span
+                            className={`m-l-1${props.endpoint.response.currentVisibility === 'model' ? ' active' : ' mouse'}`}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (props.endpoint.response.currentVisibility !== 'model') {
+                                    toggleResponseModelExample(props.id);
+                                }
+                            }
+                        }>{'Model'}</span>
+                        <br />
+                        <textarea cols='50' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.response[props.endpoint.response.currentVisibility], null, 2)}/>
+                    </td>
+                </tr> :
+                null
+            }
+            {props.endpoint.queryString || props.endpoint.pathParams || props.endpoint.postBody ?
+                <tr>
+                    <td><strong>{'Request'}</strong></td>
+                    <td>
+
+                    </td>
+                </tr> :
+                null
+            }
             </tbody>
         </table>
         <form>
