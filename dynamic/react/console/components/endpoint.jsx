@@ -116,6 +116,7 @@ const EndPointComponent = (props) => (
             {props.endpoint.queryString ? <RequestParams endpointId={props.id} paramType={'QUERY_STRING'} params={props.endpoint.queryString}/> : null}
             {props.endpoint.pathParams ? <RequestParams endpointId={props.id} paramType={'PATH'} params={props.endpoint.pathParams}/> : null}
             {props.endpoint.postBody ? <PostBody id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.postBody}/> : null}
+            <p className={'curl'}>{props.endpoint.curl}</p>
             <button
                 className='btn btn-success'
                 onClick={(e) => {
@@ -123,25 +124,23 @@ const EndPointComponent = (props) => (
                     handleSubmit(props.endpoint, props.id);
                 }}
                 type={'button'}
-            >
-                {'Submit'}
-            </button>
+            >{'Submit'}</button>
             {props.endpoint.queryString || props.endpoint.postBody ?
                 <span>
-                <button
-                    className='btn btn-default m-l-1'
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleFillSampleData(props.id);
-                    }}
-                    type={'button'}
-                >
-                {'Fill Sample Data'}
-                </button>
-                <button className='btn btn-default m-l-1' type='reset'>{'Reset'}</button>
-            </span> : null}
+                    <button
+                        className='btn btn-default m-l-1'
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleFillSampleData(props.id);
+                        }}
+                        type={'button'}
+                    >
+                    {'Fill Sample Data'}
+                    </button>
+                    <button className='btn btn-default m-l-1' type='reset'>{'Reset'}</button>
+                </span> :
+                null}
         </form>
-        <p className={'curl'}>{props.endpoint.curl}</p>
         {props.endpoint.apiResponse ?
             <table className={'responseBody'}>
                 <tbody>

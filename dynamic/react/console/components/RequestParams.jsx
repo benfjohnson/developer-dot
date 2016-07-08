@@ -31,17 +31,30 @@ const RequestParams = ({endpointId, paramType, params}) => {
             {Object.keys(params).map((key, i) => {
                 return (
                     <tr key={i}>
-                        <td><label htmlFor={`${endpointId}-qs-${i}`}>{key}</label></td>
                         <td>
+                            <label htmlFor={`${endpointId}-qs-${i}`}>{key}</label>
+                            {params[key].description && params[key].description.length ? <span className={'m-l-1 glyphicon glyphicon-info-sign'} title={params[key].description}/> : null}
+                        </td>
+                        <td>
+                        {params[key].enum && params[key].enum.length ?
+                            <select
+                                id={`${endpointId}-qs-${i}`}
+                                onChange={(e) => (handleInputChange(e, paramType, key, endpointId))}
+                                value={params[key].value || '*select*'}
+                            >
+                                <option disabled={true} value={'*select*'}>{''}</option>
+                                {params[key].enum.map((option, ii) => (<option key={ii} value={option}>{option}</option>))}
+                            </select> :
                             <input id={`${endpointId}-qs-${i}`}
-                                onChange={
+                                   onChange={
                                     (e) => {
                                         handleInputChange(e, paramType, key, endpointId);
                                     }
                                 }
-                                placeholder={params[key].example || null}
-                                value={params[key].value}
+                                   placeholder={params[key].example || null}
+                                   value={params[key].value}
                             />
+                        }
                         </td>
                     </tr>
                 );

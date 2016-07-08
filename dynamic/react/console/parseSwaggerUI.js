@@ -116,24 +116,23 @@ const buildResponseExample = (body) => {
     return Object.keys(objBody).length ? objBody : undefined;
 };
 const buildResponseModel = (body) => {
-    return Object.keys(body).reduce((accumulator, k) => {
-        if (!body[k].hasOwnProperty('fieldType')) {
-            accumulator[k] = buildResponseModel(body[k]);
-        } else {
-            accumulator[k] = {
-                type: body[k].fieldType
-            };
+    if (body.fieldType && body.fieldType !== 'array') {
+        return {
+            description: body.description,
+            type: body.fieldType,
+            format: body.format,
+            values: body.enum,
+            minimum: body.minimum,
+            maximum: body.maximum
+        };
+    }
 
-            if (body[k].fieldType === 'array') {
-                accumulator[k].description = body[k].items.description;
-                accumulator[k].values = body[k].items.enum;
-            }
-            if (body[k].fieldType === 'string') {
-                accumulator[k].description = body[k].description;
-                accumulator[k].values = body[k].enum;
-            }
-        }
-        return accumulator;
+    if (body.fieldType && body.fieldType === 'array') {
+        return [buildResponseModel(body.items)];
+    }
+
+    return Object.keys(body).filter((n) => n !== 'uiState').reduce((accum, propName) => {
+        return {...accum, [propName]: buildResponseModel(body[propName])};
     }, {});
 };
 
@@ -144,7 +143,7 @@ const buildRequestParams = (params, paramType) => {
         throw new Error('In parseSwaggerUI.buildRequestParams: Invalid `paramType` ' + paramType);
     }
     return params.filter((p) => (p.in === paramType)).reduce((paramObj, p) => (
-    {...paramObj, [p.name]: {description: p.description, required: p.required, value: '', example: p.example || p['x-example'] || ''}}
+    {...paramObj, [p.name]: {description: p.description, required: p.required, value: '', example: p.example || p['x-example'] || '', enum: p.enum}}
     ), {});
 };
 
