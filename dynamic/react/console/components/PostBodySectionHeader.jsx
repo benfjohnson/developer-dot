@@ -27,7 +27,7 @@ const PostBodySectionHeader = ({endpointId, propertyName, displayName, children}
                             colSpan='2'
                             onClick={(e) => (handleToggleVisibility(e, propertyName, endpointId))}
                         >
-                            <label>{displayName}</label>
+                            <label className='postBodySectionHeaderName'>{displayName}</label>
                         </td>
                     </tr>
                     {children}

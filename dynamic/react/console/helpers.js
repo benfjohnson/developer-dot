@@ -69,13 +69,15 @@ const buildCurl = (endpoint) => {
     return curl;
 };
 
-const fillRequestParamSampleData = (queryString) => {
-    return Object.keys(queryString).reduce((newQueryString, qParam) => {
-        if (queryString[qParam].example) {
-            newQueryString[qParam] = {...queryString[qParam], value: queryString[qParam].example};
+const fillRequestParamSampleData = (params) => {
+    return Object.keys(params).reduce((newParams, paramName) => {
+        if (params[paramName].example) {
+            newParams[paramName] = {...params[paramName], value: params[paramName].example};
+        } else {
+            newParams[paramName] = params[paramName];
         }
 
-        return newQueryString;
+        return newParams;
     }, {});
 };
 
