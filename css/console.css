@@ -4,6 +4,7 @@ td {
 
 textarea {
     border: none;
+    width: 100%;
 }
 
 .m-l-1 {
@@ -29,4 +30,12 @@ textarea {
 
 .responseBody {
     margin-top: 1rem;
+}
+
+.mouse {
+    cursor: pointer;
+}
+
+.response-documentation span.active {
+    font-weight: bold;
 }

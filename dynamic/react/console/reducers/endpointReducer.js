@@ -38,6 +38,9 @@ export default (state, action) => {
         newState.postBodyData = buildPostBodyData(newState.postBody);
         newState.curl = buildCurl(newState);
         break;
+    case actionTypes.TOGGLE_RESPONSE_MODEL_EXAMPLE:
+        newState.response.currentVisibility = newState.response.currentVisibility === 'example' ? 'model' : 'example';
+        break;
     default:
         break;
     }

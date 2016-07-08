@@ -3,7 +3,7 @@ import request from 'request';
 
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
-import RequestParams from './RequestParams';
+import RequestParams from './requestParams';
 import PostBody from './postBody';
 import {replacePathParams, hasExampleData} from '../helpers';
 
@@ -49,6 +49,13 @@ const handleFillSampleData = (id) => {
     });
 };
 
+const toggleResponseModelExample = (id) => {
+    store.dispatch({
+        type: actionTypes.TOGGLE_RESPONSE_MODEL_EXAMPLE,
+        endpointId: id
+    });
+};
+
 // Give our endpoint an id based on its name for our clientside routing in jekyll
 const EndPointComponent = (props) => (
     <div id={props.endpoint.name.replace(/\s/g, '_')}>
@@ -67,24 +74,50 @@ const EndPointComponent = (props) => (
                 <td><strong>{'HTTP Method'}</strong></td>
                 <td>{props.endpoint.action}</td>
             </tr>
-            </tbody>
-        </table>
-        <table>
-            <tbody>
-            <tr>
-                <td><strong>{'Request'}</strong></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td><strong>{'Response'}</strong></td>
-                <td></td>
-            </tr>
+            {props.endpoint.response ?
+                <tr className={'response-documentation'}>
+                    <td><strong>{'Response'}</strong></td>
+                    <td>
+                        <span
+                            className={`${props.endpoint.response.currentVisibility === 'example' ? ' active' : 'mouse'}`}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (props.endpoint.response.currentVisibility !== 'example') {
+                                    toggleResponseModelExample(props.id);
+                                }
+                            }
+                        }>{'Example'}</span>
+                        <span
+                            className={`m-l-1${props.endpoint.response.currentVisibility === 'model' ? ' active' : ' mouse'}`}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (props.endpoint.response.currentVisibility !== 'model') {
+                                    toggleResponseModelExample(props.id);
+                                }
+                            }
+                        }>{'Model'}</span>
+                        <br />
+                        <textarea cols='50' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.response[props.endpoint.response.currentVisibility], null, 2)}/>
+                    </td>
+                </tr> :
+                null
+            }
+            {props.endpoint.queryString || props.endpoint.pathParams || props.endpoint.postBody ?
+                <tr>
+                    <td><strong>{'Request'}</strong></td>
+                    <td>
+
+                    </td>
+                </tr> :
+                null
+            }
             </tbody>
         </table>
         <form>
             {props.endpoint.queryString ? <RequestParams endpointId={props.id} paramType={'QUERY_STRING'} params={props.endpoint.queryString}/> : null}
             {props.endpoint.pathParams ? <RequestParams endpointId={props.id} paramType={'PATH'} params={props.endpoint.pathParams}/> : null}
             {props.endpoint.postBody ? <PostBody id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.postBody}/> : null}
+            <p className={'curl'}>{props.endpoint.curl}</p>
             <button
                 className='btn btn-success'
                 onClick={(e) => {
@@ -110,7 +143,6 @@ const EndPointComponent = (props) => (
             </span> : null}
             <button className='btn btn-default m-l-1' type='reset'>{'Reset'}</button>
         </form>
-        <p className={'curl'}>{props.endpoint.curl}</p>
         {props.endpoint.apiResponse ?
             <table className={'responseBody'}>
                 <tbody>

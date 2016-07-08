@@ -27,7 +27,7 @@ sections: [
 ]
 
 apis: [
-    ['AvaTax','/avatax'],
+    ['AvaTax','/avatax/console'],
     ['LandedCost','/landedcost/console'],
     ['Excise','/excise'],
     ['CertCapture','/certcapture'],
