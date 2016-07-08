@@ -17,7 +17,7 @@ A bagel in New York is considered a grocery item for home consumption which is 
 
 <a href="/images/2015/08/Screen-Shot-2015-08-18-at-2.03.49-PM.png"><img class=" size-full wp-image-9310 aligncenter" src="/images/2015/08/Screen-Shot-2015-08-18-at-2.03.49-PM.png" alt="Screen Shot 2015-08-18 at 2.03.49 PM" width="608" height="459" /></a>
 
-If you want to test this out, you could give our APIs a whirl by signing for a free account at <a href="http://developer.avalara.com/getting-started">http://developer.avalara.com/getting-started</a> and making a quick API call.
+If you want to test this out, you could give our APIs a whirl by signing for a free account at <a href="/avatax/">http://developer.avalara.com/getting-started</a> and making a quick API call.
 
 In order to set that calculation up and to ensure accuracy, you could either setup a custom Tax Code mapping in the Admin Console for a bagel or use the AvaTax system tax code which is <strong>PF120012</strong>.
 

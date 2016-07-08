@@ -13,7 +13,7 @@ doctype: blog
 <strong><em>Developing With Sales Tax:</em></strong>
 <ol>
 	<li><em><strong>What's The Rate?</strong></em></li>
-	<li><em><a href="http://developer.avalara.com/blog/2012/03/20/developing-with-sales-tax-should-i-tax-it/">Should I Tax It?</a></em></li>
+	<li><em><a href="/blog/2012/03/20/developing-with-sales-tax-should-i-tax-it/">Should I Tax It?</a></em></li>
 	<li><em>I Taxed It: Now What?</em></li>
 </ol>
 If you're building or installing an application to process U.S. transactions, odds are that you'll need to account for a sales tax rate.

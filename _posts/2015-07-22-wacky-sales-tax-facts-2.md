@@ -9,7 +9,7 @@ product: avatax
 doctype: blog
 imgsrc: /images/2015/07/Screen-Shot-2015-07-21-at-2.38.32-PM.png
 ---
-Did you know that most developers will tell you that Sales Tax can be determined by using zip code alone? They're sorely mistaken as it takes more than just zip codes to determine accurate sales tax rates. My <a href="http://developer.avalara.com/blog/2015/06/16/the-business-of-sales-tax-is-bizarre">previous post</a> illustrated that each jurisdiction can be determined by the local city or state officials depending on their own laws and needs.
+Did you know that most developers will tell you that Sales Tax can be determined by using zip code alone? They're sorely mistaken as it takes more than just zip codes to determine accurate sales tax rates. My <a href="/blog/2015/06/16/the-business-of-sales-tax-is-bizarre">previous post</a> illustrated that each jurisdiction can be determined by the local city or state officials depending on their own laws and needs.
 
 In my search to understand this concept, I came across the smallest Sales Tax Jurisdiction in the United States.
 

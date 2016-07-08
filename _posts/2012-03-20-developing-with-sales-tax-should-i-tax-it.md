@@ -13,7 +13,7 @@ imgsrc: /images/2012/03/sales-tax-logic1.png
 
 <strong><em>Developing With Sales Tax:</em></strong>
 <ol>
-	<li><a title="What's The Rate?" href="http://developer.avalara.com/blog/2012/03/06/developing-with-sales-tax-whats-the-rate/"><em>What’s The Rate?</em></a></li>
+	<li><a title="What's The Rate?" href="/blog/2012/03/06/developing-with-sales-tax-whats-the-rate/"><em>What’s The Rate?</em></a></li>
 	<li><em><strong>Should I Tax It?</strong></em></li>
 	<li><em>I Taxed It: Now What?</em></li>
 </ol>

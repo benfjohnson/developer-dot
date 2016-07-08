@@ -12,4 +12,4 @@ Anya Stettler has put together a nice video overview of the Avalara AvaTax API. 
 
 <iframe src="//www.youtube.com/embed/R0WUijv8xKk?rel=0" width="610" height="343"></iframe>
 
-To find out more about the business use cases and features you should be thinking about, check out our <a href="http://developer.avalara.com/api-docs/designing-your-integration/api-integration-checklist">Integration Checklist.</a>
+To find out more about the business use cases and features you should be thinking about, check out our <a href="/avatax/certification">Integration Checklist.</a>

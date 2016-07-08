@@ -17,7 +17,7 @@ Let's take a look at an easy example where AvaTax.js can be used in conjunction 
 
 You'll need to include the core files (AvaTax.php and AvaTax.js) available <a href="https://github.com/avadev/AvaTax-Calc-REST-JavaScript">here</a> in your site directory.
 <ol>
-	<li>Enter your AvaTax account credentials in the AvaTax.php proxy file. If you don't have an AvaTax account yet, you can sign up for a <a title="Avalara AvaTax API Free Trial" href="/getting-started">free trial account</a>.
+	<li>Enter your AvaTax account credentials in the AvaTax.php proxy file. If you don't have an AvaTax account yet, you can sign up for a <a title="Avalara AvaTax API Free Trial" href="/avatax/">free trial account</a>.
 <pre>$accountNumber = "1234567890";
 $licenseKey = "A1B2C3D4E5F6G7H8";</pre>
 </li>
@@ -54,4 +54,4 @@ Otherwise, if you're recording an order to AvaTax that has been confirmed, and y
 <pre>GetTax(getTaxRequest, function(getTaxResult) { chargeCardViaStripe((getTaxResult.TotalTax + getTaxResult.TotalAmount) *100 )});</pre>
 </li>
 </ol>
-And you're done!  That one <a href="/api-docs/api-reference/rest-curl/gettax">GetTax</a> call can be used to calculate tax on a cart and/or to record a finalized order in the AvaTax™ system for reporting and filing. For more examples of calls using the AvaTax.js library, take a look at the test html files available in the <a href="https://github.com/avadev/AvaTax-Calc-REST-JavaScript">JavaScript sample repository</a>.
+And you're done!  That one <a href="/avatax/gettax">GetTax</a> call can be used to calculate tax on a cart and/or to record a finalized order in the AvaTax™ system for reporting and filing. For more examples of calls using the AvaTax.js library, take a look at the test html files available in the <a href="https://github.com/avadev/AvaTax-Calc-REST-JavaScript">JavaScript sample repository</a>.
