@@ -1,7 +1,7 @@
 import {buildQsPath, buildCurl} from './helpers';
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
-const buildSchema = (schema) => {
+const buildSchema = (schema, required = [], propName = null) => {
     if (schema.hasOwnProperty('x-visibility') && schema['x-visibility'] === 'hidden') {
         return undefined;
     }
@@ -13,40 +13,29 @@ const buildSchema = (schema) => {
     }
 
     if (schema.type && schema.type === 'object') {
-        const nestedSchemaProps = Object.keys(schema.properties).map((propName) => ({[propName]: buildSchema(schema.properties[propName])}));
+        const nestedSchemaProps = Object.keys(schema.properties).map((propName) => ({[propName]: buildSchema(schema.properties[propName], schema.required, propName)}));
 
-        return Object.assign({uiState: {visible: false}}, ...nestedSchemaProps);
+        return Object.assign({uiState: {visible: false}, required: required.includes(propName)}, ...nestedSchemaProps);
     }
 
     if (schema.type && schema.type === 'array') {
         const arraySchema = buildSchema(schema.items);
 
         // items holds the schema definition of objects in our array, and value holds the actual objects of said schema...
-        return {uiState: {visible: true}, fieldType: schema.type, items: arraySchema, value: [arraySchema]};
+        return {uiState: {visible: true}, fieldType: schema.type, items: arraySchema, value: [arraySchema], required: required.includes(propName)};
     }
 
-    const objToReturn = {fieldType: schema.type, value: ''};
-
-    if (schema.example) {
-        objToReturn.example = schema.example;
-    }
-    if (schema.description) {
-        objToReturn.description = schema.description;
-    }
-    if (schema.enum) {
-        objToReturn.enum = schema.enum;
-    }
-    if (schema.format) {
-        objToReturn.format = schema.format;
-    }
-    if (schema.hasOwnProperty('minimum')) {
-        objToReturn.minimum = schema.minimum;
-    }
-    if (schema.hasOwnProperty('maximum')) {
-        objToReturn.maximum = schema.maximum;
-    }
-
-    return objToReturn;
+    return {
+        required: required.includes(propName),
+        fieldType: schema.type,
+        value: '',
+        example: schema.example,
+        description: schema.description,
+        enum: schema.enum,
+        format: schema.format,
+        minimum: schema.minimum,
+        maximum: schema.maximum
+    };
 };
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
