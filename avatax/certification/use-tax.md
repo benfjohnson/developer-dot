@@ -1,18 +1,18 @@
 ---
 layout: page
-title: Avalara AvaTax for Use Tax
-date: 2015-06-02 14:59
-author: lokeuei
+title: AvaTax Use Tax Checklist
+date: 2016-01-18 02:41
+author: jeremy.buller
 comments: true
 categories: []
-product: certification
-doctype: documentation
+product: avatax
+doctype: certification
 ---
-<div id="main-content" class="wiki-content">
-<h1 id="UseTaxRequirements-Administration/UtilitiesIntegration">Administration/Utilities Integration</h1>
+
+<h1 id="UseTaxRequirements-Administration/UtilitiesIntegration" data-fontsize="26" data-lineheight="34">Administration/Utilities Integration</h1>
 <div class="table-wrap">
-<table border="1" width="100%" cellspacing="0" cellpadding="5">
-<thead style="background-color: lightgray;">
+<table>
+<thead>
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -84,9 +84,7 @@ doctype: documentation
 <tr>
 <td valign="top">R</td>
 <td valign="top"> Enable AvaTax UPC</td>
-<td valign="top"> When set to true: pass in UPC code into the Avalara ItemCode on the line level of the requests to our service. When UPC is unavailable, default to ItemCode.When set to false: use the default ItemCode mapping.See Product Master Management for more details.
-
-NOTE: Alternately, UPC can be enabled on the item level. See Product Master Management</td>
+<td valign="top"> When set to true: pass in UPC code into the Avalara ItemCode on the line level of the requests to our service. When UPC is unavailable, default to ItemCode.When set to false: use the default ItemCode mapping.See Product Master Management for more details.NOTE: Alternately, UPC can be enabled on the item level. See Product Master Management</td>
 </tr>
 <tr>
 <td valign="top">R</td>
@@ -94,22 +92,22 @@ NOTE: Alternately, UPC can be enabled on the item level. See Product Master Mana
 <td valign="top"><strong>One or the other parameter is required, although Entity/Use code is preferred</strong>Entity/Use Code:
 <ul>
 	<li>Assign an Avalara Entity/Use Code to the merchant/user (an Entity/Use Code defines the reason for the sales tax exemption, Reseller, Manufacturer, Government Entity, Charitable Organization, etc.).</li>
-	<li>Must include our <a class="external-link" href="http://developer.avalara.com/api-docs/designing-your-integration/handling-tax-exempt-customers" rel="nofollow">standard list</a> and be user-definable to add additional items.</li>
+	<li>Must include our <a class="external-link" href="/avatax/handling-tax-exempt-customers" rel="nofollow">standard list</a> and be user-definable to add additional items.</li>
 </ul>
 Exemption Number:
 <ul>
-	<li>Identify a field to map the exemption certificate number of the merchant/user of the application to the "ExemptionNo" field in Avalara.</li>
+	<li>Identify a field to map the exemption certificate number of the merchant/user of the application to the “ExemptionNo” field in Avalara.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<h1 id="UseTaxRequirements-VendorManagement">Vendor Management</h1>
+<h1 id="UseTaxRequirements-VendorManagement" data-fontsize="26" data-lineheight="34">Vendor Management</h1>
 <div class="table-wrap">
 <div class="table-wrap">
-<table border="1" width="100%" cellspacing="0" cellpadding="5">
-<thead style="background-color: lightgray;">
+<table>
+<thead>
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -120,7 +118,7 @@ Exemption Number:
 <tr>
 <td valign="top">R</td>
 <td valign="top">Vendor Identifier Mapping</td>
-<td valign="top">Identify the vendor identifier field (typically the database key in the vendor master) to map to the "CustomerCode" field in Avalara.</td>
+<td valign="top">Identify the vendor identifier field (typically the database key in the vendor master) to map to the “CustomerCode” field in Avalara.</td>
 </tr>
 <tr>
 <td valign="top">R</td>
@@ -136,10 +134,10 @@ In the case of Global Use Tax assessment, commit all transactions regardless of 
 </table>
 </div>
 </div>
-<h1 id="UseTaxRequirements-ProductMasterManagement">Product Master Management</h1>
+<h1 id="UseTaxRequirements-ProductMasterManagement" data-fontsize="26" data-lineheight="34">Product Master Management</h1>
 <div class="table-wrap">
-<table border="1" width="100%" cellspacing="0" cellpadding="5">
-<thead style="background-color: lightgray;">
+<table>
+<thead>
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -160,9 +158,7 @@ In the case of Global Use Tax assessment, commit all transactions regardless of 
 <tr>
 <td valign="top">R</td>
 <td valign="top">AvaTax tax code mapping</td>
-<td valign="top">Associate an item or item group to an AvaTax Tax Code to describe the taxability group (e.g. Clothing-Shirts – B-to-C). This should be assigned at the item category level as well as the item level.<a class="external-link" href="http://taxcode.avatax.avalara.com/" rel="nofollow">Search for a specific tax code</a>
-
-<a class="external-link" href="https://help.avalara.com/@api/deki/files/1675/AvaTax_Pro_Toolkit.zip" rel="nofollow">Download a list of the standard system tax codes</a></td>
+<td valign="top">Associate an item or item group to an AvaTax Tax Code to describe the taxability group (e.g. Clothing-Shirts – B-to-C). This should be assigned at the item category level as well as the item level.<a class="external-link" href="http://taxcode.avatax.avalara.com/" rel="nofollow">Search for a specific tax code</a><a class="external-link" href="https://help.avalara.com/@api/deki/files/1675/AvaTax_Pro_Toolkit.zip" rel="nofollow">Download a list of the standard system tax codes</a></td>
 </tr>
 <tr>
 <td valign="top">R</td>
@@ -176,10 +172,10 @@ In the case of Global Use Tax assessment, commit all transactions regardless of 
 </tbody>
 </table>
 </div>
-<h1 id="UseTaxRequirements-Purchasing&amp;PayablesDocumentIntegration">Purchasing &amp; Payables Document Integration</h1>
+<h1 id="UseTaxRequirements-Purchasing&amp;PayablesDocumentIntegration" data-fontsize="26" data-lineheight="34">Purchasing &amp; Payables Document Integration</h1>
 <div class="table-wrap">
-<table border="1" width="100%" cellspacing="0" cellpadding="5">
-<thead style="background-color: lightgray;">
+<table>
+<thead>
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -227,7 +223,7 @@ Note: Exemption number or Entity Use Code should be passed only if the customer
 <tr>
 <td valign="top">R</td>
 <td valign="top">Discounts</td>
-<td valign="top">Either send line items with post-discounted amounts or utilize the Avalara Discount Fields</td>
+<td valign="top">Either send line items with post-discounted amounts or utilize the Avalara Discount Fields.</td>
 </tr>
 <tr>
 <td valign="top">R</td>
@@ -241,7 +237,7 @@ Note: Exemption number or Entity Use Code should be passed only if the customer
 </tr>
 <tr>
 <td valign="top">R</td>
-<td valign="top">Self-Asses workflow: Purchase Invoices</td>
+<td valign="top">Self-Assess workflow: Purchase Invoices</td>
 <td valign="top">If vendor-charged tax is identified it is compared to AvaTax calculated tax, The user should be able to select one of the following options:
 <ul>
 	<li>Accept AvaTax calculated Use Tax in total</li>
@@ -259,17 +255,15 @@ Note: Exemption number or Entity Use Code should be passed only if the customer
 <tr>
 <td valign="top">R</td>
 <td valign="top">CancelTax Call</td>
-<td valign="top">&nbsp;
-
-When invoices are deleted/cancelled, this information must be transmitted to AvaTax.</td>
+<td valign="top">When invoices are deleted/cancelled, this information must be transmitted to AvaTax.</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h1 id="UseTaxRequirements-ServerAudit/Clarity">Server Audit/Clarity</h1>
+<h1 id="UseTaxRequirements-ServerAudit/Clarity" data-fontsize="26" data-lineheight="34">Server Audit/Clarity</h1>
 <div class="table-wrap">
-<table border="1" width="100%" cellspacing="0" cellpadding="5">
-<thead style="background-color: lightgray;">
+<table>
+<thead>
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -280,9 +274,7 @@ When invoices are deleted/cancelled, this information must be transmitted to A
 <tr>
 <td valign="top">R</td>
 <td valign="top">Pass connector identifier information via the TaxSvc.Profile.Client property</td>
-<td valign="top">Integrations must include information about the connector, such as name, version, and company name, as a signature to each transaction.
-
-EXAMPLE: TaxSvc.Profile.Client = “Dynamics AX,9.0,MyApp for AX by ACME INC,1.0”</td>
+<td valign="top">Integrations must include information about the connector, such as name, version, and company name, as a signature to each transaction.EXAMPLE: TaxSvc.Profile.Client = “Dynamics AX,9.0,MyApp for AX by ACME INC,1.0”</td>
 </tr>
 <tr>
 <td valign="top">R</td>
@@ -292,9 +284,7 @@ EXAMPLE: TaxSvc.Profile.Client = “Dynamics AX,9.0,MyApp for AX by ACME INC,1.0
 <tr>
 <td valign="top">R</td>
 <td valign="top">Reasonable ratio of GetTax and address validation calls to committed documents</td>
-<td valign="top">In a normal workflow, we expect to see up to 10 tax calculations per finalized document. In a straight-forward order entry process, the number of calls should be about three to five.
-
-&nbsp;</td>
+<td valign="top">In a normal workflow, we expect to see up to 10 tax calculations per finalized document. In a straight-forward order entry process, the number of calls should be about three to five.</td>
 </tr>
 <tr>
 <td valign="top">R</td>
@@ -304,5 +294,3 @@ EXAMPLE: TaxSvc.Profile.Client = “Dynamics AX,9.0,MyApp for AX by ACME INC,1.0
 </tbody>
 </table>
 </div>
-</div>
-<div id="likes-and-labels-container"></div>

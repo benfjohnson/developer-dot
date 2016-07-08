@@ -14,7 +14,7 @@ If you need assistance building your integration to AvaTax Sales Tax API, we rec
 
 <hr />
 
-<a href="https://developer.avalara.com/wp-content/uploads/2013/06/Adipietro-logo-e1394134241251.png" data-slb-active="1" data-slb-asset="472164578" data-slb-internal="0"><img class="alignnone wp-image-7059" style="width: 94px;" alt="Adipietro-logo" src="http://developer.avalara.com/wp-content/uploads/2013/06/Adipietro-logo-286x300.png" width="286" height="77" /></a>
+<a href="/images/2013/06/Adipietro-logo-e1394134241251.png" data-slb-active="1" data-slb-asset="472164578" data-slb-internal="0"><img class="alignnone wp-image-7059" style="width: 94px;" alt="Adipietro-logo" src="/images/2013/06/Adipietro-logo-286x300.png" width="286" height="77" /></a>
 <h3>Adipietro Technology Services</h3>
 John M. Adipietro
 710 Julie McKnight Road
@@ -28,7 +28,7 @@ ATS has been a provider of cloud service integrations since 2010. We specialize 
 
 <hr />
 
-<img class="alignnone size-full wp-image-3768" src="http://developer.avalara.com/wp-content/uploads/2013/04/alynnleelogo.gif" alt="alynnleelogo" width="102" height="88" />
+<img class="alignnone size-full wp-image-3768" src="/images/2013/04/alynnleelogo.gif" alt="alynnleelogo" width="102" height="88" />
 Alynnlee Productions
 9017 Forest Hill Ave Ste 3B
 Richmond, VA 23235
@@ -42,7 +42,7 @@ We’ve worked with e-commerce and e-business to help companies centralize and i
 
 <hr />
 
-<a href="http://www.activefrequency.com/"><img class="alignnone size-full wp-image-6834" src="http://developer.avalara.com/wp-content/uploads/2013/06/active-frequency-logo.png" alt="active-frequency-logo" width="255" height="74" /></a>
+<a href="http://www.activefrequency.com/"><img class="alignnone size-full wp-image-6834" src="/images/2013/06/active-frequency-logo.png" alt="active-frequency-logo" width="255" height="74" /></a>
 Active Frequency
 686 Massachusetts Ave. #304
 Cambridge, MA 02139
@@ -57,7 +57,7 @@ Contact us at <a href="mailto:info@activefrequency.com">info@activefrequency.com
 
 <hr />
 
-<a href="https://developer.avalara.com/wp-content/uploads/2013/06/argentis_logo_HD-e1394142186481.png" data-slb-active="1" data-slb-asset="368626736" data-slb-internal="0"><img class="alignnone wp-image-7069" style="width: 220px;" src="http://developer.avalara.com/wp-content/uploads/2013/06/argentis_logo_HD-300x83.png" alt="argentis_logo_HD" width="300" height="46" /></a>
+<a href="/images/2013/06/argentis_logo_HD-e1394142186481.png" data-slb-active="1" data-slb-asset="368626736" data-slb-internal="0"><img class="alignnone wp-image-7069" style="width: 220px;" src="/images/2013/06/argentis_logo_HD-300x83.png" alt="argentis_logo_HD" width="300" height="46" /></a>
 Argentis Consulting is dedicated to the development, distribution and support of recognized certified solutions for SAP Business One. Argentis is the developer of Apparel and Footwear, eProcurement, WMS, and AvaTax for SAP Business One, as well as the integrator of Miva Merchant, Magento, Ebay and Amazon (E-Commerce) for SAP Business One.
 
 Argentis Consulting
@@ -70,7 +70,7 @@ Miami, FL  33166
 
 <hr />
 
-<a href="https://developer.avalara.com/wp-content/uploads/2016/01/CLS-Logo-Tagline-Afullservice.png"><img class="size-medium wp-image-10169 alignnone" src="http://developer.avalara.com/wp-content/uploads/2016/01/CLS-Logo-Tagline-Afullservice-300x97.png" alt="CLS-Logo-Tagline-Afullservice" width="300" height="97" /></a>
+<a href="/images/2016/01/CLS-Logo-Tagline-Afullservice.png"><img class="size-medium wp-image-10169 alignnone" src="/images/2016/01/CLS-Logo-Tagline-Afullservice-300x97.png" alt="CLS-Logo-Tagline-Afullservice" width="300" height="97" /></a>
 
 Classy Llama has been a Magento Gold Solutions Partner for over 5 years. With over 8 years in business, we’ve continually outgrown ourselves. Despite having performed over 400 customizations and integrations; ranking in the world’s Top 20 Magento Enterprise sales; and contributing our code to Magento 2, one thing still drives us—our relationships. We are proud to serve our clients and partners, such as Avalara, who share our desire to connect and grow. That’s why we’ve not only built over 100 new websites; but also built relationships, as we serve clients on Magento, the best platform for growth.
 
@@ -92,7 +92,7 @@ Partner | Consultant
 <hr />
 
 &nbsp;
-<h3><a href="http://www.codebearsoftware.com"><img class="alignleft size-full wp-image-10684" src="https://developer.avalara.com/wp-content/uploads/2016/01/Bearpaw.jpeg" alt="Bearpaw" width="48" height="48" /></a></h3>
+<h3><a href="http://www.codebearsoftware.com"><img class="alignleft size-full wp-image-10684" src="/images/2016/01/Bearpaw.jpeg" alt="Bearpaw" width="48" height="48" /></a></h3>
 <h3>CodeBear Software LLC</h3>
 <p class="p1"><span class="s1">Rick Troemel is a former Avalara employee.  He is thoroughly familiar with the AvaTax Service and all aspects of the SDK.  Capable of working in any environment, including but not limited to .NET, Java, and SalesForce (Apex).  </span></p>
 <p class="p1"><span class="s1">Rick can be reached via email: <a href="mailto:rick@codebearsoftware.com"><span class="s2">rick@codebearsoftware.com</span></a>, skype: code.bear, or linked in: <a href="https://www.linkedin.com/in/ricktroemel"><span class="s2">https://www.linkedin.com/in/ricktroemel</span></a>.</span></p>
@@ -101,7 +101,7 @@ Partner | Consultant
 
 <hr />
 
-<a href=" http://www.greystonetech.com"><img class="alignnone wp-image-9564 size-medium" src="https://developer.avalara.com/wp-content/uploads/2013/06/Greystone_Logo_Main_CMYK-300x200.jpeg" alt="Greystone_Logo_Main_CMYK" width="300" height="200" /></a>
+<a href=" http://www.greystonetech.com"><img class="alignnone wp-image-9564 size-medium" src="/images/2013/06/Greystone_Logo_Main_CMYK-300x200.jpeg" alt="Greystone_Logo_Main_CMYK" width="300" height="200" /></a>
 
 Imagine top technical minds that know how to ask the right questions. Our expertise is legendary but knowing where to apply that expertise can change your world. Whether you are looking to “go to the cloud”, scale your infrastructure, create your technology vision, or just get emergency assistance, we’ll challenge your view of what IT people can do.
 
@@ -113,7 +113,7 @@ Thomas Montgomery
 
 <hr />
 
-<img class="alignnone size-medium wp-image-3772" src="http://developer.avalara.com/wp-content/uploads/2013/04/jmalogowhite-300x142.jpg" alt="jmalogowhite" width="102" />
+<img class="alignnone size-medium wp-image-3772" src="/images/2013/04/jmalogowhite-300x142.jpg" alt="jmalogowhite" width="102" />
 
 Joseph Anderson, owner of JMA Web Technologies, specializes in QuickBooks Online and QuickBooks Pro, Premier, and Enterprise development. For a list of customers, please review <a href="http://appcenter.intuit.com/cloud-cart" target="_blank">appcenter.intuit.com/cloud-cart</a>.
 
@@ -123,7 +123,7 @@ To contact Joseph, please use the <a href="http://www.jmawebtechnologies.com/con
 
 &nbsp;
 
-<a href="https://developer.avalara.com/wp-content/uploads/2016/01/Screen-Shot-2016-02-03-at-6.00.12-PM.png"><img class="size-medium wp-image-10162 alignnone" src="http://developer.avalara.com/wp-content/uploads/2016/01/Screen-Shot-2016-02-03-at-6.00.12-PM-300x139.png" alt="Screen Shot 2016-02-03 at 6.00.12 PM" width="300" height="139" /></a>
+<a href="/images/2016/01/Screen-Shot-2016-02-03-at-6.00.12-PM.png"><img class="size-medium wp-image-10162 alignnone" src="/images/2016/01/Screen-Shot-2016-02-03-at-6.00.12-PM-300x139.png" alt="Screen Shot 2016-02-03 at 6.00.12 PM" width="300" height="139" /></a>
 
 We work with clients to build amazing software. Our E-Commerce and Healthcare Innovation practices help great clients do everything from unifying their e-commerce processes to creating software that identifies cancerous tumor drivers based on genetic data.
 
@@ -138,7 +138,7 @@ Pittsburgh, PA 15224
 
 <hr />
 
-<img class="alignnone size-medium wp-image-3772" src="http://developer.avalara.com/wp-content/uploads/2015/10/PBSIlogo.png" alt="pbsilogo" width="200" />
+<img class="alignnone size-medium wp-image-3772" src="/images/2015/10/PBSIlogo.png" alt="pbsilogo" width="200" />
 
 PBSI focuses mainly upon connecting ERP systems or other enterprise-oriented solutions to Avatax. Since 2000, we’ve been providing our services to both VAR’s and end-users. Our CPA’s can assist with the implementation of standard connectors. We can also write custom connectors to meet your specific needs in instances where a standard connector either does not exist, or will not suffice.
 

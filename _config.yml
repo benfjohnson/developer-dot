@@ -84,11 +84,11 @@ redcarpet:
     ]
 
 # applies to _posts only for some reason
-permalink: blog/:year/:month/:day/:title
+permalink: blog/:year/:month/:day/:title/
 excerpt_separator: <!--more-->
 
 
 collections:
     pages:
-        permalink: :basename
+        permalink: :basename/
         layout: "page"
