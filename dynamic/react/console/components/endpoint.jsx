@@ -5,7 +5,7 @@ import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
 import RequestParams from './RequestParams';
 import PostBody from './postBody';
-import {replacePathParams} from '../helpers';
+import {replacePathParams, hasExampleData} from '../helpers';
 
 const handleSubmit = (endpoint, id) => {
     // todo don't forget form validation!
@@ -95,7 +95,7 @@ const EndPointComponent = (props) => (
             >
                 {'Submit'}
             </button>
-            {props.endpoint.queryString || props.endpoint.postBody ?
+            {hasExampleData('QUERY_STRING', props.endpoint.queryString) || hasExampleData('POST_BODY', props.endpoint.postBody) || hasExampleData('PATH_PARAM', props.endpoint.pathParams) ?
                 <span>
                 <button
                     className='btn btn-default m-l-1'
@@ -107,8 +107,8 @@ const EndPointComponent = (props) => (
                 >
                 {'Fill Sample Data'}
                 </button>
-                <button className='btn btn-default m-l-1' type='reset'>{'Reset'}</button>
             </span> : null}
+            <button className='btn btn-default m-l-1' type='reset'>{'Reset'}</button>
         </form>
         <p className={'curl'}>{props.endpoint.curl}</p>
         {props.endpoint.apiResponse ?
