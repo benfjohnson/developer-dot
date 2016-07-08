@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Search demo"
-permalink: search.html
+permalink: /search/
 ---
 
 
@@ -21,12 +21,19 @@ product:
 	<option value="communications">Communications</option>
 </select>
 
+<!-- {% for api in site.apis %}
+<option value="{{ api[1] | remove_first: '/' }}">{{ api[0] }}</option>
+{% endfor %} -->
+
+
 
 doctype:
 <select id="doctype-facet">
 	<option value="">Any</option>
 	<option value="api-reference">API Reference</option>
 	<option value="documentation">Documentation</option>
+	<option value="certification">Certification</option>
+	<option value="blog">Blog Posts</option>
 </select>
 
 <button class="search-button">Search</button>
@@ -90,7 +97,7 @@ function getParameterByName(name, url) {
 
 <script>
 	$('.search-button').click( function(e) {
-		var newurl = '/search.html/?q=' + encodeURIComponent($("#query").val()) 
+		var newurl = '/search/?q=' + encodeURIComponent($("#query").val()) 
 		if ($("#product-facet").val()) newurl += "&product="+ encodeURIComponent($("#product-facet").val());
 		if ($("#doctype-facet").val()) newurl += "&doctype="+ encodeURIComponent($("#doctype-facet").val());
 		location.href = newurl;

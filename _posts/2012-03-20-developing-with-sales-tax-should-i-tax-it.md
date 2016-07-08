@@ -7,16 +7,19 @@ comments: true
 categories: [Development, exempt status, nexus, sales tax, taxability]
 product: avatax
 doctype: blog
+imgsrc: /images/2012/03/sales-tax-logic1.png
 ---
 <em>This is the second of three posts aimed at giving developers a basic understanding of the complexities of sales tax.</em>
 
 <strong><em>Developing With Sales Tax:</em></strong>
 <ol>
-	<li><a title="What's The Rate?" href="http://developer.avalara.com/blog/2012/03/06/developing-with-sales-tax-whats-the-rate/"><em>What’s The Rate?</em></a></li>
+	<li><a title="What's The Rate?" href="/blog/2012/03/06/developing-with-sales-tax-whats-the-rate/"><em>What’s The Rate?</em></a></li>
 	<li><em><strong>Should I Tax It?</strong></em></li>
 	<li><em>I Taxed It: Now What?</em></li>
 </ol>
-[caption id="attachment_209" align="alignnone" width="472"]<a href="https://developer.avalara.com/wp-content/uploads/2012/03/sales-tax-logic1.png"><img class="size-large wp-image-209" title="sales-tax-logic" src="http://developer.avalara.com/wp-content/uploads/2012/03/sales-tax-logic1-550x479.png" alt="" width="472" height="411" /></a> Before you apply a sales tax rate, you need to know the status of the seller, the product and the buyer.[/caption]
+<a href="/images/2012/03/sales-tax-logic1.png"><img class="size-large wp-image-209" title="sales-tax-logic" src="/images/2012/03/sales-tax-logic1-550x479.png" alt="" width="472" height="411" /></a>
+
+<div class="caption">Before you apply a sales tax rate, you need to know the status of the seller, the product and the buyer.</div>
 
 In the previous post, we learned why you want to use geolocation to get an accurate tax rate. But getting the right tax rate doesn't help you if you don't know whether or not the rate applies to the transaction. There are three steps to determining whether to apply sales tax, and logically enough, they deal with the three primary objects in a transaction.
 <ol>

@@ -7,8 +7,9 @@ comments: true
 categories: [avalara, developer relations, employee, hello, introduction, loke tan, Sales Tax APIs, team]
 product: none
 doctype: blog
+imagesrc: /images/2015/05/Loke-Saber-257x300.jpg
 ---
-<a href="https://developer.avalara.com/wp-content/uploads/2015/05/Loke-Saber.jpg"><img class="alignleft size-medium wp-image-9176" src="http://developer.avalara.com/wp-content/uploads/2015/05/Loke-Saber-257x300.jpg" alt="Loke Saber" width="257" height="300" /></a>Hi! My name is Loke (pronounced as in Joke but with an “L”).  I work with <a href="http://developer.avalara.com/blog/2015/05/12/oh-so-thats-who-that-is">Anya</a> and <a href="http://developer.avalara.com/blog/2015/05/05/subject-so-much-new-we-cant-even-was-because-awesome">Greg</a> in Avalara’s Developer Relations team. We’re the team that will be here for you when you need help making sense of Sales Tax and getting your software connected to our services.
+<a href="/images/2015/05/Loke-Saber.jpg"><img class="alignleft size-medium wp-image-9176" src="/images/2015/05/Loke-Saber-257x300.jpg" alt="Loke Saber" width="257" height="300" /></a>Hi! My name is Loke (pronounced as in Joke but with an “L”).  I work with <a href="/blog/2015/05/12/oh-so-thats-who-that-is">Anya</a> and <a href="/blog/2015/05/05/subject-so-much-new-we-cant-even-was-because-awesome">Greg</a> in Avalara’s Developer Relations team. We’re the team that will be here for you when you need help making sense of Sales Tax and getting your software connected to our services.
 
 In my past life, I’ve spent a decade working at Microsoft  in the Windows Mobile/Phone, Developer Evangelism and Robotics divisions. If you search hard enough, you’ll probably find lots of videos, demos and talks that I’ve done in the past. You’ll also find many videos of me enjoying my hobby of competitive pistol shooting. It is a real stress reliever and much akin to golf, although I do hate golf; much too slow and there’s too much walking around for my liking.
 

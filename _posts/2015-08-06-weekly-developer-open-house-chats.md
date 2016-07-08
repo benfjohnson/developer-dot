@@ -7,16 +7,9 @@ comments: true
 categories: [best practice, chat, discussion, open house, Q&amp;A, sales tax, Sales Tax APIs, troubleshooting]
 product: avatax
 doctype: blog
+imgsrc: /images/2015/08/Sticker-DevAndTaxes_Hangouts_600w.jpg
 ---
-<a href="https://developer.avalara.com/wp-content/uploads/2015/08/Sticker-DevAndTaxes_Hangouts_600w.jpg"><img class="alignleft size-full wp-image-9291" src="http://developer.avalara.com/wp-content/uploads/2015/08/Sticker-DevAndTaxes_Hangouts_600w.jpg" alt="Sticker-DevAndTaxes" width="600" height="150" /></a>
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
+<a href="/images/2015/08/Sticker-DevAndTaxes_Hangouts_600w.jpg"><img class="alignleft size-full wp-image-9291" src="/images/2015/08/Sticker-DevAndTaxes_Hangouts_600w.jpg" alt="Sticker-DevAndTaxes" width="600" height="150" /></a>
 
 In the months of August &amp; September, Our team will be hosting a weekly online open-house chat via Google Hangouts. We will be online for up to two hours and will be available to answer questions, provide guidance or simply just to chat. This chat is useful for anyone who is evaluating our services or have difficulties with building their integration.
 
@@ -29,6 +22,3 @@ Here are the dates :
 </ul>
 Please join us if you have any technical questions with regards to APIs, building &amp; architecting integrations, sample code request, troubleshooting code errors, best practices, trading jokes or just to shoot the breeze.
 
-&nbsp;
-
-&nbsp;

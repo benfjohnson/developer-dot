@@ -24,4 +24,4 @@ The next AvaTax release (15.4) scheduled for August 5th 2015 will include some m
 </ul>
 &nbsp;
 
-Please do let us know if you have any questions or need any help with the changes in the WSDL. You can post your questions on our Community Forums at <a href="http://developer.avalara.com/help">http://developer.avalara.com/help</a>.
+Please do let us know if you have any questions or need any help with the changes in the WSDL. You can post your questions on our <a href="https://community.avalara.com/avalara/category_sets/developers">Community Forums</a>.

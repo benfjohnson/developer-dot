@@ -7,8 +7,11 @@ comments: true
 categories: [Sales Tax APIs]
 product: avatax
 doctype: blog
+imgsrc: /images/2015/10/5064720453_1f3995a5d1_z-300x274.jpg
 ---
-[caption id="attachment_9343" align="alignleft" width="300"]<a href="https://www.flickr.com/photos/ross_elliott/5064720453/in/photostream/"><img class="size-medium wp-image-9343" src="http://developer.avalara.com/wp-content/uploads/2015/10/5064720453_1f3995a5d1_z-300x274.jpg" alt="More SOAP!" width="300" height="274" /></a> More SOAP![/caption]
+<a href="https://www.flickr.com/photos/ross_elliott/5064720453/in/photostream/"><img class="size-medium wp-image-9343" src="/images/2015/10/5064720453_1f3995a5d1_z-300x274.jpg" alt="More SOAP!" width="300" height="274" /></a> 
+
+<div class="caption">More SOAP!</div>
 
 As we've moved to providing better and more precise<a href="http://www.avalara.com/blog/2015/03/10/avalara-adds-brazil-to-global-tax-compliance-cloud-platform/"> international calculation</a>, Avalara has found that our current API doesn't capture everything we might need. We want to provide more precise calculations, but we also want our existing integrations to continue to seamlessly calculate. As such, we have launched a second version of the AvaTax WSDL. This version will play host to all of our Global functionality to prevent introducing breaking changes for customers who aren’t going to take advantage of that functionality. The v2 WSDL is available here: https://development.avalara.net/tax/taxsvcv2.wsdl
 

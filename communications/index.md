@@ -18,4 +18,4 @@ The Communications Tax API is a SOAP web service that is the external programmat
 <h3>Get API Key</h3>
 To get a username and password, contact your Customer Account Manager or email <a href="mailto:communicationsupport@avalara.com">communicationsupport@avalara.com</a>.
 <h3>Documentation</h3>
-The <a href="http://developer.avalara.com/api-documentation/communications-api/api-reference">AvaTax for Communications Documentation</a> defines the object structure, and an introduction on how to consume the web service for use in customer programs.
+The <a href="/communications/api-reference/">AvaTax for Communications Documentation</a> defines the object structure, and an introduction on how to consume the web service for use in customer programs.

@@ -40,6 +40,3 @@ Ok, so we can't do anything with the original document. That means the only way 
 </ul>
 And then you can enter in the new charge (if there is one) in the same way! Hey, if you're feeling extra fancy, you can even tack it on as additional positive line items on your otherwise-negative adjustment! Just remember: when you need to CYA (correct your accounts), RYA (record your adjustments)! Catchy, right?
 
-&nbsp;
-
-&nbsp;

@@ -18,13 +18,13 @@ Before we get started, here are some things you'll need to consider:
 </ul>
 With these things in mind, let's take a look at some general examples.
 <h3><a name="Ecommerce"></a>Ecommerce</h3>
-<a href="/wp-content/uploads/2013/05/developer-charts-eCommerce-2014-Brand-m1.png"><img class="alignnone wp-image-2288" src="/wp-content/uploads/2013/05/developer-charts-eCommerce-2014-Brand-m1.png" alt="" width="960" height="560" /></a>
+<a href="/images/2013/05/developer-charts-eCommerce-2014-Brand-m1.png"><img class="alignnone wp-image-2288" src="/images/2013/05/developer-charts-eCommerce-2014-Brand-m1.png" alt="" width="960" height="560" /></a>
 <ul>
 	<li>For every tax calculation done before a sale is complete, you should use DocType SalesOrder. This will not create a record of the calculation in AvaTax, so you won't have to do any cleanup for abandoned carts.</li>
 	<li>When you recognize the sale, make another call to AvaTax with DocType SalesInvoice to record the transaction for reporting. You can commit the document at this time, or later, depending on your business process.</li>
 </ul>
 <h3>ERP</h3>
-<a href="/wp-content/uploads/2013/05/developer-charts-ERP-2014-Brand-m1.png"><img class="alignnone wp-image-2289" src="/wp-content/uploads/2013/05/developer-charts-ERP-2014-Brand-m1.png" alt="" width="960" height="767" /></a>
+<a href="/images/2013/05/developer-charts-ERP-2014-Brand-m1.png"><img class="alignnone wp-image-2289" src="/images/2013/05/developer-charts-ERP-2014-Brand-m1.png" alt="" width="960" height="767" /></a>
 
 In addition to the workflows above, there are additional document types and processes to account for.
 <ul>
@@ -34,4 +34,4 @@ In addition to the workflows above, there are additional document types and proc
 	<li>Returns and credit memos work just like invoices, but they should be sent with negative amounts and some date considerations.</li>
 	<li>If invoices or returns are voided, that cancellation needs to be communicated to AvaTax with a CancelTax call.</li>
 </ul>
-If you're ready to start some testing, you may want to review the <a href="/api-reference/avatax15">API Reference</a>, how we deal with <a href="/api-docs/designing-your-integration/gettax#ShippingAndFreight">shipping charges</a>, and pick up some <a href="/api-docs/api-sample-code">sample code</a>.
+If you're ready to start some testing, you may want to review the <a href="/avatax/api-reference/">API Reference</a>, how we deal with <a href="/avatax/gettax#ShippingAndFreight">shipping charges</a>, and pick up some <a href="/avatax/sample-code">sample code</a>.

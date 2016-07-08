@@ -7,8 +7,9 @@ comments: true
 categories: [Presentations, Sales Tax APIs]
 product: avatax
 doctype: blog
+imgsrc: /images/2015/11/Screen-Shot-2015-11-09-at-2.26.01-PM.png
 ---
-<a href="https://developer.avalara.com/wp-content/uploads/2015/11/Screen-Shot-2015-11-09-at-2.26.01-PM.png"><img class="alignnone wp-image-9416 size-full" src="https://developer.avalara.com/wp-content/uploads/2015/11/Screen-Shot-2015-11-09-at-2.26.01-PM.png" alt="Screen Shot 2015-11-09 at 2.26.01 PM" width="548" height="160" /></a>
+<a href="/images/2015/11/Screen-Shot-2015-11-09-at-2.26.01-PM.png"><img class="alignnone wp-image-9416 size-full" src="/images/2015/11/Screen-Shot-2015-11-09-at-2.26.01-PM.png" alt="Screen Shot 2015-11-09 at 2.26.01 PM" width="548" height="160" /></a>
 
 Looks like the guys from FinDEVr has published all the videos from the latest event in San Francisco on their website. Here's the video recording of the presentation I gave at the event.
 

@@ -15,7 +15,7 @@ When a GetTax call is made using a DocType value of SalesInvoice, the transactio
 The simplest method is to set the DocType to SalesInvoice and set Commit to true on the GetTaxRequest, and at this time <em>if you are using our REST interface, this is the only way to do it</em>.
 If you are using the SOAP interface, you can commit documents either with that same method, by calling PostTax, or by calling PostTax and then CommitTax. PostTax will allow you to either commit a document immediately (without initiating a recalculation), or to set the document in an intermediate state between uncommitted and committed. The document can then be moved from the intermediate state to committed with CommitTax (or rolled back to an uncommitted state with CancelTax).
 
-[caption id="attachment_330" align="alignnone" width="776"]<a href="/wp-content/uploads/2012/05/Document-Status.jpg"><img class="size-full wp-image-330" src="/wp-content/uploads/2012/05/Document-Status.jpg" alt="Document Status shows as document header level property in the Admin Console" width="776" height="215" /></a> Document Status shows as document header level property in the Admin Console[/caption]
+<a href="/images/2012/05/Document-Status.jpg"><img class="size-full wp-image-330" src="/images/2012/05/Document-Status.jpg" alt="Document Status shows as document header level property in the Admin Console" width="776" height="215" /></a> <div class="caption">Document Status shows as document header level property in the Admin Console</div>
 
 Uncommitted and posted documents can be replaced with any subsequent GetTax calls to the same DocCode (Document Number) which has the effect of changing the Document Status back to Uncommitted. A committed transaction can not be overwritten.
 
