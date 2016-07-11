@@ -17,8 +17,8 @@ To get a username and password, contact your Customer Account Manager or email <
 <h3>Documentation</h3>
 TrustFile offers three separate APIs:
 <ul>
-	<li>The <a href="http://developer.avalara.com/api-documentation/trustfile-api/core-api-reference">Core API</a> allows a developer to interact with transactions in TrustFile</li>
-	<li>The <a href="http://developer.avalara.com/api-documentation/trustfile-api/provisioning-api-reference">Provisioning API</a> allows a partner to provide signup and provisioning to mutual clients.</li>
-	<li>The <a href="http://developer.avalara.com/api-documentation/trustfile-api/connectors-api-reference">Connectors API</a> describes the registration and maintenance of both connectors and connections.</li>
+	<li>The <a href="/trustfile/api-reference/trustfile.html">Core API</a> allows a developer to interact with transactions in TrustFile</li>
+	<li>The <a href="/trustfile/api-reference/provisioning.html">Provisioning API</a> allows a partner to provide signup and provisioning to mutual clients.</li>
+	<li>The <a href="/trustfile/api-reference/connectors.html">Connectors API</a> describes the registration and maintenance of both connectors and connections.</li>
 </ul>
 If you have any questions, please reach out to us at <a href="mailto:support@trustfile.com">support@trustfile.com</a>.

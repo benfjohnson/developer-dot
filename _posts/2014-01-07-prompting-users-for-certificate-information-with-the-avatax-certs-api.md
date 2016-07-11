@@ -7,6 +7,7 @@ comments: true
 categories: [Sales Tax APIs]
 product: certcapture
 doctype: blog
+imgsrc: /images/2014/01/AvaTaxCertsWorkflow.png
 ---
 The AvaTax Certs product is a stand-alone exemption certificate management product that can be used in conjunction with the AvaTax Calc product. The Certs product allows a company to track exempt customers, initiate automated correspondence to request certificate information from those customers, and track and manage the resulting exemption certificates. All valid certificates created/recorded in the AvaTax Certs product sync over to the AvaTax Calc product as well - once a customer has a valid exemption certificate in Certs, they will automatically be tax exempt for your tax calculations.
 
@@ -14,11 +15,11 @@ There is a <a href="https://portal.avatax.com/api/doc/">RESTful API</a> to inter
 
 Note that the AvaTax Certs product is currently being combined with the <a href="http://www.avalara.com/products/certcapture">CertCapture</a> product, but this article uses the resource terminology specific to the AvaTax Certs API.
 
-If you are interested in flagging your customers as tax exempt within the AvaTax Calc product (and not in using an additional certificate management product), take a look at <a href="http://developer.avalara.com/api-docs/designing-your-integration/api-integration-checklist/handling-tax-exempt-customers">this</a> summary of managing exempt customers.
+If you are interested in flagging your customers as tax exempt within the AvaTax Calc product (and not in using an additional certificate management product), take a look at <a href="/avatax/handling-tax-exempt-customers">this</a> summary of managing exempt customers.
 
 Okay, now let's get down to brass tacks. You have a customer who is buying things on your website and wants to let you know that they are tax exempt. Here's a diagram of the recommended workflow (with API calls):
 
-<a href="https://developer.avalara.com/wp-content/uploads/2014/01/AvaTaxCertsWorkflow.png"><img class="alignnone size-full wp-image-6374" src="https://developer.avalara.com/wp-content/uploads/2014/01/AvaTaxCertsWorkflow.png" alt="AvaTax Certs Workflow" width="1633" height="338" /></a>
+<a href="/images/2014/01/AvaTaxCertsWorkflow.png"><img class="alignnone size-full wp-image-6374" src="/images/2014/01/AvaTaxCertsWorkflow.png" alt="AvaTax Certs Workflow" width="1633" height="338" /></a>
 
 *If you're using the AvaTax Calc product to calculate tax, it will reflect the existing exempt status for the customer.
 

@@ -52,6 +52,8 @@ gems:
 algolia:
     application_id: '19A6FWAAB3'
     index_name: 'developer-dot'
+    settings:
+        attributesForFaceting: ['doctype', 'product']
 
 
 # Keep as an empty string if served up at the root. If served up at a specific
@@ -82,9 +84,11 @@ redcarpet:
     ]
 
 # applies to _posts only for some reason
-permalink: blog/:year/:month/:day/:title
+permalink: blog/:year/:month/:day/:title/
+excerpt_separator: <!--more-->
+
 
 collections:
     pages:
-        permalink: :basename
+        permalink: :basename/
         layout: "page"

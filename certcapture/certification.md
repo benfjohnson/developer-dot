@@ -5,10 +5,10 @@ date: 2016-01-18 02:42
 author: jeremy.buller
 comments: true
 categories: []
-product: certification
-doctype: documentation
+product: certcapture
+doctype: certification
 ---
-[fullwidth background_color="" background_image="" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" overlay_opacity="0.5" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="" padding_top="20" padding_bottom="20" padding_left="0" padding_right="0" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_text]
+
 <h1 class="entry-title" data-fontsize="32" data-lineheight="NaN">Avalara AvaTax with CertCapture</h1>
 
 
@@ -93,7 +93,7 @@ The AvaTax Administration section provides the user with configuration, setup an
 <tr>
 <td valign="top">R</td>
 <td valign="top">Entity/Use Code</td>
-<td valign="top">This is a group of codes that indicate the type of exemption.  See <a title="standard list of codes" href="http://developer.avalara.com/api-docs/designing-your-integration/handling-tax-exempt-customers#CustomerUsageType" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to <strong>manage this value in your application’s Customer record</strong> and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable.
+<td valign="top">This is a group of codes that indicate the type of exemption.  See <a title="standard list of codes" href="/avatax/handling-tax-exempt-customers#CustomerUsageType" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to <strong>manage this value in your application’s Customer record</strong> and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable.
 
 Note that either Exemption Number or Entity/Use code is required (not both). <strong>Entity/Use Code is preferred.</strong></td>
 </tr>
@@ -158,4 +158,3 @@ Tax calculation should display a clean audit to limit errors and call volume to 
 </tbody>
 </table>
 
-[/fusion_text][/fullwidth]

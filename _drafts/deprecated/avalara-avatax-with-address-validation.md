@@ -1,22 +1,20 @@
 ---
 layout: page
-title: AvaTax with Address Validation Checklist
-date: 2016-01-18 02:41
-author: jeremy.buller
+title: Avalara AvaTax with Address Validation
+date: 2014-02-20 18:34
+author: julia.king
 comments: true
 categories: []
-product: certification
-doctype: documentation
+product: avatax
+doctype: certification
 ---
-[fullwidth background_color="" background_image="" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" overlay_opacity="0.5" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="" padding_top="20" padding_bottom="20" padding_left="0" padding_right="0" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_text]
-
 Certification for Avalara AvaTax with Address Validation requires the delivery of all functional requirements shown below.
 
-Key:  R – Functionality required for certification     N – Functionality not required, but noted
-<h2 data-fontsize="22" data-lineheight="32">AvaTax Administration &amp; Utilities integration</h2>
+Key:  R - Functionality required for certification     N - Functionality not required, but noted
+<h2>AvaTax Administration &amp; Utilities integration</h2>
 The AvaTax Administration section provides the user with configuration, setup and utility functions necessary to administer the AvaTax sales tax calculation and address validation functions.
-<table>
-<thead>
+<table border="1" width="100%" cellspacing="0" cellpadding="5">
+<thead style="background-color: lightgray;">
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -41,10 +39,10 @@ The AvaTax Administration section provides the user with configuration, setup an
 </tr>
 </tbody>
 </table>
-<h2 data-fontsize="22" data-lineheight="32">Address Validation Touchpoints</h2>
+<h2>Address Validation Touchpoints</h2>
 There are two recommended touchpoints for address validation: on-demand or integrated checkout address validation. One or the other is required.
-<table>
-<thead>
+<table border="1" width="100%" cellspacing="0" cellpadding="5">
+<thead style="background-color: lightgray;">
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -55,19 +53,19 @@ There are two recommended touchpoints for address validation: on-demand or integ
 <tr>
 <td valign="top">R</td>
 <td valign="top">On-demand address validation on customer record entry</td>
-<td valign="top">Include a button on the customer record to validate the address. This method is recommended for ERP implementations.<a href="http://developer.avalara.com/api-docs/designing-your-integration/address-validation">More information</a></td>
+<td valign="top">Include a button on the customer record to validate the address. This method is recommended for ERP implementations. <a href="/api-docs/designing-your-integration/address-validation">More information</a></td>
 </tr>
 <tr>
 <td valign="top">R</td>
 <td valign="top">Integrated address validation in checkout workflow</td>
-<td valign="top">Prompt user at address entry to continue/validate address prior to tax calculation. This method is recommended for E-commerce implementations. <a href="http://developer.avalara.com/api-docs/designing-your-integration/address-validation">More information</a></td>
+<td valign="top">Prompt user at address entry to continue/validate address prior to tax calculation. This method is recommended for E-commerce implementations. <a href="/api-docs/designing-your-integration/address-validation">More information</a></td>
 </tr>
 </tbody>
 </table>
-<h2 data-fontsize="22" data-lineheight="32">Sales/Billing Document integration</h2>
+<h2>Sales/Billing Document integration</h2>
 Integrating with the Sales and/or Billing process involves making tax calculation and/or modifying a transaction.
-<table>
-<thead>
+<table border="1" width="100%" cellspacing="0" cellpadding="5">
+<thead style="background-color: lightgray;">
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -97,10 +95,10 @@ Integrating with the Sales and/or Billing process involves making tax calculatio
 </tr>
 </tbody>
 </table>
-<h2 data-fontsize="22" data-lineheight="32">Server Audit Clarity</h2>
+<h2>Server Audit Clarity</h2>
 Address Validation should display a clean audit to limit errors and call volume to reasonable levels.
-<table>
-<thead>
+<table border="1" width="100%" cellspacing="0" cellpadding="5">
+<thead style="background-color: lightgray;">
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -126,5 +124,3 @@ Address Validation should display a clean audit to limit errors and call volume 
 </tbody>
 </table>
 &nbsp;
-
-[/fusion_text][/fullwidth]

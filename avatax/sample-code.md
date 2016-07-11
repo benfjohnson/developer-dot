@@ -22,37 +22,37 @@ These libraries are open source, and are released as such. If you have located a
 <!-- PHP -->
 <tbody>
 <tr>
-<td><img style="vertical-align: middle;" src="/wp-content/uploads/2014/01/favicon32x32.png" alt="" width="15" height="15" /> PHP</td>
+<td><img style="vertical-align: middle;" src="/images/2014/01/favicon32x32.png" alt="" width="15" height="15" /> PHP</td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTax-Calc-REST-PHP">sample</a></td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTax-Calc-SOAP-PHP">sample</a></td>
 </tr>
 <!-- Ruby -->
 <tr>
-<td><img style="vertical-align: middle;" src="/wp-content/uploads/2014/01/favicon32x32.png" alt="" width="15" height="15" /> Ruby</td>
+<td><img style="vertical-align: middle;" src="/images/2014/01/favicon32x32.png" alt="" width="15" height="15" /> Ruby</td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTax-Calc-REST-Ruby">sample</a></td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTax-Calc-SOAP-Ruby">sample</a></td>
 </tr>
 <!-- Java -->
 <tr>
-<td><img style="vertical-align: middle;" src="/wp-content/uploads/2014/01/favicon32x32.png" alt="" width="15" height="15" /> Java</td>
+<td><img style="vertical-align: middle;" src="/images/2014/01/favicon32x32.png" alt="" width="15" height="15" /> Java</td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTax-Calc-REST-java">sample</a></td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTax-Calc-SOAP-Java">sample</a></td>
 </tr>
 <!-- C# -->
 <tr>
-<td><img style="vertical-align: middle;" src="/wp-content/uploads/2014/01/favicon32x32.png" alt="" width="15" height="15" /> C#</td>
+<td><img style="vertical-align: middle;" src="/images/2014/01/favicon32x32.png" alt="" width="15" height="15" /> C#</td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTax-Calc-REST-csharp">sample</a></td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTax-Calc-SOAP-csharp">sample</a></td>
 </tr>
 <!-- cURL -->
 <tr>
-<td><img style="vertical-align: middle;" src="/wp-content/uploads/2014/01/favicon32x32.png" alt="" width="15" height="15" /> cURL</td>
+<td><img style="vertical-align: middle;" src="/images/2014/01/favicon32x32.png" alt="" width="15" height="15" /> cURL</td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTax-Calc-REST-cURL">sample</a></td>
 <td style="text-align: center;">n/a</td>
 </tr>
 <!-- Python -->
 <tr>
-<td><img style="vertical-align: middle;" src="/wp-content/uploads/2014/01/favicon32x32.png" alt="" width="15" height="15" /> Python</td>
+<td><img style="vertical-align: middle;" src="/images/2014/01/favicon32x32.png" alt="" width="15" height="15" /> Python</td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTax-Calc-REST-Python">sample</a>
 also see partner
 managed samples below</td>
@@ -60,43 +60,43 @@ managed samples below</td>
 </tr>
 <!-- JavaScript -->
 <tr>
-<td><img style="vertical-align: middle;" src="/wp-content/uploads/2014/01/favicon32x32.png" alt="" width="15" height="15" /> JavaScript</td>
+<td><img style="vertical-align: middle;" src="/images/2014/01/favicon32x32.png" alt="" width="15" height="15" /> JavaScript</td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTax-Calc-REST-JavaScript">sample</a></td>
 <td style="text-align: center;">n/a</td>
 </tr>
 <!-- iOS -->
 <tr>
-<td><img style="vertical-align: middle;" src="/wp-content/uploads/2014/01/favicon32x32.png" alt="" width="15" height="15" /> iOS</td>
+<td><img style="vertical-align: middle;" src="/images/2014/01/favicon32x32.png" alt="" width="15" height="15" /> iOS</td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTax-Calc-SDK-iOS">sample</a></td>
 <td style="text-align: center;">n/a</td>
 </tr>
 <!-- Postman -->
 <tr>
-<td><img style="vertical-align: middle;" src="/wp-content/uploads/2014/01/favicon32x32.png" alt="" width="15" height="15" /> Postman Collection</td>
+<td><img style="vertical-align: middle;" src="/images/2014/01/favicon32x32.png" alt="" width="15" height="15" /> Postman Collection</td>
 <td style="text-align: center;"><a href="https://www.getpostman.com/collections/e362821310b01d7580e9">sample</a></td>
 <td style="text-align: center;">n/a</td>
 </tr>
 <!-- C++/CLI -->
 <tr>
-<td><img style="vertical-align: middle;" src="/wp-content/uploads/2014/01/favicon32x32.png" alt="" width="15" height="15" /> C++/CLI</td>
+<td><img style="vertical-align: middle;" src="/images/2014/01/favicon32x32.png" alt="" width="15" height="15" /> C++/CLI</td>
 <td style="text-align: center;">n/a</td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTax-Calc-SOAP-CPP">sample</a></td>
 </tr>
 <!-- IBM -->
 <tr>
-<td><img style="vertical-align: middle;" src="/wp-content/uploads/2014/01/favicon32x32.png" alt="" width="15" height="15" /> IBM iSeries</td>
+<td><img style="vertical-align: middle;" src="/images/2014/01/favicon32x32.png" alt="" width="15" height="15" /> IBM iSeries</td>
 <td style="text-align: center;">n/a</td>
 <td style="text-align: center;"><a title="IBM iSeries Documentation" href="https://github.com/avadev/AvaTax-Calc-SOAP-IBMi">documentation</a></td>
 </tr>
 <!-- Salesforce -->
 <tr>
-<td><img style="vertical-align: middle;" src="/wp-content/uploads/2014/01/favicon32x32.png" alt="" width="15" height="15" /> Salesforce - APEX</td>
+<td><img style="vertical-align: middle;" src="/images/2014/01/favicon32x32.png" alt="" width="15" height="15" /> Salesforce - APEX</td>
 <td style="text-align: center;">n/a</td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTaxCalc-Salesforce-APEX-Documentation">documentation</a></td>
 </tr>
 <!-- AvaTaxLocal
 <tr>
-<td><img style="vertical-align: middle;" src="/wp-content/uploads/2014/01/favicon32x32.png" alt="" width="15" height="15" /> AvaTax Local for Point-of-sale</td>
+<td><img style="vertical-align: middle;" src="/images/2014/01/favicon32x32.png" alt="" width="15" height="15" /> AvaTax Local for Point-of-sale</td>
 <td style="text-align: center;">n/a</td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTaxLocalPOS" target="_blank">installation file</a>
 <a href="http://help.avalara.com/001_Avalara_AvaTax_Local/010_How_to_Install_and_Configure_Avalara_AvaTax_Local" target="_blank">installation guide</a>
@@ -104,13 +104,13 @@ managed samples below</td>
 </tr>
 --><!-- Account Service -->
 <tr>
-<td><img style="vertical-align: middle;" src="/wp-content/uploads/2014/01/favicon32x32.png" alt="" width="15" height="15" /> AvaTax Account Service</td>
+<td><img style="vertical-align: middle;" src="/images/2014/01/favicon32x32.png" alt="" width="15" height="15" /> AvaTax Account Service</td>
 <td style="text-align: center;">n/a</td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTax-Calc-AccountSvc-SOAP-csharp">sample</a></td>
 </tr>
 <!-- Batch Service -->
 <tr>
-<td><img style="vertical-align: middle;" src="/wp-content/uploads/2014/01/favicon32x32.png" alt="" width="15" height="15" /> AvaTax Batch Service</td>
+<td><img style="vertical-align: middle;" src="/images/2014/01/favicon32x32.png" alt="" width="15" height="15" /> AvaTax Batch Service</td>
 <td style="text-align: center;">n/a</td>
 <td style="text-align: center;"><a href="https://github.com/avadev/AvaTax-Calc-BatchSvc-SOAP-csharp">sample</a></td>
 </tr>
@@ -120,7 +120,7 @@ managed samples below</td>
 <h3>Partner Managed Samples</h3>
 Submit questions or log bugs using the method provided in GitHub.
 <div><b>Perl</b></div>
-<div><a href="https://metacpan.org/release/WebService-Avalara-AvaTax">WebService::Avalara::AvaTax</a> <em>supported by Mark Gardner of <a href="http://www.ziprecruiter.com"><img class="alignnone wp-image-9119 " src="https://developer.avalara.com/wp-content/uploads/2013/03/ziprecruiter_logo.png" alt="ziprecruiter_logo" width="98" height="25" /></a></em></div>
+<div><a href="https://metacpan.org/release/WebService-Avalara-AvaTax">WebService::Avalara::AvaTax</a> <em>supported by Mark Gardner of <a href="http://www.ziprecruiter.com"><img class="alignnone wp-image-9119 " src="https://developer.avalara.com/images/2013/03/ziprecruiter_logo.png" alt="ziprecruiter_logo" width="98" height="25" /></a></em></div>
 <strong>Python</strong>
 <a href="https://github.com/activefrequency/pyavatax">PyAvaTax sample</a> - <em>Supported by <a href="http://www.activefrequency.com/">Active Frequency</a>.</em>
 
