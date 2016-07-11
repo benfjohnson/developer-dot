@@ -80,34 +80,6 @@ const EndPointComponent = (props) => (
                 <td><strong>{'HTTP Method'}</strong></td>
                 <td>{props.endpoint.action}</td>
             </tr>
-            {props.endpoint.response ?
-                <tr>
-                    <td><strong>{'Response'}</strong></td>
-                    <td>
-                        <span
-                            className={`${props.endpoint.response.currentVisibility === 'example' ? ' active-tab' : 'mouse'}`}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                if (props.endpoint.response.currentVisibility !== 'example') {
-                                    toggleResponseModelExample(props.id);
-                                }
-                            }
-                        }>{'Example'}</span>
-                        <span
-                            className={`m-l-1${props.endpoint.response.currentVisibility === 'model' ? ' active-tab' : ' mouse'}`}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                if (props.endpoint.response.currentVisibility !== 'model') {
-                                    toggleResponseModelExample(props.id);
-                                }
-                            }
-                        }>{'Model'}</span>
-                        <br />
-                        <textarea cols='50' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.response[props.endpoint.response.currentVisibility], null, 2)}/>
-                    </td>
-                </tr> :
-                null
-            }
             {props.endpoint.request ?
                 <tr>
                     <td><strong>{'Request'}</strong></td>
@@ -133,6 +105,34 @@ const EndPointComponent = (props) => (
                         <br />
                         <textarea cols='50' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.request[props.endpoint.request.currentVisibility], null, 2)}/>
 
+                    </td>
+                </tr> :
+                null
+            }
+            {props.endpoint.response ?
+                <tr>
+                    <td><strong>{'Response'}</strong></td>
+                    <td>
+                        <span
+                            className={`${props.endpoint.response.currentVisibility === 'example' ? ' active-tab' : 'mouse'}`}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (props.endpoint.response.currentVisibility !== 'example') {
+                                    toggleResponseModelExample(props.id);
+                                }
+                            }
+                            }>{'Example'}</span>
+                        <span
+                            className={`m-l-1${props.endpoint.response.currentVisibility === 'model' ? ' active-tab' : ' mouse'}`}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (props.endpoint.response.currentVisibility !== 'model') {
+                                    toggleResponseModelExample(props.id);
+                                }
+                            }
+                            }>{'Model'}</span>
+                        <br />
+                        <textarea cols='50' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.response[props.endpoint.response.currentVisibility], null, 2)}/>
                     </td>
                 </tr> :
                 null
