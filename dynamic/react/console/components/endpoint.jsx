@@ -55,6 +55,12 @@ const toggleResponseModelExample = (id) => {
         endpointId: id
     });
 };
+const toggleRequestModelExample = (id) => {
+    store.dispatch({
+        type: actionTypes.TOGGLE_REQUEST_MODEL_EXAMPLE,
+        endpointId: id
+    });
+};
 
 // Give our endpoint an id based on its name for our clientside routing in jekyll
 const EndPointComponent = (props) => (
@@ -75,11 +81,11 @@ const EndPointComponent = (props) => (
                 <td>{props.endpoint.action}</td>
             </tr>
             {props.endpoint.response ?
-                <tr className={'response-documentation'}>
+                <tr>
                     <td><strong>{'Response'}</strong></td>
                     <td>
                         <span
-                            className={`${props.endpoint.response.currentVisibility === 'example' ? ' active' : 'mouse'}`}
+                            className={`${props.endpoint.response.currentVisibility === 'example' ? ' active-tab' : 'mouse'}`}
                             onClick={(e) => {
                                 e.preventDefault();
                                 if (props.endpoint.response.currentVisibility !== 'example') {
@@ -88,7 +94,7 @@ const EndPointComponent = (props) => (
                             }
                         }>{'Example'}</span>
                         <span
-                            className={`m-l-1${props.endpoint.response.currentVisibility === 'model' ? ' active' : ' mouse'}`}
+                            className={`m-l-1${props.endpoint.response.currentVisibility === 'model' ? ' active-tab' : ' mouse'}`}
                             onClick={(e) => {
                                 e.preventDefault();
                                 if (props.endpoint.response.currentVisibility !== 'model') {
@@ -102,10 +108,30 @@ const EndPointComponent = (props) => (
                 </tr> :
                 null
             }
-            {props.endpoint.queryString || props.endpoint.pathParams || props.endpoint.postBody ?
+            {props.endpoint.request ?
                 <tr>
                     <td><strong>{'Request'}</strong></td>
                     <td>
+                        <span
+                            className={`${props.endpoint.request.currentVisibility === 'example' ? ' active-tab' : 'mouse'}`}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (props.endpoint.request.currentVisibility !== 'example') {
+                                    toggleRequestModelExample(props.id);
+                                }
+                            }
+                            }>{'Example'}</span>
+                        <span
+                            className={`m-l-1${props.endpoint.request.currentVisibility === 'model' ? ' active-tab' : ' mouse'}`}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (props.endpoint.request.currentVisibility !== 'model') {
+                                    toggleRequestModelExample(props.id);
+                                }
+                            }
+                            }>{'Model'}</span>
+                        <br />
+                        <textarea cols='50' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.request[props.endpoint.request.currentVisibility], null, 2)}/>
 
                     </td>
                 </tr> :
@@ -114,8 +140,8 @@ const EndPointComponent = (props) => (
             </tbody>
         </table>
         <form>
-            {props.endpoint.queryString ? <RequestParams endpointId={props.id} paramType={'QUERY_STRING'} params={props.endpoint.queryString}/> : null}
             {props.endpoint.pathParams ? <RequestParams endpointId={props.id} paramType={'PATH'} params={props.endpoint.pathParams}/> : null}
+            {props.endpoint.queryString ? <RequestParams endpointId={props.id} paramType={'QUERY_STRING'} params={props.endpoint.queryString}/> : null}
             {props.endpoint.postBody ? <PostBody id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.postBody}/> : null}
             <p className={'curl'}>{props.endpoint.curl}</p>
             <button

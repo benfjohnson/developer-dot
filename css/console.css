@@ -36,6 +36,6 @@ textarea {
     cursor: pointer;
 }
 
-.response-documentation span.active {
+.active-tab {
     font-weight: bold;
 }

@@ -63,7 +63,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
 
     return (
         <PostBodySectionHeader displayName={displayName} endpointId={endpointId} propertyName={name}>
-            {uiState.visible ? Object.keys(item).filter((n) => n !== 'uiState').map((itemKey, i) => {
+            {uiState.visible ? Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
                 return (<PostBodyItem
                     displayName={itemKey}
                     endpointId={endpointId}

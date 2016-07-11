@@ -10,7 +10,8 @@ const actionTypes = {
     TOGGLE_POST_BODY_ITEM_VISIBILITY: 'TOGGLE_POST_BODY_ITEM_VISIBILITY',
     ADD_ITEM_TO_POST_BODY_COLLECTION: 'ADD_ITEM_TO_POST_BODY_COLLECTION',
     FILL_REQUEST_SAMPLE_DATA: 'FILL_REQUEST_SAMPLE_DATA',
-    TOGGLE_RESPONSE_MODEL_EXAMPLE: 'TOGGLE_RESPONSE_MODEL_EXAMPLE'
+    TOGGLE_RESPONSE_MODEL_EXAMPLE: 'TOGGLE_RESPONSE_MODEL_EXAMPLE',
+    TOGGLE_REQUEST_MODEL_EXAMPLE: 'TOGGLE_REQUEST_MODEL_EXAMPLE'
 };
 
 const reducer = (state = {}, action) => {
@@ -33,6 +34,7 @@ const reducer = (state = {}, action) => {
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
     case actionTypes.TOGGLE_RESPONSE_MODEL_EXAMPLE:
+    case actionTypes.TOGGLE_REQUEST_MODEL_EXAMPLE:
         const endpoint = state.apiInfo[action.endpointId];
 
         newState.apiInfo[action.endpointId] = endpointReducer(endpoint, action);

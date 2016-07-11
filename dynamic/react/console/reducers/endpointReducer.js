@@ -41,6 +41,9 @@ export default (state, action) => {
     case actionTypes.TOGGLE_RESPONSE_MODEL_EXAMPLE:
         newState.response.currentVisibility = newState.response.currentVisibility === 'example' ? 'model' : 'example';
         break;
+    case actionTypes.TOGGLE_REQUEST_MODEL_EXAMPLE:
+        newState.request.currentVisibility = newState.request.currentVisibility === 'example' ? 'model' : 'example';
+        break;
     default:
         break;
     }
