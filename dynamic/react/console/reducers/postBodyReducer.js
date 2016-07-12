@@ -24,10 +24,9 @@ export default (state, action) => {
 
     switch (action.type) {
     case actionTypes.POST_BODY_CHANGED:
-//         console.log('POST BODY CHANGED', action);
         switch (newStateProperty.fieldType) {
         case 'number':
-            newStateProperty.value = parseFloat(action.inputVal);
+            newStateProperty.value = isNaN(parseFloat(action.inputVal)) ? '' : parseFloat(action.inputVal);
             break;
         case 'boolean':
             newStateProperty.value = action.inputVal === 'true';
@@ -37,16 +36,13 @@ export default (state, action) => {
         }
         return newState;
     case actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY:
-//         console.log('TOGGLE VISIBILITY ACTION', action);
-
         newStateProperty.uiState.visible = !newStateProperty.uiState.visible;
 
         return newState;
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
-//         console.log('ADD TO COLLECTION ACTION', action);
-
         newStateProperty.uiState.visible = true;
         newStateProperty.value = newStateProperty.value.concat(action.itemSchema);
+
         // Should only set visibility on the array item if it's an object/array, not simple property:
         if (newStateProperty.value[newStateProperty.value.length - 1].uiState) {
             newStateProperty.value[newStateProperty.value.length - 1].uiState.visible = true;

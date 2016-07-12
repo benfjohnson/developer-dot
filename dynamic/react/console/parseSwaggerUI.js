@@ -13,7 +13,7 @@ const buildSchema = (schema, required = [], propName = null) => {
     if (schema.type && schema.type === 'object') {
         const nestedSchemaProps = Object.keys(schema.properties).map((nestedPropName) => ({[nestedPropName]: buildSchema(schema.properties[nestedPropName], schema.required, nestedPropName)}));
 
-        return Object.assign({uiState: {visible: false}, required: required.includes(propName)}, ...nestedSchemaProps);
+        return Object.assign({uiState: {visible: true}, required: required.includes(propName)}, ...nestedSchemaProps);
     }
 
     if (schema.type && schema.type === 'array') {
