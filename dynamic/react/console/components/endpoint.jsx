@@ -8,9 +8,7 @@ import PostBody from './postBody';
 import {replacePathParams, hasExampleData} from '../helpers';
 
 const handleSubmit = (endpoint, id) => {
-    // todo don't forget form validation!
     const url = (endpoint.pathParams ? replacePathParams(endpoint.path, endpoint.pathParams) : endpoint.path) + (endpoint.qsPath || '');
-
     const apiReq = {
         url: url,
         headers: {
@@ -24,20 +22,22 @@ const handleSubmit = (endpoint, id) => {
     }
 
     request[endpoint.action](apiReq, (error, response, body) => {
-        if (error || response.statusCode !== 200) {
-            store.dispatch({
-                type: actionTypes.SUBMIT_DONE,
-                endpointId: id,
-                apiResponse: {body: {}, status: response ? response.statusCode.toString() : '', statusMessage: error ? error.message : response.statusMessage || ''}
-            });
-            return;
+        let responseBody = {};
+
+        try {
+            responseBody = JSON.parse(body);
+        } catch (err) {
+            responseBody.error = err.message;
         }
-        // todo try/catch around JSON.parse
 
         store.dispatch({
             type: actionTypes.SUBMIT_DONE,
             endpointId: id,
-            apiResponse: {body: JSON.parse(body), status: response.statusCode.toString(), statusMessage: response.statusMessage}
+            apiResponse: {
+                body: responseBody,
+                status: response ? response.statusCode.toString() : '',
+                statusMessage: error ? error.message : response.statusMessage || ''
+            }
         });
     });
 };
