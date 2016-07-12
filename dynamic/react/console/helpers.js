@@ -1,19 +1,15 @@
-const buildQsPath = (queryString) => {
+const buildQsPath = (queryString, example = false) => {
     let qsPath = '';
+    let addedQsParamCount = 0;
 
-    if (queryString && Object.keys(queryString).some((p) => queryString[p] && queryString[p].value)) {
-        let addedQsParamCount = 0;
-
-        qsPath = Object.keys(queryString).reduce((qs, param) => {
-            if (queryString[param].value) {
-                const newQs = `${qs}${addedQsParamCount > 0 ? '&' : ''}${param}=${queryString[param].value}`;
-
-                addedQsParamCount++;
-                return newQs;
-            }
-            return qs;
-        }, '?');
+    if (example) {
+        if (queryString && Object.keys(queryString)) {
+            qsPath = Object.keys(queryString).reduce((qs, param) => (`${qs}${addedQsParamCount++ > 0 ? '&' : ''}${param}=${queryString[param]}`), '?');
+        }
+    } else if (queryString && Object.keys(queryString).some((p) => queryString[p] && queryString[p].value)) {
+        qsPath = Object.keys(queryString).reduce((qs, param) => (queryString[param].value ? `${qs}${addedQsParamCount++ > 0 ? '&' : ''}${param}=${queryString[param].value}` : qs), '?');
     }
+
     return qsPath;
 };
 
@@ -44,10 +40,16 @@ const buildPostBodyData = (body) => {
     return Object.keys(objBody).length ? objBody : undefined;
 };
 
-const replacePathParams = (path, pathParams) => {
+const replacePathParams = (path, pathParams, example = false) => {
     let newPath = path;
 
-    if (pathParams && Object.keys(pathParams).some((k) => pathParams[k].value)) {
+    if (example) {
+        if (pathParams && Object.keys(pathParams)) {
+            Object.keys(pathParams).forEach((key) => {
+                newPath = newPath.replace(`{${key}}`, pathParams[key]);
+            });
+        }
+    } else if (pathParams && Object.keys(pathParams).some((k) => pathParams[k].value)) {
         Object.keys(pathParams).forEach((key) => {
             // Replace all path param placeholders with their values, only if it's non-empty/null
             if (pathParams[key].value) {

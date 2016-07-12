@@ -1,4 +1,4 @@
-import {buildQsPath, buildCurl} from './helpers';
+import {buildQsPath, buildCurl, replacePathParams} from './helpers';
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
 const buildSchema = (schema, required = [], propName = null) => {
@@ -78,6 +78,10 @@ const buildResponse = (schema) => {
 
 const buildExample = (body) => {
     if (body.fieldType && body.fieldType !== 'array') {
+        if (body.fieldType === 'boolean') {
+            return body.example;
+        }
+
         return body.example && body.example.length ? body.example : undefined;
     }
 
@@ -111,7 +115,7 @@ const buildModel = (body, type) => {
         const model = {...accum, [propName]: buildModel(body[propName], type)};
 
         if (type === 'request') {
-            model.required = model.hasOwnProperty('required');
+            model.required = model.hasOwnProperty('required') && model.required ? true : undefined;
         }
 
         return model;
@@ -172,10 +176,29 @@ export default (api, rootPath) => {
             }
 
             apiMethod.curl = buildCurl(apiMethod);
+
+            const requestModel = {};
+            let requestExample;
+
             if (apiMethod.postBody) {
+                requestModel.body = buildModel(apiMethod.postBody, 'request');
+                requestExample = buildExample(apiMethod.postBody);
+            }
+
+            if (apiMethod.pathParams) {
+                requestModel.path = buildModel(apiMethod.pathParams, 'request');
+                requestExample = replacePathParams(apiMethod.path, buildExample(apiMethod.pathParams), true);
+            }
+
+            if (apiMethod.queryString) {
+                requestModel.query = buildModel(apiMethod.queryString, 'request');
+                requestExample = requestExample || apiMethod.path + buildQsPath(buildExample(apiMethod.queryString), true);
+            }
+
+            if (apiMethod.postBody || apiMethod.pathParams || apiMethod.queryString) {
                 apiMethod.request = {
-                    model: buildModel(apiMethod.postBody, 'request'),
-                    example: buildExample(apiMethod.postBody),
+                    model: requestModel,
+                    example: requestExample,
                     currentVisibility: 'example'
                 };
             }

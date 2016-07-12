@@ -84,24 +84,33 @@ const EndPointComponent = (props) => (
                 <tr>
                     <td><strong>{'Request'}</strong></td>
                     <td>
-                        <span
-                            className={`${props.endpoint.request.currentVisibility === 'example' ? ' active-tab' : 'mouse'}`}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                if (props.endpoint.request.currentVisibility !== 'example') {
-                                    toggleRequestModelExample(props.id);
+                        {props.endpoint.request.example ?
+                            <span
+                                className={`${props.endpoint.request.currentVisibility === 'example' ? ' active-tab' : 'mouse'}`}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    if (props.endpoint.request.currentVisibility !== 'example') {
+                                        toggleRequestModelExample(props.id);
+                                    }
                                 }
-                            }
-                            }>{'Example'}</span>
-                        <span
-                            className={`m-l-1${props.endpoint.request.currentVisibility === 'model' ? ' active-tab' : ' mouse'}`}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                if (props.endpoint.request.currentVisibility !== 'model') {
-                                    toggleRequestModelExample(props.id);
+                                }>{'Example'}
+                            </span> :
+                            null
+                        }
+                        {props.endpoint.request.model ?
+                            <span
+                                className={`m-l-1${props.endpoint.request.currentVisibility === 'model' ? ' active-tab' : ' mouse'}`}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    if (props.endpoint.request.currentVisibility !== 'model') {
+                                        toggleRequestModelExample(props.id);
+                                    }
                                 }
-                            }
-                            }>{'Model'}</span>
+                                }>{'Model'}
+                            </span> :
+                            null
+                        }
+
                         <br />
                         <textarea cols='50' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.request[props.endpoint.request.currentVisibility], null, 2)}/>
 
