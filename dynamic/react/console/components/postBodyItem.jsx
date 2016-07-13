@@ -15,7 +15,15 @@ const handleInputChange = (e, pbName, endpointId) => {
     });
 };
 
-const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
+const handleRemoveItem = (pbName, endpointId) => {
+    store.dispatch({
+        type: actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION,
+        postBodyParamName: pbName,
+        endpointId: endpointId
+    });
+};
+
+const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove}) => {
     const uid = `${endpointId}-${displayName}-${name}`;
 
     if (item.fieldType && item.fieldType !== 'array') {
@@ -24,6 +32,13 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
                 <td>
                     <label htmlFor={uid}>{displayName}</label>
                     {item.description && item.description.length ? <span className={'m-l-1 glyphicon glyphicon-info-sign'} title={item.description}/> : null}
+                    {canRemove ?
+                        <span
+                            className={'m-l-1 glyphicon glyphicon-remove-sign mouse'}
+                            onClick={() => (handleRemoveItem(name, endpointId))}
+                            title={'Remove Item'}
+                        /> : null
+                    }
                 </td>
                 <td>
                     {item.enum && item.enum.length ?
@@ -61,9 +76,10 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
     }
 
     return (
-        <PostBodySectionHeader displayName={displayName} endpointId={endpointId} propertyName={name}>
+        <PostBodySectionHeader canRemove={canRemove} displayName={displayName} endpointId={endpointId} propertyName={name}>
             {uiState.visible ? Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
                 return (<PostBodyItem
+                    canRemove={false}
                     displayName={itemKey}
                     endpointId={endpointId}
                     item={item[itemKey]}
@@ -79,6 +95,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
 
 PostBodyItem.displayName = 'Post Body Item';
 PostBodyItem.propTypes = {
+    canRemove: React.PropTypes.bool.isRequired,
     displayName: React.PropTypes.string.isRequired,
     endpointId: React.PropTypes.number.isRequired,
     item: React.PropTypes.object.isRequired,

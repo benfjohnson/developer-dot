@@ -16,10 +16,11 @@ const handleAddItem = (paramName, endpointId, itemSchema) => {
 
 const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiState, displayName}) => {
     return (
-        <PostBodySectionHeader displayName={displayName} endpointId={endpointId} propertyName={propertyName}>
+        <PostBodySectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} propertyName={propertyName}>
             {uiState.visible ? collection.map((itm, i) => {
                 return (
                     <PostBodyItem
+                        canRemove={collection.length > 1}
                         displayName={i.toString()}
                         endpointId={endpointId}
                         item={itm}

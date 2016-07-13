@@ -7,6 +7,7 @@ const PostBody = (props) => (
         <tbody>
         {
             <PostBodyItem
+                canRemove={false}
                 displayName={'Post Body'}
                 endpointId={props.id}
                 item={props.postBody}
