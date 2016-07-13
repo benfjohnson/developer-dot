@@ -46,7 +46,6 @@ endpoint_links: [
     const staticHtml = renderToString(<App api={staticState.apiInfo} error={null}/>);
 
     const HTML = buildHtml(staticHtml, staticState);
-
     const savePath = path.join(__dirname, '..', '..', '..', process.env.API_NAME, 'console');
 
     mkdirp(savePath, (err) => {
