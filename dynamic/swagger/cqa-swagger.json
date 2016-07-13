@@ -14,6 +14,10 @@
         }
     },
     "basePath": "/",
+    "host": "cqa.avalara.net:8082",
+    "schemes": [
+        "http"
+    ],
     "paths": {
         "/api/v2/Companies/{id}": {
             "get": {
@@ -22,7 +26,7 @@
                 ],
                 "summary": "Retrieve a single company",
                 "operationId": "ApiV2CompaniesByIdGet",
-                "description": "FILLER",
+                "description": "Retrieve a single company",
                 "consumes": [],
                 "produces": [],
                 "parameters": [
@@ -84,7 +88,7 @@
                     "Companies"
                 ],
                 "summary": "Update a single company",
-                "description": "FILLER 2",
+                "description": "Update a single company",
                 "operationId": "ApiV2CompaniesByIdPut",
                 "consumes": [
                     "application/json",
@@ -197,7 +201,7 @@
                 ],
                 "summary": "Retrieve all companies for your account",
                 "operationId": "ApiV2CompaniesGet",
-                "description": "FILLER",
+                "description": "Retrieve all companies for your account",
                 "consumes": [],
                 "produces": [],
                 "parameters": [
@@ -245,7 +249,7 @@
                     "Companies"
                 ],
                 "summary": "Create a new company",
-                "description": "FILLER",
+                "description": "Create a new company",
                 "operationId": "ApiV2CompaniesPost",
                 "consumes": [
                     "application/json",

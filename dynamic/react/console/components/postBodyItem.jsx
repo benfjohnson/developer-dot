@@ -2,7 +2,6 @@ import React from 'react';
 
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
-import shortid from 'shortid';
 
 import PostBodySectionHeader from './postBodySectionHeader';
 import PostBodyCollection from './postBodyCollection';
@@ -17,7 +16,7 @@ const handleInputChange = (e, pbName, endpointId) => {
 };
 
 const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
-    const uid = shortid.generate();
+    const uid = `${endpointId}-${displayName}-${name}`;
 
     if (item.fieldType && item.fieldType !== 'array') {
         return (

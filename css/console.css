@@ -39,3 +39,8 @@ textarea {
 .active-tab {
     font-weight: bold;
 }
+
+.endpoint-nav {
+    max-width: 14%;
+    left: 40px;
+}
