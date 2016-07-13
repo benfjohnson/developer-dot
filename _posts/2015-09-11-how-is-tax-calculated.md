@@ -7,8 +7,9 @@ comments: true
 categories: [Sales Tax APIs]
 product: avatax
 doctype: blog
+imgsrc: /images/2015/09/shutterstock_310565729.jpg
 ---
-<a href="https://developer.avalara.com/wp-content/uploads/2015/09/shutterstock_310565729.jpg"><img class=" size-full wp-image-9322 alignright" src="http://developer.avalara.com/wp-content/uploads/2015/09/shutterstock_310565729.jpg" alt="shutterstock_310565729" width="167" height="250" /></a>
+<a href="/images/2015/09/shutterstock_310565729.jpg"><img class=" size-full wp-image-9322 alignright" src="/images/2015/09/shutterstock_310565729.jpg" alt="shutterstock_310565729" width="167" height="250" /></a>
 
 When you look through the API documentation, you notice a bunch of required and 'situationally required' fields. What gives? What do we do with all that information anyway?
 

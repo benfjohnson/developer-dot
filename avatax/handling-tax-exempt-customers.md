@@ -30,7 +30,7 @@ Depending on how you store your customer information, there are several ways you
 	<li>This is a certificate management tool available to all customers on the Admin Console. Certificates are imported to the admin console directly as placeholder records for a real certificate maintained by you on file. Certificates are matched to the CustomerCode in the GetTaxRequests, and transactions are exempted where appropriate.</li>
 </ul>
 </li>
-	<li><a href="http://developer.avalara.com/api-documentation/certcapture-api/api-documentation/certcapture-api/overview">Avalara CertCapture API</a>
+	<li><a href="/certcapture/">Avalara CertCapture API</a>
 <ul>
 	<li>This is an add-on product that independently manages your exemption certificates. It allows you to store certificate images, send certificate requests to your customers (individually or in batches), and allows your customers to fill out certificate information directly through a wizard which results in an actual certificate. Certificates are matched to customer codes (and states applicable, and date ranges) on GetTaxRequests, and transactions are exempted where appropriate. This is not automatically included with AvaTax and would need to be purchased separately.</li>
 </ul>

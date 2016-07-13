@@ -18,4 +18,4 @@ The Excise Tax API is a SOAP web service that is the external programmatic inter
 <h3>Get API Key</h3>
 To get a username and password, contact your Customer Account Manager or email <a href="mailto:developer@avalara.com">developer@avalara.com</a>.
 <h3>Documentation</h3>
-The <a href="http://developer.avalara.com/wp-content/apireference/beta/#excise-api">Excise Tax Documentation</a> defines the object structure, and an introduction on how to consume the web service for use in customer programs.
+The <a href="/excise/api-reference.html">Excise Tax Documentation</a> defines the object structure, and an introduction on how to consume the web service for use in customer programs.

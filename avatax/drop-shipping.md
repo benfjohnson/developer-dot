@@ -8,7 +8,7 @@ categories: []
 product: avatax
 doctype: documentation
 ---
-For information on reflecting shipping charges in your tax calculation, go <a title="GetTax" href="http://developer.avalara.com/api-docs/api-reference/gettax#ShippingAndFreight">here</a>.
+For information on reflecting shipping charges in your tax calculation, go <a title="GetTax" href="/avatax/gettax#ShippingAndFreight">here</a>.
 
 “Drop Shipping” is more of a business process to define vs. a technical one – one that will require the talents of your company's tax attorney and/or accountant to define what your nexus liabilities and responsibilities are for the origin and destination locations.
 Note: Avalara cannot provide recommendations or advice regarding how your company should handle nexus liabilities – this is ultimately the responsibility of your tax attorney or accountant.

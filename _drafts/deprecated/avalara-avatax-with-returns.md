@@ -1,20 +1,20 @@
 ---
 layout: page
-title: AvaTax with Returns Checklist
-date: 2016-01-18 02:43
-author: jeremy.buller
+title: Avalara AvaTax with Returns
+date: 2014-02-20 22:08
+author: julia.king
 comments: true
 categories: []
-product: certification
-doctype: documentation
+product: avatax
+doctype: certification
 ---
-[fullwidth background_color="" background_image="" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" overlay_opacity="0.5" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="" padding_top="20" padding_bottom="20" padding_left="0" padding_right="0" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_text]Certification for Avalara AvaTax with Returns requires the delivery of all functional requirements shown below.
+Certification for Avalara AvaTax with Returns requires the delivery of all functional requirements shown below.
 
-Key:  R – Functionality required for certification     N – Functionality not required, but noted
-<h2 data-fontsize="22" data-lineheight="32">AvaTax Administration &amp; Utilities Integration</h2>
+Key:  R - Functionality required for certification     N - Functionality not required, but noted
+<h2>AvaTax Administration &amp; Utilities Integration</h2>
 The AvaTax Administration section provides the user with configuration, setup and utility functions necessary to administer the AvaTax sales tax calculation.
-<table>
-<thead>
+<table border="1" width="100%" cellspacing="0" cellpadding="5">
+<thead style="background-color: lightgray;">
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -36,13 +36,13 @@ The AvaTax Administration section provides the user with configuration, setup an
 </tr>
 <tr>
 <td valign="top">R</td>
-<td valign="top"><a href="http://developer.avalara.com/api-docs/rest/tax/get">AvaTax Test Connection</a> button</td>
+<td valign="top"><a href="/api-docs/rest/tax/get">AvaTax Test Connection</a> button</td>
 <td valign="top">Tests the connection to the AvaTax service and verifies the AvaTax credentials. This is an important element to allow for successful troubleshooting of the AvaTax service. Optional – display license key expiration date upon successful connection response.</td>
 </tr>
 <tr>
 <td valign="top">R</td>
 <td valign="top">Tax Calculation – Disable tax calculation option</td>
-<td valign="top">The user must have an option to turn on or off the AvaTax Calculation service independent of any other Avalara product or service.</td>
+<td valign="top">The user must have an option to turn on or off the AvaTax Calculation service independent of any other Avalara product or service</td>
 </tr>
 <tr>
 <td valign="top">R</td>
@@ -62,13 +62,13 @@ The AvaTax Administration section provides the user with configuration, setup an
 <tr>
 <td valign="top">N</td>
 <td valign="top">AvaTax Admin Console link</td>
-<td valign="top">Link to <a href="https://admin-avatax.avalara.net/login.aspx">AvaTax production Admin Console</a>.</td>
+<td valign="top">Link to <a href="https://admin-avatax.avalara.net/login.aspx">AvaTax production Admin Console</a></td>
 </tr>
 </tbody>
 </table>
-<h2 data-fontsize="22" data-lineheight="32">Customer Record integration</h2>
-<table>
-<thead>
+<h2>Customer Record integration</h2>
+<table border="1" width="100%" cellspacing="0" cellpadding="5">
+<thead style="background-color: lightgray;">
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -89,15 +89,17 @@ The AvaTax Administration section provides the user with configuration, setup an
 <tr>
 <td valign="top">R</td>
 <td valign="top">Entity/Use Code</td>
-<td valign="top">This is a group of codes that indicate the type of exemption. See <a title="standard list of codes" href="http://developer.avalara.com/api-docs/designing-your-integration/handling-tax-exempt-customers#CustomerUsageType" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to <strong>manage this value in your application’s Customer record</strong> and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable.
+<td valign="top">This is a group of codes that indicate the type of exemption. See <a title="standard list of codes" href="/api-docs/designing-your-integration/handling-tax-exempt-customers#CustomerUsageType" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.
+
+It is best to <strong>manage this value in your application's Customer record</strong> and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable.
 
 Note that either Exemption Number or Entity/Use code is required (not both). <strong>Entity/Use Code is preferred.</strong></td>
 </tr>
 </tbody>
 </table>
-<h2 data-fontsize="22" data-lineheight="32">Items/Charge integration</h2>
-<table>
-<thead>
+<h2>Items/Charge integration</h2>
+<table border="1" width="100%" cellspacing="0" cellpadding="5">
+<thead style="background-color: lightgray;">
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -122,10 +124,10 @@ Note that either Exemption Number or Entity/Use code is required (not both). <st
 </tr>
 </tbody>
 </table>
-<h2 data-fontsize="22" data-lineheight="32">Sales/Billing Document integration</h2>
+<h2>Sales/Billing Document integration</h2>
 Integrating with the Sales and/or Billing process involves making tax calculation and/or modifying a transaction.
-<table>
-<thead>
+<table border="1" width="100%" cellspacing="0" cellpadding="5">
+<thead style="background-color: lightgray;">
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -182,7 +184,7 @@ Integrating with the Sales and/or Billing process involves making tax calculatio
 <td valign="top">R</td>
 <td valign="top">PostTax/CommitTax call – Credit Memos</td>
 <td valign="top">Ensure that returns are committed/posted for reporting appropriately.
-More information about <a title="handling returns" href="http://developer.avalara.com/api-docs/designing-your-integration/api-integration-checklist/handling-return-invoices" target="_blank">handling returns</a>.</td>
+More information about <a title="handling returns" href="/api-docs/designing-your-integration/api-integration-checklist/handling-return-invoices" target="_blank">handling returns</a>.</td>
 </tr>
 <tr>
 <td valign="top">R</td>
@@ -197,12 +199,12 @@ More information about <a title="handling returns" href="http://developer.avalar
 <tr>
 <td valign="top">R</td>
 <td valign="top">Send original invoice date as tax calculation date for return orders/credit memos</td>
-<td valign="top">More information about <a title="handling returns" href="http://developer.avalara.com/api-docs/designing-your-integration/api-integration-checklist/handling-return-invoices" target="_blank">handling returns</a>.</td>
+<td valign="top">More information about <a title="handling returns" href="/api-docs/designing-your-integration/api-integration-checklist/handling-return-invoices" target="_blank">handling returns</a>.</td>
 </tr>
 <tr>
 <td valign="top">R</td>
 <td valign="top">Send current transaction date as document date for return orders/credit memos</td>
-<td valign="top">More information about <a title="handling returns" href="http://developer.avalara.com/api-docs/designing-your-integration/api-integration-checklist/handling-return-invoices" target="_blank">handling returns</a>.</td>
+<td valign="top">More information about <a title="handling returns" href="/api-docs/designing-your-integration/api-integration-checklist/handling-return-invoices" target="_blank">handling returns</a>.</td>
 </tr>
 <tr>
 <td valign="top">R</td>
@@ -241,10 +243,10 @@ More information about <a title="handling returns" href="http://developer.avalar
 </tr>
 </tbody>
 </table>
-<h2 data-fontsize="22" data-lineheight="32">Server Audit Clarity</h2>
+<h2>Server Audit Clarity</h2>
 Tax calculation should display a clean audit to limit errors and call volume to reasonable levels.
-<table>
-<thead>
+<table border="1" width="100%" cellspacing="0" cellpadding="5">
+<thead style="background-color: lightgray;">
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -269,4 +271,3 @@ Tax calculation should display a clean audit to limit errors and call volume to 
 </tr>
 </tbody>
 </table>
-[/fusion_text][/fullwidth]

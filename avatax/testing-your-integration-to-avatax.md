@@ -9,9 +9,9 @@ product: avatax
 doctype: documentation
 ---
 <h3>Integration Testing</h3>
-When you run tests (automatically or manually), take care to call the AvaTax service only when needed. We don't have a way of distinguishing between test calls and actual live calculations (since they all return real tax calculations from us), so they are all included in the calculation of your billable transactions. In tests where a live tax calculation is required (for example, to check <a href="/api-documentation/avatax-16-api/deploy#service-availability-and-performance">if the service is available</a> or if your credentials are correct), there is no replacement for an actual call to the API. For the majority of cases, however, we recommend that you stub out the AvaTax API calls. This will save you on both the time it takes to run your unit and integration tests (and non-tax functional tests), and the number of transactions you consume.
+When you run tests (automatically or manually), take care to call the AvaTax service only when needed. We don't have a way of distinguishing between test calls and actual live calculations (since they all return real tax calculations from us), so they are all included in the calculation of your billable transactions. In tests where a live tax calculation is required (for example, to check <a href="/avatax/service-availability-and-performance">if the service is available</a> or if your credentials are correct), there is no replacement for an actual call to the API. For the majority of cases, however, we recommend that you stub out the AvaTax API calls. This will save you on both the time it takes to run your unit and integration tests (and non-tax functional tests), and the number of transactions you consume.
 <h3>Functional Testing Scenarios</h3>
-Depending on the scope of your Avalara AvaTax Sales Tax API integration and your business practice, your exact test cases may vary: if you're building a custom connector that will just be used for a single client, you might not need to manage credentials through a UI. For development partners building connectors, however, these features become essential. The following is a full list of the features we look for in an integration. A number of these testing scenarios can be anecdotally identified by our <a title="Integration Self-Test" href="/resources/self-test">self-test tool</a>.
+Depending on the scope of your Avalara AvaTax Sales Tax API integration and your business practice, your exact test cases may vary: if you're building a custom connector that will just be used for a single client, you might not need to manage credentials through a UI. For development partners building connectors, however, these features become essential. The following is a full list of the features we look for in an integration. A number of these testing scenarios can be anecdotally identified by our <a title="Integration Self-Test" href="/avatax/self-test">self-test tool</a>.
 
 &nbsp;
 <table>
@@ -39,7 +39,7 @@ They should also be able to:
 	<li>Make a test connection to the AvaTax service using account credentials, but independent of tax calculation and address validation.</li>
 </ul>
 </td>
-<td><a href="/api-docs/designing-your-integration/logins/" target="_blank">Logins and Resources</a>
+<td><a href="/avatax/logins/" target="_blank">Logins and Resources</a>
 
 Video: <a href="http://www.youtube.com/watch?v=9IGMZfrYU9A" target="_blank">Utility and Configuration Screen</a></td>
 </tr>
@@ -82,7 +82,7 @@ Video: <a href="http://www.youtube.com/watch?v=9IGMZfrYU9A" target="_blank">Uti
 <tr>
 <td>Process a transaction for a tax exempt customer</td>
 <td>The transaction should be recorded in AvaTax with the identified tax exemption indicator</td>
-<td><a href="/api-docs/designing-your-integration/handling-tax-exempt-customers" target="_blank">Handling Tax Exempt Customers</a>
+<td><a href="/avatax/handling-tax-exempt-customers" target="_blank">Handling Tax Exempt Customers</a>
 
 Video: <a href="http://www.youtube.com/watch?v=K7s9QiX_l2A" target="_blank">Exempt Customer</a></td>
 </tr>
@@ -96,24 +96,24 @@ Video: <a href="http://www.youtube.com/watch?v=K7s9QiX_l2A" target="_blank">Exe
 	<li>All customer and item information should be the same as on the original transaction</li>
 </ul>
 </td>
-<td><a href="/api-docs/designing-your-integration/handling-return-invoices" target="_blank">Product Returns</a></td>
+<td><a href="/avatax/handling-return-invoices" target="_blank">Product Returns</a></td>
 </tr>
 <tr>
 <td>Take a transaction through the entire document lifecycle of an order/invoice etc.</td>
 <td>The transaction should follow the lifecycle logically in the AvaTax Admin console, ending with a committed transaction on the AvaTax Admin Console.</td>
-<td><a href="/api-docs/designing-your-integration#Ecommerce" target="_blank">Sample Workflows</a>
+<td><a href="/avatax/designing-your-integration#Ecommerce" target="_blank">Sample Workflows</a>
 
 Video: <a href="http://www.youtube.com/watch?v=6465JvR3lNk" target="_blank">Transaction Lifecycle</a></td>
 </tr>
 <tr>
 <td>Take a return through its entire document lifecycle.</td>
 <td>The transaction should follow the lifecycle logically in the AvaTax Admin console, ending with a committed return transaction on the AvaTax Admin Console.</td>
-<td><a href="/api-docs/designing-your-integration#Ecommerce" target="_blank">Sample Workflows</a></td>
+<td><a href="/avatax/designing-your-integration#Ecommerce" target="_blank">Sample Workflows</a></td>
 </tr>
 <tr>
 <td>If applicable, void/delete a transaction (if possible, both an invoice and a credit) in your application</td>
 <td>The transaction record in AvaTax should reflect a "Voided" document status.</td>
-<td><a href="/api-docs/designing-your-integration/canceltax" target="_blank">Cancel Transactions</a>
+<td><a href="/avatax/canceltax" target="_blank">Cancel Transactions</a>
 
 Video: <a href="http://www.youtube.com/watch?v=kOtEmlzkO4U" target="_blank">Voided Invoice</a></td>
 </tr>

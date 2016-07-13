@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Blog
+title: Page List
 date: 2012-02-19 12:36
 author: avalara
 comments: true
@@ -8,7 +8,7 @@ categories: []
 permalink: /list.html
 ---
 
-This is a placeholder page - it should display the most recent blog posts.
+This is a placeholder page - it displays all pages and posts on the site.
 Posts
 <ul>
   {% for post in site.posts %}

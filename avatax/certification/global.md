@@ -1,20 +1,20 @@
 ---
 layout: page
-title: Avalara AvaTax with Global
-date: 2014-02-20 22:36
-author: julia.king
+title: AvaTax with Global Checklist
+date: 2016-01-18 02:42
+author: jeremy.buller
 comments: true
 categories: []
-product: certification
-doctype: documentation
+product: avatax
+doctype: certification
 ---
 Certification for Avalara AvaTax with Global requires the delivery of all functional requirements shown below.
 
-Key:  R - Functionality required for certification     N - Functionality not required, but noted
-<h2>AvaTax Administration &amp; Utilities Integration</h2>
+Key:  R: Functionality required for certification     N: Functionality not required, but noted
+<h2 data-fontsize="22" data-lineheight="32">AvaTax Administration &amp; Utilities Integration</h2>
 The AvaTax Administration section provides the user with configuration, setup and utility functions necessary to administer the AvaTax sales tax calculation.
-<table border="1" width="100%" cellspacing="0" cellpadding="5">
-<thead style="background-color: lightgray;">
+<table>
+<thead>
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -36,13 +36,13 @@ The AvaTax Administration section provides the user with configuration, setup an
 </tr>
 <tr>
 <td valign="top">R</td>
-<td valign="top"><a href="/api-docs/api-reference/rest-curl/estimatetax">AvaTax Test Connection</a> button</td>
+<td valign="top"><a href="http://developer.avalara.com/api-docs/api-reference/rest-curl/estimatetax">AvaTax Test Connection</a> button</td>
 <td valign="top">Tests the connection to the AvaTax service and verifies the AvaTax credentials. This is an important element to allow for successful troubleshooting of the AvaTax service. Optional – display license key expiration date upon successful connection response.</td>
 </tr>
 <tr>
 <td valign="top">R</td>
 <td valign="top">Tax Calculation – Disable tax calculation option</td>
-<td valign="top">The user must have an option to turn on or off the AvaTax Calculation service independent of any other Avalara product or service</td>
+<td valign="top">The user must have an option to turn on or off the AvaTax Calculation service independent of any other Avalara product or service.</td>
 </tr>
 <tr>
 <td valign="top">R</td>
@@ -66,9 +66,9 @@ The AvaTax Administration section provides the user with configuration, setup an
 </tr>
 </tbody>
 </table>
-<h2>Customer Record Integration</h2>
-<table border="1" width="100%" cellspacing="0" cellpadding="5">
-<thead style="background-color: lightgray;">
+<h2 data-fontsize="22" data-lineheight="32">Customer Record Integration</h2>
+<table>
+<thead>
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -88,10 +88,10 @@ The AvaTax Administration section provides the user with configuration, setup an
 </tr>
 </tbody>
 </table>
-<h2>Transaction Processing Integration</h2>
+<h2 data-fontsize="22" data-lineheight="32">Transaction Processing Integration</h2>
 &nbsp;
-<table border="1" width="100%" cellspacing="0" cellpadding="5">
-<thead style="background-color: lightgray;">
+<table>
+<thead>
 <tr>
 <td valign="top" width="70"><strong>Required</strong></td>
 <td valign="top" width="215"><strong>Function</strong></td>
@@ -105,7 +105,7 @@ The AvaTax Administration section provides the user with configuration, setup an
 <tr>
 <td valign="top">R</td>
 <td valign="top">Business Identification No</td>
-<td valign="top">Also known as VAT Registration ID - This data element should be found directly on the transaction (sales order, sales invoice) header.</td>
+<td valign="top">Also known as VAT Registration ID – This data element should be found directly on the transaction (sales order, sales invoice) header.</td>
 </tr>
 <tr>
 <td valign="top">R</td>

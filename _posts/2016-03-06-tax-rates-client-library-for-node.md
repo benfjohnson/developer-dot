@@ -14,7 +14,7 @@ You can find sample code in the readme of the <a href="https://github.com/avadev
 
 I cannot give a definitive statement on when our next node.js library is coming, but things are in the works.
 
-If you're going to be at the <a href="http://integratecon.com/hackathon/">Integrate Hackathon</a> later this month, look for me. I'll be wearing an Avalara t-shirt and I just might have some swag to distribute (like our <a href="https://developer.avalara.com/wp-content/uploads/2015/09/sticker.jpg">"Dev &amp; Taxes" sugar skull sticker</a>).
+If you're going to be at the <a href="http://integratecon.com/hackathon/">Integrate Hackathon</a> later this month, look for me. I'll be wearing an Avalara t-shirt and I just might have some swag to distribute (like our <a href="/images/2015/09/sticker.jpg">"Dev &amp; Taxes" sugar skull sticker</a>).
 
 Once the conference starts, watch for the ever-popular and ever-ebullient Loke-Uei Tan to join us as a conference attendee and <i><a href="http://integrate2015.sched.org/speaker/lokeuei.tan?iframe=no#.VfLrRRF3mUM">conference speaker</a></i>.
 

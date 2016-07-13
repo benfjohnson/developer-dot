@@ -15,4 +15,4 @@ This API allows partners to automatically provision individual customer accounts
 <h3>Get API Key</h3>
 To get access to this API, contact your Customer Account Manager or email <a href="mailto:developer@avalara.com">developer@avalara.com</a>.
 <h3>Documentation</h3>
-Here is the <a href="http://developer.avalara.com/wp-content/apireference/beta/#onboarding-api">Onboarding API Documentation</a> for the RESTful Onboarding API. This API is designed so that a single operation represents a group of provisioning steps; an account can be provisioned with a company and single location (with associated nexus) and a single admin user with a single POST /accounts.
+Here is the <a href="/onboarding/api-reference.html">Onboarding API Documentation</a> for the RESTful Onboarding API. This API is designed so that a single operation represents a group of provisioning steps; an account can be provisioned with a company and single location (with associated nexus) and a single admin user with a single POST /accounts.

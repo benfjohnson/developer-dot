@@ -17,18 +17,6 @@ const handleAddItem = (paramName, endpointId, itemSchema) => {
 const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiState, displayName}) => {
     return (
         <PostBodySectionHeader displayName={displayName} endpointId={endpointId} propertyName={propertyName}>
-            <tr>
-                <td>
-                    <span className={'glyphicon glyphicon-plus-sign'}
-                          onClick={
-                            (e) => {
-                                e.preventDefault();
-                                handleAddItem(propertyName, endpointId, schema);
-                            }
-                        }
-                          title={'Add Item'}/>
-                </td>
-            </tr>
             {uiState.visible ? collection.map((itm, i) => {
                 return (
                     <PostBodyItem
@@ -40,6 +28,19 @@ const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiSta
                         uiState={itm.uiState}
                     />);
             }) : null}
+            <tr>
+                <td className={'mouse'}
+                    onClick={
+                        (e) => {
+                            e.preventDefault();
+                            handleAddItem(propertyName, endpointId, schema);
+                        }
+                    }
+                >
+                    <span className={'glyphicon glyphicon-plus-sign'}
+                          title={'Add Item'}/>
+                </td>
+            </tr>
         </PostBodySectionHeader>
     );
 };
