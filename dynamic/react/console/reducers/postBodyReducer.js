@@ -26,7 +26,7 @@ export default (state, action) => {
     case actionTypes.POST_BODY_CHANGED:
         switch (newStateProperty.fieldType) {
         case 'number':
-            newStateProperty.value = isNaN(parseFloat(action.inputVal)) ? '' : parseFloat(action.inputVal);
+            newStateProperty.value = isNaN(parseFloat(action.inputVal)) ? action.inputVal : parseFloat(action.inputVal);
             break;
         case 'boolean':
             newStateProperty.value = action.inputVal === 'true';
@@ -47,6 +47,14 @@ export default (state, action) => {
         if (newStateProperty.value[newStateProperty.value.length - 1].uiState) {
             newStateProperty.value[newStateProperty.value.length - 1].uiState.visible = true;
         }
+        return newState;
+    case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
+        const itemToRemove = action.postBodyParamName.substr(0, action.postBodyParamName.lastIndexOf(';'));
+        const indexToRemove = parseInt(action.postBodyParamName.substr(action.postBodyParamName.lastIndexOf(';')).replace(/\D/g, ''), 10);
+        const newStatePropertyToRemove = traversePropertyPath(itemToRemove, newState);
+
+        newStatePropertyToRemove.value.splice(indexToRemove, 1);
+
         return newState;
     default:
         return newState;
