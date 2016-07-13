@@ -10,10 +10,7 @@ import {replacePathParams, hasExampleData} from '../helpers';
 const handleSubmit = (endpoint, id) => {
     const url = (endpoint.pathParams ? replacePathParams(endpoint.path, endpoint.pathParams) : endpoint.path) + (endpoint.qsPath || '');
     const apiReq = {
-        url: url,
-        headers: {
-            Authorization: 'Token ZXqnd8Q3pRH_eyyYrk5xqpJXOhcdpTFJ4saXIJsw'
-        }
+        url: url
     };
 
     if (endpoint.postBody) {
