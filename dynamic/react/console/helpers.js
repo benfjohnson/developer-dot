@@ -15,7 +15,7 @@ const buildQsPath = (queryString, example = false) => {
 
 const buildPostBodyData = (body) => {
     if (body === undefined) {
-        return;
+        return undefined;
     }
     if (body.hasOwnProperty('value') && body.fieldType !== 'array') {
         return body.value;
@@ -88,10 +88,9 @@ const fillRequestParamSampleData = (params) => {
 
 const fillPostBodySampleData = (postBody) => {
     if (postBody === undefined) {
-        return;
+        return undefined;
     }
     if (postBody.hasOwnProperty('value') && postBody.fieldType !== 'array') {
-        //console.log('base case!', postBody);
         return {...postBody, value: postBody.example || ''};
     }
 
@@ -110,7 +109,6 @@ const fillPostBodySampleData = (postBody) => {
         return {...postBody, visible: true};
     }
 
-    //console.log('obj yo', postBody);
     const objBody = Object.keys(postBody).reduce((accum, propName) => {
         return {...accum, [propName]: fillPostBodySampleData(postBody[propName])};
     }, {});
@@ -166,9 +164,9 @@ const hasExampleData = (type, paramObj = {}) => {
 const buildPostmanCollection = (appState) => {
     const postmanCollection = {
         info: {
-            name: 'TODO',
-            _postman_id: '?',
-            description: 'blah blah',
+            name: appState.apiName,
+            _postman_id: '1234',
+            description: appState.apiDescription,
             schema: 'https://schema.getpostman.com/json/collection/v2.0.0/collection.json'
         }
     };
@@ -186,7 +184,6 @@ const buildPostmanCollection = (appState) => {
             },
             response: []
         };
-
 
         if (endpoint.postBody) {
             baseRequest.request.header.push({

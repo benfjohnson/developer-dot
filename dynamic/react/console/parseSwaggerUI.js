@@ -214,11 +214,13 @@ const buildPostBody = (endpointParams) => {
 
 export default (api, rootPath) => {
     // Build base URL path (e.g. http://localhost:8082/v3)
-
     const scheme = api.schemes && api.schemes[0] ? api.schemes[0] : 'http';
     const root = (scheme && api.host && api.basePath) ? scheme + '://' + api.host + (api.basePath !== '/' ? api.basePath : '') : rootPath;
 
-    const swaggerData = {};
+    const swaggerData = {
+        apiName: api.info.title,
+        apiDescription: api.info.description
+    };
 
     swaggerData.apiInfo = [];
 
@@ -291,7 +293,6 @@ export default (api, rootPath) => {
     });
 
     swaggerData.postmanCollection = buildPostmanCollection(swaggerData);
-    console.log('POSTMAN COLLECTION', JSON.stringify(swaggerData.postmanCollection, null, 2));
 
     return swaggerData;
 };

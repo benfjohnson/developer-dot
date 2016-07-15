@@ -45,7 +45,7 @@ endpoint_links: [
 <script src="../../dynamic/public/javascript/build/console-static.js"></script>`
         );
     };
-    const staticHtml = renderToString(<App api={staticState.apiInfo} error={null}/>);
+    const staticHtml = renderToString(<App api={staticState} error={null}/>);
     const HTML = buildHtml(staticHtml, staticState);
     const savePath = path.join(__dirname, '..', '..', '..', process.env.API_NAME, 'console');
 
