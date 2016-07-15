@@ -14,13 +14,16 @@ const buildQsPath = (queryString, example = false) => {
 };
 
 const buildPostBodyData = (body) => {
+    if (body === undefined) {
+        return;
+    }
     if (body.hasOwnProperty('value') && body.fieldType !== 'array') {
         return body.value;
     }
 
     if (body.fieldType === 'array') {
         const arrayBody = body.value.reduce((accum, prop) => {
-            if (prop.hasOwnProperty('value') && prop.value === '') {
+            if (prop && prop.hasOwnProperty('value') && prop.value === '') {
                 return accum;
             }
             return accum.concat(buildPostBodyData(prop));
@@ -30,7 +33,7 @@ const buildPostBodyData = (body) => {
     }
 
     const objBody = Object.keys(body).filter((n) => n !== 'uiState').reduce((accum, propName) => {
-        if (body[propName].hasOwnProperty('value') && body[propName].value === '') {
+        if (body[propName] && body[propName].hasOwnProperty('value') && body[propName].value === '') {
             return accum;
         }
 
@@ -84,13 +87,17 @@ const fillRequestParamSampleData = (params) => {
 };
 
 const fillPostBodySampleData = (postBody) => {
+    if (postBody === undefined) {
+        return;
+    }
     if (postBody.hasOwnProperty('value') && postBody.fieldType !== 'array') {
+        //console.log('base case!', postBody);
         return {...postBody, value: postBody.example || ''};
     }
 
     if (postBody.fieldType === 'array') {
         const arrayBody = postBody.value.reduce((accum, prop) => {
-            if (prop.hasOwnProperty('value')) {
+            if (prop && prop.hasOwnProperty('value')) {
                 return accum.concat({...prop, value: (prop.example || '')});
             }
             return accum.concat(fillPostBodySampleData(prop));
@@ -103,6 +110,7 @@ const fillPostBodySampleData = (postBody) => {
         return {...postBody, visible: true};
     }
 
+    //console.log('obj yo', postBody);
     const objBody = Object.keys(postBody).reduce((accum, propName) => {
         return {...accum, [propName]: fillPostBodySampleData(postBody[propName])};
     }, {});
@@ -155,4 +163,59 @@ const hasExampleData = (type, paramObj = {}) => {
     return Object.keys(paramObj).filter((k) => k !== 'uiState').map((itm) => hasExampleData('POST_BODY', paramObj[itm])).some((wasTrue) => wasTrue);
 };
 
-export {buildQsPath, buildPostBodyData, buildCurl, replacePathParams, fillSampleData, hasExampleData};
+const buildPostmanCollection = (appState) => {
+    const postmanCollection = {
+        info: {
+            name: 'TODO',
+            _postman_id: '?',
+            description: 'blah blah',
+            schema: 'https://schema.getpostman.com/json/collection/v2.0.0/collection.json'
+        }
+    };
+
+    // NOTE: For GETS w/ query or path params, no raw data -- need to replace in the URL
+
+    postmanCollection.item = appState.apiInfo.map((endpoint) => {
+        const baseRequest = {
+            name: endpoint.name,
+            request: {
+                url: endpoint.path,
+                method: endpoint.action,
+                header: [],
+                description: endpoint.description
+            },
+            response: []
+        };
+
+
+        if (endpoint.postBody) {
+            baseRequest.request.header.push({
+                key: 'Content-Type',
+                value: 'application/json'
+            });
+            baseRequest.request.body = {
+                mode: 'raw',
+                raw: JSON.stringify(buildPostBodyData(fillPostBodySampleData(endpoint.postBody)))
+            };
+        } else {
+            baseRequest.request.body = {
+                mode: 'formdata',
+                formdata: []
+            };
+        }
+
+        if (endpoint.pathParams) {
+            baseRequest.request.url = replacePathParams(endpoint.path, fillRequestParamSampleData(endpoint.pathParams));
+        }
+
+        if (endpoint.queryString) {
+            baseRequest.request.url += buildQsPath(fillRequestParamSampleData(endpoint.queryString));
+        }
+
+        return baseRequest;
+    });
+
+    return postmanCollection;
+};
+
+export {buildQsPath, buildPostBodyData, buildCurl, replacePathParams, fillSampleData, hasExampleData, buildPostmanCollection};

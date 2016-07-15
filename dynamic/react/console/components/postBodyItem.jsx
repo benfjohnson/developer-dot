@@ -31,7 +31,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
             <tr>
                 <td>
                     <label htmlFor={uid}>{displayName}</label>
-                    {item.description && item.description.length ? <span className={'m-l-1 glyphicon glyphicon-info-sign'} title={item.description}/> : null}
+                    {item.description && item.description.length ? <span className={'m-l-1 glyphicon glyphicon-info-sign'} style={{color: 'lightgrey'}} title={item.description}/> : null}
                     {canRemove ?
                         <span
                             className={'m-l-1 glyphicon glyphicon-remove-sign mouse'}
