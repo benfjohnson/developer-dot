@@ -6,5 +6,6 @@ cache: bundler
 script: 
   - bundle install
   - bundle exec jekyll build
-  - bundle exec jekyll algolia push
-after_success: s3_website push
+  - if [ -n "$ALGOLIA_API_KEY" ]; then bundle exec jekyll algolia push; fi
+after_success: 
+  - if [ -n "$secret_key" ]; then s3_website push; fi

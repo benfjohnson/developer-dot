@@ -15,7 +15,7 @@ const buildQsPath = (queryString, example = false) => {
 
 const buildPostBodyData = (body) => {
     if (body === undefined) {
-        return undefined;
+        return body;
     }
     if (body.hasOwnProperty('value') && body.fieldType !== 'array') {
         return body.value;
@@ -88,7 +88,7 @@ const fillRequestParamSampleData = (params) => {
 
 const fillPostBodySampleData = (postBody) => {
     if (postBody === undefined) {
-        return undefined;
+        return postBody;
     }
     if (postBody.hasOwnProperty('value') && postBody.fieldType !== 'array') {
         return {...postBody, value: postBody.example || ''};
@@ -109,11 +109,9 @@ const fillPostBodySampleData = (postBody) => {
         return {...postBody, visible: true};
     }
 
-    const objBody = Object.keys(postBody).reduce((accum, propName) => {
+    return Object.keys(postBody).reduce((accum, propName) => {
         return {...accum, [propName]: fillPostBodySampleData(postBody[propName])};
     }, {});
-
-    return objBody;
 };
 
 const fillSampleData = (endpointState) => {
@@ -163,12 +161,14 @@ const hasExampleData = (type, paramObj = {}) => {
 
 const buildPostmanCollection = (appState) => {
     const postmanCollection = {
+        /* eslint-disable camelcase */
         info: {
             name: appState.apiName,
             _postman_id: '1234',
             description: appState.apiDescription,
             schema: 'https://schema.getpostman.com/json/collection/v2.0.0/collection.json'
         }
+        /* eslint-enable camelcase */
     };
 
     // NOTE: For GETS w/ query or path params, no raw data -- need to replace in the URL

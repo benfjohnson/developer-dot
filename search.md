@@ -104,6 +104,6 @@ function getParameterByName(name, url) {
 	});
 </script>
 
-
+Search provided by <a href="http://www.algolia.com"><img src="/images/Algolia_logo_bg-white.jpg" alt="Search provided by Algolia" height="20"/></a>
 
 
