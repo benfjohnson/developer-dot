@@ -1,49 +1,7 @@
 import {buildQsPath, buildCurl, replacePathParams, buildPostmanCollection} from './helpers';
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
-// const buildSchema = (schema, required = [], propName = null) => {
-//     // console.log('SCHEMA', JSON.stringify(schema, null, 2));
-
-//     if (schema.hasOwnProperty('x-visibility') && schema['x-visibility'] === 'hidden') {
-//         return undefined;
-//     }
-
-//     if (schema.hasOwnProperty('allOf')) {
-//         return schema.allOf.map((chunk) => (buildSchema(chunk))).reduce((accum, chunk) => (Object.assign({}, accum, chunk)), {});
-//     }
-
-//     if (schema.type && schema.type !== 'array') {
-//         return {
-//             required: required.includes(propName),
-//             fieldType: schema.type,
-//             value: '',
-//             example: schema.example,
-//             description: schema.description,
-//             enum: schema.enum,
-//             format: schema.format,
-//             minimum: schema.minimum,
-//             maximum: schema.maximum
-//         };
-//     }
-
-//     if (schema.type && schema.type === 'array') {
-//         const arraySchema = buildSchema(schema.items);
-
-//         // items holds the schema definition of objects in our array, and value holds the actual objects of said schema...
-//         return {uiState: {visible: true}, fieldType: schema.type, items: arraySchema, value: [arraySchema], required: required.includes(propName)};
-//     }
-
-//     // todo: cleanup
-
-//     // if (schema.type && schema.type === 'object') { OBJECT:::::
-//     const nestedSchemaProps = Object.keys(schema.properties).map((nestedPropName) => ({[nestedPropName]: buildSchema(schema.properties[nestedPropName], schema.required, nestedPropName)}));
-
-//     return Object.assign({uiState: {visible: true}, required: required.includes(propName)}, ...nestedSchemaProps);
-//     // }
-// };
-
-// Given array of parameters, filters out non-query string params and converts them to consummable shape
-const buildSchema = (schema) => {
+const buildSchema = (schema, required = [], propName = null) => {
     if (schema.hasOwnProperty('x-visibility') && schema['x-visibility'] === 'hidden') {
         return undefined;
     }
@@ -55,19 +13,19 @@ const buildSchema = (schema) => {
     }
 
     if (schema.type && schema.type === 'object' || schema.type === undefined) {
-        const nestedSchemaProps = Object.keys(schema.properties).map((propName) => ({[propName]: buildSchema(schema.properties[propName])}));
+        const nestedSchemaProps = Object.keys(schema.properties).map((nestedPropName) => ({[nestedPropName]: buildSchema(schema.properties[nestedPropName], schema.required, nestedPropName)}));
 
-        return Object.assign({uiState: {visible: true}}, ...nestedSchemaProps);
+        return Object.assign({uiState: {visible: true}, required: required.includes(propName)}, ...nestedSchemaProps);
     }
 
     if (schema.type && schema.type === 'array') {
         const arraySchema = buildSchema(schema.items);
 
         // items holds the schema definition of objects in our array, and value holds the actual objects of said schema...
-        return {uiState: {visible: true}, fieldType: schema.type, items: arraySchema, value: [arraySchema]};
+        return {uiState: {visible: true}, fieldType: schema.type, required: required.includes(propName), items: arraySchema, value: [arraySchema]};
     }
 
-    const objToReturn = {fieldType: schema.type, value: ''};
+    const objToReturn = {fieldType: schema.type, required: required.includes(propName), value: ''};
 
     if (schema.example) {
         objToReturn.example = schema.example;
@@ -120,7 +78,6 @@ const buildResponse = (schema) => {
         return schema.allOf.map((chunk) => (buildResponse(chunk))).reduce((accum, chunk) => (Object.assign({}, accum, chunk)), {});
     }
 
-
     if (schema.type && schema.type === 'array') {
         const arraySchema = buildResponse(schema.items);
 
@@ -129,21 +86,12 @@ const buildResponse = (schema) => {
     }
 
     // object
-
-    // if (schema.type && schema.type === 'object') {
     const nestedSchemaProps = Object.keys(schema.properties).map((propName) => ({[propName]: buildResponse(schema.properties[propName])}));
 
     return Object.assign({}, ...nestedSchemaProps);
-    // }
 };
 
 const buildExample = (body) => {
-    // todo: How should we handle this? Is it even valid? Ask Anya
-    // if (body.hasOwnProperty('fieldType') && body.fieldType === undefined) {
-    //     // totally wack, yuck
-    //     return body;
-    // }
-
     if (body.fieldType && body.fieldType !== 'array' && body.fieldType !== 'object') {
         if (body.fieldType === 'boolean') {
             return body.example;
@@ -291,7 +239,6 @@ export default (api, rootPath) => {
     });
 
     swaggerData.postmanCollection = buildPostmanCollection(swaggerData);
-    console.log('POSTMAN COLLECTION', JSON.stringify(swaggerData.postmanCollection, null, 2));
 
     return swaggerData;
 };
