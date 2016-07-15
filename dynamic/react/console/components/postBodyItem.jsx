@@ -2,10 +2,9 @@ import React from 'react';
 
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
-import shortid from 'shortid';
 
-import PostBodySectionHeader from './PostBodySectionHeader';
-import PostBodyCollection from './PostBodyCollection';
+import PostBodySectionHeader from './postBodySectionHeader';
+import PostBodyCollection from './postBodyCollection';
 
 const handleInputChange = (e, pbName, endpointId) => {
     store.dispatch({
@@ -16,30 +15,46 @@ const handleInputChange = (e, pbName, endpointId) => {
     });
 };
 
-const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
-    const uid = shortid.generate();
+const handleRemoveItem = (pbName, endpointId) => {
+    store.dispatch({
+        type: actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION,
+        postBodyParamName: pbName,
+        endpointId: endpointId
+    });
+};
+
+const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove}) => {
+    const uid = `${endpointId}-${displayName}-${name}`;
 
     if (item.fieldType && item.fieldType !== 'array') {
         return (
             <tr>
                 <td>
                     <label htmlFor={uid}>{displayName}</label>
+                    {item.description && item.description.length ? <span className={'m-l-1 glyphicon glyphicon-info-sign'} style={{color: 'lightgrey'}} title={item.description}/> : null}
+                    {canRemove ?
+                        <span
+                            className={'m-l-1 glyphicon glyphicon-remove-sign mouse'}
+                            onClick={() => (handleRemoveItem(name, endpointId))}
+                            title={'Remove Item'}
+                        /> : null
+                    }
                 </td>
                 <td>
                     {item.enum && item.enum.length ?
                         <select
-                            defaultValue={item.value || '*select*'}
                             id={uid}
                             onChange={(e) => (handleInputChange(e, name, endpointId))}
+                            value={item.value || '*select*'}
                         >
                             <option disabled={true} value={'*select*'}>{''}</option>
                             {item.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
                         </select> :
                         <input
-                            defaultValue={item.value}
                             id={uid}
                             onChange={(e) => (handleInputChange(e, name, endpointId))}
                             placeholder={item.example}
+                            value={item.value}
                         />
                     }
                 </td>
@@ -61,9 +76,10 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
     }
 
     return (
-        <PostBodySectionHeader displayName={displayName} endpointId={endpointId} propertyName={name}>
-            {uiState.visible ? Object.keys(item).filter((n) => n !== 'uiState').map((itemKey, i) => {
+        <PostBodySectionHeader canRemove={canRemove} displayName={displayName} endpointId={endpointId} propertyName={name}>
+            {uiState.visible ? Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
                 return (<PostBodyItem
+                    canRemove={false}
                     displayName={itemKey}
                     endpointId={endpointId}
                     item={item[itemKey]}
@@ -79,6 +95,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName}) => {
 
 PostBodyItem.displayName = 'Post Body Item';
 PostBodyItem.propTypes = {
+    canRemove: React.PropTypes.bool.isRequired,
     displayName: React.PropTypes.string.isRequired,
     endpointId: React.PropTypes.number.isRequired,
     item: React.PropTypes.object.isRequired,

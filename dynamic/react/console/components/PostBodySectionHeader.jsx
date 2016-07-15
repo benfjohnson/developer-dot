@@ -3,10 +3,18 @@ import React from 'react';
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
 
-const handleToggleVisibility = (e, propertyName, endpointId) => {
+const handleToggleVisibility = (propertyName, endpointId) => {
     store.dispatch({
         type: actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY,
         postBodyParamName: propertyName,
+        endpointId: endpointId
+    });
+};
+
+const handleRemoveItem = (pbName, endpointId) => {
+    store.dispatch({
+        type: actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION,
+        postBodyParamName: pbName,
         endpointId: endpointId
     });
 };
@@ -15,23 +23,31 @@ const handleToggleVisibility = (e, propertyName, endpointId) => {
  * Defines a wrapper to nest object properties or
  * array items in a PostBodyå
  * */
-const PostBodySectionHeader = ({endpointId, propertyName, displayName, children}) => {
+const PostBodySectionHeader = ({endpointId, propertyName, displayName, children, canRemove}) => {
     return (
         <tr>
             <td colSpan='2'>
-                <table style={{width: '100%'}}>
+                <table className={'postBodySectionHeader'}>
                     <tbody>
                     <tr>
                         <td
+                            className={'postBodySectionHeaderName'}
                             colSpan='2'
-                            onClick={
-                                    (e) => {
-                                        handleToggleVisibility(e, propertyName, endpointId);
-                                    }
-                                }
-                            style={{cursor: 'pointer'}}
+                            onClick={() => (handleToggleVisibility(propertyName, endpointId))}
                         >
-                            <label style={{cursor: 'pointer'}}>{displayName}</label>
+                            <label className={'postBodySectionHeaderName'}>
+                                {displayName}
+                                {canRemove ?
+                                    <span
+                                        className={'m-l-1 glyphicon glyphicon-remove-sign mouse'}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            handleRemoveItem(propertyName, endpointId);
+                                        }}
+                                        title={'Remove Item'}
+                                    /> : null
+                                }
+                            </label>
                         </td>
                     </tr>
                     {children}
@@ -44,6 +60,7 @@ const PostBodySectionHeader = ({endpointId, propertyName, displayName, children}
 
 PostBodySectionHeader.displayName = 'Post Item Section Header';
 PostBodySectionHeader.propTypes = {
+    canRemove: React.PropTypes.bool.isRequired,
     children: React.PropTypes.oneOfType([
         React.PropTypes.element,
         React.PropTypes.array

@@ -16,23 +16,11 @@ const handleAddItem = (paramName, endpointId, itemSchema) => {
 
 const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiState, displayName}) => {
     return (
-        <PostBodySectionHeader displayName={displayName} endpointId={endpointId} propertyName={propertyName}>
-            <tr>
-                <td>
-                    <button
-                        onClick={
-                            (e) => {
-                                e.preventDefault();
-                                handleAddItem(propertyName, endpointId, schema);
-                            }
-                        }
-                        type={'button'}
-                    >{'Add Item'}</button>
-                </td>
-            </tr>
+        <PostBodySectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} propertyName={propertyName}>
             {uiState.visible ? collection.map((itm, i) => {
                 return (
                     <PostBodyItem
+                        canRemove={collection.length > 1}
                         displayName={i.toString()}
                         endpointId={endpointId}
                         item={itm}
@@ -41,6 +29,19 @@ const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiSta
                         uiState={itm.uiState}
                     />);
             }) : null}
+            <tr>
+                <td className={'mouse'}
+                    onClick={
+                        (e) => {
+                            e.preventDefault();
+                            handleAddItem(propertyName, endpointId, schema);
+                        }
+                    }
+                >
+                    <span className={'glyphicon glyphicon-plus-sign'}
+                          title={'Add Item'}/>
+                </td>
+            </tr>
         </PostBodySectionHeader>
     );
 };

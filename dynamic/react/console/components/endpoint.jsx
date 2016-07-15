@@ -3,16 +3,14 @@ import request from 'request';
 
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
-import QueryString from './queryString';
+import RequestParams from './requestParams';
 import PostBody from './postBody';
+import {replacePathParams, hasExampleData} from '../helpers';
 
 const handleSubmit = (endpoint, id) => {
-    // todo don't forget form validation!
+    const url = (endpoint.pathParams ? replacePathParams(endpoint.path, endpoint.pathParams) : endpoint.path) + (endpoint.qsPath || '');
     const apiReq = {
-        url: endpoint.path + (endpoint.qsPath || ''),
-        headers: {
-            Authorization: 'Token ZXqnd8Q3pRH_eyyYrk5xqpJXOhcdpTFJ4saXIJsw'
-        }
+        url: url
     };
 
     if (endpoint.postBody) {
@@ -21,20 +19,22 @@ const handleSubmit = (endpoint, id) => {
     }
 
     request[endpoint.action](apiReq, (error, response, body) => {
-        if (error || response.statusCode !== 200) {
-            store.dispatch({
-                type: actionTypes.SUBMIT_DONE,
-                endpointId: id,
-                apiResponse: {body: {}, status: response ? response.statusCode.toString() : '', statusMessage: error ? error.message : response.statusMessage || ''}
-            });
-            return;
+        let responseBody = {};
+
+        try {
+            responseBody = JSON.parse(body);
+        } catch (err) {
+            responseBody.error = err.message;
         }
-        // todo try/catch around JSON.parse
 
         store.dispatch({
             type: actionTypes.SUBMIT_DONE,
             endpointId: id,
-            apiResponse: {body: JSON.parse(body), status: response.statusCode.toString(), statusMessage: response.statusMessage}
+            apiResponse: {
+                body: responseBody,
+                status: response ? response.statusCode.toString() : '',
+                statusMessage: error ? error.message : response.statusMessage || ''
+            }
         });
     });
 };
@@ -46,8 +46,22 @@ const handleFillSampleData = (id) => {
     });
 };
 
+const toggleResponseModelExample = (id) => {
+    store.dispatch({
+        type: actionTypes.TOGGLE_RESPONSE_MODEL_EXAMPLE,
+        endpointId: id
+    });
+};
+const toggleRequestModelExample = (id) => {
+    store.dispatch({
+        type: actionTypes.TOGGLE_REQUEST_MODEL_EXAMPLE,
+        endpointId: id
+    });
+};
+
+// Give our endpoint an id based on its name for our clientside routing in jekyll
 const EndPointComponent = (props) => (
-    <div>
+    <div id={props.endpoint.name.replace(/\s/g, '_')}>
         <h2>{props.endpoint.name}</h2>
         <table>
             <tbody>
@@ -63,11 +77,79 @@ const EndPointComponent = (props) => (
                 <td><strong>{'HTTP Method'}</strong></td>
                 <td>{props.endpoint.action}</td>
             </tr>
+            {props.endpoint.request ?
+                <tr>
+                    <td><strong>{'Request'}</strong></td>
+                    <td>
+                        {props.endpoint.request.example ?
+                            <span
+                                className={`${props.endpoint.request.currentVisibility === 'example' ? ' active-tab' : 'mouse'}`}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    if (props.endpoint.request.currentVisibility !== 'example') {
+                                        toggleRequestModelExample(props.id);
+                                    }
+                                }
+                                }>{'Example'}
+                            </span> :
+                            null
+                        }
+                        {props.endpoint.request.model ?
+                            <span
+                                className={`m-l-1${props.endpoint.request.currentVisibility === 'model' ? ' active-tab' : ' mouse'}`}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    if (props.endpoint.request.currentVisibility !== 'model') {
+                                        toggleRequestModelExample(props.id);
+                                    }
+                                }
+                                }>{'Model'}
+                            </span> :
+                            null
+                        }
+
+                        <br />
+                        <textarea cols='50' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.request[props.endpoint.request.currentVisibility], null, 2)}/>
+
+                    </td>
+                </tr> :
+                null
+            }
+            {props.endpoint.response ?
+                <tr>
+                    <td><strong>{'Response'}</strong></td>
+                    <td>
+                        <span
+                            className={`${props.endpoint.response.currentVisibility === 'example' ? ' active-tab' : 'mouse'}`}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (props.endpoint.response.currentVisibility !== 'example') {
+                                    toggleResponseModelExample(props.id);
+                                }
+                            }
+                            }>{'Example'}</span>
+                        <span
+                            className={`m-l-1${props.endpoint.response.currentVisibility === 'model' ? ' active-tab' : ' mouse'}`}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                if (props.endpoint.response.currentVisibility !== 'model') {
+                                    toggleResponseModelExample(props.id);
+                                }
+                            }
+                            }>{'Model'}</span>
+                        <br />
+                        <textarea cols='50' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.response[props.endpoint.response.currentVisibility], null, 2)}/>
+                    </td>
+                </tr> :
+                null
+            }
             </tbody>
         </table>
         <form>
-            {props.endpoint.queryString ? <QueryString id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} queryString={props.endpoint.queryString}/> : null}
+            {props.endpoint.pathParams ? <RequestParams endpointId={props.id} paramType={'PATH'} params={props.endpoint.pathParams}/> : null}
+            {props.endpoint.queryString ? <RequestParams endpointId={props.id} paramType={'QUERY_STRING'} params={props.endpoint.queryString}/> : null}
             {props.endpoint.postBody ? <PostBody id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.postBody}/> : null}
+            <p className={'curl'}>{props.endpoint.curl}</p>
             <button
                 className='btn btn-success'
                 onClick={(e) => {
@@ -76,12 +158,12 @@ const EndPointComponent = (props) => (
                 }}
                 type={'button'}
             >
-            {'Submit'}
+                {'Submit'}
             </button>
-            {props.endpoint.queryString || props.endpoint.postBody ?
-            <span>
+            {hasExampleData('QUERY_STRING', props.endpoint.queryString) || hasExampleData('POST_BODY', props.endpoint.postBody) || hasExampleData('PATH_PARAM', props.endpoint.pathParams) ?
+                <span>
                 <button
-                    className='btn btn-default'
+                    className='btn btn-default m-l-1'
                     onClick={(e) => {
                         e.preventDefault();
                         handleFillSampleData(props.id);
@@ -90,29 +172,20 @@ const EndPointComponent = (props) => (
                 >
                 {'Fill Sample Data'}
                 </button>
-                <button className='btn btn-default' type='reset'>{'Reset'}</button>
             </span> : null}
+            <button className='btn btn-default m-l-1' type='reset'>{'Reset'}</button>
         </form>
-        <br/>
-        <div style={{
-            background: '#48483e',
-            color: '#e5eae4',
-            font: '13px Menlo',
-            padding: '8px',
-            borderRadius: '2px'
-        }}>{props.endpoint.curl}</div>
-
         {props.endpoint.apiResponse ?
-            <table>
+            <table className={'responseBody'}>
                 <tbody>
                 <tr>
                     <td><strong>{'HTTP Response Code'}</strong></td>
                     <td>{props.endpoint.apiResponse.status + ' - ' + props.endpoint.apiResponse.statusMessage}</td>
                 </tr>
                 <tr>
-                    <td style={{verticalAlign: 'top'}}><strong>{'HTTP Response Body'}</strong></td>
+                    <td><strong>{'HTTP Response Body'}</strong></td>
                     <td>
-                        <textarea cols='50' readOnly={true} rows='15' style={{border: 'none'}} value={JSON.stringify(props.endpoint.apiResponse.body, null, 2)}/>
+                        <textarea cols='50' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.apiResponse.body, null, 2)}/>
                     </td>
                 </tr>
                 </tbody>

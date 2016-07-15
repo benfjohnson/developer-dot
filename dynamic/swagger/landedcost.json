@@ -1,0 +1,2885 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "LandedCost Calculation API",
+    "description": "Landed Cost API providing duty rates, calculation, and item harmonization. A set of sample requests are available as a <a href='https://www.getpostman.com/collections/ad308f6c9351a18c2c12'>Postman Collection.</a>\n# Basics\n### Timestamps\nTimestamps should be formatted using ISO-8601 to the nearest second, in UTC e.g `2015-06-12T09:17:37Z`\n### Expiries\nAll Requests will have an associated timestamp. The validity for any request is 1 minute to account for any clock-skew. \n# Authorization\nAll API requests require an http header that contains your account ID and your account API Key. During account provisioning, you will be issued an API Key which you must supply with every request.\n## Authorization Header\nTo make an authorized API request, set the following HTTP header: \n`authorization: avalaraapikey id:<accountId> key:<apiKey>`",
+    "version": "3.0"
+  },
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "Landed Cost Calculation API"
+    },
+    {
+      "name": "Rates API"
+    },
+    {
+      "name": "[v2]Country and Classification API"
+    },
+    {
+      "name": "[v2]Harmonized Codes API"
+    }
+  ],
+  "basePath": "/",
+  "host": "localhost:8082",
+  "paths": {
+    "/v3/validate-creds": {
+      "get": {
+        "summary": "Validate credentials",
+        "tags": [
+          "Landed Cost Calculation API"
+        ],
+        "description": "Convenience API to check credentials. This API is purposefully non-performant.",
+        "responses": {
+          "200": {
+            "description": "Credentials are valid and account has active Landed Cost subscription."
+          },
+          "401": {
+            "description": "Unauthorized. Invalid credentials, or no subscription to Landed Cost found."
+          }
+        }
+      }
+    },
+    "/v3/calculate": {
+      "post": {
+        "summary": "Calculate landed cost",
+        "x-swagger-router-controller": "calculate",
+        "operationId": "calculate",
+        "tags": [
+          "Landed Cost Calculation API"
+        ],
+        "description": "Returns the fully qualified landed cost calculation for a shipment",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "The document used to request a fully qualified landedcost calculation for a shipment",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CalculateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "schema": {
+              "$ref": "#/definitions/CalculateResponse"
+            }
+          },
+          "default": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/v3/rates": {
+      "post": {
+        "summary": "Get rates",
+        "x-swagger-router-controller": "rates",
+        "operationId": "rates",
+        "tags": [
+          "Landed Cost Calculation API",
+          "Rates API"
+        ],
+        "description": "Returns rate information given an HS code, source country and destination country",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "The document used to request rate data for a collection of hs codes",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RatesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "schema": {
+              "$ref": "#/definitions/RatesResponse"
+            }
+          },
+          "default": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/v3/units": {
+      "post": {
+        "summary": "Get rate units",
+        "x-swagger-router-controller": "rates",
+        "operationId": "units",
+        "tags": [
+          "Landed Cost Calculation API",
+          "Rates API"
+        ],
+        "description": "Returns units used in all rate formulas for given HS codes.\nCan optionally be filtered by providing source and destination country codes",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "description": "The document used to request rate units data for a collection of hs codes",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UnitsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "schema": {
+              "$ref": "#/definitions/UnitsResponse"
+            }
+          },
+          "default": {
+            "description": "Invalid request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/v2/countries": {
+      "get": {
+        "summary": "Get countries",
+        "description": "Returns the countries we currently support, along with most common classification system for both import and export.\n No request parameters are required for this call. The method returns a full list of supported countries",
+        "tags": [
+          "[v2]Country and Classification API"
+        ],
+        "operationId": "Get countries listings_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "schema": {
+              "$ref": "#/definitions/GetCountriesListingsResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v2/systems": {
+      "get": {
+        "summary": "Get systems",
+        "description": "Returns a pair of classification (import and export) systems for trade between two countries",
+        "tags": [
+          "[v2]Country and Classification API"
+        ],
+        "operationId": "Get the System for a Country_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "required": true,
+            "x-is-map": false,
+            "type": "string",
+            "x-example": "FR",
+            "description": "The two character ISO code for the source country",
+            "enum": [
+              "AX",
+              "AR",
+              "AT",
+              "BE",
+              "BR",
+              "BG",
+              "CA",
+              "IO",
+              "CN",
+              "HR",
+              "CY",
+              "CZ",
+              "DK",
+              "EE",
+              "FI",
+              "FR",
+              "DE",
+              "GR",
+              "GP",
+              "GG",
+              "GF",
+              "HU",
+              "IN",
+              "IE",
+              "IT",
+              "JP",
+              "JE",
+              "LV",
+              "LT",
+              "LU",
+              "MT",
+              "IM",
+              "MQ",
+              "MX",
+              "MC",
+              "NL",
+              "PY",
+              "PL",
+              "PT",
+              "RE",
+              "RO",
+              "SM",
+              "SK",
+              "SI",
+              "ES",
+              "SE",
+              "TK",
+              "GB",
+              "US",
+              "UY",
+              "VE",
+              "AU",
+              "CX",
+              "CC",
+              "NF",
+              "PR",
+              "SG"
+            ]
+          },
+          {
+            "name": "destination",
+            "in": "query",
+            "required": true,
+            "x-is-map": false,
+            "type": "string",
+            "x-example": "US",
+            "description": "The two character ISO code for the destination country",
+            "enum": [
+              "AX",
+              "AR",
+              "AT",
+              "BE",
+              "BR",
+              "BG",
+              "CA",
+              "IO",
+              "CN",
+              "HR",
+              "CY",
+              "CZ",
+              "DK",
+              "EE",
+              "FI",
+              "FR",
+              "DE",
+              "GR",
+              "GP",
+              "GG",
+              "GF",
+              "HU",
+              "IN",
+              "IE",
+              "IT",
+              "JP",
+              "JE",
+              "LV",
+              "LT",
+              "LU",
+              "MT",
+              "IM",
+              "MQ",
+              "MX",
+              "MC",
+              "NL",
+              "PY",
+              "PL",
+              "PT",
+              "RE",
+              "RO",
+              "SM",
+              "SK",
+              "SI",
+              "ES",
+              "SE",
+              "TK",
+              "GB",
+              "US",
+              "UY",
+              "VE",
+              "AU",
+              "CX",
+              "CC",
+              "NF",
+              "PR",
+              "SG"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/GetSystemForCountryResponse"
+            }
+          }
+        }
+      }
+    },
+    "/v2/browse": {
+      "get": {
+        "summary": "Get hs code trees",
+        "description": "Presents all of the available Harmonized Codes as a browesable tree. Each request specifies a parent node, and the response lists all child nodes of that parent. If no parent node is specified, all root-level nodes will be returned",
+        "tags": [
+          "[v2]Harmonized Codes API"
+        ],
+        "operationId": "Get_Browse HS Data_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "query",
+            "required": false,
+            "x-is-map": false,
+            "type": "string",
+            "x-example": "TARIC",
+            "description": "The classification system you want to browse.",
+            "enum": [
+              "CTCA",
+              "CTIN",
+              "CTMX",
+              "HS",
+              "HTISC",
+              "HTS",
+              "HTSB",
+              "MCN",
+              "STCCED",
+              "TARIC",
+              "TSCN",
+              "TSJP"
+            ]
+          },
+          {
+            "name": "parent",
+            "in": "query",
+            "required": false,
+            "x-is-map": false,
+            "type": "string",
+            "x-example": "TARIC_0102",
+            "description": "The name of the parent node. Note that it is important to use the name of the node, as not all nodes have a harmonized code, and the code itself is different than the name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BrowseHSDataResponse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/hscodes": {
+      "get": {
+        "summary": "Get hs code details including rates",
+        "description": "Search for Duty Rates for a harmonized code. Rates are dependant on at least a destination country",
+        "tags": [
+          "[v2]Harmonized Codes API"
+        ],
+        "operationId": "Get Rate Details_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "x-is-map": false,
+            "type": "string",
+            "description": "The harmonized code",
+            "x-example": "01022940"
+          },
+          {
+            "name": "system",
+            "in": "query",
+            "required": true,
+            "x-is-map": false,
+            "type": "string",
+            "description": "The classification system to which the code belongs",
+            "x-example": "CTCA",
+            "enum": [
+              "CTCA",
+              "CTIN",
+              "CTMX",
+              "HS",
+              "HTISC",
+              "HTS",
+              "HTSB",
+              "MCN",
+              "STCCED",
+              "TARIC",
+              "TSCN",
+              "TSJP"
+            ]
+          },
+          {
+            "name": "destination",
+            "in": "query",
+            "required": true,
+            "x-is-map": false,
+            "type": "string",
+            "description": "The destination country for which rate data is desired",
+            "x-example": "CA",
+            "enum": [
+              "AX",
+              "AR",
+              "AT",
+              "BE",
+              "BR",
+              "BG",
+              "CA",
+              "IO",
+              "CN",
+              "HR",
+              "CY",
+              "CZ",
+              "DK",
+              "EE",
+              "FI",
+              "FR",
+              "DE",
+              "GR",
+              "GP",
+              "GG",
+              "GF",
+              "HU",
+              "IN",
+              "IE",
+              "IT",
+              "JP",
+              "JE",
+              "LV",
+              "LT",
+              "LU",
+              "MT",
+              "IM",
+              "MQ",
+              "MX",
+              "MC",
+              "NL",
+              "PY",
+              "PL",
+              "PT",
+              "RE",
+              "RO",
+              "SM",
+              "SK",
+              "SI",
+              "ES",
+              "SE",
+              "TK",
+              "GB",
+              "US",
+              "UY",
+              "VE",
+              "AU",
+              "CX",
+              "CC",
+              "NF",
+              "PR",
+              "SG"
+            ]
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "x-is-map": false,
+            "type": "string",
+            "description": "An optional filter for rates that limits results to a specific origin country",
+            "x-example": "MX",
+            "enum": [
+              "AX",
+              "AR",
+              "AT",
+              "BE",
+              "BR",
+              "BG",
+              "CA",
+              "IO",
+              "CN",
+              "HR",
+              "CY",
+              "CZ",
+              "DK",
+              "EE",
+              "FI",
+              "FR",
+              "DE",
+              "GR",
+              "GP",
+              "GG",
+              "GF",
+              "HU",
+              "IN",
+              "IE",
+              "IT",
+              "JP",
+              "JE",
+              "LV",
+              "LT",
+              "LU",
+              "MT",
+              "IM",
+              "MQ",
+              "MX",
+              "MC",
+              "NL",
+              "PY",
+              "PL",
+              "PT",
+              "RE",
+              "RO",
+              "SM",
+              "SK",
+              "SI",
+              "ES",
+              "SE",
+              "TK",
+              "GB",
+              "US",
+              "UY",
+              "VE",
+              "AU",
+              "CX",
+              "CC",
+              "NF",
+              "PR",
+              "SG"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GetRateDetailsResponse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/hscodes/{system}/{code}": {
+      "get": {
+        "summary": "Get hs code details",
+        "description": "Allows for the traversal of classification system, harmonized codes, and duty rates, allowing the user to browse the available content",
+        "tags": [
+          "[v2]Harmonized Codes API"
+        ],
+        "operationId": "Get Rate Data_",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "system",
+            "in": "path",
+            "required": true,
+            "x-is-map": false,
+            "type": "string",
+            "description": "The classification system. If omitted, the response will be all current classification systems",
+            "x-example": "TARIC",
+            "enum": [
+              "CTCA",
+              "CTIN",
+              "CTMX",
+              "HS",
+              "HTISC",
+              "HTS",
+              "HTSB",
+              "MCN",
+              "STCCED",
+              "TARIC",
+              "TSCN",
+              "TSJP"
+            ]
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "x-is-map": false,
+            "type": "string",
+            "description": "The harmonized code within a system. If code is provided, system must also be provided",
+            "x-example": "010229"
+          },
+          {
+            "name": "fullpath",
+            "in": "query",
+            "required": false,
+            "x-is-map": false,
+            "type": "boolean",
+            "description": "If present, the response will include the entire chapter, subchapter, etc. and description data for a code",
+            "x-example": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GetRateDataResponse"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Error": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "Friendly error response"
+        },
+        "error": {
+          "type": "object",
+          "description": "Full error object response"
+        }
+      },
+      "required": [
+        "message",
+        "error"
+      ]
+    },
+    "CalculateBase": {
+      "type": "object",
+      "properties": {
+        "charges": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Charges to include",
+            "enum": [
+              "duties",
+              "taxes",
+              "fees"
+            ],
+            "example": "duties"
+          }
+        },
+        "date": {
+          "type": "string",
+          "description": "Transaction date in ISO 8601 format",
+          "format": "date-time",
+          "example": "2016-01-01T00:00:00.000Z"
+        },
+        "incoterms": {
+          "type": "string",
+          "description": "Terms of sale. Used to determine buyer obligations",
+          "enum": [
+            "DAP",
+            "DDP"
+          ],
+          "example": "DAP"
+        },
+        "source": {
+          "$ref": "#/definitions/Source",
+          "title": "Source"
+        },
+        "destination": {
+          "$ref": "#/definitions/Destination",
+          "title": "Destination"
+        },
+        "entityType": {
+          "type": "string",
+          "description": "Type of sale. Can be used to determine applicable tax types",
+          "enum": [
+            "B2C",
+            "B2B"
+          ],
+          "example": "B2C"
+        },
+        "currency": {
+          "$ref": "#/definitions/Currency",
+          "description": "Currency, in ISO 4217 format"
+        },
+        "shipping": {
+          "type": "object",
+          "title": "Shipping",
+          "properties": {
+            "cost": {
+              "type": "number",
+              "description": "Cost of shipping",
+              "format": "float",
+              "minimum": 0,
+              "maximum": 1000000,
+              "example": 50
+            },
+            "insurance": {
+              "type": "number",
+              "description": "Cost of shipping insurance",
+              "format": "float",
+              "minimum": 0,
+              "maximum": 1000000,
+              "example": 50
+            },
+            "mode": {
+              "type": "string",
+              "description": "Shipping method.  Can be used to determine applicable tax types",
+              "enum": [
+                "ground",
+                "air",
+                "ocean"
+              ],
+              "example": "ground"
+            },
+            "express": {
+              "type": "boolean",
+              "description": "Is Shipping method.  Can be used to determine applicable tax types",
+              "example": true
+            }
+          },
+          "required": [
+            "cost",
+            "insurance",
+            "express"
+          ]
+        },
+        "discount": {
+          "$ref": "#/definitions/Discount"
+        }
+      },
+      "required": [
+        "date",
+        "incoterms",
+        "source",
+        "destination",
+        "entityType",
+        "currency",
+        "shipping"
+      ]
+    },
+    "TaxRateSections": {
+      "type": "string",
+      "description": "The rate section",
+      "example": "Import VAT",
+      "enum": [
+        "Import VAT",
+        "Harmonized Sales Tax",
+        "General Sales Tax",
+        "Provincial Sales Tax",
+        "Goods and Services Tax",
+        "Consumption Tax"
+      ]
+    },
+    "CalculateRequestRateOverride": {
+      "type": "object",
+      "properties": {
+        "rate": {
+          "type": "string",
+          "description": "The rate as written in the source material",
+          "example": "10%"
+        },
+        "formula": {
+          "type": "string",
+          "description": "The rate converted to landedCost DSL",
+          "example": "rate(10%,costbasis())"
+        },
+        "rateSection": {
+          "$ref": "#/definitions/TaxRateSections"
+        },
+        "type": {
+          "$ref": "#/definitions/RateTypes"
+        }
+      },
+      "required": [
+        "formula",
+        "rateSection",
+        "type"
+      ]
+    },
+    "RateTypes": {
+      "type": "string",
+      "description": "The type of duty",
+      "enum": [
+        "ad valorem",
+        "units"
+      ]
+    },
+    "CalculateRequest": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CalculateBase"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "title": "Item",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "Transaction line number",
+                    "example": "1"
+                  },
+                  "hsCode": {
+                    "type": "string",
+                    "description": "The harmonized classification code of the product",
+                    "example": "930700"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Description of the product",
+                    "example": "Swords"
+                  },
+                  "price": {
+                    "type": "number",
+                    "description": "Item price of the product",
+                    "format": "float",
+                    "minimum": 0,
+                    "maximum": 1000000,
+                    "example": 100
+                  },
+                  "quantity": {
+                    "type": "number",
+                    "description": "Quantity of the item shipped",
+                    "format": "float",
+                    "minimum": 1,
+                    "maximum": 1000000,
+                    "example": 10
+                  },
+                  "extendedPrice": {
+                    "type": "number",
+                    "description": "Extended price (price * quantity) of the item shipped",
+                    "format": "float",
+                    "minimum": 0,
+                    "maximum": 1000000000000
+                  },
+                  "units": {
+                    "type": "array",
+                    "description": "Collection of units of measure used to calculate applicable taxes and fees",
+                    "items": {
+                      "type": "object",
+                      "title": "Unit",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "Name of the unit of measure",
+                          "example": "kg"
+                        },
+                        "amount": {
+                          "type": "number",
+                          "description": "Value associated with this unit of measure",
+                          "format": "float",
+                          "minimum": 0,
+                          "maximum": 1000000,
+                          "example": 10
+                        },
+                        "total": {
+                          "type": "number",
+                          "description": "Total value associated with this unit of measure (amount * quantity)",
+                          "format": "float",
+                          "minimum": 0,
+                          "maximum": 1000000000000,
+                          "example": 10
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    }
+                  },
+                  "discount": {
+                    "$ref": "#/definitions/Discount"
+                  },
+                  "rates": {
+                    "x-visibility": "hidden",
+                    "type": "array",
+                    "title": "Rates",
+                    "items": {
+                      "$ref": "#/definitions/CalculateRequestRateOverride"
+                    }
+                  },
+                  "taxExemptions": {
+                    "x-visibility": "hidden",
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/TaxRateSections"
+                    }
+                  },
+                  "preferenceProgram": {
+                    "$ref": "#/definitions/PreferenceProgram"
+                  }
+                },
+                "required": [
+                  "id",
+                  "hsCode",
+                  "description"
+                ]
+              }
+            }
+          },
+          "required": [
+            "items"
+          ]
+        }
+      ]
+    },
+    "CalculateResponse": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CalculateBase"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "title": "Item",
+              "items": {
+                "type": "object",
+                "title": "Item",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "description": "Transaction line number",
+                    "example": "1"
+                  },
+                  "hsCode": {
+                    "type": "string",
+                    "description": "The harmonized classification code of the product",
+                    "example": "930700"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Description of the product",
+                    "example": "Swords"
+                  },
+                  "price": {
+                    "type": "number",
+                    "description": "Item price of the product",
+                    "format": "float",
+                    "minimum": 0,
+                    "maximum": 1000000,
+                    "example": 100
+                  },
+                  "netPrice": {
+                    "type": "number",
+                    "description": "Original price of the product, returned if a discount was applied on the item",
+                    "format": "float",
+                    "minimum": 0,
+                    "maximum": 1000000,
+                    "example": 100
+                  },
+                  "quantity": {
+                    "type": "number",
+                    "description": "Quantity of the item shipped",
+                    "format": "float",
+                    "minimum": 1,
+                    "maximum": 1000000,
+                    "example": 10
+                  },
+                  "extendedPrice": {
+                    "type": "number",
+                    "description": "Extended price (price * quantity) of the item shipped",
+                    "format": "float",
+                    "minimum": 0,
+                    "maximum": 1000000000000
+                  },
+                  "units": {
+                    "type": "array",
+                    "description": "Collection of units of measure used to calculate applicable taxes and fees",
+                    "items": {
+                      "type": "object",
+                      "title": "Unit",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "Name of the unit of measure",
+                          "example": "kg"
+                        },
+                        "amount": {
+                          "type": "number",
+                          "description": "Value associated with this unit of measure",
+                          "format": "float",
+                          "minimum": 0,
+                          "maximum": 1000000,
+                          "example": 10
+                        },
+                        "total": {
+                          "type": "number",
+                          "description": "Total value associated with this unit of measure (amount * quantity)",
+                          "format": "float",
+                          "minimum": 0,
+                          "maximum": 1000000000000,
+                          "example": 10
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    }
+                  },
+                  "rates": {
+                    "type": "object",
+                    "title": "Rates",
+                    "properties": {
+                      "duties": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "title": "Duties",
+                          "properties": {
+                            "hsCode": {
+                              "type": "string",
+                              "description": "The harmonized classification code of the product",
+                              "example": "93070000"
+                            },
+                            "rate": {
+                              "type": "string",
+                              "description": "The rate as written in the source material",
+                              "example": "1¢/kg"
+                            },
+                            "currency": {
+                              "$ref": "#/definitions/Currency",
+                              "description": "Currency, in ISO 4217 format"
+                            },
+                            "type": {
+                              "type": "string",
+                              "description": "The type of duty",
+                              "example": "Import Duty"
+                            },
+                            "jurisdiction": {
+                              "$ref": "#/definitions/Destination",
+                              "title": "Jurisdiction",
+                              "description": "The country or region that legislates this rate"
+                            }
+                          },
+                          "required": [
+                            "hsCode",
+                            "rate",
+                            "currency",
+                            "type",
+                            "jurisdiction"
+                          ]
+                        }
+                      },
+                      "taxes": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "title": "Taxes",
+                          "properties": {
+                            "rate": {
+                              "type": "string",
+                              "description": "The rate as written in the source material",
+                              "example": "19%"
+                            },
+                            "currency": {
+                              "$ref": "#/definitions/Currency",
+                              "description": "Currency, in ISO 4217 format"
+                            },
+                            "type": {
+                              "type": "string",
+                              "description": "The type of tax",
+                              "example": "Import VAT"
+                            },
+                            "jurisdiction": {
+                              "$ref": "#/definitions/Destination",
+                              "title": "Jurisdiction",
+                              "description": "The country or region that legislates this rate"
+                            }
+                          },
+                          "required": [
+                            "rate",
+                            "currency",
+                            "type",
+                            "jurisdiction"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "taxesAndFees": {
+                    "type": "object",
+                    "title": "Taxes and Fees",
+                    "properties": {
+                      "duties": {
+                        "type": "object",
+                        "title": "Duties",
+                        "properties": {
+                          "amount": {
+                            "type": "number",
+                            "description": "Duties subtotal",
+                            "format": "float",
+                            "minimum": 0,
+                            "example": 1
+                          },
+                          "details": {
+                            "type": "array",
+                            "title": "Duty Details",
+                            "items": {
+                              "type": "object",
+                              "title": "Duty Detail",
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "description": "Duty name",
+                                  "example": "Item Import Duty"
+                                },
+                                "amount": {
+                                  "type": "number",
+                                  "description": "Duty amount",
+                                  "format": "float",
+                                  "minimum": 0,
+                                  "example": 1
+                                },
+                                "taxBasis": {
+                                  "type": "number",
+                                  "description": "Tax basis the rate is applied to",
+                                  "format": "float",
+                                  "minimum": 0,
+                                  "example": 1
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "amount",
+                                "taxBasis"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "amount",
+                          "details"
+                        ]
+                      },
+                      "taxes": {
+                        "type": "object",
+                        "title": "Taxes",
+                        "properties": {
+                          "amount": {
+                            "type": "number",
+                            "description": "Taxes subtotal",
+                            "format": "float",
+                            "minimum": 0,
+                            "example": 19
+                          },
+                          "details": {
+                            "type": "array",
+                            "title": "Tax Details",
+                            "items": {
+                              "type": "object",
+                              "title": "Tax Detail",
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "description": "Tax name",
+                                  "example": "Item Import VAT"
+                                },
+                                "amount": {
+                                  "type": "number",
+                                  "description": "Tax amount",
+                                  "format": "float",
+                                  "minimum": 0,
+                                  "example": 19
+                                },
+                                "taxBasis": {
+                                  "type": "number",
+                                  "description": "Tax basis the rate is applied to",
+                                  "format": "float",
+                                  "minimum": 0,
+                                  "example": 1
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "amount",
+                                "taxBasis"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "amount",
+                          "details"
+                        ]
+                      },
+                      "fees": {
+                        "type": "object",
+                        "title": "Fees",
+                        "properties": {
+                          "amount": {
+                            "type": "number",
+                            "description": "Fees subtotal",
+                            "format": "float",
+                            "minimum": 0,
+                            "example": 1
+                          },
+                          "details": {
+                            "type": "array",
+                            "title": "Fee",
+                            "items": {
+                              "type": "object",
+                              "title": "Fee Detail",
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "description": "Fee name",
+                                  "example": "Item Processing Fee"
+                                },
+                                "amount": {
+                                  "type": "number",
+                                  "description": "Fee amount",
+                                  "format": "float",
+                                  "minimum": 0,
+                                  "example": 1
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "amount"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "amount",
+                          "details"
+                        ]
+                      }
+                    }
+                  },
+                  "discount": {
+                    "$ref": "#/definitions/Discount"
+                  },
+                  "taxExemptions": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/TaxRateSections"
+                    }
+                  },
+                  "preferenceProgram": {
+                    "$ref": "#/definitions/PreferenceProgram"
+                  }
+                },
+                "required": [
+                  "id",
+                  "hsCode",
+                  "description",
+                  "rates",
+                  "taxesAndFees"
+                ]
+              }
+            },
+            "taxesAndFees": {
+              "type": "object",
+              "title": "Taxes and Fees",
+              "properties": {
+                "duties": {
+                  "type": "object",
+                  "title": "Duties",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "description": "Duties subtotal",
+                      "format": "float",
+                      "minimum": 0,
+                      "example": 1
+                    },
+                    "details": {
+                      "type": "array",
+                      "title": "Duty Details",
+                      "items": {
+                        "type": "object",
+                        "title": "Duty Detail",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "Duty name",
+                            "example": "Shipment Import Duty"
+                          },
+                          "amount": {
+                            "type": "number",
+                            "description": "Duty amount",
+                            "format": "float",
+                            "minimum": 0,
+                            "example": 1
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "amount"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "details"
+                  ]
+                },
+                "taxes": {
+                  "type": "object",
+                  "title": "Taxes",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "description": "Taxes subtotal",
+                      "format": "float",
+                      "minimum": 0,
+                      "example": 19
+                    },
+                    "details": {
+                      "type": "array",
+                      "title": "Tax Details",
+                      "items": {
+                        "type": "object",
+                        "title": "Tax Detail",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "Tax name",
+                            "example": "Shipment Import VAT"
+                          },
+                          "amount": {
+                            "type": "number",
+                            "description": "Tax amount",
+                            "format": "float",
+                            "minimum": 0,
+                            "example": 19
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "amount"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "details"
+                  ]
+                },
+                "fees": {
+                  "type": "object",
+                  "title": "Fees",
+                  "properties": {
+                    "amount": {
+                      "type": "number",
+                      "description": "Fees subtotal",
+                      "format": "float",
+                      "minimum": 0,
+                      "example": 1
+                    },
+                    "details": {
+                      "type": "array",
+                      "title": "Fee Details",
+                      "items": {
+                        "type": "object",
+                        "title": "Fee Detail",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "Fee name",
+                            "example": "Shipment Processing Fee"
+                          },
+                          "amount": {
+                            "type": "number",
+                            "description": "Fee amount",
+                            "format": "float",
+                            "minimum": 0,
+                            "example": 1
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "amount"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "amount",
+                    "details"
+                  ]
+                }
+              }
+            },
+            "landedCost": {
+              "type": "object",
+              "title": "LandedCost",
+              "properties": {
+                "amount": {
+                  "type": "number",
+                  "description": "Calculated landedCost.  Total of all products, shipping, and applicable duties, taxes, and fees",
+                  "format": "float",
+                  "minimum": 0,
+                  "example": 1121
+                },
+                "costInsuranceFreight": {
+                  "type": "number",
+                  "description": "Total of all products and shipping",
+                  "format": "float",
+                  "minimum": 0,
+                  "example": 1000
+                },
+                "dutiesTaxesAndFees": {
+                  "type": "number",
+                  "description": "Total of all applicable duties, taxes, and fees",
+                  "format": "float",
+                  "minimum": 0,
+                  "example": 121
+                },
+                "isCrossBorder": {
+                  "type": "boolean",
+                  "description": "Is shipment cross-border",
+                  "example": true
+                },
+                "details": {
+                  "type": "object",
+                  "title": "Details",
+                  "properties": {
+                    "items": {
+                      "type": "object",
+                      "title": "Items",
+                      "properties": {
+                        "amount": {
+                          "type": "number",
+                          "description": "Item subtotal",
+                          "format": "float",
+                          "minimum": 0,
+                          "example": 1000
+                        }
+                      },
+                      "required": [
+                        "amount"
+                      ]
+                    },
+                    "shipping": {
+                      "type": "object",
+                      "title": "Items",
+                      "properties": {
+                        "amount": {
+                          "type": "number",
+                          "description": "Shipping subtotal",
+                          "format": "float",
+                          "minimum": 0,
+                          "example": 100
+                        }
+                      },
+                      "required": [
+                        "amount"
+                      ]
+                    },
+                    "discounts": {
+                      "type": "object",
+                      "title": "Discounts",
+                      "properties": {
+                        "amount": {
+                          "type": "number",
+                          "format": "float",
+                          "example": -424.08,
+                          "description": "The total discount from the order, which can include an order-level discount as well as discounts on each individual item"
+                        },
+                        "details": {
+                          "type": "array",
+                          "title": "Details",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "description": "The type of discount",
+                                "enum": [
+                                  "itemDiscount",
+                                  "orderDiscount"
+                                ]
+                              },
+                              "amount": {
+                                "type": "number",
+                                "format": "float",
+                                "example": 344.32,
+                                "description": "The cash value of the item or order level discount"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "required": [
+                        "amount"
+                      ]
+                    },
+                    "duties": {
+                      "type": "object",
+                      "title": "Items",
+                      "properties": {
+                        "amount": {
+                          "type": "number",
+                          "description": "Duties subtotal",
+                          "format": "float",
+                          "minimum": 0,
+                          "example": 1
+                        },
+                        "details": {
+                          "type": "array",
+                          "title": "Duty Details",
+                          "items": {
+                            "type": "object",
+                            "title": "Duty Detail",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "description": "Duty name",
+                                "example": "Import Duty"
+                              },
+                              "amount": {
+                                "type": "number",
+                                "description": "Duty amount",
+                                "format": "float",
+                                "minimum": 0,
+                                "example": 1
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "amount"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "amount",
+                        "details"
+                      ]
+                    },
+                    "taxes": {
+                      "type": "object",
+                      "title": "Items",
+                      "properties": {
+                        "amount": {
+                          "type": "number",
+                          "description": "Taxes subtotal",
+                          "format": "float",
+                          "minimum": 0,
+                          "example": 19
+                        },
+                        "details": {
+                          "type": "array",
+                          "title": "Tax Details",
+                          "items": {
+                            "type": "object",
+                            "title": "Tax Detail",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "description": "Tax name",
+                                "example": "Import VAT"
+                              },
+                              "amount": {
+                                "type": "number",
+                                "description": "Tax amount",
+                                "format": "float",
+                                "minimum": 0,
+                                "example": 19
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "amount"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "amount",
+                        "details"
+                      ]
+                    },
+                    "fees": {
+                      "type": "object",
+                      "title": "Items",
+                      "properties": {
+                        "amount": {
+                          "type": "number",
+                          "description": "Fees subtotal",
+                          "format": "float",
+                          "minimum": 0,
+                          "example": 1
+                        },
+                        "details": {
+                          "type": "array",
+                          "title": "Fee Details",
+                          "items": {
+                            "type": "object",
+                            "title": "Fee Detail",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "description": "Fee name",
+                                "example": "US Merchandise Processing Fee"
+                              },
+                              "amount": {
+                                "type": "number",
+                                "description": "Fee amount",
+                                "format": "float",
+                                "minimum": 0,
+                                "example": 1
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "amount"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "amount",
+                        "details"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "items",
+                    "shipping"
+                  ]
+                },
+                "obligations": {
+                  "type": "object",
+                  "title": "Obligations",
+                  "properties": {
+                    "buyer": {
+                      "description": "Obligations the buyer is responsible for paying",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "title": "Obligation",
+                        "properties": {
+                          "currency": {
+                            "$ref": "#/definitions/Currency",
+                            "description": "Currency, in ISO 4217 format"
+                          },
+                          "amount": {
+                            "type": "number",
+                            "description": "Buyer's obligation amount",
+                            "format": "float",
+                            "minimum": 0,
+                            "example": 28
+                          }
+                        },
+                        "required": [
+                          "currency",
+                          "amount"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "buyer"
+                  ]
+                },
+                "messages": {
+                  "type": "array",
+                  "title": "Messages",
+                  "items": {
+                    "type": "string",
+                    "description": "Special messages that apply",
+                    "example": "US Merchandise Processing Fee"
+                  }
+                }
+              },
+              "required": [
+                "amount",
+                "messages",
+                "isCrossBorder"
+              ]
+            },
+            "status": {
+              "type": "object",
+              "title": "Status",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "description": "The response status",
+                  "enum": [
+                    "success",
+                    "error"
+                  ],
+                  "example": "success"
+                },
+                "messages": {
+                  "type": "array",
+                  "description": "The response messages, if any apply",
+                  "items": {
+                    "type": "string",
+                    "example": "Status message"
+                  }
+                }
+              },
+              "required": [
+                "result"
+              ]
+            }
+          },
+          "required": [
+            "items",
+            "taxesAndFees",
+            "landedCost",
+            "status"
+          ]
+        }
+      ]
+    },
+    "Source": {
+      "type": "object",
+      "title": "Source",
+      "properties": {
+        "country": {
+          "$ref": "#/definitions/CountryList",
+          "example": "US",
+          "description": "Source country of the shipment, in ISO 3166-1 alpha-2 format"
+        },
+        "region": {
+          "type": "string",
+          "description": "Source region of the shipment, in ISO 3166-2 format"
+        }
+      },
+      "required": [
+        "country"
+      ]
+    },
+    "Region": {
+      "type": "string",
+      "example": "CA-BC",
+      "enum": [
+        "CA-ON",
+        "CA-QC",
+        "CA-NS",
+        "CA-NB",
+        "CA-MB",
+        "CA-BC",
+        "CA-PE",
+        "CA-SK",
+        "CA-AB",
+        "CA-NL",
+        "CA-NT",
+        "CA-YT",
+        "CA-NU"
+      ]
+    },
+    "Destination": {
+      "type": "object",
+      "title": "Destination",
+      "properties": {
+        "country": {
+          "$ref": "#/definitions/DestinationCountryList"
+        },
+        "region": {
+          "$ref": "#/definitions/Region",
+          "description": "Destination region of the shipment, in ISO 3166-2 format",
+          "example": "CA-BC"
+        }
+      },
+      "required": [
+        "country"
+      ]
+    },
+    "CountryList": {
+      "type": "string",
+      "example": "US",
+      "enum": [
+        "AX",
+        "AR",
+        "AT",
+        "BE",
+        "BR",
+        "BG",
+        "CA",
+        "IO",
+        "CN",
+        "HR",
+        "CY",
+        "CZ",
+        "DK",
+        "EE",
+        "FI",
+        "FR",
+        "DE",
+        "GR",
+        "GP",
+        "GG",
+        "GF",
+        "HU",
+        "IN",
+        "IE",
+        "IT",
+        "JP",
+        "JE",
+        "LV",
+        "LT",
+        "LU",
+        "MT",
+        "IM",
+        "MQ",
+        "MX",
+        "MC",
+        "NL",
+        "PY",
+        "PL",
+        "PT",
+        "RE",
+        "RO",
+        "SM",
+        "SK",
+        "SI",
+        "ES",
+        "SE",
+        "TK",
+        "GB",
+        "US",
+        "UY",
+        "VE",
+        "AU",
+        "CX",
+        "CC",
+        "NF",
+        "PR",
+        "SG"
+      ]
+    },
+    "DestinationCountryList": {
+      "type": "string",
+      "example": "CA",
+      "enum": [
+        "AX",
+        "AR",
+        "AU",
+        "AT",
+        "BE",
+        "BR",
+        "BG",
+        "CA",
+        "IO",
+        "CN",
+        "CX",
+        "CC",
+        "HR",
+        "CY",
+        "CZ",
+        "DK",
+        "EE",
+        "FI",
+        "FR",
+        "DE",
+        "GR",
+        "GP",
+        "GG",
+        "GF",
+        "HU",
+        "IN",
+        "IE",
+        "IT",
+        "JP",
+        "JE",
+        "LV",
+        "LT",
+        "LU",
+        "MT",
+        "IM",
+        "MQ",
+        "MX",
+        "MC",
+        "NL",
+        "NF",
+        "PY",
+        "PL",
+        "PT",
+        "PR",
+        "RE",
+        "RO",
+        "SM",
+        "SG",
+        "SK",
+        "SI",
+        "ES",
+        "SE",
+        "TK",
+        "GB",
+        "US",
+        "UY",
+        "VE"
+      ]
+    },
+    "Currency": {
+      "type": "string",
+      "description": "Currency, in ISO 4217 format",
+      "example": "USD",
+      "enum": [
+        "ADF",
+        "ADP",
+        "AED",
+        "AFA",
+        "AFN",
+        "ALL",
+        "AMD",
+        "ANG",
+        "AOA",
+        "AON",
+        "AOR",
+        "ARA",
+        "ARL",
+        "ARP",
+        "ARS",
+        "ATS",
+        "AUD",
+        "AWG",
+        "AZM",
+        "AZN",
+        "BAM",
+        "BBD",
+        "BDT",
+        "BEF",
+        "BGL",
+        "BGN",
+        "BHD",
+        "BIF",
+        "BMD",
+        "BND",
+        "BOB",
+        "BOP",
+        "BOV",
+        "BRB",
+        "BRC",
+        "BRE",
+        "BRL",
+        "BRN",
+        "BRR",
+        "BRZ",
+        "BSD",
+        "BTC",
+        "BTN",
+        "BWP",
+        "BYB",
+        "BYR",
+        "BZD",
+        "CAD",
+        "CDF",
+        "CHE",
+        "CHF",
+        "CHW",
+        "CLE",
+        "CLF",
+        "CLP",
+        "CNH",
+        "CNY",
+        "COP",
+        "COU",
+        "CRC",
+        "CSD",
+        "CSK",
+        "CUC",
+        "CUP",
+        "CVE",
+        "CYP",
+        "CZK",
+        "DDM",
+        "DEM",
+        "DGC",
+        "DJF",
+        "DKK",
+        "DOP",
+        "DZD",
+        "ECS",
+        "ECV",
+        "EEK",
+        "EGP",
+        "ERN",
+        "ESA",
+        "ESB",
+        "ESP",
+        "ETB",
+        "EUR",
+        "FIM",
+        "FJD",
+        "FKP",
+        "FRF",
+        "GBP",
+        "GEL",
+        "GGP",
+        "GHC",
+        "GHS",
+        "GIP",
+        "GMD",
+        "GNE",
+        "GNF",
+        "GQE",
+        "GRD",
+        "GTQ",
+        "GWP",
+        "GYD",
+        "HKD",
+        "HNL",
+        "HRD",
+        "HRK",
+        "HTG",
+        "HUF",
+        "IDR",
+        "IEP",
+        "ILP",
+        "ILR",
+        "ILS",
+        "IMP",
+        "INR",
+        "IQD",
+        "IRR",
+        "ISJ",
+        "ISK",
+        "ITL",
+        "JEP",
+        "JMD",
+        "JOD",
+        "JPY",
+        "KES",
+        "KGS",
+        "KHR",
+        "KID",
+        "KMF",
+        "KPW",
+        "KRW",
+        "KWD",
+        "KYD",
+        "KZT",
+        "LAJ",
+        "LAK",
+        "LBP",
+        "LKR",
+        "LRD",
+        "LSL",
+        "LTC",
+        "LTL",
+        "LUF",
+        "LVL",
+        "LYD",
+        "MAD",
+        "MAF",
+        "MCF",
+        "MDL",
+        "MGA",
+        "MGF",
+        "MKD",
+        "MKN",
+        "MLF",
+        "MMK",
+        "MNT",
+        "MOP",
+        "MRO",
+        "MTL",
+        "MUR",
+        "MVQ",
+        "MVR",
+        "MWK",
+        "MXN",
+        "MXP",
+        "MXV",
+        "MYR",
+        "MZM",
+        "MZN",
+        "NAD",
+        "NFD",
+        "NGN",
+        "NIO",
+        "NLG",
+        "NOK",
+        "NPR",
+        "NZD",
+        "OMR",
+        "PAB",
+        "PEH",
+        "PEI",
+        "PEN",
+        "PGK",
+        "PHP",
+        "PKR",
+        "PLN",
+        "PLZ",
+        "PRB",
+        "PTE",
+        "PTP",
+        "PYG",
+        "QAR",
+        "ROL",
+        "RON",
+        "RSD",
+        "RUB",
+        "RUR",
+        "RWF",
+        "SAR",
+        "SBD",
+        "SCR",
+        "SDD",
+        "SDG",
+        "SDP",
+        "SEK",
+        "SGD",
+        "SHP",
+        "SIT",
+        "SKK",
+        "SLL",
+        "SLS",
+        "SML",
+        "SOS",
+        "SRD",
+        "SRG",
+        "SSP",
+        "STD",
+        "SUR",
+        "SVC",
+        "SYP",
+        "SZL",
+        "THB",
+        "TJR",
+        "TJS",
+        "TMM",
+        "TMT",
+        "TND",
+        "TNF",
+        "TOP",
+        "TPE",
+        "TRL",
+        "TRY",
+        "TTD",
+        "TVD",
+        "TWD",
+        "TZS",
+        "UAH",
+        "UAK",
+        "UGS",
+        "UGX",
+        "USD",
+        "USN",
+        "USS",
+        "UYI",
+        "UYN",
+        "UYU",
+        "UZS",
+        "VAL",
+        "VEB",
+        "VEF",
+        "VND",
+        "VUV",
+        "WST",
+        "XAF",
+        "XAG",
+        "XAU",
+        "XBA",
+        "XBB",
+        "XBC",
+        "XBD",
+        "XBT",
+        "XCD",
+        "XDG",
+        "XDR",
+        "XEU",
+        "XFO",
+        "XFU",
+        "XLT",
+        "XOF",
+        "XPD",
+        "XPF",
+        "XPT",
+        "XSU",
+        "XTS",
+        "XUA",
+        "XXX",
+        "YDD",
+        "YER",
+        "YUD",
+        "YUG",
+        "YUM",
+        "YUN",
+        "YUO",
+        "YUR",
+        "ZAL",
+        "ZAR",
+        "ZMK",
+        "ZMW",
+        "ZRN",
+        "ZRZ",
+        "ZWC",
+        "ZWD",
+        "ZWL",
+        "ZWN",
+        "ZWR"
+      ]
+    },
+    "PreferenceProgram": {
+      "type": "string",
+      "description": "Included when a shipment item qualifies for a special rate, such as NAFTA",
+      "example": "NAFTA",
+      "enum": [
+        "NAFTA"
+      ]
+    },
+    "Discount": {
+      "type": "object",
+      "title": "Discount",
+      "description": "The discount to apply at the shipment level",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of discount to apply. Currently, the system only supports sales discounts offered directly to consumers",
+          "enum": [
+            "sales"
+          ],
+          "example": "sales"
+        },
+        "rate": {
+          "type": "number",
+          "format": "float",
+          "description": "A percentage to discount the shipment or item",
+          "example": 20
+        },
+        "amount": {
+          "type": "number",
+          "format": "float",
+          "description": "A flate amount to discount the shipment or item",
+          "example": 8.9
+        }
+      }
+    },
+    "RatesRequest": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title": "Request",
+        "properties": {
+          "hsCode": {
+            "type": "string",
+            "description": "The harmonized classification code of the product",
+            "example": "930700"
+          },
+          "source": {
+            "$ref": "#/definitions/Source",
+            "title": "Source"
+          },
+          "destination": {
+            "$ref": "#/definitions/Destination",
+            "title": "Destination"
+          }
+        },
+        "required": [
+          "hsCode",
+          "source",
+          "destination"
+        ]
+      }
+    },
+    "RatesResponse": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title": "Response",
+        "properties": {
+          "hsCode": {
+            "type": "string",
+            "description": "The harmonized classification code of the product",
+            "example": "930700"
+          },
+          "source": {
+            "title": "Source",
+            "$ref": "#/definitions/Source"
+          },
+          "destination": {
+            "title": "Destination",
+            "$ref": "#/definitions/Destination"
+          },
+          "rates": {
+            "type": "object",
+            "title": "Rates",
+            "properties": {
+              "duties": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "title": "Duties",
+                  "properties": {
+                    "hsCode": {
+                      "type": "string",
+                      "description": "The harmonized classification code of the product",
+                      "example": "93070000"
+                    },
+                    "rate": {
+                      "type": "string",
+                      "description": "The rate as written in the source material",
+                      "example": "1¢/kg"
+                    },
+                    "currency": {
+                      "$ref": "#/definitions/Currency",
+                      "description": "Currency, in ISO 4217 format"
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "The type of duty",
+                      "example": "Import Duty"
+                    },
+                    "jurisdiction": {
+                      "$ref": "#/definitions/Destination",
+                      "title": "Jurisdiction",
+                      "description": "The country or region that legislates this rate"
+                    }
+                  },
+                  "required": [
+                    "hsCode",
+                    "rate",
+                    "currency",
+                    "type",
+                    "jurisdiction"
+                  ]
+                }
+              },
+              "taxes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "title": "Taxes",
+                  "properties": {
+                    "rate": {
+                      "type": "string",
+                      "description": "The rate as written in the source material",
+                      "example": "19%"
+                    },
+                    "currency": {
+                      "$ref": "#/definitions/Currency",
+                      "description": "Currency, in ISO 4217 format"
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "The type of tax",
+                      "example": "Import VAT"
+                    },
+                    "jurisdiction": {
+                      "$ref": "#/definitions/Destination",
+                      "title": "Jurisdiction",
+                      "description": "The country or region that legislates this rate"
+                    }
+                  },
+                  "required": [
+                    "rate",
+                    "currency",
+                    "type",
+                    "jurisdiction"
+                  ]
+                }
+              }
+            }
+          },
+          "status": {
+            "type": "object",
+            "title": "Status",
+            "properties": {
+              "result": {
+                "type": "string",
+                "description": "The response status",
+                "enum": [
+                  "success",
+                  "corrected",
+                  "error"
+                ],
+                "example": "success"
+              },
+              "messages": {
+                "type": "array",
+                "description": "The response messages, if any apply",
+                "items": {
+                  "type": "string",
+                  "example": "Used Avalara recommended code"
+                }
+              }
+            },
+            "required": [
+              "result"
+            ]
+          }
+        },
+        "required": [
+          "hsCode",
+          "source",
+          "destination",
+          "rates",
+          "status"
+        ]
+      }
+    },
+    "UnitsRequest": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title": "Request",
+        "properties": {
+          "hsCode": {
+            "type": "string",
+            "description": "The harmonized classification code of the product",
+            "example": "1108199010"
+          },
+          "source": {
+            "$ref": "#/definitions/Source",
+            "title": "Source"
+          },
+          "destination": {
+            "$ref": "#/definitions/Destination",
+            "title": "Destination"
+          }
+        },
+        "required": [
+          "hsCode"
+        ]
+      }
+    },
+    "UnitsResponse": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "title": "Response",
+        "properties": {
+          "hsCode": {
+            "type": "string",
+            "description": "The harmonized classification code of the product",
+            "example": "010229"
+          },
+          "source": {
+            "$ref": "#/definitions/Source",
+            "title": "Source"
+          },
+          "destination": {
+            "$ref": "#/definitions/Destination",
+            "title": "Destination"
+          },
+          "units": {
+            "type": "array",
+            "description": "Units used in rate formulas for a given hs code",
+            "items": {
+              "type": "string",
+              "example": "kg"
+            }
+          },
+          "status": {
+            "type": "object",
+            "title": "Status",
+            "properties": {
+              "result": {
+                "type": "string",
+                "description": "The response status",
+                "enum": [
+                  "success",
+                  "error"
+                ],
+                "example": "success"
+              },
+              "messages": {
+                "type": "array",
+                "description": "The response messages, if any apply",
+                "items": {
+                  "type": "string",
+                  "example": ""
+                }
+              }
+            },
+            "required": [
+              "result"
+            ]
+          }
+        },
+        "required": [
+          "hsCode",
+          "source",
+          "destination",
+          "units",
+          "status"
+        ]
+      }
+    },
+    "GetCountriesListingsResponse": {
+      "title": "Get countries listings response",
+      "type": "object",
+      "properties": {
+        "destination": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "title": "Country",
+            "properties": {
+              "code": {
+                "$ref": "#/definitions/CountryList"
+              },
+              "name": {
+                "type": "string",
+                "example": "The United States"
+              },
+              "system": {
+                "type": "string",
+                "example": "HTS"
+              }
+            }
+          }
+        },
+        "source": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "title": "Country",
+            "properties": {
+              "code": {
+                "$ref": "#/definitions/CountryList"
+              },
+              "name": {
+                "type": "string",
+                "example": "The United States"
+              },
+              "system": {
+                "type": "string",
+                "example": "HTS"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "destination",
+        "source"
+      ]
+    },
+    "GetSystemForCountryResponse": {
+      "title": "Get the System for a Country response",
+      "type": "object",
+      "properties": {
+        "export": {
+          "type": "object",
+          "description": "The system of export classification between the source and destination countries specified",
+          "title": "Export",
+          "properties": {
+            "system": {
+              "type": "string",
+              "example": "SCHEDULEB",
+              "description": "The classification system. Must be one of:\n* TARIC\n* SCHEDULEB\n* HTS",
+              "enum": [
+                "AX",
+                "AR",
+                "AT",
+                "BE",
+                "BR",
+                "BG",
+                "CA",
+                "IO",
+                "CN",
+                "HR",
+                "CY",
+                "CZ",
+                "DK",
+                "EE",
+                "FI",
+                "FR",
+                "DE",
+                "GR",
+                "GP",
+                "GG",
+                "GF",
+                "HU",
+                "IN",
+                "IE",
+                "IT",
+                "JP",
+                "JE",
+                "LV",
+                "LT",
+                "LU",
+                "MT",
+                "IM",
+                "MQ",
+                "MX",
+                "MC",
+                "NL",
+                "PY",
+                "PL",
+                "PT",
+                "RE",
+                "RO",
+                "SM",
+                "SK",
+                "SI",
+                "ES",
+                "SE",
+                "TK",
+                "GB",
+                "US",
+                "UY",
+                "VE",
+                "AU",
+                "CX",
+                "CC",
+                "NF",
+                "PR",
+                "SG"
+              ]
+            }
+          }
+        },
+        "import": {
+          "type": "object",
+          "description": "The system of import classification between the source and destination countries specified",
+          "title": "Import",
+          "properties": {
+            "system": {
+              "type": "string",
+              "example": "TARIC",
+              "description": "The classification system. Must be one of:\n* TARIC\n* SCHEDULEB\n* HTS",
+              "enum": [
+                "AX",
+                "AR",
+                "AT",
+                "BE",
+                "BR",
+                "BG",
+                "CA",
+                "IO",
+                "CN",
+                "HR",
+                "CY",
+                "CZ",
+                "DK",
+                "EE",
+                "FI",
+                "FR",
+                "DE",
+                "GR",
+                "GP",
+                "GG",
+                "GF",
+                "HU",
+                "IN",
+                "IE",
+                "IT",
+                "JP",
+                "JE",
+                "LV",
+                "LT",
+                "LU",
+                "MT",
+                "IM",
+                "MQ",
+                "MX",
+                "MC",
+                "NL",
+                "PY",
+                "PL",
+                "PT",
+                "RE",
+                "RO",
+                "SM",
+                "SK",
+                "SI",
+                "ES",
+                "SE",
+                "TK",
+                "GB",
+                "US",
+                "UY",
+                "VE",
+                "AU",
+                "CX",
+                "CC",
+                "NF",
+                "PR",
+                "SG"
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "export",
+        "import"
+      ]
+    },
+    "BrowseHSDataResponse": {
+      "title": "Browse HS Data response",
+      "type": "object",
+      "properties": {
+        "hsCode": {
+          "type": "string",
+          "example": "9301",
+          "description": "The harmonized code"
+        },
+        "description": {
+          "type": "string",
+          "example": "Military weapons, other than revolvers, pistols and the arms of heading 9307",
+          "description": "The human-readable description of the classification"
+        },
+        "name": {
+          "type": "string",
+          "example": "HS_9302",
+          "description": "The name of the node; this can be used to find the child nodes"
+        }
+      },
+      "required": [
+        "hsCode",
+        "description",
+        "name"
+      ]
+    },
+    "GetRateDetailsResponse": {
+      "title": "Get Rate Details response",
+      "type": "object",
+      "properties": {
+        "hsCode": {
+          "type": "string",
+          "example": "9307000000"
+        },
+        "system": {
+          "type": "string",
+          "example": "HTS"
+        },
+        "codePath": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "title": "CodePath",
+            "properties": {
+              "hsCode": {
+                "type": "string",
+                "description": "The harmonized code",
+                "example": "93"
+              },
+              "description": {
+                "type": "string",
+                "description": "Harmonized code description",
+                "example": "ARMS AND AMMUNITION; PARTS AND ACCESSORIES THEREOF"
+              },
+              "name": {
+                "type": "string",
+                "description": "A concatenation of the system and harmonized code: `<system>_<harmonizedCode>`",
+                "example": "HS_93"
+              }
+            }
+          }
+        },
+        "rates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "title": "Rate",
+            "properties": {
+              "sourceCountry": {
+                "type": "string",
+                "description": "The two-character ISO code identifying the origin country associated with the duty",
+                "example": "`null`"
+              },
+              "formula": {
+                "type": "string",
+                "description": "The formula used to calculate the rate, presented in Avalara-specific format",
+                "example": "rate(2.7%,costbasis())"
+              },
+              "type": {
+                "type": "string",
+                "description": "There are three types of landed cost rates that may be returned.\n * ad valorem: this rate applies to the declared `customs-value` This is typically represented as a percentage of the cost.\n * units: this is a rate that is tied to unit of meaure. This is typically expressed as a monetary value per quantity, such as: $1/kg\n * unknown: there is no stored rate data (or no applicable taxes) for the specified combination. Note that these will always have `\"formula\": \"notax()\"",
+                "example": "ad valorem"
+              },
+              "unit": {
+                "type": "string",
+                "description": "If the rate is assessed at a unit level, the appropriate unit involved. If `type` is not `units`, this value will be an empty string",
+                "example": ""
+              },
+              "raw": {
+                "type": "string",
+                "description": "The human-readable version of the rate",
+                "example": "2.7% (Cost)"
+              },
+              "currency": {
+                "type": "string",
+                "description": "The three-character ISO code for the currency in which the duty should be assessed",
+                "example": "USD"
+              },
+              "required": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "The required input values to calculate the correct duty amount",
+                  "example": "value"
+                }
+              },
+              "customsValue": {
+                "type": "string",
+                "description": "The customs value describes how to apply the duty rate. There are two current types\n * fob\n * cif",
+                "example": "fob"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "hsCode",
+        "system",
+        "codePath",
+        "rates"
+      ]
+    },
+    "GetRateDataResponse": {
+      "title": "Get Rate Data response",
+      "type": "object",
+      "description": "Array of rate information by source country, formatted as for retrieval for Duty Rate retrieval",
+      "properties": {
+        "hsCode": {
+          "type": "string",
+          "description": "The harmonized code",
+          "example": "5703201000"
+        },
+        "name": {
+          "type": "string",
+          "description": "A concatenation of the system and harmonized code: `<system>_<harmonizedCode>`",
+          "example": "HTS_5703201000"
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the harmonized code classification",
+          "example": "Hand-hooked, that is, in which the tufts were inserted by hand or by means of a hand tool"
+        }
+      },
+      "required": [
+        "hsCode",
+        "name",
+        "description"
+      ]
+    }
+  }
+}

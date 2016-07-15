@@ -1,4 +1,3 @@
-/* global SwaggerUi */
 import path from 'path';
 import React from 'react';
 import SwaggerParser from 'swagger-parser';
@@ -8,40 +7,46 @@ import parseSwaggerUi from './parseSwaggerUI';
 import mkdirp from 'mkdirp';
 import fs from 'fs';
 
-// const store = createStore(reducer);
-
 if ((!process.env.API_SWAGGER_URL && !process.env.API_SWAGGER_FILE) || !process.env.API_NAME) {
     throw new Error('process.env.API_SWAGGER_URL or process.env.API_SWAGGER_FILE is required, as well as a process.env.API_NAME');
 }
+
 const swaggerPath = process.env.API_SWAGGER_FILE ? path.join(__dirname, '..', '..', 'swagger/') + process.env.API_SWAGGER_FILE : process.env.API_SWAGGER_URL;
 
 new SwaggerParser().dereference(swaggerPath).then(function(swaggerDoc) {
-    const staticState = {};
+    // console.log('INITIAL DOC', JSON.stringify(swaggerDoc, null, 2));
+    let staticState;
 
     try {
-        staticState.apiInfo = parseSwaggerUi(swaggerDoc, swaggerPath);
+        staticState = parseSwaggerUi(swaggerDoc, swaggerPath);
+        // console.log('PARSED SWAG DOC', JSON.stringify(staticState.apiInfo, null, 2));
     } catch (e) {
         /* eslint-disable no-console */
         console.log('Error parsing swaggerDoc', e);
         /* eslint-enable no-console */
-        throw new Error('Error parsing swaggerDoc', e);
+        throw new Error('Error parsing swaggerDoc');
     }
 
-    const buildHtml = (reactHtml, initialState) => (
+    const buildHtml = (reactHtml, initialState) => {
+        const endpointLinks = initialState.apiInfo.map((endpt) => endpt.name).reduce((accum, endpt) => `${accum}["#${endpt.replace(/\s/g, '_')}", "${endpt}"],\n`, '');
+
+        return (
 `---
 layout: default
 title: "API Console"
 api_console: 1
+api_name: ${process.env.API_NAME}
+endpoint_links: [
+    ${endpointLinks}
+]
 ---
 <div id="api-console">${reactHtml}</div>
 <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
 <script src="../../dynamic/public/javascript/build/console-static.js"></script>`
-    );
-
+        );
+    };
     const staticHtml = renderToString(<App api={staticState.apiInfo} error={null}/>);
-
     const HTML = buildHtml(staticHtml, staticState);
-
     const savePath = path.join(__dirname, '..', '..', '..', process.env.API_NAME, 'console');
 
     mkdirp(savePath, (err) => {
@@ -58,4 +63,9 @@ api_console: 1
             /* eslint-enable no-console */
         });
     });
+}).catch((err) => {
+    /* eslint-disable no-console */
+    console.log('Error thrown in SwaggerParser', err);
+    /* eslint-enable no-console */
+    throw new Error(err);
 });

@@ -1,0 +1,46 @@
+td {
+    vertical-align: top;
+}
+
+textarea {
+    border: none;
+    width: 100%;
+}
+
+.m-l-1 {
+    margin-left: 1rem;
+}
+
+.postBodySectionHeader {
+    width: 100%;
+}
+
+.postBodySectionHeaderName {
+    cursor: pointer;
+}
+
+.curl {
+    background: #48483e;
+    border-radius: 4px;
+    color: #e5eae4;
+    font: 13px Menlo;
+    margin-top: 1rem;
+    padding: 1rem
+}
+
+.responseBody {
+    margin-top: 1rem;
+}
+
+.mouse {
+    cursor: pointer;
+}
+
+.active-tab {
+    font-weight: bold;
+}
+
+.endpoint-nav {
+    max-width: 14%;
+    left: 40px;
+}

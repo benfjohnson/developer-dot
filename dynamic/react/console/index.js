@@ -1,4 +1,3 @@
-/* global SwaggerUi */
 import React from 'react';
 import {render} from 'react-dom';
 import SwaggerParser from 'swagger-parser';
@@ -35,8 +34,11 @@ store.subscribe(() => {
 });
 
 new SwaggerParser().dereference(API_SWAGGER_URL).then(function(swaggerDoc) {
+    // stringify the results of parseSwagger so we remove any undefined keys/values
+    const apiInfo = JSON.parse(JSON.stringify(parseSwaggerUi(swaggerDoc, API_SWAGGER_URL)));
+
     store.dispatch({
         type: actionTypes.FETCH_API_DATA_DONE,
-        apiInfo: parseSwaggerUi(swaggerDoc, API_SWAGGER_URL)
+        apiInfo: apiInfo
     });
 });

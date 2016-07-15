@@ -18,18 +18,13 @@
     "browserify": "^13.0.1",
     "eslint": "^2.13.1",
     "eslint-plugin-react": "^5.2.2",
+    "mkdirp": "^0.5.1",
     "ramda": "^0.21.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "react-redux": "^4.4.5",
     "redux": "^3.5.2",
     "request": "^2.72.0",
-    "shortid": "^2.2.6",
     "swagger-parser": "^3.4.1",
-    "uglifyjs": "^2.4.10",
     "watchify": "^3.6.1"
-  },
-  "dependencies": {
-    "mkdirp": "^0.5.1"
   }
 }
