@@ -43,7 +43,7 @@ import {buildQsPath, buildCurl, replacePathParams, buildPostmanCollection} from 
 // };
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
-const buildSchema = (schema) => {
+const buildSchema = (schema, required = [], schemaName = null) => {
     if (schema.hasOwnProperty('x-visibility') && schema['x-visibility'] === 'hidden') {
         return undefined;
     }
@@ -57,14 +57,14 @@ const buildSchema = (schema) => {
     if (schema.type && schema.type === 'object' || schema.type === undefined) {
         const nestedSchemaProps = Object.keys(schema.properties).map((propName) => ({[propName]: buildSchema(schema.properties[propName])}));
 
-        return Object.assign({uiState: {visible: true}}, ...nestedSchemaProps);
+        return Object.assign({uiState: {visible: true}, required: required.includes(schemaName)}, ...nestedSchemaProps);
     }
 
     if (schema.type && schema.type === 'array') {
         const arraySchema = buildSchema(schema.items);
 
         // items holds the schema definition of objects in our array, and value holds the actual objects of said schema...
-        return {uiState: {visible: true}, fieldType: schema.type, items: arraySchema, value: [arraySchema]};
+        return {uiState: {visible: true}, fieldType: schema.type, items: arraySchema, value: [arraySchema], required: required.includes(schemaName)};
     }
 
     const objToReturn = {fieldType: schema.type, value: ''};
@@ -87,6 +87,7 @@ const buildSchema = (schema) => {
     if (schema.hasOwnProperty('maximum')) {
         objToReturn.maximum = schema.maximum;
     }
+    objToReturn.required = schema.required.includes(schemaName);
 
     return objToReturn;
 };

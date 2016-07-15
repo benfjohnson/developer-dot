@@ -21,7 +21,7 @@ const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiSta
                 return (
                     <PostBodyItem
                         canRemove={collection.length > 1}
-                        displayName={i.toString()}
+                        displayName={`item ${i + 1}`}
                         endpointId={endpointId}
                         item={itm}
                         key={i}

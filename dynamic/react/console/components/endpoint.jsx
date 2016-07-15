@@ -10,11 +10,16 @@ import {replacePathParams, hasExampleData} from '../helpers';
 const handleSubmit = (endpoint, id) => {
     const url = (endpoint.pathParams ? replacePathParams(endpoint.path, endpoint.pathParams) : endpoint.path) + (endpoint.qsPath || '');
     const apiReq = {
-        url: url
+        url: url,
+        headers: {}
     };
 
+    if (endpoint.path.indexOf('amazonaws') !== -1) {
+        apiReq.headers['api-key'] = 'b24757b69083fa34d27a7d814ea3a59c';
+    }
+
     if (endpoint.postBody) {
-        apiReq.headers = {'Content-Type': 'application/json'};
+        apiReq.headers['Content-Type'] = 'application/json';
         apiReq.body = JSON.stringify(endpoint.postBodyData);
     }
 
@@ -109,7 +114,7 @@ const EndPointComponent = (props) => (
                         }
 
                         <br />
-                        <textarea cols='50' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.request[props.endpoint.request.currentVisibility], null, 2)}/>
+                        <textarea cols='8' readOnly={true} rows='12' value={JSON.stringify(props.endpoint.request[props.endpoint.request.currentVisibility], null, 2)}/>
 
                     </td>
                 </tr> :
@@ -138,13 +143,14 @@ const EndPointComponent = (props) => (
                             }
                             }>{'Model'}</span>
                         <br />
-                        <textarea cols='50' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.response[props.endpoint.response.currentVisibility], null, 2)}/>
+                        <textarea cols='8' readOnly={true} rows='12' value={JSON.stringify(props.endpoint.response[props.endpoint.response.currentVisibility], null, 2)}/>
                     </td>
                 </tr> :
                 null
             }
             </tbody>
         </table>
+        <h4>{'Try it out'}</h4>
         <form>
             {props.endpoint.pathParams ? <RequestParams endpointId={props.id} paramType={'PATH'} params={props.endpoint.pathParams}/> : null}
             {props.endpoint.queryString ? <RequestParams endpointId={props.id} paramType={'QUERY_STRING'} params={props.endpoint.queryString}/> : null}
@@ -185,7 +191,7 @@ const EndPointComponent = (props) => (
                 <tr>
                     <td><strong>{'HTTP Response Body'}</strong></td>
                     <td>
-                        <textarea cols='50' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.apiResponse.body, null, 2)}/>
+                        <textarea cols='30' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.apiResponse.body, null, 2)}/>
                     </td>
                 </tr>
                 </tbody>
