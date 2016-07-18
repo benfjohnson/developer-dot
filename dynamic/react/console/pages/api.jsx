@@ -7,7 +7,7 @@ const createPostmanLink = (postmanCollection) => {
     const blob = (typeof Blob === 'undefined') ? null : new Blob([json], {type: 'application/json'});
     const url = (typeof URL === 'undefined') ? null : URL.createObjectURL(blob);
 
-    return <a href={url} download={`${postmanCollection.info.name.replace(/\s/g, '-')}-postman-collection.json`}><button className='btn btn-info'>{'Download a Postman collection!'}</button></a>;
+    return <a download={`${postmanCollection.info.name.replace(/\s/g, '-')}-postman-collection.json`} href={url}><button className='btn btn-info'>{'Download a Postman collection!'}</button></a>;
 };
 
 const ApiPage = ({api}) => (
