@@ -3,7 +3,4 @@
 nav_link:
     title: Avatax
     path: /avatax/console
-authentication: [
-    'username',
-    'secret'
-]
+    

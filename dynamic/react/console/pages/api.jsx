@@ -2,10 +2,10 @@ import React from 'react';
 
 import EndPointComponent from '../components/endpoint';
 
-const createPostmanLink = (postmanCollection) => {
+const createPostmanLink = (postmanCollection, appLoaded) => {
     const json = JSON.stringify(postmanCollection);
-    const blob = (typeof Blob === 'undefined') ? null : new Blob([json], {type: 'application/json'});
-    const url = (typeof URL === 'undefined') ? null : URL.createObjectURL(blob);
+    const blob = (appLoaded && typeof Blob !== 'undefined') ? new Blob([json], {type: 'application/json'}) : null;
+    const url = (appLoaded && typeof URL !== 'undefined') ? URL.createObjectURL(blob) : null;
 
     return <a download={`${postmanCollection.info.name.replace(/\s/g, '-')}-postman-collection.json`} href={url}><button className='btn btn-info'>{'Download a Postman collection!'}</button></a>;
 };
@@ -15,7 +15,7 @@ const ApiPage = ({api}) => (
         <h1>{api.apiName}</h1>
         <div dangerouslySetInnerHtml={{__html: api.apiDescription}}>{api.apiDescription}</div>
         <br/>
-        {createPostmanLink(api.postmanCollection)}
+        {createPostmanLink(api.postmanCollection, api.appLoaded)}
         {api.apiInfo.map((r, i) => (<EndPointComponent endpoint={r} id={i} key={i}/>))}
     </div>
 );

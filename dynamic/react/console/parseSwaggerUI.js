@@ -168,7 +168,8 @@ export default (api, rootPath) => {
 
     const swaggerData = {
         apiName: api.info.title,
-        apiDescription: api.info.description
+        apiDescription: api.info.description,
+        appLoaded: false
     };
 
     swaggerData.apiInfo = [];
