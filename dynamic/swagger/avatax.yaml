@@ -15,8 +15,8 @@ info:
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-host: swn36zl7ba.execute-api.us-west-2.amazonaws.com/
-basePath: /prod
+host: development.avalara.net
+basePath: /1.0
 schemes:
   - https
 consumes:
@@ -27,6 +27,9 @@ produces:
   - text/xml
 security:
   - basic_auth: []
+
+x-auth-formula: "`Basic ${btoa(`<username>:<password>`)}`"
+
 paths:
   '/tax/get':
     post:

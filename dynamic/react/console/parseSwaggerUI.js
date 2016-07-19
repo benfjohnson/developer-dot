@@ -242,7 +242,7 @@ export default (api, rootPath) => {
         });
     });
 
-    swaggerData.postmanCollection = buildPostmanCollection(swaggerData);
+    swaggerData.postmanCollection = buildPostmanCollection(swaggerData, api['x-auth-formula']);
 
     return swaggerData;
 };

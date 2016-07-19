@@ -159,21 +159,40 @@ const hasExampleData = (type, paramObj = {}) => {
     return Object.keys(paramObj).filter((k) => k !== 'uiState').map((itm) => hasExampleData('POST_BODY', paramObj[itm])).some((wasTrue) => wasTrue);
 };
 
-const buildPostmanCollection = (appState) => {
+const buildPostmanCollection = (appState, authFormula) => {
+    // Grab all auth variables out of authFormula str (should be in <> brackets)
+    let auth;
+
+    if (!authFormula) {
+        auth = null;
+    } else {
+        const authParams = authFormula.match(/<\w+>/g).map((key) => key.substring(1, key.length - 1)).reduce((accum, key) => (
+                {...accum, [key]: ''}
+        ), {});
+
+        auth = {
+            formula: authFormula,
+            params: authParams
+        };
+    }
+
     const postmanCollection = {
+        auth: auth,
         /* eslint-disable camelcase */
-        info: {
-            name: appState.apiName,
-            _postman_id: '1234',
-            description: appState.apiDescription,
-            schema: 'https://schema.getpostman.com/json/collection/v2.0.0/collection.json'
+        collection: {
+            info: {
+                name: appState.apiName,
+                _postman_id: '1234',
+                description: appState.apiDescription,
+                schema: 'https://schema.getpostman.com/json/collection/v2.0.0/collection.json'
+            }
         }
         /* eslint-enable camelcase */
     };
 
     // NOTE: For GETS w/ query or path params, no raw data -- need to replace in the URL
 
-    postmanCollection.item = appState.apiInfo.map((endpoint) => {
+    postmanCollection.collection.item = appState.apiInfo.map((endpoint) => {
         const baseRequest = {
             name: endpoint.name,
             request: {

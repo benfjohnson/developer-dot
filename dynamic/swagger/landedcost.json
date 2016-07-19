@@ -14,6 +14,7 @@
   "consumes": [
     "application/json"
   ],
+  "xx-auth-formula": "`avalaraapikey id:${btoa(`<id>`)} key:${btoa(`<key>`)}`",
   "tags": [
     {
       "name": "Landed Cost Calculation API"
@@ -29,7 +30,7 @@
     }
   ],
   "basePath": "/",
-  "host": "localhost:8082",
+  "host": "sandbox.landedcost.api.avalara.com",
   "paths": {
     "/v3/validate-creds": {
       "get": {
