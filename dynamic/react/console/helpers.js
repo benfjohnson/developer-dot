@@ -63,10 +63,14 @@ const replacePathParams = (path, pathParams, example = false) => {
     return newPath;
 };
 
-const buildCurl = (endpoint) => {
+const buildCurl = (auth, endpoint) => {
     const endpointPath = replacePathParams(endpoint.path, endpoint.pathParams);
 
     let curl = `curl -X ${endpoint.action.toUpperCase()} "${endpointPath}${endpoint.qsPath || ''}" -H "Accept: application/json"`;
+
+    if (auth) {
+        curl += ' -H "Authorization: <YOUR_AUTH_INFO_HERE>"';
+    }
 
     if (endpoint.postBodyData) {
         curl += ` -H "Content-Type: application/json" --data '${JSON.stringify(endpoint.postBodyData)}'`;
@@ -159,7 +163,7 @@ const hasExampleData = (type, paramObj = {}) => {
     return Object.keys(paramObj).filter((k) => k !== 'uiState').map((itm) => hasExampleData('POST_BODY', paramObj[itm])).some((wasTrue) => wasTrue);
 };
 
-const buildPostmanCollection = (appState, authFormula) => {
+const buildAuth = (authFormula) => {
     // Grab all auth variables out of authFormula str (should be in <> brackets)
     let auth;
 
@@ -176,23 +180,24 @@ const buildPostmanCollection = (appState, authFormula) => {
         };
     }
 
+    return auth;
+};
+
+const buildPostmanCollection = (appState) => {
     const postmanCollection = {
-        auth: auth,
         /* eslint-disable camelcase */
-        collection: {
-            info: {
-                name: appState.apiName,
-                _postman_id: '1234',
-                description: appState.apiDescription,
-                schema: 'https://schema.getpostman.com/json/collection/v2.0.0/collection.json'
-            }
+        info: {
+            name: appState.apiName,
+            _postman_id: '1234',
+            description: appState.apiDescription,
+            schema: 'https://schema.getpostman.com/json/collection/v2.0.0/collection.json'
         }
         /* eslint-enable camelcase */
     };
 
     // NOTE: For GETS w/ query or path params, no raw data -- need to replace in the URL
 
-    postmanCollection.collection.item = appState.apiInfo.map((endpoint) => {
+    postmanCollection.item = appState.apiInfo.map((endpoint) => {
         const baseRequest = {
             name: endpoint.name,
             request: {
@@ -234,4 +239,4 @@ const buildPostmanCollection = (appState, authFormula) => {
     return postmanCollection;
 };
 
-export {buildQsPath, buildPostBodyData, buildCurl, replacePathParams, fillSampleData, hasExampleData, buildPostmanCollection};
+export {buildQsPath, buildPostBodyData, buildCurl, replacePathParams, fillSampleData, hasExampleData, buildPostmanCollection, buildAuth};

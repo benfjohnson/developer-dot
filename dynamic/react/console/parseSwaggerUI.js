@@ -1,4 +1,4 @@
-import {buildQsPath, buildCurl, replacePathParams, buildPostmanCollection} from './helpers';
+import {buildQsPath, buildCurl, replacePathParams, buildPostmanCollection, buildAuth} from './helpers';
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
 
@@ -163,14 +163,19 @@ const buildPostBody = (endpointParams) => {
 
 export default (api, rootPath) => {
     // Build base URL path (e.g. http://localhost:8082/v3)
+
     const scheme = api.schemes && api.schemes[0] ? api.schemes[0] : 'http';
     const root = (scheme && api.host && api.basePath) ? scheme + '://' + api.host + (api.basePath !== '/' ? api.basePath : '') : rootPath;
+
+    const proxyRoot = api['x-api-proxy'] || null;
 
     const swaggerData = {
         apiName: api.info.title,
         apiDescription: api.info.description,
         appLoaded: false
     };
+
+    swaggerData.auth = buildAuth(api['x-auth-formula']);
 
     swaggerData.apiInfo = [];
 
@@ -182,13 +187,18 @@ export default (api, rootPath) => {
                 name: endpoint[action].summary,
                 description: endpoint[action].description,
                 path: root + k,
-                action: action
+                action: action,
+                isAuthenticated: Boolean(swaggerData.auth)
             };
 
             const endpointParams = endpoint[action].parameters || [];
             const pathParams = buildRequestParams(endpointParams, 'path');
             const queryString = buildRequestParams(endpointParams, 'query');
             const postBody = buildPostBody(endpointParams);
+
+            if (proxyRoot) {
+                apiMethod.proxyRoute = proxyRoot + k;
+            }
 
             if (Object.keys(pathParams).length) {
                 apiMethod.pathParams = pathParams;
@@ -201,7 +211,7 @@ export default (api, rootPath) => {
                 apiMethod.postBody = postBody;
             }
 
-            apiMethod.curl = buildCurl(apiMethod);
+            apiMethod.curl = buildCurl(swaggerData.auth, apiMethod);
 
             const requestModel = {};
             let requestExample;
@@ -242,7 +252,7 @@ export default (api, rootPath) => {
         });
     });
 
-    swaggerData.postmanCollection = buildPostmanCollection(swaggerData, api['x-auth-formula']);
+    swaggerData.postmanCollection = buildPostmanCollection(swaggerData);
 
     return swaggerData;
 };

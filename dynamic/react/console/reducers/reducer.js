@@ -25,14 +25,14 @@ const reducer = (state = {}, action) => {
         return {...newState, appLoaded: true};
     case actionTypes.AUTH_KEY_CHANGED:
         // Update auth header for each request in pmCollection:
-        newState.postmanCollection.auth.params[action.keyName] = action.inputVal;
+        newState.auth.params[action.keyName] = action.inputVal;
 
-        const authHeaderWithoutPlaceholders = Object.keys(newState.postmanCollection.auth.params).reduce((newFormula, param) => newFormula.replace(`<${param}>`, newState.postmanCollection.auth.params[param]), newState.postmanCollection.auth.formula);
+        const authHeaderWithoutPlaceholders = Object.keys(newState.auth.params).reduce((newFormula, param) => newFormula.replace(`<${param}>`, newState.auth.params[param]), newState.auth.formula);
         /* eslint-disable no-eval */
         const authHeader = eval(authHeaderWithoutPlaceholders);
         /* eslint-enable no-eval */
 
-        newState.postmanCollection.collection.item = newState.postmanCollection.collection.item.map((req) => {
+        newState.postmanCollection.item = newState.postmanCollection.item.map((req) => {
             return {
                 ...req,
                 request: {...(req.request), header: req.request.header.filter((h) => h.key !== 'Authorization').concat({

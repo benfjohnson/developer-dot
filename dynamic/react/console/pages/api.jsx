@@ -9,7 +9,7 @@ const ApiPage = ({api}) => (
         <h1>{api.apiName}</h1>
         <ReactMarkdown source={api.apiDescription} />
         <br/>
-        <PostmanCollection appLoaded={api.appLoaded} postmanCollection={api.postmanCollection} />
+        <PostmanCollection appLoaded={api.appLoaded} auth={api.auth} postmanCollection={api.postmanCollection} />
         {api.apiInfo.map((r, i) => (<EndPointComponent endpoint={r} id={i} key={i}/>))}
     </div>
 );

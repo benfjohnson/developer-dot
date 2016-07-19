@@ -8,13 +8,18 @@ import PostBody from './postBody';
 import {replacePathParams, hasExampleData} from '../helpers';
 
 const handleSubmit = (endpoint, id) => {
-    const url = (endpoint.pathParams ? replacePathParams(endpoint.path, endpoint.pathParams) : endpoint.path) + (endpoint.qsPath || '');
+    /* If our endpoint has a defined proxy, use that to make our API console request
+     * Otherwise, just use the path specified as `host` in Swagger file
+     */
+    const requestPath = endpoint.proxyRoute || endpoint.path;
+
+    const url = (endpoint.pathParams ? replacePathParams(requestPath, endpoint.pathParams) : requestPath) + (endpoint.qsPath || '');
     const apiReq = {
         url: url,
         headers: {}
     };
 
-    if (endpoint.path.indexOf('amazonaws') !== -1) {
+    if (requestPath.indexOf('amazonaws') !== -1) {
         apiReq.headers['api-key'] = 'b24757b69083fa34d27a7d814ea3a59c';
     }
 
@@ -205,6 +210,7 @@ EndPointComponent.propTypes = {
         name: React.PropTypes.string.isRequired,
         description: React.PropTypes.string.isRequired,
         curl: React.PropTypes.string.isRequired,
+        isAuthenticated: React.PropTypes.bool.isRequired,
         path: React.PropTypes.string.isRequired,
         action: React.PropTypes.string.isRequired,
         queryString: React.PropTypes.object,

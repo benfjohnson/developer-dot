@@ -20,16 +20,16 @@ export default (state, action) => {
             newState.postBodyData = buildPostBodyData(newState.postBody);
         }
         newState.qsPath = buildQsPath(newState.queryString);
-        newState.curl = buildCurl(newState);
+        newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
     case actionTypes.QUERY_PARAM_CHANGED:
         newState = {...newState, queryString: queryStringReducer(newState.queryString, action)};
         newState.qsPath = buildQsPath(newState.queryString);
-        newState.curl = buildCurl(newState);
+        newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
     case actionTypes.PATH_PARAM_CHANGED:
         newState.pathParams[action.paramName].value = action.inputVal;
-        newState.curl = buildCurl(newState);
+        newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
     case actionTypes.POST_BODY_CHANGED:
     case actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY:
@@ -37,7 +37,7 @@ export default (state, action) => {
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
         newState = {...newState, postBody: postBodyReducer(newState.postBody, action)};
         newState.postBodyData = buildPostBodyData(newState.postBody);
-        newState.curl = buildCurl(newState);
+        newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
     case actionTypes.TOGGLE_RESPONSE_MODEL_EXAMPLE:
         newState.response.currentVisibility = newState.response.currentVisibility === 'example' ? 'model' : 'example';
