@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 import EndPointComponent from '../components/endpoint';
 import PostmanCollection from '../components/postmanCollection';
@@ -6,7 +7,7 @@ import PostmanCollection from '../components/postmanCollection';
 const ApiPage = ({api}) => (
     <div>
         <h1>{api.apiName}</h1>
-        <div dangerouslySetInnerHtml={{__html: api.apiDescription}}>{api.apiDescription}</div>
+        <ReactMarkdown source={api.apiDescription} />
         <br/>
         <PostmanCollection appLoaded={api.appLoaded} postmanCollection={api.postmanCollection} />
         {api.apiInfo.map((r, i) => (<EndPointComponent endpoint={r} id={i} key={i}/>))}
