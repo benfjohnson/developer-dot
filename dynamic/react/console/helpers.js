@@ -15,7 +15,7 @@ const buildQsPath = (queryString, example = false) => {
 
 const buildPostBodyData = (body) => {
     if (body === undefined) {
-        return;
+        return body;
     }
     if (body.hasOwnProperty('value') && body.fieldType !== 'array') {
         return body.value;
@@ -63,10 +63,14 @@ const replacePathParams = (path, pathParams, example = false) => {
     return newPath;
 };
 
-const buildCurl = (endpoint) => {
+const buildCurl = (auth, endpoint) => {
     const endpointPath = replacePathParams(endpoint.path, endpoint.pathParams);
 
     let curl = `curl -X ${endpoint.action.toUpperCase()} "${endpointPath}${endpoint.qsPath || ''}" -H "Accept: application/json"`;
+
+    if (auth) {
+        curl += ' -H "Authorization: <YOUR_AUTH_INFO_HERE>"';
+    }
 
     if (endpoint.postBodyData) {
         curl += ` -H "Content-Type: application/json" --data '${JSON.stringify(endpoint.postBodyData)}'`;
@@ -88,10 +92,9 @@ const fillRequestParamSampleData = (params) => {
 
 const fillPostBodySampleData = (postBody) => {
     if (postBody === undefined) {
-        return;
+        return postBody;
     }
     if (postBody.hasOwnProperty('value') && postBody.fieldType !== 'array') {
-        //console.log('base case!', postBody);
         return {...postBody, value: postBody.example || ''};
     }
 
@@ -110,12 +113,9 @@ const fillPostBodySampleData = (postBody) => {
         return {...postBody, visible: true};
     }
 
-    //console.log('obj yo', postBody);
-    const objBody = Object.keys(postBody).reduce((accum, propName) => {
+    return Object.keys(postBody).reduce((accum, propName) => {
         return {...accum, [propName]: fillPostBodySampleData(postBody[propName])};
     }, {});
-
-    return objBody;
 };
 
 const fillSampleData = (endpointState) => {
@@ -163,14 +163,36 @@ const hasExampleData = (type, paramObj = {}) => {
     return Object.keys(paramObj).filter((k) => k !== 'uiState').map((itm) => hasExampleData('POST_BODY', paramObj[itm])).some((wasTrue) => wasTrue);
 };
 
+const buildAuth = (authFormula) => {
+    // Grab all auth variables out of authFormula str (should be in <> brackets)
+    let auth;
+
+    if (!authFormula) {
+        auth = null;
+    } else {
+        const authParams = authFormula.match(/<\w+>/g).map((key) => key.substring(1, key.length - 1)).reduce((accum, key) => (
+                {...accum, [key]: ''}
+        ), {});
+
+        auth = {
+            formula: authFormula,
+            params: authParams
+        };
+    }
+
+    return auth;
+};
+
 const buildPostmanCollection = (appState) => {
     const postmanCollection = {
+        /* eslint-disable camelcase */
         info: {
-            name: 'TODO',
-            _postman_id: '?',
-            description: 'blah blah',
+            name: appState.apiName,
+            _postman_id: '1234',
+            description: appState.apiDescription,
             schema: 'https://schema.getpostman.com/json/collection/v2.0.0/collection.json'
         }
+        /* eslint-enable camelcase */
     };
 
     // NOTE: For GETS w/ query or path params, no raw data -- need to replace in the URL
@@ -186,7 +208,6 @@ const buildPostmanCollection = (appState) => {
             },
             response: []
         };
-
 
         if (endpoint.postBody) {
             baseRequest.request.header.push({
@@ -218,4 +239,4 @@ const buildPostmanCollection = (appState) => {
     return postmanCollection;
 };
 
-export {buildQsPath, buildPostBodyData, buildCurl, replacePathParams, fillSampleData, hasExampleData, buildPostmanCollection};
+export {buildQsPath, buildPostBodyData, buildCurl, replacePathParams, fillSampleData, hasExampleData, buildPostmanCollection, buildAuth};

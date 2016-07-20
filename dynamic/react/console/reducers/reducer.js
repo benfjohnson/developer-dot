@@ -12,21 +12,43 @@ const actionTypes = {
     REMOVE_ITEM_FROM_POST_BODY_COLLECTION: 'REMOVE_ITEM_FROM_POST_BODY_COLLECTION',
     FILL_REQUEST_SAMPLE_DATA: 'FILL_REQUEST_SAMPLE_DATA',
     TOGGLE_RESPONSE_MODEL_EXAMPLE: 'TOGGLE_RESPONSE_MODEL_EXAMPLE',
-    TOGGLE_REQUEST_MODEL_EXAMPLE: 'TOGGLE_REQUEST_MODEL_EXAMPLE'
+    TOGGLE_REQUEST_MODEL_EXAMPLE: 'TOGGLE_REQUEST_MODEL_EXAMPLE',
+    APP_LOADED: 'APP_LOADED',
+    AUTH_KEY_CHANGED: 'AUTH_KEY_CHANGED'
 };
 
 const reducer = (state = {}, action) => {
     const newState = R.clone(state);
 
     switch (action.type) {
+    case actionTypes.APP_LOADED:
+        return {...newState, appLoaded: true};
+    case actionTypes.AUTH_KEY_CHANGED:
+        // Update auth header for each request in pmCollection:
+        newState.auth.params[action.keyName] = action.inputVal;
 
+        const authHeaderWithoutPlaceholders = Object.keys(newState.auth.params).reduce((newFormula, param) => newFormula.replace(`<${param}>`, newState.auth.params[param]), newState.auth.formula);
+        /* eslint-disable no-eval */
+        const authHeader = eval(authHeaderWithoutPlaceholders);
+        /* eslint-enable no-eval */
+
+        newState.postmanCollection.item = newState.postmanCollection.item.map((req) => {
+            return {
+                ...req,
+                request: {...(req.request), header: req.request.header.filter((h) => h.key !== 'Authorization').concat({
+                    key: 'Authorization',
+                    value: authHeader
+                })}
+            };
+        });
+
+        return newState;
     case actionTypes.FETCH_API_DATA_DONE:
         newState.apiInfo = action.apiInfo;
         if (action.error) {
             newState.error = action.error;
         }
         break;
-
     case actionTypes.SUBMIT_DONE:
     case actionTypes.POST_BODY_CHANGED:
     case actionTypes.QUERY_PARAM_CHANGED:

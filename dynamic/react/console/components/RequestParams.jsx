@@ -33,7 +33,7 @@ const RequestParams = ({endpointId, paramType, params}) => {
                     <tr key={i}>
                         <td>
                             <label htmlFor={`${endpointId}-qs-${i}`}>{key}</label>
-                            {params[key].description && params[key].description.length ? <span className={'m-l-1 glyphicon glyphicon-info-sign'} title={params[key].description}/> : null}
+                            {params[key].description && params[key].description.length ? <span className={'m-l-1 glyphicon glyphicon-info-sign'} style={{color: 'lightgrey'}} title={params[key].description}/> : null}
                         </td>
                         <td>
                         {params[key].enum && params[key].enum.length ?

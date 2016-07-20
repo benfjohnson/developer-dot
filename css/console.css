@@ -19,6 +19,10 @@ textarea {
     cursor: pointer;
 }
 
+.postBodySectionHeaderName:hover {
+    background: #F7F9FA;
+}
+
 .curl {
     background: #48483e;
     border-radius: 4px;
@@ -43,4 +47,16 @@ textarea {
 .endpoint-nav {
     max-width: 14%;
     left: 40px;
+}
+
+.primitive-label {
+    padding-left: 14px;
+}
+
+body {
+    background: #fcfcfc;
+}
+
+table {
+    background: white;
 }

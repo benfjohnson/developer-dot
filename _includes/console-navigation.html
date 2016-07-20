@@ -1,10 +1,11 @@
 <div class='nav-wrapper'>
 <ul class='endpoint-nav nav nav-pills nav-stacked affix'>
-    {% for console_link in site.console_links %}
-        {% assign currApi = console_link[0] | downcase %}
+    {% for api_console_hash in site.data.api_consoles %}
+    {% assign api_console = api_console_hash[1] %}
+        {% assign currApi = api_console.nav_link.title | downcase %}
         {% assign apiName = page.api_name | downcase %}
         {% if currApi == apiName %}
-        <li><a href="#">{{ console_link[0] }}</a>
+        <li><a href="#">{{ api_console.nav_link.title }}</a>
             <div style="padding-left:10px;">
                 <ul class='nav nav-pills nav-stacked'>
                 {% for endpoint_link in page.endpoint_links %}
@@ -13,7 +14,7 @@
                 </ul>
             </div>
         {% else %}
-        <li><a href="{{ console_link[1] }}">{{ console_link[0] }}</a>
+        <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a>
         {% endif %}
         </li>
     {% endfor %}

@@ -30,7 +30,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
         return (
             <tr>
                 <td>
-                    <label htmlFor={uid}>{displayName}</label>
+                    <label className={'primitive-label'} htmlFor={uid}>{displayName}</label>
                     {item.description && item.description.length ? <span className={'m-l-1 glyphicon glyphicon-info-sign'} style={{color: 'lightgrey'}} title={item.description}/> : null}
                     {canRemove ?
                         <span

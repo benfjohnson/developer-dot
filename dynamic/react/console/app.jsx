@@ -11,7 +11,13 @@ const App = (props) => (
 
 App.displayName = 'App';
 App.propTypes = {
-    api: React.PropTypes.array.isRequired,
+    api: React.PropTypes.shape({
+        apiName: React.PropTypes.string.isRequired,
+        apiDescription: React.PropTypes.string,
+        apiInfo: React.PropTypes.array.isRequired,
+        apiType: React.PropTypes.oneOf(['SOAP', 'REST']).isRequired,
+        postmanCollection: React.PropTypes.object.isRequired
+    }).isRequired,
     error: React.PropTypes.string
 };
 

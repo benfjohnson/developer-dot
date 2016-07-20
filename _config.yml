@@ -36,16 +36,6 @@ apis: [
     ['Communications', '/communications']
 ]
 
-# Navigation links for the API console
-console_links: [
-    ['LandedCost','/landedcost/console'],
-    ['Avatax','/avatax/console'],
-    ['TrustFile','/trustfile/console'],
-    ['Certcapture','/CertCapture/console'],
-    ['Excise','/excise/console'],
-    ['Onboarding','/onboarding/console']
-]
-
 gems: 
     - algoliasearch-jekyll
 
@@ -86,7 +76,6 @@ redcarpet:
 # applies to _posts only for some reason
 permalink: blog/:year/:month/:day/:title/
 excerpt_separator: <!--more-->
-
 
 collections:
     pages:

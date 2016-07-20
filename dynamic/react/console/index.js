@@ -24,13 +24,12 @@ if (window.location.search.split('api=').length >= 2) {
 
 store.subscribe(() => {
     const state = store.getState();
-    const api = state.apiInfo;
     const error = state.error;
 
     /* eslint-disable no-console */
     console.log('NEW STATE', state);
     /* eslint-enable no-console */
-    render(<App api={api} error={error}/>, document.getElementById('api-console'));
+    render(<App api={state} error={error}/>, document.getElementById('api-console'));
 });
 
 new SwaggerParser().dereference(API_SWAGGER_URL).then(function(swaggerDoc) {
