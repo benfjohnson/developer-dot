@@ -7,6 +7,10 @@ const buildSchema = (schema, required = [], propName = null) => {
         return undefined;
     }
 
+    if ((!schema.type || schema.type === 'object') && !schema.properties && !schema.hasOwnProperty('allOf')) {
+        return undefined;
+    }
+
     if (schema.hasOwnProperty('allOf')) {
         return schema.allOf.map((chunk) => (buildSchema(chunk))).reduce((accum, chunk) => {
             return Object.assign({}, accum, chunk);
@@ -55,7 +59,7 @@ const buildResponse = (schema) => {
     /* Only time a schema doesn't have a type is with objects (sometimes), which
      * should ALWAYS have a `properties` property. We just return undefined if this isn't the case
      */
-    if (!schema.type && !schema.properties && !schema.hasOwnProperty('allOf')) {
+    if ((!schema.type || schema.type === 'object') && !schema.properties && !schema.hasOwnProperty('allOf')) {
         return undefined;
     }
     // simple case
@@ -191,7 +195,7 @@ export default (api, rootPath) => {
 
         Object.keys(endpoint).forEach((action) => {
             const apiMethod = {
-                name: endpoint[action].summary,
+                name: endpoint[action].summary || endpoint[action].operationId,
                 description: endpoint[action].description,
                 path: root + k,
                 action: action,
