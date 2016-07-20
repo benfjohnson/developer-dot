@@ -23,7 +23,9 @@ When a license key is reset by Avalara support, the new key is emailed to the Ac
 
 &nbsp;
 
-[caption id="attachment_266" align="alignnone" width="1093"]<a href="/images/2012/05/resetting-license-key.jpg"><img class=" wp-image-266 " src="/images/2012/05/resetting-license-key.jpg" alt="License keys are emailed to all account admin level users." width="1093" height="214" /></a> License keys are emailed to all account admin level users.[/caption]
+<a href="/images/2012/05/resetting-license-key.jpg"><img class=" wp-image-266 " src="/images/2012/05/resetting-license-key.jpg" alt="License keys are emailed to all account admin level users." width="1093" height="214" /></a> 
+
+<div class="caption">License keys are emailed to all account admin level users.</div>
 
 Warning: Resetting the license key has the effect of invalidating the old key, and breaks all connectors' future connection to the AvaTax web service still using that old license key (including AvaTax ERP Connectors using the same account number). In other words, when you reset your license key, you will need to change the credential properties on any and all connector(s) you have built, installed and/or deployed, but also the AvaTax ERP Connector using the same account number.
 
