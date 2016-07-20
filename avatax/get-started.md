@@ -14,6 +14,7 @@ doctype: documentation
 This sandbox account is for evaluation only and is initially active for 30 days, but you can request an extension if needed. You will need to add company profile and tax profile information to calculate sales tax. It is based on an AvaTax Basic subscription and includes access to Nexus Jurisdictions in the <strong>U.S. and Canada only</strong>. To access full AvaTax Pro System Tax Code functionality or Global Nexus Jurisdictions, please <a href="http://www.avalara.com/contact-us/">contact sales</a> to inquire about a paid development account.
 
 [avaform v=3 a15="dev" campaign_id="70140000000TsVb" form_name='APIFreeTrialContactForm' opp_subtype='SDK' goal_type="goal6_autoprovisioning" redirecturl="" poi_menu="false"][/avaform]
+
 <h4><img src="/images/2012/09/orange-box-2-sm.png" alt="" /> Log in to the Admin Console</h4>
 Visit our <a href="https://admin-development.avalara.net" target="_blank">AvaTax Development Admin Console</a> and you will be prompted to change your password. In addition to changing your password, you will need to <a href="http://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/040_Managing_Tax_Profiles/035_Organizing_Companies/020_Add_a_Company">add a company</a> and some <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/020_Add_Nexus_Jurisdictions">nexus jurisdiction selections</a> to get any tax results.
 <blockquote><strong>Note:</strong> In order to match the sample code we provide, use CompanyCode APITrialCompany when creating your company. If you use some other CompanyCode value remember to change the value in your samples.</blockquote>
@@ -127,7 +128,9 @@ Each Line item in the request is represented in the response by a TaxLine, which
 <h4><img src="/images/2012/09/orange-box-4-sm.png" alt="" /> Verify Your Results in the Admin Console</h4>
 The tax request you made in Step 3 will be viewable in the Admin Console. Log in and navigate to the Transactions tab to verify that you have produced a successful outcome.
 
-<a href="/images/2012/09/AdminConsole.png"><img class="wp-image-2786 size-full" src="https://developer.avalara.com/wp-content/uploads/2012/09/AdminConsole-e1458102550176.png" alt="Example of successful outcome" width="975" height="199" /></a> <div class="caption">Example of successful outcome</div>
+<a href="/images/2012/09/AdminConsole.png"><img class="wp-image-2786 size-full" src="https://developer.avalara.com/wp-content/uploads/2012/09/AdminConsole-e1458102550176.png" alt="Example of successful outcome" width="975" height="199" /></a> 
+
+<div class="caption">Example of successful outcome</div>
 
 Moving forward, it's a good idea to periodically review the Admin Console to verify that you're heading in the right direction.
 <h4>What's Next?</h4>
