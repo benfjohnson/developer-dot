@@ -1,60 +1,8 @@
 import React from 'react';
-import request from 'request';
+import ApiConsole from './apiConsole';
 
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
-import RequestParams from './requestParams';
-import PostBody from './postBody';
-import {replacePathParams, hasExampleData} from '../helpers';
-
-const handleSubmit = (endpoint, id) => {
-    /* If our endpoint has a defined proxy, use that to make our API console request
-     * Otherwise, just use the path specified as `host` in Swagger file
-     */
-    const requestPath = endpoint.proxyRoute || endpoint.path;
-
-    const url = (endpoint.pathParams ? replacePathParams(requestPath, endpoint.pathParams) : requestPath) + (endpoint.qsPath || '');
-    const apiReq = {
-        url: url,
-        headers: {}
-    };
-
-    if (requestPath.indexOf('amazonaws') !== -1) {
-        apiReq.headers['api-key'] = 'b24757b69083fa34d27a7d814ea3a59c';
-    }
-
-    if (endpoint.postBody) {
-        apiReq.headers['Content-Type'] = 'application/json';
-        apiReq.body = JSON.stringify(endpoint.postBodyData);
-    }
-
-    request[endpoint.action](apiReq, (error, response, body) => {
-        let responseBody = {};
-
-        try {
-            responseBody = JSON.parse(body);
-        } catch (err) {
-            responseBody.error = err.message;
-        }
-
-        store.dispatch({
-            type: actionTypes.SUBMIT_DONE,
-            endpointId: id,
-            apiResponse: {
-                body: responseBody,
-                status: response ? response.statusCode.toString() : '',
-                statusMessage: error ? error.message : response.statusMessage || ''
-            }
-        });
-    });
-};
-
-const handleFillSampleData = (id) => {
-    store.dispatch({
-        type: actionTypes.FILL_REQUEST_SAMPLE_DATA,
-        endpointId: id
-    });
-};
 
 const toggleResponseModelExample = (id) => {
     store.dispatch({
@@ -155,57 +103,13 @@ const EndPointComponent = (props) => (
             }
             </tbody>
         </table>
-        <h4>{'Try it out'}</h4>
-        <form>
-            {props.endpoint.pathParams ? <RequestParams endpointId={props.id} paramType={'PATH'} params={props.endpoint.pathParams}/> : null}
-            {props.endpoint.queryString ? <RequestParams endpointId={props.id} paramType={'QUERY_STRING'} params={props.endpoint.queryString}/> : null}
-            {props.endpoint.postBody ? <PostBody id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.postBody}/> : null}
-            <p className={'curl'}>{props.endpoint.curl}</p>
-            <button
-                className='btn btn-success'
-                onClick={(e) => {
-                    e.preventDefault();
-                    handleSubmit(props.endpoint, props.id);
-                }}
-                type={'button'}
-            >
-                {'Submit'}
-            </button>
-            {hasExampleData('QUERY_STRING', props.endpoint.queryString) || hasExampleData('POST_BODY', props.endpoint.postBody) || hasExampleData('PATH_PARAM', props.endpoint.pathParams) ?
-                <span>
-                <button
-                    className='btn btn-default m-l-1'
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleFillSampleData(props.id);
-                    }}
-                    type={'button'}
-                >
-                {'Fill Sample Data'}
-                </button>
-            </span> : null}
-            <button className='btn btn-default m-l-1' type='reset'>{'Reset'}</button>
-        </form>
-        {props.endpoint.apiResponse ?
-            <table className={'responseBody'}>
-                <tbody>
-                <tr>
-                    <td><strong>{'HTTP Response Code'}</strong></td>
-                    <td>{props.endpoint.apiResponse.status + ' - ' + props.endpoint.apiResponse.statusMessage}</td>
-                </tr>
-                <tr>
-                    <td><strong>{'HTTP Response Body'}</strong></td>
-                    <td>
-                        <textarea cols='30' readOnly={true} rows='15' value={JSON.stringify(props.endpoint.apiResponse.body, null, 2)}/>
-                    </td>
-                </tr>
-                </tbody>
-            </table> : null}
+        {props.apiType === 'REST' ? <ApiConsole endpoint={props.endpoint} id={props.id} /> : null}
     </div>
 );
 
 EndPointComponent.displayName = 'EndPoint';
 EndPointComponent.propTypes = {
+    apiType: React.PropTypes.oneOf(['REST', 'SOAP']).isRequired,
     endpoint: React.PropTypes.shape({
         name: React.PropTypes.string.isRequired,
         description: React.PropTypes.string.isRequired,
@@ -213,8 +117,33 @@ EndPointComponent.propTypes = {
         isAuthenticated: React.PropTypes.bool.isRequired,
         path: React.PropTypes.string.isRequired,
         action: React.PropTypes.string.isRequired,
-        queryString: React.PropTypes.object,
+        queryString: React.PropTypes.objectOf(
+            React.PropTypes.shape({
+                description: React.PropTypes.string,
+                example: React.PropTypes.any,
+                required: React.PropTypes.bool,
+                value: React.PropTypes.any.isRequired
+            })
+        ),
+        pathParams: React.PropTypes.objectOf(
+            React.PropTypes.shape({
+                description: React.PropTypes.string,
+                example: React.PropTypes.any,
+                required: React.PropTypes.bool,
+                value: React.PropTypes.any.isRequired
+            })
+        ),
         postBody: React.PropTypes.object,
+        request: React.PropTypes.shape({
+            currentVisibility: React.PropTypes.string.isRequired,
+            example: React.PropTypes.any,
+            model: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]).isRequired
+        }),
+        response: React.PropTypes.shape({
+            currentVisibility: React.PropTypes.string.isRequired,
+            example: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
+            model: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]).isRequired
+        }),
         apiResponse: React.PropTypes.shape({
             status: React.PropTypes.string.isRequired,
             statusMessage: React.PropTypes.string.isRequired,

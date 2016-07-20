@@ -14,12 +14,10 @@ if ((!process.env.API_SWAGGER_URL && !process.env.API_SWAGGER_FILE) || !process.
 const swaggerPath = process.env.API_SWAGGER_FILE ? path.join(__dirname, '..', '..', 'swagger/') + process.env.API_SWAGGER_FILE : process.env.API_SWAGGER_URL;
 
 new SwaggerParser().dereference(swaggerPath).then(function(swaggerDoc) {
-    // console.log('INITIAL DOC', JSON.stringify(swaggerDoc, null, 2));
     let staticState;
 
     try {
         staticState = parseSwaggerUi(swaggerDoc, swaggerPath);
-        // console.log('PARSED SWAG DOC', JSON.stringify(staticState.apiInfo, null, 2));
     } catch (e) {
         /* eslint-disable no-console */
         console.log('Error parsing swaggerDoc', e);

@@ -52,6 +52,12 @@ const buildSchema = (schema, required = [], propName = null) => {
 
 // todo refactor to use buildSchema but return different shape object for request vs response
 const buildResponse = (schema) => {
+    /* Only time a schema doesn't have a type is with objects (sometimes), which
+     * should ALWAYS have a `properties` property. We just return undefined if this isn't the case
+     */
+    if (!schema.type && !schema.properties && !schema.hasOwnProperty('allOf')) {
+        return undefined;
+    }
     // simple case
     if (schema.type && schema.type !== 'array' && schema.type !== 'object') {
         const objToReturn = {fieldType: schema.type, example: schema.example || ''};
@@ -172,7 +178,8 @@ export default (api, rootPath) => {
     const swaggerData = {
         apiName: api.info.title,
         apiDescription: api.info.description,
-        appLoaded: false
+        appLoaded: false,
+        apiType: api['x-ApiType'] || 'REST'
     };
 
     swaggerData.auth = buildAuth(api['x-auth-formula']);
@@ -248,6 +255,7 @@ export default (api, rootPath) => {
                     currentVisibility: 'example'
                 };
             }
+
             swaggerData.apiInfo.push(apiMethod);
         });
     });
