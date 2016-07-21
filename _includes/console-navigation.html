@@ -1,64 +1,66 @@
 <div class='nav-wrapper'>
-<ul class='endpoint-nav nav nav-pills nav-stacked affix'>
-    {% for api_console_hash in site.data.api_consoles %}
-    {% assign api_console = api_console_hash[1] %}
+    <ul class='endpoint-nav nav nav-pills nav-stacked affix'>
+        {% for api_console_hash in site.data.api_consoles %}
+        {% assign api_console = api_console_hash[1] %}
         {% assign currApi = api_console.nav_link.title | downcase %}
         {% assign apiName = page.api_name | downcase %}
         {% if currApi == apiName %}
         <li><a href="#">{{ api_console.nav_link.title }}</a>
             <div style="padding-left:10px;">
                 <ul class='nav nav-pills nav-stacked'>
-                {% for endpoint_link in page.endpoint_links %}
+                    {% for endpoint_link in page.endpoint_links %}
                     <li><a style="overflow: hidden" href="{{ endpoint_link[0] }}">{{ endpoint_link[1] }}</a></li>
-                {% endfor %}
+                    {% endfor %}
                 </ul>
             </div>
-        {% else %}
+            {% else %}
         <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a>
-        {% endif %}
+            {% endif %}
         </li>
-    {% endfor %}
-</ul>
+        {% endfor %}
+    </ul>
 </div>
 <script>
-    var mobileView = false;
-    var navItems = $('.endpoint-nav>li').clone();
+    $(document).ready(function() {
+        var mobileView = false;
+        var navItems = $('.endpoint-nav>li').clone();
 
-    $(window).resize(function() {
-        if ($(window).width() <= 765 && !mobileView) {
-            mobileView = true;
-            $('.nav-wrapper').css('width', '100%');
-            $('.nav-wrapper').css('position', 'fixed');
-            $('.nav-wrapper').css('top', '20px');
-            $('.nav-wrapper').css('z-index', '999');
+        $(window).resize(function() {
+            if ($(window).width() <= 765 && !mobileView) {
+                mobileView = true;
+                $('.nav-wrapper').css('width', '100%');
+                $('.nav-wrapper').css('position', 'fixed');
+                $('.nav-wrapper').css('top', '20px');
+                $('.nav-wrapper').css('z-index', '999');
 
-            var nav = $('.endpoint-nav');
-            nav.removeClass('nav-stacked');
-            nav.css('right', '10px');
-            nav.css('width', '100%');
-            nav.removeClass('affix');        
-            
-            nav.html($('<li role="presentation class="dropdown"><a class="dropdown-toggle glyphicon glyphicon-menu-hamburger" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"></a><ul class="console-mobile-nav-links dropdown-menu"></ul></li>'));
+                var nav = $('.endpoint-nav');
+                nav.removeClass('nav-stacked');
+                nav.css('right', '10px');
+                nav.css('width', '100%');
+                nav.removeClass('affix');
 
-            $('.console-mobile-nav-links.dropdown-menu').html(navItems);
-        } else if ($(window).width() > 765 && mobileView) {
-            mobileView = false;
+                nav.html($('<li role="presentation class="dropdown"><a class="dropdown-toggle glyphicon glyphicon-menu-hamburger" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"></a><ul class="console-mobile-nav-links dropdown-menu"></ul></li>'));
 
-            var nav = $('.endpoint-nav');
-            nav.addClass('nav-stacked');
-            nav.css('left', '40px');
-            nav.css('max-width', '14%');
-            nav.css('top', '');
-            nav.css('position', '');
-            nav.addClass('affix');
-            
-            $('.nav-wrapper').css('width', '');
-            $('.nav-wrapper').css('position', '');
-            $('.nav-wrapper').css('top', '');
-            $('.nav-wrapper').css('z-index', '');
+                $('.console-mobile-nav-links.dropdown-menu').html(navItems);
+            } else if ($(window).width() > 765 && mobileView) {
+                mobileView = false;
 
-            nav.html(navItems);
-        }
+                var nav = $('.endpoint-nav');
+                nav.addClass('nav-stacked');
+                nav.css('left', '40px');
+                nav.css('max-width', '14%');
+                nav.css('top', '');
+                nav.css('position', '');
+                nav.addClass('affix');
 
-    })
+                $('.nav-wrapper').css('width', '');
+                $('.nav-wrapper').css('position', '');
+                $('.nav-wrapper').css('top', '');
+                $('.nav-wrapper').css('z-index', '');
+
+                nav.html(navItems);
+            }
+
+        })
+    });
 </script>

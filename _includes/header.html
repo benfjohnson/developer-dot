@@ -1,32 +1,39 @@
-<h4>
-    <a href="/">
-        <img src="/images/adn_nav.png" width="140" height="30" alt="Avalara Developer Network" >
-    </a>
-    <a href='/{{page.product}}' id="product">{{page.product}}</a>
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="/avalara-apis.html">APIs</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">API Documentation <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-          {% for api in site.apis %}
-            <li><a href="{{ api[1] }}">{{ api[0] }}</a></li>
-          {% endfor %}
-          </ul>
-        </li>
-        <li><a href="/certification">Avalara Certified</a></li>
-        <li><a href="/blog">Community</a></li>
-        <li>
-          <input type="text" id="nav-query" />
-          <button class="nav-search-button">Search</button>
-        </li>
-
-    </ul>
-</h4>
-
-<script>
-  $('.nav-search-button').click( function(e) {
-    var newurl = '/search/?q=' + encodeURIComponent($("#nav-query").val());
-    if ($("#product").text()) newurl += "&product="+ encodeURIComponent($("#product").text());
-    location.href = newurl;
-  });
-</script>
+<div id="header" class="top-bar">
+    <div class="top-bar-title">
+        <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+            <button class="menu-icon dark" type="button" data-toggle></button>
+        </span>
+    </div>
+    <div id="responsive-menu">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li>
+                    <a href="/"><img src="/images/adn_nav.png" width="140" height="30" alt="Avalara Developer Network"></a>
+                    {% if page.product %}
+                        <a href='/{{page.product}}' id="product">{{page.product}}</a>
+                    {% endif %}
+                </li>
+                <li><a href="/avalara-apis.html">APIs</a></li>
+                <li>
+                    <a href="#">API Documentation</a>
+                    <ul class="menu vertical">
+                        {% for api in site.apis %}
+                        <li><a href="{{ api[1] }}">{{ api[0] }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li><a href="/certification">Avalara Certified</a></li>
+                <li><a href="/blog">Community</a></li>
+                <li><span class="fi-magnifying-glass icon-flipped"></span></li>
+            </ul>
+        </div>
+        <div class="top-bar-right">
+            <ul class="menu">
+                <li><input id="nav-query" type="search" placeholder="Search"></li>
+                <li>
+                    <button type="button" class="button nav-search-button">Search</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

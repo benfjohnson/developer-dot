@@ -7,108 +7,43 @@
     <title>{{ site.title }}{% if page.title %} : {{ page.title }}{% endif %}</title>
     <meta name="description" content="{{ site.subtitle }}">
 
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+
     {% if page.api_console == 1 %}
-        <link rel="stylesheet" href="{{ site.baseurl }}/css/console.css">
+        <link rel="stylesheet" href="/css/console.css">
     {% endif %}
-    <script
-        src="https://code.jquery.com/jquery-3.1.0.min.js"
-        integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
-        crossorigin="anonymous">
-    </script>
-
-
 </head>
 <body data-spy="scroll" data-target=".scrollspy">
-
-<div class="container">
-    <div class="row">
-        <div id="header" class="col-sm-12">
-            {% include header.html %}
-        </div>
-    </div>
+    {% include header.html %}
     <div class="row">
         {% assign post_count = site.posts|size %}
 
         {% if page.api_console == 1 %}
-        <div class="col-sm-2 scrollspy">
-            {% include console-navigation.html %}
-        </div>
-        <div id="content" class="col-sm-10">
-            {{ content }}
-        </div>
+            <div class="col-sm-2 scrollspy">
+                {% include console-navigation.html %}
+            </div>
+            <div id="content" class="col-sm-10">
+                {{ content }}
+            </div>
         {% else %}
-        <div id="content" class="col-sm-12">
-            {{ content }}
-        </div>
+            <div id="content" class="col-sm-12">
+                {{ content }}
+            </div>
         {% endif %}
     </div>
     {% if page.disqus == 1 %}
-    <div class="row">
-        <div id="disqus" class="col-sm-12">
-            {% include disqus.html %}
-        </div>
-    </div>
+        <!--<div class="row">-->
+            <!--{% include disqus.html %}-->
+        <!--</div>-->
     {% endif %}
-    <div class="row">
-        <div id="footer" class="col-sm-12">
-            {% include footer.html %}
-        </div>
-    </div>
-</div>
 
-<script>
-    function orderNav() {
-        var list,
-            section,
-            header,
-            sections = [],
-            lists = {},
-            headers = {};
+    {% include footer.html %}
 
-        var navUl = document.querySelectorAll('#navigation ul')[0],
-            navLis = document.querySelectorAll('#navigation ul li');
-
-        if (!navUl) return;
-
-        for (var i = 0; i < navLis.length; i++) {
-            var order, li = navLis[i];
-
-            if (li.classList.contains('nav-header')) {
-                section = li.textContent || li.innerText;
-                sections.push(section);
-                headers[section] = li;
-                continue;
-            }
-
-            if (!lists[section]) {
-                lists[section] = [];
-            }
-
-            order = parseFloat(li.getAttribute('data-order'))
-            lists[section].push([order, li]);
-        }
-
-        for (var i = 0; i < sections.length; i++) {
-            section = sections[i];
-            list = lists[section].sort(function(a, b) {
-                return a[0] - b[0];
-            });
-
-            if (header = headers[section]) {
-                navUl.appendChild(header);
-            }
-            for (var j = 0; j < list.length; j++) {
-                navUl.appendChild(list[j][1]);
-            }
-        }
-    }
-    if (document.querySelectorAll) {
-        orderNav();
-    }
-</script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/foundation/6.2.3/foundation.min.js"></script>
+    <script src="/js/site.js"></script>
 {% if site.google_analytics_id != "" %}
-{% include google_analytics.html %}
+    {% include google_analytics.html %}
 {% endif %}
 </body>
 </html>
