@@ -1,5 +1,7 @@
 import React from 'react';
 import ApiConsole from './apiConsole';
+import ReactMarkdown from 'react-markdown';
+import RequestParamsDocs from './requestParamsDocs';
 
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
@@ -21,6 +23,20 @@ const toggleRequestModelExample = (id) => {
 const EndPointComponent = (props) => (
     <div id={props.endpoint.name.replace(/\s/g, '_')}>
         <h2>{props.endpoint.name}</h2>
+        <a href={'#'}>{'Try it now!'}</a>
+        <br />
+        <ReactMarkdown source={props.endpoint.description} />
+        <br />
+        <div>
+            <div>{'API ENDPOINT'}</div>
+            <div className={'code-snippet-plaintext'}>{`${props.endpoint.action.toUpperCase()} ${props.endpoint.path}`}</div>
+            {props.endpoint.postBody ? <div><div>{'HEADERS'}</div><div className={'code-snippet-plaintext'}>{'Content-Type: application/json'}</div></div> : null}
+        </div>
+        <br />
+
+        {props.endpoint.queryString ? <RequestParamsDocs paramType={'QUERY_STRING'} params={props.endpoint.queryString} /> : null}
+        {props.endpoint.pathParams ? <RequestParamsDocs paramType={'PATH'} params={props.endpoint.pathParams} /> : null}
+
         <table>
             <tbody>
             <tr>

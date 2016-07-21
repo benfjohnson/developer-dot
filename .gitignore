@@ -47,3 +47,5 @@ _algolia_api_key*
 
 css/style.css
 css/*.css.map
+
+node_modules

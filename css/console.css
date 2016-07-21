@@ -23,10 +23,19 @@ textarea {
     background: #F7F9FA;
 }
 
-.curl {
-    background: #48483e;
-    border-radius: 4px;
-    color: #e5eae4;
+.code-snippet {
+    background: #5f6062;
+    border: 1px solid #75c5e4;
+    color: #8fffa7;
+    font: 13px Menlo;
+    margin-top: 1rem;
+    padding: 1rem
+}
+
+.code-snippet-plaintext {
+    background: #5f6062;
+    border: 1px solid #75c5e4;
+    color: whitesmoke;
     font: 13px Menlo;
     margin-top: 1rem;
     padding: 1rem
