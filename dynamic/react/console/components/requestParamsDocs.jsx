@@ -12,7 +12,7 @@ const PARAM_TYPES = {
 const RequestParamsDocs = ({paramType, params}) => {
     return (
         <div>
-            <h3>{paramType === PARAM_TYPES.QUERY_STRING ? 'Querystring Paramters' : 'Path Parameters'}</h3>
+            <h3>{paramType === PARAM_TYPES.QUERY_STRING ? 'Querystring Parameters' : 'Path Parameters'}</h3>
             {Object.keys(params).map((key, i) => {
                 return (
                     <div className={'row'} key={i}>

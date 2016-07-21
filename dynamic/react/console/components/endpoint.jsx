@@ -2,6 +2,7 @@ import React from 'react';
 import ApiConsole from './apiConsole';
 import ReactMarkdown from 'react-markdown';
 import RequestParamsDocs from './requestParamsDocs';
+import PostBodyDocs from './PostBodyDocs';
 
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
@@ -30,12 +31,12 @@ const EndPointComponent = (props) => (
         <div>
             <div>{'API ENDPOINT'}</div>
             <div className={'code-snippet-plaintext'}>{`${props.endpoint.action.toUpperCase()} ${props.endpoint.path}`}</div>
-            {props.endpoint.postBody ? <div><div>{'HEADERS'}</div><div className={'code-snippet-plaintext'}>{'Content-Type: application/json'}</div></div> : null}
+            {props.endpoint.postBody ? <div><br /><div>{'HEADERS'}</div><div className={'code-snippet-plaintext'}>{'Content-Type: application/json'}</div></div> : null}
         </div>
         <br />
-
         {props.endpoint.queryString ? <RequestParamsDocs paramType={'QUERY_STRING'} params={props.endpoint.queryString} /> : null}
         {props.endpoint.pathParams ? <RequestParamsDocs paramType={'PATH'} params={props.endpoint.pathParams} /> : null}
+        {props.endpoint.postBody ? <PostBodyDocs id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.postBody} /> : null}
 
         <table>
             <tbody>
