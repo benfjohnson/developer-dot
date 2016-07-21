@@ -1,0 +1,17 @@
+{
+  "name": "dev-dot",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build-css": "node-sass _sass/style.scss css/style.css",
+    "dev-css": "node-sass --watch --recursive --source-map=true --source-map-contents=true --source-map-embed=true _sass/style.scss css/style.css",
+    "serve": "jekyll serve",
+    "build": "jekyll build",
+    "dev": "npm run dev-css | npm run serve",
+    "postinstall": "npm run build-css"
+  },
+  "devDependencies": {
+    "foundation-sites": "^6.2.3",
+    "node-sass": "^3.8.0"
+  }
+}

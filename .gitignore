@@ -44,3 +44,6 @@ build/
 _site/*
 
 _algolia_api_key*
+
+css/style.css
+css/*.css.map
