@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'source code pro regular';
+    src: url('fonts/sourcecodepro-regular-webfont.woff2') format('woff2'),
+    url('fonts/sourcecodepro-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'source sans pro regular';
+    src: url('fonts/sourcesanspro-regular-webfont.woff2') format('woff2'),
+    url('fonts/sourcesanspro-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'source sans pro bold';
+    src: url('fonts/sourcesanspro-bold-webfont.woff2') format('woff2'),
+    url('fonts/sourcesanspro-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'source sans pro light';
+    src: url('fonts/sourcesanspro-light-webfont.woff2') format('woff2'),
+    url('fonts/sourcesanspro-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'apertura regular';
+    src: url('fonts/apertura-regular-webfont.woff2') format('woff2'),
+    url('fonts/apertura-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

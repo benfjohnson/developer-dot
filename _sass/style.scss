@@ -1,10 +1,49 @@
 @import './settings';
 @import '../node_modules/foundation-sites/scss/foundation';
+
 @include foundation-everything(false);
 
 @import 'foundation-icons/foundation-icons.css';
+@import 'fonts.css';
 
-.icon-flipped {
+
+@import './typography';
+
+.icon-flipped-x {
     transform: scaleX(-1);
-    color:blue
 }
+.mouse {
+    cursor:pointer;
+}
+
+.top-bar {
+    border-top: 1px solid #e65000;
+    border-bottom: 1px solid $Form-bottom;
+    [role=menuitem] {
+        &,
+        & a {
+            color: white;
+            letter-spacing: .07em;
+            &:hover {
+                font-weight: bold;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.hdr-search-container {
+    position: relative;
+    .hdr-search-form {
+        position: absolute;
+        background: $Form-fill;
+        border-top: 1px solid $Form-top;
+        border-bottom: 1px solid $Form-bottom;
+        border-left: 1px solid $Form-sides;
+        border-right: 1px solid $Form-sides;
+        top: -25px;
+        width: 400px;
+    }
+}
+
+

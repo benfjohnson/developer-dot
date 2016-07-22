@@ -1,0 +1,108 @@
+a:default {
+    color: $Darkest-blue;
+    text-decoration: none;
+    cursor: auto;
+}
+a:hover {
+    color: $Ava-blue;
+    text-decoration: underline;
+    cursor: auto;
+}
+
+a:link:active, a:visited:active {
+    color: $Active-blue;
+}
+
+.font-normal {
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: normal;
+}
+
+h1 {
+    @extend .font-normal;
+    font-family: 'apertura regular', sans serif;
+    color: $Medium-grey;
+    font-size: 36px;
+}
+.h1p {
+    @extend h1;
+    color: $Medium-grey;
+    font-size: 48px;
+}
+.h1pp {
+    @extend .h1p;
+    color: $Ava-orange;
+}
+h2 {
+    @extend .font-normal;
+    font-family: 'apertura regular', sans serif;
+    color: $Ava-orange;
+    font-size: 26px;
+}
+h3 {
+    @extend .font-normal;
+    font-family: 'source sans pro regular', sans serif;
+    color: $Ava-orange;
+    font-size: 26px;
+    font-weight: 200;
+}
+h4 {
+    @extend .font-normal;
+    font-family: 'source sans pro regular', sans serif;
+    color: $Medium-grey;
+    font-size: 23px;
+    font-weight: 200;
+}
+h5 {
+    @extend .font-normal;
+    font-family: 'source sans pro regular', sans serif;
+    color: $Darkest-grey;
+    font-size: 18px;
+}
+
+.t1 {
+    @extend .font-normal;
+    font-family: 'source sans pro regular', sans serif;
+    color: $Darkest-grey;
+    font-size: 14px;
+    line-height: 20px;
+}
+.t2 {
+    @extend .font-normal;
+    font-family: 'source sans pro regular', sans serif;
+    color: $Ava-orange;
+    text-align: right;
+    font-size: 14px;
+    line-height: 20px;
+}
+.t3 {
+    @extend .font-normal;
+    font-family: 'source sans pro regular', sans serif;
+    color: $Dark-grey;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 20px;
+}
+.t4 {
+    @extend .font-normal;
+    font-family: 'source code pro regular', Courier, serif;
+    color: White;
+    font-size: 14px;
+    line-height: 20px;
+}
+.t4p {
+    @extend .t4p;
+    color: $Darkest-grey;
+    background-color: #e4eff6;
+}
+.t5 {
+    @extend .font-normal;
+    font-family: 'source sans pro regular', Courier, serif;
+    color: $Dark-grey;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    line-height: 14px;
+}
