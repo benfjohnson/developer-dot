@@ -1,17 +1,23 @@
 {
-  "name": "dev-dot",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "build-css": "node-sass _sass/style.scss css/style.css",
-    "dev-css": "node-sass --watch --recursive --source-map=true --source-map-contents=true --source-map-embed=true _sass/style.scss css/style.css",
-    "serve": "jekyll serve",
-    "build": "jekyll build",
-    "dev": "npm run dev-css | npm run serve",
-    "postinstall": "npm run build-css"
-  },
-  "devDependencies": {
-    "foundation-sites": "^6.2.3",
-    "node-sass": "^3.8.0"
-  }
+    "name": "dev-dot",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "prebuild:deploy": "node-sass _sass/style.scss css/style.css",
+        "build:deploy": "postcss -u autoprefixer -o css/style.css css/style.css",
+        "build": "npm run build:deploy && jekyll build",
+
+        "prebuild:dev": "node-sass --recursive --source-map=true --source-map-contents=true --source-map-embed=true _sass/style.scss css/style.css",
+        "build:dev": "postcss -u autoprefixer -o css/style.css css/style.css",
+        "dev": "watch 'npm run build:dev' _sass | jekyll serve",
+
+        "postinstall": "npm run build"
+    },
+    "devDependencies": {
+        "autoprefixer": "^6.3.7",
+        "foundation-sites": "^6.2.3",
+        "node-sass": "^3.8.0",
+        "postcss-cli": "^2.5.2",
+        "watch": "^0.19.1"
+    }
 }

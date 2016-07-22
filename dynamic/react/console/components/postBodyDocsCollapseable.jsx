@@ -13,7 +13,7 @@ const handleToggleVisibility = (propertyName, endpointId) => {
 
 /*
  * Defines a wrapper to nest object properties or
- * array items in a PostBodyå
+ * array items in a PostBody
  * */
 const PostBodyDocsCollapseable = ({endpointId, propertyName, displayName, collapsed, children}) => {
     return (
