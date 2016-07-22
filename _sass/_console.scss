@@ -1,9 +1,7 @@
-@import './settings';
-
 .small-required-text {
     font-size: 12px;
     font-weight: bold;
-    color: $avalara-orange;
+    color:   $Ava-orange;
 }
 
 .documentation-parameter-name {
@@ -17,7 +15,7 @@ body {
 }
 
 h2, h3 {
-    color: $avalara-orange!important;
+    color:   $Ava-orange!important;
 }
 
 .documentation-parameter-body {
@@ -43,9 +41,9 @@ h2, h3 {
 }
 
 ul.menu a.active {
-    color: $avalara-orange;
+    color:   $Ava-orange;
 }
 
 ul.menu>li>a.active {
-    color: $avalara-orange;
+    color:   $Ava-orange;
 }

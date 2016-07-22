@@ -5,7 +5,6 @@ permalink: /search/
 ---
 
 
-<script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
 
 
 query: <input type="text" id="query" />
