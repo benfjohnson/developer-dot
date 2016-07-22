@@ -15,12 +15,17 @@ const handleToggleVisibility = (propertyName, endpointId) => {
  * Defines a wrapper to nest object properties or
  * array items in a PostBody
  * */
-const PostBodyDocsCollapseable = ({endpointId, propertyName, displayName, collapsed, children}) => {
+const PostBodyDocsCollapseable = ({endpointId, fieldType, propertyName, displayName, collapsed, children}) => {
     return (
         <div style={{border: '1px solid lightgrey', marginTop: '10px', marginBottom: '10px'}}>
-            <label className={'postBodySectionHeaderName'} onClick={() => (handleToggleVisibility(propertyName, endpointId))} style={{borderBottom: '1px solid lightgrey'}}>
-            {displayName}{<i className={'fi-arrows-expand'}></i>}
-            </label>
+            <div className={'row postBodySectionHeaderName'} onClick={() => (handleToggleVisibility(propertyName, endpointId))}>
+                <div className={'medium-2 columns documentation-parameter-name'}>{displayName}</div>
+                <div className={'medium-8 columns'}></div>
+                <div className={'medium-2 columns'}>
+                    <span style={{fontWeight: 'bold'}}>{`${fieldType === 'array' ? '[Array]' : ''}${displayName.charAt(0).toUpperCase() + displayName.slice(1)}`}</span>
+                    <i className={collapsed ? 'fi-arrows-expand' : 'fi-arrows-compress'} style={{float: 'right', marginLeft: '9px'}}></i>
+                </div>
+            </div>
             {children}
         </div>
     );
@@ -32,6 +37,7 @@ PostBodyDocsCollapseable.propTypes = {
         React.PropTypes.element,
         React.PropTypes.array
     ]),
+    collapsed: React.PropTypes.bool,
     displayName: React.PropTypes.string.isRequired,
     endpointId: React.PropTypes.number.isRequired,
     propertyName: React.PropTypes.string.isRequired,

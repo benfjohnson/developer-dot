@@ -15,8 +15,8 @@ const RequestParamsDocs = ({paramType, params}) => {
             <h3>{paramType === PARAM_TYPES.QUERY_STRING ? 'Querystring Parameters' : 'Path Parameters'}</h3>
             {Object.keys(params).map((key, i) => {
                 return (
-                    <div className={'row'} key={i}>
-                        <div className={'medium-2 columns'}>{key}{params[key].required ? <div>{'Required'}</div> : null}</div>
+                    <div className={'row documentation-parameter-body'} key={i}>
+                        <div className={'medium-2 columns documentation-parameter-name'}><div>{key}</div>{params[key].required ? <div className={'small-required-text'}>{'Required'}</div> : null}</div>
                         <div className={'medium-8 columns'}>{params[key].description}</div>
                         <div className={'medium-2 columns'}>{params[key].fieldType}</div>
                     </div>

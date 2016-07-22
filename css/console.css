@@ -11,18 +11,6 @@ textarea {
     margin-left: 1rem;
 }
 
-.postBodySectionHeader {
-    width: 100%;
-}
-
-.postBodySectionHeaderName {
-    cursor: pointer;
-}
-
-.postBodySectionHeaderName:hover {
-    background: #F7F9FA;
-}
-
 .code-snippet {
     background: #5f6062;
     border: 1px solid #75c5e4;
@@ -60,10 +48,6 @@ textarea {
 
 .primitive-label {
     padding-left: 14px;
-}
-
-body {
-    background: #fcfcfc;
 }
 
 table {

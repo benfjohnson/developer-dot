@@ -1,13 +1,9 @@
 @import './settings';
 @import '../node_modules/foundation-sites/scss/foundation';
 @import 'foundation-icons/foundation-icons.css';
-
+@import './console';
 
 @include foundation-everything();
-
-body {
-    margin-left: 45px;
-}
 
 .icon-flipped {
     transform: scaleX(-1);

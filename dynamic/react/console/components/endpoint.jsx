@@ -4,22 +4,6 @@ import ReactMarkdown from 'react-markdown';
 import RequestParamsDocs from './requestParamsDocs';
 import PostBodyDocs from './PostBodyDocs';
 
-import {store} from '../store';
-import {actionTypes} from '../reducers/reducer';
-
-const toggleResponseModelExample = (id) => {
-    store.dispatch({
-        type: actionTypes.TOGGLE_RESPONSE_MODEL_EXAMPLE,
-        endpointId: id
-    });
-};
-const toggleRequestModelExample = (id) => {
-    store.dispatch({
-        type: actionTypes.TOGGLE_REQUEST_MODEL_EXAMPLE,
-        endpointId: id
-    });
-};
-
 // Give our endpoint an id based on its name for our clientside routing in jekyll
 const EndPointComponent = (props) => (
     <div id={props.endpoint.name.replace(/\s/g, '_')}>
@@ -37,8 +21,63 @@ const EndPointComponent = (props) => (
         {props.endpoint.queryString ? <RequestParamsDocs paramType={'QUERY_STRING'} params={props.endpoint.queryString} /> : null}
         {props.endpoint.pathParams ? <RequestParamsDocs paramType={'PATH'} params={props.endpoint.pathParams} /> : null}
         {props.endpoint.postBody ? <PostBodyDocs id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.postBody} /> : null}
+        {props.apiType === 'REST' ? <ApiConsole endpoint={props.endpoint} id={props.id} /> : null}
+    </div>
+);
 
-        <table>
+EndPointComponent.displayName = 'EndPoint';
+EndPointComponent.propTypes = {
+    apiType: React.PropTypes.oneOf(['REST', 'SOAP']).isRequired,
+    endpoint: React.PropTypes.shape({
+        name: React.PropTypes.string.isRequired,
+        description: React.PropTypes.string.isRequired,
+        curl: React.PropTypes.string.isRequired,
+        isAuthenticated: React.PropTypes.bool.isRequired,
+        path: React.PropTypes.string.isRequired,
+        action: React.PropTypes.string.isRequired,
+        queryString: React.PropTypes.objectOf(
+            React.PropTypes.shape({
+                description: React.PropTypes.string,
+                example: React.PropTypes.any,
+                required: React.PropTypes.bool,
+                value: React.PropTypes.any.isRequired
+            })
+        ),
+        pathParams: React.PropTypes.objectOf(
+            React.PropTypes.shape({
+                description: React.PropTypes.string,
+                example: React.PropTypes.any,
+                required: React.PropTypes.bool,
+                value: React.PropTypes.any.isRequired
+            })
+        ),
+        postBody: React.PropTypes.object,
+        request: React.PropTypes.shape({
+            currentVisibility: React.PropTypes.string.isRequired,
+            example: React.PropTypes.any,
+            model: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]).isRequired
+        }),
+        response: React.PropTypes.shape({
+            currentVisibility: React.PropTypes.string.isRequired,
+            example: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
+            model: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]).isRequired
+        }),
+        apiResponse: React.PropTypes.shape({
+            status: React.PropTypes.string.isRequired,
+            statusMessage: React.PropTypes.string.isRequired,
+            body: React.PropTypes.oneOfType([
+                React.PropTypes.object, React.PropTypes.array
+            ]).isRequired
+        })
+    }).isRequired,
+    id: React.PropTypes.number.isRequired
+};
+
+export default EndPointComponent;
+
+/* FOR NEW API CONSOLE STUFF: No longer needed for documentation
+
+<table>
             <tbody>
             <tr>
                 <td><strong>{'Description'}</strong></td>
@@ -120,56 +159,5 @@ const EndPointComponent = (props) => (
             }
             </tbody>
         </table>
-        {props.apiType === 'REST' ? <ApiConsole endpoint={props.endpoint} id={props.id} /> : null}
-    </div>
-);
 
-EndPointComponent.displayName = 'EndPoint';
-EndPointComponent.propTypes = {
-    apiType: React.PropTypes.oneOf(['REST', 'SOAP']).isRequired,
-    endpoint: React.PropTypes.shape({
-        name: React.PropTypes.string.isRequired,
-        description: React.PropTypes.string.isRequired,
-        curl: React.PropTypes.string.isRequired,
-        isAuthenticated: React.PropTypes.bool.isRequired,
-        path: React.PropTypes.string.isRequired,
-        action: React.PropTypes.string.isRequired,
-        queryString: React.PropTypes.objectOf(
-            React.PropTypes.shape({
-                description: React.PropTypes.string,
-                example: React.PropTypes.any,
-                required: React.PropTypes.bool,
-                value: React.PropTypes.any.isRequired
-            })
-        ),
-        pathParams: React.PropTypes.objectOf(
-            React.PropTypes.shape({
-                description: React.PropTypes.string,
-                example: React.PropTypes.any,
-                required: React.PropTypes.bool,
-                value: React.PropTypes.any.isRequired
-            })
-        ),
-        postBody: React.PropTypes.object,
-        request: React.PropTypes.shape({
-            currentVisibility: React.PropTypes.string.isRequired,
-            example: React.PropTypes.any,
-            model: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]).isRequired
-        }),
-        response: React.PropTypes.shape({
-            currentVisibility: React.PropTypes.string.isRequired,
-            example: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
-            model: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]).isRequired
-        }),
-        apiResponse: React.PropTypes.shape({
-            status: React.PropTypes.string.isRequired,
-            statusMessage: React.PropTypes.string.isRequired,
-            body: React.PropTypes.oneOfType([
-                React.PropTypes.object, React.PropTypes.array
-            ]).isRequired
-        })
-    }).isRequired,
-    id: React.PropTypes.number.isRequired
-};
-
-export default EndPointComponent;
+*/
