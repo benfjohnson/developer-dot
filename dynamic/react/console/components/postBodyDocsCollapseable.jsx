@@ -3,9 +3,10 @@ import React from 'react';
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
 
-const handleToggleVisibility = (propertyName, endpointId) => {
+const handleToggleVisibility = (docType, propertyName, endpointId) => {
     store.dispatch({
-        type: actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY,
+        type: actionTypes.TOGGLE_DOCUMENTATION_ITEM_VISIBILITY,
+        docType: docType,
         postBodyParamName: propertyName,
         endpointId: endpointId
     });
@@ -15,10 +16,10 @@ const handleToggleVisibility = (propertyName, endpointId) => {
  * Defines a wrapper to nest object properties or
  * array items in a PostBody
  * */
-const PostBodyDocsCollapseable = ({endpointId, fieldType, propertyName, displayName, collapsed, children}) => {
+const PostBodyDocsCollapseable = ({docType, endpointId, fieldType, propertyName, displayName, collapsed, children}) => {
     return (
         <div style={{border: '1px solid lightgrey', marginTop: '10px', marginBottom: '10px'}}>
-            <div className={'row postBodySectionHeaderName'} onClick={() => (handleToggleVisibility(propertyName, endpointId))}>
+            <div className={'row postBodySectionHeaderName'} onClick={() => (handleToggleVisibility(docType, propertyName, endpointId))}>
                 <div className={'medium-2 columns documentation-parameter-name'}>{displayName}</div>
                 <div className={'medium-8 columns'}></div>
                 <div className={'medium-2 columns'}>

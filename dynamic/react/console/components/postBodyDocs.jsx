@@ -2,11 +2,16 @@ import React from 'react';
 
 import PostBodyDocsItem from './postBodyDocsItem';
 
+const DOC_TYPES = {
+    REQUEST: 'REQUEST',
+    RESPONSE: 'RESPONSE'
+};
+
 const PostBodyDocs = (props) => (
     <div>
         <div className={'row'}>
             <div className='medium-6 columns'>
-                <h3>{'Post Body Parameters'}</h3>
+                <h3>{props.docType === DOC_TYPES.REQUEST ? 'Post Body Parameters' : 'Response'}</h3>
             </div>
             <div className={'medium-2 columns'}></div>
             <div className='medium-3 columns'>
@@ -16,6 +21,7 @@ const PostBodyDocs = (props) => (
         <PostBodyDocsItem
             canRemove={false}
             displayName={'Post Body Parameters'}
+            docType={props.docType}
             endpointId={props.id}
             isRoot={true}
             item={props.postBody}

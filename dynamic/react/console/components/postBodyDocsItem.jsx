@@ -2,7 +2,7 @@ import React from 'react';
 
 import PostBodyDocsCollapseable from './PostBodyDocsCollapseable';
 
-const PostBodyDocsItem = ({name, item, endpointId, uiState, displayName, isRoot = false}) => {
+const PostBodyDocsItem = ({docType, name, item, endpointId, uiState, displayName, isRoot = false}) => {
     if (item.fieldType && item.fieldType !== 'array') {
         return (
             <div className={'row documentation-parameter-body'}>
@@ -16,6 +16,7 @@ const PostBodyDocsItem = ({name, item, endpointId, uiState, displayName, isRoot 
     if (item.fieldType === 'array') {
         return (<PostBodyDocsItem
                     displayName={displayName}
+                    docType={docType}
                     endpointId={endpointId}
                     isRoot={isRoot}
                     item={item.items}
@@ -33,6 +34,7 @@ const PostBodyDocsItem = ({name, item, endpointId, uiState, displayName, isRoot 
                     return (
                         <PostBodyDocsItem
                             displayName={itemKey}
+                            docType={docType}
                             endpointId={endpointId}
                             item={item[itemKey]}
                             itemName={itemKey}
@@ -47,10 +49,11 @@ const PostBodyDocsItem = ({name, item, endpointId, uiState, displayName, isRoot 
     }
 
     return (
-        <PostBodyDocsCollapseable collapsed={!uiState.visible} displayName={displayName} endpointId={endpointId} fieldType={item.fieldType} propertyName={name}>
+        <PostBodyDocsCollapseable collapsed={!uiState.visible} displayName={displayName} docType={docType} endpointId={endpointId} fieldType={item.fieldType} propertyName={name}>
             {uiState.visible ? Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
                 return (<PostBodyDocsItem
                     displayName={itemKey}
+                    docType={docType}
                     endpointId={endpointId}
                     item={item[itemKey]}
                     itemName={itemKey}

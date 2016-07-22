@@ -20,14 +20,14 @@ const buildSchema = (schema, required = [], propName = null) => {
     if (schema.type && schema.type === 'object' || schema.type === undefined) {
         const nestedSchemaProps = Object.keys(schema.properties).map((nestedPropName) => ({[nestedPropName]: buildSchema(schema.properties[nestedPropName], schema.required, nestedPropName)}));
 
-        return Object.assign({uiState: {visible: true}, required: required.includes(propName)}, ...nestedSchemaProps);
+        return Object.assign({uiState: {visible: false}, required: required.includes(propName)}, ...nestedSchemaProps);
     }
 
     if (schema.type && schema.type === 'array') {
         const arraySchema = buildSchema(schema.items);
 
         // items holds the schema definition of objects in our array, and value holds the actual objects of said schema...
-        return {uiState: {visible: true}, fieldType: schema.type, required: required.includes(propName), items: arraySchema, value: [arraySchema]};
+        return {uiState: {visible: false}, fieldType: schema.type, required: required.includes(propName), items: arraySchema, value: [arraySchema]};
     }
 
     const objToReturn = {fieldType: schema.type, required: required.includes(propName), value: ''};
@@ -251,6 +251,8 @@ export default (api, rootPath) => {
             }
 
             if (endpoint[action].responses[200].schema) {
+                apiMethod.responseSchema = buildSchema(endpoint[action].responses[200].schema);
+
                 const normalizedResponse = buildResponse(endpoint[action].responses[200].schema);
 
                 apiMethod.response = {

@@ -14,7 +14,8 @@ const actionTypes = {
     TOGGLE_RESPONSE_MODEL_EXAMPLE: 'TOGGLE_RESPONSE_MODEL_EXAMPLE',
     TOGGLE_REQUEST_MODEL_EXAMPLE: 'TOGGLE_REQUEST_MODEL_EXAMPLE',
     APP_LOADED: 'APP_LOADED',
-    AUTH_KEY_CHANGED: 'AUTH_KEY_CHANGED'
+    AUTH_KEY_CHANGED: 'AUTH_KEY_CHANGED',
+    TOGGLE_DOCUMENTATION_ITEM_VISIBILITY: 'TOGGLE_DOCUMENTATION_ITEM_VISIBILITY'
 };
 
 const reducer = (state = {}, action) => {
@@ -59,6 +60,7 @@ const reducer = (state = {}, action) => {
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
     case actionTypes.TOGGLE_RESPONSE_MODEL_EXAMPLE:
     case actionTypes.TOGGLE_REQUEST_MODEL_EXAMPLE:
+    case actionTypes.TOGGLE_DOCUMENTATION_ITEM_VISIBILITY:
         const endpoint = state.apiInfo[action.endpointId];
 
         newState.apiInfo[action.endpointId] = endpointReducer(endpoint, action);

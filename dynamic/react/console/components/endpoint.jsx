@@ -20,7 +20,8 @@ const EndPointComponent = (props) => (
         <br />
         {props.endpoint.queryString ? <RequestParamsDocs paramType={'QUERY_STRING'} params={props.endpoint.queryString} /> : null}
         {props.endpoint.pathParams ? <RequestParamsDocs paramType={'PATH'} params={props.endpoint.pathParams} /> : null}
-        {props.endpoint.postBody ? <PostBodyDocs id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.postBody} /> : null}
+        {props.endpoint.postBody ? <PostBodyDocs docType={'REQUEST'} id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.postBody} /> : null}
+        {props.endpoint.responseSchema ? <PostBodyDocs docType={'RESPONSE'} id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.responseSchema} /> : null}
         {props.apiType === 'REST' ? <ApiConsole endpoint={props.endpoint} id={props.id} /> : null}
     </div>
 );
