@@ -6,7 +6,7 @@ import PostBodyDocs from './PostBodyDocs';
 
 // Give our endpoint an id based on its name for our clientside routing in jekyll
 const EndPointComponent = (props) => (
-    <div id={props.endpoint.name.replace(/\s/g, '_')}>
+    <div id={props.endpoint.name.replace(/\s/g, '_')} data-magellan-target={props.endpoint.name.replace(/\s/g, '_')}>
         <h2>{props.endpoint.name}</h2>
         <a href={'#'}>{'Try it now!'}</a>
         <br />

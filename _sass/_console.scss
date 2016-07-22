@@ -41,3 +41,11 @@ h2, h3 {
 .postBodySectionHeaderName:hover {
     background: #F7F9FA;
 }
+
+ul.menu a.active {
+    color: $avalara-orange;
+}
+
+ul.menu>li>a.active {
+    color: $avalara-orange;
+}
