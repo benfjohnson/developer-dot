@@ -9,8 +9,10 @@ const ApiPage = ({api}) => (
         <h1>{api.apiName}</h1>
         <ReactMarkdown source={api.apiDescription} />
         <br/>
-        <PostmanCollection appLoaded={api.appLoaded} auth={api.auth} postmanCollection={api.postmanCollection} />
-        {api.apiInfo.map((r, i) => (<EndPointComponent endpoint={r} id={i} key={i}/>))}
+        {api.apiType === 'REST' ? <PostmanCollection appLoaded={api.appLoaded} auth={api.auth} postmanCollection={api.postmanCollection} /> : null}
+        <div id={'api-endpoints'}>
+            {api.apiInfo.map((r, i) => (<EndPointComponent apiType={api.apiType} endpoint={r} id={i} key={i}/>))}
+        </div>
     </div>
 );
 
@@ -20,6 +22,7 @@ ApiPage.propTypes = {
         apiName: React.PropTypes.string.isRequired,
         apiDescription: React.PropTypes.string,
         apiInfo: React.PropTypes.array.isRequired,
+        apiType: React.PropTypes.oneOf(['SOAP', 'REST']).isRequired,
         postmanCollection: React.PropTypes.object.isRequired
     }).isRequired
 };

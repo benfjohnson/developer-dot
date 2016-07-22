@@ -15,6 +15,7 @@ App.propTypes = {
         apiName: React.PropTypes.string.isRequired,
         apiDescription: React.PropTypes.string,
         apiInfo: React.PropTypes.array.isRequired,
+        apiType: React.PropTypes.oneOf(['SOAP', 'REST']).isRequired,
         postmanCollection: React.PropTypes.object.isRequired
     }).isRequired,
     error: React.PropTypes.string

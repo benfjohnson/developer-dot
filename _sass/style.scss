@@ -6,12 +6,13 @@
 @import 'foundation-icons/foundation-icons.css';
 @import 'fonts.css';
 
-
+@import './console';
 @import './typography';
 
 .icon-flipped-x {
     transform: scaleX(-1);
 }
+
 .mouse {
     cursor:pointer;
 }
