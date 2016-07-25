@@ -44,6 +44,11 @@ ul.menu a.active {
     color:   $Ava-orange;
 }
 
-ul.menu>li>a.active {
+ul.menu>li.active {
+    background: white;
     color:   $Ava-orange;
+}
+
+.hidden {
+    display: none;
 }
