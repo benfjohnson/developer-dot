@@ -1,6 +1,8 @@
-submitSearch = function() {
-    var $searchInput = $('#nav-query');
+var $searchForm = $('.hdr-search-form');
+var $searchFormIcon = $('.hdr-search-icon');
+var $searchInput = $('#nav-query');
 
+var submitSearch = function() {
     $('.hdr-search-form').on('submit', function(e) {
         e.preventDefault();
 
@@ -20,21 +22,22 @@ submitSearch = function() {
     });
 };
 
-showSearchForm = function() {
-    var $searchForm = $('.hdr-search-form');
-    var $searchFormIcon = $('.hdr-search-icon');
-
+var showSearchForm = function() {
     $searchForm.hide();
 
     $searchFormIcon.on('click', function() {
         $searchFormIcon.hide();
         $searchForm.show();
-        $('#nav-query').focus();
+        $searchInput.focus();
+
+        var containerRt = ($(window).width() - ($('.hdr-search-container').offset().left + $('.hdr-search-container').outerWidth()));
+        if (containerRt < $searchForm.outerWidth()) {
+            $searchForm.css('right','-10em');
+        }
     });
 
     // Setup click handler to close searh form
-    $(document).unbind('click');
-    $(document).click(function(e) {
+    $('body').unbind('click').click(function(e) {
         if ((!$searchForm.is(e.target) && $searchForm.has(e.target).length === 0) &&
             (!$searchFormIcon.is(e.target) && $searchFormIcon.has(e.target).length === 0)) {
             $searchFormIcon.show();
@@ -104,7 +107,12 @@ handleSearch = function() {
     });
 };
 
-$(document).ready(function() { // * SOMETHING IS BROKEN HERE *
-    // submitSearch();
-    // showSearchForm();
+$(document).ready(function() {
+    submitSearch();
+    showSearchForm();
+
+    $('.dropdown-large').each(function() {
+        $(this).find('.dropdown-menu-large').css('left', $(this).position().left);
+    });
+
 });
