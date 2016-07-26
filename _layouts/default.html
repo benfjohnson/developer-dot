@@ -15,18 +15,19 @@
 </head>
 <body id='the-site' data-spy='scroll' data-target='#bootstrap-scrollspy'>
     {% include header.html %}
+    <br />
     <div class="row">
         {% assign post_count = site.posts|size %}
 
         {% if page.api_console == 1 %}
-            <div class="large-2 columns">
+            <div class="col-md-3" style='float: left;'>
                 {% include console-navigation.html %}
             </div>
-            <div id="content" class="large-10 columns">
+            <div id="content" class="col-md-9">
                 {{ content }}
             </div>
         {% else %}
-            <div id="content" class="large-12 columns">
+            <div id="content" class="col-md-12">
                 {{ content }}
             </div>
         {% endif %}
@@ -45,6 +46,34 @@
     <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="/js/site.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('[data-clampedwidth]').each(function () {
+            var elem = $(this);
+            var parentPanel = elem.data('clampedwidth');
+            var resizeFn = function () {
+                var sideBarNavWidth = $(parentPanel).width() - parseInt(elem.css('paddingLeft')) - parseInt(elem.css('paddingRight')) - parseInt(elem.css('marginLeft')) - parseInt(elem.css('marginRight')) - parseInt(elem.css('borderLeftWidth')) - parseInt(elem.css('borderRightWidth'));
+                elem.css('width', sideBarNavWidth);
+            };
+
+            resizeFn();
+            $(window).resize(resizeFn);
+        }); 
+
+
+        var mobileView = false;
+        $(window).resize(function() {
+            if ($(window).width() <= 1000 && !mobileView) {
+                mobileView = true;
+                $('.nav-wrapper').css('display', 'none');
+            } else if ($(window).width() > 1000 && mobileView) {
+                $('.nav-wrapper').css('display', 'block');
+                mobileView = false;
+            }
+        });
+    });
+</script>
 {% if site.google_analytics_id != "" %}
     {% include google_analytics.html %}
 {% endif %}

@@ -20,9 +20,9 @@ const PostBodyDocsCollapseable = ({docType, endpointId, fieldType, propertyName,
     return (
         <div style={{border: '1px solid lightgrey', marginTop: '10px', marginBottom: '10px'}}>
             <div className={'row postBodySectionHeaderName'} onClick={() => (handleToggleVisibility(docType, propertyName, endpointId))}>
-                <div className={'medium-2 columns documentation-parameter-name'}>{displayName}</div>
-                <div className={'medium-8 columns'}></div>
-                <div className={'medium-2 columns'}>
+                <div className={'col-md-2 documentation-parameter-name'}>{displayName}</div>
+                <div className={'col-md-8'}></div>
+                <div className={'col-md-2'}>
                     <span style={{fontWeight: 'bold'}}>{`${fieldType === 'array' ? '[Array]' : ''}${displayName.charAt(0).toUpperCase() + displayName.slice(1)}`}</span>
                     <i className={collapsed ? 'fi-arrows-expand' : 'fi-arrows-compress'} style={{float: 'right', marginLeft: '9px'}}></i>
                 </div>

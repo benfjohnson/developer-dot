@@ -6,9 +6,9 @@ const PostBodyDocsItem = ({docType, name, item, endpointId, uiState, displayName
     if (item.fieldType && item.fieldType !== 'array') {
         return (
             <div className={'row documentation-parameter-body'}>
-                <div className={'medium-2 columns documentation-parameter-name'}><div>{displayName}</div>{item.required ? <div className='small-required-text'>{'Required'}</div> : null}</div>
-                <div className={'medium-8 columns'}>{item.description}</div>
-                <div className={'medium-2 columns'}>{item.fieldType}</div>
+                <div className={'col-md-2 documentation-parameter-name'}><div>{displayName}</div>{item.required ? <div className='small-required-text'>{'Required'}</div> : null}</div>
+                <div className={'col-md-8'}>{item.description}</div>
+                <div className={'col-md-2'}>{item.fieldType}</div>
             </div>
         );
     }
