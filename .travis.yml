@@ -5,8 +5,8 @@ rvm:
 install: gem install jekyll && gem install s3_website
 cache: bundler
 before_script:
-  - npm install n
-  - sudo n 6.0.0
+  - sudo npm install -g n
+  - n 6.0.0
   - npm install
   - npm run prebuild:deploy
   - npm run build:deploy
