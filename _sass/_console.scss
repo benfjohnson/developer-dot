@@ -1,0 +1,54 @@
+.small-required-text {
+    font-size: 12px;
+    font-weight: bold;
+    color:   $Ava-orange;
+}
+
+.documentation-parameter-name {
+    font-weight: bold;
+    text-align: right;
+}
+
+body {
+    margin-left: 45px!important;
+    font-family: Arial, Helvetica, sans-serif!important;
+}
+
+h2, h3 {
+    color:   $Ava-orange!important;
+}
+
+.documentation-parameter-body {
+    padding: 10px;
+}
+
+.postBodySectionHeader {
+    width: 100%;
+}
+
+.postBodySectionHeaderName {
+    cursor: pointer;
+    border-bottom: 1px solid lightgrey;
+    margin-left: 0!important;
+    margin-right: 0!important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.postBodySectionHeaderName:hover {
+    background: #F7F9FA;
+}
+
+ul.menu a.active {
+    color:   $Ava-orange;
+}
+
+ul.menu>li.active {
+    background: white;
+    color:   $Ava-orange;
+}
+
+.hidden {
+    display: none;
+}
