@@ -33,20 +33,23 @@
     </div>
 
     {% if page.disqus == 1 %}
-        <!--<div class="row">-->
-            <!--{% include disqus.html %}-->
-        <!--</div>-->
+        <div class="row">
+            {% include disqus.html %}
+        </div>
     {% endif %}
 
     {% include footer.html %}
 
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/foundation/6.2.3/foundation.min.js"></script>
-    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-2.2.4.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script src="/js/site.js"></script>
-{% if site.google_analytics_id != "" %}
-    {% include google_analytics.html %}
-{% endif %}
+
+    {% if page.search == 1 %}
+        <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+        <script>handleSearch();</script>
+    {% endif %}
+    {% if site.google_analytics_id != "" %}
+        {% include google_analytics.html %}
+    {% endif %}
 </body>
 </html>
