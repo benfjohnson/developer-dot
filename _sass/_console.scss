@@ -40,15 +40,24 @@ h2, h3 {
     background: #F7F9FA;
 }
 
-ul.menu a.active {
-    color:   $Ava-orange;
-}
+// ul.nav a.active {
+//     color:   $Ava-orange!important;
+// }
 
-ul.menu>li.active {
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
     background: white;
     color:   $Ava-orange;
 }
 
+// ul.nav>li.active {
+//     background: white!important;
+//     color:   $Ava-orange!important;
+// }
+
 .hidden {
     display: none;
+}
+
+.affix-bottom {
+    position: relative
 }
