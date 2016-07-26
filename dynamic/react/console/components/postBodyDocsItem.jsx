@@ -75,6 +75,7 @@ PostBodyDocsItem.propTypes = {
     documentationFor: React.PropTypes.oneOf(['REQUEST', 'RESPONSE']),
     endpointId: React.PropTypes.number.isRequired,
     isArray: React.PropTypes.bool,
+    isNested: React.PropTypes.bool,
     isRoot: React.PropTypes.bool,
     item: React.PropTypes.object.isRequired,
     name: React.PropTypes.string.isRequired,

@@ -61,3 +61,11 @@ h2, h3 {
 .affix-bottom {
     position: relative
 }
+
+.documentation-expand-icon {
+    border-radius: 50%;
+    border: 2px solid $Ava-blue;
+    padding: 2.4px;
+    color: $Ava-blue;
+    text-align: center;
+}
