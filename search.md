@@ -1,11 +1,9 @@
 ---
 layout: default
 title: "Search demo"
+search: 1
 permalink: /search/
 ---
-
-
-
 
 query: <input type="text" id="query" />
 product: 
@@ -24,8 +22,6 @@ product:
 <option value="{{ api[1] | remove_first: '/' }}">{{ api[0] }}</option>
 {% endfor %} -->
 
-
-
 doctype:
 <select id="doctype-facet">
 	<option value="">Any</option>
@@ -39,5 +35,3 @@ doctype:
 <ul id="search-results"></ul>
 
 Search provided by <a href="http://www.algolia.com"><img src="/images/Algolia_logo_bg-white.jpg" alt="Search provided by Algolia" height="20"/></a>
-
-
