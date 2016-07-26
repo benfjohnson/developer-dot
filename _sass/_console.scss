@@ -12,6 +12,7 @@
 body {
     margin-left: 45px!important;
     font-family: Arial, Helvetica, sans-serif!important;
+    color: $Dark-grey;
 }
 
 h2, h3 {
@@ -68,4 +69,19 @@ h2, h3 {
     padding: 2.4px;
     color: $Ava-blue;
     text-align: center;
+
+    :hover {
+        color: $Darkest-blue;
+    }
+}
+
+.try-it-now-header {
+    display: inline-block;
+    color: $Ava-blue;
+    cursor: pointer;
+    font-size: 18px;
+
+    text:hover {
+        color: $Darkest-blue;
+    }
 }

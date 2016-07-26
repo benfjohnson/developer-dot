@@ -5,7 +5,7 @@ import PostBody from './postBody';
 import request from 'request';
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
-import {replacePathParams, hasExampleData} from '../helpers';
+import {replacePathParams, hasExampleData, replaceSpacesInStr} from '../helpers';
 
 const handleSubmit = (endpoint, id) => {
     /* If our endpoint has a defined proxy, use that to make our API console request
@@ -49,6 +49,13 @@ const handleSubmit = (endpoint, id) => {
     });
 };
 
+const toggleVisibility = (endpointId) => {
+    store.dispatch({
+        type: actionTypes.CONSOLE_VISIBILITY_TOGGLED,
+        endpointId: endpointId
+    });
+};
+
 const handleFillSampleData = (id) => {
     store.dispatch({
         type: actionTypes.FILL_REQUEST_SAMPLE_DATA,
@@ -58,56 +65,61 @@ const handleFillSampleData = (id) => {
 
 const ApiConsole = ({endpoint, id}) => (
     <div>
-        <h4>{'Try it out'}</h4>
-        <form>
-            {endpoint.pathParams ? <RequestParams endpointId={id} paramType={'PATH'} params={endpoint.pathParams}/> : null}
-            {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
-            {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody}/> : null}
-            <p className={'code-snippet'}>{endpoint.curl}</p>
-            <button
-                className='success button'
-                onClick={(e) => {
-                    e.preventDefault();
-                    handleSubmit(endpoint, id);
-                }}
-                type={'button'}
-            >
-                {'Submit'}
-            </button>
-            {hasExampleData('QUERY_STRING', endpoint.queryString) || hasExampleData('POST_BODY', endpoint.postBody) || hasExampleData('PATH_PARAM', endpoint.pathParams) ?
-                <span>
-                <button
-                    className='secondary button m-l-1'
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleFillSampleData(id);
-                    }}
-                    type={'button'}
-                >
-                {'Fill Sample Data'}
-                </button>
-            </span> : null}
-            <button className='secondary button m-l-1' type='reset'>{'Reset'}</button>
-        </form>
-        {endpoint.apiResponse ?
-            <table className={'responseBody'}>
-                <tbody>
-                <tr>
-                    <td><strong>{'HTTP Response Code'}</strong></td>
-                    <td>{endpoint.apiResponse.status + ' - ' + endpoint.apiResponse.statusMessage}</td>
-                </tr>
-                <tr>
-                    <td><strong>{'HTTP Response Body'}</strong></td>
-                    <td>
-                        <textarea cols='30' readOnly={true} rows='15' value={JSON.stringify(endpoint.apiResponse.body, null, 2)}/>
-                    </td>
-                </tr>
-                </tbody>
-            </table> : null}
+        <div id={replaceSpacesInStr(`${endpoint.name}-console`)} className={'try-it-now-header'} onClick={(e) => {
+            toggleVisibility(id);
+        }}>{'Try it now! '}<span className={'documentation-expand-icon glyphicon' + (endpoint.apiConsoleVisible ? ' glyphicon-menu-down' : ' glyphicon-menu-up')}></span></div>
+        {endpoint.apiConsoleVisible ?
+            <div>
+                <form>
+                    {endpoint.pathParams ? <RequestParams endpointId={id} paramType={'PATH'} params={endpoint.pathParams}/> : null}
+                    {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
+                    {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody}/> : null}
+                    <p className={'code-snippet'}>{endpoint.curl}</p>
+                    <button
+                        className='success button'
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleSubmit(endpoint, id);
+                        } }
+                        type={'button'}
+                        >
+                        {'Submit'}
+                    </button>
+                    {hasExampleData('QUERY_STRING', endpoint.queryString) || hasExampleData('POST_BODY', endpoint.postBody) || hasExampleData('PATH_PARAM', endpoint.pathParams) ?
+                        <span>
+                            <button
+                                className='secondary button m-l-1'
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    handleFillSampleData(id);
+                                } }
+                                type={'button'}
+                                >
+                                {'Fill Sample Data'}
+                            </button>
+                        </span> : null}
+                    <button className='secondary button m-l-1' type='reset'>{'Reset'}</button>
+                </form>
+                {endpoint.apiResponse ?
+                    <table className={'responseBody'}>
+                        <tbody>
+                            <tr>
+                                <td><strong>{'HTTP Response Code'}</strong></td>
+                                <td>{endpoint.apiResponse.status + ' - ' + endpoint.apiResponse.statusMessage}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>{'HTTP Response Body'}</strong></td>
+                                <td>
+                                    <textarea cols='30' readOnly={true} rows='15' value={JSON.stringify(endpoint.apiResponse.body, null, 2) }/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table> : null}
+            </div> : null}
     </div>
 );
 
-ApiConsole.displayName = 'Try It Out';
+ApiConsole.displayName = 'API Console';
 ApiConsole.propTypes = {
     endpoint: React.PropTypes.shape({
         name: React.PropTypes.string.isRequired,
@@ -139,7 +151,8 @@ ApiConsole.propTypes = {
             body: React.PropTypes.oneOfType([
                 React.PropTypes.object, React.PropTypes.array
             ]).isRequired
-        })
+        }),
+        apiConsoleVisible: React.PropTypes.bool.isRequired
     }).isRequired,
     id: React.PropTypes.number.isRequired
 };

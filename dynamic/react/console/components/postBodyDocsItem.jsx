@@ -14,7 +14,8 @@ const PostBodyDocsItem = ({documentationFor, name, item, isArray = false, isNest
     }
 
     if (item.fieldType === 'array') {
-        return (<PostBodyDocsItem
+        return (
+            <PostBodyDocsItem
                     displayName={displayName}
                     documentationFor={documentationFor}
                     endpointId={endpointId}
@@ -24,11 +25,11 @@ const PostBodyDocsItem = ({documentationFor, name, item, isArray = false, isNest
                     item={item.items}
                     name={`${name ? name + ';' : ''}items`}
                     uiState={item.items.uiState || {visible: true}}
-                />
-            );
+            />
+        );
     }
 
-    // Don't want root of 'try it out to be collapseable!
+    // Don't want root of 'try it out' to be collapseable!
     if (isRoot) {
         return (
             <div>
@@ -43,7 +44,7 @@ const PostBodyDocsItem = ({documentationFor, name, item, isArray = false, isNest
                             key={i}
                             name={`${name ? name + ';' : ''}${itemKey}`}
                             uiState={item[itemKey].uiState}
-                            />
+                        />
                     );
                 })}
             </div>
