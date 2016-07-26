@@ -2,7 +2,7 @@ import React from 'react';
 
 import PostBodyDocsCollapseable from './PostBodyDocsCollapseable';
 
-const PostBodyDocsItem = ({documentationFor, name, item, isArray = false, endpointId, uiState, displayName, isRoot = false}) => {
+const PostBodyDocsItem = ({documentationFor, name, item, isArray = false, isNested = false, endpointId, uiState, displayName, isRoot = false}) => {
     if (item.fieldType && item.fieldType !== 'array') {
         return (
             <div className={'row documentation-parameter-body'}>
@@ -19,6 +19,7 @@ const PostBodyDocsItem = ({documentationFor, name, item, isArray = false, endpoi
                     documentationFor={documentationFor}
                     endpointId={endpointId}
                     isArray={true}
+                    isNested={true}
                     isRoot={isRoot}
                     item={item.items}
                     name={`${name ? name + ';' : ''}items`}
@@ -50,12 +51,13 @@ const PostBodyDocsItem = ({documentationFor, name, item, isArray = false, endpoi
     }
 
     return (
-        <PostBodyDocsCollapseable collapsed={!uiState.visible} displayName={displayName} documentationFor={documentationFor} endpointId={endpointId} isArray={isArray} propertyName={name}>
+        <PostBodyDocsCollapseable collapsed={!uiState.visible} displayName={displayName} documentationFor={documentationFor} endpointId={endpointId} isArray={isArray} isNested={isNested} propertyName={name}>
             {uiState.visible ? Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
                 return (<PostBodyDocsItem
                     displayName={itemKey}
                     documentationFor={documentationFor}
                     endpointId={endpointId}
+                    isNested={true}
                     item={item[itemKey]}
                     itemName={itemKey}
                     key={i}

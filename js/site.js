@@ -41,7 +41,6 @@ showSearchForm = function() {
             $searchForm.hide();
         }
     });
-
 };
 
 getParameterByName = function(name, url) {
@@ -105,11 +104,7 @@ handleSearch = function() {
     });
 };
 
-$(document).ready(function() {
-    $('.dropdown-toggle').dropdown();
-//    $('.collapse').collapse();
-
-
-    submitSearch();
-    showSearchForm();
+$(document).ready(function() { // * SOMETHING IS BROKEN HERE *
+    // submitSearch();
+    // showSearchForm();
 });
