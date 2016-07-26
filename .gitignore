@@ -44,3 +44,6 @@ build/
 _site/*
 
 _algolia_api_key*
+
+css/style*.*
+node_modules

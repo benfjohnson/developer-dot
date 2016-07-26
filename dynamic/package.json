@@ -5,10 +5,12 @@
   "scripts": {
     "start": "watchify -t babelify --extension=.jsx -vd react/console/index.js --outfile public/javascript/build/console.js",
     "start-static": "watchify -t babelify --extension=.jsx -vd react/console/index-static.js --outfile public/javascript/build/console-static.js",
-    "build-static-page": "browserify -t babelify --node --extension=.jsx -vd react/console/build-static-page.js --outfile /tmp/build-static-page.js && node /tmp/build-static-page.js",
+    "build-static-page": "browserify -t babelify --node --extension=.jsx -vd ./build-static-page.js --outfile /tmp/build-static-page.js && node /tmp/build-static-page.js",
+    "build-all-pages": "browserify -t babelify --node --extension=.jsx -vd ./build-all-pages.js --outfile /tmp/build-all-pages.js && node /tmp/build-all-pages.js",
     "eslint": "eslint --ext .js,.jsx ."
   },
   "devDependencies": {
+    "aws-sdk": "^2.4.8",
     "babel-eslint": "^6.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-plugin-transform-strict-mode": "^6.11.3",

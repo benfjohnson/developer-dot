@@ -63,9 +63,9 @@ const ApiConsole = ({endpoint, id}) => (
             {endpoint.pathParams ? <RequestParams endpointId={id} paramType={'PATH'} params={endpoint.pathParams}/> : null}
             {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
             {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody}/> : null}
-            <p className={'curl'}>{endpoint.curl}</p>
+            <p className={'code-snippet'}>{endpoint.curl}</p>
             <button
-                className='btn btn-success'
+                className='success button'
                 onClick={(e) => {
                     e.preventDefault();
                     handleSubmit(endpoint, id);
@@ -77,7 +77,7 @@ const ApiConsole = ({endpoint, id}) => (
             {hasExampleData('QUERY_STRING', endpoint.queryString) || hasExampleData('POST_BODY', endpoint.postBody) || hasExampleData('PATH_PARAM', endpoint.pathParams) ?
                 <span>
                 <button
-                    className='btn btn-default m-l-1'
+                    className='secondary button m-l-1'
                     onClick={(e) => {
                         e.preventDefault();
                         handleFillSampleData(id);
@@ -87,7 +87,7 @@ const ApiConsole = ({endpoint, id}) => (
                 {'Fill Sample Data'}
                 </button>
             </span> : null}
-            <button className='btn btn-default m-l-1' type='reset'>{'Reset'}</button>
+            <button className='secondary button m-l-1' type='reset'>{'Reset'}</button>
         </form>
         {endpoint.apiResponse ?
             <table className={'responseBody'}>

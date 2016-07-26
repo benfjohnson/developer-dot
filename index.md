@@ -1,7 +1,7 @@
 ---
 layout: frontpage
 title: "Avalara Developer"
-disqus: 1
+disqus: 0
 ---
 
 <h1>Avalara AvaTax</h1>

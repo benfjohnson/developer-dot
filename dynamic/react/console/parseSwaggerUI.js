@@ -7,6 +7,10 @@ const buildSchema = (schema, required = [], propName = null) => {
         return undefined;
     }
 
+    if ((!schema.type || schema.type === 'object') && !schema.properties && !schema.hasOwnProperty('allOf')) {
+        return undefined;
+    }
+
     if (schema.hasOwnProperty('allOf')) {
         return schema.allOf.map((chunk) => (buildSchema(chunk))).reduce((accum, chunk) => {
             return Object.assign({}, accum, chunk);
@@ -16,14 +20,14 @@ const buildSchema = (schema, required = [], propName = null) => {
     if (schema.type && schema.type === 'object' || schema.type === undefined) {
         const nestedSchemaProps = Object.keys(schema.properties).map((nestedPropName) => ({[nestedPropName]: buildSchema(schema.properties[nestedPropName], schema.required, nestedPropName)}));
 
-        return Object.assign({uiState: {visible: true}, required: required.includes(propName)}, ...nestedSchemaProps);
+        return Object.assign({uiState: {visible: false}, required: required.includes(propName)}, ...nestedSchemaProps);
     }
 
     if (schema.type && schema.type === 'array') {
         const arraySchema = buildSchema(schema.items);
 
         // items holds the schema definition of objects in our array, and value holds the actual objects of said schema...
-        return {uiState: {visible: true}, fieldType: schema.type, required: required.includes(propName), items: arraySchema, value: [arraySchema]};
+        return {uiState: {visible: false}, fieldType: schema.type, required: required.includes(propName), items: arraySchema, value: [arraySchema]};
     }
 
     const objToReturn = {fieldType: schema.type, required: required.includes(propName), value: ''};
@@ -55,7 +59,7 @@ const buildResponse = (schema) => {
     /* Only time a schema doesn't have a type is with objects (sometimes), which
      * should ALWAYS have a `properties` property. We just return undefined if this isn't the case
      */
-    if (!schema.type && !schema.properties && !schema.hasOwnProperty('allOf')) {
+    if ((!schema.type || schema.type === 'object') && !schema.properties && !schema.hasOwnProperty('allOf')) {
         return undefined;
     }
     // simple case
@@ -191,7 +195,7 @@ export default (api, rootPath) => {
 
         Object.keys(endpoint).forEach((action) => {
             const apiMethod = {
-                name: endpoint[action].summary,
+                name: endpoint[action].summary || endpoint[action].operationId,
                 description: endpoint[action].description,
                 path: root + k,
                 action: action,
@@ -247,6 +251,8 @@ export default (api, rootPath) => {
             }
 
             if (endpoint[action].responses[200].schema) {
+                apiMethod.responseSchema = buildSchema(endpoint[action].responses[200].schema);
+
                 const normalizedResponse = buildResponse(endpoint[action].responses[200].schema);
 
                 apiMethod.response = {

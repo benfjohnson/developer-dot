@@ -1,32 +1,124 @@
-<h4>
-    <a href="/">
-        <img src="/images/adn_nav.png" width="140" height="30" alt="Avalara Developer Network" >
-    </a>
+<header>
+    <a href="/"><img src="/images/adn_nav.png" width="280" height="60" alt="Avalara Developer Network"></a>
+    {% if page.product %}
     <a href='/{{page.product}}' id="product">{{page.product}}</a>
-    <ul class="nav navbar-nav navbar-right">
-        <li><a href="/avalara-apis.html">APIs</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">API Documentation <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-          {% for api in site.apis %}
-            <li><a href="{{ api[1] }}">{{ api[0] }}</a></li>
-          {% endfor %}
-          </ul>
-        </li>
-        <li><a href="/certification">Avalara Certified</a></li>
-        <li><a href="/blog">Community</a></li>
-        <li>
-          <input type="text" id="nav-query" />
-          <button class="nav-search-button">Search</button>
-        </li>
+    {% endif %}
 
-    </ul>
-</h4>
+    <nav class="navbar navbar-default navbar-static">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myNavbar">
+                <span>Menu</span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="#myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="#"><span class="uppercase">Welcome</span></a></li>
+                <li class="dropdown dropdown-large">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="uppercase">API</span>s <i class="caret"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-large row">
+                        <li class="col-sm-7">
+                            <h2>Tax Calculation</h2>
+                            <h4>Avalara AvaTax</h4>
+                            <ul class="pipe">
+                                <li><a href="#">Overview</a></li>
+                                <li><a href="#">Hello world</a></li>
+                                <li><a href="#">Use cases</a></li>
+                                <li><a href="#">API references</a></li>
+                                <li><a href="#">Set up your sandbox</a></li>
+                                <li><a href="#">Test your integration</a></li>
+                                <li><a href="#">Integration checklists</a></li>
+                            </ul>
+                            <h4>Avalara AvaTax Communications</h4>
+                            <ul class="pipe">
+                                <li><a href="#">Overview</a></li>
+                                <li><a href="#">API references</a></li>
+                                <li><a href="#">Integration checklist</a></li>
+                            </ul>
+                            <h4>Avalara AvaTax Excise</h4>
+                            <ul class="pipe">
+                                <li><a href="#">Overview</a></li>
+                                <li><a href="#">API references</a></li>
+                            </ul>
+                            <h4>Avalara LandedCost</h4>
+                            <ul class="pipe">
+                                <li><a href="#">Overview</a></li>
+                                <li><a href="#">API references</a></li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-5">
+                            <h2>Compliance document management</h2>
+                            <h4>Avalara CertCapture</h4>
+                            <ul class="pipe">
+                                <li><a href="#">Overview</a></li>
+                                <li><a href="#">API references</a></li>
+                            </ul>
+                            <h2>Returns &amp; filing</h2>
+                            <h4>Avalara Returns</h4>
+                            <ul class="pipe">
+                                <li><a href="#">Overview</a></li>
+                            </ul>
+                            <h4>Avalara TrustFile</h4>
+                            <ul class="pipe">
+                                <li><a href="#">Overview</a></li>
+                                <li><a href="#">API references</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#"><span class="uppercase">Code Sample Tools</span></a></li>
+                <li><a href="#"><span class="uppercase">Become Certified</span></a></li>
+                <li class="dropdown dropdown-large">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="uppercase">Resources</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu dropdown-menu-large row">
+                        <li class="col-sm-6">
+                            <ul>
+                                <li class="dropdown-header">Sword of Truths</li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Theme/Character</li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
 
-<script>
-  $('.nav-search-button').click( function(e) {
-    var newurl = '/search/?q=' + encodeURIComponent($("#nav-query").val());
-    if ($("#product").text()) newurl += "&product="+ encodeURIComponent($("#product").text());
-    location.href = newurl;
-  });
-</script>
+                            </ul>
+                        </li>
+                        <li class="col-sm-6">
+                            <ul>
+                                <li class="dropdown-header">by brand</li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
+                                <li><a href="#">Example</a></li>
+                                <li class="divider"></li>
+                                <li><img class="img-responsive" src="http://placehold.it/200x150"/></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="hdr-search-container">
+                    <a><i class="hdr-search-icon mouse glyphicon glyphicon-search"></i></a>
+                    <form class="hdr-search-form horizontal">
+                        <h4>Search Avalara Developer</h4>
+                        <div class="form-group col-sm-9">
+                            <input id="nav-query" class="form-control" type="search" placeholder="Search">
+                            <span class="form-control-feedback" aria-hidden="false">Required</span>
+                        </div>
+                        <div class="form-group col-sm-3">
+                            <input type="submit" class="btn btn-primary" value="Search">
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+

@@ -1,0 +1,21 @@
+{
+  "name": "dev-dot",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "prebuild:deploy": "node-sass _sass/style.scss css/style.css",
+    "build:deploy": "postcss -u autoprefixer -o css/style.css css/style.css",
+    "build": "npm run build:deploy && jekyll build",
+    "prebuild:dev": "node-sass --recursive --source-map=true --source-map-contents=true --source-map-embed=true _sass/style.scss css/style.css",
+    "build:dev": "postcss -u autoprefixer -o css/style.css css/style.css",
+    "dev": "watch 'npm run build:dev' _sass | jekyll serve",
+    "postinstall": "npm run build"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.7",
+    "bootstrap-sass": "^3.3.7",
+    "node-sass": "^3.8.0",
+    "postcss-cli": "^2.5.2",
+    "watch": "^0.19.1"
+  }
+}

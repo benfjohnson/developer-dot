@@ -1,0 +1,139 @@
+@import './settings';
+$body-font-color: $Dark-grey;
+$global-font-size:14px;
+$topbar-background: $Ava-orange;
+$dropdownmenu-arrow-color:white;
+$button-radius:4px;
+
+
+
+
+@import '../node_modules/foundation-sites/scss/foundation';
+
+@include foundation-everything(false);
+
+@import 'foundation-icons/foundation-icons.css';
+@import 'fonts.css';
+
+@import './console';
+@import './typography';
+
+.icon-flipped-x {
+    transform: scaleX(-1);
+}
+
+.mouse {
+    cursor: pointer;
+}
+.uppercase {text-transform: uppercase;}
+
+.top-bar {
+    border-top: 2px solid #e65000;
+    border-bottom: 2px solid $Form-bottom;
+    [role=menuitem] {
+        @extend .mouse;
+        color: white;
+        letter-spacing: .1em;
+        a {
+            color: inherit;
+            &:hover {
+                font-weight: bold;
+                letter-spacing: .08em;
+                text-decoration: none;
+            }
+        }
+
+        &:hover {
+            font-weight: bold;
+            letter-spacing: .08em;
+            text-decoration: none;
+        }
+        &:hover form {
+            font-weight: normal;
+            cursor: default;
+        }
+        &::after {
+            display:block;
+            content:attr(title);
+            font-weight:bold;
+            height:1px;
+            color:transparent;
+            overflow:hidden;
+            visibility:hidden;
+            margin-bottom:-1px;
+        }
+
+        [role=menuitem] {
+            @extend .mouse;
+            color: inherit;
+            letter-spacing: .1em;
+            a {
+                font-weight: normal;
+                letter-spacing: inherit;
+                color: inherit;
+                &:hover {
+                    font-weight: bold;
+                    letter-spacing: .08em;
+                    text-decoration: none;
+                }
+            }
+
+            &:hover {
+                font-weight: bold;
+                letter-spacing: inherit;
+                text-decoration: none;
+            }
+            &::after {
+                display:block;
+                content:attr(title);
+                font-weight:bold;
+                height:1px;
+                color:transparent;
+                overflow:hidden;
+                visibility:hidden;
+                margin-bottom:-1px;
+            }
+
+        }
+    }
+    form {
+        padding:1em 0 1em 1em;
+        input {
+            max-width:100%;
+        }
+        [type=submit] {
+            margin-left:1rem;
+        }
+    }
+}
+
+.hdr-search-container {
+    position: relative;
+    .hdr-search-icon {
+        margin-left:2em;
+        font-size:150%;
+    }
+    .hdr-search-form {
+        position: absolute;
+        background: $Form-fill;
+        border-top: 1px solid $Form-top;
+        border-bottom: 1px solid $Form-bottom;
+        border-left: 1px solid $Form-sides;
+        border-right: 1px solid $Form-sides;
+        top: -56px;
+        width: 400px;
+    }
+}
+
+#nav-query {
+    color:$Darkest-grey;
+    font-size:1em;
+}
+
+
+.button {
+    font-family:'source sans pro bold';
+    font-size:1.14em;
+}
+
+
