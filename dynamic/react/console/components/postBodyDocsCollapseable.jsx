@@ -16,9 +16,16 @@ const handleToggleVisibility = (documentationFor, propertyName, endpointId) => {
  * Defines a wrapper to nest object properties or
  * array items in a PostBody
  * */
-const PostBodyDocsCollapseable = ({documentationFor, endpointId, isArray, propertyName, displayName, collapsed, children}) => {
+const PostBodyDocsCollapseable = ({documentationFor, endpointId, isArray, isNested, propertyName, displayName, collapsed, children}) => {
+    const style = isNested ? {border: '1px solid lightgrey'} : {border: '1px solid lightgrey', marginTop: '10px', marginBottom: '10px'};
+
+    // if (!isNested) {
+    //     style.marginTop = '10px';
+    //     style.marginBottom = '10px';
+    // }
+
     return (
-        <div style={{border: '1px solid lightgrey', marginTop: '10px', marginBottom: '10px'}}>
+        <div style={style}>
             <div className={'row postBodySectionHeaderName'} onClick={() => (handleToggleVisibility(documentationFor, propertyName, endpointId))}>
                 <div className={'col-md-2 documentation-parameter-name'}>{displayName}</div>
                 <div className={'col-md-8'}></div>
