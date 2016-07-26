@@ -56,7 +56,7 @@ export default (state, action) => {
     case actionTypes.TOGGLE_DOCUMENTATION_ITEM_VISIBILITY:
         // TODO: Request Documentation visibility shouldn't be based off the postBody,
         // as triggering this updates UI of both DOCS and TRY IT OUT SECTION
-        const stateToChange = action.docType === DOC_TYPES.REQUEST ? newState.postBody : newState.responseSchema;
+        const stateToChange = action.documentationFor === DOC_TYPES.REQUEST ? newState.postBody : newState.responseSchema;
         const propToToggle = traversePropertyPath(action.postBodyParamName, stateToChange);
 
         propToToggle.uiState.visible = !propToToggle.uiState.visible;

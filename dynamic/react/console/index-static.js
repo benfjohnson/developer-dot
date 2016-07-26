@@ -14,7 +14,9 @@ store.subscribe(() => {
     render(<App api={state} error={error}/>, document.getElementById('api-console'), () => {
         if (typeof $ !== 'undefined') {
             $('[data-spy="scroll"]').each(function() {
+                /* eslint-disable no-invalid-this */
                 $(this).scrollspy('refresh');
+                /* eslint-enable no-invalid-this */
             });
         }
     });

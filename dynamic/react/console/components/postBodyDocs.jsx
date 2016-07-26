@@ -11,7 +11,7 @@ const PostBodyDocs = (props) => (
     <div>
         <div className={'row'}>
             <div className='col-md-6'>
-                <h3>{props.docType === DOC_TYPES.REQUEST ? 'Post Body Parameters' : 'Response'}</h3>
+                <h3>{props.documentationFor === DOC_TYPES.REQUEST ? 'Post Body Parameters' : 'Response'}</h3>
             </div>
             <div className={'col-md-2'}></div>
             <div className='col-md-3'>
@@ -21,7 +21,7 @@ const PostBodyDocs = (props) => (
         <PostBodyDocsItem
             canRemove={false}
             displayName={'Post Body Parameters'}
-            docType={props.docType}
+            documentationFor={props.documentationFor}
             endpointId={props.id}
             isRoot={true}
             item={props.postBody}
@@ -33,6 +33,7 @@ const PostBodyDocs = (props) => (
 
 PostBodyDocs.displayName = 'Post Body Docs';
 PostBodyDocs.propTypes = {
+    documentationFor: React.PropTypes.oneOf([DOC_TYPES.REQUEST, DOC_TYPES.RESPONSE]),
     id: React.PropTypes.number.isRequired,
     name: React.PropTypes.string.isRequired,
     postBody: React.PropTypes.object
