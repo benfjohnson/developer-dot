@@ -1,8 +1,8 @@
-language: node_js
-node_js:
-  - 6.0
+language: ruby
+rvm:
+  - 2.1
 before_install:
-  - rvm install 2.2.2
+  - nvm install 6.0
 install: gem install jekyll && gem install s3_website
 cache: bundler
 before_script:
