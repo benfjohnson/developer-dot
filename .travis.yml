@@ -8,8 +8,9 @@ cache: bundler
 before_script:
   - npm install
   - npm run prebuild:deploy
-  #- npm run build:deploy
+  - npm run build:deploy
 script: 
+  - echo bundle
   - bundle install
   - bundle exec jekyll build
   - if [ -n "$ALGOLIA_API_KEY" ]; then bundle exec jekyll algolia push; fi
