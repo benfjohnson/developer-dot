@@ -8,6 +8,7 @@ cache: bundler
 before_script:
   - npm install
   - node-sass _sass/style.scss css/style.css
+  - postcss -u autoprefixer -o css/style.css css/style.css
 script: 
   - echo bundle
   - bundle install
