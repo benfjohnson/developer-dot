@@ -18,7 +18,6 @@
 <body id='the-site' data-spy='scroll' data-target='#bootstrap-scrollspy'>
     {% include header.html %}
 
-    <br />
     <div class="row">
         {% assign post_count = site.posts|size %} {% if page.api_console == 1 %}
         <div class="col-md-3" style='float: left;'>
@@ -35,45 +34,48 @@
     </div>
 
     {% if page.disqus == 1 %}
-    <div class="row">
+        <div class="row">
         {% include disqus.html %}
     </div>
     {% endif %} {% include footer.html %}
 
     <script src="/js/jquery-2.2.4.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-
     <script src="/js/site.js"></script>
-
     <script>
-    $(document).ready(function() {
-        $('[data-clampedwidth]').each(function () {
-            var elem = $(this);
-            var parentPanel = elem.data('clampedwidth');
-            var resizeFn = function () {
-                var sideBarNavWidth = $(parentPanel).width() - parseInt(elem.css('paddingLeft')) - parseInt(elem.css('paddingRight')) - parseInt(elem.css('marginLeft')) - parseInt(elem.css('marginRight')) - parseInt(elem.css('borderLeftWidth')) - parseInt(elem.css('borderRightWidth'));
-                elem.css('width', sideBarNavWidth);
-            };
+        $(document).ready(function() {
+            $('[data-clampedwidth]').each(function() {
+                var elem = $(this);
+                var parentPanel = elem.data('clampedwidth');
+                var resizeFn = function() {
+                    var sideBarNavWidth = $(parentPanel).width() - parseInt(elem.css('paddingLeft')) - parseInt(elem.css('paddingRight')) - parseInt(elem.css('marginLeft')) - parseInt(elem.css('marginRight')) - parseInt(elem.css('borderLeftWidth')) - parseInt(elem.css('borderRightWidth'));
+                    elem.css('width', sideBarNavWidth);
+                };
 
                 resizeFn();
                 $(window).resize(resizeFn);
             });
 
-
-        var mobileView = false;
-        $(window).resize(function() {
-            if ($(window).width() <= 1000 && !mobileView) {
-                mobileView = true;
-                $('.nav-wrapper').css('display', 'none');
-            } else if ($(window).width() > 1000 && mobileView) {
-                $('.nav-wrapper').css('display', 'block');
-                mobileView = false;
-            }
+            var mobileView = false;
+            $(window).resize(function() {
+                if ($(window).width() <= 1000 && !mobileView) {
+                    mobileView = true;
+                    $('.nav-wrapper').css('display', 'none');
+                } else if ($(window).width() > 1000 && mobileView) {
+                    $('.nav-wrapper').css('display', 'block');
+                    mobileView = false;
+                }
+            });
         });
-    });
-</script> {% if page.search == 1 %}
-    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-    <script>handleSearch();</script> {% endif %} {% if site.google_analytics_id != "" %} {% include google_analytics.html%}
+    </script>
+
+    {% if page.search == 1 %}
+        <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+        <script>handleSearch();</script>
+    {% endif %}
+
+    {% if site.google_analytics_id != "" %}
+        {% include google_analytics.html%}
     {% endif %}
 </body>
 

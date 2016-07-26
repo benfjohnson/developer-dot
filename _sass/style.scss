@@ -1,6 +1,7 @@
 @import './settings';
 @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 @import 'fonts.css';
+@import 'icomoon/style.css';
 @import './console';
 @import './typography';
 
@@ -151,6 +152,9 @@ footer {
             display: inline-block;
             &:last-child {
                 margin-right: 0;
+            }
+            span {
+                padding-right:.25em;
             }
         }
     }

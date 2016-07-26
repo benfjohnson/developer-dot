@@ -104,7 +104,8 @@ handleSearch = function() {
     });
 };
 
-$(document).ready(function() { // * SOMETHING IS BROKEN HERE *
+$(document).ready(function() {
+    // * SOMETHING IS BROKEN HERE *
     // submitSearch();
     // showSearchForm();
 });
