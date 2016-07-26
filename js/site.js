@@ -29,6 +29,11 @@ var showSearchForm = function() {
         $searchFormIcon.hide();
         $searchForm.show();
         $searchInput.focus();
+
+        var containerRt = ($(window).width() - ($('.hdr-search-container').offset().left + $('.hdr-search-container').outerWidth()));
+        if (containerRt < $searchForm.outerWidth()) {
+            $searchForm.css('right','-10em');
+        }
     });
 
     // Setup click handler to close searh form
@@ -103,6 +108,11 @@ handleSearch = function() {
 };
 
 $(document).ready(function() {
-     submitSearch();
-     showSearchForm();
+    submitSearch();
+    showSearchForm();
+
+    $('.dropdown-large').each(function() {
+        $(this).find('.dropdown-menu-large').css('left', $(this).position().left);
+    });
+
 });
