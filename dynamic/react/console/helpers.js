@@ -239,4 +239,6 @@ const buildPostmanCollection = (appState) => {
     return postmanCollection;
 };
 
-export {buildQsPath, buildPostBodyData, buildCurl, replacePathParams, fillSampleData, hasExampleData, buildPostmanCollection, buildAuth};
+const replaceSpacesInStr = (str) => str.replace(/\s/g, '_');
+
+export {buildQsPath, buildPostBodyData, buildCurl, replacePathParams, fillSampleData, hasExampleData, buildPostmanCollection, buildAuth, replaceSpacesInStr};

@@ -1,8 +1,5 @@
-<div style='position: fixed; max-width: 14%' class=''>
-    <nav>
-<!--<div id='sticky-nav-container' data-sticky-container data-check-every='50'>
-    <nav class='columns sticky' data-sticky data-anchor='content' data-sticky-on='large'>-->
-        <ul class='nav nav-pills nav-stacked'>
+<div style='min-width: 14%;' class='nav-wrapper' data-spy='affix' data-offset-top='150' data-offset-bottom='200'>
+        <ul class='nav nav-pills nav-stacked' data-clampedwidth='.nav-wrapper'>
             {% for api_console_hash in site.data.api_consoles %}
             {% assign api_console = api_console_hash[1] %}
             {% assign currApi = api_console.nav_link.title | downcase %}
@@ -22,49 +19,4 @@
             </li>
             {% endfor %}
         </ul>
-    </nav>
 </div>
-<!--<script>
-    $(document).ready(function() {
-        var mobileView = false;
-        var navItems = $('.endpoint-nav>li').clone();
-
-        $(window).resize(function() {
-            if ($(window).width() <= 765 && !mobileView) {
-                mobileView = true;
-                $('.nav-wrapper').css('width', '100%');
-                $('.nav-wrapper').css('position', 'fixed');
-                $('.nav-wrapper').css('top', '20px');
-                $('.nav-wrapper').css('z-index', '999');
-
-                var nav = $('.endpoint-nav');
-                nav.removeClass('nav-stacked');
-                nav.css('right', '10px');
-                nav.css('width', '100%');
-                nav.removeClass('affix');
-
-                nav.html($('<li role="presentation class="dropdown"><a class="dropdown-toggle glyphicon glyphicon-menu-hamburger" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"></a><ul class="console-mobile-nav-links dropdown-menu"></ul></li>'));
-
-                $('.console-mobile-nav-links.dropdown-menu').html(navItems);
-            } else if ($(window).width() > 765 && mobileView) {
-                mobileView = false;
-
-                var nav = $('.endpoint-nav');
-                nav.addClass('nav-stacked');
-                nav.css('left', '40px');
-                nav.css('max-width', '14%');
-                nav.css('top', '');
-                nav.css('position', '');
-                nav.addClass('affix');
-
-                $('.nav-wrapper').css('width', '');
-                $('.nav-wrapper').css('position', '');
-                $('.nav-wrapper').css('top', '');
-                $('.nav-wrapper').css('z-index', '');
-
-                nav.html(navItems);
-            }
-
-        })
-    });
-</script>-->

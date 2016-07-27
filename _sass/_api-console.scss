@@ -1,0 +1,28 @@
+.api-console {
+    display: table;
+}
+
+.api-console-form-wrapper {
+    // background: $Rule-grey;
+    background: whitesmoke;
+    padding: 5px;
+    display: table-cell;
+    float: none;
+}
+
+.api-console-output {
+    color: white;
+    background: dimgrey;
+    display: table-cell;
+    float: none;
+    padding: 5px;
+}
+
+.api-console-metadata {
+    border: 1px solid #71e4ff;
+    padding: 5px;
+}
+
+.api-console-form-section-header {
+    
+}

@@ -6,14 +6,15 @@
 
     <nav class="navbar navbar-default navbar-static">
         <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#myNavbar">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
                 <span>Menu</span>
             </button>
         </div>
-        <div class="collapse navbar-collapse" id="#myNavbar">
+        <div class="collapse navbar-collapse js-navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#"><span class="uppercase">Welcome</span></a></li>
-                <li class="dropdown dropdown-large">
+                <li class="visible-xs-block"><a href="#"><span class="uppercase">API</span>s</a></li>
+                <li class="dropdown dropdown-large hidden-xs">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="uppercase">API</span>s <i class="caret"></i></a>
                     <ul class="dropdown-menu dropdown-menu-large row">
                         <li class="col-sm-7">
@@ -23,7 +24,7 @@
                                 <li><a href="#">Overview</a></li>
                                 <li><a href="#">Hello world</a></li>
                                 <li><a href="#">Use cases</a></li>
-                                <li><a href="#">API references</a></li>
+                                <li><a href="/avatax/console">API references</a></li>
                                 <li><a href="#">Set up your sandbox</a></li>
                                 <li><a href="#">Test your integration</a></li>
                                 <li><a href="#">Integration checklists</a></li>
@@ -31,7 +32,7 @@
                             <h4>Avalara AvaTax Communications</h4>
                             <ul class="pipe">
                                 <li><a href="#">Overview</a></li>
-                                <li><a href="#">API references</a></li>
+                                <li><a href="/communications/console">API references</a></li>
                                 <li><a href="#">Integration checklist</a></li>
                             </ul>
                             <h4>Avalara AvaTax Excise</h4>
@@ -42,7 +43,7 @@
                             <h4>Avalara LandedCost</h4>
                             <ul class="pipe">
                                 <li><a href="#">Overview</a></li>
-                                <li><a href="#">API references</a></li>
+                                <li><a href="/landedcost/console">API references</a></li>
                             </ul>
                         </li>
                         <li class="col-sm-5">
@@ -60,51 +61,31 @@
                             <h4>Avalara TrustFile</h4>
                             <ul class="pipe">
                                 <li><a href="#">Overview</a></li>
-                                <li><a href="#">API references</a></li>
+                                <li><a href="/trustfile/console">API references</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li><a href="#"><span class="uppercase">Code Sample Tools</span></a></li>
                 <li><a href="#"><span class="uppercase">Become Certified</span></a></li>
-                <li class="dropdown dropdown-large">
+                <li class="dropdown dropdown-large hidden-xs">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="uppercase">Resources</span> <b class="caret"></b></a>
-                    <ul class="dropdown-menu dropdown-menu-large row">
-                        <li class="col-sm-6">
-                            <ul>
-                                <li class="dropdown-header">Sword of Truths</li>
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-                                <li class="divider"></li>
-                                <li class="dropdown-header">Theme/Character</li>
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-
+                    <ul class="dropdown-menu dropdown-menu-large" style="width:auto">
+                        <li>
+                            <ul class="pipe">
+                                <li><a href="#">Developer Blog</a></li>
+                                <li><a href="#">Preferred developers</a></li>
                             </ul>
-                        </li>
-                        <li class="col-sm-6">
                             <ul>
-                                <li class="dropdown-header">by brand</li>
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-                                <li><a href="#">Example</a></li>
-                                <li class="divider"></li>
-                                <li><img class="img-responsive" src="http://placehold.it/200x150"/></li>
+                                <li><a href="#">Help Forum</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
+                <li class="visible-xs-block"><a href="#"><span class="uppercase">Developer Blog</span></a></li>
+                <li class="visible-xs-block"><a href="#"><span class="uppercase">Preferred developers</span></a></li>
+                <li class="visible-xs-block"><a href="#"><span class="uppercase">Help Forum</span></a></li>
 
-                <li class="hdr-search-container">
+                <li class="hdr-search-container hidden-xs">
                     <a><i class="hdr-search-icon mouse glyphicon glyphicon-search"></i></a>
                     <form class="hdr-search-form horizontal">
                         <h4>Search Avalara Developer</h4>
