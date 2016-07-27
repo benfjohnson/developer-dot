@@ -18,11 +18,29 @@
     padding: 5px;
 }
 
-.api-console-metadata {
-    border: 1px solid #71e4ff;
-    padding: 5px;
+.code-snippet {
+    
 }
 
 .api-console-form-section-header {
-    
+
+}
+
+.code-snippet {
+    border: 1px solid #71e4ff;
+    padding: 10px;
+    margin: 10px;
+    overflow: hidden;
+
+    .string { color: #71e4ff; }
+    .number { color: #fc88ff; }
+    .boolean { color: #fc88ff; }
+    .null { color: #fc88ff; }
+    .key { color: #8fffa7; }
+    .punctuation { color: #fceb51; }
+}
+
+.code-snippet pre {
+    background: dimgrey;
+    border: none;
 }

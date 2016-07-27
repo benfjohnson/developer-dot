@@ -35,6 +35,7 @@ layout: default
 title: "API Console"
 api_console: 1
 api_name: ${apiName}
+nav: apis
 endpoint_links: [
     ${endpointLinks}
 ]
