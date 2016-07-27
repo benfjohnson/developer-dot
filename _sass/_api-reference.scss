@@ -1,7 +1,7 @@
 .small-required-text {
     font-size: 12px;
     font-weight: bold;
-    color:   $Ava-orange;
+    color: $Ava-orange;
 }
 
 .documentation-parameter-name {
@@ -10,13 +10,12 @@
 }
 
 body {
-    margin-left: 45px!important;
-    font-family: Arial, Helvetica, sans-serif!important;
+    font-family: Arial, Helvetica, sans-serif !important;
     color: $Dark-grey;
 }
 
 h2, h3 {
-    color:   $Ava-orange!important;
+    color: $Ava-orange !important;
 }
 
 .documentation-parameter-body {
@@ -30,8 +29,8 @@ h2, h3 {
 .api-documentation-section-header {
     cursor: pointer;
     border-bottom: 1px solid lightgrey;
-    margin-left: 0!important;
-    margin-right: 0!important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 10px;
@@ -41,9 +40,9 @@ h2, h3 {
     background: #F7F9FA;
 }
 
-.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
     background: white;
-    color:   $Ava-orange;
+    color: $Ava-orange;
 }
 
 .hidden {

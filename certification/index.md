@@ -7,6 +7,7 @@ comments: true
 categories: [certification]
 product: certification
 doctype: documentation
+nav: certification
 ---
 <h2>Become Avalara Certified</h2>
 Certifying your integration with us ensures the most stable experience and flexible service options for your customers. By creating a Certified integration, your customers and potential customers will know that they can use the entire breadth of Avalara services with confidence. Also, your integration will be eligible to be listed in our <a href="http://www.avalara.com/integrations/">Integrations Marketplace</a> and will gain access to our marketing services to launch a robust sales and marketing campaign to promote your integration.
@@ -31,8 +32,8 @@ Join the hundreds of partners that have created Certified integrations! Buildi
 <em>— Erik Hansen, Classy Llama</em></blockquote>
 </div>
 </div>
-<h3><img class="wp-image-9800 size-medium alignright" src="/images/2012/10/Avalara_CERTIFIED-150x25-01.png" alt="Avalara Certified" />Contact Us About Becoming Avalara Certified</h3>
-To become Avalara Certified, please contact us at <a href="mailto:developer@avalara.com">developer@avalara.com</a>
+<h3>Contact Us About Becoming Avalara Certified</h3>
+<img class="wp-image-9800 size-medium alignright" src="/images/2012/10/Avalara_CERTIFIED-150x25-01.png" alt="Avalara Certified" />To become Avalara Certified, please contact us at <a href="mailto:developer@avalara.com">developer@avalara.com</a>
 
 
 
