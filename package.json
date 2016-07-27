@@ -8,8 +8,7 @@
     "build": "npm run build:deploy && jekyll build",
     "prebuild:dev": "node-sass --recursive --source-map=true --source-map-contents=true --source-map-embed=true _sass/style.scss css/style.css",
     "build:dev": "postcss -u autoprefixer -o css/style.css css/style.css",
-    "dev": "watch 'npm run build:dev' _sass | jekyll serve",
-    "postinstall": "npm run build"
+    "dev": "watch 'npm run build:dev' _sass | jekyll serve"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.7",

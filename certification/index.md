@@ -32,8 +32,8 @@ Join the hundreds of partners that have created Certified integrations! Buildi
 <em>— Erik Hansen, Classy Llama</em></blockquote>
 </div>
 </div>
-<h3><img class="wp-image-9800 size-medium alignright" src="/images/2012/10/Avalara_CERTIFIED-150x25-01.png" alt="Avalara Certified" />Contact Us About Becoming Avalara Certified</h3>
-To become Avalara Certified, please contact us at <a href="mailto:developer@avalara.com">developer@avalara.com</a>
+<h3>Contact Us About Becoming Avalara Certified</h3>
+<img class="wp-image-9800 size-medium alignright" src="/images/2012/10/Avalara_CERTIFIED-150x25-01.png" alt="Avalara Certified" />To become Avalara Certified, please contact us at <a href="mailto:developer@avalara.com">developer@avalara.com</a>
 
 
 
