@@ -114,5 +114,5 @@ $(document).ready(function() {
     $('.dropdown-large').each(function() {
         $(this).find('.dropdown-menu-large').css('left', $(this).position().left);
     });
-
+    $('body').css('paddingBottom', $('footer').outerHeight());
 });

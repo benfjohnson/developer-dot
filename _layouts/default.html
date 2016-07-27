@@ -17,28 +17,26 @@
 
 <body id='the-site' data-spy='scroll' data-target='#bootstrap-scrollspy'>
     {% include header.html %}
-
-    <div class="row">
-        {% assign post_count = site.posts|size %} {% if page.api_console == 1 %}
-        <div class="col-md-3" style='float: left;'>
-            {% include console-navigation.html %}
-        </div>
-        <div id="content" class="col-md-9">
-            {{ content }}
-        </div>
-        {% else %}
-        <div id="content" class="col-md-12">
-            {{ content }}
-        </div>
+    <div class="container-fluid">
+        <section class="row">
+            {% assign post_count = site.posts|size %} {% if page.api_console == 1 %}
+            <nav class="col-md-3" style='float: left;'>
+                {% include console-navigation.html %}
+            </nav>
+            <main id="content" class="col-md-9">
+                {{ content }}
+            </main>
+            {% else %}
+            <main id="content" class="col-md-12">
+                {{ content }}
+            </main>
+            {% endif %}
+        </section>
+        {% if page.disqus == 1 %}
+            <section class="row">{% include disqus.html %}</section>
         {% endif %}
     </div>
-
-    {% if page.disqus == 1 %}
-        <div class="row">
-        {% include disqus.html %}
-    </div>
-    {% endif %} {% include footer.html %}
-
+    {% include footer.html %}
     <script src="/js/jquery-2.2.4.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/site.js"></script>
@@ -70,12 +68,12 @@
     </script>
 
     {% if page.search == 1 %}
-        <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-        <script>handleSearch();</script>
+    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script>handleSearch();</script>
     {% endif %}
 
     {% if site.google_analytics_id != "" %}
-        {% include google_analytics.html%}
+    {% include google_analytics.html%}
     {% endif %}
 </body>
 
