@@ -3,8 +3,8 @@ import React from 'react';
 import PostBodyItem from './PostBodyItem';
 
 const PostBody = (props) => (
-    <table>
-        <tbody>
+    <div>
+        <form>
         {
             <PostBodyItem
                 canRemove={false}
@@ -15,8 +15,8 @@ const PostBody = (props) => (
                 uiState={props.postBody.uiState}
             />
         }
-        </tbody>
-    </table>
+        </form>
+    </div>
 );
 
 PostBody.displayName = 'Post Body';

@@ -27,21 +27,20 @@ const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiSta
                         key={i}
                         name={`${propertyName ? propertyName + ';' : ''}[${i}]`}
                         uiState={itm.uiState}
-                    />);
+                        />);
             }) : null}
-            <tr>
-                <td className={'mouse'}
-                    onClick={
-                        (e) => {
-                            e.preventDefault();
-                            handleAddItem(propertyName, endpointId, schema);
-                        }
+            <div className={'mouse'}
+                onClick={
+                    (e) => {
+                        e.preventDefault();
+                        handleAddItem(propertyName, endpointId, schema);
                     }
+                }
                 >
-                    <span className={'glyphicon glyphicon-plus-sign'}
-                          title={'Add Item'}/>
-                </td>
-            </tr>
+                <span
+                    className={'glyphicon glyphicon-plus-sign'}
+                    title={'Add Item'}/>
+            </div>
         </PostBodySectionHeader>
     );
 };

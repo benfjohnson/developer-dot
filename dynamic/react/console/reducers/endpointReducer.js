@@ -30,6 +30,10 @@ export default (state, action) => {
     let newState = R.clone(state);
 
     switch (action.type) {
+    case actionTypes.CONSOLE_VISIBILITY_TOGGLED:
+        return {...newState, apiConsoleVisible: (!newState.apiConsoleVisible)};
+    case actionTypes.JUMP_TO_CONSOLE:
+        return {...newState, apiConsoleVisible: true};
     case actionTypes.SUBMIT_DONE:
         newState.apiResponse = action.apiResponse;
         if (action.error) {
@@ -56,7 +60,7 @@ export default (state, action) => {
     case actionTypes.TOGGLE_DOCUMENTATION_ITEM_VISIBILITY:
         // TODO: Request Documentation visibility shouldn't be based off the postBody,
         // as triggering this updates UI of both DOCS and TRY IT OUT SECTION
-        const stateToChange = action.documentationFor === DOC_TYPES.REQUEST ? newState.postBody : newState.responseSchema;
+        const stateToChange = action.documentationFor === DOC_TYPES.REQUEST ? newState.requestSchema : newState.responseSchema;
         const propToToggle = traversePropertyPath(action.postBodyParamName, stateToChange);
 
         propToToggle.uiState.visible = !propToToggle.uiState.visible;
@@ -68,12 +72,6 @@ export default (state, action) => {
         newState = {...newState, postBody: postBodyReducer(newState.postBody, action)};
         newState.postBodyData = buildPostBodyData(newState.postBody);
         newState.curl = buildCurl(newState.isAuthenticated, newState);
-        break;
-    case actionTypes.TOGGLE_RESPONSE_MODEL_EXAMPLE:
-        newState.response.currentVisibility = newState.response.currentVisibility === 'example' ? 'model' : 'example';
-        break;
-    case actionTypes.TOGGLE_REQUEST_MODEL_EXAMPLE:
-        newState.request.currentVisibility = newState.request.currentVisibility === 'example' ? 'model' : 'example';
         break;
     default:
         break;

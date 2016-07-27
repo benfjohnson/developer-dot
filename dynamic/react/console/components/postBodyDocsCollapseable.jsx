@@ -26,12 +26,12 @@ const PostBodyDocsCollapseable = ({documentationFor, endpointId, isArray, isNest
 
     return (
         <div style={style}>
-            <div className={'row postBodySectionHeaderName'} onClick={() => (handleToggleVisibility(documentationFor, propertyName, endpointId))}>
+            <div className={'row api-documentation-section-header'} onClick={() => (handleToggleVisibility(documentationFor, propertyName, endpointId))}>
                 <div className={'col-md-2 documentation-parameter-name'}>{displayName}</div>
                 <div className={'col-md-8'}></div>
                 <div className={'col-md-2'}>
                     <span style={{fontWeight: 'bold'}}>{`${isArray ? 'Array[' : ''}${displayName.charAt(0).toUpperCase() + displayName.slice(1)}${isArray ? ']' : ''}`}</span>
-                    <i className={collapsed ? 'fi-arrows-expand' : 'fi-arrows-compress'} style={{float: 'right', marginLeft: '9px'}}></i>
+                    <span className={'documentation-expand-icon glyphicon' + (collapsed ? ' glyphicon-menu-down' : ' glyphicon-menu-up')} style={{float: 'right', marginLeft: '9px'}}></span>
                 </div>
             </div>
             {children}
@@ -50,6 +50,7 @@ PostBodyDocsCollapseable.propTypes = {
     documentationFor: React.PropTypes.oneOf(['REQUEST', 'RESPONSE']),
     endpointId: React.PropTypes.number.isRequired,
     isArray: React.PropTypes.bool.isRequired,
+    isNested: React.PropTypes.bool.isRequired,
     propertyName: React.PropTypes.string.isRequired,
     uiState: React.PropTypes.shape({
         visible: React.PropTypes.bool
