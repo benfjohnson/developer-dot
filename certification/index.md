@@ -7,6 +7,7 @@ comments: true
 categories: [certification]
 product: certification
 doctype: documentation
+nav: certification
 ---
 <h2>Become Avalara Certified</h2>
 Certifying your integration with us ensures the most stable experience and flexible service options for your customers. By creating a Certified integration, your customers and potential customers will know that they can use the entire breadth of Avalara services with confidence. Also, your integration will be eligible to be listed in our <a href="http://www.avalara.com/integrations/">Integrations Marketplace</a> and will gain access to our marketing services to launch a robust sales and marketing campaign to promote your integration.

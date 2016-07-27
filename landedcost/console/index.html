@@ -3,8 +3,9 @@ layout: default
 title: "API Console"
 api_console: 1
 api_name: landedcost
+nav: apis
 endpoint_links: [
-    ["#Validate_credentials", "Validate credentials"],
+["#Validate_credentials", "Validate credentials"],
 ["#Calculate_landed_cost", "Calculate landed cost"],
 ["#Get_rates", "Get rates"],
 ["#Get_rate_units", "Get rate units"],
@@ -13,7 +14,6 @@ endpoint_links: [
 ["#Get_hs_code_trees", "Get hs code trees"],
 ["#Get_hs_code_details_including_rates", "Get hs code details including rates"],
 ["#Get_hs_code_details", "Get hs code details"],
-
 ]
 ---
 <div id="api-console"><div data-reactroot="" data-reactid="1" data-react-checksum="599258176"><div data-reactid="2"><h1 data-reactid="3">LandedCost Calculation API</h1><div data-reactid="4"><p data-reactid="5"><!-- react-text: 6 -->Landed Cost API providing duty rates, calculation, and item harmonization. A set of sample requests are available as a <!-- /react-text --><a href="https://www.getpostman.com/collections/ad308f6c9351a18c2c12" data-reactid="7"><!-- react-text: 8 -->Postman Collection<!-- /react-text --></a><!-- react-text: 9 -->.<!-- /react-text --></p><h2 data-reactid="10">Basics</h2><h3 data-reactid="11">Timestamps</h3><p data-reactid="12"><!-- react-text: 13 -->Timestamps should be formatted using ISO-8601 to the nearest second, in UTC e.g <!-- /react-text --><code data-reactid="14">2015-06-12T09:17:37Z</code></p><h3 data-reactid="15">Expiries</h3><p data-reactid="16"><!-- react-text: 17 -->All Requests will have an associated timestamp. The validity for any request is 1 minute to account for any clock-skew.<!-- /react-text --></p><h2 data-reactid="18">Authorization</h2><p data-reactid="19"><!-- react-text: 20 -->All API requests require an http header that contains your account ID and your account API Key. During account provisioning, you will be issued an API Key which you must supply with every request.<!-- /react-text --></p><h3 data-reactid="21">Authorization Header</h3><p data-reactid="22"><!-- react-text: 23 -->To make an authorized API request, set the following HTTP header:

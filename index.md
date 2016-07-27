@@ -2,6 +2,7 @@
 layout: frontpage
 title: "Avalara Developer"
 disqus: 0
+nav: home
 ---
 <div class="bg-map">
     <div class="row">
