@@ -69,14 +69,14 @@ const ApiConsole = ({endpoint, id}) => (
             toggleVisibility(id);
         }}>{'Try it now! '}<span className={'documentation-expand-icon glyphicon' + (endpoint.apiConsoleVisible ? ' glyphicon-menu-down' : ' glyphicon-menu-up')}></span></div>
         {endpoint.apiConsoleVisible ?
-            <div>
-                <form>
+            <div className={'row api-console'}>
+                <div className={'col-md-5 api-console-form-wrapper'}>
+                    <h3>{'Input'}</h3>
                     {endpoint.pathParams ? <RequestParams endpointId={id} paramType={'PATH'} params={endpoint.pathParams}/> : null}
                     {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
                     {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody}/> : null}
-                    <p className={'code-snippet'}>{endpoint.curl}</p>
                     <button
-                        className='success button'
+                        className='btn btn-success'
                         onClick={(e) => {
                             e.preventDefault();
                             handleSubmit(endpoint, id);
@@ -88,7 +88,7 @@ const ApiConsole = ({endpoint, id}) => (
                     {hasExampleData('QUERY_STRING', endpoint.queryString) || hasExampleData('POST_BODY', endpoint.postBody) || hasExampleData('PATH_PARAM', endpoint.pathParams) ?
                         <span>
                             <button
-                                className='secondary button m-l-1'
+                                className='btn btn-primary m-l-1'
                                 onClick={(e) => {
                                     e.preventDefault();
                                     handleFillSampleData(id);
@@ -98,23 +98,25 @@ const ApiConsole = ({endpoint, id}) => (
                                 {'Fill Sample Data'}
                             </button>
                         </span> : null}
-                    <button className='secondary button m-l-1' type='reset'>{'Reset'}</button>
-                </form>
-                {endpoint.apiResponse ?
-                    <table className={'responseBody'}>
-                        <tbody>
-                            <tr>
-                                <td><strong>{'HTTP Response Code'}</strong></td>
-                                <td>{endpoint.apiResponse.status + ' - ' + endpoint.apiResponse.statusMessage}</td>
-                            </tr>
-                            <tr>
-                                <td><strong>{'HTTP Response Body'}</strong></td>
-                                <td>
-                                    <textarea cols='30' readOnly={true} rows='15' value={JSON.stringify(endpoint.apiResponse.body, null, 2) }/>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table> : null}
+                    <button className='btn btn-default m-l-1' type='reset'>{'Reset'}</button>
+                </div>
+                <div className={' api-console-output col-md-7'}>
+                    <h4>{'API Endpoint'}</h4>
+                    <div className={'api-console-metadata'}>{endpoint.path}</div>
+                    <h4>{'Method'}</h4>
+                    <div className={'api-console-metadata'}>{endpoint.action.toUpperCase()}</div>
+                    <div className={'row'}>
+                        <div className={'col-md-6'}>
+                            <h4>{'Request'}</h4>
+                            <div className={'api-console-metadata'}>{JSON.stringify(endpoint.postBodyData, null, 2) || ' '}</div>
+                        </div>
+                        <div className={'col-md-6'}>
+                            <h4>{'Response'}</h4>
+                            <div className={'api-console-metadata'}>{endpoint.apiResponse ? JSON.stringify(endpoint.apiResponse.body, null, 2) : ' '}</div>
+                        </div>
+                    </div>
+                    <div className={'code-snippet'}>{endpoint.curl}</div>
+                </div>
             </div> : null}
     </div>
 );

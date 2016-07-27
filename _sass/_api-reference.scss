@@ -27,7 +27,7 @@ h2, h3 {
     width: 100%;
 }
 
-.postBodySectionHeaderName {
+.api-documentation-section-header {
     cursor: pointer;
     border-bottom: 1px solid lightgrey;
     margin-left: 0!important;
@@ -37,23 +37,14 @@ h2, h3 {
     padding-right: 10px;
 }
 
-.postBodySectionHeaderName:hover {
+.api-documentation-section-header:hover {
     background: #F7F9FA;
 }
-
-// ul.nav a.active {
-//     color:   $Ava-orange!important;
-// }
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
     background: white;
     color:   $Ava-orange;
 }
-
-// ul.nav>li.active {
-//     background: white!important;
-//     color:   $Ava-orange!important;
-// }
 
 .hidden {
     display: none;

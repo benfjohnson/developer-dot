@@ -26,7 +26,7 @@ const PostBodyDocsCollapseable = ({documentationFor, endpointId, isArray, isNest
 
     return (
         <div style={style}>
-            <div className={'row postBodySectionHeaderName'} onClick={() => (handleToggleVisibility(documentationFor, propertyName, endpointId))}>
+            <div className={'row api-documentation-section-header'} onClick={() => (handleToggleVisibility(documentationFor, propertyName, endpointId))}>
                 <div className={'col-md-2 documentation-parameter-name'}>{displayName}</div>
                 <div className={'col-md-8'}></div>
                 <div className={'col-md-2'}>

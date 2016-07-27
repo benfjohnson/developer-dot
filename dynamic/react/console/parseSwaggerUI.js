@@ -1,4 +1,4 @@
-import {buildQsPath, buildCurl, replacePathParams, buildPostmanCollection, buildAuth} from './helpers';
+import {buildQsPath, buildCurl, buildPostmanCollection, buildAuth} from './helpers';
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
 
@@ -53,105 +53,6 @@ const buildSchema = (schema, required = [], propName = null) => {
 
     return objToReturn;
 };
-
-// // todo refactor to use buildSchema but return different shape object for request vs response
-// const buildResponse = (schema) => {
-//     /* Only time a schema doesn't have a type is with objects (sometimes), which
-//      * should ALWAYS have a `properties` property. We just return undefined if this isn't the case
-//      */
-//     if ((!schema.type || schema.type === 'object') && !schema.properties && !schema.hasOwnProperty('allOf')) {
-//         return undefined;
-//     }
-//     // simple case
-//     if (schema.type && schema.type !== 'array' && schema.type !== 'object') {
-//         const objToReturn = {fieldType: schema.type, example: schema.example || ''};
-
-//         if (schema.description) {
-//             objToReturn.description = schema.description;
-//         }
-//         if (schema.enum) {
-//             objToReturn.enum = schema.enum;
-//         }
-//         if (schema.format) {
-//             objToReturn.format = schema.format;
-//         }
-//         if (schema.hasOwnProperty('minimum')) {
-//             objToReturn.minimum = schema.minimum;
-//         }
-//         if (schema.hasOwnProperty('maximum')) {
-//             objToReturn.maximum = schema.maximum;
-//         }
-
-//         return objToReturn;
-//     }
-
-//     if (schema.hasOwnProperty('allOf')) {
-//         return schema.allOf.map((chunk) => (buildResponse(chunk))).reduce((accum, chunk) => (Object.assign({}, accum, chunk)), {});
-//     }
-
-//     if (schema.type && schema.type === 'array') {
-//         const arraySchema = buildResponse(schema.items);
-
-//         // items holds the schema definition of objects in our array, and value holds the actual objects of said schema...
-//         return {fieldType: schema.type, items: arraySchema, example: [arraySchema]};
-//     }
-
-//     // object
-//     const nestedSchemaProps = Object.keys(schema.properties).map((propName) => ({[propName]: buildResponse(schema.properties[propName])}));
-
-//     return Object.assign({}, ...nestedSchemaProps);
-// };
-
-// const buildExample = (body) => {
-//     if (body.fieldType && body.fieldType !== 'array' && body.fieldType !== 'object') {
-//         if (body.fieldType === 'boolean') {
-//             return body.example;
-//         }
-
-//         return body.example && body.example.length ? body.example : undefined;
-//     }
-
-//     if (body.fieldType && body.fieldType === 'array') {
-//         return [buildExample(body.items)];
-//     }
-
-//     return Object.keys(body).filter((n) => n !== 'uiState' && n !== 'required' && body[n]).reduce((accum, propName) => {
-//         return {...accum, [propName]: buildExample(body[propName])};
-//     }, {});
-// };
-
-// const buildModel = (body, type) => {
-//     /* Working on fixing YAML import */
-//     if (body.hasOwnProperty('fieldType') && body.fieldType === undefined) {
-//         return body;
-//     }
-
-//     if (body.fieldType && body.fieldType !== 'array') {
-//         return {
-//             description: body.description,
-//             required: body.required,
-//             type: body.fieldType,
-//             format: body.format,
-//             values: body.enum,
-//             minimum: body.minimum,
-//             maximum: body.maximum
-//         };
-//     }
-
-//     if (body.fieldType && body.fieldType === 'array') {
-//         return [buildModel(body.items, type)];
-//     }
-
-//     return Object.keys(body).filter((n) => n !== 'uiState' && body[n]).reduce((accum, propName) => {
-//         const model = {...accum, [propName]: buildModel(body[propName], type)};
-
-//         if (type === 'request') {
-//             model.required = model.hasOwnProperty('required') && model.required ? true : undefined;
-//         }
-
-//         return model;
-//     }, {});
-// };
 
 // Used to generate either query string or path parameters:
 // paramType should be either 'query' or 'path'

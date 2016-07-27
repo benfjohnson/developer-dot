@@ -28,10 +28,8 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
 
     if (item.fieldType && item.fieldType !== 'array') {
         return (
-            <tr>
-                <td>
-                    <label className={'primitive-label'} htmlFor={uid}>{displayName}</label>
-                    {item.description && item.description.length ? <span className={'m-l-1 glyphicon glyphicon-info-sign'} style={{color: 'lightgrey'}} title={item.description}/> : null}
+            <div className={'form-group'}>
+                    <label htmlFor={uid}>{displayName}</label>
                     {canRemove ?
                         <span
                             className={'m-l-1 glyphicon glyphicon-remove-sign mouse'}
@@ -39,10 +37,9 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
                             title={'Remove Item'}
                         /> : null
                     }
-                </td>
-                <td>
                     {item.enum && item.enum.length ?
                         <select
+                            className={'form-control'}
                             id={uid}
                             onChange={(e) => (handleInputChange(e, name, endpointId))}
                             value={item.value || '*select*'}
@@ -51,14 +48,14 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
                             {item.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
                         </select> :
                         <input
+                            className={'form-control'}
                             id={uid}
                             onChange={(e) => (handleInputChange(e, name, endpointId))}
                             placeholder={item.example}
                             value={item.value}
                         />
                     }
-                </td>
-            </tr>
+            </div>
         );
     }
 
