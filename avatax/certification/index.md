@@ -20,7 +20,7 @@ An integration can be issued for any of the following feature subsets in additio
 
 
 
-To have your integration <a href="/certification/">Certified by Avalara</a>, we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax with your application.  To be Certified for Avalara AvaTax, all of the items with an R beside them listed below are the required elements that must be present in your integration.
+To have your integration <a href="/certification">Certified by Avalara</a>, we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax with your application.  To be Certified for Avalara AvaTax, all of the items with an R beside them listed below are the required elements that must be present in your integration.
 <blockquote><strong>Note: </strong>Address validation is a requirement for certification, however we don’t require you to use our address validation service.</blockquote>
 There are several different certifications that can be achieved according to the functionality supported in your application.
 <ul>

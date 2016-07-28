@@ -142,7 +142,6 @@ header {
         }
         .navbar-nav {
             li {
-                max-height: 3.5em;
                 a {
                     font-family: 'source sans pro bold';
                     letter-spacing: .1em;
@@ -189,7 +188,6 @@ header {
                         margin-top: 10px;
                     }
                     li {
-                        max-height: none;
                         list-style: none;
                         &:hover {
                             background-color: inherit;
@@ -212,6 +210,7 @@ header {
                 .hdr-search-icon {
                     padding-left: 2em;
                     font-size: 150%;
+                    margin-top:.5em
                 }
                 .hdr-search-form {
                     position: absolute;

@@ -29,10 +29,10 @@ nav: apis
             <span>AvaTax</span>
          </div>
         <ul class="pipe padding-bottom">
-            <li><a href="#">Overview</a></li>
+            <li><a href="/avatax">Overview</a></li>
             <li><a href="#">Hello world</a></li>
             <li><a href="#">Use cases</a></li>
-            <li><a href="/avatax/console">API references</a></li>
+            <li><a href="/avatax/api-reference/tax/v1">API references</a></li>
             <li><a href="#">Set up your sandbox</a></li>
             <li><a href="#">Test your integration</a></li>
             <li><a href="#">Integration checklists</a></li>
@@ -44,10 +44,10 @@ nav: apis
             <span>LandedCost</span>
          </div>
         <ul class="pipe padding-bottom">
-            <li><a href="#">Overview</a></li>
+            <li><a href="/landedcost">Overview</a></li>
             <li><a href="#">Hello world</a></li>
             <li><a href="#">Use cases</a></li>
-            <li><a href="/landedcost/console">API references</a></li>
+            <li><a href="/landedcost/api-reference/v3">API references</a></li>
             <li><a href="#">Set up your sandbox</a></li>
             <li><a href="#">Test your integration</a></li>
             <li><a href="#">Integration checklists</a></li>
@@ -59,10 +59,10 @@ nav: apis
             <span>AvaTax Communication</span>
          </div>
         <ul class="pipe padding-bottom">
-            <li><a href="#">Overview</a></li>
+            <li><a href="/communications">Overview</a></li>
             <li><a href="#">Hello world</a></li>
             <li><a href="#">Use cases</a></li>
-            <li><a href="/communications/console">API references</a></li>
+            <li><a href="/communications/api-reference/saas/soap">API references</a></li>
             <li><a href="#">Set up your sandbox</a></li>
             <li><a href="#">Test your integration</a></li>
             <li><a href="#">Integration checklists</a></li>
@@ -103,7 +103,7 @@ nav: apis
             <li><a href="#">Overview</a></li>
             <li><a href="#">Hello world</a></li>
             <li><a href="#">Use cases</a></li>
-            <li><a href="/avatax/console">API references</a></li>
+            <li><a href="#">API references</a></li>
             <li><a href="#">Set up your sandbox</a></li>
             <li><a href="#">Test your integration</a></li>
             <li><a href="#">Integration checklists</a></li>
@@ -137,10 +137,10 @@ nav: apis
             <span>TrustFile</span>
          </div>
         <ul class="pipe">
-            <li><a href="#">Overview</a></li>
+            <li><a href="/trustfile">Overview</a></li>
             <li><a href="#">Hello world</a></li>
             <li><a href="#">Use cases</a></li>
-            <li><a href="#">API references</a></li>
+            <li><a href="/trustfile/api-reference/core/v3">API references</a></li>
             <li><a href="#">Set up your sandbox</a></li>
             <li><a href="#">Test your integration</a></li>
             <li><a href="#">Integration checklists</a></li>
