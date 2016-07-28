@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PostBodyDocsCollapseable from './PostBodyDocsCollapseable';
+import PostBodyDocsCollapseable from './postBodyDocsCollapseable';
 
 const PostBodyDocsItem = ({documentationFor, name, item, isArray = false, isNested = false, endpointId, uiState, displayName, isRoot = false}) => {
     if (item.fieldType && item.fieldType !== 'array') {
