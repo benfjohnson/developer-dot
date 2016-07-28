@@ -70,6 +70,7 @@ body {
 
 header {
     .pageTitle {
+        background-color: $Form-fill;
         padding: 2em;
         font-family: 'apertura regular';
         a {
@@ -78,6 +79,7 @@ header {
             img {
                 width: 100px;
                 margin-top: -10px;
+                margin-right: 3px;
             }
         }
         span {
@@ -322,5 +324,17 @@ footer {
         &:hover {
             text-decoration: none;
         }
+    }
+}
+
+.ring-shadow {
+    background: white;
+    border-radius: 50%;
+    border: 1px solid #eeeeee;
+    box-shadow: -10px 0px 5px #eeeeee;
+    margin-left: -15px;
+    min-height:225px;
+    &:first-of-type {
+        @extend .col-xs-offset-2;
     }
 }

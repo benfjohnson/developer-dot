@@ -1,5 +1,5 @@
 ---
-layout: frontpage
+layout: default
 title: "Avalara Developer"
 disqus: 0
 nav: home

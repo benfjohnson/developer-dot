@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Typical Workflows
 date: 2016-01-21 15:27
 author: jeremy.buller

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Calculate Tax
 date: 2012-05-14 15:32
 author: anya.stettler

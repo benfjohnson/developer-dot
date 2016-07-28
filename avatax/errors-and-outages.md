@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Errors and Outages
 date: 2012-05-14 16:40
 author: anya.stettler

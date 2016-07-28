@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: AvaTax Certification
 date: 2016-07-07 02:40
 author: anya.stettler

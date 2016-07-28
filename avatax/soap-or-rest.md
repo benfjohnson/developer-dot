@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: SOAP or REST?
 date: 2012-11-06 14:41
 author: anya.stettler

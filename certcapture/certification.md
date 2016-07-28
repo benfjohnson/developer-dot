@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: AvaTax with CertCapture Checklist
 date: 2016-01-18 02:42
 author: jeremy.buller

@@ -1,22 +1,22 @@
 <div style='min-width: 14%;' class='nav-wrapper' data-spy='affix' data-offset-top='150' data-offset-bottom='200'>
-        <ul class='nav nav-pills nav-stacked' data-clampedwidth='.nav-wrapper'>
-            {% for api_console_hash in site.data.api_consoles %}
+    <ul class='nav nav-pills nav-stacked' data-clampedwidth='.nav-wrapper'>
+        {% for api_console_hash in site.data.api_consoles %}
             {% assign api_console = api_console_hash[1] %}
             {% assign currApi = api_console.nav_link.title | downcase %}
             {% assign apiName = page.api_name | downcase %}
             {% if currApi == apiName %}
-            <li><a href="#">{{ api_console.nav_link.title }}</a>
-                <div id='bootstrap-scrollspy' style="padding-left:10px;">
-                    <ul id='magellan-container' class='nav nav-pills nav-stacked'>
-                        {% for endpoint_link in page.endpoint_links %}
-                        <li><a style="overflow: hidden" href="{{ endpoint_link[0] }}">{{ endpoint_link[1] }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
+                <li><a href="#">{{ api_console.nav_link.title }}</a>
+                    <div id='bootstrap-scrollspy' style="padding-left:10px;">
+                        <ul id='magellan-container' class='nav nav-pills nav-stacked'>
+                            {% for endpoint_link in page.endpoint_links %}
+                            <li><a style="overflow: hidden" href="{{ endpoint_link[0] }}">{{ endpoint_link[1] }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
                 {% else %}
-            <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a>
-                {% endif %}
-            </li>
-            {% endfor %}
-        </ul>
+                <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
 </div>

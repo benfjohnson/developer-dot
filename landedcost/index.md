@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Overview
 date: 2016-04-22 11:48
 author: anya.stettler

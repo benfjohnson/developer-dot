@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Common Errors
 date: 2012-05-14 16:47
 author: anya.stettler
