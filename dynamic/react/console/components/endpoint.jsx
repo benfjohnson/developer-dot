@@ -2,7 +2,7 @@ import React from 'react';
 import ApiConsole from './apiConsole';
 import ReactMarkdown from 'react-markdown';
 import RequestParamsDocs from './requestParamsDocs';
-import PostBodyDocs from './PostBodyDocs';
+import PostBodyDocs from './postBodyDocs';
 import {replaceSpacesInStr} from '../helpers';
 
 import {store} from '../store';
