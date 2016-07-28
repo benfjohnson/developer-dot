@@ -63,56 +63,112 @@ const handleFillSampleData = (id) => {
     });
 };
 
+const highlightPunctuation = (str) => {
+    return str.replace(/"[^"]*"|([{}\[\],])/g, (m, group1) => {
+        if (!group1) {
+            return m;
+        }
+
+        return '<span class="punctuation">' + m + '</span>';
+    });
+};
+
+const syntaxHighlight = (jsonObj) => {
+    let json = JSON.stringify(jsonObj, null, 2);
+
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    json = json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, (match) => {
+        let cls = 'number';
+
+        if (/^"/.test(match)) {
+            if (/:$/.test(match)) {
+                cls = 'key';
+            } else {
+                cls = 'string';
+            }
+        } else if (/true|false/.test(match)) {
+            cls = 'boolean';
+        } else if (/null/.test(match)) {
+            cls = 'null';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+    });
+
+    return highlightPunctuation(json);
+};
+
 const ApiConsole = ({endpoint, id}) => (
     <div>
-        <div id={replaceSpacesInStr(`${endpoint.name}-console`)} className={'try-it-now-header'} onClick={(e) => {
-            toggleVisibility(id);
-        }}>{'Try it now! '}<span className={'documentation-expand-icon glyphicon' + (endpoint.apiConsoleVisible ? ' glyphicon-menu-down' : ' glyphicon-menu-up')}></span></div>
-        {endpoint.apiConsoleVisible ?
+        <div className={'try-it-now-header'} id={replaceSpacesInStr(`${endpoint.name}-console`)} onClick={
+            () => {
+                toggleVisibility(id);
+            }
+        }>
+            {'Try it now! '}
+            <span className={'documentation-expand-icon glyphicon' + (endpoint.apiConsoleVisible ? ' glyphicon-menu-up' : ' glyphicon-menu-down')}></span></div>
+            {endpoint.apiConsoleVisible ?
             <div className={'row api-console'}>
-                <div className={'col-md-5 api-console-form-wrapper'}>
-                    <h3>{'Input'}</h3>
-                    {endpoint.pathParams ? <RequestParams endpointId={id} paramType={'PATH'} params={endpoint.pathParams}/> : null}
-                    {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
-                    {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody}/> : null}
-                    <button
-                        className='btn btn-success'
-                        onClick={(e) => {
-                            e.preventDefault();
-                            handleSubmit(endpoint, id);
-                        } }
-                        type={'button'}
-                        >
-                        {'Submit'}
-                    </button>
-                    {hasExampleData('QUERY_STRING', endpoint.queryString) || hasExampleData('POST_BODY', endpoint.postBody) || hasExampleData('PATH_PARAM', endpoint.pathParams) ?
-                        <span>
-                            <button
-                                className='btn btn-primary m-l-1'
+                <div className={'col-md-3 api-console-form-wrapper'}>
+                    <div className='row'>
+                        <div className='col-sm-4'>
+                            <h3>{'Input'}</h3>
+                        </div>
+                        <div className='col-sm-8 link-text-next-to-header-or-button'>
+                            {hasExampleData('QUERY_STRING', endpoint.queryString) || hasExampleData('POST_BODY', endpoint.postBody) || hasExampleData('PATH_PARAM', endpoint.pathParams) ?
+                            <span
+                                className='m-l-1'
                                 onClick={(e) => {
                                     e.preventDefault();
                                     handleFillSampleData(id);
-                                } }
+                                }}
+                            >
+                            {' Fill with Sample Data'}
+                            </span> : null}
+                        </div>
+                    </div>
+                    <button
+                        className='btn btn-primary'
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleSubmit(endpoint, id);
+                        }}
+                        type={'button'}
+                    >
+                    {'Submit'}
+                    </button>
+                    <span className='link-text-next-to-header-or-button m-l-1' type='reset'>{'Reset'}</span>
+                    {endpoint.pathParams ? <RequestParams endpointId={id} paramType={'PATH'} params={endpoint.pathParams}/> : null}
+                    {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
+                    {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody}/> : null}
+                    {endpoint.postBody ? 
+                        <div>
+                            <button
+                                className='btn btn-primary'
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    handleSubmit(endpoint, id);
+                                }}
                                 type={'button'}
-                                >
-                                {'Fill Sample Data'}
+                            >
+                            {'Submit'}
                             </button>
-                        </span> : null}
-                    <button className='btn btn-default m-l-1' type='reset'>{'Reset'}</button>
+                            <span className='link-text-next-to-header-or-button m-l-1' type='reset'>{'Reset'}</span>
+                        </div> : null}
                 </div>
-                <div className={' api-console-output col-md-7'}>
+                <div className={'api-console-output col-md-9'}>
                     <h4>{'API Endpoint'}</h4>
-                    <div className={'api-console-metadata'}>{endpoint.path}</div>
+                    <div className={'code-snippet'}>{endpoint.path}</div>
                     <h4>{'Method'}</h4>
-                    <div className={'api-console-metadata'}>{endpoint.action.toUpperCase()}</div>
-                    <div className={'row'}>
+                    <div className={'code-snippet'}>{endpoint.action.toUpperCase()}</div>
+                    <div className={'row'} style={{marginBottom: '8px'}}>
                         <div className={'col-md-6'}>
                             <h4>{'Request'}</h4>
-                            <div className={'api-console-metadata'}>{JSON.stringify(endpoint.postBodyData, null, 2) || ' '}</div>
+                            <div data-clampedwidth className={'code-snippet'}><pre data-clampedwidth={'data-clampedwidth'} dangerouslySetInnerHTML={{__html: endpoint.postBodyData ? syntaxHighlight(endpoint.postBodyData) : ' '}}></pre></div>
                         </div>
                         <div className={'col-md-6'}>
                             <h4>{'Response'}</h4>
-                            <div className={'api-console-metadata'}>{endpoint.apiResponse ? JSON.stringify(endpoint.apiResponse.body, null, 2) : ' '}</div>
+                            <div data-clampedwidth className={'code-snippet'}><pre data-clampedwidth={'data-clampedwidth'} dangerouslySetInnerHTML={{__html: endpoint.apiResponse ? syntaxHighlight(endpoint.apiResponse.body) : ' '}}></pre></div>
                         </div>
                     </div>
                     <div className={'code-snippet'}>{endpoint.curl}</div>

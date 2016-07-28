@@ -75,3 +75,12 @@ h2, h3 {
         color: $Darkest-blue;
     }
 }
+
+.code-snippet-plaintext {
+    background: #5f6062;
+    border: 1px solid #75c5e4;
+    color: whitesmoke;
+    font: 13px Menlo;
+    margin: 10px;
+    padding: 10px;
+}

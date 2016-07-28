@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PostBodyItem from './PostBodyItem';
+import PostBodyItem from './postBodyItem';
 
 const PostBody = (props) => (
     <div>

@@ -7,8 +7,7 @@ install: gem install jekyll && gem install s3_website
 cache: bundler
 before_script:
   - npm install
-  - node-sass _sass/style.scss css/style.css
-  - postcss -u autoprefixer -o css/style.css css/style.css
+  - npm run build
 script: 
   - echo bundle
   - bundle install
