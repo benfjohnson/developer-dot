@@ -42,7 +42,7 @@ endpoint_links: [
 ---
 <div id="api-console">${reactHtml}</div>
 <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
-<script src="../../dynamic/public/javascript/build/console-static.js"></script>`
+<script src="../../dynamic/public/javascript/build/api-bundle.js"></script>`
             );
         };
         const staticHtml = renderToString(<App api={staticState} error={null} />);
