@@ -10,8 +10,8 @@
     "build:dev": "postcss -u autoprefixer -o css/style.css css/style.css",
     "post-dev": "watch 'npm run build:dev' _sass | npm run watch-js-bundle | jekyll serve",
     "dev": "npm run build-all-pages && npm run post-dev",
-    "watch-js-bundle": "watchify -t babelify --extension=.jsx -vd dynamic/react/console/index.js --outfile dynamic/public/javascript/build/api-bundle.js",
-    "build-js-bundle": "browserify -t babelify --extension=.jsx -vd dynamic/react/console/index.js --outfile dynamic/public/javascript/build/api-bundle.js",
+    "watch-js-bundle": "mkdir -p dynamic/public/javascript/build && watchify -t babelify --extension=.jsx -vd dynamic/react/console/index.js --outfile dynamic/public/javascript/build/api-bundle.js",
+    "build-js-bundle": "mkdir -p dynamic/public/javascript/build && browserify -t babelify --extension=.jsx -vd dynamic/react/console/index.js --outfile dynamic/public/javascript/build/api-bundle.js",
     "build-all-pages": "browserify -t babelify --node --extension=.jsx -vd dynamic/build-all-pages.js --outfile /tmp/build-all-pages.js && node /tmp/build-all-pages.js",
     "build-page": "browserify -t babelify --node --extension=.jsx -vd dynamic/build-static-page.js --outfile /tmp/build-static-page.js && node /tmp/build-static-page.js",
     "eslint": "eslint --ext .js,.jsx ./dynamic"
