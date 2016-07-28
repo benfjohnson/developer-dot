@@ -23,7 +23,7 @@
         font-family: 'source sans pro bold', Helvetica, Arial, sans-serif;
         font-size: 18px;
         line-height: 44px;
-        padding: 15px 30px;
+        padding: ($grid-gutter-width / 2) ($grid-gutter-width);
         transform: matrix(1, 0, 0, 1, -89, 0);
         transition-delay: 0s;
         transition-duration: 0.75s;
@@ -39,10 +39,13 @@
 .bg-map {
     background-image: url(/images/devdot/DevDotSvgGAssets_MapBG.svg);
     background-repeat: repeat;
-    margin: 0 -15px;
+    margin: 0 ($grid-gutter-width / -2);
 }
 .bg-white {
     background: white;
+}
+.bg-fill {
+    background: $Form-fill;
 }
 
 .ring-shadow {
@@ -50,7 +53,7 @@
     border-radius: 50%;
     border: 1px solid #eeeeee;
     box-shadow: -10px 0px 5px #eeeeee;
-    margin-left: -15px;
+    margin-left: -($grid-gutter-width / -2);
     min-height: 225px;
     &:first-of-type {
         @extend .col-xs-offset-2;
@@ -96,37 +99,40 @@
     color: $Disabled;
 }
 
-header {
-    .pageTitle {
-        background-color: $Form-fill;
-        padding: 2em;
-        font-family: 'apertura regular';
-        text-transform: capitalize;
-        a {
-            color: $Medium-grey;
-            font-size: 26px;
-            img {
-                width: 100px;
-                margin-top: -10px;
-                margin-right: 3px;
-            }
-        }
-        span {
-            font-size: 26px;
+.pageTitle {
+    font-family: 'apertura regular';
+    text-transform: capitalize;
+    &, a {
+        color: $Medium-grey;
+        font-size: 26px;
+        img {
+            width: 100px;
+            margin-top: -10px;
+            margin-right: 3px;
         }
     }
+    span {
+        font-size: 26px;
+    }
+}
 
+
+header {
+    background-color: $Form-fill;
+    .pageTitle {
+        @extend .pageTitle;
+        padding: $grid-gutter-width / 2;
+    }
     .navbar-default {
         background-color: $Ava-orange;
         border-top: 2px solid $Darker-Ava-orange;
         border-bottom: 2px solid $Form-bottom;
         color: white;
         margin-bottom: 0;
-        padding-left: 1em;
 
         .navbar-toggle {
             float: left;
-            margin-left: 15px;
+            margin-left: $grid-gutter-width / 2;
             &:hover, &:focus {
                 background-color: $Darker-Ava-orange;
             }
