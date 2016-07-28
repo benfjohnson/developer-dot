@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Integration Self-Test
 date: 2013-08-16 22:16
 author: anya.stettler

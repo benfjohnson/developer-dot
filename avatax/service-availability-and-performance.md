@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Service Availability and Performance
 date: 2014-05-30 20:39
 author: seanrust

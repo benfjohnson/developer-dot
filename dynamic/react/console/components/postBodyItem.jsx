@@ -74,7 +74,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
 
     return (
         <PostBodySectionHeader canRemove={canRemove} displayName={displayName} endpointId={endpointId} propertyName={name}>
-            {uiState.visible ? Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
+            {Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
                 return (<PostBodyItem
                     canRemove={false}
                     displayName={itemKey}
@@ -85,7 +85,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
                     name={`${name ? name + ';' : ''}` + itemKey}
                     uiState={item[itemKey].uiState}
                 />);
-            }) : null}
+            })}
         </PostBodySectionHeader>
     );
 };

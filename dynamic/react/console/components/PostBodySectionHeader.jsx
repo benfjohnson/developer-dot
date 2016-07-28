@@ -3,13 +3,13 @@ import React from 'react';
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
 
-const handleToggleVisibility = (propertyName, endpointId) => {
-    store.dispatch({
-        type: actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY,
-        postBodyParamName: propertyName,
-        endpointId: endpointId
-    });
-};
+// const handleToggleVisibility = (propertyName, endpointId) => {
+//     store.dispatch({
+//         type: actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY,
+//         postBodyParamName: propertyName,
+//         endpointId: endpointId
+//     });
+// };
 
 const handleRemoveItem = (pbName, endpointId) => {
     store.dispatch({
@@ -28,7 +28,6 @@ const PostBodySectionHeader = ({endpointId, propertyName, displayName, children,
         <div>
             <h4
                 className={'api-documentation-section-header-text'}
-                onClick={() => (handleToggleVisibility(propertyName, endpointId))}
                 style={{cursor: 'pointer'}}
             >
                 {displayName}

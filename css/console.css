@@ -1,33 +1,15 @@
-td {
-    vertical-align: top;
-}
-
-textarea {
-    border: none;
-    width: 100%;
-}
-
 .m-l-1 {
     margin-left: 1rem;
 }
 
-.code-snippet {
+/*.code-snippet {
     background: #5f6062;
     border: 1px solid #75c5e4;
     color: #8fffa7;
     font: 13px Menlo;
     margin-top: 1rem;
     padding: 1rem
-}
-
-.code-snippet-plaintext {
-    background: #5f6062;
-    border: 1px solid #75c5e4;
-    color: whitesmoke;
-    font: 13px Menlo;
-    margin-top: 1rem;
-    padding: 1rem
-}
+}*/
 
 .responseBody {
     margin-top: 1rem;
@@ -35,10 +17,6 @@ textarea {
 
 .mouse {
     cursor: pointer;
-}
-
-.active-tab {
-    font-weight: bold;
 }
 
 .endpoint-nav {

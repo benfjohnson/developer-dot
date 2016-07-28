@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Develop
 date: 2013-05-08 22:31
 author: anya.stettler

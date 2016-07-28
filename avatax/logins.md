@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Logins and Resources
 date: 2012-05-14 14:32
 author: anya.stettler

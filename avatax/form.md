@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: 
 date: 2014-09-11 16:52
 author: nick.breslin

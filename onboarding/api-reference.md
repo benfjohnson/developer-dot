@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Onboarding API Reference
 date: 2016-04-22 17:03
 author: anya.stettler

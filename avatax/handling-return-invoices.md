@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Product Returns
 date: 2012-05-14 16:31
 author: anya.stettler
