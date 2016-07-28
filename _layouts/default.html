@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -9,33 +8,26 @@
     <meta name="description" content="{{ site.subtitle }}">
 
     <link rel="stylesheet" href="/css/style.css">
-    {% if page.api_console == 1 %}
-    <link rel="stylesheet" href="/css/console.css">
-    {% endif %}
+    {% if page.api_console == 1 %}<link rel="stylesheet" href="/css/console.css">{% endif %}
 
 </head>
 
-
-{% if page.api_name %}
-    {% assign product_link = page.api_name %}
-    {% assign product_name = page.api_name %}
-{% else %}
-    {% assign product_link = page.product %}
+{% if page.product %}
     {% assign product_name = page.product %}
+{% else %}
+    {% if page.api_name %}
+        {% assign product_name = page.api_name %}
+    {% endif %}
 {% endif %}
 
-
-<body id='the-site' data-spy='scroll' data-target='#bootstrap-scrollspy' data-product={{product_name}}>
-
+<body data-spy='scroll' data-target='#bootstrap-scrollspy' data-product={{product_name}}>
     <header>
         <div class="pageTitle">
             <a href="/">
                 <img src="/images/AvLogo.svg" alt="Avalara Developer Network">
                 <span>Developer</span>
             </a>
-            {% if page.nav == 'apis' %}
-                <span class="slash">/&nbsp;</span><a href='/{{product_link}}'>{{product_name}}</a>
-            {% endif %}
+            {% if product_name %}<span class="slash">/&nbsp;</span><a href='/{{product_name}}'>{{product_name}}</a>{% endif %}
         </div>
         <nav class="navbar navbar-default navbar-static">
             <div class="navbar-header">
@@ -45,12 +37,15 @@
             </div>
             <div class="collapse navbar-collapse js-navbar-collapse">
                 <ul class="nav navbar-nav {{page.nav}}">
-                    <li class="home"><a href="/"><span class="uppercase">Welcome</span></a></li>
-                    <li class="apis visible-xs-block"><a href="#"><span class="uppercase">API</span>s</a></li>
+                    <li class="home"><a href="/"><span class="text-uppercase">Welcome</span></a></li>
+                    <li class="apis visible-xs-block"><a href="/apis.html"><span class="text-uppercase">API</span>s</a></li>
                     <li class="apis dropdown dropdown-large hidden-xs">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="uppercase">API</span>s <i class="caret"></i></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">API</span>s <i class="caret"></i></a>
                         <ul class="dropdown-menu dropdown-menu-large row">
                             <li class="col-sm-7">
+                                <ul class="pipe">
+                                    <li><a href="/apis.html">APIs Overview</a></li>
+                                </ul>
                                 <h2>Tax Calculation</h2>
                                 <h4>Avalara AvaTax</h4>
                                 <ul class="pipe">
@@ -99,9 +94,9 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="certification"><a href="/certification/"><span class="uppercase">Become Certified</span></a></li>
+                    <li class="certification"><a href="/certification/"><span class="text-uppercase">Become Certified</span></a></li>
                     <li class="resources dropdown dropdown-large hidden-xs">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="uppercase">Resources</span> <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">Resources</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-large" style="width:auto">
                             <li>
                                 <ul class="pipe">
@@ -114,15 +109,15 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="resources visible-xs-block"><a href="#"><span class="uppercase">Developer Blog</span></a></li>
-                    <li class="resources visible-xs-block"><a href="#"><span class="uppercase">Preferred developers</span></a></li>
-                    <li class="resources visible-xs-block"><a href="#"><span class="uppercase">Help Forum</span></a></li>
+                    <li class="resources visible-xs-block"><a href="#"><span class="text-uppercase">Developer Blog</span></a></li>
+                    <li class="resources visible-xs-block"><a href="#"><span class="text-uppercase">Preferred developers</span></a></li>
+                    <li class="resources visible-xs-block"><a href="#"><span class="text-uppercase">Help Forum</span></a></li>
                     <li class="hdr-search-container hidden-xs">
                         <a><i class="hdr-search-icon mouse glyphicon glyphicon-search"></i></a>
                         <form class="hdr-search-form horizontal">
                             <h4>Search Avalara Developer</h4>
                             <div class="form-group col-sm-9">
-                                <input id="nav-query" class="form-control" type="search" placeholder="Search">
+                                <input class="form-control" type="search" placeholder="Search">
                                 <span class="form-control-feedback" aria-hidden="false">Required</span>
                             </div>
                             <div class="form-group col-sm-3">
@@ -136,17 +131,12 @@
     </header>
     <div class="container-fluid">
         <section class="row">
-            {% assign post_count = site.posts|size %} {% if page.api_console == 1 %}
-            <nav class="col-md-3" style='float: left;'>
-                {% include console-navigation.html %}
-            </nav>
-            <main id="content" class="col-md-9">
-                {{ content }}
-            </main>
+            {% assign post_count = site.posts|size %}
+            {% if page.api_console == 1 %}
+                <nav class="col-md-3" style='float: left;'>{% include console-navigation.html %}</nav>
+                <main class="col-md-9">{{ content }}</main>
             {% else %}
-            <main id="content" class="col-md-12">
-                {{ content }}
-            </main>
+                <main class="col-md-12">{{ content }}</main>
             {% endif %}
         </section>
         {% if page.disqus == 1 %}

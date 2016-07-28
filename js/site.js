@@ -1,6 +1,6 @@
 var $searchForm = $('.hdr-search-form');
 var $searchFormIcon = $('.hdr-search-icon');
-var $searchInput = $('#nav-query');
+var $searchInput = $searchForm.find('input[type="search"]');
 
 var submitSearch = function() {
     $('.hdr-search-form').on('submit', function(e) {
