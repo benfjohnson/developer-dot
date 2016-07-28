@@ -7,9 +7,9 @@ import parseSwaggerUi from './react/console/parseSwaggerUI';
 import mkdirp from 'mkdirp';
 import fs from 'fs';
 
-export default (fileName, apiName) => {
-    if (!fileName || !apiName) {
-        throw new Error('`filepath` and `apiName` required!');
+export default (fileName, apiName, apiPath) => {
+    if (!fileName || !apiName || !apiPath) {
+        throw new Error('`filepath`, `apiName` and `apiPath` required!');
     }
 
     const swaggerPath = path.join(__dirname, 'swagger', fileName);
@@ -42,12 +42,12 @@ endpoint_links: [
 ---
 <div id="api-console">${reactHtml}</div>
 <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
-<script src="../../dynamic/public/javascript/build/api-bundle.js"></script>`
+<script src="/dynamic/public/javascript/build/api-bundle.js"></script>`
             );
         };
         const staticHtml = renderToString(<App api={staticState} error={null} />);
         const HTML = buildHtml(staticHtml, staticState);
-        const savePath = path.join(__dirname, '..', apiName, 'console');
+        const savePath = path.join(__dirname, '..', apiPath);
 
         mkdirp(savePath, (err) => {
             if (err) {
@@ -59,7 +59,7 @@ endpoint_links: [
                     throw writeErr;
                 }
                 /* eslint-disable no-console */
-                console.log(`/${apiName}/console/index.html saved successfully!`);
+                console.log(`/${apiPath}/index.html saved successfully!`);
                 /* eslint-enable no-console */
             });
         });

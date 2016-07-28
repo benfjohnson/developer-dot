@@ -15,14 +15,11 @@
 /dynamic/_site/
 
 ## Ignore generated API Reference pages, should be created on build ##
-landedcost/console
-avatax/console
-avataxsoap/console
-communications/console
-communicationsgeo/console
-trustfile/console
-taxrates/console
-onboarding/console
+avatax/api-reference/**/index.html
+communications/api-reference/**/index.html
+landedcost/api-reference/**/index.html
+taxrates/api-reference/**/index.html
+trustfile/api-reference/**/index.html
 ################
 
 ## Specific to RubyMotion:
