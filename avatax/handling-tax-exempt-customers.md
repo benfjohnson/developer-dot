@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Exempt Transactions
 date: 2012-10-11 23:41
 author: anya.stettler

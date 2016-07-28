@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Go Live
 date: 2012-05-14 14:33
 author: anya.stettler

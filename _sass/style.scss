@@ -60,24 +60,23 @@ body {
     padding-bottom: 2em;
 }
 
-#product {
-    text-transform: capitalize;
-}
-
 .slash {
     color: $Disabled;
 }
 
 header {
     .pageTitle {
+        background-color: $Form-fill;
         padding: 2em;
         font-family: 'apertura regular';
+        text-transform: capitalize;
         a {
             color: $Medium-grey;
             font-size: 26px;
             img {
                 width: 100px;
                 margin-top: -10px;
+                margin-right: 3px;
             }
         }
         span {
@@ -87,7 +86,7 @@ header {
 
     .navbar-default {
         background-color: $Ava-orange;
-        border-top: 2px solid #e65000;
+        border-top: 2px solid $Darker-Ava-orange;
         border-bottom: 2px solid $Form-bottom;
         color: white;
         margin-bottom: 0;
@@ -96,7 +95,7 @@ header {
             float: left;
             margin-left: 15px;
             &:hover, &:focus {
-                background-color: #e65000;
+                background-color: $Darker-Ava-orange;
             }
         }
 
@@ -122,7 +121,7 @@ header {
                 &.open > a,
                 &.open > a:hover,
                 &.open > a:focus {
-                    background-color: #e65000;
+                    background-color: $Darker-Ava-orange;
                 }
                 &.open .caret {
                     border-top: 0;
@@ -136,7 +135,7 @@ header {
             &.apis li.apis,
             &.certification li.certification,
             &.resources li.resources {
-                background-color: #e65000;
+                background-color: $Darker-Ava-orange;
             }
             .dropdown-large {
                 position: static;
@@ -322,5 +321,17 @@ footer {
         &:hover {
             text-decoration: none;
         }
+    }
+}
+
+.ring-shadow {
+    background: white;
+    border-radius: 50%;
+    border: 1px solid #eeeeee;
+    box-shadow: -10px 0px 5px #eeeeee;
+    margin-left: -15px;
+    min-height:225px;
+    &:first-of-type {
+        @extend .col-xs-offset-2;
     }
 }

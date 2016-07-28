@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Address Validation
 date: 2012-05-14 15:29
 author: anya.stettler

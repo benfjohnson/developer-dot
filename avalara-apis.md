@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Avalara APIs
 date: 2016-01-18 04:58
 author: jeremy.buller
