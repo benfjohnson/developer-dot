@@ -2,5 +2,5 @@
 
 nav_link:
     title: TaxRates
-    path: /taxrates/console
+    path: /taxrates/api-reference
     
