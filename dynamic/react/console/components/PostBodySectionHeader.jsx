@@ -3,13 +3,13 @@ import React from 'react';
 import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
 
-const handleToggleVisibility = (propertyName, endpointId) => {
-    store.dispatch({
-        type: actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY,
-        postBodyParamName: propertyName,
-        endpointId: endpointId
-    });
-};
+// const handleToggleVisibility = (propertyName, endpointId) => {
+//     store.dispatch({
+//         type: actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY,
+//         postBodyParamName: propertyName,
+//         endpointId: endpointId
+//     });
+// };
 
 const handleRemoveItem = (pbName, endpointId) => {
     store.dispatch({
@@ -25,36 +25,25 @@ const handleRemoveItem = (pbName, endpointId) => {
  * */
 const PostBodySectionHeader = ({endpointId, propertyName, displayName, children, canRemove}) => {
     return (
-        <tr>
-            <td colSpan='2'>
-                <table className={'postBodySectionHeader'}>
-                    <tbody>
-                    <tr>
-                        <td
-                            className={'postBodySectionHeaderName'}
-                            colSpan='2'
-                            onClick={() => (handleToggleVisibility(propertyName, endpointId))}
-                        >
-                            <label className={'postBodySectionHeaderName'}>
-                                {displayName}
-                                {canRemove ?
-                                    <span
-                                        className={'m-l-1 glyphicon glyphicon-remove-sign mouse'}
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            handleRemoveItem(propertyName, endpointId);
-                                        }}
-                                        title={'Remove Item'}
-                                    /> : null
-                                }
-                            </label>
-                        </td>
-                    </tr>
-                    {children}
-                    </tbody>
-                </table>
-            </td>
-        </tr>
+        <div>
+            <h4
+                className={'api-documentation-section-header-text'}
+                style={{cursor: 'pointer'}}
+            >
+                {displayName}
+                {canRemove ?
+                    <span
+                        className={'m-l-1 glyphicon glyphicon-remove-sign mouse'}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            handleRemoveItem(propertyName, endpointId);
+                        }}
+                        title={'Remove Item'}
+                    /> : null
+                }
+            </h4>
+            {children}
+        </div>
     );
 };
 

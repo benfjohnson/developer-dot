@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Thank you for registering.
 date: 2012-09-26 16:33
 author: nick.breslin

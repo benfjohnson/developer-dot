@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: AvaTax Use Tax Checklist
 date: 2016-01-18 02:41
 author: jeremy.buller

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: VAT Transactions
 date: 2014-02-25 21:44
 author: seanrust

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Consumer Use Tax
 date: 2014-07-01 18:24
 author: anya.stettler

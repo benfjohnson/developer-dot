@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Develop
 date: 2016-01-18 02:34
 author: jeremy.buller

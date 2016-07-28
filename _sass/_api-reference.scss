@@ -1,0 +1,86 @@
+.small-required-text {
+    font-size: 12px;
+    font-weight: bold;
+    color: $Ava-orange;
+}
+
+.documentation-parameter-name {
+    font-weight: bold;
+    text-align: right;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif !important;
+    color: $Dark-grey;
+}
+
+h2, h3 {
+    color: $Ava-orange !important;
+}
+
+.documentation-parameter-body {
+    padding: 10px;
+}
+
+.postBodySectionHeader {
+    width: 100%;
+}
+
+.api-documentation-section-header {
+    cursor: pointer;
+    border-bottom: 1px solid lightgrey;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.api-documentation-section-header:hover {
+    background: #F7F9FA;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+    background: white;
+    color: $Ava-orange;
+}
+
+.hidden {
+    display: none;
+}
+
+.affix-bottom {
+    position: relative
+}
+
+.documentation-expand-icon {
+    border-radius: 50%;
+    border: 2px solid $Ava-blue;
+    padding: 2.4px;
+    color: $Ava-blue;
+    text-align: center;
+
+    :hover {
+        color: $Darkest-blue;
+    }
+}
+
+.try-it-now-header {
+    display: inline-block;
+    color: $Ava-blue;
+    cursor: pointer;
+    font-size: 18px;
+
+    text:hover {
+        color: $Darkest-blue;
+    }
+}
+
+.code-snippet-plaintext {
+    background: #5f6062;
+    border: 1px solid #75c5e4;
+    color: whitesmoke;
+    font: 13px Menlo;
+    margin: 10px;
+    padding: 10px;
+}

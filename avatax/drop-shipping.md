@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Drop Shipping
 date: 2013-05-13 21:29
 author: anya.stettler

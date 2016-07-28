@@ -1,0 +1,5 @@
+node_modules
+
+dynamic/public/javascript
+dynamic/dist
+dynamic/_site

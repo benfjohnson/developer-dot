@@ -23,21 +23,15 @@ const handleInputChange = (e, paramType, paramName, endpointId) => {
 
 const RequestParams = ({endpointId, paramType, params}) => {
     return (
-        <table>
-            <tbody>
-            <tr>
-                <td colSpan='2'><h4>{paramType === PARAM_TYPES.QUERY_STRING ? 'Query String' : 'Path Parameters'}</h4></td>
-            </tr>
+        <form>
+            <h4>{paramType === PARAM_TYPES.QUERY_STRING ? 'Query String' : 'Path Parameters'}</h4>
             {Object.keys(params).map((key, i) => {
                 return (
-                    <tr key={i}>
-                        <td>
-                            <label htmlFor={`${endpointId}-qs-${i}`}>{key}</label>
-                            {params[key].description && params[key].description.length ? <span className={'m-l-1 glyphicon glyphicon-info-sign'} style={{color: 'lightgrey'}} title={params[key].description}/> : null}
-                        </td>
-                        <td>
+                    <div className={'form-group'} key={i}>
+                        <label htmlFor={`${endpointId}-qs-${i}`}>{key}</label>
                         {params[key].enum && params[key].enum.length ?
                             <select
+                                className={'form-control'}
                                 id={`${endpointId}-qs-${i}`}
                                 onChange={(e) => (handleInputChange(e, paramType, key, endpointId))}
                                 value={params[key].value || '*select*'}
@@ -45,8 +39,10 @@ const RequestParams = ({endpointId, paramType, params}) => {
                                 <option disabled={true} value={'*select*'}>{''}</option>
                                 {params[key].enum.map((option, ii) => (<option key={ii} value={option}>{option}</option>))}
                             </select> :
-                            <input id={`${endpointId}-qs-${i}`}
-                                   onChange={
+                            <input
+                                className={'form-control'}
+                                id={`${endpointId}-qs-${i}`}
+                                onChange={
                                     (e) => {
                                         handleInputChange(e, paramType, key, endpointId);
                                     }
@@ -55,12 +51,10 @@ const RequestParams = ({endpointId, paramType, params}) => {
                                    value={params[key].value}
                             />
                         }
-                        </td>
-                    </tr>
+                    </div>
                 );
             })}
-            </tbody>
-        </table>
+        </form>
     );
 };
 

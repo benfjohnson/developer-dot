@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Provisioning API Reference
 date: 2016-06-07 13:37
 author: anya.stettler

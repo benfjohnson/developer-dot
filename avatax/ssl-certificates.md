@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: SSL Certificates
 date: 2013-03-27 04:39
 author: anya.stettler

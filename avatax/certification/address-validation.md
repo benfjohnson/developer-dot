@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: AvaTax with Address Validation Checklist
 date: 2016-01-18 02:41
 author: jeremy.buller

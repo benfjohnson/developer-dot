@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Overview
 date: 2016-01-21 15:14
 author: jeremy.buller

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Certification Checklist
 date: 2016-06-07 14:03
 author: anya.stettler
