@@ -9,7 +9,7 @@ const PARAM_TYPES = {
     PATH: 'PATH'
 };
 
-const RequestParamsDocs = ({paramType, params}) => {
+const RequestParamsDocumentation = ({paramType, params}) => {
     return (
         <div>
             <h3>{paramType === PARAM_TYPES.QUERY_STRING ? 'Querystring Parameters' : 'Path Parameters'}</h3>
@@ -26,8 +26,8 @@ const RequestParamsDocs = ({paramType, params}) => {
     );
 };
 
-RequestParamsDocs.displayName = 'Request Parameters';
-RequestParamsDocs.propTypes = {
+RequestParamsDocumentation.displayName = 'Request Parameters';
+RequestParamsDocumentation.propTypes = {
     paramType: React.PropTypes.oneOf(['QUERY_STRING', 'PATH']).isRequired,
     params: React.PropTypes.objectOf(
         React.PropTypes.shape({
@@ -40,4 +40,4 @@ RequestParamsDocs.propTypes = {
     ).isRequired
 };
 
-export default RequestParamsDocs;
+export default RequestParamsDocumentation;

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import PostBodyDocsCollapseable from './postBodyDocsCollapseable';
+import ApiDocumentationHeader from './apiDocumentationHeader';
 
-const PostBodyDocsItem = ({documentationFor, name, item, isArray = false, isNested = false, endpointId, uiState, displayName, isRoot = false}) => {
+const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, isNested = false, endpointId, uiState, displayName, isRoot = false}) => {
     if (item.fieldType && item.fieldType !== 'array') {
         return (
             <div className={'row documentation-parameter-body'}>
@@ -15,7 +15,7 @@ const PostBodyDocsItem = ({documentationFor, name, item, isArray = false, isNest
 
     if (item.fieldType === 'array') {
         return (
-            <PostBodyDocsItem
+            <ApiDocumentationItem
                     displayName={displayName}
                     documentationFor={documentationFor}
                     endpointId={endpointId}
@@ -35,7 +35,7 @@ const PostBodyDocsItem = ({documentationFor, name, item, isArray = false, isNest
             <div>
                 {Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
                     return (
-                        <PostBodyDocsItem
+                        <ApiDocumentationItem
                             displayName={itemKey}
                             documentationFor={documentationFor}
                             endpointId={endpointId}
@@ -52,9 +52,9 @@ const PostBodyDocsItem = ({documentationFor, name, item, isArray = false, isNest
     }
 
     return (
-        <PostBodyDocsCollapseable collapsed={!uiState.visible} displayName={displayName} documentationFor={documentationFor} endpointId={endpointId} isArray={isArray} isNested={isNested} propertyName={name}>
+        <ApiDocumentationHeader collapsed={!uiState.visible} displayName={displayName} documentationFor={documentationFor} endpointId={endpointId} isArray={isArray} isNested={isNested} propertyName={name}>
             {uiState.visible ? Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
-                return (<PostBodyDocsItem
+                return (<ApiDocumentationItem
                     displayName={itemKey}
                     documentationFor={documentationFor}
                     endpointId={endpointId}
@@ -66,12 +66,12 @@ const PostBodyDocsItem = ({documentationFor, name, item, isArray = false, isNest
                     uiState={item[itemKey].uiState}
                     />);
             }) : null}
-        </PostBodyDocsCollapseable>
+        </ApiDocumentationHeader>
     );
 };
 
-PostBodyDocsItem.displayName = 'Post Body Docs Item';
-PostBodyDocsItem.propTypes = {
+ApiDocumentationItem.displayName = 'Post Body Docs Item';
+ApiDocumentationItem.propTypes = {
     displayName: React.PropTypes.string.isRequired,
     documentationFor: React.PropTypes.oneOf(['REQUEST', 'RESPONSE']),
     endpointId: React.PropTypes.number.isRequired,
@@ -85,4 +85,4 @@ PostBodyDocsItem.propTypes = {
     })
 };
 
-export default PostBodyDocsItem;
+export default ApiDocumentationItem;

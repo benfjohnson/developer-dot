@@ -16,7 +16,7 @@ const handleToggleVisibility = (documentationFor, propertyName, endpointId) => {
  * Defines a wrapper to nest object properties or
  * array items in a PostBody
  * */
-const PostBodyDocsCollapseable = ({documentationFor, endpointId, isArray, isNested, propertyName, displayName, collapsed, children}) => {
+const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, isNested, propertyName, displayName, collapsed, children}) => {
     const style = isNested ? {border: '1px solid lightgrey'} : {border: '1px solid lightgrey', marginTop: '10px', marginBottom: '10px'};
 
     // if (!isNested) {
@@ -39,8 +39,8 @@ const PostBodyDocsCollapseable = ({documentationFor, endpointId, isArray, isNest
     );
 };
 
-PostBodyDocsCollapseable.displayName = 'Post Item Section Header';
-PostBodyDocsCollapseable.propTypes = {
+ApiDocumentationHeader.displayName = 'Post Item Section Header';
+ApiDocumentationHeader.propTypes = {
     children: React.PropTypes.oneOfType([
         React.PropTypes.element,
         React.PropTypes.array
@@ -57,4 +57,4 @@ PostBodyDocsCollapseable.propTypes = {
     })
 };
 
-export default PostBodyDocsCollapseable;
+export default ApiDocumentationHeader;

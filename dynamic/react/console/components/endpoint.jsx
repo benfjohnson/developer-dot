@@ -1,8 +1,8 @@
 import React from 'react';
 import ApiConsole from './apiConsole';
 import ReactMarkdown from 'react-markdown';
-import RequestParamsDocs from './requestParamsDocs';
-import PostBodyDocs from './postBodyDocs';
+import RequestParamsDocumentation from './requestParamsDocumentation';
+import ApiDocumentation from './apiDocumentation';
 import {replaceSpacesInStr} from '../helpers';
 
 import {store} from '../store';
@@ -30,10 +30,10 @@ const EndPointComponent = (props) => (
             {props.endpoint.postBody ? <div><br /><div>{'HEADERS'}</div><div className={'code-snippet-plaintext'}>{'Content-Type: application/json'}</div></div> : null}
         </div>
         <br />
-        {props.endpoint.queryString ? <RequestParamsDocs paramType={'QUERY_STRING'} params={props.endpoint.queryString} /> : null}
-        {props.endpoint.pathParams ? <RequestParamsDocs paramType={'PATH'} params={props.endpoint.pathParams} /> : null}
-        {props.endpoint.requestSchema ? <PostBodyDocs documentationFor={'REQUEST'} id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.requestSchema} /> : null}
-        {props.endpoint.responseSchema ? <PostBodyDocs documentationFor={'RESPONSE'} id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.responseSchema} /> : null}
+        {props.endpoint.queryString ? <RequestParamsDocumentation paramType={'QUERY_STRING'} params={props.endpoint.queryString} /> : null}
+        {props.endpoint.pathParams ? <RequestParamsDocumentation paramType={'PATH'} params={props.endpoint.pathParams} /> : null}
+        {props.endpoint.requestSchema ? <ApiDocumentation documentationFor={'REQUEST'} id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.requestSchema} /> : null}
+        {props.endpoint.responseSchema ? <ApiDocumentation documentationFor={'RESPONSE'} id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.responseSchema} /> : null}
         {props.apiType === 'REST' ? <ApiConsole endpoint={props.endpoint} id={props.id} /> : null}
     </div>
 );
