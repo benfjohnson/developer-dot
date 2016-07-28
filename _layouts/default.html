@@ -15,7 +15,18 @@
 
 </head>
 
-<body id='the-site' data-spy='scroll' data-target='#bootstrap-scrollspy'>
+
+{% if page.api_name %}
+    {% assign product_link = page.api_name %}
+    {% assign product_name = page.api_name %}
+{% else %}
+    {% assign product_link = page.product %}
+    {% assign product_name = page.product %}
+{% endif %}
+
+
+<body id='the-site' data-spy='scroll' data-target='#bootstrap-scrollspy' data-product={{product_name}}>
+
     <header>
         <div class="pageTitle">
             <a href="/">
@@ -23,12 +34,7 @@
                 <span>Developer</span>
             </a>
             {% if page.nav == 'apis' %}
-            <span class="slash">/&nbsp;</span>
-            {% if page.api_name %}
-            <a href='/{{page.api_name}}' id="product">{{page.api_name}}</a>
-            {% else %}
-            <a href='/{{page.product}}' id="product">{{page.product}}</a>
-            {% endif %}
+                <span class="slash">/&nbsp;</span><a href='/{{product_link}}'>{{product_name}}</a>
             {% endif %}
         </div>
         <nav class="navbar navbar-default navbar-static">
