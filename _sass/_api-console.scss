@@ -18,10 +18,6 @@
     padding: 5px;
 }
 
-.code-snippet {
-    
-}
-
 .api-console-form-section-header {
 
 }
@@ -30,7 +26,8 @@
     border: 1px solid #71e4ff;
     padding: 10px;
     margin: 10px;
-    overflow: hidden;
+    overflow: scroll;
+    font-weight: bold;
 
     .string { color: #71e4ff; }
     .number { color: #fc88ff; }
@@ -38,6 +35,13 @@
     .null { color: #fc88ff; }
     .key { color: #8fffa7; }
     .punctuation { color: #fceb51; }
+}
+
+.code-snippet-code-text {
+    color: #8fffa7;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-weight: bold;
+    font-size: 13px;
 }
 
 .code-snippet pre {
