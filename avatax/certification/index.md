@@ -76,7 +76,7 @@ Key:  R – Functionality required for certification     N – Functionalit
 </tr>
 <tr>
 <td>R</td>
-<td><a href="http://developer.avalara.com/api-docs/api-reference/rest-curl/estimatetax">AvaTax Test Connection</a> button</td>
+<td><a href="/avatax/api-reference/tax/v1#estimateTax">AvaTax Test Connection</a> button</td>
 <td>Tests the connection to the AvaTax service and verifies the AvaTax credentials. This is an important element to allow for successful troubleshooting of the AvaTax service. Optional – display license key expiration date upon successful connection response.</td>
 </tr>
 <tr>
