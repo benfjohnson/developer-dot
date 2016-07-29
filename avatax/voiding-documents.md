@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Cancel Transactions
 date: 2012-05-14 16:08
 author: anya.stettler

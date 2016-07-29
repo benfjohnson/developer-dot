@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: AvaTax API Reference SOAP AccountSvc
 date: 2016-01-18 02:31
 author: anya.stettler

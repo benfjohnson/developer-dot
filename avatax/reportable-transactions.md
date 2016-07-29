@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Commit Transactions
 date: 2012-05-14 16:02
 author: anya.stettler

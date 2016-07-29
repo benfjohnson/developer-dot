@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Finding your CompanyId
 date: 2013-03-07 01:15
 author: anya.stettler

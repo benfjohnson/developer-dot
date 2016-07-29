@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Page List
 date: 2012-02-19 12:36
 author: avalara

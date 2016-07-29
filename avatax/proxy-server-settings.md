@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Proxy Server Settings
 date: 2012-05-14 16:36
 author: anya.stettler

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Preferred Developers
 date: 2016-01-18 02:45
 author: jeremy.buller

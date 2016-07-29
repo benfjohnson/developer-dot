@@ -13,7 +13,7 @@ var submitSearch = function() {
         }
 
         var newurl = '/search/?q=' + encodeURIComponent($searchInput.val());
-        var product = $('#product').text();
+        var product = $('body').attr('data-product');
 
         if (product) {
             newurl += '&product=' + encodeURIComponent(product);

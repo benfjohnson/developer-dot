@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Connectors API Reference
 date: 2016-06-07 13:38
 author: anya.stettler

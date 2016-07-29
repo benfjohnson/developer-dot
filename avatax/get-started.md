@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Get Started
 date: 2012-09-11 00:09
 author: anya.stettler

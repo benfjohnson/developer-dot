@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Test
 date: 2012-10-11 23:27
 author: anya.stettler

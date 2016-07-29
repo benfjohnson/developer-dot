@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: AvaTax with Returns Checklist
 date: 2016-01-18 02:43
 author: jeremy.buller

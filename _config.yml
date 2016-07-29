@@ -1,4 +1,4 @@
-# Site title and subtitle. This is used in _includes/header.html
+# Site title and subtitle. This is used in _includes/header.html 
 title: 'Developer '
 subtitle: ''
 
@@ -80,4 +80,4 @@ excerpt_separator: <!--more-->
 collections:
     pages:
         permalink: :basename/
-        layout: "page"
+        layout: "default"

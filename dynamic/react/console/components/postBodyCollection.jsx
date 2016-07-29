@@ -17,7 +17,7 @@ const handleAddItem = (paramName, endpointId, itemSchema) => {
 const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiState, displayName}) => {
     return (
         <PostBodySectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} propertyName={propertyName}>
-            {uiState.visible ? collection.map((itm, i) => {
+            {collection.map((itm, i) => {
                 return (
                     <PostBodyItem
                         canRemove={collection.length > 1}
@@ -28,7 +28,7 @@ const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiSta
                         name={`${propertyName ? propertyName + ';' : ''}[${i}]`}
                         uiState={itm.uiState}
                         />);
-            }) : null}
+            })}
             <div className={'mouse'}
                 onClick={
                     (e) => {

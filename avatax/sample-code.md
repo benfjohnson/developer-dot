@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Samples & Libraries
 date: 2013-03-12 22:45
 author: lokeuei
