@@ -32,6 +32,6 @@ doctype:
 </select>
 
 <button class="search-button">Search</button>
-<ul id="search-results"></ul>
+<div id="search-results"></div>
 
 Search provided by <a href="http://www.algolia.com"><img src="/images/Algolia_logo_bg-white.jpg" alt="Search provided by Algolia" height="20"/></a>

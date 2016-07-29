@@ -11,7 +11,7 @@ nav: certification
 ---
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3 text-center">
+  <div class="col-sm-6 col-sm-offset-3 text-center">
     <img src="/images/devdot/DevDotSvgGAssets_ComplianceCloudIllustrationCertification.svg" />
     <h1>Grow your your customer base and recurring revenue with a certified Avalara integration</h1>
     <div class="row">
@@ -30,25 +30,25 @@ nav: certification
     </div>
 </div>
 <div class="row padding-top padding-bottom">
-    <div class="col-xs-offset-2 col-xs-2 text-center ring-shadow">
+    <div class="ring-shadow">
         <h2>Day 0</h2>
         <img src="/images/devdot/DevDotSvgGAssets_KickOff.svg" width="50%"/>
         <h5>Kick off</h5>
         <h5><a href="#">CTA link</a></h5>
     </div>
-    <div class="col-xs-2 text-center ring-shadow">
+    <div class="ring-shadow">
         <h2>Day 30</h2>
         <img src="/images/devdot/DevDotSvgGAssets_DesignBuild.svg" width="50%"/>
         <h5>Design/Build plan</h5>
         <h5><a href="#">CTA link</a></h5>
     </div>
-    <div class="col-xs-2 text-center ring-shadow">
+    <div class="ring-shadow">
         <h2>Day 60</h2>
         <img src="/images/devdot/DevDotSvgGAssets_FunctionalTest.svg" width="50%"/>
         <h5>Functional review</h5>
         <h5><a href="#">CTA link</a></h5>
     </div>
-    <div class="col-xs-2 text-center ring-shadow">
+    <div class="ring-shadow">
         <h2>Day 90</h2>
         <img src="/images/devdot/DevDotSvgGAssets_MarketReady.svg" width="50%" />
         <h5>Market ready</h5>

@@ -1,117 +1,133 @@
 var $searchForm = $('.hdr-search-form');
+var $searchFormCloseBtn = $searchForm.find('.close');
 var $searchFormIcon = $('.hdr-search-icon');
 var $searchInput = $searchForm.find('input[type="search"]');
 
 var submitSearch = function() {
-    $('.hdr-search-form').on('submit', function(e) {
+    $searchForm.on('submit', function(e) {
         e.preventDefault();
+        $searchForm.addClass('submitted');
 
         $searchInput.parents('.form-group').removeClass('has-error').removeClass('has-feedback');
         if (!$searchInput.val()) {
             $searchInput.parents('.form-group').addClass('has-error').addClass('has-feedback');
-            return false;
-        }
+        } else {
+            var newurl = '/search/?q=' + encodeURIComponent($searchInput.val());
+            var product = $('body').attr('data-product');
 
-        var newurl = '/search/?q=' + encodeURIComponent($searchInput.val());
-        var product = $('body').attr('data-product');
-
-        if (product) {
-            newurl += '&product=' + encodeURIComponent(product);
+            if (product) {
+                newurl += '&product=' + encodeURIComponent(product);
+            }
+            window.location.href = newurl;
         }
-        window.location.href = newurl;
     });
 };
-
 var showSearchForm = function() {
-    $searchForm.hide();
-
     $searchFormIcon.on('click', function() {
-        $searchFormIcon.hide();
-        $searchForm.show();
-        $searchInput.focus();
+        $searchFormIcon.addClass('hidden');
+        $searchForm.removeClass('hidden');
+        $searchInput.focus().parents('.form-group').removeClass('has-error').removeClass('has-feedback');
+    });
 
-        var containerRt = ($(window).width() - ($('.hdr-search-container').offset().left + $('.hdr-search-container').outerWidth()));
-        if (containerRt < $searchForm.outerWidth()) {
-            $searchForm.css('right','-10em');
+    $searchInput.on('input', function() {
+        if ($searchForm.hasClass('submitted') && !$searchInput.val()) {
+            $searchInput.parents('.form-group').addClass('has-error').addClass('has-feedback');
+        } else {
+            $searchInput.parents('.form-group').removeClass('has-error').removeClass('has-feedback');
         }
     });
 
     // Setup click handler to close searh form
-    $('body').unbind('click').click(function(e) {
-        if ((!$searchForm.is(e.target) && $searchForm.has(e.target).length === 0) &&
-            (!$searchFormIcon.is(e.target) && $searchFormIcon.has(e.target).length === 0)) {
-            $searchFormIcon.show();
-            $searchForm.hide();
+    $('body').on('click', function(e) {
+        if (
+            // clicked search close button
+        ($searchFormCloseBtn.is(e.target) || $searchFormCloseBtn.has(e.target).length) ||
+        // not search form and not the search icon
+        ((!$searchForm.is(e.target) && !$searchForm.has(e.target).length) && (!$searchFormIcon.is(e.target) && !$searchFormIcon.has(e.target).length))
+        ) {
+            $searchFormIcon.removeClass('hidden');
+            $searchForm.addClass('hidden');
         }
     });
-};
-
-getParameterByName = function(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
 };
 
 handleSearch = function() {
-    var queryparam = getParameterByName('q');
-    $("#query").val(queryparam);
+    getParameterByName = function(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    };
 
-    var productfacet = getParameterByName('product');
-    var doctypefacet = getParameterByName('doctype');
+    var queryParam = getParameterByName('q');
 
-    $("#product-facet").val(productfacet);
-    $("#doctype-facet").val(doctypefacet);
+    if (queryParam) {
+        $('#query').val(queryParam);
 
-    var client = algoliasearch("19A6FWAAB3", 'a480e1583c97f14a6ad92c7c605d9f23');
-    var index = client.initIndex('developer-dot');
-    var facets = [];
+        var productfacet = getParameterByName('product');
+        var doctypefacet = getParameterByName('doctype');
 
-    if (productfacet) facets.push("product:" + productfacet);
-    if (doctypefacet) facets.push("doctype:" + doctypefacet);
+        $('#product-facet').val(productfacet);
+        $('#doctype-facet').val(doctypefacet);
 
-    index.search(queryparam, {
-        attributesToRetrieve: ['title', 'url'],
-        hitsPerPage: 50,
-        facetFilters: facets,
-    }, function searchDone(err, content) {
-        if (err) {
-            console.error(err);
-            return;
+        var client = algoliasearch('19A6FWAAB3', 'a480e1583c97f14a6ad92c7c605d9f23');
+        var index = client.initIndex('developer-dot');
+        var facets = [];
+
+        if (productfacet) {
+            facets.push('product:' + productfacet);
+        }
+        if (doctypefacet) {
+            facets.push('doctype:' + doctypefacet);
         }
 
-        var results = "";
-        if (content.hits.length === 0) {
-            results += "<li>No Results Found</li>"
-        }
-        for (var h in content.hits) {
-            results += "<li><a href='" + content.hits[h].url + "'>" + content.hits[h].title + "</a></li>";
-        }
-        document.getElementById("search-results").innerHTML = results;
-    });
+        index.search(queryParam, {
+            attributesToRetrieve: ['title', 'url', 'text'],
+            hitsPerPage: 10,
+            facetFilters: facets,
+        }, function searchDone(err, content) {
+            var $searchResults = $('#search-results');
 
-    $('.search-button').click(function(e) {
-        var newurl = '/search/?q=' + encodeURIComponent($("#query").val());
+            if (err || (!content || !content.hits || !content.hits.length)) {
+                if (err) {
+                    console.error(err);
+                }
+                $searchResults.html('<h1>No Results Found</h1>');
+            } else {
+                content.hits.forEach(function(result) {
+                    $searchResults.append('<div><h4><a href="' + result.url + '">' + result.title + '</a></h4><p>' + result.text + '</p></div>');
+                });
+            }
+        });
 
-        if ($("#product-facet").val()) {
-            newurl += "&product=" + encodeURIComponent($("#product-facet").val());
-        }
-        if ($("#doctype-facet").val()) {
-            newurl += "&doctype=" + encodeURIComponent($("#doctype-facet").val());
-        }
+        $('.search-button').click(function(e) {
+            var newurl = '/search/?q=' + encodeURIComponent($('#query').val());
 
-        location.href = newurl;
-    });
+            if ($('#product-facet').val()) {
+                newurl += '&product=' + encodeURIComponent($('#product-facet').val());
+            }
+            if ($('#doctype-facet').val()) {
+                newurl += '&doctype=' + encodeURIComponent($('#doctype-facet').val());
+            }
+
+            location.href = newurl;
+        });
+    }
 };
 
 $(document).ready(function() {
     submitSearch();
     showSearchForm();
 
-    $('.dropdown-large').each(function() {
-        $(this).find('.dropdown-menu-large').css('left', $(this).position().left);
-    });
+    setTimeout(function() {
+        $('.dropdown-large').each(function() {
+            var left = $(this).position().left;
+            console.log('left', left);
+
+            $(this).find('.dropdown-menu-large').css('left', left);
+        });
+    }, 100);
 });

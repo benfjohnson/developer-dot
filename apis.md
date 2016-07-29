@@ -4,24 +4,24 @@ title: Avalara APIs
 nav: apis
 ---
 <div class="row bg-map">
-  <div class="col-md-6 col-md-offset-3 text-center">
+  <div class="col-sm-6 col-sm-offset-3 text-center">
     <h1 class="h1p">A wide breadth of API solutions<br/>for tax compliance</h1>
       <ul class="pipe padding-bottom">
-          <li><a href="#">Tax calculation</a></li>
-          <li><a href="#">Compliance document management</a></li>
-          <li><a href="#">Returns and filing</a></li>
+          <li><a href="#tax-calculation">Tax calculation</a></li>
+          <li><a href="#compliance">Compliance document management</a></li>
+          <li><a href="#returns-filing">Returns and filing</a></li>
       </ul>
   </div>
 </div>
 <div class="row border-top">
-    <div class="col-md-12">
-        <h1>Tax calculation</h1>
+    <div class="col-sm-12">
+        <h1><a name="tax-calculation"></a>Tax calculation</h1>
     </div>
-    <div class="col-md-7 col-md-offset-3">
+    <div class="col-sm-7 col-sm-offset-3">
         <div class="row">
-            <div class="col-md-4"><h2>Sales &amp; sellers use tax</h2></div>
-            <div class="col-md-4"><h2>Value-added tax (VAT)</h2></div>
-            <div class="col-md-4"><h2>Consumer use tax</h2></div>
+            <div class="col-sm-4"><h2>Sales &amp; sellers use tax</h2></div>
+            <div class="col-sm-4"><h2>Value-added tax (VAT)</h2></div>
+            <div class="col-sm-4"><h2>Consumer use tax</h2></div>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis interdum libero ac luctus. Nam ut dolor ac ipsum pharetra mollis. Vivamus blandit imperdiet mauris et consectetur. Phasellus iaculis pharetra elit, id efficitur quam interdum sed. Maecenas quis lacus eget elit pulvinar mattis. Duis mattis bibendum cursus. Pellentesque malesuada, odio nec viverra hendrerit, ligula est tincidunt libero, ac imperdiet nibh ex eu lectus. Ut cursus mollis eros, id blandit nisi facilisis quis. Vivamus lacinia nunc sit amet nisl cursus faucibus. Maecenas orci nibh, malesuada sed blandit vitae, dapibus ac dui.</p>
         <div class="pageTitle">
@@ -85,14 +85,14 @@ nav: apis
     </div>
 </div>
 <div class="row border-top bg-fill padding-bottom">
-    <div class="col-md-12">
-        <h1>Compliance document management</h1>
+    <div class="col-sm-12">
+        <h1><a name="compliance"></a>Compliance document management</h1>
     </div>
-    <div class="col-md-7 col-md-offset-3">
+    <div class="col-sm-7 col-sm-offset-3">
         <div class="row">
-            <div class="col-md-4"><h2>Exemption certificates</h2></div>
-            <div class="col-md-4"><h2>W8 and W9 forms</h2></div>
-            <div class="col-md-4"><h2>Fuel licenses</h2></div>
+            <div class="col-sm-4"><h2>Exemption certificates</h2></div>
+            <div class="col-sm-4"><h2>W8 and W9 forms</h2></div>
+            <div class="col-sm-4"><h2>Fuel licenses</h2></div>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis interdum libero ac luctus. Nam ut dolor ac ipsum pharetra mollis. Vivamus blandit imperdiet mauris et consectetur. Phasellus iaculis pharetra elit, id efficitur quam interdum sed. Maecenas quis lacus eget elit pulvinar mattis. Duis mattis bibendum cursus. Pellentesque malesuada, odio nec viverra hendrerit, ligula est tincidunt libero, ac imperdiet nibh ex eu lectus. Ut cursus mollis eros, id blandit nisi facilisis quis. Vivamus lacinia nunc sit amet nisl cursus faucibus. Maecenas orci nibh, malesuada sed blandit vitae, dapibus ac dui.</p>
         <div class="pageTitle">
@@ -111,10 +111,10 @@ nav: apis
     </div>
 </div>
 <div class="row border-top padding-bottom">
-    <div class="col-md-12">
-        <h1>Returns and filing</h1>
+    <div class="col-sm-12">
+        <h1><a name="returns-filing"></a>Returns and filing</h1>
     </div>
-    <div class="col-md-7 col-md-offset-3">    
+    <div class="col-sm-7 col-sm-offset-3">    
         <h2>Use the AvaTax API to prepare and file AvaTax-integrated returns</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis interdum libero ac luctus. Nam ut dolor ac ipsum pharetra mollis. Vivamus blandit imperdiet mauris et consectetur. Phasellus iaculis pharetra elit, id efficitur quam interdum sed. Maecenas quis lacus eget elit pulvinar mattis. Duis mattis bibendum cursus. Pellentesque malesuada, odio nec viverra hendrerit, ligula est tincidunt libero, ac imperdiet nibh ex eu lectus. Ut cursus mollis eros, id blandit nisi facilisis quis. Vivamus lacinia nunc sit amet nisl cursus faucibus. Maecenas orci nibh, malesuada sed blandit vitae, dapibus ac dui.</p>
         <div class="pageTitle">
