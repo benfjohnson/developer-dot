@@ -100,14 +100,15 @@ const syntaxHighlight = (jsonObj) => {
 
 const ApiConsole = ({endpoint, id}) => (
     <div>
-        <div className={'try-it-now-header'} id={replaceSpacesInStr(`${endpoint.name}-console`)} onClick={
+        <div data-toggle={'collapse'} data-target={`#${replaceSpacesInStr(endpoint.name)}-console-body`} className={'try-it-now-header'} id={replaceSpacesInStr(`${endpoint.name}-console`)} onClick={
             () => {
                 toggleVisibility(id);
             }
         }>
             {'Try it now! '}
-            <span className={'documentation-expand-icon glyphicon' + (endpoint.apiConsoleVisible ? ' glyphicon-menu-up' : ' glyphicon-menu-down')}></span></div>
-            {endpoint.apiConsoleVisible ?
+            <span className={'documentation-expand-icon glyphicon glyphicon-menu-down' + (endpoint.apiConsoleVisible ? ' rotate' : '')}></span>
+        </div>
+        <div className={'collapse'} id={`${replaceSpacesInStr(endpoint.name)}-console-body`}>
             <div className={'row api-console'}>
                 <div className={'col-md-3 api-console-form-wrapper'}>
                     <div className='row'>
@@ -165,20 +166,21 @@ const ApiConsole = ({endpoint, id}) => (
                         <div className={'row'} style={{marginBottom: '8px'}}>
                             <div className={'col-md-6'}>
                                 <h4>{'Request'}</h4>
-                                {endpoint.postBody ? <div data-clampedwidth className={'code-snippet'}><pre data-clampedwidth={'data-clampedwidth'} dangerouslySetInnerHTML={{__html: endpoint.postBodyData ? syntaxHighlight(endpoint.postBodyData) : ' '}}></pre></div> : <div className={'code-snippet code-snippet-code-text'}>{endpoint.curl}</div>}
+                                {endpoint.postBody ? <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: endpoint.postBodyData ? syntaxHighlight(endpoint.postBodyData) : ' '}}></pre></div> : <div className={'code-snippet code-snippet-code-text'}>{endpoint.curl}</div>}
                             </div>
                             <div className={'col-md-6'}>
                                 <h4>{'Response'}</h4>
-                                <div data-clampedwidth className={'code-snippet'}><pre data-clampedwidth={'data-clampedwidth'} dangerouslySetInnerHTML={{__html: endpoint.apiResponse ? syntaxHighlight(endpoint.apiResponse.body) : ' '}}></pre></div>
+                                <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: endpoint.apiResponse ? syntaxHighlight(endpoint.apiResponse.body) : ' '}}></pre></div>
                             </div>
                         </div> :
                         <div>
                                 <h4>{'Response'}</h4>
-                                <div data-clampedwidth className={'code-snippet'}><pre data-clampedwidth={'data-clampedwidth'} dangerouslySetInnerHTML={{__html: endpoint.apiResponse ? syntaxHighlight(endpoint.apiResponse.body) : ' '}}></pre></div>
+                                <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: endpoint.apiResponse ? syntaxHighlight(endpoint.apiResponse.body) : ' '}}></pre></div>
                         </div>
                         }
                 </div>
-            </div> : null}
+            </div>
+        </div>
     </div>
 );
 

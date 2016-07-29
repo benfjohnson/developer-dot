@@ -14,6 +14,7 @@ const EndPointComponent = (props) => (
         <h2>{props.endpoint.name}</h2>
         <a onClick={
             (e) => {
+                $(`#${replaceSpacesInStr(props.endpoint.name)}-console-body`).collapse('show');
                 store.dispatch({
                     type: actionTypes.JUMP_TO_CONSOLE,
                     endpointId: props.id

@@ -23,7 +23,7 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, is
                     isNested={true}
                     isRoot={isRoot}
                     item={item.items}
-                    name={`${name ? name + ';' : ''}items`}
+                    name={`${name ? name + ':' : ''}items`}
                     uiState={item.items.uiState || {visible: true}}
             />
         );
@@ -42,7 +42,7 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, is
                             item={item[itemKey]}
                             itemName={itemKey}
                             key={i}
-                            name={`${name ? name + ';' : ''}${itemKey}`}
+                            name={`${name ? name + ':' : ''}${itemKey}`}
                             uiState={item[itemKey].uiState}
                         />
                     );
@@ -53,7 +53,7 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, is
 
     return (
         <ApiDocumentationHeader collapsed={!uiState.visible} displayName={displayName} documentationFor={documentationFor} endpointId={endpointId} isArray={isArray} isNested={isNested} propertyName={name}>
-            {uiState.visible ? Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
+            {Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
                 return (<ApiDocumentationItem
                     displayName={itemKey}
                     documentationFor={documentationFor}
@@ -62,10 +62,10 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, is
                     item={item[itemKey]}
                     itemName={itemKey}
                     key={i}
-                    name={`${name ? name + ';' : ''}` + itemKey}
+                    name={`${name ? name + ':' : ''}` + itemKey}
                     uiState={item[itemKey].uiState}
                     />);
-            }) : null}
+            })}
         </ApiDocumentationHeader>
     );
 };

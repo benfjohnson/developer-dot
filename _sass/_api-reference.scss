@@ -60,9 +60,14 @@ h2, h3 {
     color: $Ava-blue;
     text-align: center;
 
-    :hover {
-        color: $Darkest-blue;
-    }
+    transition-duration: 0.4s;
+    transition-property: transform;
+    animation-fill-mode: forwards;
+
+}
+
+.documentation-expand-icon.rotate {
+        transform: rotate(180deg);
 }
 
 .try-it-now-header {

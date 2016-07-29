@@ -25,7 +25,7 @@ const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiSta
                         endpointId={endpointId}
                         item={itm}
                         key={i}
-                        name={`${propertyName ? propertyName + ';' : ''}[${i}]`}
+                        name={`${propertyName ? propertyName + ':' : ''}[${i}]`}
                         uiState={itm.uiState}
                         />);
             })}

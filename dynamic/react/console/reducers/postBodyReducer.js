@@ -6,7 +6,7 @@ const traversePropertyPath = (propertyPath, state) => {
         return state;
     }
 
-    const pathArray = propertyPath.split(';');
+    const pathArray = propertyPath.split(':');
 
     return pathArray.reduce((accum, paramName) => {
         if (paramName.indexOf('[') !== -1) {
