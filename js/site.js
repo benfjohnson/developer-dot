@@ -74,7 +74,7 @@ handleSearch = function() {
     if (doctypefacet) facets.push("doctype:" + doctypefacet);
 
     index.search(queryparam, {
-        attributesToRetrieve: ['title', 'url'],
+        attributesToRetrieve: ['title', 'url', 'text'],
         hitsPerPage: 50,
         facetFilters: facets,
     }, function searchDone(err, content) {
@@ -88,7 +88,7 @@ handleSearch = function() {
             results += "<li>No Results Found</li>"
         }
         for (var h in content.hits) {
-            results += "<li><a href='" + content.hits[h].url + "'>" + content.hits[h].title + "</a></li>";
+            results += "<li><a href='" + content.hits[h].url + "'>" + content.hits[h].title + "</a>" + content.hits[h].text + "</li>";
         }
         document.getElementById("search-results").innerHTML = results;
     });
