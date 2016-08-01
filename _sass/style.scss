@@ -228,15 +228,15 @@ header {
                     }
                 }
             }
-            .hdr-search-container {
+            .hdr-search-icon {
                 &:hover {
                     background-color: $Ava-orange;
                 }
-            }
-            .hdr-search-icon {
-                padding-left: 2em;
-                font-size: 150%;
-                margin-top: .5em
+                i {
+                    padding-left: 2em;
+                    font-size: 150%;
+                    margin-top: .5em
+                }
             }
 
             .hdr-search-form {
@@ -251,8 +251,12 @@ header {
                 padding: 0 1em;
                 z-index: 1000;
                 right: -20em;
-                @media(max-width: $screen-sm-max) {
+                @media(max-width: $screen-md-max) {
                     right: 0;
+                }
+
+                @media (min-width: $screen-md-min) {
+                    left: 591px;
                 }
                 .close {
                     margin-top: 10px;

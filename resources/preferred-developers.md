@@ -3,6 +3,8 @@ layout: default
 title: Preferred Developers
 nav: resources
 ---
+<div class="row">
+<div class="col-sm-6">
 <p>If you need assistance building your integration to AvaTax Sales Tax API, we recommend contacting one of these Preferred Developers to help. They are available as independent contractors and are not employed by Avalara. If you're interested in being listed on this page, please contact <a href="mailto:developer@avalara.com">developer@avalara.com</a></p>
 
 <hr />
@@ -10,7 +12,7 @@ nav: resources
 <p>
     Alynnlee Productions<br />
     9017 Forest Hill Ave Ste 3B<br />
-    Richmond, VA 23235< br />
+    Richmond, VA 23235<br />
     804-330-5050
 </p>
 <a href="mailto:sales@alynnlee.com">sales@alynnlee.com</a>
@@ -114,4 +116,5 @@ nav: resources
     Email: <a href="mailto:sunnysinghdnet@gmail.com">sunnysinghdnet@gmail.com</a><br />
     Proficiencies : C#, Angular, JavaScript,VB.Net, Jquery, Asp Classic,ASP.NET
 </p>
-
+</div>
+</div>

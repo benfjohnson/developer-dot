@@ -125,7 +125,6 @@ $(document).ready(function() {
     setTimeout(function() {
         $('.dropdown-large').each(function() {
             var left = $(this).position().left;
-            console.log('left', left);
 
             $(this).find('.dropdown-menu-large').css('left', left);
         });
