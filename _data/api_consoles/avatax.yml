@@ -1,6 +1,6 @@
 # AVATAX
 
 nav_link:
-    title: Avatax
-    path: /avatax/console
+    title: Avatax REST
+    path: /avatax/api-reference/tax/v1
     
