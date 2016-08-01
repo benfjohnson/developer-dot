@@ -137,7 +137,7 @@
         <section class="row">
             {% assign post_count = site.posts|size %}
             {% if page.api_console == 1 %}
-                <nav class="col-sm-3" style='float: left;'>{% include console-navigation.html %}</nav>
+                <nav class="col-sm-3">{% include console-navigation.html %}</nav>
                 <main class="col-sm-9">{{ content }}</main>
             {% else %}
                 <main class="col-sm-12">{{ content }}</main>
