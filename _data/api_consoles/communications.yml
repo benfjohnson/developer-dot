@@ -1,6 +1,6 @@
 # COMMUNICATIONS
 
 nav_link:
-    title: Communications
-    path: /communications/console
+    title: Communications SOAP
+    path: /communications/api-reference/saas/soap
     
