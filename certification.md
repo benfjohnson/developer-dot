@@ -63,18 +63,28 @@ nav: certification
 <div class="row padding-top">
     <div class="col-xs-offset-2 col-xs-2 text-center">
         <h4>Code samples lorem ipsum</h4>
-        <h5>Lorem ipsum concise description goes here</h5>
     </div>
     <div class="col-xs-2 text-center">
         <h4>Code samples lorem ipsum</h4>
-        <h5>Lorem ipsum concise description goes here</h5>
     </div>
     <div class="col-xs-2 text-center">
         <h4>Code samples lorem ipsum</h4>
-        <h5>Lorem ipsum concise description goes here</h5>
     </div>
     <div class="col-xs-2 text-center">
         <h4>Code samples lorem ipsum</h4>
+    </div>
+</div>
+<div class="row padding-top">
+    <div class="col-xs-offset-2 col-xs-2 text-center">
+        <h5>Lorem ipsum concise description goes here</h5>
+    </div>
+    <div class="col-xs-2 text-center">
+        <h5>Lorem ipsum concise description goes here</h5>
+    </div>
+    <div class="col-xs-2 text-center">
+        <h5>Lorem ipsum concise description goes here</h5>
+    </div>
+    <div class="col-xs-2 text-center">
         <h5>Lorem ipsum concise description goes here</h5>
     </div>
 </div>

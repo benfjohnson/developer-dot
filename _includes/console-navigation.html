@@ -5,7 +5,7 @@
             {% assign currApi = api_console.nav_link.title | downcase %}
             {% assign apiName = page.api_name | downcase %}
             {% if currApi == apiName %}
-                <li><a href="#">{{ api_console.nav_link.title }}</a>
+                <li><a href="#top">{{ api_console.nav_link.title }}</a>
                     <div id='bootstrap-scrollspy' style="padding-left:10px;">
                         <ul id='magellan-container' class='nav nav-pills nav-stacked'>
                             {% for endpoint_link in page.endpoint_links %}

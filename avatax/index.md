@@ -38,8 +38,8 @@ nav: apis
   <div class="col-sm-8 col-sm-offset-2 text-center">
     <h1 class="h1p">Become familiar with core AvaTax features</h1>
     <ul class="pipe">
-        <li><a href="">Use cases</a></li>
-        <li><a href="">API references</a></li>
+        <li><a href="#">Use cases</a></li>
+        <li><a href="#">API references</a></li>
     </ul>
   </div>
 </div>
@@ -48,18 +48,28 @@ nav: apis
     <div class="row">
         <div class="col-sm-3">
             <h4>Prototyping tools</h4>
-            <p>Lorem ipsum concise description goes here</p>
         </div>
         <div class="col-sm-3">
             <h4>Develpment tools &amp; support</h4>
-            <p>Lorem ipsum concise description goes here</p>
         </div>
         <div class="col-sm-3">
             <h4>Integration testing resources</h4>
-            <p>Lorem ipsum concise description goes here</p>
         </div>
         <div class="col-sm-3">
             <h4>Building a certified integration has benefits</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Lorem ipsum concise description goes here</p>
+        </div>
+        <div class="col-sm-3">
+            <p>Lorem ipsum concise description goes here</p>
+        </div>
+        <div class="col-sm-3">
+            <p>Lorem ipsum concise description goes here</p>
+        </div>
+        <div class="col-sm-3">
             <p>Lorem ipsum concise description goes here</p>
         </div>
     </div>
@@ -69,8 +79,8 @@ nav: apis
   <div class="col-sm-8 col-sm-offset-2 text-center">
     <h1 class="h1p">Fast and easy integration with AvaTax</h1>
     <ul class="pipe">
-        <li><a href="">Tools</a></li>
-        <li><a href="">Checklist</a></li>
+        <li><a href="#">Tools</a></li>
+        <li><a href="#">Checklist</a></li>
     </ul>
   </div>
 </div>
