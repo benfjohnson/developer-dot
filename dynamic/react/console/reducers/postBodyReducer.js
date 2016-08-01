@@ -49,8 +49,8 @@ export default (state, action) => {
         }
         return newState;
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
-        const itemToRemove = action.postBodyParamName.substr(0, action.postBodyParamName.lastIndexOf(';'));
-        const indexToRemove = parseInt(action.postBodyParamName.substr(action.postBodyParamName.lastIndexOf(';')).replace(/\D/g, ''), 10);
+        const itemToRemove = action.postBodyParamName.substr(0, action.postBodyParamName.lastIndexOf(':'));
+        const indexToRemove = parseInt(action.postBodyParamName.substr(action.postBodyParamName.lastIndexOf(':')).replace(/\D/g, ''), 10);
         const newStatePropertyToRemove = traversePropertyPath(itemToRemove, newState);
 
         newStatePropertyToRemove.value.splice(indexToRemove, 1);
