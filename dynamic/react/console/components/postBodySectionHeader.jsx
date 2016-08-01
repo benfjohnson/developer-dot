@@ -25,7 +25,7 @@ const handleRemoveItem = (pbName, endpointId) => {
  * */
 const PostBodySectionHeader = ({endpointId, propertyName, displayName, children, canRemove}) => {
     return (
-        <div>
+        <div className={'api-console-input-section'}>
             <h4
                 className={'api-documentation-section-header-text'}
                 style={{cursor: 'pointer'}}

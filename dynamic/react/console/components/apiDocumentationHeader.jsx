@@ -22,7 +22,7 @@ const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, isNested
     return (
         <div style={style}>
             <div className={'row api-documentation-section-header'} data-toggle={'collapse'} data-target={`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`} onClick={() => (handleToggleVisibility(documentationFor, propertyName, endpointId))}>
-                <div className={'col-md-2 documentation-parameter-name'}>{displayName}</div>
+                <div className={'col-md-2 api-doc-parameter-name api-doc-left-col'}>{displayName}</div>
                 <div className={'col-md-8'}></div>
                 <div className={'col-md-2'}>
                     <span style={{fontWeight: 'bold'}}>{`${isArray ? 'Array[' : ''}${displayName.charAt(0).toUpperCase() + displayName.slice(1)}${isArray ? ']' : ''}`}</span>

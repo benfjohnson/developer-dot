@@ -16,7 +16,7 @@ const RequestParamsDocumentation = ({paramType, params}) => {
             {Object.keys(params).map((key, i) => {
                 return (
                     <div className={'row documentation-parameter-body'} key={i}>
-                        <div className={'col-md-2 documentation-parameter-name'}><div>{key}</div>{params[key].required ? <div className={'small-required-text'}>{'Required'}</div> : null}</div>
+                        <div className={'col-md-2 api-doc-left-col'}><div className={'api-doc-parameter-name'}>{key}</div>{params[key].required ? <div className={'small-required-text'}>{'Required'}</div> : null}</div>
                         <div className={'col-md-8'}>{params[key].description}</div>
                         <div className={'col-md-2'}>{params[key].fieldType}</div>
                     </div>

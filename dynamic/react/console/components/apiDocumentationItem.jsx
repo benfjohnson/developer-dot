@@ -6,7 +6,7 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, is
     if (item.fieldType && item.fieldType !== 'array') {
         return (
             <div className={'row documentation-parameter-body'}>
-                <div className={'col-md-2 documentation-parameter-name'}><div>{displayName}</div>{item.required ? <div className='small-required-text'>{'Required'}</div> : null}</div>
+                <div className={'col-md-2 api-doc-left-col'}><div className={'api-doc-parameter-name'}>{displayName}</div>{item.required ? <div className='small-required-text'>{'Required'}</div> : null}</div>
                 <div className={'col-md-8'}>{item.description}</div>
                 <div className={'col-md-2'}>{`${isArray ? 'Array[' : ''}${item.fieldType}${isArray ? ']' : ''}`}</div>
             </div>

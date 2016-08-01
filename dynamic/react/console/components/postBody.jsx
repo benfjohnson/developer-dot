@@ -4,7 +4,7 @@ import PostBodyItem from './postBodyItem';
 
 const PostBody = (props) => (
     <div>
-        <form>
+        <form className={'api-console-post-form'}>
         {
             <PostBodyItem
                 canRemove={false}

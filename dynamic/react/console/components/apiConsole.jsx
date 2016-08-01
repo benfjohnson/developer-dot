@@ -110,8 +110,8 @@ const ApiConsole = ({endpoint, id}) => (
         </div>
         <div className={'collapse'} id={`${replaceSpacesInStr(endpoint.name)}-console-body`}>
             <div className={'row api-console'}>
-                <div className={'col-md-3 api-console-form-wrapper'}>
-                    <div className='row'>
+                <div className={'col-md-5 api-console-form-wrapper'}>
+                    <div className='row' style={{marginLeft: '10px'}}>
                         <div className='col-sm-4'>
                             <h3>{'Input'}</h3>
                         </div>
@@ -134,6 +134,7 @@ const ApiConsole = ({endpoint, id}) => (
                             e.preventDefault();
                             handleSubmit(endpoint, id);
                         }}
+                        style={{marginLeft: '10px'}}
                         type={'button'}
                     >
                     {'Submit'}
@@ -143,7 +144,7 @@ const ApiConsole = ({endpoint, id}) => (
                     {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
                     {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody}/> : null}
                     {endpoint.postBody ?
-                        <div>
+                        <div style={{marginLeft: '10px'}}>
                             <button
                                 className='btn btn-primary'
                                 onClick={(e) => {
@@ -157,24 +158,24 @@ const ApiConsole = ({endpoint, id}) => (
                             <span className='link-text-next-to-header-or-button m-l-1' type='reset'>{'Reset'}</span>
                         </div> : null}
                 </div>
-                <div className={'api-console-output col-md-9'}>
-                    <h4>{'API Endpoint'}</h4>
+                <div className={'api-console-output col-md-7'}>
+                    <h5 className={'console-output-header'}>{'API Endpoint'}</h5>
                     <div className={'code-snippet'}>{endpoint.path}</div>
-                    <h4>{'Method'}</h4>
+                    <h5 className={'console-output-header'}>{'Method'}</h5>
                     <div className={'code-snippet'}>{endpoint.action.toUpperCase()}</div>
                         {endpoint.PathParams || endpoint.queryString || endpoint.postBody ?
                         <div className={'row'} style={{marginBottom: '8px'}}>
                             <div className={'col-md-6'}>
-                                <h4>{'Request'}</h4>
+                                <h5 className={'console-output-header'}>{'Request'}</h5>
                                 {endpoint.postBody ? <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: endpoint.postBodyData ? syntaxHighlight(endpoint.postBodyData) : ' '}}></pre></div> : <div className={'code-snippet code-snippet-code-text'}>{endpoint.curl}</div>}
                             </div>
                             <div className={'col-md-6'}>
-                                <h4>{'Response'}</h4>
+                                <h5 className={'console-output-header'}>{'Response'}</h5>
                                 <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: endpoint.apiResponse ? syntaxHighlight(endpoint.apiResponse.body) : ' '}}></pre></div>
                             </div>
                         </div> :
                         <div>
-                                <h4>{'Response'}</h4>
+                                <h5 className={'console-output-header'}>{'Response'}</h5>
                                 <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: endpoint.apiResponse ? syntaxHighlight(endpoint.apiResponse.body) : ' '}}></pre></div>
                         </div>
                         }
