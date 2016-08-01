@@ -36,7 +36,7 @@ The AvaTax Administration section provides the user with configuration, setup an
 </tr>
 <tr>
 <td valign="top">R</td>
-<td valign="top"><a href="http://developer.avalara.com/api-docs/api-reference/rest-curl/estimatetax">AvaTax Test Connection</a> button</td>
+<td valign="top"><a href="/avatax/api-reference/tax/v1#estimateTax">AvaTax Test Connection</a> button</td>
 <td valign="top">Tests the connection to the AvaTax service and verifies the AvaTax credentials. This is an important element to allow for successful troubleshooting of the AvaTax service. Optional – display license key expiration date upon successful connection response.</td>
 </tr>
 <tr>

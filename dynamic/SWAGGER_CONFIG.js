@@ -16,7 +16,7 @@ export default {
         path: 'communications/api-reference/saas/soap'
     },
     'communications-afc-geo.yaml': {
-        name: 'Communications SOAP - Geocoding',
+        name: 'Communications SOAP Geocoding',
         path: 'communications/api-reference/geocode/soap'
     },
     'excise-v5-18-0.yaml': {

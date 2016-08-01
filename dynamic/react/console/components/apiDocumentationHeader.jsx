@@ -16,31 +16,28 @@ const handleToggleVisibility = (documentationFor, propertyName, endpointId) => {
  * Defines a wrapper to nest object properties or
  * array items in a PostBody
  * */
-const PostBodyDocsCollapseable = ({documentationFor, endpointId, isArray, isNested, propertyName, displayName, collapsed, children}) => {
+const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, isNested, propertyName, displayName, collapsed, children}) => {
     const style = isNested ? {border: '1px solid lightgrey'} : {border: '1px solid lightgrey', marginTop: '10px', marginBottom: '10px'};
-
-    // if (!isNested) {
-    //     style.marginTop = '10px';
-    //     style.marginBottom = '10px';
-    // }
 
     return (
         <div style={style}>
-            <div className={'row api-documentation-section-header'} onClick={() => (handleToggleVisibility(documentationFor, propertyName, endpointId))}>
-                <div className={'col-md-2 documentation-parameter-name'}>{displayName}</div>
+            <div className={'row api-documentation-section-header'} data-target={`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`} data-toggle={'collapse'} onClick={() => (handleToggleVisibility(documentationFor, propertyName, endpointId))}>
+                <div className={'col-md-2 api-doc-parameter-name api-doc-left-col'}>{displayName}</div>
                 <div className={'col-md-8'}></div>
                 <div className={'col-md-2'}>
                     <span style={{fontWeight: 'bold'}}>{`${isArray ? 'Array[' : ''}${displayName.charAt(0).toUpperCase() + displayName.slice(1)}${isArray ? ']' : ''}`}</span>
-                    <span className={'documentation-expand-icon glyphicon' + (collapsed ? ' glyphicon-menu-down' : ' glyphicon-menu-up')} style={{float: 'right', marginLeft: '9px'}}></span>
+                    <span className={'documentation-expand-icon glyphicon glyphicon-menu-down' + (collapsed ? '' : ' rotate')} style={{float: 'right', marginLeft: '9px'}}></span>
                 </div>
             </div>
+            <div className={'collapse'} id={`${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`}>
             {children}
+            </div>
         </div>
     );
 };
 
-PostBodyDocsCollapseable.displayName = 'Post Item Section Header';
-PostBodyDocsCollapseable.propTypes = {
+ApiDocumentationHeader.displayName = 'Post Item Section Header';
+ApiDocumentationHeader.propTypes = {
     children: React.PropTypes.oneOfType([
         React.PropTypes.element,
         React.PropTypes.array
@@ -57,4 +54,4 @@ PostBodyDocsCollapseable.propTypes = {
     })
 };
 
-export default PostBodyDocsCollapseable;
+export default ApiDocumentationHeader;

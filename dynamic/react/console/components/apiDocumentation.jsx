@@ -1,13 +1,13 @@
 import React from 'react';
 
-import PostBodyDocsItem from './postBodyDocsItem';
+import ApiDocumentationItem from './apiDocumentationItem';
 
 const DOC_TYPES = {
     REQUEST: 'REQUEST',
     RESPONSE: 'RESPONSE'
 };
 
-const PostBodyDocs = (props) => (
+const ApiDocumentation = (props) => (
     <div>
         <div className={'row'}>
             <div className='col-md-6'>
@@ -18,7 +18,7 @@ const PostBodyDocs = (props) => (
                 <h3 style={{textAlign: 'center'}}>{props.postBody.fieldType && props.postBody.fieldType === 'array' ? 'Array of' : 'Object'}</h3>
             </div>
         </div>
-        <PostBodyDocsItem
+        <ApiDocumentationItem
             canRemove={false}
             displayName={'Post Body Parameters'}
             documentationFor={props.documentationFor}
@@ -31,12 +31,12 @@ const PostBodyDocs = (props) => (
     </div>
 );
 
-PostBodyDocs.displayName = 'Post Body Docs';
-PostBodyDocs.propTypes = {
+ApiDocumentation.displayName = 'API Documentation';
+ApiDocumentation.propTypes = {
     documentationFor: React.PropTypes.oneOf([DOC_TYPES.REQUEST, DOC_TYPES.RESPONSE]),
     id: React.PropTypes.number.isRequired,
     name: React.PropTypes.string.isRequired,
     postBody: React.PropTypes.object
 };
 
-export default PostBodyDocs;
+export default ApiDocumentation;
