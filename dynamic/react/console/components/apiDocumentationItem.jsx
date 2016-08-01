@@ -20,7 +20,7 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, is
                     documentationFor={documentationFor}
                     endpointId={endpointId}
                     isArray={true}
-                    isNested={true}
+                    isNested={isNested}
                     isRoot={isRoot}
                     item={item.items}
                     name={`${name ? name + ':' : ''}items`}
