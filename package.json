@@ -37,7 +37,6 @@
     "swagger-parser": "^3.4.1",
     "watchify": "^3.6.1",
     "autoprefixer": "^6.3.7",
-    "bootstrap-sass": "^3.3.7",
     "node-sass": "^3.8.0",
     "postcss-cli": "^2.5.2",
     "watch": "^0.19.1"
