@@ -169,32 +169,6 @@
     <script src="/js/jquery-2.2.4.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/site.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('[data-clampedwidth]').each(function() {
-                var elem = $(this);
-                var parentPanel = elem.data('clampedwidth');
-                var resizeFn = function() {
-                    var sideBarNavWidth = $(parentPanel).width() - parseInt(elem.css('paddingLeft')) - parseInt(elem.css('paddingRight')) - parseInt(elem.css('marginLeft')) - parseInt(elem.css('marginRight')) - parseInt(elem.css('borderLeftWidth')) - parseInt(elem.css('borderRightWidth'));
-                    elem.css('width', sideBarNavWidth);
-                };
-
-                resizeFn();
-                $(window).resize(resizeFn);
-            });
-
-            var mobileView = false;
-            $(window).resize(function() {
-                if ($(window).width() <= 1000 && !mobileView) {
-                    mobileView = true;
-                    $('.nav-wrapper').css('display', 'none');
-                } else if ($(window).width() > 1000 && mobileView) {
-                    $('.nav-wrapper').css('display', 'block');
-                    mobileView = false;
-                }
-            });
-        });
-    </script>
 
     {% if page.search == 1 %}
     <script src="/js/algoliasearch.min.js"></script>
