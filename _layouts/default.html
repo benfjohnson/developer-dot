@@ -124,6 +124,7 @@
                         <div class="form-group col-sm-9">
                             <input class="form-control" type="search" placeholder="Search">
                             <span class="form-control-feedback" aria-hidden="false">!</span>
+                            {% if product_name %}<label><input type="checkbox" id="filterProduct" checked> Search only <span class="capitalize">{{product_name}}</span></label>{% endif %}
                         </div>
                         <div class="form-group col-sm-3">
                             <input type="submit" class="btn btn-primary" value="Search">

@@ -3,8 +3,7 @@ layout: default
 title: Preferred Developers
 nav: resources
 ---
-<div class="row">
-<div class="col-sm-6">
+<div class="half">
 <p>If you need assistance building your integration to AvaTax Sales Tax API, we recommend contacting one of these Preferred Developers to help. They are available as independent contractors and are not employed by Avalara. If you're interested in being listed on this page, please contact <a href="mailto:developer@avalara.com">developer@avalara.com</a></p>
 
 <hr />
@@ -116,5 +115,4 @@ nav: resources
     Email: <a href="mailto:sunnysinghdnet@gmail.com">sunnysinghdnet@gmail.com</a><br />
     Proficiencies : C#, Angular, JavaScript,VB.Net, Jquery, Asp Classic,ASP.NET
 </p>
-</div>
 </div>
