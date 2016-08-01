@@ -21,7 +21,7 @@ const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, isNested
 
     return (
         <div style={style}>
-            <div className={'row api-documentation-section-header'} data-toggle={'collapse'} data-target={`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`} onClick={() => (handleToggleVisibility(documentationFor, propertyName, endpointId))}>
+            <div className={'row api-documentation-section-header'} data-target={`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`} data-toggle={'collapse'} onClick={() => (handleToggleVisibility(documentationFor, propertyName, endpointId))}>
                 <div className={'col-md-2 api-doc-parameter-name api-doc-left-col'}>{displayName}</div>
                 <div className={'col-md-8'}></div>
                 <div className={'col-md-2'}>

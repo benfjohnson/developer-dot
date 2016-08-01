@@ -12,15 +12,18 @@ import {actionTypes} from '../reducers/reducer';
 const EndPointComponent = (props) => (
     <div data-magellan-target={replaceSpacesInStr(props.endpoint.name)} id={replaceSpacesInStr(props.endpoint.name)}>
         <h2>{props.endpoint.name}</h2>
-        <a onClick={
-            (e) => {
-                $(`#${replaceSpacesInStr(props.endpoint.name)}-console-body`).collapse('show');
-                store.dispatch({
-                    type: actionTypes.JUMP_TO_CONSOLE,
-                    endpointId: props.id
-                });
+        <a
+            href={`#${replaceSpacesInStr(props.endpoint.name)}-console`}
+            onClick={
+                () => {
+                    $(`#${replaceSpacesInStr(props.endpoint.name)}-console-body`).collapse('show');
+                    store.dispatch({
+                        type: actionTypes.JUMP_TO_CONSOLE,
+                        endpointId: props.id
+                    });
+                }
             }
-        } href={`#${replaceSpacesInStr(props.endpoint.name)}-console`}>{'Try it now!'}</a>
+        >{'Try it now!'}</a>
         <br />
         <ReactMarkdown source={props.endpoint.description} />
         <br />
@@ -66,6 +69,7 @@ EndPointComponent.propTypes = {
             })
         ),
         postBody: React.PropTypes.object,
+        requestSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         responseSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         apiResponse: React.PropTypes.shape({
             status: React.PropTypes.string.isRequired,

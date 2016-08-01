@@ -100,7 +100,7 @@ const syntaxHighlight = (jsonObj) => {
 
 const ApiConsole = ({endpoint, id}) => (
     <div>
-        <div data-toggle={'collapse'} data-target={`#${replaceSpacesInStr(endpoint.name)}-console-body`} className={'try-it-now-header'} id={replaceSpacesInStr(`${endpoint.name}-console`)} onClick={
+        <div className={'try-it-now-header'} data-target={`#${replaceSpacesInStr(endpoint.name)}-console-body`} data-toggle={'collapse'} id={replaceSpacesInStr(`${endpoint.name}-console`)} onClick={
             () => {
                 toggleVisibility(id);
             }
@@ -167,6 +167,7 @@ const ApiConsole = ({endpoint, id}) => (
                         <div className={'row'} style={{marginBottom: '8px'}}>
                             <div className={'col-md-6'}>
                                 <h5 className={'console-output-header'}>{'Request'}</h5>
+                                {/* eslint-disable react/no-danger */}
                                 {endpoint.postBody ? <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: endpoint.postBodyData ? syntaxHighlight(endpoint.postBodyData) : ' '}}></pre></div> : <div className={'code-snippet code-snippet-code-text'}>{endpoint.curl}</div>}
                             </div>
                             <div className={'col-md-6'}>
@@ -177,6 +178,7 @@ const ApiConsole = ({endpoint, id}) => (
                         <div>
                                 <h5 className={'console-output-header'}>{'Response'}</h5>
                                 <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: endpoint.apiResponse ? syntaxHighlight(endpoint.apiResponse.body) : ' '}}></pre></div>
+                                {/* eslint-enable react/no-danger */}
                         </div>
                         }
                 </div>
