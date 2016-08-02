@@ -135,7 +135,19 @@ const ApiConsole = ({endpoint, id}) => (
                             >
                             {'Submit'}
                             </button>
-                            <span className='link-text-next-to-header-or-button m-l-1' type='reset'>{'Reset'}</span>
+                            <span
+                                className='link-text-next-to-header-or-button m-l-1'
+                                onClick={
+                                    () => {
+                                        store.dispatch({
+                                            type: actionTypes.RESET_CONSOLE,
+                                            endpointId: id
+                                        });
+                                    }
+                                }
+                                type='reset'>
+                            {'Reset'}
+                            </span>
                         </div>
                     {endpoint.pathParams ? <RequestParams endpointId={id} paramType={'PATH'} params={endpoint.pathParams}/> : null}
                     {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
@@ -152,7 +164,19 @@ const ApiConsole = ({endpoint, id}) => (
                             >
                             {'Submit'}
                             </button>
-                            <span className='link-text-next-to-header-or-button m-l-1' type='reset'>{'Reset'}</span>
+                            <span
+                                className='link-text-next-to-header-or-button m-l-1'
+                                onClick={
+                                    () => {
+                                        store.dispatch({
+                                            type: actionTypes.RESET_CONSOLE,
+                                            endpointId: id
+                                        });
+                                    }
+                                }
+                                type='reset'>
+                                {'Reset'}
+                            </span>
                         </div> : null}
                         <div style={{background: 'blue', height: 'auto'}}></div>
                 </div>
