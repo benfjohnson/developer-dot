@@ -6,10 +6,12 @@ import PostmanCollection from '../components/postmanCollection';
 
 const ApiPage = ({api}) => (
     <div>
+        <div className={'api-summary'}>
         <h1>{api.apiName}</h1>
         <ReactMarkdown source={api.apiDescription} />
         <br/>
         {api.apiType === 'REST' ? <PostmanCollection appLoaded={api.appLoaded} auth={api.auth} postmanCollection={api.postmanCollection} /> : null}
+        </div>
         <div id={'api-endpoints'}>
             {api.apiInfo.map((r, i) => (<EndPointComponent apiType={api.apiType} endpoint={r} id={i} key={i}/>))}
         </div>

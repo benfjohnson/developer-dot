@@ -31,7 +31,6 @@ const buildPostBodyData = (body) => {
 
         return arrayBody.length ? arrayBody : undefined;
     }
-
     const objBody = Object.keys(body).filter((n) => n !== 'uiState').reduce((accum, propName) => {
         if (body[propName] && body[propName].hasOwnProperty('value') && body[propName].value === '') {
             return accum;
@@ -78,7 +77,14 @@ const buildCurl = (auth, endpoint) => {
     return curl;
 };
 
-const fillRequestParamSampleData = (params) => {
+const fillOrRemoveRequestParamSampleData = (params, remove) => {
+    if (remove) {
+        return Object.keys(params).reduce((accum, pName) => {
+            accum[pName] = {...params[pName], value: ''};
+            return accum;
+        }, {});
+    }
+
     return Object.keys(params).reduce((newParams, paramName) => {
         if (params[paramName].example) {
             newParams[paramName] = {...params[paramName], value: params[paramName].example};
@@ -87,6 +93,34 @@ const fillRequestParamSampleData = (params) => {
         }
 
         return newParams;
+    }, {});
+};
+
+const removePostBodyValues = (postBody) => {
+    if (postBody === undefined) {
+        return postBody;
+    }
+    if (postBody.hasOwnProperty('value') && postBody.fieldType !== 'array') {
+        return {...postBody, value: ''};
+    }
+
+    if (postBody.fieldType === 'array') {
+        const arrayBody = postBody.value.reduce((accum, prop) => {
+            if (prop && prop.hasOwnProperty('value')) {
+                return accum.concat({...prop, value: ''});
+            }
+            return accum.concat(removePostBodyValues(prop));
+        }, []);
+
+        return {...postBody, value: arrayBody};
+    }
+
+    if (postBody.hasOwnProperty('visible')) {
+        return {...postBody, visible: true};
+    }
+
+    return Object.keys(postBody).reduce((accum, propName) => {
+        return {...accum, [propName]: removePostBodyValues(postBody[propName])};
     }, {});
 };
 
@@ -118,17 +152,17 @@ const fillPostBodySampleData = (postBody) => {
     }, {});
 };
 
-const fillSampleData = (endpointState) => {
+const fillOrRemoveSampleData = (endpointState, remove = false) => {
     if (endpointState.queryString) {
-        endpointState.queryString = fillRequestParamSampleData(endpointState.queryString);
+        endpointState.queryString = fillOrRemoveRequestParamSampleData(endpointState.queryString, remove);
     }
 
     if (endpointState.pathParams) {
-        endpointState.pathParams = fillRequestParamSampleData(endpointState.pathParams);
+        endpointState.pathParams = fillOrRemoveRequestParamSampleData(endpointState.pathParams, remove);
     }
 
     if (endpointState.postBody) {
-        endpointState.postBody = fillPostBodySampleData(endpointState.postBody);
+        endpointState.postBody = remove ? removePostBodyValues(endpointState.postBody) : fillPostBodySampleData(endpointState.postBody);
     }
 
     return endpointState;
@@ -226,11 +260,11 @@ const buildPostmanCollection = (appState) => {
         }
 
         if (endpoint.pathParams) {
-            baseRequest.request.url = replacePathParams(endpoint.path, fillRequestParamSampleData(endpoint.pathParams));
+            baseRequest.request.url = replacePathParams(endpoint.path, fillOrRemoveRequestParamSampleData(endpoint.pathParams));
         }
 
         if (endpoint.queryString) {
-            baseRequest.request.url += buildQsPath(fillRequestParamSampleData(endpoint.queryString));
+            baseRequest.request.url += buildQsPath(fillOrRemoveRequestParamSampleData(endpoint.queryString));
         }
 
         return baseRequest;
@@ -241,4 +275,4 @@ const buildPostmanCollection = (appState) => {
 
 const replaceSpacesInStr = (str) => str.replace(/\s/g, '_');
 
-export {buildQsPath, buildPostBodyData, buildCurl, replacePathParams, fillSampleData, hasExampleData, buildPostmanCollection, buildAuth, replaceSpacesInStr};
+export {buildQsPath, buildPostBodyData, buildCurl, replacePathParams, fillOrRemoveSampleData, hasExampleData, buildPostmanCollection, buildAuth, replaceSpacesInStr};

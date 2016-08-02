@@ -11,27 +11,29 @@ import {actionTypes} from '../reducers/reducer';
 // Give our endpoint an id based on its name for our clientside routing in jekyll
 const EndPointComponent = (props) => (
     <div data-magellan-target={replaceSpacesInStr(props.endpoint.name)} id={replaceSpacesInStr(props.endpoint.name)}>
-        <h2>{props.endpoint.name}</h2>
-        <a
-            href={`#${replaceSpacesInStr(props.endpoint.name)}-console`}
-            onClick={
-                () => {
-                    $(`#${replaceSpacesInStr(props.endpoint.name)}-console-body`).collapse('show');
-                    store.dispatch({
-                        type: actionTypes.JUMP_TO_CONSOLE,
-                        endpointId: props.id
-                    });
+        <div className={'endpoint-summary'}>
+            <h2>{props.endpoint.name}</h2>
+            <a
+                href={`#${replaceSpacesInStr(props.endpoint.name)}-console`}
+                onClick={
+                    () => {
+                        $(`#${replaceSpacesInStr(props.endpoint.name)}-console-body`).collapse('show');
+                        store.dispatch({
+                            type: actionTypes.JUMP_TO_CONSOLE,
+                            endpointId: props.id
+                        });
+                    }
                 }
-            }
-        >{'Try it now!'}</a>
-        <br />
-        <ReactMarkdown source={props.endpoint.description} />
-        <br />
-        <br />
-        <div>
-            <div>{'API ENDPOINT'}</div>
-            <div className={'code-snippet-plaintext'}>{`${props.endpoint.action.toUpperCase()} ${props.endpoint.path}`}</div>
-            {props.endpoint.postBody ? <div><br /><div>{'HEADERS'}</div><div className={'code-snippet-plaintext'}>{'Content-Type: application/json'}</div></div> : null}
+            >{'Try it now!'}</a>
+            <br />
+            <ReactMarkdown source={props.endpoint.description} />
+            <br />
+            <br />
+            <div>
+                <div>{'API ENDPOINT'}</div>
+                <div className={'code-snippet-plaintext'}>{`${props.endpoint.action.toUpperCase()} ${props.endpoint.path}`}</div>
+                {props.endpoint.postBody ? <div><br /><div>{'HEADERS'}</div><div className={'code-snippet-plaintext'}>{'Content-Type: application/json'}</div></div> : null}
+            </div>
         </div>
         <br />
         {props.endpoint.queryString ? <RequestParamsDocumentation paramType={'QUERY_STRING'} params={props.endpoint.queryString} /> : null}
