@@ -25,16 +25,16 @@ To have your integration <a href="/certification">Certified by Avalara</a>, we h
 There are several different certifications that can be achieved according to the functionality supported in your application.
 <ul>
 <li>
-<a href="/avatax/certification/address-validation.html">Calculation with Avalara AvaTax and Address Validation</a>
+<a href="/avatax/certification/address-validation">Calculation with Avalara AvaTax and Address Validation</a>
 </li>
 <li>
-<a href="/avatax/certification/returns.html">Calculation with Avalara AvaTax and Returns</a>
+<a href="/avatax/certification/returns">Calculation with Avalara AvaTax and Returns</a>
 </li>
 <li>
-<a href="/avatax/certification/global.html">Calculation with Avalara AvaTax for Global Calculations</a>
+<a href="/avatax/certification/global">Calculation with Avalara AvaTax for Global Calculations</a>
 </li>
 <li>
-<a href="/avatax/certification/use-tax.html">Calculation with Avalara AvaTax for Use Tax</a>
+<a href="/avatax/certification/use-tax">Calculation with Avalara AvaTax for Use Tax</a>
 </li>
 </ul>
 

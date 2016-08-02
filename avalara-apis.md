@@ -36,7 +36,7 @@ nav: apis
           </ul>
         {% endif %}
         <h2>Fees and taxes for telecommunications</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis interdum libero ac luctus. Nam ut dolor ac ipsum pharetra mollis. Vivamus blandit imperdiet mauris et consectetur. Phasellus iaculis pharetra elit, id efficitur quam interdum sed. Maecenas quis lacus eget elit pulvinar mattis. Duis mattis bibendum cursus. Pellentesque malesuada, odio nec viverra hendrerit, ligula est tincidunt libero, ac imperdiet nibh ex eu lectus. Ut cursus mollis eros, id blandit nisi facilisis quis. Vivamus lacinia nunc sit amet nisl cursus faucibus. Maecenas orci nibh, malesuada sed blandit vitae, dapibus ac dui.</p>
+        <p>The Communication Tax API provides a rich and complete set of interfaces for communication taxation. The API allows taxation using jurisdictional information provided by jurisdiction codes, NPANXX, address and ZIP codes.</p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>AvaTax Communication</span>
@@ -49,7 +49,7 @@ nav: apis
           </ul>
         {% endif %}
         <h2>Excise fees and taxes for fuels</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis interdum libero ac luctus. Nam ut dolor ac ipsum pharetra mollis. Vivamus blandit imperdiet mauris et consectetur. Phasellus iaculis pharetra elit, id efficitur quam interdum sed. Maecenas quis lacus eget elit pulvinar mattis. Duis mattis bibendum cursus. Pellentesque malesuada, odio nec viverra hendrerit, ligula est tincidunt libero, ac imperdiet nibh ex eu lectus. Ut cursus mollis eros, id blandit nisi facilisis quis. Vivamus lacinia nunc sit amet nisl cursus faucibus. Maecenas orci nibh, malesuada sed blandit vitae, dapibus ac dui.</p>
+        <p>The Excise Tax API allows you to automate tax for transactions involving motor fuels, petroleum products, and natural gas for thousands of jurisdictions in the U.S. and Canada. The API is a SOAP web service that is the external programmatic interface into the Avalara AvaTax Excise application, providing for a platform-independent mechanism to obtain tax calculation information. AvaTax Excise can be used independently of other Avalara APIs. <a href="http://www.avalara.com/products/excise-tax/">Learn more about the Excise Tax API</a>.</p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>AvaTax Excise</span>
@@ -86,7 +86,7 @@ nav: apis
             <div class="col-sm-4"><h2>W8 and W9 forms</h2></div>
             <div class="col-sm-4"><h2>Fuel licenses</h2></div>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis interdum libero ac luctus. Nam ut dolor ac ipsum pharetra mollis. Vivamus blandit imperdiet mauris et consectetur. Phasellus iaculis pharetra elit, id efficitur quam interdum sed. Maecenas quis lacus eget elit pulvinar mattis. Duis mattis bibendum cursus. Pellentesque malesuada, odio nec viverra hendrerit, ligula est tincidunt libero, ac imperdiet nibh ex eu lectus. Ut cursus mollis eros, id blandit nisi facilisis quis. Vivamus lacinia nunc sit amet nisl cursus faucibus. Maecenas orci nibh, malesuada sed blandit vitae, dapibus ac dui.</p>
+        <p>Create, validate, and store sales tax exemption and reseller certificates with ease. The CertCapture API enables you to retrieve or update CertCapture data from a remote application. This allows applications to interact with customer and certificate records, and to send automated certificate requests to customers. CertCapture may be used as a stand-alone certificate management solution, or in conjunction with AvaTax. <a href="http://certcapture.avalara.com">Learn more about the CertCapture API</a>.</p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>CertCapture</span>
@@ -106,7 +106,12 @@ nav: apis
     </div>
     <div class="col-sm-7 col-sm-offset-3">    
         <h2>Use the AvaTax API to prepare and file AvaTax-integrated returns</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis interdum libero ac luctus. Nam ut dolor ac ipsum pharetra mollis. Vivamus blandit imperdiet mauris et consectetur. Phasellus iaculis pharetra elit, id efficitur quam interdum sed. Maecenas quis lacus eget elit pulvinar mattis. Duis mattis bibendum cursus. Pellentesque malesuada, odio nec viverra hendrerit, ligula est tincidunt libero, ac imperdiet nibh ex eu lectus. Ut cursus mollis eros, id blandit nisi facilisis quis. Vivamus lacinia nunc sit amet nisl cursus faucibus. Maecenas orci nibh, malesuada sed blandit vitae, dapibus ac dui.</p>
+        <p>
+            Avalara Returns is a fully-managed solution that incorporates a Treasury 
+            solution for simple payment, guaranteed on-time filing, audit support, and notice management. 
+            There are currently no APIs available for Avalara Returns – data is populated from AvaTax 
+            transactions and returns are managed by the merchant through the provided Customer Portal. <a href="http://www.avalara.com/products/returns/">Learn more about Avalara Returns</a>.
+        </p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>Returns</span>
@@ -119,7 +124,7 @@ nav: apis
            </ul>
        {% endif %}
         <h2>Standalone solution for preparing &amp; filing tax returns</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis interdum libero ac luctus. Nam ut dolor ac ipsum pharetra mollis. Vivamus blandit imperdiet mauris et consectetur. Phasellus iaculis pharetra elit, id efficitur quam interdum sed. Maecenas quis lacus eget elit pulvinar mattis. Duis mattis bibendum cursus. Pellentesque malesuada, odio nec viverra hendrerit, ligula est tincidunt libero, ac imperdiet nibh ex eu lectus. Ut cursus mollis eros, id blandit nisi facilisis quis. Vivamus lacinia nunc sit amet nisl cursus faucibus. Maecenas orci nibh, malesuada sed blandit vitae, dapibus ac dui.</p>
+        <p>Avalara TrustFile is a do-it-yourself sales tax solution for small businesses and eCommerce merchants. Quick to set up and easy to use, TrustFile takes your sales data and prepares sales tax reports for every state you collected tax in. TrustFile supports eFiling in a growing number of states, so you can take advantage of One-Click Filing to save even more time. TrustFile allows you to generate sales tax reports and filing independently of the sales tax calculation, which means it can be used without any AvaTax calculation. <a href="http://trustfile.avalara.com">Learn more about the TrustFile API</a>.</p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>TrustFile</span>

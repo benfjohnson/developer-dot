@@ -96,21 +96,11 @@ nav: certification
 <div class="row">
     <div class="col-xs-offset-3 col-xs-6 text-center">
          <ul class="pipe">
-            
-                       {% for api_console_hash in site.data.api_consoles.avatax.nav_links %}
-                           <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
-                       {% endfor %}
-
-            
-            site.data.api_consoles.trustfile.nav_links
-            
-            
-            
-            <li><a href="{{}}">Tools</a></li>
-            <li><a href="{{}}">Checklist</a></li>
+        <li><a href="/avatax/test-your-integration">Test your integration</a></li>
+        <li><a href="/avatax/integration-checklists">Integration Checklists</a></li>
         </ul>
     </div>
 </div>
 <div class="row padding-top">
-    <div class="col-xs-offset-3 col-xs-6 text-center btn-callout"><a href="/avatax/get-started.html" role="button">Get an Avalara AvaTax sandbox</a></div>
+    <div class="col-xs-offset-3 col-xs-6 text-center btn-callout"><a href="/avatax/get-started" role="button">Get an Avalara AvaTax sandbox</a></div>
 </div>

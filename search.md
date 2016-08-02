@@ -11,7 +11,7 @@ permalink: /search/
             <label for="doctype-facet"><h4>Refine by document type</h4></label><br />
             <select id="doctype-facet" class="form-control">
                 <option value="">Any</option>
-                <option value="api-reference">API Reference</option>
+                <option value="api_reference">API Reference</option>
                 <option value="documentation">Documentation</option>
                 <option value="certification">Certification</option>
                 <option value="blog">Blog Posts</option>
