@@ -20,10 +20,10 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, ne
                     documentationFor={documentationFor}
                     endpointId={endpointId}
                     isArray={true}
-                    nestingLevel={nestingLevel}
                     isRoot={isRoot}
                     item={item.items}
                     name={`${name ? name + ':' : ''}items`}
+                    nestingLevel={nestingLevel}
                     uiState={item.items.uiState || {visible: true}}
             />
         );
@@ -59,13 +59,13 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, ne
                     displayName={itemKey}
                     documentationFor={documentationFor}
                     endpointId={endpointId}
-                    nestingLevel={nestingLevel + 1}
                     item={item[itemKey]}
                     itemName={itemKey}
                     key={i}
                     name={`${name ? name + ':' : ''}` + itemKey}
+                    nestingLevel={nestingLevel + 1}
                     uiState={item[itemKey].uiState}
-                    />);
+                />);
             })}
         </ApiDocumentationHeader>
     );
@@ -77,10 +77,10 @@ ApiDocumentationItem.propTypes = {
     documentationFor: React.PropTypes.oneOf(['REQUEST', 'RESPONSE']),
     endpointId: React.PropTypes.number.isRequired,
     isArray: React.PropTypes.bool,
-    isNested: React.PropTypes.bool,
     isRoot: React.PropTypes.bool,
     item: React.PropTypes.object.isRequired,
     name: React.PropTypes.string.isRequired,
+    nestingLevel: React.PropTypes.number.isRequired,
     uiState: React.PropTypes.shape({
         visible: React.PropTypes.bool
     })

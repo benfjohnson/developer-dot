@@ -3,4 +3,31 @@
 nav_link:
     title: Communications SOAP
     path: /communications/api-reference/saas/soap
-    
+product: communications
+endpoint_hashes:
+    - name: NpaNxxToPCode
+      link: '/#NpaNxxToPCode'
+    - name: GetTaxRates
+      link: '/#GetTaxRates'
+    - name: GetAddress
+      link: '/#GetAddress'
+    - name: GetVersion
+      link: '/#GetVersion'
+    - name: CalcTaxesWithPCode
+      link: '/#CalcTaxesWithPCode'
+    - name: CalcAdjWithNpaNxx
+      link: '/#CalcAdjWithNpaNxx'
+    - name: CalcReverseAdjWithFipsCode
+      link: '/#CalcReverseAdjWithFipsCode'
+    - name: CalcProRatedTaxes
+      link: '/#CalcProRatedTaxes'
+    - name: CalcJurisdiction
+      link: '/#CalcJurisdiction'
+    - name: CalcTaxesWithOverrides
+      link: '/#CalcTaxesWithOverrides'
+    - name: CalcTaxesInCustMode
+      link: '/#CalcTaxesInCustMode'
+    - name: BeginCustomerBatch
+      link: '/#BeginCustomerBatch'
+    - name: CalcCustAdj
+      link: '/#CalcCustAdj'

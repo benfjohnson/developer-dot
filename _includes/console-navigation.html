@@ -6,7 +6,7 @@
             {% assign apiName = page.api_name | downcase %}
             {% if currApi == apiName %}
                 <li><a href="#">{{ api_console.nav_link.title }}</a>
-                    <div id='bootstrap-scrollspy' style="padding-left:10px;">
+                    <div id='bootstrap-scrollspy' style="padding-left: 10px;">
                         <ul class='api-ref-side-nav-active nav nav-pills nav-stacked'>
                             {% for endpoint_link in page.endpoint_links %}
                             <li><a style="overflow: hidden" href="{{ endpoint_link[0] }}">{{ endpoint_link[1] }}</a></li>
@@ -14,8 +14,19 @@
                         </ul>
                     </div>
                 </li>
-                {% else %}
-                <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a></li>
+            {% else %}
+                {% if page.product == api_console.product %}
+                    <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a>
+                    {% if api_console.endpoint_hashes %}
+                        <ul class='api-ref-side-nav nav nav-pills nav-stacked' style="padding-left: 10px;">
+                        {% for endpoint_hash in api_console.endpoint_hashes %}
+                            {% capture full_endpoint_link %}{{api_console.nav_link.path}}{{endpoint_hash.link}}{% endcapture %}
+                            <li><a href="{{ full_endpoint_link }}">{{ endpoint_hash.name }}</a></li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                    </li>
+                {% endif %}
             {% endif %}
         {% endfor %}
     </ul>

@@ -1,6 +1,29 @@
 # AVATAX SOAP
 
 nav_link:
-    title: Avatax SOAP - Tax
+    title: Avatax SOAP API
     path: /avatax/api-reference/tax/soap
-    
+product: avatax
+endpoint_hashes:
+    - name: Calculate Tax and Record a Document
+      link: '/#Calculate_Tax_and_Record_a_Document'
+    - name: Post a Document
+      link: '/#Post_a_Document'
+    - name: Commit a Document
+      link: '/#Commit_a_Document'
+    - name: Void a Document
+      link: '/#Void_a_Document'
+    - name: Adjust a Document
+      link: '/#Adjust_a_Document'
+    - name: Retrieve a Document
+      link: '/#Retrieve_a_Document'
+    - name: Test service connectivity
+      link: '/#Test_service_connectivity'
+    - name: Test authorized operations
+      link: '/#Test_authorized_operations'
+    - name: DEPRECATED Change payment date
+      link: '/#DEPRECATED_Change_payment_date'
+    - name: DEPRECATED Mark documents as Reconciled
+      link: '/#DEPRECATED_Mark_documents_as_Reconciled'
+    - name: Validate an Address
+      link: '/#Validate_an_Address'

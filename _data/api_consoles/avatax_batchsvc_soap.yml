@@ -1,0 +1,25 @@
+# AVATAX BatchSvc SOAP
+
+nav_link:
+    title: Avatax BatchSvc SOAP API
+    path: /avatax/api-reference/batch/soap
+product: avatax
+endpoint_hashes:
+    - name: Save a batch
+      link: '/#Save_a_batch'
+    - name: Retrieve a batch
+      link: '/#Retrieve_a_batch'
+    - name: Retrieve a file from a batch
+      link: '/#Retrieve_a_file_from_a_batch'
+    - name: Delete a batch
+      link: '/#Delete_a_batch'
+    - name: Process a batch
+      link: '/#Process_a_batch'
+    - name: Save a batch file
+      link: '/#Save_a_batch_file'
+    - name: Delete a batch file
+      link: '/#Delete_a_batch_file'
+    - name: Test service connectivity
+      link: '/#Test_service_connectivity'
+    - name: Test authorized operations
+      link: '/#Test_authorized_operations'

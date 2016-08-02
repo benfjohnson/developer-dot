@@ -124,10 +124,10 @@ h2, h3 {
 }
 
 .doc-section-header-totes-nested {
-    background: $blue-supes-light;
+    background: $blue-super-light;
 
     &:hover {
-        background: darken($blue-supes-light, 5%);
+        background: darken($blue-super-light, 5%);
     }
 }
 
@@ -177,5 +177,5 @@ h2, h3 {
 
 /* Override bootstraps default padding for nav items to fit more on the page */
 .api-ref-side-nav > li > a,.api-ref-side-nav-active > li > a {
-    padding: 5px 10px;
+    padding: 2.5px 10px;
 }

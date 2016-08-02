@@ -3,4 +3,14 @@
 nav_link:
     title: Communications SOAP Geocoding
     path: /communications/api-reference/geocode/soap
-    
+product: communications
+endpoint_hashes:
+    - name: GeocodeAddress
+      link: '/#GeocodeAddress'
+    - name: GeocodeLatLong
+      link: '/#GeocodeLatLong'
+    - name: GeocodeAllMatches
+      link: '/#GeocodeAllMatches'
+    - name: GetServerTime
+      link: '/#GetServerTime'
+      

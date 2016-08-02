@@ -64,7 +64,7 @@ ApiDocumentationHeader.propTypes = {
     documentationFor: React.PropTypes.oneOf(['REQUEST', 'RESPONSE']),
     endpointId: React.PropTypes.number.isRequired,
     isArray: React.PropTypes.bool.isRequired,
-    isNested: React.PropTypes.bool.isRequired,
+    nestingLevel: React.PropTypes.number.isRequired,
     propertyName: React.PropTypes.string.isRequired,
     uiState: React.PropTypes.shape({
         visible: React.PropTypes.bool

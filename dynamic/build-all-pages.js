@@ -14,7 +14,7 @@ fs.readdir(path.join(__dirname, 'swagger'), (err, files) => {
             throw new Error('Unexpected file found in Swagger directory: ' + file);
         }
 
-        swaggerToApiDoc(file, SWAGGER_CONFIG[file].name, SWAGGER_CONFIG[file].path);
+        swaggerToApiDoc(file, SWAGGER_CONFIG[file].name, SWAGGER_CONFIG[file].path, SWAGGER_CONFIG[file].product);
     });
 });
 
