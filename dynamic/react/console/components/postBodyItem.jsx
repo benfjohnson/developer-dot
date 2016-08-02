@@ -82,7 +82,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
                     item={item[itemKey]}
                     itemName={itemKey}
                     key={i}
-                    name={`${name ? name + ';' : ''}` + itemKey}
+                    name={`${name ? name + ':' : ''}` + itemKey}
                     uiState={item[itemKey].uiState}
                 />);
             })}

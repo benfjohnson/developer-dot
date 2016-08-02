@@ -1,8 +1,8 @@
 import React from 'react';
 import ApiConsole from './apiConsole';
 import ReactMarkdown from 'react-markdown';
-import RequestParamsDocs from './requestParamsDocs';
-import PostBodyDocs from './postBodyDocs';
+import RequestParamsDocumentation from './requestParamsDocumentation';
+import ApiDocumentation from './apiDocumentation';
 import {replaceSpacesInStr} from '../helpers';
 
 import {store} from '../store';
@@ -11,29 +11,35 @@ import {actionTypes} from '../reducers/reducer';
 // Give our endpoint an id based on its name for our clientside routing in jekyll
 const EndPointComponent = (props) => (
     <div data-magellan-target={replaceSpacesInStr(props.endpoint.name)} id={replaceSpacesInStr(props.endpoint.name)}>
-        <h2>{props.endpoint.name}</h2>
-        <a onClick={
-            (e) => {
-                store.dispatch({
-                    type: actionTypes.JUMP_TO_CONSOLE,
-                    endpointId: props.id
-                });
-            }
-        } href={`#${replaceSpacesInStr(props.endpoint.name)}-console`}>{'Try it now!'}</a>
-        <br />
-        <ReactMarkdown source={props.endpoint.description} />
-        <br />
-        <br />
-        <div>
-            <div>{'API ENDPOINT'}</div>
-            <div className={'code-snippet-plaintext'}>{`${props.endpoint.action.toUpperCase()} ${props.endpoint.path}`}</div>
-            {props.endpoint.postBody ? <div><br /><div>{'HEADERS'}</div><div className={'code-snippet-plaintext'}>{'Content-Type: application/json'}</div></div> : null}
+        <div className={'endpoint-summary'}>
+            <h2>{props.endpoint.name}</h2>
+            <a
+                href={`#${replaceSpacesInStr(props.endpoint.name)}-console`}
+                onClick={
+                    () => {
+                        $(`#${replaceSpacesInStr(props.endpoint.name)}-console-body`).collapse('show');
+                        store.dispatch({
+                            type: actionTypes.JUMP_TO_CONSOLE,
+                            endpointId: props.id
+                        });
+                    }
+                }
+            >{'Try it now!'}</a>
+            <br />
+            <ReactMarkdown source={props.endpoint.description} />
+            <br />
+            <br />
+            <div>
+                <div>{'API ENDPOINT'}</div>
+                <div className={'code-snippet-plaintext'}>{`${props.endpoint.action.toUpperCase()} ${props.endpoint.path}`}</div>
+                {props.endpoint.postBody ? <div><br /><div>{'HEADERS'}</div><div className={'code-snippet-plaintext'}>{'Content-Type: application/json'}</div></div> : null}
+            </div>
         </div>
         <br />
-        {props.endpoint.queryString ? <RequestParamsDocs paramType={'QUERY_STRING'} params={props.endpoint.queryString} /> : null}
-        {props.endpoint.pathParams ? <RequestParamsDocs paramType={'PATH'} params={props.endpoint.pathParams} /> : null}
-        {props.endpoint.requestSchema ? <PostBodyDocs documentationFor={'REQUEST'} id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.requestSchema} /> : null}
-        {props.endpoint.responseSchema ? <PostBodyDocs documentationFor={'RESPONSE'} id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.responseSchema} /> : null}
+        {props.endpoint.queryString ? <RequestParamsDocumentation paramType={'QUERY_STRING'} params={props.endpoint.queryString} /> : null}
+        {props.endpoint.pathParams ? <RequestParamsDocumentation paramType={'PATH'} params={props.endpoint.pathParams} /> : null}
+        {props.endpoint.requestSchema ? <ApiDocumentation documentationFor={'REQUEST'} id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.requestSchema} /> : null}
+        {props.endpoint.responseSchema ? <ApiDocumentation documentationFor={'RESPONSE'} id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.responseSchema} /> : null}
         {props.apiType === 'REST' ? <ApiConsole endpoint={props.endpoint} id={props.id} /> : null}
     </div>
 );
@@ -65,6 +71,7 @@ EndPointComponent.propTypes = {
             })
         ),
         postBody: React.PropTypes.object,
+        requestSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         responseSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         apiResponse: React.PropTypes.shape({
             status: React.PropTypes.string.isRequired,

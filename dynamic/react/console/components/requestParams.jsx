@@ -23,7 +23,7 @@ const handleInputChange = (e, paramType, paramName, endpointId) => {
 
 const RequestParams = ({endpointId, paramType, params}) => {
     return (
-        <form>
+        <form className={'api-console-input-section'}>
             <h4>{paramType === PARAM_TYPES.QUERY_STRING ? 'Query String' : 'Path Parameters'}</h4>
             {Object.keys(params).map((key, i) => {
                 return (

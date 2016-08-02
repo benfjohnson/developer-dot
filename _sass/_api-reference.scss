@@ -1,11 +1,33 @@
+/* Remove our API ref side nav when screen is too small */
+@media(max-width: 1000px) {
+    .nav-wrapper {
+        max-width: 150px;
+    }
+    .api-doc-parameter-name, .small-required-text {
+        text-align: left;
+    }
+}
+
+@media(max-width: 770px) {
+    .nav-wrapper {
+        display: none;
+    }
+}
+
+// .nav-wrapper {
+//     max-width: 220px;
+// }
+
 .small-required-text {
     font-size: 12px;
-    font-weight: bold;
     color: $Ava-orange;
 }
 
-.documentation-parameter-name {
+.api-doc-parameter-name {
     font-weight: bold;
+}
+
+.api-doc-left-col {
     text-align: right;
 }
 
@@ -60,9 +82,14 @@ h2, h3 {
     color: $Ava-blue;
     text-align: center;
 
-    :hover {
-        color: $Darkest-blue;
-    }
+    transition-duration: 0.4s;
+    transition-property: transform;
+    animation-fill-mode: forwards;
+
+}
+
+.documentation-expand-icon.rotate {
+        transform: rotate(180deg);
 }
 
 .try-it-now-header {
@@ -70,6 +97,8 @@ h2, h3 {
     color: $Ava-blue;
     cursor: pointer;
     font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
     text:hover {
         color: $Darkest-blue;
@@ -81,6 +110,15 @@ h2, h3 {
     border: 1px solid #75c5e4;
     color: whitesmoke;
     font: 13px Menlo;
-    margin: 10px;
+    margin-top: 10px;
     padding: 10px;
+}
+
+.endpoint-summary, .api-summary {
+    max-width: 650px;
+}
+
+/* Override bootstraps default padding for nav items to fit more on the page */
+.api-ref-side-nav > li > a,.api-ref-side-nav-active > li > a {
+    padding: 5px 10px;
 }

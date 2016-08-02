@@ -1,43 +1,44 @@
 .api-console {
-    display: table;
+    // display: table;
+    // table-layout: fixed;
 }
 
 .api-console-form-wrapper {
     // background: $Rule-grey;
     background: whitesmoke;
     padding: 5px;
-    display: table-cell;
-    float: none;
+    // display: table-cell;
+    word-break:break-all;
+    // float: none;
 }
 
 .api-console-output {
     color: white;
     background: dimgrey;
-    display: table-cell;
-    float: none;
+    // display: table-cell;
+    word-break:break-all;
+    // float: none;
     padding: 5px;
-}
-
-.code-snippet {
-    
-}
-
-.api-console-form-section-header {
-
 }
 
 .code-snippet {
     border: 1px solid #71e4ff;
     padding: 10px;
     margin: 10px;
-    overflow: hidden;
-
+    overflow: scroll;
+    
     .string { color: #71e4ff; }
     .number { color: #fc88ff; }
     .boolean { color: #fc88ff; }
     .null { color: #fc88ff; }
     .key { color: #8fffa7; }
     .punctuation { color: #fceb51; }
+}
+
+.code-snippet-code-text {
+    color: #8fffa7;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 13px;
 }
 
 .code-snippet pre {
@@ -49,4 +50,49 @@
     padding-top: 28px;
     color: $Ava-blue;
     cursor: pointer;
+}
+
+.link-text-next-to-header-or-button:hover {
+    color: $Darkest-blue;
+}
+
+.api-console-post-form .api-console-input-section:not(:first-child) {
+    background: white;
+    /* color: black; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    padding-bottom: 7.5px;
+}
+
+.api-console-input-section:first-child {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.api-console-input-section h4 {
+    font-weight: bold;
+}
+
+.api-console-input-section label {
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+h5.console-output-header {
+    color: white;
+    font-weight: bold;
+}
+
+.api-console.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+.api-console.row > .api-console-form-wrapper,.api-console-output {
+  display: flex;
+  flex-direction: column;
 }

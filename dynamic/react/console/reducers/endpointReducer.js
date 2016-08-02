@@ -2,7 +2,7 @@ import R from 'ramda';
 import queryStringReducer from './queryStringReducer';
 import postBodyReducer from './postBodyReducer';
 import {actionTypes} from './reducer';
-import {buildQsPath, buildPostBodyData, buildCurl, fillSampleData} from '../helpers';
+import {buildQsPath, buildPostBodyData, buildCurl, fillOrRemoveSampleData} from '../helpers';
 
 const DOC_TYPES = {
     REQUEST: 'REQUEST',
@@ -14,7 +14,7 @@ const traversePropertyPath = (propertyPath, state) => {
         return state;
     }
 
-    const pathArray = propertyPath.split(';');
+    const pathArray = propertyPath.split(':');
 
     return pathArray.reduce((accum, paramName) => {
         if (paramName.indexOf('[') !== -1) {
@@ -34,6 +34,14 @@ export default (state, action) => {
         return {...newState, apiConsoleVisible: (!newState.apiConsoleVisible)};
     case actionTypes.JUMP_TO_CONSOLE:
         return {...newState, apiConsoleVisible: true};
+    case actionTypes.RESET_CONSOLE:
+        newState = fillOrRemoveSampleData(newState, true);
+        if (newState.postBodyData) {
+            newState.postBodyData = buildPostBodyData(newState.postBody);
+        }
+        newState.qsPath = buildQsPath(newState.queryString);
+        newState.curl = buildCurl(newState.isAuthenticated, newState);
+        return {...newState, apiResponse: undefined};
     case actionTypes.SUBMIT_DONE:
         newState.apiResponse = action.apiResponse;
         if (action.error) {
@@ -41,7 +49,7 @@ export default (state, action) => {
         }
         break;
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
-        newState = fillSampleData(newState);
+        newState = fillOrRemoveSampleData(newState);
         if (newState.postBody) {
             newState.postBodyData = buildPostBodyData(newState.postBody);
         }
