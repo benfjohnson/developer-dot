@@ -41,6 +41,10 @@ $Form-bottom: $Disabled;
     color:$Ava-blue;
 }
 
+/* Bootstrap grid thresholds */
+$bootstrap-md: 992px;
+
+
 $icon-font-path: '/css/fonts/bootstrap/';
 $navbar-default-link-active-bg: $Ava-orange;
 $navbar-default-link-active-color: white;

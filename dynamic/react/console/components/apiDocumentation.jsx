@@ -15,7 +15,7 @@ const ApiDocumentation = (props) => (
             </div>
             <div className={'col-md-2'}></div>
             <div className='col-md-3'>
-                <h3 style={{textAlign: 'center'}}>{props.postBody.fieldType && props.postBody.fieldType === 'array' ? 'Array of' : 'Object'}</h3>
+                <h3 className={'api-documentation-req-or-res-type'}>{props.postBody.fieldType && props.postBody.fieldType === 'array' ? 'Array of' : 'Object'}</h3>
             </div>
         </div>
         <ApiDocumentationItem
