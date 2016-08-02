@@ -24,6 +24,7 @@ const ApiDocumentation = (props) => (
             documentationFor={props.documentationFor}
             endpointId={props.id}
             isRoot={true}
+            nestingLevel={0}
             item={props.postBody}
             name={''}
             uiState={props.postBody.uiState}

@@ -12,16 +12,33 @@ const handleToggleVisibility = (documentationFor, propertyName, endpointId) => {
     });
 };
 
+const getSectionHighlightFromNestingLevel = (nestingLevel) => {
+    const nestedClass = 'doc-section-header-nested';
+
+    switch (nestingLevel) {
+    case 0:
+        return `${nestedClass} doc-section-header-root`;
+    case 1:
+        return `${nestedClass} doc-section-header-nest-1`;
+    case 2:
+        return `${nestedClass} doc-section-header-nest-2`;
+    case 3:
+        return `${nestedClass} doc-section-header-nest-3`;
+    default:
+        return `${nestedClass} doc-section-header-totes-nested`;
+    }
+};
+
 /*
  * Defines a wrapper to nest object properties or
  * array items in a PostBody
  * */
-const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, isNested, propertyName, displayName, collapsed, children}) => {
-    const style = isNested ? {border: '1px solid lightgrey'} : {border: '1px solid lightgrey', marginTop: '10px', marginBottom: '10px'};
+const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, nestingLevel, propertyName, displayName, collapsed, children}) => {
+    const style = nestingLevel > 1 ? {border: '1px solid lightgrey'} : {border: '1px solid lightgrey', marginTop: '10px', marginBottom: '10px'};
 
     return (
         <div className={'documentation-collapseable-section'} style={style}>
-            <div className={'row api-documentation-section-header'} data-target={`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`} data-toggle={'collapse'} onClick={() => (handleToggleVisibility(documentationFor, propertyName, endpointId))}>
+            <div className={`row api-documentation-section-header${!collapsed ? ' ' + getSectionHighlightFromNestingLevel(nestingLevel) : ''}`} data-target={`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`} data-toggle={'collapse'} onClick={() => (handleToggleVisibility(documentationFor, propertyName, endpointId))}>
                 <div className={'col-md-2 api-doc-parameter-name api-doc-left-col'}>{displayName}</div>
                 <div className={'col-md-8'}></div>
                 <div className={'col-md-2'}>
@@ -29,7 +46,7 @@ const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, isNested
                     <span className={'documentation-expand-icon glyphicon glyphicon-menu-down' + (collapsed ? '' : ' rotate')} style={{float: 'right', marginLeft: '9px'}}></span>
                 </div>
             </div>
-            <div className={'collapse'} id={`${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`}>
+            <div className={'collapse in'} id={`${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`}>
             {children}
             </div>
         </div>

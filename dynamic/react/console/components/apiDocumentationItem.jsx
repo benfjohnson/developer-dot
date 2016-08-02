@@ -2,7 +2,7 @@ import React from 'react';
 
 import ApiDocumentationHeader from './apiDocumentationHeader';
 
-const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, isNested = false, endpointId, uiState, displayName, isRoot = false}) => {
+const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, nestingLevel, endpointId, uiState, displayName, isRoot = false}) => {
     if (item.fieldType && item.fieldType !== 'array') {
         return (
             <div className={'row documentation-parameter-body'}>
@@ -20,7 +20,7 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, is
                     documentationFor={documentationFor}
                     endpointId={endpointId}
                     isArray={true}
-                    isNested={isNested}
+                    nestingLevel={nestingLevel}
                     isRoot={isRoot}
                     item={item.items}
                     name={`${name ? name + ':' : ''}items`}
@@ -43,6 +43,7 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, is
                             itemName={itemKey}
                             key={i}
                             name={`${name ? name + ':' : ''}${itemKey}`}
+                            nestingLevel={nestingLevel + 1}
                             uiState={item[itemKey].uiState}
                         />
                     );
@@ -52,13 +53,13 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, is
     }
 
     return (
-        <ApiDocumentationHeader collapsed={!uiState.visible} displayName={displayName} documentationFor={documentationFor} endpointId={endpointId} isArray={isArray} isNested={isNested} propertyName={name}>
+        <ApiDocumentationHeader collapsed={!uiState.visible} displayName={displayName} documentationFor={documentationFor} endpointId={endpointId} isArray={isArray} nestingLevel={nestingLevel} propertyName={name}>
             {Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
                 return (<ApiDocumentationItem
                     displayName={itemKey}
                     documentationFor={documentationFor}
                     endpointId={endpointId}
-                    isNested={true}
+                    nestingLevel={nestingLevel + 1}
                     item={item[itemKey]}
                     itemName={itemKey}
                     key={i}

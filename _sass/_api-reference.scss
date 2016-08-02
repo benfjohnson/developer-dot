@@ -56,23 +56,10 @@ h2, h3 {
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 10px;
-}
 
-.api-documentation-section-header:hover {
-    background: #F7F9FA;
-}
-
-.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
-    background: white;
-    color: $Ava-orange;
-}
-
-.hidden {
-    display: none;
-}
-
-.affix-bottom {
-    position: relative
+    &:hover {
+        background: #F7F9FA;
+    }
 }
 
 .documentation-expand-icon {
@@ -100,9 +87,72 @@ h2, h3 {
     margin-top: 10px;
     margin-bottom: 10px;
 
-    text:hover {
+    &:hover {
         color: $Darkest-blue;
     }
+}
+
+.doc-section-header-nest-1 {
+    background: $Darkest-blue;
+
+    &:hover {
+        background: darken($Darkest-blue, 5%);
+    }
+}
+
+.doc-section-header-nest-2 {
+    background: $Ava-blue;
+
+    &:hover {
+        background: darken($Ava-blue, 5%);
+    }
+}
+
+.doc-section-header-nest-3 {
+    background: $Active-blue;
+
+    &:hover {
+        background: darken($Active-blue, 5%);
+    }
+}
+
+.doc-section-header-totes-nested {
+    background: $blue-supes-light;
+
+    &:hover {
+        background: darken($blue-supes-light, 5%);
+    }
+}
+
+.doc-section-header-nested {
+    color: white;
+
+    .documentation-expand-icon {
+        color: white;
+        border-color: white;
+    }
+}
+
+.doc-section-header-nested:hover {
+    color: whitesmoke;
+
+    .documentation-expand-icon {
+        color: whitesmoke;
+        border-color: whitesmoke;
+    }
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+    background: white;
+    color: $Ava-orange;
+}
+
+.hidden {
+    display: none;
+}
+
+.affix-bottom {
+    position: relative
 }
 
 .code-snippet-plaintext {
