@@ -12,7 +12,7 @@ doctype: certification
 <h1 class="entry-title" data-fontsize="32" data-lineheight="NaN">Avalara AvaTax with CertCapture</h1>
 
 
-Certification for Avalara AvaTax with CertCapture requires the delivery of all functional requirements shown below.
+Certification for Avalara AvaTax with CertCapture requires the delivery of all functional requirements shown below. This checklist assumes that you are using AvaTax in conjunction with CertCapture.
 
 Key:  R: Functionality required for certification     N: Functionality not required, but noted
 <h2 data-fontsize="22" data-lineheight="32">AvaTax Administration &amp; Utilities Integration</h2>
@@ -40,7 +40,7 @@ The AvaTax Administration section provides the user with configuration, setup an
 </tr>
 <tr>
 <td valign="top">R</td>
-<td valign="top"><a href="http://developer.avalara.com/api-docs/api-reference/rest-curl/estimatetax">AvaTax Test Connection</a> button</td>
+<td valign="top"><a href="/avatax/api-reference/tax/v1#estimateTax">AvaTax Test Connection</a> button</td>
 <td valign="top">Tests the connection to the AvaTax service and verifies the AvaTax credentials. This is an important element to allow for successful troubleshooting of the AvaTax service.</td>
 </tr>
 <tr>

@@ -89,7 +89,7 @@ The AvaTax Administration section provides the user with configuration, setup an
 <tr>
 <td valign="top">R</td>
 <td valign="top">Entity/Use Code</td>
-<td valign="top">This is a group of codes that indicate the type of exemption. See <a title="standard list of codes" href="/avatax/handling-tax-exempt-customers#CustomerUsageType" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to <strong>manage this value in your application’s Customer record</strong> and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable.
+<td valign="top">This is a group of codes that indicate the type of exemption. See <a title="standard list of codes" href="/avatax/handling-tax-exempt-customers" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to <strong>manage this value in your application’s Customer record</strong> and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable.
 
 Note that either Exemption Number or Entity/Use code is required (not both). <strong>Entity/Use Code is preferred.</strong></td>
 </tr>
