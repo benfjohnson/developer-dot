@@ -3,4 +3,20 @@
 nav_link:
     title: Avatax REST
     path: /avatax/api-reference/tax/v1
-    
+
+
+nav_links:
+  - title: Overview
+    path: /avatax
+  - title: Hello World
+    path: /avatax/hello-world.html
+  - title: Use cases
+    path: /avatax/use-cases.html
+  - title: API references
+    path: /avatax/api-reference/tax/v1
+  - title: Set up your sandbox
+    path: /avatax/set-up-your-sandbox.html
+  - title: Test your integration
+    path: /avatax/test-your-integration.html
+  - title: Integration Checklists
+    path: /avatax/integration-checklists.html

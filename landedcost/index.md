@@ -5,7 +5,7 @@ date: 2016-04-22 11:48
 author: anya.stettler
 comments: true
 categories: []
-product: landedcost
+product: landedCost
 doctype: documentation
 nav: apis
 ---

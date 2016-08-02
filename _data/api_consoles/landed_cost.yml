@@ -3,3 +3,20 @@
 nav_link:
     title: LandedCost
     path: /landedcost/api-reference/v3
+
+
+nav_links:
+  - title: Overview
+    path: /landedcost
+  - title: Hello World
+    path: /landedcost/hello-world.html
+  - title: Use cases
+    path: /landedcost/use-cases.html
+  - title: API references
+    path: /landedcost/api-reference/v3
+  - title: Set up your sandbox
+    path: /landedcost/set-up-your-sandbox.html
+  - title: Test your integration
+    path: /landedcost/test-your-integration.html
+  - title: Integration Checklists
+    path: /landedcost/integration-checklists.html

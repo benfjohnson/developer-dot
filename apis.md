@@ -28,60 +28,52 @@ nav: apis
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>AvaTax</span>
          </div>
-        <ul class="pipe padding-bottom">
-            <li><a href="/avatax">Overview</a></li>
-            <li><a href="#">Hello world</a></li>
-            <li><a href="#">Use cases</a></li>
-            <li><a href="/avatax/api-reference/tax/v1">API references</a></li>
-            <li><a href="#">Set up your sandbox</a></li>
-            <li><a href="#">Test your integration</a></li>
-            <li><a href="#">Integration checklists</a></li>
-        </ul>
-        <h2>Duties and fees for international sales</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis interdum libero ac luctus. Nam ut dolor ac ipsum pharetra mollis. Vivamus blandit imperdiet mauris et consectetur. Phasellus iaculis pharetra elit, id efficitur quam interdum sed. Maecenas quis lacus eget elit pulvinar mattis. Duis mattis bibendum cursus. Pellentesque malesuada, odio nec viverra hendrerit, ligula est tincidunt libero, ac imperdiet nibh ex eu lectus. Ut cursus mollis eros, id blandit nisi facilisis quis. Vivamus lacinia nunc sit amet nisl cursus faucibus. Maecenas orci nibh, malesuada sed blandit vitae, dapibus ac dui.</p>
-        <div class="pageTitle">
-            <img src="/images/AvLogo.svg" alt="Avalara">
-            <span>LandedCost</span>
-         </div>
-        <ul class="pipe padding-bottom">
-            <li><a href="/landedcost">Overview</a></li>
-            <li><a href="#">Hello world</a></li>
-            <li><a href="#">Use cases</a></li>
-            <li><a href="/landedcost/api-reference/v3">API references</a></li>
-            <li><a href="#">Set up your sandbox</a></li>
-            <li><a href="#">Test your integration</a></li>
-            <li><a href="#">Integration checklists</a></li>
-        </ul>
+        {% if site.data.api_consoles.avatax.nav_links %}
+          <ul class="pipe padding-bottom">
+          {% for api_console_hash in site.data.api_consoles.avatax.nav_links %}
+              <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+          {% endfor %}
+          </ul>
+        {% endif %}
         <h2>Fees and taxes for telecommunications</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis interdum libero ac luctus. Nam ut dolor ac ipsum pharetra mollis. Vivamus blandit imperdiet mauris et consectetur. Phasellus iaculis pharetra elit, id efficitur quam interdum sed. Maecenas quis lacus eget elit pulvinar mattis. Duis mattis bibendum cursus. Pellentesque malesuada, odio nec viverra hendrerit, ligula est tincidunt libero, ac imperdiet nibh ex eu lectus. Ut cursus mollis eros, id blandit nisi facilisis quis. Vivamus lacinia nunc sit amet nisl cursus faucibus. Maecenas orci nibh, malesuada sed blandit vitae, dapibus ac dui.</p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>AvaTax Communication</span>
          </div>
-        <ul class="pipe padding-bottom">
-            <li><a href="/communications">Overview</a></li>
-            <li><a href="#">Hello world</a></li>
-            <li><a href="#">Use cases</a></li>
-            <li><a href="/communications/api-reference/saas/soap">API references</a></li>
-            <li><a href="#">Set up your sandbox</a></li>
-            <li><a href="#">Test your integration</a></li>
-            <li><a href="#">Integration checklists</a></li>
-        </ul>
+        {% if site.data.api_consoles.communications.nav_links %}
+          <ul class="pipe padding-bottom">
+          {% for api_console_hash in site.data.api_consoles.communications.nav_links %}
+              <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+          {% endfor %}
+          </ul>
+        {% endif %}
         <h2>Excise fees and taxes for fuels</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis interdum libero ac luctus. Nam ut dolor ac ipsum pharetra mollis. Vivamus blandit imperdiet mauris et consectetur. Phasellus iaculis pharetra elit, id efficitur quam interdum sed. Maecenas quis lacus eget elit pulvinar mattis. Duis mattis bibendum cursus. Pellentesque malesuada, odio nec viverra hendrerit, ligula est tincidunt libero, ac imperdiet nibh ex eu lectus. Ut cursus mollis eros, id blandit nisi facilisis quis. Vivamus lacinia nunc sit amet nisl cursus faucibus. Maecenas orci nibh, malesuada sed blandit vitae, dapibus ac dui.</p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>AvaTax Excise</span>
          </div>
-        <ul class="pipe padding-bottom">
-            <li><a href="#">Overview</a></li>
-            <li><a href="#">Hello world</a></li>
-            <li><a href="#">Use cases</a></li>
-            <li><a href="#">API references</a></li>
-            <li><a href="#">Set up your sandbox</a></li>
-            <li><a href="#">Test your integration</a></li>
-            <li><a href="#">Integration checklists</a></li>
-        </ul>
+        {% if site.data.api_consoles.excise.nav_links %}
+          <ul class="pipe padding-bottom">
+          {% for api_console_hash in site.data.api_consoles.excise.nav_links %}
+              <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+        <h2>Duties and fees for international sales</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis interdum libero ac luctus. Nam ut dolor ac ipsum pharetra mollis. Vivamus blandit imperdiet mauris et consectetur. Phasellus iaculis pharetra elit, id efficitur quam interdum sed. Maecenas quis lacus eget elit pulvinar mattis. Duis mattis bibendum cursus. Pellentesque malesuada, odio nec viverra hendrerit, ligula est tincidunt libero, ac imperdiet nibh ex eu lectus. Ut cursus mollis eros, id blandit nisi facilisis quis. Vivamus lacinia nunc sit amet nisl cursus faucibus. Maecenas orci nibh, malesuada sed blandit vitae, dapibus ac dui.</p>
+        <div class="pageTitle">
+            <img src="/images/AvLogo.svg" alt="Avalara">
+            <span>LandedCost</span>
+         </div>
+         {% if site.data.api_consoles.landed_cost.nav_links %}
+             <ul class="pipe padding-bottom">
+             {% for api_console_hash in site.data.api_consoles.landed_cost.nav_links %}
+                 <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+             {% endfor %}
+             </ul>
+         {% endif %}
     </div>
 </div>
 <div class="row border-top bg-fill padding-bottom">
@@ -99,15 +91,13 @@ nav: apis
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>CertCapture</span>
          </div>
-        <ul class="pipe">
-            <li><a href="#">Overview</a></li>
-            <li><a href="#">Hello world</a></li>
-            <li><a href="#">Use cases</a></li>
-            <li><a href="#">API references</a></li>
-            <li><a href="#">Set up your sandbox</a></li>
-            <li><a href="#">Test your integration</a></li>
-            <li><a href="#">Integration checklists</a></li>
-        </ul>    
+          {% if site.data.api_consoles.certcapture.nav_links %}
+              <ul class="pipe">
+              {% for api_console_hash in site.data.api_consoles.certcapture.nav_links %}
+                  <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+              {% endfor %}
+              </ul>
+          {% endif %}
     </div>
 </div>
 <div class="row border-top padding-bottom">
@@ -121,29 +111,25 @@ nav: apis
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>Returns</span>
          </div>
-        <ul class="pipe padding-bottom">
-            <li><a href="#">Overview</a></li>
-            <li><a href="#">Hello world</a></li>
-            <li><a href="#">Use cases</a></li>
-            <li><a href="#">API references</a></li>
-            <li><a href="#">Set up your sandbox</a></li>
-            <li><a href="#">Test your integration</a></li>
-            <li><a href="#">Integration checklists</a></li>
-        </ul>
+       {% if site.data.api_consoles.returns.nav_links %}
+           <ul class="pipe">
+           {% for api_console_hash in site.data.api_consoles.returns.nav_links %}
+               <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+           {% endfor %}
+           </ul>
+       {% endif %}
         <h2>Standalone solution for preparing &amp; filing tax returns</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis interdum libero ac luctus. Nam ut dolor ac ipsum pharetra mollis. Vivamus blandit imperdiet mauris et consectetur. Phasellus iaculis pharetra elit, id efficitur quam interdum sed. Maecenas quis lacus eget elit pulvinar mattis. Duis mattis bibendum cursus. Pellentesque malesuada, odio nec viverra hendrerit, ligula est tincidunt libero, ac imperdiet nibh ex eu lectus. Ut cursus mollis eros, id blandit nisi facilisis quis. Vivamus lacinia nunc sit amet nisl cursus faucibus. Maecenas orci nibh, malesuada sed blandit vitae, dapibus ac dui.</p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>TrustFile</span>
          </div>
-        <ul class="pipe">
-            <li><a href="/trustfile">Overview</a></li>
-            <li><a href="#">Hello world</a></li>
-            <li><a href="#">Use cases</a></li>
-            <li><a href="/trustfile/api-reference/core/v3">API references</a></li>
-            <li><a href="#">Set up your sandbox</a></li>
-            <li><a href="#">Test your integration</a></li>
-            <li><a href="#">Integration checklists</a></li>
-        </ul>
+       {% if site.data.api_consoles.trustfile.nav_links %}
+           <ul class="pipe">
+           {% for api_console_hash in site.data.api_consoles.trustfile.nav_links %}
+               <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+           {% endfor %}
+           </ul>
+       {% endif %}
     </div>
 </div>

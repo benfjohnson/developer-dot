@@ -22,7 +22,7 @@ permalink: /search/
             <select id="product-facet" class="form-control">
                 <option value="">Any</option>
                 <option value="avatax">AvaTax</option>
-                <option value="landedcost">LandedCost</option>
+                <option value="landedCost">LandedCost</option>
                 <option value="excise">Excise</option>
                 <option value="certcapture">CertCapture</option>
                 <option value="trustfile">TrustFile</option>
