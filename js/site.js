@@ -3,7 +3,7 @@ var $searchFormCloseBtn = $searchForm.find('.close');
 var $searchFormIcon = $('.hdr-search-icon');
 var $searchInput = $searchForm.find('input[type="search"]');
 
-var submitSearch = function() {
+var submitHdrSearch = function() {
     $searchForm.on('submit', function(e) {
         e.preventDefault();
         $searchForm.addClass('submitted');
@@ -14,15 +14,16 @@ var submitSearch = function() {
         } else {
             var newurl = '/search/?q=' + encodeURIComponent($searchInput.val());
             var product = $('body').attr('data-product');
+            var filterProduct = $('#filterProduct').is(':checked');
 
-            if (product) {
+            if (filterProduct && product) {
                 newurl += '&product=' + encodeURIComponent(product);
             }
             window.location.href = newurl;
         }
     });
 };
-var showSearchForm = function() {
+var showHdrSearchForm = function() {
     $searchFormIcon.on('click', function() {
         $searchFormIcon.addClass('hidden');
         $searchForm.removeClass('hidden');
@@ -65,10 +66,14 @@ handleSearch = function() {
     var queryParam = getParameterByName('q');
 
     if (queryParam) {
+        $('#query').parents('.form-group').removeClass('has-error').removeClass('has-feedback');
         $('#query').val(queryParam);
 
         var productfacet = getParameterByName('product');
         var doctypefacet = getParameterByName('doctype');
+
+        productfacet = productfacet ? productfacet.toLowerCase() : null;
+        doctypefacet = doctypefacet ? doctypefacet.toLowerCase() : null;
 
         $('#product-facet').val(productfacet);
         $('#doctype-facet').val(doctypefacet);
@@ -85,7 +90,7 @@ handleSearch = function() {
         }
 
         index.search(queryParam, {
-            attributesToRetrieve: ['title', 'url', 'text'],
+            attributesToRetrieve: ['title', 'url', 'text', 'product', 'doctype'],
             hitsPerPage: 10,
             facetFilters: facets,
         }, function searchDone(err, content) {
@@ -95,32 +100,50 @@ handleSearch = function() {
                 if (err) {
                     console.error(err);
                 }
-                $searchResults.html('<h1>No Results Found</h1>');
+                $searchResults.html('<h5>No Results Found</h5>');
             } else {
                 content.hits.forEach(function(result) {
-                    $searchResults.append('<div><h4><a href="' + result.url + '">' + result.title + '</a></h4><p>' + result.text + '</p></div>');
+                    $searchResults.append('<h5><a href="' + result.url + '">' + result.title + '</a></h5><p>' + result.text + '<br />Product: ' + result.product + '<br />Doctype: ' + result.doctype + '</p>');
                 });
             }
         });
 
-        $('.search-button').click(function(e) {
-            var newurl = '/search/?q=' + encodeURIComponent($('#query').val());
+        var $searchPageForm = $('.search-form');
 
-            if ($('#product-facet').val()) {
-                newurl += '&product=' + encodeURIComponent($('#product-facet').val());
+        $('#query').on('input', function() {
+            if ($searchPageForm.hasClass('submitted') && !$(this).val()) {
+                $(this).parents('.form-group').addClass('has-error').addClass('has-feedback');
+            } else {
+                $(this).parents('.form-group').removeClass('has-error').removeClass('has-feedback');
             }
-            if ($('#doctype-facet').val()) {
-                newurl += '&doctype=' + encodeURIComponent($('#doctype-facet').val());
-            }
+        });
 
-            location.href = newurl;
+        $searchPageForm.submit(function(e) {
+            e.preventDefault();
+            $(this).addClass('submitted');
+
+            $('#query').parents('.form-group').removeClass('has-error').removeClass('has-feedback');
+            if (!$('#query').val()) {
+                $('#query').parents('.form-group').addClass('has-error').addClass('has-feedback');
+            } else {
+                var newurl = '/search/?q=' + encodeURIComponent($('#query').val());
+
+                if ($('#product-facet').val()) {
+                    newurl += '&product=' + encodeURIComponent($('#product-facet').val());
+                }
+                if ($('#doctype-facet').val()) {
+                    newurl += '&doctype=' + encodeURIComponent($('#doctype-facet').val());
+                }
+
+                location.href = newurl;
+            }
         });
     }
 };
 
 $(document).ready(function() {
-    submitSearch();
-    showSearchForm();
+    submitHdrSearch();
+    showHdrSearchForm();
 
     setTimeout(function() {
         $('.dropdown-large').each(function() {

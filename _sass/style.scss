@@ -104,6 +104,16 @@
     padding-bottom: 2em;
 }
 
+.margin-left {
+    margin-left: ($grid-gutter-width / 2);
+}
+
+.half {
+    @media(min-width: $screen-sm-min) {
+        width: $screen-xs-max;
+    }
+}
+
 .slash {
     color: $Disabled;
 }
@@ -122,6 +132,17 @@
     }
     span {
         font-size: 26px;
+    }
+}
+
+.form-group {
+    .form-control-feedback {
+        display: none;
+        width: auto;
+        right: .5em;
+    }
+    &.has-feedback .form-control-feedback {
+        display: block;
     }
 }
 
@@ -215,13 +236,12 @@ header {
                         }
                     }
                     a {
-                        font-family: 'source sans pro regular';
+                        font-family:arial;
                         color: $Ava-blue;
                         padding: 0;
                         @media(min-width: $screen-sm-min) {
                             padding: 0;
                         }
-
                     }
                     .pipe {
                         @extend .pipe;
@@ -246,7 +266,7 @@ header {
                 border-bottom: 1px solid $Form-bottom;
                 border-left: 1px solid $Form-sides;
                 border-right: 1px solid $Form-sides;
-                top: -42px;
+                top: -32px;
                 width: 400px;
                 padding: 0 1em;
                 z-index: 1000;
@@ -275,12 +295,14 @@ header {
                     padding-right: 0;
                     text-align: right;
                 }
-                .form-control-feedback {
-                    width: auto;
-                    right: .5em;
+                label {
+                    color: $Medium-grey;
+                    font-weight:normal;
+                    .capitalize {text-transform: capitalize;}
                 }
                 input[type="search"] {
                     color: $Darkest-grey;
+                    margin-bottom:5px;
                 }
             }
         }
@@ -386,4 +408,8 @@ footer {
     }
 }
 
-
+.search {
+    .form-group:first-of-type {
+        padding-right: 0;
+    }
+}

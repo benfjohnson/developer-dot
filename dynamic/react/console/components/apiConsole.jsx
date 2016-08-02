@@ -110,15 +110,12 @@ const ApiConsole = ({endpoint, id}) => (
         </div>
         <div className={'collapse'} id={`${replaceSpacesInStr(endpoint.name)}-console-body`}>
             <div className={'row api-console'}>
-                <div className={'col-md-5 api-console-form-wrapper'}>
-                    <div className='row' style={{marginLeft: '10px'}}>
-                        <div className='col-sm-4'>
-                            <h3>{'Input'}</h3>
-                        </div>
-                        <div className='col-sm-8 link-text-next-to-header-or-button'>
+                <div className={'col-md-4 api-console-form-wrapper'}>
+                    <div style={{marginLeft: '10px'}}>
+                            <h3 style={{display: 'inline-block'}}>{'Input'}</h3>
                             {hasExampleData('QUERY_STRING', endpoint.queryString) || hasExampleData('POST_BODY', endpoint.postBody) || hasExampleData('PATH_PARAM', endpoint.pathParams) ?
                             <span
-                                className='m-l-1'
+                                className='m-l-1 link-text-next-to-header-or-button'
                                 onClick={(e) => {
                                     e.preventDefault();
                                     handleFillSampleData(id);
@@ -126,20 +123,32 @@ const ApiConsole = ({endpoint, id}) => (
                             >
                             {' Fill with Sample Data'}
                             </span> : null}
-                        </div>
                     </div>
-                    <button
-                        className='btn btn-primary'
-                        onClick={(e) => {
-                            e.preventDefault();
-                            handleSubmit(endpoint, id);
-                        }}
-                        style={{marginLeft: '10px'}}
-                        type={'button'}
-                    >
-                    {'Submit'}
-                    </button>
-                    <span className='link-text-next-to-header-or-button m-l-1' type='reset'>{'Reset'}</span>
+                    <div style={{marginLeft: '10px'}}>
+                            <button
+                                className='btn btn-primary'
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    handleSubmit(endpoint, id);
+                                }}
+                                type={'button'}
+                            >
+                            {'Submit'}
+                            </button>
+                            <span
+                                className='link-text-next-to-header-or-button m-l-1'
+                                onClick={
+                                    () => {
+                                        store.dispatch({
+                                            type: actionTypes.RESET_CONSOLE,
+                                            endpointId: id
+                                        });
+                                    }
+                                }
+                                type='reset'>
+                            {'Reset'}
+                            </span>
+                        </div>
                     {endpoint.pathParams ? <RequestParams endpointId={id} paramType={'PATH'} params={endpoint.pathParams}/> : null}
                     {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
                     {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody}/> : null}
@@ -155,8 +164,21 @@ const ApiConsole = ({endpoint, id}) => (
                             >
                             {'Submit'}
                             </button>
-                            <span className='link-text-next-to-header-or-button m-l-1' type='reset'>{'Reset'}</span>
+                            <span
+                                className='link-text-next-to-header-or-button m-l-1'
+                                onClick={
+                                    () => {
+                                        store.dispatch({
+                                            type: actionTypes.RESET_CONSOLE,
+                                            endpointId: id
+                                        });
+                                    }
+                                }
+                                type='reset'>
+                                {'Reset'}
+                            </span>
                         </div> : null}
+                        <div style={{background: 'blue', height: 'auto'}}></div>
                 </div>
                 <div className={'api-console-output col-md-7'}>
                     <h5 className={'console-output-header'}>{'API Endpoint'}</h5>
@@ -181,6 +203,7 @@ const ApiConsole = ({endpoint, id}) => (
                                 {/* eslint-enable react/no-danger */}
                         </div>
                         }
+                    <div style={{background: 'blue', height: 'auto'}}></div>
                 </div>
             </div>
         </div>

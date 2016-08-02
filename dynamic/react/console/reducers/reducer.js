@@ -1,4 +1,3 @@
-import R from 'ramda';
 import endpointReducer from './endpointReducer';
 
 const actionTypes = {
@@ -15,11 +14,12 @@ const actionTypes = {
     AUTH_KEY_CHANGED: 'AUTH_KEY_CHANGED',
     TOGGLE_DOCUMENTATION_ITEM_VISIBILITY: 'TOGGLE_DOCUMENTATION_ITEM_VISIBILITY',
     CONSOLE_VISIBILITY_TOGGLED: 'CONSOLE_VISIBILITY_TOGGLED',
-    JUMP_TO_CONSOLE: 'JUMP_TO_CONSOLE'
+    JUMP_TO_CONSOLE: 'JUMP_TO_CONSOLE',
+    RESET_CONSOLE: 'RESET_CONSOLE'
 };
 
 const reducer = (state = {}, action) => {
-    const newState = R.clone(state);
+    const newState = {...state};
 
     switch (action.type) {
     case actionTypes.APP_LOADED:
@@ -61,6 +61,7 @@ const reducer = (state = {}, action) => {
     case actionTypes.TOGGLE_DOCUMENTATION_ITEM_VISIBILITY:
     case actionTypes.CONSOLE_VISIBILITY_TOGGLED:
     case actionTypes.JUMP_TO_CONSOLE:
+    case actionTypes.RESET_CONSOLE:
         const endpoint = state.apiInfo[action.endpointId];
 
         newState.apiInfo[action.endpointId] = endpointReducer(endpoint, action);
