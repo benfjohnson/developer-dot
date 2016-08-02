@@ -115,14 +115,7 @@ nav: apis
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>Returns</span>
-         </div>
-       {% if site.data.api_consoles.returns.nav_links %}
-           <ul class="pipe">
-           {% for api_console_hash in site.data.api_consoles.returns.nav_links %}
-               <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
-           {% endfor %}
-           </ul>
-       {% endif %}
+        </div>
         <h2>Standalone solution for preparing &amp; filing tax returns</h2>
         <p>Avalara TrustFile is a do-it-yourself sales tax solution for small businesses and eCommerce merchants. Quick to set up and easy to use, TrustFile takes your sales data and prepares sales tax reports for every state you collected tax in. TrustFile supports eFiling in a growing number of states, so you can take advantage of One-Click Filing to save even more time. TrustFile allows you to generate sales tax reports and filing independently of the sales tax calculation, which means it can be used without any AvaTax calculation. <a href="http://trustfile.avalara.com">Learn more about the TrustFile API</a>.</p>
         <div class="pageTitle">
