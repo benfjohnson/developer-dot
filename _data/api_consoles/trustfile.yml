@@ -7,15 +7,5 @@ nav_link:
 nav_links:
   - title: Overview
     path: /trustfile
-  - title: Hello World
-    path: /trustfile/hello-world.html
-  - title: Use cases
-    path: /trustfile/use-cases.html
   - title: API references
     path: /trustfile/api-reference/core/v3
-  - title: Set up your sandbox
-    path: /trustfile/set-up-your-sandbox.html
-  - title: Test your integration
-    path: /trustfile/test-your-integration.html
-  - title: Integration Checklists
-    path: /trustfile/integration-checklists.html
