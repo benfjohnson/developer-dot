@@ -38,80 +38,56 @@ nav: home
       </div>
     </div>
     <div class="row margin-top">
-      <div class="col-sm-12 text-center btn-callout"><a href="#" role="button">Get an Avalara AvaTax sandbox</a></div>
+      <div class="col-sm-12 text-center btn-callout"><a href="/avatax/get-started" role="button">Get an Avalara AvaTax sandbox</a></div>
     </div>
     <div class="row bg-white border-top">
       <div class="col-sm-6 col-sm-offset-3 text-center">
         <h1>Avalara is all about tax compliance</h1>
-        <h5 class="text-blue">API solutions</h5>
+        <h5><a href="/avalara-apis">API solutions</a></h5>
       </div>
     </div>
     <div class="row bg-white">
       <div class="col-xs-2 col-xs-offset-2 col-sm-offset-2 col-sm-2 text-center">
-        <a href="#">
-          <img src="/images/devdot/DevDotSvgGAssets_ShippingCrate.svg" width="110" />
-        </a>
+        <a href="/landedcost"><img src="/images/devdot/DevDotSvgGAssets_ShippingCrate.svg" width="110" /></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="#">
-          <img src="/images/devdot/DevDotSvgGAssets_GasPump.svg" width="110" />
-        </a>
+        <a href="/excise"><img src="/images/devdot/DevDotSvgGAssets_GasPump.svg" width="110" /></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="#">
-          <img src="/images/devdot/DevDotSvgGAssets_SatelliteDish.svg" width="110" />
-        </a>
+        <a href="/communications"><img src="/images/devdot/DevDotSvgGAssets_SatelliteDish.svg" width="110" /></a>
       </div>
     </div>
     <div class="row bg-white">
       <div class="col-xs-2 col-xs-offset-2 col-sm-offset-2 col-sm-2 text-center">
-        <a href="#">
-          <h4 class="hidden-xs">Overseas selling and value-added tax (VAT)</h4>
-        </a>
+        <a href="/landedcost"><h4 class="hidden-xs">Overseas selling and value-added tax (VAT)</h4></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="#">
-          <h4 class="hidden-xs">Fuels, petroleum products and natural gas</h4>
-        </a>
+        <a href="/excise"><h4 class="hidden-xs">Fuels, petroleum products and natural gas</h4></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="#">
-          <h4 class="hidden-xs">Telecommunication, internet and other communications services</h4>
-        </a>
+        <a href="/communications"><h4 class="hidden-xs">Telecommunication, internet and other communications services</h4></a>
       </div>
     </div>
     <div class="row bg-white padding-top">
       <div class="col-xs-2 col-xs-offset-2 col-sm-offset-2 col-sm-2 text-center">
-        <a href="#">
-          <img src="/images/devdot/DevDotSvgGAssets_Beverages.svg" width="110" />
-        </a>
+        <a href="#"><img src="/images/devdot/DevDotSvgGAssets_Beverages.svg" width="110" /></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="#">
-          <img src="/images/devdot/DevDotSvgGAssets_BarCode.svg" width="110" />
-        </a>
+        <a href="#"><img src="/images/devdot/DevDotSvgGAssets_BarCode.svg" width="110" /></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="#">
-          <img src="/images/devdot/DevDotSvgGAssets_POS.svg" width="110" />
-        </a>
+        <a href="#"><img src="/images/devdot/DevDotSvgGAssets_POS.svg" width="110" /></a>
       </div>
     </div>
     <div class="row bg-white padding-top padding-bottom">
       <div class="col-xs-2 col-xs-offset-2 col-sm-offset-2 col-sm-2 text-center">
-        <a href="#">
-          <h4 class="hidden-xs">Solution/expertise area subhead</h4>
-        </a>
+        <a href="#"><h4 class="hidden-xs">Solution/expertise area subhead</h4></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="#">
-          <h4 class="hidden-xs">Solution/expertise area subhead</h4>
-        </a>
+        <a href="#"><h4 class="hidden-xs">Solution/expertise area subhead</h4></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="#">
-          <h4 class="hidden-xs">Solution/expertise area subhead</h4>
-        </a>
+        <a href="#"><h4 class="hidden-xs">Solution/expertise area subhead</h4></a>
       </div>
     </div>
     <div class="row border-top">
@@ -122,13 +98,13 @@ nav: home
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
         <p>
-          You’ll be set up with an <a href="#">AvaTax Basic subscription</a> which lets you calculate taxes in the U.S. and Canada only<br />
-          See the steps below so that you fully integrate with Avalara AvaTax and leverage what it can do for your financial application<br />
-          Please <a href="#">contact us</a> if you need to request an extnsion, evaluate our global tax calculation or other compliance services<br />
+          You'll be set up with an <a href="/avatax/get-started">AvaTax Basic subscription</a> which lets you calculate taxes in the U.S. and Canada only.<br />
+          See the steps below so that you fully integrate with Avalara AvaTax and leverage what it can do for your financial application.<br />
+          Please <a href="mailto:sales@avalara.com">contact us</a> if you need to request an extension, evaluate our global tax calculation or other compliance services.<br />
         </p>
       </div>
     </div>
     <div class="row margin-top">
-      <div class="col-sm-12 text-center btn-callout"><a href="#" role="button">Get an Avalara AvaTax sandbox</a></div>
+      <div class="col-sm-12 text-center btn-callout"><a href="/avatax/get-started" role="button">Get an Avalara AvaTax sandbox</a></div>
     </div>
 </div>

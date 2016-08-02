@@ -31,3 +31,11 @@ endpoint_hashes:
       link: '/#BeginCustomerBatch'
     - name: CalcCustAdj
       link: '/#CalcCustAdj'
+
+nav_links:
+  - title: Overview
+    path: /communications
+  - title: API references
+    path: /communications/api-reference/saas/soap
+  - title: Integration Checklists
+    path: /communications/certification

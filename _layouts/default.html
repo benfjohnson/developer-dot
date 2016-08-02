@@ -20,7 +20,7 @@
     {% endif %}
 {% endif %}
 
-<body data-spy='scroll' data-target='#bootstrap-scrollspy' data-product={{product_name}}>
+<body id="top" data-spy='scroll' data-target='#bootstrap-scrollspy' data-product={{product_name}}>
     <header>
         <div class="pageTitle">
             <a href="/">
@@ -38,72 +38,88 @@
             <div class="collapse navbar-collapse js-navbar-collapse">
                 <ul class="nav navbar-nav {{page.nav}}">
                     <li class="home"><a href="/"><span class="text-uppercase">Welcome</span></a></li>
-                    <li class="apis visible-xs-block"><a href="/apis.html"><span class="text-uppercase">API</span>s</a></li>
+                    <li class="apis visible-xs-block"><a href="/avalara-apis"><span class="text-uppercase">API</span>s</a></li>
                     <li class="apis dropdown dropdown-large hidden-xs">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">API</span>s <i class="caret"></i></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">API</span>s <i class="caret"></i></a>
                         <div class="dropdown-menu dropdown-menu-large">
                             <div class="row">
-                                <div class="col-sm-12"><a href="/apis.html">APIs Overview</a></div>
+                                <div class="col-sm-12"><a href="/avalara-apis">APIs overview</a></div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-7">
                                     <h2>Tax Calculation</h2>
-                                    <h4>Avalara AvaTax</h4>
-                                    <ul class="pipe">
-                                        <li><a href="/avatax">Overview</a></li>
-                                        <li><a href="#">Hello world</a></li>
-                                        <li><a href="#">Use cases</a></li>
-                                        <li><a href="/avatax/api-reference/tax/v1">API references</a></li>
-                                        <li><a href="#">Set up your sandbox</a></li>
-                                        <li><a href="#">Test your integration</a></li>
-                                        <li><a href="#">Integration checklists</a></li>
-                                    </ul>
-                                    <h4>Avalara AvaTax Communications</h4>
-                                    <ul class="pipe">
-                                        <li><a href="/communications">Overview</a></li>
-                                        <li><a href="/communications/api-reference/saas/soap">API references</a></li>
-                                        <li><a href="#">Integration checklist</a></li>
-                                    </ul>
-                                    <h4>Avalara AvaTax Excise</h4>
-                                    <ul class="pipe">
-                                        <li><a href="#">Overview</a></li>
-                                        <li><a href="#">API references</a></li>
-                                    </ul>
-                                    <h4>Avalara LandedCost</h4>
-                                    <ul class="pipe">
-                                        <li><a href="/landedcost">Overview</a></li>
-                                        <li><a href="/landedcost/api-reference/v3">API references</a></li>
-                                    </ul>
+                                    {% if site.data.api_consoles.avatax.nav_links %}
+                                        <h4>Avalara AvaTax</h4>
+                                        <ul class="pipe">
+                                            {% for api_console_hash in site.data.api_consoles.avatax.nav_links %}
+                                                <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                    {% if site.data.api_consoles.communications.nav_links %}
+                                        <h4>Avalara AvaTax Communications</h4>
+                                        <ul class="pipe">
+                                            {% for api_console_hash in site.data.api_consoles.communications.nav_links %}
+                                                <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                    {% if site.data.api_consoles.excise.nav_links %}
+                                        <h4>Avalara AvaTax Excise</h4>
+                                        <ul class="pipe">
+                                            {% for api_console_hash in site.data.api_consoles.excise.nav_links %}
+                                                <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                    {% if site.data.api_consoles.landed_cost.nav_links %}
+                                        <h4>Avalara LandedCost</h4>
+                                        <ul class="pipe">
+                                            {% for api_console_hash in site.data.api_consoles.landed_cost.nav_links %}
+                                                <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
                                 </div>
                                 <div class="col-sm-5">
                                     <h2>Compliance document management</h2>
+                                    {% if site.data.api_consoles.certcapture.nav_links %}
                                     <h4>Avalara CertCapture</h4>
                                     <ul class="pipe">
-                                        <li><a href="#">Overview</a></li>
-                                        <li><a href="#">API references</a></li>
+                                        {% for api_console_hash in site.data.api_consoles.certcapture.nav_links %}
+                                        <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+                                        {% endfor %}
                                     </ul>
+                                    {% endif %}
                                     <h2>Returns &amp; filing</h2>
+                                    {% if site.data.api_consoles.returns.nav_links %}
                                     <h4>Avalara Returns</h4>
                                     <ul class="pipe">
-                                        <li><a href="#">Overview</a></li>
+                                        {% for api_console_hash in site.data.api_consoles.returns.nav_links %}
+                                        <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+                                        {% endfor %}
                                     </ul>
+                                    {% endif %}
+                                    {% if site.data.api_consoles.trustfile.nav_links %}
                                     <h4>Avalara TrustFile</h4>
                                     <ul class="pipe">
-                                        <li><a href="/trustfile">Overview</a></li>
-                                        <li><a href="/trustfile/api-reference/core/v3">API references</a></li>
+                                        {% for api_console_hash in site.data.api_consoles.trustfile.nav_links %}
+                                        <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+                                        {% endfor %}
                                     </ul>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="certification"><a href="/certification.html"><span class="text-uppercase">Become Certified</span></a></li>
+                    <li class="certification"><a href="/certification"><span class="text-uppercase">Become Certified</span></a></li>
                     <li class="resources dropdown dropdown-large hidden-xs">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">Resources</span> <b class="caret"></b></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">Resources</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-large">
                             <li>
                                 <ul class="pipe">
                                     <li><a href="http://developer.avalara.com/blog">Developer Blog</a></li>
-                                    <li><a href="/resources/preferred-developers.html">Preferred developers</a></li>
+                                    <li><a href="/resources/preferred-developers">Preferred developers</a></li>
                                 </ul>
                                 <ul>
                                     <li><a href="https://community.avalara.com/avalara/category_sets/developers">Help Forum</a></li>
@@ -112,7 +128,7 @@
                         </ul>
                     </li>
                     <li class="resources visible-xs-block"><a href="http://developer.avalara.com/blog"><span class="text-uppercase">Developer Blog</span></a></li>
-                    <li class="resources visible-xs-block"><a href="/resources/preferred-developers.html"><span class="text-uppercase">Preferred developers</span></a></li>
+                    <li class="resources visible-xs-block"><a href="/resources/preferred-developers"><span class="text-uppercase">Preferred developers</span></a></li>
                     <li class="resources visible-xs-block"><a href="https://community.avalara.com/avalara/category_sets/developers"><span class="text-uppercase">Help Forum</span></a></li>
                     <li class="resources visible-xs-block"><a href="/search"><span class="text-uppercase">Search</span></a></li>
                     <li class="hdr-search-icon hidden-xs">
@@ -124,6 +140,7 @@
                         <div class="form-group col-sm-9">
                             <input class="form-control" type="search" placeholder="Search">
                             <span class="form-control-feedback" aria-hidden="false">!</span>
+                            {% if product_name %}<label><input type="checkbox" id="filterProduct" checked> Search only <span class="capitalize">{{product_name}}</span></label>{% endif %}
                         </div>
                         <div class="form-group col-sm-3">
                             <input type="submit" class="btn btn-primary" value="Search">
@@ -150,19 +167,19 @@
 
     <footer class="navbar navbar-default">
         <ul class="social">
-            <li class="twitter" title="twitter"><a href="#">Twitter</a></li>
-            <li class="facebook" title="facebook"><a href="#">Facebook</a></li>
-            <li class="linkedin" title="linkedin"><a href="#">LinkedIn</a></li>
-            <li class="youtube" title="youtube"><a href="#">Youtube</a></li>
+            <li class="twitter" title="twitter"><a href="https://twitter.com/Avalara">Twitter</a></li>
+            <li class="facebook" title="facebook"><a href="https://www.facebook.com/avalara">Facebook</a></li>
+            <li class="linkedin" title="linkedin"><a href="https://www.linkedin.com/company/avalara">LinkedIn</a></li>
+            <li class="youtube" title="youtube"><a href="https://www.youtube.com/user/Avalara1">Youtube</a></li>
         </ul>
         <ul class="global">
-            <li><a href="#"><span class="icon-sphere"></span>Avalara.com</a></li>
-            <li><a href="#"><span class="icon-help"></span>Help Center</a></li>
+            <li><a href="https://www.avalara.com/"><span class="icon-sphere"></span>Avalara.com</a></li>
+            <li><a href="https://help.avalara.com/"><span class="icon-help"></span>Help Center</a></li>
         </ul>
         <ul class="legal">
             <li>&copy; Avalara, Inc. All rights reserved</li>
-            <li><a href="#">Terms of use</a></li>
-            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="https://www.avalara.com/site-terms/">Terms of use</a></li>
+            <li><a href="https://www.avalara.com/privacy-policy/">Privacy Policy</a></li>
         </ul>
     </footer>
 

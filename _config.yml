@@ -78,6 +78,4 @@ permalink: blog/:year/:month/:day/:title/
 excerpt_separator: <!--more-->
 
 collections:
-    pages:
-        permalink: :basename/
-        layout: "default"
+    permalink: :basename/

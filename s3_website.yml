@@ -1,3 +1,5 @@
 s3_id: <%= ENV['access_key'] %>
 s3_secret: <%= ENV['secret_key'] %>
 s3_bucket: devdot-sitetest
+exclude_from_upload:
+  - node_modules
