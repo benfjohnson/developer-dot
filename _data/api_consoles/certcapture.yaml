@@ -1,19 +1,9 @@
 # CertCapture
 
-
-
 nav_links:
   - title: Overview
     path: /certcapture
-  - title: Hello World
-    path: /certcapture/hello-world.html
-  - title: Use cases
-    path: /certcapture/use-cases.html
   - title: API references
     path: /certcapture/api-reference
-  - title: Set up your sandbox
-    path: /certcapture/set-up-your-sandbox.html
-  - title: Test your integration
-    path: /certcapture/test-your-integration.html
   - title: Integration Checklists
-    path: /certcapture/integration-checklists.html
+    path: /certcapture/certification.html

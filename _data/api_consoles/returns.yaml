@@ -1,19 +1,5 @@
-# Excise
-
-
+# Returns
 
 nav_links:
   - title: Overview
     path: /returns
-  - title: Hello World
-    path: /returns/hello-world.html
-  - title: Use cases
-    path: /returns/use-cases.html
-  - title: API references
-    path: /returns/api-reference
-  - title: Set up your sandbox
-    path: /returns/set-up-your-sandbox.html
-  - title: Test your integration
-    path: /returns/test-your-integration.html
-  - title: Integration Checklists
-    path: /returns/integration-checklists.html
