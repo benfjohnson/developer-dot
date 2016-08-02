@@ -10,14 +10,14 @@ nav: apis
     <h1 class="h1p">Real-time tax calculation for financial applications</h1>
     <h1>A 90-day free Avalara AvaTax sandbox account lets you kick the wheels</h1>
   </div>
-  <div class="col-xs-offset-2 col-xs-8 text-center btn-callout"><a href="/avatax/get-started.html" role="button">Get an Avalara AvaTax sandbox</a></div>
+  <div class="col-xs-offset-2 col-xs-8 text-center btn-callout"><a href="/avatax/get-started" role="button">Get an Avalara AvaTax sandbox</a></div>
 </div>
 <div class="row border-top padding-top">
   <div class="col-sm-8 col-sm-offset-2 text-center">
     <div class="row">
         <div class="col-xs-3">
             <img src="/images/devdot/DevDotSvgGAssets_TaxCaLculation.svg" width="50%"/>
-            <h4>Pecise rate calculation</h4>
+            <h4>Precise rate calculation</h4>
         </div>
         <div class="col-xs-3">
             <img src="/images/devdot/DevDotSvgGAssets_Exemptions.svg" width="50%"/>
@@ -38,7 +38,7 @@ nav: apis
   <div class="col-sm-8 col-sm-offset-2 text-center">
     <h1 class="h1p">Become familiar with core AvaTax features</h1>
     <ul class="pipe">
-        <li><a href="/avatax/use-cases.html">Use cases</a></li>
+        <li><a href="/avatax/use-cases">Use cases</a></li>
         <li><a href="/avatax/api-reference/tax/v1">API references</a></li>
     </ul>
   </div>
@@ -79,8 +79,8 @@ nav: apis
   <div class="col-sm-8 col-sm-offset-2 text-center">
     <h1 class="h1p">Fast and easy integration with AvaTax</h1>
     <ul class="pipe">
-        <li><a href="/avatax/test-your-integration.html">Test your integration</a></li>
-        <li><a href="/avatax/integration-checklists.html">Integration hecklists</a></li>
+        <li><a href="/avatax/test-your-integration">Test your integration</a></li>
+        <li><a href="/avatax/integration-checklists">Integration Checklists</a></li>
     </ul>
   </div>
 </div>

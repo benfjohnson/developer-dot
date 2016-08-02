@@ -4,6 +4,6 @@ nav_links:
   - title: Overview
     path: /certcapture
   - title: API references
-    path: /certcapture/api-reference
+    path: http://docs.certcapture6xrest.apiary.io/
   - title: Integration Checklists
-    path: /certcapture/certification.html
+    path: /certcapture/certification
