@@ -5,8 +5,8 @@ date: 2016-01-18 15:14
 author: jeremy.buller
 comments: true
 categories: []
-product: trustfile
-doctype: documentation
+product: trustFile
+doctype: overview
 ---
 <h2>Capture transactions for filing with the TrustFile API</h2>
 The TrustFile API allows you to load transactions automatically from any source.

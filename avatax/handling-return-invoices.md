@@ -5,8 +5,8 @@ date: 2012-05-14 16:31
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
-doctype: documentation
+product: avaTax
+doctype: use_cases
 ---
 <h2>Reflecting Returns and Credits Memos in AvaTax</h2>
 When you’re calculating tax on returns or credit memos through the API, there are a few things to keep in mind:

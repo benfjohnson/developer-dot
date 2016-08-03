@@ -5,8 +5,8 @@ date: 2012-09-11 00:09
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
-doctype: documentation
+product: avaTax
+doctype: set_up_your_sandbox
 ---
 <h2>Four simple steps to getting started in calculating sales tax with our REST API</h2>
 <strong>If you already have an Avalara AvaTax account</strong> and want to dive into the details, a good place to start is our <a href="/blog/2013/11/11/introduction-to-the-avalara-avatax-api">Introduction to the Avalara AvaTax API</a>.
@@ -134,6 +134,6 @@ The tax request you made in Step 3 will be viewable in the Admin Console. Log in
 
 Moving forward, it's a good idea to periodically review the Admin Console to verify that you're heading in the right direction.
 <h4>What's Next?</h4>
-If you didn't already check out the <a href="/blog/2013/11/11/introduction-to-the-avalara-avatax-api">Introduction to the Avalara AvaTax API</a>, that's where you should go next. We also recommend that you take a look at the <a href="/avatax/api-reference/">API Reference</a>, review our <a href="/avatax/certification">integration checklist</a>, and check out the <a href="https://community.avalara.com/avalara/category_sets/developers">Developer Community</a>. A larger set of sample requests are also available as a <a href="https://www.getpostman.com/collections/e362821310b01d7580e9">Postman collection</a>.
+If you didn't already check out the <a href="/blog/2013/11/11/introduction-to-the-avalara-avatax-api">Introduction to the Avalara AvaTax API</a>, that's where you should go next. We also recommend that you take a look at the <a href="/avatax/api-reference/tax/v1">API Reference</a>, review our <a href="/avatax/certification">integration checklist</a>, and check out the <a href="https://community.avalara.com/avalara/category_sets/developers">Developer Community</a>. A larger set of sample requests are also available as a <a href="https://www.getpostman.com/collections/e362821310b01d7580e9">Postman collection</a>.
 
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>

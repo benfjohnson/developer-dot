@@ -5,8 +5,8 @@ date: 2016-01-18 02:42
 author: jeremy.buller
 comments: true
 categories: []
-product: certcapture
-doctype: certification
+product: certCapture
+doctype: integration_checklists
 ---
 
 <h1 class="entry-title" data-fontsize="32" data-lineheight="NaN">Avalara AvaTax with CertCapture</h1>

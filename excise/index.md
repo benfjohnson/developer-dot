@@ -4,7 +4,7 @@ title: CertCapture Overview
 categories: []
 product: excise
 nav: apis
-doctype: documentation
+doctype: overview
 ---
 <h2>Getting Started</h2>
 <h3>Automate Excise Taxes with the Excise Tax API</h3>

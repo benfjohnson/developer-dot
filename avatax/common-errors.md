@@ -5,8 +5,8 @@ date: 2012-05-14 16:47
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
-doctype: documentation
+product: avaTax
+doctype: use_cases
 ---
 <table border="1" width="620" cellspacing="0" cellpadding="5">
 <thead style="background-color: lightgray;">
