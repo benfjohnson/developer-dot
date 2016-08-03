@@ -6,7 +6,7 @@ author: anya.stettler
 comments: true
 categories: []
 product: landedCost
-doctype: documentation
+doctype: overview
 nav: apis
 ---
 <h2>Getting Started</h2>

@@ -1,8 +1,9 @@
 ---
 layout: default
 title: AvaTax
-product: AvaTax
+product: avaTax
 nav: apis
+doctype: overview
 ---
 
 <div class="row bg-map">

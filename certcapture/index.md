@@ -5,8 +5,8 @@ date: 2016-01-18 02:34
 author: jeremy.buller
 comments: true
 categories: []
-product: certcapture
-doctype: documentation
+product: certCapture
+doctype: overview
 ---
 <h2>Getting Started</h2>
 <h3>Document Management with the CertCapture API</h3>

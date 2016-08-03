@@ -5,10 +5,10 @@ date: 2013-05-13 21:29
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
-doctype: documentation
+product: avaTax
+doctype: use_cases
 ---
-For information on reflecting shipping charges in your tax calculation, go <a title="GetTax" href="/avatax/gettax#ShippingAndFreight">here</a>.
+For information on reflecting shipping charges in your tax calculation, go <a title="GetTax" href="/avatax/calculating-tax">here</a>.
 
 “Drop Shipping” is more of a business process to define vs. a technical one – one that will require the talents of your company's tax attorney and/or accountant to define what your nexus liabilities and responsibilities are for the origin and destination locations.
 Note: Avalara cannot provide recommendations or advice regarding how your company should handle nexus liabilities – this is ultimately the responsibility of your tax attorney or accountant.
@@ -131,3 +131,24 @@ The results of this invoice were as follows:
 </tr>
 </tbody>
 </table>
+
+&nbsp;
+
+<h2>Related Community Discussions</h2>
+
+&nbsp;
+
+<div id="gsfn_list_widget">
+
+<div id="gsfn_content">Loading...</div>
+
+&nbsp;
+</div>
+
+<script src="https://getsatisfaction.com/avalara/widgets/javascripts/f585970/widgets.js" type="text/javascript"></script><script src="https://getsatisfaction.com/avalara/topics.widget?callback=gsfnTopicsCallback&amp;length=240&amp;limit=5&amp;sort=recently_active&amp;user_defined_code=shipping" type="text/javascript"></script>
+
+<div id="getsat-widget-8157"></div>
+
+<script src="https://loader.engage.gsfn.us/loader.js" type="text/javascript"></script><script type="text/javascript">// <![CDATA[
+if (typeof GSFN !== "undefined") { GSFN.loadWidget(8157,{"containerId":"getsat-widget-8157"}); }
+// ]]></script>
