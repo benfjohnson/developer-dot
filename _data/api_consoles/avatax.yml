@@ -8,15 +8,13 @@ nav_link:
 nav_links:
   - title: Overview
     path: /avatax
-  - title: Hello World
-    path: /avatax/hello-world.html
   - title: Use cases
-    path: /avatax/use-cases.html
+    path: /avatax/use-cases
   - title: API references
     path: /avatax/api-reference/tax/v1
   - title: Set up your sandbox
-    path: /avatax/set-up-your-sandbox.html
+    path: /avatax/get-started
   - title: Test your integration
-    path: /avatax/test-your-integration.html
+    path: /avatax/testing-your-integration
   - title: Integration Checklists
-    path: /avatax/integration-checklists.html
+    path: /avatax/certification

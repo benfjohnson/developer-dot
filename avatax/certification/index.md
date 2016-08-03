@@ -25,16 +25,16 @@ To have your integration <a href="/certification">Certified by Avalara</a>, we h
 There are several different certifications that can be achieved according to the functionality supported in your application.
 <ul>
 <li>
-<a href="/avatax/certification/address-validation.html">Calculation with Avalara AvaTax and Address Validation</a>
+<a href="/avatax/certification/address-validation">Calculation with Avalara AvaTax and Address Validation</a>
 </li>
 <li>
-<a href="/avatax/certification/returns.html">Calculation with Avalara AvaTax and Returns</a>
+<a href="/avatax/certification/returns">Calculation with Avalara AvaTax and Returns</a>
 </li>
 <li>
-<a href="/avatax/certification/global.html">Calculation with Avalara AvaTax for Global Calculations</a>
+<a href="/avatax/certification/global">Calculation with Avalara AvaTax for Global Calculations</a>
 </li>
 <li>
-<a href="/avatax/certification/use-tax.html">Calculation with Avalara AvaTax for Use Tax</a>
+<a href="/avatax/certification/use-tax">Calculation with Avalara AvaTax for Use Tax</a>
 </li>
 </ul>
 
@@ -143,7 +143,7 @@ Key:  R – Functionality required for certification     N – Functionalit
 <tr>
 <td valign="top">R</td>
 <td valign="top">Entity/Use Code</td>
-<td valign="top">This is a group of codes that indicate the type of exemption.  See <a title="standard list of codes" href="/avatax/handling-tax-exempt-customers#CustomerUsageType" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to <strong>manage this value in your application’s Customer record</strong> and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable.
+<td valign="top">This is a group of codes that indicate the type of exemption.  See <a title="standard list of codes" href="/avatax/handling-tax-exempt-customers" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to <strong>manage this value in your application’s Customer record</strong> and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable.
 
 Note that either Exemption Number or Entity/Use code is required (not both). <strong>Entity/Use Code is preferred.</strong></td>
 </tr>

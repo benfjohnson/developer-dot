@@ -8,15 +8,7 @@ nav_link:
 nav_links:
   - title: Overview
     path: /communications
-  - title: Hello World
-    path: /communications/hello-world.html
-  - title: Use cases
-    path: /communications/use-cases.html
   - title: API references
     path: /communications/api-reference/saas/soap
-  - title: Set up your sandbox
-    path: /communications/set-up-your-sandbox.html
-  - title: Test your integration
-    path: /communications/test-your-integration.html
   - title: Integration Checklists
-    path: /communications/integration-checklists.html
+    path: /communications/certification
