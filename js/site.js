@@ -14,9 +14,9 @@ var submitHdrSearch = function() {
         } else {
             var newurl = '/search/?q=' + encodeURIComponent($searchInput.val());
             var product = $('body').attr('data-product');
-            var filterProduct = $('#filterProduct').is(':checked');
+            var filterSite = $('#filterSite').is(':checked');
 
-            if (filterProduct && product) {
+            if (!filterSite && product) {
                 newurl += '&product=' + encodeURIComponent(product);
             }
             window.location.href = newurl;

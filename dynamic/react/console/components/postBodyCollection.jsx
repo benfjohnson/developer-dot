@@ -16,32 +16,27 @@ const handleAddItem = (paramName, endpointId, itemSchema) => {
 
 const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiState, displayName}) => {
     return (
-        <PostBodySectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} propertyName={propertyName}>
-            {collection.map((itm, i) => {
-                return (
-                    <PostBodyItem
-                        canRemove={collection.length > 1}
-                        displayName={`item ${i + 1}`}
-                        endpointId={endpointId}
-                        item={itm}
-                        key={i}
-                        name={`${propertyName ? propertyName + ':' : ''}[${i}]`}
-                        uiState={itm.uiState}
-                        />);
-            })}
-            <div className={'mouse'}
-                onClick={
-                    (e) => {
-                        e.preventDefault();
-                        handleAddItem(propertyName, endpointId, schema);
-                    }
-                }
-                >
-                <span
-                    className={'glyphicon glyphicon-plus-sign'}
-                    title={'Add Item'}/>
+        <div>
+            <PostBodySectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} propertyName={propertyName}>
+                {collection.map((itm, i) => {
+                    return (
+                        <PostBodyItem
+                            canRemove={collection.length > 1}
+                            displayName={`item ${i + 1}`}
+                            endpointId={endpointId}
+                            item={itm}
+                            key={i}
+                            name={`${propertyName ? propertyName + ':' : ''}[${i}]`}
+                            uiState={itm.uiState}
+                            />);
+                })}
+            </PostBodySectionHeader>
+            <div className={'clickable'} onClick={() => {
+                handleAddItem(propertyName, endpointId, schema);
+            }}>
+                <span className={'glyphicon glyphicon-plus'}></span><span className={''}>{`  Add ${displayName}`}</span>
             </div>
-        </PostBodySectionHeader>
+        </div>
     );
 };
 

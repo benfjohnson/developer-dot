@@ -326,7 +326,6 @@ definitions:
       - LineNo
       - DestinationCode
       - OriginCode
-      - Qty
     properties:
       LineNo:
         maxLength: 50
