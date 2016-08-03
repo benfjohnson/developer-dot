@@ -146,6 +146,13 @@ h2, h3 {
     display: none;
 }
 
+.affix {
+    /* This defaults to 141px for dumb reasons, don't waste the screen space */
+    top: 0px;
+    /* When nav is fixed, it loses the col-sm-3 class of its parent, so replicate its size restriction */
+    width: 25%;
+}
+
 .affix-bottom {
     position: relative
 }
@@ -167,14 +174,6 @@ h2, h3 {
 /* Override bootstraps default padding for nav items to fit more on the page */
 .api-ref-side-nav > li > a,.api-ref-side-nav-active > li > a {
     padding: 2.5px 10px;
-}
-
-/* Remove our API ref side nav when screen is too small */
-@media(max-width: 1000px) {
-    .nav-wrapper {
-        max-width: 150px;
-    }
-    
 }
 
 @media(max-width: 770px) {
