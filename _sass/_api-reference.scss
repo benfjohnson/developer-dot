@@ -66,6 +66,11 @@ h2, h3 {
 
     &:hover {
         background: #F7F9FA;
+
+        span.documentation-expand-icon {
+            color: $Darkest-blue;
+            border-color: $Darkest-blue;
+        }
     }
 }
 
@@ -96,6 +101,11 @@ h2, h3 {
 
     &:hover {
         color: $Darkest-blue;
+
+        span.documentation-expand-icon {
+            color: $Darkest-blue;
+            border-color: $Darkest-blue;
+        }
     }
 }
 
@@ -138,14 +148,14 @@ h2, h3 {
         color: white;
         border-color: white;
     }
-}
 
-.doc-section-header-nested:hover {
-    color: whitesmoke;
-
-    .documentation-expand-icon {
+    &:hover {
         color: whitesmoke;
-        border-color: whitesmoke;
+
+        span.documentation-expand-icon {
+            color: whitesmoke;
+            border-color: whitesmoke;
+        }
     }
 }
 
