@@ -7,7 +7,7 @@ import parseSwaggerUi from './react/console/parseSwaggerUI';
 import mkdirp from 'mkdirp';
 import fs from 'fs';
 
-export default (fileName, apiName, apiPath, productUmbrella) => {
+export default (fileName, apiName, apiPath, product) => {
     if (!fileName || !apiName || !apiPath) {
         throw new Error('`filepath`, `apiName` and `apiPath` required!');
     }
@@ -36,8 +36,8 @@ title: "API Console"
 api_console: 1
 api_name: ${apiName}
 nav: apis
-product: ${productUmbrella}
-doctype: apireference
+product: ${product}
+doctype: api_references
 endpoint_links: [
     ${endpointLinks}
 ]

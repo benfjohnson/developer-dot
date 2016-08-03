@@ -1,8 +1,3 @@
-.api-console {
-    // display: table;
-    // table-layout: fixed;
-}
-
 .api-console-form-wrapper {
     // background: $Rule-grey;
     background: whitesmoke;
@@ -19,6 +14,14 @@
     word-break:break-all;
     // float: none;
     padding: 5px;
+}
+
+.console-req-container {
+    padding-right: 2.5px;
+}
+
+.console-res-container {
+    padding-left: 2.5px;
 }
 
 .code-snippet {
@@ -46,14 +49,8 @@
     border: none;
 }
 
-.link-text-next-to-header-or-button {
-    padding-top: 28px;
-    color: $Ava-blue;
-    cursor: pointer;
-}
-
-.link-text-next-to-header-or-button:hover {
-    color: $Darkest-blue;
+.hdr-btn-adj-text {
+    padding-top: 22px;
 }
 
 .api-console-post-form .api-console-input-section:not(:first-child) {
@@ -95,4 +92,13 @@ h5.console-output-header {
 .api-console.row > .api-console-form-wrapper,.api-console-output {
   display: flex;
   flex-direction: column;
+}
+
+.clickable {
+    color: $Ava-blue;
+    cursor: pointer;
+    margin-bottom: 10px;
+    &:hover {
+        color: darken($Ava-blue, 10%);
+    }
 }

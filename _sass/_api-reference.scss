@@ -1,28 +1,6 @@
-/* Remove our API ref side nav when screen is too small */
-@media(max-width: 1000px) {
-    .nav-wrapper {
-        max-width: 150px;
-    }
-    .api-doc-parameter-name, .small-required-text {
-        text-align: left;
-    }
-}
-
-@media(max-width: 770px) {
-    .nav-wrapper {
-        display: none;
-    }
-}
-
 /* The `Object` or `Array Of` (could change) text that tops a Request or Response's documentation */
 .api-documentation-req-or-res-type {
     text-align: right;
-}
-
-@media(max-width: $bootstrap-md) {
-    .api-documentation-req-or-res-type {
-        text-align: left;
-    }
 }
 
 .small-required-text {
@@ -179,6 +157,7 @@ h2, h3 {
     font: 13px Menlo;
     margin-top: 10px;
     padding: 10px;
+    overflow: scroll;
 }
 
 .endpoint-summary, .api-summary {
@@ -188,4 +167,28 @@ h2, h3 {
 /* Override bootstraps default padding for nav items to fit more on the page */
 .api-ref-side-nav > li > a,.api-ref-side-nav-active > li > a {
     padding: 2.5px 10px;
+}
+
+/* Remove our API ref side nav when screen is too small */
+@media(max-width: 1000px) {
+    .nav-wrapper {
+        max-width: 150px;
+    }
+    
+}
+
+@media(max-width: 770px) {
+    .nav-wrapper {
+        display: none;
+    }
+}
+
+@media(max-width: $bootstrap-md) {
+    .api-documentation-req-or-res-type {
+        text-align: left;
+    }
+
+    .api-doc-parameter-name, .api-doc-left-col, .small-required-text {
+        text-align: left;
+    }
 }
