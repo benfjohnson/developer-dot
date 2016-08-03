@@ -1,0 +1,33 @@
+# TRUSTFILE CONNECTOR
+
+nav_link:
+    title: Trustfile - Connector
+    path: /trustfile/api-reference/connector-management/v3
+product: trustfile
+endpoint_hashes:
+    - name: Get list of Connections
+      link: '/#Get_list_of_Connections'
+    - name: Creates a connection
+      link: '/#Creates_a_connection'
+    - name: Determine if connection with connectionId exists
+      link: '/#Determine_if_connection_with_connectionId_exists'
+    - name: Get information about connection
+      link: '/#Get_information_about_connection'
+    - name: Update the connection with the given connectionId
+      link: '/#Update_the_connection_with_the_given_connectionId'
+    - name: Delete a connection
+      link: '/#Delete_a_connection'
+    - name: Get activity logs for connection
+      link: '/#Get_activity_logs_for_connection'
+    - name: Authenticate with connection
+      link: '/#Authenticate_with_connection'
+    - name: Get status of the connector
+      link: '/#Get_status_of_the_connector'
+    - name: Enable/Disable connector
+      link: '/#Enable_Disable_connector'
+    - name: Get connector errors
+      link: '/#Get_connector_errors'
+    - name: Retrieve items that have errors or are malformed
+      link: '/#Retrieve_items_that_have_errors_or_are_malformed'
+    - name: Get health and availability of connector
+      link: '/#Get_health_and_availability_of_connector'

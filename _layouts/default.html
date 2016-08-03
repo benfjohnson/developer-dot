@@ -153,20 +153,24 @@
                         <div class="form-group col-sm-3">
                             <input type="submit" class="btn btn-primary" value="Search">
                         </div>
-                    </div>
-                </form>
-            </ul>
-        </div>
-    </nav>
-</header>
-<div class="container-fluid">
-    <section class="row">
-        {% assign post_count = site.posts|size %}
-        {% if page.api_console == 1 %}
-        <nav class="col-sm-3">{% include console-navigation.html %}</nav>
-        <main class="col-sm-9">{{ content }}</main>
-        {% else %}
-        <main class="col-sm-12">{{ content }}</main>
+<<<<<<< HEAD
+                    </form>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <section class="row">
+            {% assign post_count = site.posts|size %}
+            {% if page.api_console == 1 %}
+                <nav style='margin-top: 20px;' class="col-sm-3">{% include console-navigation.html %}</nav>
+                <main class="col-sm-9">{{ content }}</main>
+            {% else %}
+                <main class="col-sm-12">{{ content }}</main>
+            {% endif %}
+        </section>
+        {% if page.disqus == 1 %}
+            <section class="row">{% include disqus.html %}</section>
         {% endif %}
     </section>
     {% if page.disqus == 1 %}
@@ -192,9 +196,17 @@
     </ul>
 </footer>
 
-<script src="/js/jquery-2.2.4.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/site.js"></script>
+    <script src="/js/jquery-2.2.4.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/site.js"></script>
+    <script src="/js/animatescroll.min.js"></script>
+
+    <script>
+        $('#bootstrap-scrollspy').on('activate.bs.scrollspy', function () {
+        item = $('#bootstrap-scrollspy').find(".active").last();
+        item.animatescroll({element: '#bootstrap-scrollspy', padding:20});
+        });
+    </script>
 
 {% if page.search == 1 %}
 <script src="/js/algoliasearch.min.js"></script>

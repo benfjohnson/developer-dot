@@ -27,21 +27,25 @@ const PostBodySectionHeader = ({endpointId, propertyName, displayName, children,
     return (
         <div className={'api-console-input-section'}>
             <h4
-                className={'api-documentation-section-header-text'}
-                style={{cursor: 'pointer'}}
+                style={{cursor: 'pointer', display: 'inline-block'}}
             >
                 {displayName}
-                {canRemove ?
-                    <span
-                        className={'m-l-1 glyphicon glyphicon-remove-sign mouse'}
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            handleRemoveItem(propertyName, endpointId);
-                        }}
-                        title={'Remove Item'}
-                    /> : null
-                }
             </h4>
+            {canRemove ?
+                <div
+                    className={'clickable hdr-btn-adj-text'}
+                    onClick={() => {
+                        handleRemoveItem(propertyName, endpointId);
+                    }}
+                    style={{display: 'inline-block'}}
+                >
+                    <span
+                        className={'m-l-1 glyphicon glyphicon-remove'}
+                        title={'Remove Item'}
+                    />
+                    <span>{' Remove'}</span>
+                </div> : null
+            }
             {children}
         </div>
     );

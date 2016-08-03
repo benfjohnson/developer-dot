@@ -31,11 +31,19 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
             <div className={'form-group'}>
                     <label htmlFor={uid}>{displayName}</label>
                     {canRemove ?
-                        <span
-                            className={'m-l-1 glyphicon glyphicon-remove-sign mouse'}
-                            onClick={() => (handleRemoveItem(name, endpointId))}
-                            title={'Remove Item'}
-                        /> : null
+                        <div
+                            className={'clickable'}
+                            onClick={() => {
+                                handleRemoveItem(name, endpointId);
+                            }}
+                            style={{display: 'inline-block'}}
+                        >
+                            <span
+                                className={'m-l-1 glyphicon glyphicon-remove'}
+                                title={'Remove Item'}
+                            />
+                            <span>{' Remove'}</span>
+                        </div> : null
                     }
                     {item.enum && item.enum.length ?
                         <select

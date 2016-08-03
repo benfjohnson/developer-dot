@@ -1,8 +1,17 @@
 $Ava-orange: #ff6600;
 $Darker-Ava-orange: #e65000;
-$Ava-blue: #059bd2;
 $Darkest-blue: #027fad;
+$Ava-blue: #059bd2;
 $Active-blue: #21b7f9;
+$Highlight-blue: #e4eff6;
+
+// TEMPORARY -- Should replace with Ava colors 
+$blue-xdark: #03749E;
+$blue-dark: #0788B8;
+$blue-med: #0BA3DB;
+$blue-light: #38BBF5;
+$blue-super-light: #B8DDF5;
+// ------
 
 $Rule-grey: #d7d7d7;
 $Darkest-grey: #5f6062;
@@ -31,6 +40,10 @@ $Form-bottom: $Disabled;
 .text-blue {
     color:$Ava-blue;
 }
+
+/* Bootstrap grid thresholds */
+$bootstrap-md: 992px;
+
 
 $icon-font-path: '/css/fonts/bootstrap/';
 $navbar-default-link-active-bg: $Ava-orange;

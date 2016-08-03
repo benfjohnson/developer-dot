@@ -7,7 +7,7 @@ import parseSwaggerUi from './react/console/parseSwaggerUI';
 import mkdirp from 'mkdirp';
 import fs from 'fs';
 
-export default (fileName, apiName, apiPath) => {
+export default (fileName, apiName, apiPath, product) => {
     if (!fileName || !apiName || !apiPath) {
         throw new Error('`filepath`, `apiName` and `apiPath` required!');
     }
@@ -27,7 +27,7 @@ export default (fileName, apiName, apiPath) => {
         }
 
         const buildHtml = (reactHtml, initialState) => {
-            const endpointLinks = initialState.apiInfo.map((endpt) => endpt.name).reduce((accum, endpt) => `${accum}["#${endpt.replace(/\s/g, '_')}", "${endpt}"],\n`, '');
+            const endpointLinks = initialState.apiInfo.map((endpt) => endpt.name).reduce((accum, endpt) => `${accum}["#${endpt.replace(/\s/g, '_').replace(/\//g, '_')}", "${endpt}"],\n`, '');
 
             return (
                 `---
@@ -36,6 +36,8 @@ title: "API Console"
 api_console: 1
 api_name: ${apiName}
 nav: apis
+product: ${product}
+doctype: api_references
 endpoint_links: [
     ${endpointLinks}
 ]

@@ -3,6 +3,14 @@
 nav_link:
     title: Trustfile - Core
     path: /trustfile/api-reference/core/v3
+product: trustfile
+endpoint_hashes:
+  - name: Post items
+    link: '/#Post items'
+  - name: Retrieve items by itemId for the given connectionId
+    link: '/#Retrieve_items_by_itemId_for_the_given_connectionId'
+  - name: Retrieve connectionId information
+    link: '/#Retrieve_connectionId_information'
 
 nav_links:
   - title: Overview

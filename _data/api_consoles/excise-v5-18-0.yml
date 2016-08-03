@@ -1,0 +1,14 @@
+# EXCISE v5.18
+
+nav_link:
+    title: Excise v5.18.0
+    path: /excise/api-reference/tax-determination/v5_18_0
+product: excise
+endpoint_hashes:
+    - name: Login
+      link: '/#Login'
+    - name: Logout
+      link: '/#Logout'
+    - name: Process Transactions
+      link: '/#Process_Transactions'
+      
