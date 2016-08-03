@@ -2,6 +2,7 @@
 layout: default
 title: Avalara APIs
 nav: apis
+doctype: overview
 ---
 <div class="row bg-map">
   <div class="col-sm-6 col-sm-offset-3 text-center">
