@@ -38,56 +38,56 @@ nav: home
       </div>
     </div>
     <div class="row margin-top">
-      <div class="col-sm-12 text-center btn-callout"><a href="/avatax/get-started" role="button">Get an Avalara AvaTax sandbox</a></div>
+      <div class="col-sm-12 text-center btn-callout"><a href="/avatax/get-started" role="button">Try it Now</a></div>
     </div>
-    <div class="row bg-white border-top">
+    <div class="row bg-white border-top padding-bottom">
       <div class="col-sm-6 col-sm-offset-3 text-center">
         <h1>Avalara is all about tax compliance</h1>
         <h5><a href="/avalara-apis">API solutions</a></h5>
       </div>
     </div>
-    <div class="row bg-white">
+    <div class="row bg-white padding-top">
       <div class="col-xs-2 col-xs-offset-2 col-sm-offset-2 col-sm-2 text-center">
-        <a href="/landedcost"><img src="/images/devdot/DevDotSvgGAssets_ShippingCrate.svg" width="110" /></a>
+        <a href="/avatax"><img src="/images/devdot/DevDotSvgGAssets_ShippingCrate.svg" width="110" /></a>
+      </div>
+      <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
+        <a href="/comunications"><img src="/images/devdot/DevDotSvgGAssets_SatelliteDish.svg" width="110" /></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
         <a href="/excise"><img src="/images/devdot/DevDotSvgGAssets_GasPump.svg" width="110" /></a>
       </div>
-      <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="/communications"><img src="/images/devdot/DevDotSvgGAssets_SatelliteDish.svg" width="110" /></a>
-      </div>
     </div>
-    <div class="row bg-white">
+    <div class="row bg-white padding-top padding-bottom">
       <div class="col-xs-2 col-xs-offset-2 col-sm-offset-2 col-sm-2 text-center">
-        <a href="/landedcost"><h4 class="hidden-xs">Overseas selling and value-added tax (VAT)</h4></a>
-      </div>
-      <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="/excise"><h4 class="hidden-xs">Fuels, petroleum products and natural gas</h4></a>
+        <a href="/avatax"><h4 class="hidden-xs">Sales and sellers use-tax</h4></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
         <a href="/communications"><h4 class="hidden-xs">Telecommunication, internet and other communications services</h4></a>
       </div>
+      <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
+        <a href="/excise"><h4 class="hidden-xs">Fuels, petroleum products and natural gas</h4></a>
+      </div>
     </div>
     <div class="row bg-white padding-top">
       <div class="col-xs-2 col-xs-offset-2 col-sm-offset-2 col-sm-2 text-center">
-        <a href="#"><img src="/images/devdot/DevDotSvgGAssets_Beverages.svg" width="110" /></a>
+        <a href="/landedcost"><img src="/images/devdot/DevDotSvgGAssets_ShippingCrate.svg" width="110" /></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="#"><img src="/images/devdot/DevDotSvgGAssets_BarCode.svg" width="110" /></a>
+        <a href="/certcapture"><img src="/images/devdot/DevDot_CertificateBindersBlue.svg" width="110" /></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="#"><img src="/images/devdot/DevDotSvgGAssets_POS.svg" width="110" /></a>
+        <a href="/trustfile"><img src="/images/devdot/DevDot_GovtBldgBlue-02.svg" width="110" /></a>
       </div>
     </div>
     <div class="row bg-white padding-top padding-bottom">
       <div class="col-xs-2 col-xs-offset-2 col-sm-offset-2 col-sm-2 text-center">
-        <a href="#"><h4 class="hidden-xs">Solution/expertise area subhead</h4></a>
+        <a href="/landedcost"><h4 class="hidden-xs">Overseas selling and value-added tax (VAT)</h4></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="#"><h4 class="hidden-xs">Solution/expertise area subhead</h4></a>
+        <a href="/certcapture"><h4 class="hidden-xs">Compliance document management</h4></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="#"><h4 class="hidden-xs">Solution/expertise area subhead</h4></a>
+        <a href="/trustfile"><h4 class="hidden-xs">Tax-return filing</h4></a>
       </div>
     </div>
     <div class="row border-top">
@@ -105,6 +105,6 @@ nav: home
       </div>
     </div>
     <div class="row margin-top">
-      <div class="col-sm-12 text-center btn-callout"><a href="/avatax/get-started" role="button">Get an Avalara AvaTax sandbox</a></div>
+      <div class="col-sm-12 text-center btn-callout"><a href="/avatax/get-started#signup" role="button">Get an Avalara AvaTax sandbox</a></div>
     </div>
 </div>

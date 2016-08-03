@@ -7,6 +7,7 @@ comments: true
 categories: []
 product: certCapture
 doctype: integration_checklists
+nav: apis
 ---
 
 <h1 class="entry-title" data-fontsize="32" data-lineheight="NaN">Avalara AvaTax with CertCapture</h1>

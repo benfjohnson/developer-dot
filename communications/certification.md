@@ -6,6 +6,7 @@ author: anya.stettler
 comments: true
 categories: []
 product: communications
+nav: apis
 doctype: integration_checklists
 ---
 <h2>Certified for Avalara AvaTax for Communications</h2>
