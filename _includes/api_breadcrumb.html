@@ -1,0 +1,19 @@
+{% assign api_section = page.product | upcase %}
+{% case api_section %}
+    {% when 'CERTCAPTURE' %}
+        {% assign section = 'Compliance Document Management' %}
+    {% when 'TRUSTFILE' %}
+        {% assign section = 'Returns &amp; Filing' %}
+    {% else %}
+        {% assign section = 'Tax Calculation' %}
+{% endcase %}
+
+<div class="breadcrumbs">
+    <div class="col-sm-12">
+        <ul class="pipe">
+            <li><span class="text-uppercase">{{section}} API</span>s</li>
+            <li class="text-uppercase"><a href="../">Avalara {{page.product}}</a></li>
+            <li class="text-uppercase">{{page.doctype | replace : '_', ' '}}</li>
+        </ul>
+    </div>
+</div>

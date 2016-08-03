@@ -4,7 +4,7 @@ title: AvaTax with Excise Checklist
 comments: true
 categories: []
 product: excise
-
+nav: apis
 doctype: integration_checklists
 ---
 
