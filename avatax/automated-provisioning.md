@@ -5,8 +5,8 @@ date: 2016-01-21 15:14
 author: jeremy.buller
 comments: true
 categories: []
-product: onboarding
-doctype: documentation
+product: avaTax
+doctype: use_cases
 ---
 <h2>Account Provisioning and Company Management</h2>
 The Onboarding API allows Avalara partners to create customer accounts, company profiles, and user credentials.

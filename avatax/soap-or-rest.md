@@ -5,8 +5,8 @@ date: 2012-11-06 14:41
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
-doctype: documentation
+product: avaTax
+doctype: use_cases
 ---
 <h2>Undecided whether to use our SOAP or REST APIs? Here's a full list of their functions and differences.</h2>
 The Avalara AvaTax service is SOAP-based, so that API covers all AvaTax functionality. However, we understand the demand for a more RESTful interface, so we provide the main functions of the AvaTax service as a REST API.

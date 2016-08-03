@@ -11,9 +11,12 @@ permalink: /search/
             <label for="doctype-facet"><h4>Refine by document type</h4></label><br />
             <select id="doctype-facet" class="form-control">
                 <option value="">Any</option>
-                <option value="api_reference">API Reference</option>
-                <option value="documentation">Documentation</option>
-                <option value="certification">Certification</option>
+                <option value="overview">Overview</option>
+                <option value="use_cases">Use Cases</option>
+                <option value="api_references">API Reference</option>
+                <option value="set_up_your_sandbox">Set up your sandbox</option>
+                <option value="test_your_integration">Test Your Integration</option>
+                <option value="integration_checklists">Integration Checklists</option>
                 <option value="blog">Blog Posts</option>
             </select>
         </div>
@@ -21,12 +24,11 @@ permalink: /search/
             <label for="product-facet"><h4>Refine by product</h4></label><br />
             <select id="product-facet" class="form-control">
                 <option value="">Any</option>
-                <option value="avatax">AvaTax</option>
+                <option value="avaTax">AvaTax</option>
                 <option value="landedCost">LandedCost</option>
                 <option value="excise">Excise</option>
-                <option value="certcapture">CertCapture</option>
-                <option value="trustfile">TrustFile</option>
-                <option value="onboarding">Onboarding</option>
+                <option value="certCapture">CertCapture</option>
+                <option value="trustFile">TrustFile</option>
                 <option value="communications">Communications</option>
             </select>
         </div>

@@ -5,8 +5,8 @@ date: 2014-05-30 20:39
 author: seanrust
 comments: true
 categories: []
-product: avatax
-doctype: documentation
+product: avaTax
+doctype: use_cases
 ---
 Consuming sales tax related services can be considered mission-critical, especially when making calculation queries through the Avatax product. As a cloud-based Software-as-a-Service provider, Avalara understands the need to ensure that our services are available continuously and respond in a timely manner.
 

@@ -6,7 +6,7 @@ author: anya.stettler
 comments: true
 categories: []
 product: communications
-doctype: certification
+doctype: integration_checklists
 ---
 <h2>Certified for Avalara AvaTax for Communications</h2>
 Certification for Avalara AFC requires the delivery of all functional requirements shown below.

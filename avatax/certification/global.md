@@ -5,8 +5,8 @@ date: 2016-01-18 02:42
 author: jeremy.buller
 comments: true
 categories: []
-product: avatax
-doctype: certification
+product: avaTax
+doctype: integration_checklists
 ---
 Certification for Avalara AvaTax with Global requires the delivery of all functional requirements shown below.
 

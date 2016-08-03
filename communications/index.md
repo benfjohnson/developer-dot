@@ -6,7 +6,7 @@ author: anya.stettler
 comments: true
 categories: []
 product: communications
-doctype: documentation
+doctype: overview
 ---
 <h2>Getting Started</h2>
 <h3>Communication Taxes with the Communication Tax API</h3>

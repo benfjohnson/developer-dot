@@ -5,7 +5,7 @@ comments: true
 categories: []
 product: excise
 
-doctype: certification
+doctype: integration_checklists
 ---
 
 <h2>Excise Certification</h2>
