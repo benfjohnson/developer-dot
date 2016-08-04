@@ -3,7 +3,7 @@
     background: whitesmoke;
     padding: 5px;
     // display: table-cell;
-    word-break:break-all;
+    word-break: break-all;
     padding-left: 15px;
     // float: none;
 }
@@ -12,7 +12,7 @@
     color: white;
     background: dimgrey;
     // display: table-cell;
-    word-break:break-all;
+    word-break: break-all;
     // float: none;
     padding: 5px;
 }
@@ -30,13 +30,25 @@
     padding: 10px;
     margin: 10px;
     overflow: scroll;
-    
-    .string { color: #71e4ff; }
-    .number { color: #fc88ff; }
-    .boolean { color: #fc88ff; }
-    .null { color: #fc88ff; }
-    .key { color: #8fffa7; }
-    .punctuation { color: #fceb51; }
+
+    .string {
+        color: #71e4ff;
+    }
+    .number {
+        color: #fc88ff;
+    }
+    .boolean {
+        color: #fc88ff;
+    }
+    .null {
+        color: #fc88ff;
+    }
+    .key {
+        color: #8fffa7;
+    }
+    .punctuation {
+        color: #fceb51;
+    }
 }
 
 .code-snippet-code-text {
@@ -54,30 +66,53 @@
     padding-top: 22px;
 }
 
-.api-console-post-form .api-console-input-section:not(:first-child) {
-    background: white;
-    padding-left: 7.5px;
-    padding-right: 7.5px;
-    padding-bottom: 3.5px;
-    margin-bottom: 7.5px;
-    text-transform: capitalize;
+.api-console-post-form {
+    .api-console-input-section {
+        padding-left: 7.5px;
+        padding-right: 7.5px;
+        padding-bottom: 3.5px;
+        margin-bottom: 7.5px;
+        text-transform: capitalize;
 
-    h4: {
-        color: black;
+        h4 {
+            font-weight: bold;
+        }
+
+        &:first-child {
+            margin-right: 10px;
+        }
+
+        &:not(:first-child) {
+            background: white;
+
+            h4 {
+                color: $Darkest-grey;
+            }
+        }
+
+        & .api-console-input-section:first-of-type {
+            margin-right: 0;
+            padding-right: 0;
+            padding-left: 0;
+        }
+        & .api-console-input-section .api-console-input-section {
+            margin-right: 0px;
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+
+        & .api-console-input-section > .api-console-input-section {
+            margin-right: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+
+        & .api-console-input-section > .api-console-input-section .api-console-input-section {
+            margin-right: 0px;
+            padding-right: 0px;
+            padding-left: 0px;
+        }
     }
-}
-
-.api-console-post-form .api-console-input-section:not(:first-of-type) {
-    // padding-left: 0;
-}
-
-.api-console-input-section:first-child {
-    // margin-left: 10px;
-    margin-right: 10px;
-}
-
-.api-console-input-section h4 {
-    font-weight: bold;
 }
 
 h5.console-output-header {
@@ -86,15 +121,16 @@ h5.console-output-header {
 }
 
 .api-console.row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
 }
-.api-console.row > .api-console-form-wrapper,.api-console-output {
-  display: flex;
-  flex-direction: column;
+
+.api-console.row > .api-console-form-wrapper, .api-console-output {
+    display: flex;
+    flex-direction: column;
 }
 
 .clickable {
@@ -116,6 +152,8 @@ h5.console-output-header {
 .documentation-collapseable-section {
     border: 1px solid lightgrey;
     & & {
-        border:none;
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
     }
 }
