@@ -20,6 +20,7 @@ communications/api-reference/**/index.html
 landedcost/api-reference/**/index.html
 taxrates/api-reference/**/index.html
 trustfile/api-reference/**/index.html
+excise/api-reference/**/index.html
 ################
 
 ## Specific to RubyMotion:
