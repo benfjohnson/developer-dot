@@ -48,7 +48,6 @@ doctype: overview
     <div class="row padding-top">
         <div class="col-sm-3 col-sm-offset-2">
             <ul class="pipe">
-                <li><a href="#">Use cases</a></li>
                 <li><a href="api-reference/v3">API references</a></li>
             </ul>
         </div>

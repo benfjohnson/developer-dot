@@ -8,7 +8,7 @@ nav: home
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 text-center">
         <h1 class="h1pp ">Bring real-time tax calculation to your financial app</h1>
-        <img src="/images/Dev.com_Laptop_Code_1280x800.png" />
+        <img src="/images/Dev.com_Laptop_Code.svg" />
       </div>
     </div>
     <div class="row hidden-xs">

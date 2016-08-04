@@ -45,7 +45,6 @@ doctype: overview
     <div class="row padding-top">
         <div class="col-sm-3 col-sm-offset-2">
             <ul class="pipe">
-                <li><a href="#">API documentation</a></li>
                 <li><a href="http://docs.certcapture6xrest.apiary.io">API blueprint <i class="glyphicon glyphicon-download-alt"></i></a></li>
             </ul>
         </div>

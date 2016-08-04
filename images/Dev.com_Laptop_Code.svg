@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1200 500" style="enable-background:new 0 0 1200 500;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#666666;}
+	.st1{fill:#999999;}
+	.st2{fill:#E6E6E6;}
+	.st3{fill:#99989B;}
+	.st4{fill:#CCCCCC;}
+	.st5{fill:#808080;}
+	.st6{fill:#FF6600;}
+	.st7{fill:none;}
+	.st8{fill:#FFFFFF;}
+	.st9{font-family:'OCRAStd';}
+	.st10{font-size:14.0645px;}
+	.st11{fill:none;stroke:#B3B3B3;stroke-miterlimit:10;}
+</style>
+<g id="Layer_1">
+	<rect x="22" y="464.3" class="st0" width="1156" height="21"/>
+	<g>
+		<path class="st1" d="M1165.6,337c-8-27-28.1-29.8-51.6-28.9l-2-0.5v0v0l-0.2,0l-0.3,27.4h0.5l0,0h1.7c0,0,3.1-14,18.3-11.8
+			c1,0.2,2.1,0.3,3.2,0.6c18.2,5,22.6,27.5,16.5,57.3c-6.1,29.8-36.4,24.8-41.1,15.7l-1.1,23.4c0,0,0.1-0.1,0.2-0.2l0,0.2
+			c0,0,1.4-1.1,2.8-1.1c0.1,0,0.5,0,1,0.1c6.5,0.4,37.2,1.7,48.7-24.6C1162.3,394.6,1173.6,364,1165.6,337z"/>
+		<path class="st2" d="M1037.2,274.8c-2.4,0-62.6-0.4-76.2,9l4.2,173.5l1.2,5.4c0,0,24.6,11.4,70.8,10.2
+			c46.2,1.2,70.8-10.2,70.8-10.2l1.2-5.4l4.2-173.5C1099.8,274.4,1039.6,274.8,1037.2,274.8z"/>
+		<path class="st3" d="M966.5,462.7c0,0,30.5,10.8,71.2,9.9c0,0,51.1-0.9,70.2-9.9l-0.8,1.7c0,0-28.6,10.5-67.4,10.4
+			c-38.8-0.2-69.4-8.2-72.6-10.4L966.5,462.7z"/>
+		<ellipse class="st1" cx="1036.1" cy="284.1" rx="75.6" ry="10.3"/>
+	</g>
+	<g>
+		<rect x="271.8" y="33.3" width="656.4" height="387.2"/>
+		<path class="st1" d="M920.2,41.3v371.2H279.8V41.3H920.2 M936.2,25.3H263.8v403.2h672.4V25.3L936.2,25.3z"/>
+	</g>
+	<rect x="226.8" y="427.9" class="st4" width="746.4" height="42.8"/>
+	<rect x="565.7" y="442.8" class="st5" width="68.5" height="13"/>
+</g>
+<g id="Layer_2">
+	<rect x="312.1" y="118.5" class="st6" width="501.3" height="30"/>
+	<rect x="360" y="97.7" class="st7" width="542" height="293.5"/>
+	<text transform="matrix(1 0 0 1 359.9648 108.021)"><tspan x="0" y="0" class="st8 st9 st10">// Call the Avatax Calc REST API</tspan><tspan x="0" y="30.4" class="st8 st9 st10">GetTax(getTaxRequest, function(getTaxResult) {</tspan><tspan x="0" y="60.8" class="st8 st9 st10">    if(getTaxResult.ResultCode !== &apos;Success&apos;) {</tspan><tspan x="0" y="91.1" class="st8 st9 st10">        throw &apos;Gettax returned an error&apos;;</tspan><tspan x="0" y="121.5" class="st8 st9 st10">    }</tspan><tspan x="0" y="151.9" class="st8 st9 st10">    // Log the result</tspan><tspan x="0" y="182.3" class="st8 st9 st10">    console.log(JSON.stringify(getTaxResult, null, 2));</tspan><tspan x="0" y="212.7" class="st8 st9 st10">});</tspan></text>
+	<rect x="320.6" y="97.7" class="st7" width="29.1" height="293.5"/>
+	<text transform="matrix(1 0 0 1 320.585 108.021)"><tspan x="0" y="0" class="st9 st10">44</tspan><tspan x="0" y="30.4" class="st8 st9 st10">45</tspan><tspan x="0" y="60.8" class="st8 st9 st10">46</tspan><tspan x="0" y="91.1" class="st8 st9 st10">47</tspan><tspan x="0" y="121.5" class="st8 st9 st10">48</tspan><tspan x="0" y="151.9" class="st8 st9 st10">49</tspan><tspan x="0" y="182.3" class="st8 st9 st10">50</tspan><tspan x="0" y="212.7" class="st8 st9 st10">51</tspan><tspan x="0" y="243" class="st8 st9 st10">52</tspan></text>
+	<line class="st11" x1="352.5" y1="79" x2="352.5" y2="361"/>
+</g>
+</svg>
