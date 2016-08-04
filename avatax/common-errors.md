@@ -1,13 +1,11 @@
 ---
 layout: default
 title: Common Errors
-date: 2012-05-14 16:47
-author: anya.stettler
-comments: true
-categories: []
 product: avaTax
 doctype: use_cases
+nav: apis
 ---
+
 <h2>Common Errors</h2>
 <table border="1" width="620" cellspacing="0" cellpadding="5">
 <thead style="background-color: lightgray;">
@@ -352,3 +350,4 @@ If you're calling the service hosted on CloudConnect, you may encounter the foll
 <script src="https://loader.engage.gsfn.us/loader.js" type="text/javascript"></script><script type="text/javascript">// <![CDATA[
 if (typeof GSFN !== "undefined") { GSFN.loadWidget(8157,{"containerId":"getsat-widget-8157"}); }
 // ]]></script>
+

@@ -1,14 +1,10 @@
 ---
 layout: default
 title: Drop Shipping
-date: 2013-05-13 21:29
-author: anya.stettler
-comments: true
-categories: []
 product: avaTax
 doctype: use_cases
+nav: apis
 ---
-
 <h2>Drop Shipping</h2>
 For information on reflecting shipping charges in your tax calculation, go <a title="GetTax" href="/avatax/calculating-tax">here</a>.
 

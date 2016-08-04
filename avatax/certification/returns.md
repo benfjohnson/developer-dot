@@ -1,13 +1,11 @@
 ---
 layout: default
 title: AvaTax with Returns Checklist
-date: 2016-01-18 02:43
-author: jeremy.buller
-comments: true
-categories: []
 product: avaTax
 doctype: integration_checklists
+nav: apis
 ---
+<div class="half">
 Certification for Avalara AvaTax with Returns requires the delivery of all functional requirements shown below.
 
 Key:  R – Functionality required for certification     N – Functionality not required, but noted
@@ -269,3 +267,4 @@ Tax calculation should display a clean audit to limit errors and call volume to 
 </tr>
 </tbody>
 </table>
+</div>

@@ -1,12 +1,9 @@
 ---
 layout: default
 title: Address Validation
-date: 2012-05-14 15:29
-author: anya.stettler
-comments: true
-categories: []
 product: avaTax
 doctype: use_cases
+nav: apis
 ---
 <h2>Validate and normalize addresses for sales tax calculation.</h2>
 Explicit address validations are standalone address validation calls (meaning address validation only – no tax calculations) that are passed to the AvaTax web service. Then, during the same call (or port opening), results are returned with either a success -- if no ambiguous address information was passed -- a normalized address is returned. Otherwise an error message (i.e. AddressRangeError [see below]) indicating the problem and summary details related to the address submitted is returned.

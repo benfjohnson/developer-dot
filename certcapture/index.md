@@ -1,7 +1,6 @@
 ---
 layout: default
 title: CertCapture Overview
-categories: []
 product: certCapture
 nav: apis
 doctype: overview
