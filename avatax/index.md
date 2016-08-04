@@ -62,16 +62,16 @@ doctype: overview
     </div>
     <div class="row">
         <div class="col-sm-3">
-            <p>Lorem ipsum concise description goes here</p>
+            <p>Explore the API before you build. Make live API calls directly from our documentation.</p>
         </div>
         <div class="col-sm-3">
-            <p>Lorem ipsum concise description goes here</p>
+            <p>Get started quickly with our sample code and libraries. If you get stuck, Avalara Support and Avalara's developer community are here with answers.</p>
         </div>
         <div class="col-sm-3">
-            <p>Lorem ipsum concise description goes here</p>
+            <p>Run through our recommended testing scenarios to check that all your bases are covered. Use our automated self-test tool to make sure the data you're sending looks good on our end.</p>
         </div>
         <div class="col-sm-3">
-            <p>Lorem ipsum concise description goes here</p>
+            <p>Ready to take the final step? Certify your integration to recieve sales and marketing support from Avalara.</p>
         </div>
     </div>
   </div>
@@ -80,7 +80,7 @@ doctype: overview
   <div class="col-sm-8 col-sm-offset-2 text-center">
     <h1 class="h1p">Fast and easy integration with AvaTax</h1>
     <ul class="pipe">
-        <li><a href="/avatax/test-your-integration">Test your integration</a></li>
+        <li><a href="/avatax/testing-your-integration">Test your integration</a></li>
         <li><a href="/avatax/integration-checklists">Integration Checklists</a></li>
     </ul>
   </div>
