@@ -8,6 +8,8 @@
     <meta name="description" content="{{ site.subtitle }}">
 
     <link rel="stylesheet" href="/css/style.css">
+    <!--<link type="text/css" rel="stylesheet" href="/js/jquery.tocify.css" />-->
+
     {% if page.api_console == 1 %}
     <link rel="stylesheet" href="/css/console.css">
     {% endif %}
@@ -190,17 +192,17 @@
     </ul>
 </footer>
 
-    <script src="/js/jquery-2.2.4.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/site.js"></script>
-    <script src="/js/animatescroll.min.js"></script>
+<script src="/js/jquery-2.2.4.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/site.js"></script>
 
-    <script>
-        $('#bootstrap-scrollspy').on('activate.bs.scrollspy', function () {
-        item = $('#bootstrap-scrollspy').find(".active").last();
-        item.animatescroll({element: '#bootstrap-scrollspy', padding:20});
-        });
-    </script>
+<script>
+    $(function() {
+        if ($('#the-nav li').length >= 22) {
+            $('#the-nav').data('offset-bottom', '160');
+        }
+    });
+</script>
 
 {% if page.search == 1 %}
     <script src="/js/algoliasearch.min.js"></script>

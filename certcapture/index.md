@@ -1,19 +1,82 @@
 ---
 layout: default
 title: CertCapture Overview
-date: 2016-01-18 02:34
-author: jeremy.buller
-comments: true
 categories: []
 product: certCapture
+nav: apis
 doctype: overview
 ---
-<h2>Getting Started</h2>
-<h3>Document Management with the CertCapture API</h3>
-The CertCapture API allows you to create, validate, and store sales tax exemption and reseller certificates.
-<h3>What You Can Do</h3>
-This API taps into Avalara CertCapture, a powerful tool that helps businesses manage sales tax exemption and reseller certificates. An automated document management system limits audit exposure and ensures that every non-taxable transaction is tracked correctly.
-<h3>Get API Key</h3>
-To get a username and password, contact your Customer Account Manager or email <a href="mailto:support@certcapture.com">support@certcapture.com</a>.
-<h3>Documentation</h3>
-Here is the <a href="http://docs.certcapture6xrest.apiary.io/#">CertCapture API Documentation</a> for RESTful APIs for CertCapture 6.X and beyond. This API is designed so that if an error occurs you should get a reasonable worded response and an error code. If you see something odd, please don't hesitate to let us know at <a href="mailto:support@certcapture.com">support@certcapture.com</a>.
+<div class="row bg-map padding-bottom">
+  <div class="col-sm-8 col-sm-offset-2 text-center ">
+    <h1 class="h1p">CertCapture API</h1>
+    <img src="/images/devdot/DevDot_CertificateBindersGrey.svg" width="200" />
+  </div>
+</div>
+<div class="row border-top padding-top padding-bottom">
+  <div class="col-sm-8 col-sm-offset-2 text-center">
+    <h1 class="h1p">How does the API work?</h1>
+    <h4 class="text-left">This API taps into Avalara CertCapture, providing automated document management:
+       The API allows you to create, validate, and store sales tax exemption and reseller
+       certificates.
+    </h4>
+     <h2>How does Avalara CertCapture benefit businesses?</h2>
+     <h4 class="text-left">An automated document management system limits audit exposure and ensures that every non-taxable transaction is tracked correctly. <a href="http://certcapture.avalara.com">Learn more</a></h4>
+  </div>
+</div>
+<div class="row border-top padding-top padding-bottom">
+  <div class="col-sm-8 col-sm-offset-2 text-center">
+    <h1 class="h1p">Get started learning about and using this API</h1>
+    <div class="row">
+        <div class="col-sm-3 col-sm-offset-2">
+            <img src="/images/devdot/DevDotSvgGAssets_One.svg" height="75">
+        </div>
+        <div class="col-sm-3 col-sm-offset-2">
+            <img src="/images/devdot/DevDotSvgGAssets_Two.svg" height="75">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 col-sm-offset-2">
+            <h4>Check out the documentation</h4>
+        </div>
+        <div class="col-sm-3 col-sm-offset-2">
+            <h4>Sign up for the service to get an API key</h4>
+        </div>
+    </div>
+    <div class="row padding-top">
+        <div class="col-sm-3 col-sm-offset-2">
+            <ul class="pipe">
+                <li><a href="#">API documentation</a></li>
+                <li><a href="http://docs.certcapture6xrest.apiary.io">API blueprint <i class="glyphicon glyphicon-download-alt"></i></a></li>
+            </ul>
+        </div>
+        <div class="col-sm-3 col-sm-offset-2">
+            <ul class="pipe">
+                <li><a href="mailto:support@certcapture.com">Get started via email</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row padding-top">
+        <div class="col-sm-3 col-sm-offset-2">
+            <p class="text-left">RESTful APIs for CertCapture 6.X and beyond are
+                 designed so that error responses are easy to
+                 understand and are accompanied by an error
+                 code.
+            </p>
+        </div>
+        <div class="col-sm-3 col-sm-offset-2">
+            <p class="text-left">To access the Avalara Certcapture service
+               and obtain an API key, contact your Avalara
+               account manager or <a href="mailto:support@certcapture.com">email us</a>.
+            </p>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="row border-top padding-top padding-bottom">
+  <div class="col-sm-8 col-sm-offset-2 text-center">
+    <h1 class="h1p">Fast and easy integration with AvaTax</h1>
+    <ul class="pipe">
+        <li><a href="certification">Integration checklists</a></li>
+    </ul>
+  </div>
+</div>
