@@ -15,7 +15,7 @@ doctype: overview
 <div class="row border-top padding-top padding-bottom">
   <div class="col-sm-8 col-sm-offset-2 text-center">
     <h1 class="h1p">How does the API work?</h1>
-    <h4 class="text-left">TThis API taps into Avalara CertCapture, providing automated document management:
+    <h4 class="text-left">This API taps into Avalara CertCapture, providing automated document management:
        The API allows you to create, validate, and store sales tax exemption and reseller
        certificates.
     </h4>
