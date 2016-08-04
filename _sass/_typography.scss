@@ -63,6 +63,14 @@ h5 {
     margin-bottom:0;
 }
 
+.s5 {
+    @extend .font-normal;
+    font-family: 'source sans pro regular', sans serif;
+    color: $Darkest-grey;
+    font-size: 18px;
+    margin-bottom:0;
+}
+
 .t1 {
     @extend .font-normal;
     font-family: 'source sans pro regular', sans serif;

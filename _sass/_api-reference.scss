@@ -8,25 +8,26 @@
     color: $Ava-orange;
 }
 
-.api-doc-parameter-name {
-    font-weight: bold;
-}
-
 .api-doc-left-col {
     text-align: right;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif !important;
+    font-family: 'source sans pro regular', sans serif;
     color: $Dark-grey;
+    font-size: 14px;
+    line-height: 20px;
 }
 
 h2, h3 {
-    color: $Ava-orange !important;
+    color: $Ava-orange;
 }
 
 .documentation-parameter-body {
-    padding: 10px;
+    padding: 5px;
+    /* Cancel out the Bootstrap negative margins */
+    margin-left: 0;
+    margin-right: 0;
 
     div {
         overflow: auto;
@@ -41,19 +42,23 @@ h2, h3 {
 .api-documentation-section-header {
     cursor: pointer;
     border-bottom: 1px solid lightgrey;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    margin-left: 0;
+    margin-right: 0;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 10px;
+}
 
-    &:hover {
-        background: #F7F9FA;
-
-        span.documentation-expand-icon {
-            color: $Darkest-blue;
-            border-color: $Darkest-blue;
-        }
+.documentation-collapseable-section {
+    div.documentation-parameter-body {
+        background: #f5f6fa;
+    }
+    
+    border: 1px solid lightgrey;
+    & & {
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
     }
 }
 
@@ -94,53 +99,56 @@ h2, h3 {
 
 .doc-section-header-nest-1 {
     background: $Darkest-blue;
-
-    &:hover {
-        background: darken($Darkest-blue, 5%);
-    }
-}
-
-.doc-section-header-nest-2 {
-    background: $Ava-blue;
-
-    &:hover {
-        background: darken($Ava-blue, 5%);
-    }
-}
-
-.doc-section-header-nest-3 {
-    background: $Active-blue;
-
-    &:hover {
-        background: darken($Active-blue, 5%);
-    }
-}
-
-.doc-section-header-totes-nested {
-    background: $blue-super-light;
-
-    &:hover {
-        background: darken($blue-super-light, 5%);
-    }
-}
-
-.doc-section-header-nested {
     color: white;
+
+    .api-doc-parameter-name {
+        color: white;
+    }
 
     .documentation-expand-icon {
         color: white;
         border-color: white;
     }
+}
 
-    &:hover {
-        color: whitesmoke;
+.doc-section-header-nest-2 {
+    background: $Highlight-blue;
+}
 
-        span.documentation-expand-icon {
-            color: whitesmoke;
-            border-color: whitesmoke;
-        }
+.doc-section-header-nest-3 {
+    background: white;
+}
+
+.doc-section-header-nest-2,.doc-section-header-nest-3 {
+    color: $Darkest-blue;
+
+    .api-doc-parameter-name {
+        color: $Darkest-blue;
+    }
+
+    .documentation-expand-icon {
+        color: $Darkest-blue;
+        border-color: $Darkest-blue;
     }
 }
+
+// .doc-section-header-nested {
+//     color: white;
+
+    // .documentation-expand-icon {
+    //     color: white;
+    //     border-color: white;
+    // }
+
+    // &:hover {
+    //     color: whitesmoke;
+
+    //     span.documentation-expand-icon {
+    //         color: whitesmoke;
+    //         border-color: whitesmoke;
+    //     }
+    // }
+// }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
     background: white;

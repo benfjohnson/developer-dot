@@ -23,9 +23,8 @@ const getSectionHighlightFromNestingLevel = (nestingLevel) => {
     case 2:
         return `${nestedClass} doc-section-header-nest-2`;
     case 3:
-        return `${nestedClass} doc-section-header-nest-3`;
     default:
-        return `${nestedClass} doc-section-header-totes-nested`;
+        return `${nestedClass} doc-section-header-nest-3`;
     }
 };
 
@@ -38,8 +37,8 @@ const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, nestingL
 
     return (
         <div className={'documentation-collapseable-section'} style={style}>
-            <div className={`row api-documentation-section-header${!collapsed ? ' ' + getSectionHighlightFromNestingLevel(nestingLevel) : ''}`} data-target={`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`} data-toggle={'collapse'} onClick={() => (handleToggleVisibility(documentationFor, propertyName, endpointId))}>
-                <div className={'col-md-2 api-doc-parameter-name api-doc-left-col'}>{displayName}</div>
+            <div className={`row api-documentation-section-header ${getSectionHighlightFromNestingLevel(nestingLevel)}`} data-target={`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`} data-toggle={'collapse'} onClick={() => (handleToggleVisibility(documentationFor, propertyName, endpointId))}>
+                <div className={'col-md-2 api-doc-parameter-name s5 api-doc-left-col'}>{displayName}</div>
                 <div className={'col-md-8'}></div>
                 <div className={'col-md-2'}>
                     <span style={{fontWeight: 'bold'}}>{`${isArray ? 'Array[' : ''}${displayName.charAt(0).toUpperCase() + displayName.slice(1)}${isArray ? ']' : ''}`}</span>
