@@ -102,3 +102,10 @@ h5.console-output-header {
         color: darken($Ava-blue, 10%);
     }
 }
+
+.documentation-collapseable-section {
+    border: 1px solid lightgrey;
+    & & {
+        border:none;
+    }
+}

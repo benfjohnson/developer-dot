@@ -34,7 +34,7 @@ const getSectionHighlightFromNestingLevel = (nestingLevel) => {
  * array items in a PostBody
  * */
 const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, nestingLevel, propertyName, displayName, collapsed, children}) => {
-    const style = nestingLevel > 1 ? {border: '1px solid lightgrey'} : {border: '1px solid lightgrey', marginTop: '10px', marginBottom: '10px'};
+    const style = nestingLevel > 1 ? {} : {marginTop: '10px', marginBottom: '10px'};
 
     return (
         <div className={'documentation-collapseable-section'} style={style}>
