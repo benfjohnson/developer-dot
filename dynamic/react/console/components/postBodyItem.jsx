@@ -29,7 +29,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
     if (item.fieldType && item.fieldType !== 'array') {
         return (
             <div className={'form-group'}>
-                    <label htmlFor={uid}>{displayName}</label>
+                    <label className={'api-label-text'} htmlFor={uid}>{displayName}</label>
                     {canRemove ?
                         <div
                             className={'clickable'}

@@ -30,9 +30,9 @@ const EndPointComponent = (props) => (
             <br />
             <br />
             <div>
-                <div>{'API ENDPOINT'}</div>
+                <div className={'api-label-text'}>{'Api Endpoint'}</div>
                 <div className={'code-snippet-plaintext'}>{`${props.endpoint.action.toUpperCase()} ${props.endpoint.path}`}</div>
-                {props.endpoint.postBody ? <div><br /><div>{'HEADERS'}</div><div className={'code-snippet-plaintext'}>{'Content-Type: application/json'}</div></div> : null}
+                {props.endpoint.postBody ? <div><br /><div className={'api-label-text'}>{'Headers'}</div><div className={'code-snippet-plaintext'}>{'Content-Type: application/json'}</div></div> : null}
             </div>
         </div>
         <br />

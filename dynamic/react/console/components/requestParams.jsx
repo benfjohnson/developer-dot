@@ -24,11 +24,11 @@ const handleInputChange = (e, paramType, paramName, endpointId) => {
 const RequestParams = ({endpointId, paramType, params}) => {
     return (
         <form className={'api-console-input-section'}>
-            <h4>{paramType === PARAM_TYPES.QUERY_STRING ? 'Query String' : 'Path Parameters'}</h4>
+            <h4 className={'api-console-section-header'}>{paramType === PARAM_TYPES.QUERY_STRING ? 'Query String' : 'Path Parameters'}</h4>
             {Object.keys(params).map((key, i) => {
                 return (
                     <div className={'form-group'} key={i}>
-                        <label htmlFor={`${endpointId}-qs-${i}`}>{key}</label>
+                        <label className={'api-label-text'} htmlFor={`${endpointId}-qs-${i}`}>{key}</label>
                         {params[key].enum && params[key].enum.length ?
                             <select
                                 className={'form-control'}

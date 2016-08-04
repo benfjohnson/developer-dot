@@ -34,7 +34,7 @@ const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiSta
             <div className={'clickable'} onClick={() => {
                 handleAddItem(propertyName, endpointId, schema);
             }}>
-                <span className={'glyphicon glyphicon-plus'}></span><span className={''}>{`  Add ${displayName}`}</span>
+                <span className={'glyphicon glyphicon-plus'}></span><span className={''}>{`  Add ${displayName === 'Post Body' ? 'Item' : displayName}`}</span>
             </div>
         </div>
     );
