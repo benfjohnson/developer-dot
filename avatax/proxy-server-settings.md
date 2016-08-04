@@ -1,12 +1,9 @@
 ---
 layout: default
 title: Proxy Server Settings
-date: 2012-05-14 16:36
-author: anya.stettler
-comments: true
-categories: []
 product: avaTax
 doctype: use_cases
+nav: apis
 ---
 <h2>Configuring Proxy Server Settings</h2>
 Our web service uses the standard SSL (secure socket layer) on port 443 with the addresses:

@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 const PARAM_TYPES = {
     QUERY_STRING: 'QUERY_STRING',
@@ -16,8 +17,8 @@ const RequestParamsDocumentation = ({paramType, params}) => {
             {Object.keys(params).map((key, i) => {
                 return (
                     <div className={'row documentation-parameter-body'} key={i}>
-                        <div className={'col-md-2 api-doc-left-col'}><div className={'api-doc-parameter-name'} title={key}>{key}</div>{params[key].required ? <div className={'small-required-text'}>{'Required'}</div> : null}</div>
-                        <div className={'col-md-8'}>{params[key].description}</div>
+                        <div className={'col-md-2 api-doc-left-col'}><div className={'api-doc-parameter-name s5'} title={key}>{key}</div>{params[key].required ? <div className={'small-required-text'}>{'Required'}</div> : null}</div>
+                        <div className={'col-md-8'}><ReactMarkdown source={params[key].description || ''} /></div>
                         <div className={'col-md-2'}>{params[key].fieldType}</div>
                     </div>
                 );

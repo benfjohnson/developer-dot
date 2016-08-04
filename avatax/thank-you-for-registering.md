@@ -1,12 +1,9 @@
 ---
 layout: default
 title: Thank you for registering.
-date: 2012-09-26 16:33
-author: nick.breslin
-comments: true
-categories: []
 product: avaTax
 doctype: set_up_your_sandbox
+nav: apis
 ---
 <script src="//cdn.optimizely.com/js/16139229.js"></script>
 

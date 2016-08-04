@@ -1,13 +1,11 @@
 ---
 layout: default
 title: AvaTax with Global Checklist
-date: 2016-01-18 02:42
-author: jeremy.buller
-comments: true
-categories: []
 product: avaTax
 doctype: integration_checklists
+nav: apis
 ---
+<div class="half">
 Certification for Avalara AvaTax with Global requires the delivery of all functional requirements shown below.
 
 Key:  R: Functionality required for certification     N: Functionality not required, but noted
@@ -129,3 +127,4 @@ The AvaTax Administration section provides the user with configuration, setup an
 </tr>
 </thead>
 </table>
+</div>

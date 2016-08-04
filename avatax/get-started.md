@@ -1,13 +1,10 @@
 ---
 layout: default
 title: Get Started
-date: 2012-09-11 00:09
-author: anya.stettler
-comments: true
-categories: []
 product: avatax
 doctype: documentation
 ---
+<div class="half">
 <h2>Four simple steps to getting started in calculating sales tax with our REST API</h2>
 <strong>If you already have an Avalara AvaTax account</strong> and want to dive into the details, a good place to start is our <a href="/blog/2013/11/11/introduction-to-the-avalara-avatax-api">Introduction to the Avalara AvaTax API</a>.
 <h4><img src="/images/2012/09/orange-box-1-sm.png" alt="" /> Try the API</h4>
@@ -142,3 +139,4 @@ Moving forward, it's a good idea to periodically review the Admin Console to ver
 If you didn't already check out the <a href="/blog/2013/11/11/introduction-to-the-avalara-avatax-api">Introduction to the Avalara AvaTax API</a>, that's where you should go next. As you're designing your integration, you'll want to consider what kind of <a href="/avatax/use-cases">use cases</a> you need to accommodate. We also recommend that you take a look at the <a href="/avatax/api-reference/tax/v1">API Reference</a>, review our <a href="/avatax/certification">integration checklist</a>, and check out the <a href="https://community.avalara.com/avalara/category_sets/developers">Developer Community</a>. 
 
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+</div>

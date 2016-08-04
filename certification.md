@@ -1,11 +1,6 @@
 ---
 layout: default
 title: Avalara Certified
-date: 2016-01-18 02:40
-author: jeremy.buller
-comments: true
-categories: [certification]
-product: certification
 doctype: documentation
 nav: certification
 ---

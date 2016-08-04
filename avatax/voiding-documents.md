@@ -1,12 +1,9 @@
 ---
 layout: default
 title: Cancel Transactions
-date: 2012-05-14 16:08
-author: anya.stettler
-comments: true
-categories: [develop]
 product: avaTax
 doctype: use_cases
+nav: apis
 ---
 <h2>Using the CancelTax method to void transactions</h2>
 CancelTax provides a mechanism to recover from posting problems and cancel transactions. The effect of CancelTax depends upon the current state of the document (uncommitted/saved, posted, or committed), and a property of the CancelTax call: CancelCode.

@@ -1,14 +1,11 @@
 ---
 layout: default
 title: AvaTax Use Tax Checklist
-date: 2016-01-18 02:41
-author: jeremy.buller
-comments: true
-categories: []
 product: avaTax
 doctype: integration_checklists
+nav: apis
 ---
-
+<div class="half">
 <h1 id="UseTaxRequirements-Administration/UtilitiesIntegration" data-fontsize="26" data-lineheight="34">Administration/Utilities Integration</h1>
 <div class="table-wrap">
 <table>
@@ -293,4 +290,5 @@ Note: Exemption number or Entity Use Code should be passed only if the customer
 </tr>
 </tbody>
 </table>
+</div>
 </div>

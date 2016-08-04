@@ -1,12 +1,9 @@
 ---
 layout: default
 title: Samples & Libraries
-date: 2013-03-12 22:45
-author: lokeuei
-comments: true
-categories: []
 product: avaTax
 doctype: use_cases
+nav: apis
 ---
 <h2>Sameple Code and Libraries</h2>
 Code samples are designed to help you get started in writing correct code to interface with the Avalara AvaTax APIs. You can do this from a myriad of languages and frameworks and most of them are listed below. You will find officially supported libraries and those that are contributed by our community.
