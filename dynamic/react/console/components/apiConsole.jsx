@@ -180,7 +180,7 @@ const ApiConsole = ({endpoint, id}) => (
                         </div> : null}
                         <div style={{background: 'blue', height: 'auto'}}></div>
                 </div>
-                <div className={'api-console-output col-md-7 col-xs-12'}>
+                <div className={'api-console-output col-md-8 col-xs-12'}>
                     <h5 className={'console-output-header'}>{'API Endpoint'}</h5>
                     <div className={'code-snippet'}>{endpoint.path}</div>
                     <h5 className={'console-output-header'}>{'Method'}</h5>
