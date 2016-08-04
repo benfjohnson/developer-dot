@@ -27,6 +27,11 @@ h2, h3 {
 
 .documentation-parameter-body {
     padding: 10px;
+
+    div {
+        overflow: auto;
+        text-overflow: ellipsis;
+    }
 }
 
 .postBodySectionHeader {
@@ -162,7 +167,7 @@ h2, h3 {
     border: 1px solid #75c5e4;
     color: whitesmoke;
     font: 13px Menlo;
-    margin-top: 10px;
+    margin-top: 5px;
     padding: 10px;
     overflow: scroll;
 }
@@ -190,4 +195,13 @@ h2, h3 {
     .api-doc-parameter-name, .api-doc-left-col, .small-required-text {
         text-align: left;
     }
+}
+
+.api-label-text {
+    font-family: 'source sans pro regular', sans serif;
+    font-size: 11px;
+    color: #919195 ;
+    letter-spacing: 0.1rem;
+    line-height:16px;
+    text-transform: uppercase;
 }

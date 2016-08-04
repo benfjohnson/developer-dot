@@ -111,7 +111,7 @@ const ApiConsole = ({endpoint, id}) => (
         <div className={'collapse'} id={`${replaceSpacesInStr(endpoint.name)}-console-body`}>
             <div className={'row api-console'}>
                 <div className={'col-md-4 col-xs-12 api-console-form-wrapper'}>
-                    <div style={{marginLeft: '10px'}}>
+                    <div>
                             <h3 style={{display: 'inline-block'}}>{'Input'}</h3>
                             {hasExampleData('QUERY_STRING', endpoint.queryString) || hasExampleData('POST_BODY', endpoint.postBody) || hasExampleData('PATH_PARAM', endpoint.pathParams) ?
                             <span
@@ -124,7 +124,7 @@ const ApiConsole = ({endpoint, id}) => (
                             {' Fill with Sample Data'}
                             </span> : null}
                     </div>
-                    <div style={{marginLeft: '10px'}}>
+                    <div style={{marginBottom: '10px'}}>
                             <button
                                 className='btn btn-primary'
                                 onClick={(e) => {
@@ -153,7 +153,7 @@ const ApiConsole = ({endpoint, id}) => (
                     {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
                     {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody}/> : null}
                     {endpoint.postBody ?
-                        <div style={{marginLeft: '10px'}}>
+                        <div style={{marginBottom: '10px'}}>
                             <button
                                 className='btn btn-primary'
                                 onClick={(e) => {
