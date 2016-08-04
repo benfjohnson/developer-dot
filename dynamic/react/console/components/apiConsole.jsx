@@ -182,9 +182,9 @@ const ApiConsole = ({endpoint, id}) => (
                 </div>
                 <div className={'api-console-output col-md-8 col-xs-12'}>
                     <h5 className={'console-output-header'}>{'API Endpoint'}</h5>
-                    <div className={'code-snippet'}>{endpoint.path}</div>
+                    <div className={'code-snippet-plaintext'}>{endpoint.path}</div>
                     <h5 className={'console-output-header'}>{'Method'}</h5>
-                    <div className={'code-snippet'}>{endpoint.action.toUpperCase()}</div>
+                    <div className={'code-snippet-plaintext'}>{endpoint.action.toUpperCase()}</div>
                         {endpoint.PathParams || endpoint.queryString || endpoint.postBody ?
                         <div className={'row'} style={{marginBottom: '8px'}}>
                             <div className={'col-md-6 console-req-container'}>
