@@ -8,6 +8,12 @@ categories: []
 product: avaTax
 doctype: use_cases
 ---
+
+{% for page in site.avatax %}
+  <li>{{ page.title }}</li>
+{% endfor %}
+
+
 <h2>Document Workflow and Best Practices</h2>
 Integrating to Avalara AvaTax is as simple as mirroring your document workflow in our system.
 Before we get started, here are some things you'll need to consider:
@@ -18,13 +24,13 @@ Before we get started, here are some things you'll need to consider:
 </ul>
 With these things in mind, let's take a look at some general examples.
 <h3><a name="Ecommerce"></a>Ecommerce</h3>
-<a href="/images/2013/05/developer-charts-eCommerce-2014-Brand-m1.png"><img class="alignnone wp-image-2288" src="/images/2013/05/developer-charts-eCommerce-2014-Brand-m1.png" alt="" width="960" height="560" /></a>
+<img class="alignnone wp-image-2288" src="/images/devdot/DevDot_ECOMMdiagram.svg" alt="" width="960" height="560" />
 <ul>
 	<li>For every tax calculation done before a sale is complete, you should use DocType SalesOrder. This will not create a record of the calculation in AvaTax, so you won't have to do any cleanup for abandoned carts.</li>
 	<li>When you recognize the sale, make another call to AvaTax with DocType SalesInvoice to record the transaction for reporting. You can commit the document at this time, or later, depending on your business process.</li>
 </ul>
 <h3>ERP</h3>
-<a href="/images/2013/05/developer-charts-ERP-2014-Brand-m1.png"><img class="alignnone wp-image-2289" src="/images/2013/05/developer-charts-ERP-2014-Brand-m1.png" alt="" width="960" height="767" /></a>
+<img class="alignnone wp-image-2289" src="/images/devdot/DevDot_ERPdiagram.svg" alt="" width="960" height="767" />
 
 In addition to the workflows above, there are additional document types and processes to account for.
 <ul>

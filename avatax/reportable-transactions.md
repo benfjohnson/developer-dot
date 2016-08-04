@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Commit Transactions
+title: Reportable Transactions
 date: 2012-05-14 16:02
 author: anya.stettler
 comments: true

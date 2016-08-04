@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Calculate Tax
+title: Calculating Tax
 date: 2012-05-14 15:32
 author: anya.stettler
 comments: true
@@ -8,6 +8,7 @@ categories: []
 product: avaTax
 doctype: use_cases
 ---
+<h2>Calculating Tax</h2>
 Getting a tax calculation is the primary reason developers use the Avalara AvaTax Service. Whether you are just looking to get a tax rate to populate into a database or application field, or you need to utilize all of the reporting and filing functionality that AvaTax offers, GetTax is the starting point.
 
 The request for this method consists of sales document attributes, like date, customer id, addresses, and line items. Please see the <a title="Avalara AvaTax API Reference" href="/avatax/api-reference">API reference</a> for a full listing of the available operations and attributes.

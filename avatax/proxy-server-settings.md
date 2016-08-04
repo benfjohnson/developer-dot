@@ -8,7 +8,7 @@ categories: []
 product: avaTax
 doctype: use_cases
 ---
-<h3>What you need to do to configure your Proxy Server settings.</h3>
+<h2>Configuring Proxy Server Settings</h2>
 Our web service uses the standard SSL (secure socket layer) on port 443 with the addresses:
 <ul>
 	<li>https://development.avalara.net for development, and</li>
