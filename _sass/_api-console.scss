@@ -81,28 +81,26 @@
                 color: $Darkest-grey;
             }
         }
-
-        & .api-console-input-section:first-of-type {
+        .resetIndentation {
             margin-right: 0;
             padding-right: 0;
             padding-left: 0;
         }
+
+        & .api-console-input-section:first-of-type {
+            @extend .resetIndentation;
+        }
         & .api-console-input-section .api-console-input-section {
-            margin-right: 0px;
-            padding-right: 0px;
-            padding-left: 0px;
+            @extend .resetIndentation;
         }
 
         & .api-console-input-section > .api-console-input-section {
-            margin-right: 10px;
             padding-right: 10px;
             padding-left: 10px;
         }
 
         & .api-console-input-section > .api-console-input-section .api-console-input-section {
-            margin-right: 0px;
-            padding-right: 0px;
-            padding-left: 0px;
+            @extend .resetIndentation;
         }
     }
 }
