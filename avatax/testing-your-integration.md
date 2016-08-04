@@ -5,8 +5,8 @@ date: 2012-10-11 23:27
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
-doctype: documentation
+product: avaTax
+doctype: test_your_integration
 ---
 <h3>Integration Testing</h3>
 When you run tests (automatically or manually), take care to call the AvaTax service only when needed. We don't have a way of distinguishing between test calls and actual live calculations (since they all return real tax calculations from us), so they are all included in the calculation of your billable transactions. In tests where a live tax calculation is required (for example, to check <a href="/avatax/service-availability-and-performance">if the service is available</a> or if your credentials are correct), there is no replacement for an actual call to the API. For the majority of cases, however, we recommend that you stub out the AvaTax API calls. This will save you on both the time it takes to run your unit and integration tests (and non-tax functional tests), and the number of transactions you consume.

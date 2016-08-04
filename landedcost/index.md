@@ -1,20 +1,76 @@
 ---
 layout: default
-title: Overview
-date: 2016-04-22 11:48
-author: anya.stettler
-comments: true
+title: LandedCost Overview
 categories: []
 product: landedCost
-doctype: documentation
 nav: apis
+doctype: overview
 ---
-<h2>Getting Started</h2>
-<h3>Landed Cost Rates and Calculation API</h3>
-The Landed Cost  Rate and Calculation API allows to you lookup rates for commodities, and determine estimated landed cost totals for an invoice.
-
-Provide the right rate in real-time for every product in each country, simplifying international tax compliance. Correctly determine all costs associated with customs, duties, shipping, tariffs and taxes for goods sold internationally. Calculate all associated costs and rates in real-time, so there are no surprises at check-out or delivery. More about <a href="https://www.avalara.com/landedcost/">Avalara LandedCost</a>.
-<h3>What You Can Do</h3>
-This API provides duty rates, calculation, and item harmonization information. A <a href="/landed-cost/api-reference">full API reference</a> is available for developers building integrations to LandedCost.
-
-To get a username and password, contact your Customer Account Manager or email <a href="mailto:landedcost-support@avalara.com">landedcost-support@avalara.com</a>.
+<div class="row bg-map padding-bottom">
+  <div class="col-sm-8 col-sm-offset-2 text-center ">
+    <h1 class="h1p">LandedCost API</h1>
+    <img src="/images/devdot/DevDot_ShippingCrateGrey.svg" width="200" />
+  </div>
+</div>
+<div class="row border-top padding-top padding-bottom">
+  <div class="col-sm-8 col-sm-offset-2 text-center">
+    <h1 class="h1p">How does the API work?</h1>
+    <h4 class="text-left">The LandedCost API calculates the right rate and tariff code in real-time for every
+        product in each country and correctly determines all costs associated with customs,
+        duties, shipping, tariffs and taxes for goods sold internationally. 
+    </h4>
+     <h2>How does Avalara LandedCost benefit businesses?</h2>
+     <h4 class="text-left">Avalara LandedCost enables merchants to know and apply complex taxes, duties,
+        shipping costs, and fees to cross-border sales so customersaren’t dismayed by hidden
+        costs. <a href="https://www.avalara.com/landedcost">Learn more</a>
+     </h4>
+  </div>
+</div>
+<div class="row border-top padding-top padding-bottom">
+  <div class="col-sm-8 col-sm-offset-2 text-center">
+    <h1 class="h1p">Get started learning about and using this API</h1>
+    <div class="row">
+        <div class="col-sm-3 col-sm-offset-2">
+            <img src="/images/devdot/DevDotSvgGAssets_One.svg" height="75">
+        </div>
+        <div class="col-sm-3 col-sm-offset-2">
+            <img src="/images/devdot/DevDotSvgGAssets_Two.svg" height="75">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 col-sm-offset-2">
+            <h4>Check out the documentation</h4>
+        </div>
+        <div class="col-sm-3 col-sm-offset-2">
+            <h4>Sign up for the service to get an API key</h4>
+        </div>
+    </div>
+    <div class="row padding-top">
+        <div class="col-sm-3 col-sm-offset-2">
+            <ul class="pipe">
+                <li><a href="api-reference/v3">API references</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-3 col-sm-offset-2">
+            <ul class="pipe">
+                <li><a href="mailto:landedcost-support@avalara.com">Get started via email</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row padding-top">
+        <div class="col-sm-3 col-sm-offset-2">
+            <p class="text-left">Learn how to consume the web service for
+               integration into customer programs, and defines
+               the object structure, and reference the detailed
+               object structure.
+            </p>
+        </div>
+        <div class="col-sm-3 col-sm-offset-2">
+            <p class="text-left">To access the Avalara LandedCost service
+               and obtain an API key, contact your Avalara
+               account manager or <a href="mailto:landedcost-support@avalara.com">email us</a>.
+            </p>
+        </div>
+    </div>
+  </div>
+</div>

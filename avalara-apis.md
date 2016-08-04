@@ -2,6 +2,7 @@
 layout: default
 title: Avalara APIs
 nav: apis
+doctype: overview
 ---
 <div class="row bg-map">
   <div class="col-sm-6 col-sm-offset-3 text-center">
@@ -23,7 +24,7 @@ nav: apis
             <div class="col-sm-4"><h2>Value-added tax (VAT)</h2></div>
             <div class="col-sm-4"><h2>Consumer use tax</h2></div>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis interdum libero ac luctus. Nam ut dolor ac ipsum pharetra mollis. Vivamus blandit imperdiet mauris et consectetur. Phasellus iaculis pharetra elit, id efficitur quam interdum sed. Maecenas quis lacus eget elit pulvinar mattis. Duis mattis bibendum cursus. Pellentesque malesuada, odio nec viverra hendrerit, ligula est tincidunt libero, ac imperdiet nibh ex eu lectus. Ut cursus mollis eros, id blandit nisi facilisis quis. Vivamus lacinia nunc sit amet nisl cursus faucibus. Maecenas orci nibh, malesuada sed blandit vitae, dapibus ac dui.</p>
+        <p>Avalara AvaTax gives you an automated end-to-end tax compliance solution, including rooftop-level tax determination, product taxability information, and reporting and returns filing. Avalara AvaTax has a RESTful API, a SOAP API, and class wrappers (adapters) for a variety of languages to assist in calling the web service, which can be used to calculate sales tax, sellers use tax, consumer use tax, and some excise taxes. <a href="/avatax/get-started">Get started now.</a></p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>AvaTax</span>
@@ -36,7 +37,7 @@ nav: apis
           </ul>
         {% endif %}
         <h2>Fees and taxes for telecommunications</h2>
-        <p>The Communication Tax API provides a rich and complete set of interfaces for communication taxation. The API allows taxation using jurisdictional information provided by jurisdiction codes, NPANXX, address and ZIP codes.</p>
+        <p>Avalara AvaTax for Communications helps you quickly determine taxes for telecommunication services, as well as VoIP, internet services, satellite TV, and other communications services. Avalara Returns for Communications provides tax filing, regulatory reporting, and remittance services for companies in the communications industry. <a href="https://www.avalara.com/products/communications-tax/">Learn more about Communications Tax</a></p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>AvaTax Communication</span>
@@ -62,7 +63,7 @@ nav: apis
           </ul>
         {% endif %}
         <h2>Duties and fees for international sales</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis interdum libero ac luctus. Nam ut dolor ac ipsum pharetra mollis. Vivamus blandit imperdiet mauris et consectetur. Phasellus iaculis pharetra elit, id efficitur quam interdum sed. Maecenas quis lacus eget elit pulvinar mattis. Duis mattis bibendum cursus. Pellentesque malesuada, odio nec viverra hendrerit, ligula est tincidunt libero, ac imperdiet nibh ex eu lectus. Ut cursus mollis eros, id blandit nisi facilisis quis. Vivamus lacinia nunc sit amet nisl cursus faucibus. Maecenas orci nibh, malesuada sed blandit vitae, dapibus ac dui.</p>
+        <p>The Landed Cost  Rate and Calculation API allows to you lookup rates for commodities, and determine estimated landed cost totals for an invoice. <a href="http://landedcost.avalara.com">Learn more about the Landed Cost API</a></p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>LandedCost</span>

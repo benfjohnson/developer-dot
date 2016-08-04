@@ -53,6 +53,43 @@ var showHdrSearchForm = function() {
 };
 
 handleSearch = function() {
+
+    var queryparam = getParameterByName('q');
+    $("#query").val(queryparam);
+
+    var productfacet = getParameterByName('product');
+    var doctypefacet = getParameterByName('doctype');
+
+    $("#product-facet").val(productfacet);
+    $("#doctype-facet").val(doctypefacet);
+
+    var client = algoliasearch("19A6FWAAB3", 'a480e1583c97f14a6ad92c7c605d9f23');
+    var index = client.initIndex('developer-dot');
+    var facets = [];
+
+    if (productfacet) facets.push("product:" + productfacet);
+    if (doctypefacet) facets.push("doctype:" + doctypefacet);
+
+    index.search(queryparam, {
+        attributesToRetrieve: ['title', 'url', 'text'],
+        hitsPerPage: 50,
+        facetFilters: facets,
+    }, function searchDone(err, content) {
+        if (err) {
+            console.error(err);
+            return;
+        }
+
+        var results = "";
+        if (content.hits.length === 0) {
+            results += "<li>No Results Found</li>"
+        }
+        for (var h in content.hits) {
+            results += "<li><a href='" + content.hits[h].url + "'>" + content.hits[h].title + "</a>" + content.hits[h].text + "</li>";
+        }
+        document.getElementById("search-results").innerHTML = results;
+    });
+
     getParameterByName = function(name, url) {
         if (!url) url = window.location.href;
         name = name.replace(/[\[\]]/g, '\\$&');
@@ -71,6 +108,7 @@ handleSearch = function() {
 
         var productfacet = getParameterByName('product');
         var doctypefacet = getParameterByName('doctype');
+
 
         productfacet = productfacet ? productfacet.toLowerCase() : null;
         doctypefacet = doctypefacet ? doctypefacet.toLowerCase() : null;

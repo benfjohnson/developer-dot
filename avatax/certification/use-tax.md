@@ -5,8 +5,8 @@ date: 2016-01-18 02:41
 author: jeremy.buller
 comments: true
 categories: []
-product: avatax
-doctype: certification
+product: avaTax
+doctype: integration_checklists
 ---
 
 <h1 id="UseTaxRequirements-Administration/UtilitiesIntegration" data-fontsize="26" data-lineheight="34">Administration/Utilities Integration</h1>

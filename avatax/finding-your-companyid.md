@@ -5,10 +5,10 @@ date: 2013-03-07 01:15
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
-doctype: documentation
+product: avaTax
+doctype: use_cases
 ---
-Some AvaTax APIs (notably <a href="/api-reference/batchsvc">BatchSvc</a>) require the use of a CompanyId to refer to a particular company. This is similar to CompanyCode in the TaxSvc API, but is a unique identifier within the Avalara database.
+Some AvaTax APIs (notably <a href="avatax/api-reference/batch/soap">BatchSvc</a>) require the use of a CompanyId to refer to a particular company. This is similar to CompanyCode in the TaxSvc API, but is a unique identifier within the Avalara database.
 The easiest way to locate your CompanyId is through the Admin Console.
 
 <a href="https://developer.avalara.com/wp-content/uploads/2013/03/company-id.jpg"><img class="size-large wp-image-3093" src="http://developer.avalara.com/wp-content/uploads/2013/03/company-id-1024x506.jpg" alt="Log in to the Admin Console, and click on the company name to edit the profile. The CompanyId will appear in the page URL." width="625" height="308" /></a> 

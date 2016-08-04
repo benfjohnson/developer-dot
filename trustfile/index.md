@@ -1,24 +1,68 @@
 ---
 layout: default
-title: Overview
-date: 2016-01-18 15:14
-author: jeremy.buller
-comments: true
+title: TrustFile Overview
 categories: []
-product: trustfile
-doctype: documentation
+product: trustFile
+nav: apis
+doctype: overview
 ---
-<h2>Capture transactions for filing with the TrustFile API</h2>
-The TrustFile API allows you to load transactions automatically from any source.
-<h3>What You Can Do</h3>
-This API loads and inspects transactions, and allows additional provisioning and maintenance for partners.
-<h3>Get API Key</h3>
-To get a username and password, contact your Customer Account Manager or email <a href="mailto:support@trustfile.com">support@trustfile.com</a>.
-<h3>Documentation</h3>
-TrustFile offers three separate APIs:
-<ul>
-	<li>The <a href="/trustfile/api-reference/core/v3">Core API</a> allows a developer to interact with transactions in TrustFile</li>
-	<li>The <a href="/trustfile/api-reference/provisioning/v3">Provisioning API</a> allows a partner to provide signup and provisioning to mutual clients.</li>
-	<li>The <a href="/trustfile/api-reference/connector-management/v3">Connectors API</a> describes the registration and maintenance of both connectors and connections.</li>
-</ul>
-If you have any questions, please reach out to us at <a href="mailto:support@trustfile.com">support@trustfile.com</a>.
+<div class="row bg-map padding-bottom">
+  <div class="col-sm-8 col-sm-offset-2 text-center ">
+    <h1 class="h1p">TrustFile API</h1>
+    <img src="/images/devdot/DevDot_GovtBldgBlue-07.svg" width="200" />
+  </div>
+</div>
+<div class="row border-top padding-top padding-bottom">
+  <div class="col-sm-8 col-sm-offset-2 text-center">
+    <h1 class="h1p">How does the API work?</h1>
+    <h4 class="text-left">This API loads and inspects transactions from any source, and allows additional provisioning and maintenance for partners.</h4>
+  </div>
+</div>
+<div class="row border-top padding-top padding-bottom">
+  <div class="col-sm-8 col-sm-offset-2 text-center">
+    <h1 class="h1p">Get started learning about and using this API</h1>
+    <div class="row">
+        <div class="col-sm-3 col-sm-offset-2">
+            <img src="/images/devdot/DevDotSvgGAssets_One.svg" height="75">
+        </div>
+        <div class="col-sm-3 col-sm-offset-2">
+            <img src="/images/devdot/DevDotSvgGAssets_Two.svg" height="75">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 col-sm-offset-2">
+            <h4>Check out the documentation</h4>
+        </div>
+        <div class="col-sm-3 col-sm-offset-2">
+            <h4>Sign up for the service to get an API key</h4>
+        </div>
+    </div>
+    <div class="row padding-top">
+        <div class="col-sm-3 col-sm-offset-2">
+            <ul class="pipe">
+                <li><a href="/trustfile/api-reference/core/v3">Core</a></li>
+                <li><a href="/trustfile/api-reference/provisioning/v3">Provisioning</a></li>
+                <li><a href="/trustfile/api-reference/connector-management/v3">Connectors</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-3 col-sm-offset-2">
+            <ul class="pipe">
+                <li><a href="mailto:support@trustfile.com">Get started via email</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row padding-top">
+        <div class="col-sm-3 col-sm-offset-2">
+            <p class="text-left">The Core API allows a developer to interact with transactions in TrustFile.</p>
+            <p class="text-left">The Provisioning API allows a partner to provide signup and provisioning to mutual clients.</p>
+            <p class="text-left">The Connectors API describes the registration and maintenance of both connectors and connections.</p>
+        </div>
+        <div class="col-sm-3 col-sm-offset-2">
+            <p class="text-left">To access the Avalara TrustFile service and
+                 obtain an API key, contact your Avalara account
+                 manager or <a href="mailto:support@trustfile.com">email us</a>.
+            </p>
+        </div>
+    </div>
+  </div>
+</div>
