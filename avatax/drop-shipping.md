@@ -8,6 +8,8 @@ categories: []
 product: avaTax
 doctype: use_cases
 ---
+
+<h2>Drop Shipping</h2>
 For information on reflecting shipping charges in your tax calculation, go <a title="GetTax" href="/avatax/calculating-tax">here</a>.
 
 “Drop Shipping” is more of a business process to define vs. a technical one – one that will require the talents of your company's tax attorney and/or accountant to define what your nexus liabilities and responsibilities are for the origin and destination locations.

@@ -8,6 +8,7 @@ categories: []
 product: avaTax
 doctype: use_cases
 ---
+<h2>Common Errors</h2>
 <table border="1" width="620" cellspacing="0" cellpadding="5">
 <thead style="background-color: lightgray;">
 <tr>

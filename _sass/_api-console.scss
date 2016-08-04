@@ -3,7 +3,8 @@
     background: whitesmoke;
     padding: 5px;
     // display: table-cell;
-    word-break:break-all;
+    word-break: break-all;
+    padding-left: 15px;
     // float: none;
 }
 
@@ -11,7 +12,7 @@
     color: white;
     background: dimgrey;
     // display: table-cell;
-    word-break:break-all;
+    word-break: break-all;
     // float: none;
     padding: 5px;
 }
@@ -29,13 +30,25 @@
     padding: 10px;
     margin: 10px;
     overflow: scroll;
-    
-    .string { color: #71e4ff; }
-    .number { color: #fc88ff; }
-    .boolean { color: #fc88ff; }
-    .null { color: #fc88ff; }
-    .key { color: #8fffa7; }
-    .punctuation { color: #fceb51; }
+
+    .string {
+        color: #71e4ff;
+    }
+    .number {
+        color: #fc88ff;
+    }
+    .boolean {
+        color: #fc88ff;
+    }
+    .null {
+        color: #fc88ff;
+    }
+    .key {
+        color: #8fffa7;
+    }
+    .punctuation {
+        color: #fceb51;
+    }
 }
 
 .code-snippet-code-text {
@@ -53,28 +66,51 @@
     padding-top: 22px;
 }
 
-.api-console-post-form .api-console-input-section:not(:first-child) {
-    background: white;
-    /* color: black; */
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-left: 7.5px;
-    padding-right: 7.5px;
-    padding-bottom: 7.5px;
-}
+.api-console-post-form {
+    .api-console-input-section {
+        padding-left: 7.5px;
+        padding-right: 7.5px;
+        padding-bottom: 3.5px;
+        margin-bottom: 7.5px;
+        text-transform: capitalize;
 
-.api-console-input-section:first-child {
-    margin-left: 10px;
-    margin-right: 10px;
-}
+        h4 {
+            font-weight: bold;
+        }
 
-.api-console-input-section h4 {
-    font-weight: bold;
-}
+        &:first-child {
+            margin-right: 10px;
+        }
 
-.api-console-input-section label {
-    text-transform: uppercase;
-    font-weight: normal;
+        &:not(:first-child) {
+            background: white;
+
+            h4 {
+                color: $Darkest-grey;
+            }
+        }
+        .resetIndentation {
+            margin-right: 0;
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        & .api-console-input-section:first-of-type {
+            @extend .resetIndentation;
+        }
+        & .api-console-input-section .api-console-input-section {
+            @extend .resetIndentation;
+        }
+
+        & .api-console-input-section > .api-console-input-section {
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+
+        & .api-console-input-section > .api-console-input-section .api-console-input-section {
+            @extend .resetIndentation;
+        }
+    }
 }
 
 h5.console-output-header {
@@ -83,15 +119,16 @@ h5.console-output-header {
 }
 
 .api-console.row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
 }
-.api-console.row > .api-console-form-wrapper,.api-console-output {
-  display: flex;
-  flex-direction: column;
+
+.api-console.row > .api-console-form-wrapper, .api-console-output {
+    display: flex;
+    flex-direction: column;
 }
 
 .clickable {
@@ -100,5 +137,21 @@ h5.console-output-header {
     margin-bottom: 10px;
     &:hover {
         color: darken($Ava-blue, 10%);
+    }
+}
+
+.api-console-section-header {
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.documentation-collapseable-section {
+    border: 1px solid lightgrey;
+    & & {
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
     }
 }
