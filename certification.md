@@ -93,5 +93,5 @@ nav: certification
     </div>
 </div>
 <div class="row padding-top">
-    <div class="col-xs-offset-3 col-xs-6 text-center btn-callout"><a href="/avatax/get-started" role="button">Get an Avalara AvaTax sandbox</a></div>
+    <div class="col-xs-offset-3 col-xs-6 text-center btn-callout"><a href="/avatax/get-started#signup" role="button">Get an Avalara AvaTax sandbox</a></div>
 </div>
