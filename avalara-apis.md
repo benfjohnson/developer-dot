@@ -24,7 +24,7 @@ doctype: overview
             <div class="col-sm-4"><h2>Value-added tax (VAT)</h2></div>
             <div class="col-sm-4"><h2>Consumer use tax</h2></div>
         </div>
-        <p>Avalara AvaTax gives you an automated end-to-end tax compliance solution, including rooftop-level tax determination, product taxability information, and reporting and returns filing. Avalara AvaTax has a RESTful API, a SOAP API, and class wrappers (adapters) for a variety of languages to assist in calling the web service, which can be used to calculate sales tax, sellers use tax, consumer use tax, and some excise taxes. <a href="/avatax/get-started">Get started now.</a></p>
+        <p>Avalara AvaTax gives you an automated end-to-end tax compliance solution, including rooftop-level tax determination, product taxability information, and reporting and returns filing. Avalara AvaTax has a RESTful API, a SOAP API, and class wrappers (adapters) for a variety of languages to assist in calling the web service, which can be used to calculate sales tax, sellers use tax, consumer use tax, and some excise taxes. <a href="/avatax/get-started#signup">Get started now.</a></p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>AvaTax</span>
