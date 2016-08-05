@@ -2,66 +2,10 @@ import React from 'react';
 import RequestParams from './requestParams';
 import PostBody from './postBody';
 
-import request from 'request';
-import {store} from '../store';
+//import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
-import {replacePathParams, hasExampleData, replaceSpacesInStr} from '../helpers';
+import {hasExampleData, replaceSpacesInStr} from '../helpers';
 
-const handleSubmit = (endpoint, id) => {
-    /* If our endpoint has a defined proxy, use that to make our API console request
-     * Otherwise, just use the path specified as `host` in Swagger file
-     */
-    const requestPath = endpoint.proxyRoute || endpoint.path;
-
-    const url = (endpoint.pathParams ? replacePathParams(requestPath, endpoint.pathParams) : requestPath) + (endpoint.qsPath || '');
-    const apiReq = {
-        url: url,
-        headers: {}
-    };
-
-    if (requestPath.indexOf('amazonaws') !== -1) {
-        apiReq.headers['api-key'] = 'b24757b69083fa34d27a7d814ea3a59c';
-    }
-
-    if (endpoint.postBody) {
-        apiReq.headers['Content-Type'] = 'application/json';
-        apiReq.body = JSON.stringify(endpoint.postBodyData);
-    }
-
-    request[endpoint.action](apiReq, (error, response, body) => {
-        let responseBody = {};
-
-        try {
-            responseBody = JSON.parse(body);
-        } catch (err) {
-            responseBody.error = err.message;
-        }
-
-        store.dispatch({
-            type: actionTypes.SUBMIT_DONE,
-            endpointId: id,
-            apiResponse: {
-                body: responseBody,
-                status: response ? response.statusCode.toString() : '',
-                statusMessage: error ? error.message : response.statusMessage || ''
-            }
-        });
-    });
-};
-
-const toggleVisibility = (endpointId) => {
-    store.dispatch({
-        type: actionTypes.CONSOLE_VISIBILITY_TOGGLED,
-        endpointId: endpointId
-    });
-};
-
-const handleFillSampleData = (id) => {
-    store.dispatch({
-        type: actionTypes.FILL_REQUEST_SAMPLE_DATA,
-        endpointId: id
-    });
-};
 
 const highlightPunctuation = (str) => {
     return str.replace(/"[^"]*"|([{}\[\],])/g, (m, group1) => {
@@ -98,11 +42,11 @@ const syntaxHighlight = (jsonObj) => {
     return highlightPunctuation(json);
 };
 
-const ApiConsole = ({endpoint, id}) => (
+const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged}) => (
     <div>
         <div className={'try-it-now-header'} data-target={`#${replaceSpacesInStr(endpoint.name)}-console-body`} data-toggle={'collapse'} id={replaceSpacesInStr(`${endpoint.name}-console`)} onClick={
             () => {
-                toggleVisibility(id);
+                onConsoleVisibilityToggle(id);
             }
         }>
             {'Try it now! '}
@@ -116,10 +60,7 @@ const ApiConsole = ({endpoint, id}) => (
                             {hasExampleData('QUERY_STRING', endpoint.queryString) || hasExampleData('POST_BODY', endpoint.postBody) || hasExampleData('PATH_PARAM', endpoint.pathParams) ?
                             <span
                                 className='m-l-1 clickable hdr-btn-adj-text'
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleFillSampleData(id);
-                                }}
+                                onClick={onFillConsoleSampleData.bind(null, id)}
                             >
                             {' Fill with Sample Data'}
                             </span> : null}
@@ -127,10 +68,12 @@ const ApiConsole = ({endpoint, id}) => (
                     <div style={{marginBottom: '10px'}}>
                             <button
                                 className='btn btn-primary'
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleSubmit(endpoint, id);
-                                }}
+                                onClick={
+                                    (e) => {
+                                        e.preventDefault();
+                                        onSubmitConsoleRequest(endpoint, id);
+                                    }
+                                }
                                 type={'button'}
                             >
                             {'Submit'}
@@ -139,10 +82,10 @@ const ApiConsole = ({endpoint, id}) => (
                                 className='m-l-1 clickable hdr-btn-adj-text'
                                 onClick={
                                     () => {
-                                        store.dispatch({
-                                            type: actionTypes.RESET_CONSOLE,
-                                            endpointId: id
-                                        });
+                                        // store.dispatch({
+                                        //     type: actionTypes.RESET_CONSOLE,
+                                        //     endpointId: id
+                                        // });
                                     }
                                 }
                                 type='reset'>
@@ -151,15 +94,17 @@ const ApiConsole = ({endpoint, id}) => (
                         </div>
                     {endpoint.pathParams ? <RequestParams endpointId={id} paramType={'PATH'} params={endpoint.pathParams}/> : null}
                     {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
-                    {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody}/> : null}
+                    {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody} /> : null}
                     {endpoint.postBody ?
                         <div style={{marginBottom: '10px'}}>
                             <button
                                 className='btn btn-primary'
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleSubmit(endpoint, id);
-                                }}
+                                onClick={
+                                    (e) => {
+                                        e.preventDefault();
+                                        onSubmitConsoleRequest(endpoint, id);
+                                    }
+                                }
                                 type={'button'}
                             >
                             {'Submit'}
@@ -168,10 +113,10 @@ const ApiConsole = ({endpoint, id}) => (
                                 className='m-l-1 hdr-btn-adj-text clickable'
                                 onClick={
                                     () => {
-                                        store.dispatch({
-                                            type: actionTypes.RESET_CONSOLE,
-                                            endpointId: id
-                                        });
+                                        // store.dispatch({
+                                        //     type: actionTypes.RESET_CONSOLE,
+                                        //     endpointId: id
+                                        // });
                                     }
                                 }
                                 type='reset'>
@@ -181,6 +126,7 @@ const ApiConsole = ({endpoint, id}) => (
                         <div style={{background: 'blue', height: 'auto'}}></div>
                 </div>
                 <div className={'api-console-output col-md-8 col-xs-12'}>
+                {console.log('Im being rendered ruh roh!')}
                     <h5 className={'console-output-header'}>{'API Endpoint'}</h5>
                     <div className={'code-snippet-plaintext'}>{endpoint.path}</div>
                     <h5 className={'console-output-header'}>{'Method'}</h5>

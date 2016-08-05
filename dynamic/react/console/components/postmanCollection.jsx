@@ -1,16 +1,10 @@
 import React from 'react';
-import {store} from '../store';
-import {actionTypes} from '../reducers/reducer';
 
-const handleAuthKeyChange = (e, keyName) => {
-    store.dispatch({
-        type: actionTypes.AUTH_KEY_CHANGED,
-        inputVal: e.target.value,
-        keyName: keyName
-    });
-};
+const PostmanCollection = ({apiType, appLoaded, auth, onAuthKeyChange, postmanCollection}) => {
+    if (apiType !== 'REST') {
+        return null;
+    }
 
-const PostmanCollection = ({appLoaded, auth, postmanCollection}) => {
     const json = JSON.stringify(postmanCollection.collection);
     const blob = (appLoaded && typeof Blob !== 'undefined') ? new Blob([json], {type: 'application/json'}) : null;
     const url = (appLoaded && typeof URL !== 'undefined') ? URL.createObjectURL(blob) : null;
@@ -23,7 +17,7 @@ const PostmanCollection = ({appLoaded, auth, postmanCollection}) => {
                     {Object.keys(auth.params).map((param, i) => (
                         <fieldset className={'form-group'} key={i}>
                             <label>{param}</label>
-                            <input className={'form-control'} onChange={(e) => (handleAuthKeyChange(e, param))} value={auth.params[param]}></input>
+                            <input className={'form-control'} onChange={onAuthKeyChange.bind(null, param)} value={auth.params[param]}></input>
                         </fieldset>
                     ))}
                 </form>
@@ -35,11 +29,13 @@ const PostmanCollection = ({appLoaded, auth, postmanCollection}) => {
 
 PostmanCollection.displayName = 'Postman Collection';
 PostmanCollection.propTypes = {
+    apiType: React.PropTypes.string.isRequired,
     appLoaded: React.PropTypes.bool.isRequired,
     auth: React.PropTypes.shape({
         formula: React.PropTypes.string.isRequired,
         params: React.PropTypes.objectOf(React.PropTypes.string.isRequired)
     }),
+    onAuthKeyChange: React.PropTypes.func.isRequired,
     postmanCollection: React.PropTypes.shape({
         info: React.PropTypes.shape({
             /* eslint-disable camelcase */

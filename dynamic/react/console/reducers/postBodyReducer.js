@@ -1,5 +1,4 @@
 import {actionTypes} from './reducer';
-import R from 'ramda';
 
 const traversePropertyPath = (propertyPath, state) => {
     if (propertyPath === '') {
@@ -19,25 +18,21 @@ const traversePropertyPath = (propertyPath, state) => {
 };
 
 export default (state, action) => {
-    const newState = R.clone(state);
-    const newStateProperty = traversePropertyPath(action.postBodyParamName, newState);
+    const newState = {...state};
+    let newStateProperty = traversePropertyPath(action.postBodyParamName, newState);
 
     switch (action.type) {
     case actionTypes.POST_BODY_CHANGED:
         switch (newStateProperty.fieldType) {
         case 'number':
-            newStateProperty.value = isNaN(parseFloat(action.inputVal)) ? action.inputVal : parseFloat(action.inputVal);
+            newStateProperty = {...newStateProperty, value: isNaN(parseFloat(action.newValue)) ? action.newValue : parseFloat(action.newValue)};
             break;
         case 'boolean':
-            newStateProperty.value = action.inputVal === 'true';
+            newStateProperty = {...newStateProperty, value: action.newValue === 'true'};
             break;
         default:
-            newStateProperty.value = action.inputVal;
+            newStateProperty = {...newStateProperty, value: action.newValue};
         }
-        return newState;
-    case actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY:
-        newStateProperty.uiState.visible = !newStateProperty.uiState.visible;
-
         return newState;
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
         newStateProperty.uiState.visible = true;

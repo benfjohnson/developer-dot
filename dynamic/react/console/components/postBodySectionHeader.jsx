@@ -1,29 +1,22 @@
 import React from 'react';
 
-import {store} from '../store';
+//import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
 
-// const handleToggleVisibility = (propertyName, endpointId) => {
-//     store.dispatch({
-//         type: actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY,
-//         postBodyParamName: propertyName,
-//         endpointId: endpointId
-//     });
-// };
 
 const handleRemoveItem = (pbName, endpointId) => {
-    store.dispatch({
-        type: actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION,
-        postBodyParamName: pbName,
-        endpointId: endpointId
-    });
+    // store.dispatch({
+    //     type: actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION,
+    //     postBodyParamName: pbName,
+    //     endpointId: endpointId
+    // });
 };
 
 /*
  * Defines a wrapper to nest object properties or
  * array items in a PostBodyå
  * */
-const PostBodySectionHeader = ({endpointId, propertyName, displayName, children, canRemove}) => {
+const PostBodySectionHeader = ({endpointId, propertyName, displayName, children, canRemove}) => {    
     return (
         <div className={'api-console-input-section'}>
             <h4 className={'api-console-section-header s5'}>

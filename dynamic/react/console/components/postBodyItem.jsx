@@ -1,26 +1,26 @@
 import React from 'react';
 
-import {store} from '../store';
+//import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
 
 import PostBodySectionHeader from './postBodySectionHeader';
 import PostBodyCollection from './postBodyCollection';
 
 const handleInputChange = (e, pbName, endpointId) => {
-    store.dispatch({
-        type: actionTypes.POST_BODY_CHANGED,
-        inputVal: e.target.value,
-        postBodyParamName: pbName,
-        endpointId: endpointId
-    });
+    // store.dispatch({
+    //     type: actionTypes.POST_BODY_CHANGED,
+    //     inputVal: e.target.value,
+    //     postBodyParamName: pbName,
+    //     endpointId: endpointId
+    // });
 };
 
 const handleRemoveItem = (pbName, endpointId) => {
-    store.dispatch({
-        type: actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION,
-        postBodyParamName: pbName,
-        endpointId: endpointId
-    });
+    // store.dispatch({
+    //     type: actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION,
+    //     postBodyParamName: pbName,
+    //     endpointId: endpointId
+    // });
 };
 
 const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove}) => {
@@ -49,7 +49,9 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
                         <select
                             className={'form-control'}
                             id={uid}
-                            onChange={(e) => (handleInputChange(e, name, endpointId))}
+                            onChange={(e) => {
+                                //onPostBodyInputChanged(endpointId, name, e.target.value);
+                            }}
                             value={item.value || '*select*'}
                         >
                             <option disabled={true} value={'*select*'}>{''}</option>
@@ -58,7 +60,9 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
                         <input
                             className={'form-control'}
                             id={uid}
-                            onChange={(e) => (handleInputChange(e, name, endpointId))}
+                            onChange={(e) => {
+                                //onPostBodyInputChanged(endpointId, name, e.target.value);
+                            }}
                             placeholder={item.example}
                             value={item.value}
                         />

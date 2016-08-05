@@ -1,5 +1,8 @@
 import path from 'path';
 import React from 'react';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import {reducer} from './react/console/reducers/reducer';
 import SwaggerParser from 'swagger-parser';
 import App from './react/console/app';
 import {renderToString} from 'react-dom/server';
@@ -27,7 +30,7 @@ export default (fileName, apiName, apiPath, product) => {
         }
 
         const buildHtml = (reactHtml, initialState) => {
-            const endpointLinks = initialState.apiInfo.map((endpt) => endpt.name).reduce((accum, endpt) => `${accum}["#${endpt.replace(/\s/g, '_').replace(/\//g, '_')}", "${endpt}"],\n`, '');
+            const endpointLinks = initialState.apiEndpoints.map((endpt) => endpt.name).reduce((accum, endpt) => `${accum}["#${endpt.replace(/\s/g, '_').replace(/\//g, '_')}", "${endpt}"],\n`, '');
 
             return (
                 `---
@@ -47,7 +50,14 @@ endpoint_links: [
 <script src="/dynamic/public/javascript/build/api-bundle.js"></script>`
             );
         };
-        const staticHtml = renderToString(<App api={staticState} error={null} />);
+
+        const store = createStore(reducer, staticState);
+
+        const staticHtml = renderToString(
+            <Provider store={store}>
+                <App />
+            </Provider>
+        );
         const HTML = buildHtml(staticHtml, staticState);
         const savePath = path.join(__dirname, '..', apiPath);
 

@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-import {store} from '../store';
+//import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
 
 const PARAM_TYPES = {
@@ -13,12 +13,12 @@ const PARAM_TYPES = {
 };
 
 const handleInputChange = (e, paramType, paramName, endpointId) => {
-    store.dispatch({
-        type: paramType === PARAM_TYPES.QUERY_STRING ? actionTypes.QUERY_PARAM_CHANGED : actionTypes.PATH_PARAM_CHANGED,
-        inputVal: e.target.value,
-        paramName: paramName,
-        endpointId: endpointId
-    });
+    // store.dispatch({
+    //     type: paramType === PARAM_TYPES.QUERY_STRING ? actionTypes.QUERY_PARAM_CHANGED : actionTypes.PATH_PARAM_CHANGED,
+    //     inputVal: e.target.value,
+    //     paramName: paramName,
+    //     endpointId: endpointId
+    // });
 };
 
 const RequestParams = ({endpointId, paramType, params}) => {

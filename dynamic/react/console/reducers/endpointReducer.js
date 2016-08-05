@@ -1,4 +1,3 @@
-import R from 'ramda';
 import queryStringReducer from './queryStringReducer';
 import postBodyReducer from './postBodyReducer';
 import {actionTypes} from './reducer';
@@ -27,11 +26,11 @@ const traversePropertyPath = (propertyPath, state) => {
 };
 
 export default (state, action) => {
-    let newState = R.clone(state);
+    let newState = {...state};
 
     switch (action.type) {
     case actionTypes.CONSOLE_VISIBILITY_TOGGLED:
-        return {...newState, apiConsoleVisible: (!newState.apiConsoleVisible)};
+        return {...newState, apiConsoleVisible: (!state.apiConsoleVisible)};
     case actionTypes.JUMP_TO_CONSOLE:
         return {...newState, apiConsoleVisible: true};
     case actionTypes.RESET_CONSOLE:
@@ -66,15 +65,12 @@ export default (state, action) => {
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
     case actionTypes.TOGGLE_DOCUMENTATION_ITEM_VISIBILITY:
-        // TODO: Request Documentation visibility shouldn't be based off the postBody,
-        // as triggering this updates UI of both DOCS and TRY IT OUT SECTION
         const stateToChange = action.documentationFor === DOC_TYPES.REQUEST ? newState.requestSchema : newState.responseSchema;
         const propToToggle = traversePropertyPath(action.postBodyParamName, stateToChange);
 
         propToToggle.uiState.visible = !propToToggle.uiState.visible;
         break;
     case actionTypes.POST_BODY_CHANGED:
-    case actionTypes.TOGGLE_POST_BODY_ITEM_VISIBILITY:
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
         newState = {...newState, postBody: postBodyReducer(newState.postBody, action)};

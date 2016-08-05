@@ -1,17 +1,17 @@
 import React from 'react';
 
-import {store} from '../store';
+//import {store} from '../store';
 import {actionTypes} from '../reducers/reducer';
 import PostBodySectionHeader from './postBodySectionHeader';
 import PostBodyItem from './postBodyItem';
 
 const handleAddItem = (paramName, endpointId, itemSchema) => {
-    store.dispatch({
-        type: actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION,
-        postBodyParamName: paramName,
-        endpointId: endpointId,
-        itemSchema: itemSchema
-    });
+    // store.dispatch({
+    //     type: actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION,
+    //     postBodyParamName: paramName,
+    //     endpointId: endpointId,
+    //     itemSchema: itemSchema
+    // });
 };
 
 const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiState, displayName}) => {

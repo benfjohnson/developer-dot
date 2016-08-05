@@ -89,7 +89,7 @@ export default (api, rootPath) => {
 
     swaggerData.auth = buildAuth(api['x-auth-formula']);
 
-    swaggerData.apiInfo = [];
+    swaggerData.apiEndpoints = [];
 
     Object.keys(api.paths).forEach((k) => {
         const endpoint = api.paths[k];
@@ -133,7 +133,7 @@ export default (api, rootPath) => {
 
             apiMethod.requestSchema = buildPostBody(endpointParams);
 
-            swaggerData.apiInfo.push(apiMethod);
+            swaggerData.apiEndpoints.push(apiMethod);
         });
     });
 

@@ -231,7 +231,7 @@ const buildPostmanCollection = (appState) => {
 
     // NOTE: For GETS w/ query or path params, no raw data -- need to replace in the URL
 
-    postmanCollection.item = appState.apiInfo.map((endpoint) => {
+    postmanCollection.item = appState.apiEndpoints.map((endpoint) => {
         const baseRequest = {
             name: endpoint.name,
             request: {
