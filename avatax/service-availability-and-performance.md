@@ -1,19 +1,16 @@
 ---
 layout: default
 title: Service Availability and Performance
-date: 2014-05-30 20:39
-author: seanrust
-comments: true
-categories: []
 product: avaTax
 doctype: use_cases
+nav: apis
 ---
 <h2>Service Availability and Performance</h2>
 Consuming sales tax related services can be considered mission-critical, especially when making calculation queries through the Avatax product. As a cloud-based Software-as-a-Service provider, Avalara understands the need to ensure that our services are available continuously and respond in a timely manner.
 
 Avalara’s Server Status can be viewed publicly at <a href="http://status.avalara.com" target="_blank">http://status.avalara.com</a>. This page outlines the availability of the service, current performance in terms of response time and a historical view of the availability for the past week.
 
-<img class="aligncenter" src="/images/2015/05/status.avalara.com_CROP.jpg" alt="" width="1777" height="1956" />
+<img class="aligncenter" src="/images/2015/05/status.avalara.com_CROP.jpg" alt="" />
 
 Avalara is committed to providing a minimum service uptime of 99.5%. Certain interested customers can purchase a higher Service Level Agreement if they need a higher commitment to ensuring service availability. You can contact your assigned Avalara Account Manager for further information.
 <h3>Network Latency</h3>

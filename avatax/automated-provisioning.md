@@ -1,12 +1,9 @@
 ---
 layout: page
 title: Overview
-date: 2016-01-21 15:14
-author: jeremy.buller
-comments: true
-categories: []
 product: avaTax
 doctype: use_cases
+nav: apis
 ---
 <h2>Account Provisioning and Company Management</h2>
 The Onboarding API allows Avalara partners to create customer accounts, company profiles, and user credentials.
@@ -54,10 +51,6 @@ If a company requires more than one nexus location, additional nexus can be set.
 ---
 layout: default
 title: Develop
-date: 2016-01-18 02:34
-author: jeremy.buller
-comments: true
-categories: []
 product: onboarding
 doctype: documentation
 ---

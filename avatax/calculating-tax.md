@@ -1,12 +1,9 @@
 ---
 layout: default
 title: Calculating Tax
-date: 2012-05-14 15:32
-author: anya.stettler
-comments: true
-categories: []
 product: avaTax
 doctype: use_cases
+nav: apis
 ---
 <h2>Calculating Tax</h2>
 Getting a tax calculation is the primary reason developers use the Avalara AvaTax Service. Whether you are just looking to get a tax rate to populate into a database or application field, or you need to utilize all of the reporting and filing functionality that AvaTax offers, GetTax is the starting point.
@@ -38,3 +35,4 @@ We expect to see freight charges passed to AvaTax just like any other charge –
 <script src="https://loader.engage.gsfn.us/loader.js" type="text/javascript"></script><script type="text/javascript">// <![CDATA[
 if (typeof GSFN !== "undefined") { GSFN.loadWidget(8157,{"containerId":"getsat-widget-8157"}); }
 // ]]></script>
+

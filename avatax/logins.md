@@ -1,12 +1,9 @@
 ---
 layout: default
 title: Logins and Resources
-date: 2012-05-14 14:32
-author: anya.stettler
-comments: true
-categories: []
 product: avaTax
 doctype: use_cases
+nav: apis
 ---
 To activate your Avalara AvaTax Sales Tax API account, please login to the Admin Console at <a href="https://admin-development.avalara.net">https://admin-development.avalara.net</a> (for Development Accounts) or <a href="https://admin-avatax.avalara.net">https://admin-avatax.avalara.net</a> (for Production Accounts) using your user id and password.  Web Service Access (for the API) is gained by using the account number and license key which are displayed after successful account activation.  Please be sure to record the account number and license key for future use.  In addition to activating your account, the Admin Console allows the creation of the company settings and tax profiles used to calculate tax, as well as access to saved transaction information and reports.
 <ul>

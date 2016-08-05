@@ -1,12 +1,9 @@
 ---
 layout: default
 title: SSL Certificates
-date: 2013-03-27 04:39
-author: anya.stettler
-comments: true
-categories: []
 product: avaTax
 doctype: use_cases
+nav: apis
 ---
 <h2>Downloading the SSL Certificates public keychain</h2>
 Some web clients (such as cURL for Windows) will require you to download the Avalara AvaTax SSL public keychain and install it into your client's keychain repository. Refer back to the steps below only if you have problems establishing the HTTPS connection to the Avalara AvaTax REST API. Both development and production use a Verisign certificate.

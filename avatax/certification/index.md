@@ -1,14 +1,11 @@
 ---
 layout: default
 title: AvaTax Certification
-date: 2016-07-07 02:40
-author: anya.stettler
-comments: true
-categories: []
-product: avatax
+product: avaTax
 doctype: certification
+nav: apis
 ---
-
+<div class="half">
 <div class="fusion-page-title-bar fusion-page-title-bar-none fusion-page-title-bar-left">How do you know if you’re compliant with our best practices?  To start, we recommend watching an overview of our API.</div>
 
 <iframe id="player_1" src="http://www.youtube.com/embed/R0WUijv8xKk?rel=0&amp;enablejsapi=1&amp;wmode=opaque" width="705" height="396"></iframe>
@@ -348,3 +345,4 @@ Key:  R – Functionality required for certification     N – Functionalit
 </table>
 </div>
 
+</div>

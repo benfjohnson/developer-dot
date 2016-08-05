@@ -1,7 +1,6 @@
 ---
 layout: default
 title: LandedCost Overview
-categories: []
 product: landedCost
 nav: apis
 doctype: overview

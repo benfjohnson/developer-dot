@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Excise Overview
-categories: []
 product: excise
 nav: apis
 doctype: overview

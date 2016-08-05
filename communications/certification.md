@@ -1,14 +1,11 @@
 ---
 layout: default
 title: Certification Checklist
-date: 2016-06-07 14:03
-author: anya.stettler
-comments: true
-categories: []
 product: communications
 nav: apis
 doctype: integration_checklists
 ---
+<div class="half">
 <h2>Certified for Avalara AvaTax for Communications</h2>
 Certification for Avalara AFC requires the delivery of all functional requirements shown below.
 
@@ -180,4 +177,4 @@ R</td>
 </tbody>
 </table>
 </div>
-&nbsp;
+</div>
