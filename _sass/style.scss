@@ -347,7 +347,6 @@ footer {
         font-size: 20px;
         font-weight: normal;
         line-height: 24px;
-        padding-right: 40px;
         &:hover {
             text-decoration: none;
         }
@@ -363,6 +362,7 @@ footer {
         li {
             list-style-type: none;
             display: inline-block;
+            padding-right: 40px;
 
             &:last-child {
                 margin-right: 0;
@@ -391,9 +391,10 @@ footer {
         .icon {
             @extend .text-hide;
             font: inherit;
-            height: 40px;
-            width: 40px;
+            height: 25px;
+            width: 25px;
             display: inline-block;
+            background-repeat: no-repeat;
         }
         .twitter a {
             @extend .icon;
