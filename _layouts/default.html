@@ -211,13 +211,10 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/site.js"></script>
 
-<script>
-    $(function() {
-        if ($('#the-nav li').length >= 22) {
-            $('#the-nav').data('offset-bottom', '160');
-        }
-    });
-</script>
+{% if page.avaform == 1 %}
+<script src="/js/avaform.3.min.js"></script>
+<script>setupAvaForm();</script>
+{% endif %}
 
 {% if page.search == 1 %}
 <script src="/js/algoliasearch.min.js"></script>
