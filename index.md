@@ -98,7 +98,7 @@ nav: home
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
         <p>
-          You'll be set up with an <a href="/avatax/get-started">AvaTax Basic subscription</a> which lets you calculate taxes in the U.S. and Canada only.<br />
+          You'll be set up with an <a href="/avatax/get-started#signup">AvaTax Basic subscription</a> which lets you calculate taxes in the U.S. and Canada only.<br />
           See the steps below so that you fully integrate with Avalara AvaTax and leverage what it can do for your financial application.<br />
           Please <a href="mailto:sales@avalara.com">contact us</a> if you need to request an extension, evaluate our global tax calculation or other compliance services.<br />
         </p>

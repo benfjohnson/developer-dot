@@ -8,12 +8,14 @@
     <meta name="description" content="{{ site.subtitle }}">
 
     <link rel="stylesheet" href="/css/style.css">
-    <!--<link type="text/css" rel="stylesheet" href="/js/jquery.tocify.css" />-->
 
     {% if page.api_console == 1 %}
     <link rel="stylesheet" href="/css/console.css">
     {% endif %}
 
+    {% if page.avaform == 1 %}
+    <link rel="stylesheet" href="http://d30qslfa084pac.cloudfront.net/common/avaform/style.css">
+    {% endif %}
 </head>
 
 {% assign post_count = site.posts|size %}
@@ -211,13 +213,10 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/site.js"></script>
 
-<script>
-    $(function() {
-        if ($('#the-nav li').length >= 22) {
-            $('#the-nav').data('offset-bottom', '160');
-        }
-    });
-</script>
+{% if page.avaform == 1 %}
+<script src="https://d30qslfa084pac.cloudfront.net/common/avaform/avaform.3.min.js"></script>
+<script>setupAvaForm();</script>
+{% endif %}
 
 {% if page.search == 1 %}
 <script src="/js/algoliasearch.min.js"></script>

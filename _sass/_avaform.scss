@@ -1,0 +1,11 @@
+.avaform-wrapper {
+    margin: 20px 0;
+    .avaform {
+        position: relative;
+        max-width: none;
+    }
+
+    label.error {
+        margin-top: -64px;
+    }
+}
