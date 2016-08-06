@@ -23,7 +23,7 @@ const handleRemoveItem = (pbName, endpointId) => {
     // });
 };
 
-const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove}) => {
+const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove, onPostBodyInputChanged}) => {
     const uid = `${endpointId}-${displayName}-${name}`;
 
     if (item.fieldType && item.fieldType !== 'array') {
@@ -50,7 +50,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
                             className={'form-control'}
                             id={uid}
                             onChange={(e) => {
-                                //onPostBodyInputChanged(endpointId, name, e.target.value);
+                                onPostBodyInputChanged(endpointId, name, e.target.value);
                             }}
                             value={item.value || '*select*'}
                         >
@@ -61,7 +61,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
                             className={'form-control'}
                             id={uid}
                             onChange={(e) => {
-                                //onPostBodyInputChanged(endpointId, name, e.target.value);
+                                onPostBodyInputChanged(endpointId, name, e.target.value);
                             }}
                             placeholder={item.example}
                             value={item.value}
@@ -80,6 +80,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
                 propertyName={name}
                 schema={item.items}
                 uiState={uiState}
+                onPostBodyInputChanged={onPostBodyInputChanged}
             />
         );
     }
@@ -96,6 +97,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove})
                     key={i}
                     name={`${name ? name + ':' : ''}` + itemKey}
                     uiState={item[itemKey].uiState}
+                    onPostBodyInputChanged={onPostBodyInputChanged}
                 />);
             })}
         </PostBodySectionHeader>

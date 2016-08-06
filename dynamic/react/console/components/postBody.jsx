@@ -13,6 +13,7 @@ const PostBody = (props) => (
                 item={props.postBody}
                 name={''}
                 uiState={props.postBody.uiState}
+                onPostBodyInputChanged={props.onPostBodyInputChanged}
             />
         }
         </form>
@@ -23,7 +24,8 @@ PostBody.displayName = 'Post Body';
 PostBody.propTypes = {
     id: React.PropTypes.number.isRequired,
     name: React.PropTypes.string.isRequired,
-    postBody: React.PropTypes.object
+    postBody: React.PropTypes.object,
+    onPostBodyInputChanged: React.PropTypes.func
 };
 
 export default PostBody;

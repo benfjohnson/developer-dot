@@ -14,7 +14,7 @@ const handleAddItem = (paramName, endpointId, itemSchema) => {
     // });
 };
 
-const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiState, displayName}) => {
+const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiState, displayName, onPostBodyInputChanged}) => {
     return (
         <div>
             <PostBodySectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} propertyName={propertyName}>
@@ -28,6 +28,7 @@ const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiSta
                             key={i}
                             name={`${propertyName ? propertyName + ':' : ''}[${i}]`}
                             uiState={itm.uiState}
+                            onPostBodyInputChanged={onPostBodyInputChanged}
                             />);
                 })}
             </PostBodySectionHeader>

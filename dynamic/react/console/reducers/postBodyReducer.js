@@ -19,20 +19,24 @@ const traversePropertyPath = (propertyPath, state) => {
 
 export default (state, action) => {
     const newState = {...state};
+    console.log('ACTION', action);
     let newStateProperty = traversePropertyPath(action.postBodyParamName, newState);
 
     switch (action.type) {
     case actionTypes.POST_BODY_CHANGED:
         switch (newStateProperty.fieldType) {
         case 'number':
-            newStateProperty = {...newStateProperty, value: isNaN(parseFloat(action.newValue)) ? action.newValue : parseFloat(action.newValue)};
+            newStateProperty.value = isNaN(parseFloat(action.newValue)) ? action.newValue : parseFloat(action.newValue);
             break;
         case 'boolean':
-            newStateProperty = {...newStateProperty, value: action.newValue === 'true'};
+            newStateProperty.value = action.newValue === 'true';
             break;
         default:
-            newStateProperty = {...newStateProperty, value: action.newValue};
+            console.log('default update');
+            newStateProperty.value = action.newValue;
         }
+        console.log(newStateProperty);
+        console.log(newState);
         return newState;
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
         newStateProperty.uiState.visible = true;

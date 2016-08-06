@@ -58,10 +58,10 @@ const mapDispatchToProps = (dispatch) => {
 
                 dispatch(actions.submitConsoleRequest(endpointId, responseBody, response, error));
             });
+        },
+        onPostBodyInputChanged: (endpointId, paramName, newValue) => {
+            dispatch(actions.postBodyInputChanged(endpointId, paramName, newValue));
         }
-        // onPostBodyInputChanged: (endpointId, paramName, newValue) => {
-        //     dispatch(actions.postBodyInputChanged(endpointId, paramName, newValue));
-        // }
     };
 };
 

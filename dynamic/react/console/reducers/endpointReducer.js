@@ -73,10 +73,11 @@ export default (state, action) => {
     case actionTypes.POST_BODY_CHANGED:
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
-        newState = {...newState, postBody: postBodyReducer(newState.postBody, action)};
-        newState.postBodyData = buildPostBodyData(newState.postBody);
-        newState.curl = buildCurl(newState.isAuthenticated, newState);
-        break;
+        const newPostBody = postBodyReducer(newState.postBody, action);
+        const newPostBodyData = buildPostBodyData(newPostBody);
+        const newCurl = buildCurl(newState.isAuthenticated, newState);
+
+        return {...newState, postBody: newPostBody, postBodyData: newPostBodyData, curl: newCurl};
     default:
         break;
     }
