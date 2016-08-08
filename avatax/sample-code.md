@@ -118,7 +118,7 @@ managed samples below</td>
 <h3>Partner Managed Samples</h3>
 Submit questions or log bugs using the method provided in GitHub.
 <div><b>Perl</b></div>
-<div><a href="https://metacpan.org/release/WebService-Avalara-AvaTax">WebService::Avalara::AvaTax</a> <em>supported by Mark Gardner of <a href="http://www.ziprecruiter.com"><img class="alignnone wp-image-9119 " src="https://developer.avalara.com/images/2013/03/ziprecruiter_logo.png" alt="ziprecruiter_logo" width="98" height="25" /></a></em></div>
+<div><a href="https://metacpan.org/release/WebService-Avalara-AvaTax">WebService::Avalara::AvaTax</a> <em>supported by Mark Gardner of <a href="http://www.ziprecruiter.com"><img class="alignnone wp-image-9119 " src="/images/2013/03/ziprecruiter_logo.png" alt="ziprecruiter_logo" width="98" height="25" /></a></em></div>
 <strong>Python</strong>
 <a href="https://github.com/activefrequency/pyavatax">PyAvaTax sample</a> - <em>Supported by <a href="http://www.activefrequency.com/">Active Frequency</a>.</em>
 
