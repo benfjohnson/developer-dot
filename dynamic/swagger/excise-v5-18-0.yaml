@@ -43,6 +43,7 @@ Web service authentication in the Excise platform has 3 basic forms:
 "  
   version: '5_18_0'
   title: Excise API
+  x-ApiType: SOAP
   termsOfService: 'http://www.avalara.com/terms/'
   contact:
     name: 'For support, visit the Avalara Community'
