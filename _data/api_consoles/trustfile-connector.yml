@@ -3,7 +3,7 @@
 nav_link:
     title: Trustfile - Connector
     path: /trustfile/api-reference/connector-management/v3
-product: trustfile
+product: trustFile
 endpoint_hashes:
     - name: Get list of Connections
       link: '/#Get_list_of_Connections'

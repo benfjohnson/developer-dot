@@ -1,15 +1,11 @@
 ---
 layout: default
 title: AvaTax with CertCapture Checklist
-date: 2016-01-18 02:42
-author: jeremy.buller
-comments: true
-categories: []
 product: certCapture
 doctype: integration_checklists
 nav: apis
 ---
-
+<div class="half">
 <h1 class="entry-title" data-fontsize="32" data-lineheight="NaN">Avalara AvaTax with CertCapture</h1>
 
 
@@ -158,4 +154,4 @@ Tax calculation should display a clean audit to limit errors and call volume to 
 </tr>
 </tbody>
 </table>
-
+</div>

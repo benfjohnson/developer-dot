@@ -16,6 +16,7 @@
   x-ApiType: SOAP
   tags: []
   basePath: "/"
+  x-ApiType: SOAP
   paths: 
     /accounts: 
       post: 

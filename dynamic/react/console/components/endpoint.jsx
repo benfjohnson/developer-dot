@@ -10,15 +10,18 @@ const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocC
     <div data-magellan-target={replaceSpacesInStr(endpoint.name)} id={replaceSpacesInStr(endpoint.name)}>
         <div className={'endpoint-summary'}>
             <h2>{endpoint.name}</h2>
-            <a
-                href={`#${replaceSpacesInStr(endpoint.name)}-console`}
-                onClick={
-                    () => {
-                        $(`#${replaceSpacesInStr(endpoint.name)}-console-body`).collapse('show');
-                        onJumpToConsole(id);
+            {
+                apiType === 'REST' ?
+                <a
+                    href={`#${replaceSpacesInStr(endpoint.name)}-console`}
+                    onClick={
+                        () => {
+                            $(`#${replaceSpacesInStr(endpoint.name)}-console-body`).collapse('show');
+                            onJumpToConsole(id);
+                        }
                     }
-                }
-            >{'Try it now!'}</a>
+                >{'Try it now!'}</a> : null
+            }
             <br />
             <ReactMarkdown source={endpoint.description} />
             <br />
