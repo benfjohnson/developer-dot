@@ -52,44 +52,7 @@ var showHdrSearchForm = function() {
     });
 };
 
-handleSearch = function() {
-
-    var queryparam = getParameterByName('q');
-    $("#query").val(queryparam);
-
-    var productfacet = getParameterByName('product');
-    var doctypefacet = getParameterByName('doctype');
-
-    $("#product-facet").val(productfacet);
-    $("#doctype-facet").val(doctypefacet);
-
-    var client = algoliasearch("19A6FWAAB3", 'a480e1583c97f14a6ad92c7c605d9f23');
-    var index = client.initIndex('developer-dot');
-    var facets = [];
-
-    if (productfacet) facets.push("product:" + productfacet);
-    if (doctypefacet) facets.push("doctype:" + doctypefacet);
-
-    index.search(queryparam, {
-        attributesToRetrieve: ['title', 'url', 'text'],
-        hitsPerPage: 50,
-        facetFilters: facets,
-    }, function searchDone(err, content) {
-        if (err) {
-            console.error(err);
-            return;
-        }
-
-        var results = "";
-        if (content.hits.length === 0) {
-            results += "<li>No Results Found</li>"
-        }
-        for (var h in content.hits) {
-            results += "<li><a href='" + content.hits[h].url + "'>" + content.hits[h].title + "</a>" + content.hits[h].text + "</li>";
-        }
-        document.getElementById("search-results").innerHTML = results;
-    });
-
+var handleSearch = function() {
     getParameterByName = function(name, url) {
         if (!url) url = window.location.href;
         name = name.replace(/[\[\]]/g, '\\$&');
@@ -108,7 +71,6 @@ handleSearch = function() {
 
         var productfacet = getParameterByName('product');
         var doctypefacet = getParameterByName('doctype');
-
 
         productfacet = productfacet ? productfacet.toLowerCase() : null;
         doctypefacet = doctypefacet ? doctypefacet.toLowerCase() : null;
@@ -179,10 +141,47 @@ handleSearch = function() {
     }
 };
 
-$(document).ready(function() {
-    submitHdrSearch();
-    showHdrSearchForm();
+var setupAvaForm = function() {
+    var avaform = new Avaform({
+        profiles: "default",
+        _parent: "",
+        button_label: "Get Started",
+        form_name: "APIFreeTrialContactForm",
+        campaign_name: "",
+        campaign_id: "70140000000TsVb",
+        lsmr: "",
+        lso: "Marketing",
+        lead_status: "prospect",
+        type: "customer",
+        opp_type: "new",
+        opp_subtype: "SDK",
+        erp: "",
+        poi: "",
+        pos: "",
+        ecommerce: "",
+        callback: function() {},
+        showerrors: "1",
+        fullname: "1",
+        v: "3",
+        a15: "dev",
+        usphone: "true",
+        goal_type: "goal6_autoprovisioning",
+        redirecturl: "",
+        poi_menu: "false",
+        profile: "getting-started",
+        query_string: "referrer=&lastReferrer=developer.avalara.com",
+        container: ".avaform-wrapper",
+        referer: "http://developer.avalara.com/"
+    });
+};
 
+var fixApiRefNav = function() {
+    if ($('#the-nav li').length >= 22) {
+        $('#the-nav').data('offset-bottom', '160');
+    }
+};
+
+var fixDropDownMenuLargePosition = function() {
     setTimeout(function() {
         $('.dropdown-large').each(function() {
             var left = $(this).position().left;
@@ -190,4 +189,13 @@ $(document).ready(function() {
             $(this).find('.dropdown-menu-large').css('left', left);
         });
     }, 100);
+};
+
+$(document).ready(function() {
+    fixApiRefNav();
+
+    submitHdrSearch();
+    showHdrSearchForm();
+
+    fixDropDownMenuLargePosition();
 });

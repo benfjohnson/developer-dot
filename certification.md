@@ -1,11 +1,6 @@
 ---
 layout: default
 title: Avalara Certified
-date: 2016-01-18 02:40
-author: jeremy.buller
-comments: true
-categories: [certification]
-product: certification
 doctype: documentation
 nav: certification
 ---
@@ -26,7 +21,7 @@ nav: certification
 </div>
 <div class="row border-top padding-top">
     <div class="col-xs-offset-3 col-xs-6 text-center">
-        <h2>We have an efficient timeline to becoming a market-ready, certified Avalara integration partner headline goes here</h2>
+        <h2>We have an efficient timeline to becoming a market-ready, certified Avalara integration partner</h2>
     </div>
 </div>
 <div class="row padding-top padding-bottom">
@@ -102,5 +97,5 @@ nav: certification
     </div>
 </div>
 <div class="row padding-top">
-    <div class="col-xs-offset-3 col-xs-6 text-center btn-callout"><a href="/avatax/get-started" role="button">Get an Avalara AvaTax sandbox</a></div>
+    <div class="col-xs-offset-3 col-xs-6 text-center btn-callout"><a href="/avatax/get-started#signup" role="button">Get an Avalara AvaTax sandbox</a></div>
 </div>

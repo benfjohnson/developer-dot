@@ -1,18 +1,13 @@
 ---
 layout: default
 title: AvaTax with Excise Checklist
-comments: true
-categories: []
 product: excise
 nav: apis
 doctype: integration_checklists
 ---
-
+<div class="half">
 <h2>Excise Certification</h2>
-
 Depending on the scope of your integration and your business practice, your test cases will vary. For development partners, many of these are requirements for certification. If you were to give us full functionality demo, here’s what we’d like to see:
-
-
 <table>
 <tbody>
 <tr>
@@ -981,3 +976,4 @@ Status Code - The calculation status of the tax.</td>
 </tr>
 </tbody>
 </table>
+</div>

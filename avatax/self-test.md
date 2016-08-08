@@ -1,10 +1,6 @@
 ---
 layout: default
 title: Integration Self-Test
-date: 2013-08-16 22:16
-author: anya.stettler
-comments: true
-categories: []
 product: avaTax
 doctype: test_your_integration
 ---
