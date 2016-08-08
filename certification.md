@@ -21,7 +21,7 @@ nav: certification
 </div>
 <div class="row border-top padding-top">
     <div class="col-xs-offset-3 col-xs-6 text-center">
-        <h2>We have an efficient timeline to becoming a market-ready, certified Avalara integration partner headline goes here</h2>
+        <h2>We have an efficient timeline to becoming a market-ready, certified Avalara integration partner</h2>
     </div>
 </div>
 <div class="row padding-top padding-bottom">

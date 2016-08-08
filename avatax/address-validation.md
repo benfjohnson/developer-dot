@@ -24,7 +24,7 @@ Address validation is a difficult process to pin down with regards to the result
 <h3>Resolution of Addresses during Tax Calculation</h3>
 When you make a GetTax call to our web service, the tax calculation engine attempts to resolve the address with the best possible address data that can be gleaned from the address data that was provided. The logic follows the flow chart below:
 
-<a href="/images/2015/11/TaxCall_AddressValidation.png"><img class="alignleft size-full wp-image-9424" src="/images/2015/11/TaxCall_AddressValidation.png" alt="TaxCall_AddressValidation" width="701" height="536" /></a>
+<img src="/images/devdot/DevDot_TaxCallDiagram.svg" />
 
 Even if an address will not pass explicit address validation, it may still be usable in a GetTax calculation. The GetTax method does not require a full street address to be able to determine taxing jurisdictions. While a fully validated street address is always better and more accurate, taxing jurisdictions can usually be unambiguously determined if, at a minimum, city, state and zip code are provided (and at least 2/3 are valid).
 

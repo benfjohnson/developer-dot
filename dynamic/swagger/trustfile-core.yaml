@@ -27,6 +27,7 @@ info:
     email: api@trustfile.com
 host: api.trustfile.avalara.com
 basePath: /v3
+x-ApiType: SOAP
 produces:
   - application/json
 schemes:
