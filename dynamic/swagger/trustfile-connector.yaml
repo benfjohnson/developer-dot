@@ -46,6 +46,7 @@ info:
     email: api@trustfile.com
 host: microservice.herokuapp.com
 basePath: /
+x-ApiType: SOAP
 produces:
   - application/json
 schemes:

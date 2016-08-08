@@ -3,7 +3,7 @@
 nav_link:
     title: Trustfile - Provisioning
     path: /trustfile/api-reference/provisioning/v3
-product: trustfile
+product: trustFile
 endpoint_hashes:
     - name: Company signup via API POST
       link: '/#Company_singup_via_API_POST'

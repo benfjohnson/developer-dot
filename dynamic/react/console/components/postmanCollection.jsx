@@ -11,7 +11,7 @@ const handleAuthKeyChange = (e, keyName) => {
 };
 
 const PostmanCollection = ({appLoaded, auth, postmanCollection}) => {
-    const json = JSON.stringify(postmanCollection.collection);
+    const json = JSON.stringify(postmanCollection);
     const blob = (appLoaded && typeof Blob !== 'undefined') ? new Blob([json], {type: 'application/json'}) : null;
     const url = (appLoaded && typeof URL !== 'undefined') ? URL.createObjectURL(blob) : null;
 
@@ -22,7 +22,7 @@ const PostmanCollection = ({appLoaded, auth, postmanCollection}) => {
                     <h4>{'Have development credentials? Generate a Postman Collection with your account info!'}</h4>
                     {Object.keys(auth.params).map((param, i) => (
                         <fieldset className={'form-group'} key={i}>
-                            <label>{param}</label>
+                            <label className={'api-label-text'}>{param}</label>
                             <input className={'form-control'} onChange={(e) => (handleAuthKeyChange(e, param))} value={auth.params[param]}></input>
                         </fieldset>
                     ))}

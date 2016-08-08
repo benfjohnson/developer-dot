@@ -3,7 +3,7 @@
 nav_link:
     title: Trustfile - Core
     path: /trustfile/api-reference/core/v3
-product: trustfile
+product: trustFile
 endpoint_hashes:
   - name: Post items
     link: '/#Post items'
