@@ -52,7 +52,7 @@ nav: home
             <a href="/avatax"><img src="/images/devdot/DevDotSvgGAssets_BarCode.svg" height="110" /></a>
           </div>
           <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-            <a href="/comunications"><img src="/images/devdot/DevDotSvgGAssets_SatelliteDish.svg" height="110" /></a>
+            <a href="/communications"><img src="/images/devdot/DevDotSvgGAssets_SatelliteDish.svg" height="110" /></a>
           </div>
           <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
             <a href="/excise"><img src="/images/devdot/DevDotSvgGAssets_GasPump.svg" height="110" /></a>
