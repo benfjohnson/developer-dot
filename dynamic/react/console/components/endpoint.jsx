@@ -13,18 +13,21 @@ const EndPointComponent = (props) => (
     <div data-magellan-target={replaceSpacesInStr(props.endpoint.name)} id={replaceSpacesInStr(props.endpoint.name)}>
         <div className={'endpoint-summary'}>
             <h2>{props.endpoint.name}</h2>
-            <a
-                href={`#${replaceSpacesInStr(props.endpoint.name)}-console`}
-                onClick={
-                    () => {
-                        $(`#${replaceSpacesInStr(props.endpoint.name)}-console-body`).collapse('show');
-                        store.dispatch({
-                            type: actionTypes.JUMP_TO_CONSOLE,
-                            endpointId: props.id
-                        });
+            {
+                props.apiType === 'REST' ?
+                <a
+                    href={`#${replaceSpacesInStr(props.endpoint.name)}-console`}
+                    onClick={
+                        () => {
+                            $(`#${replaceSpacesInStr(props.endpoint.name)}-console-body`).collapse('show');
+                            store.dispatch({
+                                type: actionTypes.JUMP_TO_CONSOLE,
+                                endpointId: props.id
+                            });
+                        }
                     }
-                }
-            >{'Try it now!'}</a>
+                >{'Try it now!'}</a> : null
+            }
             <br />
             <ReactMarkdown source={props.endpoint.description} />
             <br />
