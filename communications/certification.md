@@ -140,7 +140,7 @@ doctype: integration_checklists
     <div class="col-xs-8"><span class="visible-xs"><br /></span>Explain how the all_adr data is loaded and maintained.Show how this data is used for obtaining a PCode</div>
 </div>
 <br />
-<div class="row">
+<div class="row padding-bottom">
     <div class="col-xs-1">R</div>
     <div class="col-xs-3">Have Avalara admin review results in system</div>
     <div class="col-xs-8"><span class="visible-xs"><br /></span>From previous call to one of the methods above, have Avalara admin review input information and output information to verify adjustment was made and both parties agree with results.</div>
