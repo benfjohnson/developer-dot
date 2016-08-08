@@ -29,25 +29,21 @@ nav: certification
         <h2>Day 0</h2>
         <img src="/images/devdot/DevDotSvgGAssets_KickOff.svg" width="50%"/>
         <h5>Kick off</h5>
-        <h5><a href="#">CTA link</a></h5>
     </div>
     <div class="ring-shadow">
         <h2>Day 30</h2>
         <img src="/images/devdot/DevDotSvgGAssets_DesignBuild.svg" width="50%"/>
         <h5>Design/Build plan</h5>
-        <h5><a href="#">CTA link</a></h5>
     </div>
     <div class="ring-shadow">
         <h2>Day 60</h2>
         <img src="/images/devdot/DevDotSvgGAssets_FunctionalTest.svg" width="50%"/>
         <h5>Functional review</h5>
-        <h5><a href="#">CTA link</a></h5>
     </div>
     <div class="ring-shadow">
         <h2>Day 90</h2>
         <img src="/images/devdot/DevDotSvgGAssets_MarketReady.svg" width="50%" />
         <h5>Market ready</h5>
-        <h5><a href="#">CTA link</a></h5>
     </div>
 </div>
 <div class="row padding-top">
@@ -57,30 +53,30 @@ nav: certification
 </div>
 <div class="row padding-top">
     <div class="col-xs-offset-2 col-xs-2 text-center">
-        <h4>Code samples lorem ipsum</h4>
+        <h4>Prototyping tools</h4>
     </div>
     <div class="col-xs-2 text-center">
-        <h4>Code samples lorem ipsum</h4>
+        <h4>Develpment tools & support</h4>
     </div>
     <div class="col-xs-2 text-center">
-        <h4>Code samples lorem ipsum</h4>
+        <h4>Integration testing resources</h4>
     </div>
     <div class="col-xs-2 text-center">
-        <h4>Code samples lorem ipsum</h4>
+        <h4>Certify your Integration</h4>
     </div>
 </div>
 <div class="row padding-top">
     <div class="col-xs-offset-2 col-xs-2 text-center">
-        <h5>Lorem ipsum concise description goes here</h5>
+        <h5>Explore the API before you build. Make live API calls directly from our documentation.</h5>
     </div>
     <div class="col-xs-2 text-center">
-        <h5>Lorem ipsum concise description goes here</h5>
+        <h5>Get started quickly with our sample code and libraries. If you get stuck, your Certification Manager, Avalara Support, and Avalara's developer community are here with answers.</h5>
     </div>
     <div class="col-xs-2 text-center">
-        <h5>Lorem ipsum concise description goes here</h5>
+        <h5>Run through our recommended testing scenarios on your own to check that all your bases are covered. Use our automated self-test tool to make sure the data you're sending looks good on our end before you certify.</h5>
     </div>
     <div class="col-xs-2 text-center">
-        <h5>Lorem ipsum concise description goes here</h5>
+        <h5>Certify your integration to recieve sales and marketing support from Avalara.</h5>
     </div>
 </div>
 <div class="row padding-top">
