@@ -14,7 +14,7 @@ doctype: overview
 <div class="row border-top padding-top padding-bottom">
   <div class="col-sm-8 col-sm-offset-2 text-center">
     <h1 class="h1p">How does the API work?</h1>
-    <h4 class="text-left">This API loads and inspects transactions from any source, and allows additional provisioning and maintenance for partners.</h4>
+    <h4 class="text-left">The API extracts sales/refund transactions from any platform and processes it into prepared / file-able sales tax returns.</h4>
   </div>
 </div>
 <div class="row border-top padding-top padding-bottom">
