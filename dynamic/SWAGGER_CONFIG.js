@@ -2,17 +2,17 @@ export default {
     'avatax-batchsvc.yaml': {
         name: 'Avatax BatchSvc SOAP API',
         path: 'avatax/api-reference/batch/soap',
-        product: 'avatax'
+        product: 'avaTax'
     },
     'avatax-rest.yaml': {
         name: 'Avatax REST API',
         path: 'avatax/api-reference/tax/v1',
-        product: 'avatax'
+        product: 'avaTax'
     },
     'avatax-soap.yaml': {
         name: 'Avatax SOAP API',
         path: 'avatax/api-reference/tax/soap',
-        product: 'avatax'
+        product: 'avaTax'
     },
     'communications-afc.yaml': {
         name: 'Communications SOAP',
@@ -42,26 +42,21 @@ export default {
     'onboarding.yaml': {
         name: 'Onboarding API',
         path: 'avatax/api-reference/onboarding/v1',
-        product: 'avatax'
+        product: 'avaTax'
     },
     'trustfile-core.yaml': {
         name: 'Trustfile - Core',
         path: 'trustfile/api-reference/core/v3',
-        product: 'trustfile'
+        product: 'trustFile'
     },
     'trustfile-provisioning.yaml': {
         name: 'Trustfile - Provisioning',
         path: 'trustfile/api-reference/provisioning/v3',
-        product: 'trustfile'
+        product: 'trustFile'
     },
     'trustfile-connector.yaml': {
         name: 'Trustfile - Connector',
         path: 'trustfile/api-reference/connector-management/v3',
-        product: 'trustfile'
-    },
-    'taxrates.yaml': {
-        name: 'TaxRates',
-        path: 'taxrates/api-reference',
-        product: 'taxrates'
+        product: 'trustFile'
     }
 };
