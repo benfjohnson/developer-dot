@@ -1,4 +1,4 @@
-import {buildQsPath, buildCurl, buildPostmanCollection, buildAuth} from './helpers';
+import {buildQsPath, buildCurl, buildPostmanCollection, buildAuth, buildPostBodyData} from './helpers';
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
 
@@ -109,6 +109,7 @@ export default (api, rootPath) => {
             const queryString = buildRequestParams(endpointParams, 'query');
 
             const postBody = buildPostBody(endpointParams);
+            console.log('POST BODY', postBody);
 
             if (proxyRoot) {
                 apiMethod.proxyRoute = proxyRoot + k;
@@ -123,6 +124,9 @@ export default (api, rootPath) => {
             }
             if (postBody) {
                 apiMethod.postBody = postBody;
+                apiMethod.postBodyData = buildPostBodyData(postBody);
+
+                console.log('PB DATA', apiMethod.postBodyData);
             }
 
             apiMethod.curl = buildCurl(swaggerData.auth, apiMethod);

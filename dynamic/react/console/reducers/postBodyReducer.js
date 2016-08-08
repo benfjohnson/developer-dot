@@ -19,8 +19,7 @@ const traversePropertyPath = (propertyPath, state) => {
 
 export default (state, action) => {
     const newState = {...state};
-    console.log('ACTION', action);
-    let newStateProperty = traversePropertyPath(action.postBodyParamName, newState);
+    const newStateProperty = traversePropertyPath(action.postBodyParamName, newState);
 
     switch (action.type) {
     case actionTypes.POST_BODY_CHANGED:
@@ -32,11 +31,9 @@ export default (state, action) => {
             newStateProperty.value = action.newValue === 'true';
             break;
         default:
-            console.log('default update');
             newStateProperty.value = action.newValue;
         }
-        console.log(newStateProperty);
-        console.log(newState);
+
         return newState;
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
         newStateProperty.uiState.visible = true;

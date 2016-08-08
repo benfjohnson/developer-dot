@@ -25,6 +25,29 @@ const traversePropertyPath = (propertyPath, state) => {
     }, state);
 };
 
+
+const updateDataAtProperty = (propertyPath, newVal, postBodyData) => {
+    if (propertyPath === '') {
+        return;
+    }
+
+    const pathArray = propertyPath.split(':');
+
+    let nestedObj = postBodyData;
+
+    pathArray.forEach((nestedParam) => {
+        if (nestedParam.indexOf('[') !== -1) {
+            const index = parseInt(nestedParam.slice(nestedParam.indexOf('[') + 1, nestedParam.indexOf(']')), 10);
+
+            nestedObj = nestedObj[index];
+        } else {
+            nestedObj = nestedObj[nestedParam];
+        }
+    });
+
+    nestedObj = newVal;
+};
+
 export default (state, action) => {
     let newState = {...state};
 
@@ -73,11 +96,20 @@ export default (state, action) => {
     case actionTypes.POST_BODY_CHANGED:
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
+        // newState.postBody = postBodyReducer(newState.postBody, action);
+
+        // updateDataAtProperty(action.postBodyParamName, action.newValue, newState.postBodyData);
+        // newState.curl = buildCurl(newState.isAuthenticated, newState);
+
+        // return newState;
+
         const newPostBody = postBodyReducer(newState.postBody, action);
         const newPostBodyData = buildPostBodyData(newPostBody);
         const newCurl = buildCurl(newState.isAuthenticated, newState);
 
         return {...newState, postBody: newPostBody, postBodyData: newPostBodyData, curl: newCurl};
+
+        // return {...newState, postBody: newPostBody, postBodyData: newPostBodyData, curl: newCurl};
     default:
         break;
     }
