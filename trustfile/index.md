@@ -59,7 +59,7 @@ doctype: overview
         <div class="col-sm-3 col-sm-offset-2">
             <p class="text-left">To access the Avalara TrustFile service and
                  obtain an API key, contact your Avalara account
-                 manager or <a href="mailto:support@trustfile.com">email us</a>.
+                 manager or <a href="mailto:apis@trustfile.com">email us</a>.
             </p>
         </div>
     </div>
