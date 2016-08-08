@@ -6,7 +6,7 @@ import ApiDocumentation from './apiDocumentation';
 import {replaceSpacesInStr} from '../helpers';
 
 // Give our endpoint an id based on its name for our clientside routing in jekyll
-const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocCollapse, onConsoleVisibilityToggle, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged}) => (
+const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocCollapse, onConsoleVisibilityToggle, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole}) => (
     <div data-magellan-target={replaceSpacesInStr(endpoint.name)} id={replaceSpacesInStr(endpoint.name)}>
         <div className={'endpoint-summary'}>
             <h2>{endpoint.name}</h2>
@@ -34,7 +34,7 @@ const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocC
         {endpoint.pathParams ? <RequestParamsDocumentation paramType={'PATH'} params={endpoint.pathParams} /> : null}
         {endpoint.requestSchema ? <ApiDocumentation documentationFor={'REQUEST'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onToggleDocCollapse={onToggleDocCollapse} postBody={endpoint.requestSchema} /> : null}
         {endpoint.responseSchema ? <ApiDocumentation documentationFor={'RESPONSE'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onToggleDocCollapse={onToggleDocCollapse} postBody={endpoint.responseSchema} /> : null}
-        {apiType === 'REST' ? <ApiConsole endpoint={endpoint} id={id} onConsoleVisibilityToggle={onConsoleVisibilityToggle} onFillConsoleSampleData={onFillConsoleSampleData} onSubmitConsoleRequest={onSubmitConsoleRequest} onPostBodyInputChanged={onPostBodyInputChanged} /> : null}
+        {apiType === 'REST' ? <ApiConsole endpoint={endpoint} id={id} onConsoleVisibilityToggle={onConsoleVisibilityToggle} onFillConsoleSampleData={onFillConsoleSampleData} onSubmitConsoleRequest={onSubmitConsoleRequest} onPostBodyInputChanged={onPostBodyInputChanged} onResetConsole={onResetConsole} /> : null}
     </div>
 );
 

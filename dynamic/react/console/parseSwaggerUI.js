@@ -30,7 +30,7 @@ const buildSchema = (schema, required = [], propName = null) => {
         return {uiState: {visible: true}, fieldType: schema.type, required: required.includes(propName), items: arraySchema, value: [arraySchema]};
     }
 
-    const objToReturn = {fieldType: schema.type, required: required.includes(propName), value: ''};
+    const objToReturn = {fieldType: schema.type, required: required.includes(propName)};
 
     if (schema.example) {
         objToReturn.example = schema.example;
@@ -49,6 +49,21 @@ const buildSchema = (schema, required = [], propName = null) => {
     }
     if (schema.hasOwnProperty('maximum')) {
         objToReturn.maximum = schema.maximum;
+    }
+    switch (schema.type) {
+    case 'string':
+        objToReturn.value = '';
+        break;
+    case 'number':
+    case 'float':
+        objToReturn.value = 0;
+        break;
+    case 'boolean':
+        objToReturn.value = true;
+        break;
+    default:
+        objToReturn.value = '';
+        break;
     }
 
     return objToReturn;
@@ -109,7 +124,6 @@ export default (api, rootPath) => {
             const queryString = buildRequestParams(endpointParams, 'query');
 
             const postBody = buildPostBody(endpointParams);
-            console.log('POST BODY', postBody);
 
             if (proxyRoot) {
                 apiMethod.proxyRoute = proxyRoot + k;
@@ -125,8 +139,6 @@ export default (api, rootPath) => {
             if (postBody) {
                 apiMethod.postBody = postBody;
                 apiMethod.postBodyData = buildPostBodyData(postBody);
-
-                console.log('PB DATA', apiMethod.postBodyData);
             }
 
             apiMethod.curl = buildCurl(swaggerData.auth, apiMethod);

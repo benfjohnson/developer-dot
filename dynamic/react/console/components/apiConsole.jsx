@@ -42,7 +42,7 @@ const syntaxHighlight = (jsonObj) => {
     return highlightPunctuation(json);
 };
 
-const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged}) => (
+const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole}) => (
     <div>
         <div className={'try-it-now-header'} data-target={`#${replaceSpacesInStr(endpoint.name)}-console-body`} data-toggle={'collapse'} id={replaceSpacesInStr(`${endpoint.name}-console`)} onClick={
             () => {
@@ -80,14 +80,7 @@ const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampl
                             </button>
                             <span
                                 className='m-l-1 clickable hdr-btn-adj-text'
-                                onClick={
-                                    () => {
-                                        // store.dispatch({
-                                        //     type: actionTypes.RESET_CONSOLE,
-                                        //     endpointId: id
-                                        // });
-                                    }
-                                }
+                                onClick={onResetConsole.bind(null, id)}
                                 type='reset'>
                             {'Reset'}
                             </span>
@@ -111,14 +104,7 @@ const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampl
                             </button>
                             <span
                                 className='m-l-1 hdr-btn-adj-text clickable'
-                                onClick={
-                                    () => {
-                                        // store.dispatch({
-                                        //     type: actionTypes.RESET_CONSOLE,
-                                        //     endpointId: id
-                                        // });
-                                    }
-                                }
+                                onClick={onResetConsole.bind(null, id)}
                                 type='reset'>
                                 {'Reset'}
                             </span>

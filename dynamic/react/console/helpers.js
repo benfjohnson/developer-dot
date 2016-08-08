@@ -129,13 +129,13 @@ const fillPostBodySampleData = (postBody) => {
         return postBody;
     }
     if (postBody.hasOwnProperty('value') && postBody.fieldType !== 'array') {
-        return {...postBody, value: postBody.example || ''};
+        return {...postBody, value: postBody.example || undefined};
     }
 
     if (postBody.fieldType === 'array') {
         const arrayBody = postBody.value.reduce((accum, prop) => {
             if (prop && prop.hasOwnProperty('value')) {
-                return accum.concat({...prop, value: (prop.example || '')});
+                return accum.concat({...prop, value: (prop.example || undefined)});
             }
             return accum.concat(fillPostBodySampleData(prop));
         }, []);

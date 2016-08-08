@@ -61,6 +61,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         onPostBodyInputChanged: (endpointId, paramName, newValue) => {
             dispatch(actions.postBodyInputChanged(endpointId, paramName, newValue));
+        },
+        onResetConsole: (endpointId) => {
+            dispatch(actions.resetConsole(endpointId));
         }
     };
 };

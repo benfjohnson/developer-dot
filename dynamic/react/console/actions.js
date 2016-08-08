@@ -78,5 +78,11 @@ export default {
             endpointId: endpointId
         };
     },
-    RESET_CONSOLE: 'RESET_CONSOLE'
+    RESET_CONSOLE: 'RESET_CONSOLE',
+    resetConsole: (endpointId) => {
+        return {
+            type: 'RESET_CONSOLE',
+            endpointId: endpointId
+        };
+    }
 };
