@@ -16,7 +16,7 @@ nav: home
           <div class="col-sm-4 text-center">
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2">
-                  <h2>Accurate and easy sale tax calculation</h2>
+                  <h2>Accurate and easy sales tax calculation</h2>
                   <p>Instantaneously calculate sales tax in more than 12,000 taxing jurisdictions with our REST API</p>
               </div>
             </div>
