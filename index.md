@@ -8,7 +8,7 @@ nav: home
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 text-center">
         <h1 class="h1pp ">Bring real-time tax calculation to your financial app</h1>
-        <img src="/images/Dev.com_Laptop_Code.svg" />
+        <img src="/images/Dev.com_Laptop_Code_outlines.svg" />
       </div>
     </div>
     <div class="row hidden-xs">
@@ -48,18 +48,18 @@ nav: home
     </div>
     <div class="row bg-white padding-top">
       <div class="col-xs-2 col-xs-offset-2 col-sm-offset-2 col-sm-2 text-center">
-        <a href="/avatax"><img src="/images/devdot/DevDotSvgGAssets_ShippingCrate.svg" width="110" /></a>
+        <a href="/avatax"><img src="/images/devdot/DevDotSvgGAssets_BarCode.svg" height="110" /></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="/comunications"><img src="/images/devdot/DevDotSvgGAssets_SatelliteDish.svg" width="110" /></a>
+        <a href="/comunications"><img src="/images/devdot/DevDotSvgGAssets_SatelliteDish.svg" height="110" /></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="/excise"><img src="/images/devdot/DevDotSvgGAssets_GasPump.svg" width="110" /></a>
+        <a href="/excise"><img src="/images/devdot/DevDotSvgGAssets_GasPump.svg" height="110" /></a>
       </div>
     </div>
     <div class="row bg-white padding-top padding-bottom">
       <div class="col-xs-2 col-xs-offset-2 col-sm-offset-2 col-sm-2 text-center">
-        <a href="/avatax"><h4 class="hidden-xs">Sales and sellers use-tax</h4></a>
+        <a href="/avatax"><h4 class="hidden-xs">Sales and sellers use tax</h4></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
         <a href="/communications"><h4 class="hidden-xs">Telecommunication, internet and other communications services</h4></a>
@@ -70,13 +70,13 @@ nav: home
     </div>
     <div class="row bg-white padding-top">
       <div class="col-xs-2 col-xs-offset-2 col-sm-offset-2 col-sm-2 text-center">
-        <a href="/landedcost"><img src="/images/devdot/DevDotSvgGAssets_ShippingCrate.svg" width="110" /></a>
+        <a href="/landedcost"><img src="/images/devdot/DevDotSvgGAssets_ShippingCrate.svg" height="110" /></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="/certcapture"><img src="/images/devdot/DevDot_CertificateBindersBlue.svg" width="110" /></a>
+        <a href="/certcapture"><img src="/images/devdot/DevDot_CertificateBindersBlue.svg" height="110" /></a>
       </div>
       <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-        <a href="/trustfile"><img src="/images/devdot/DevDot_GovtBldgBlue-02.svg" width="110" /></a>
+        <a href="/trustfile"><img src="/images/devdot/DevDot_GovtBldgBlue-02.svg" height="110" /></a>
       </div>
     </div>
     <div class="row bg-white padding-top padding-bottom">
@@ -98,7 +98,7 @@ nav: home
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
         <p>
-          You'll be set up with an <a href="/avatax/get-started">AvaTax Basic subscription</a> which lets you calculate taxes in the U.S. and Canada only.<br />
+          You'll be set up with an <a href="/avatax/get-started#signup">AvaTax Basic subscription</a> which lets you calculate taxes in the U.S. and Canada only.<br />
           See the steps below so that you fully integrate with Avalara AvaTax and leverage what it can do for your financial application.<br />
           Please <a href="mailto:sales@avalara.com">contact us</a> if you need to request an extension, evaluate our global tax calculation or other compliance services.<br />
         </p>

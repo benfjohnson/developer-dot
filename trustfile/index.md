@@ -1,7 +1,6 @@
 ---
 layout: default
 title: TrustFile Overview
-categories: []
 product: trustFile
 nav: apis
 doctype: overview

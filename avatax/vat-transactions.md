@@ -1,13 +1,11 @@
 ---
 layout: default
 title: VAT Transactions
-date: 2014-02-25 21:44
-author: seanrust
-comments: true
-categories: []
 product: avaTax
 doctype: use_cases
+nav: apis
 ---
+<h2>VAT Transactions</h2>
 Clients with sales in the European Union (EU) that have global access enabled in their account can use Avalara AvaTax just as they do for US and Canadian taxes, but there are some important considerations regarding whether the buyer is a VAT-registered business or a non-business consumer that affect where the tax is sourced (origin or destination) and whether or not a tax amount should be calculated. The VAT decision process utilizes the <strong>BusinessIdentificationNo</strong> field of the GetTaxRequest or Line object, which is where you will send <strong>the buyer's</strong> VAT registration ID.
 
 Many EU countries also require prices to be displayed inclusive of tax. TaxIncluded tax can be calculated through the API as well. Line items have a boolean <strong>TaxIncluded</strong> property; when set to true, tax will be backcalculated out of the total line amount provided.
