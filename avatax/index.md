@@ -71,7 +71,7 @@ doctype: overview
             <p>Run through our recommended testing scenarios to check that all your bases are covered. Use our automated self-test tool to make sure the data you're sending looks good on our end.</p>
         </div>
         <div class="col-sm-3">
-            <p>Ready to take the final step? Certify your integration to recieve sales and marketing support from Avalara.</p>
+            <p>Ready to take the final step? Certify your integration to receive sales and marketing support from Avalara.</p>
         </div>
     </div>
   </div>
