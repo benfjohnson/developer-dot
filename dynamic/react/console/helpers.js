@@ -77,6 +77,20 @@ const buildCurl = (auth, endpoint) => {
     return curl;
 };
 
+const getDefaultValue = (fieldType) => {
+    switch (fieldType) {
+    case 'string':
+        return '';
+    case 'number':
+    case 'float':
+        return 0;
+    case 'boolean':
+        return true;
+    default:
+        return '';
+    }
+};
+
 const fillOrRemoveRequestParamSampleData = (params, remove) => {
     if (remove) {
         return Object.keys(params).reduce((accum, pName) => {
@@ -101,13 +115,13 @@ const removePostBodyValues = (postBody) => {
         return postBody;
     }
     if (postBody.hasOwnProperty('value') && postBody.fieldType !== 'array') {
-        return {...postBody, value: ''};
+        return {...postBody, value: getDefaultValue(postBody.fieldType)};
     }
 
     if (postBody.fieldType === 'array') {
         const arrayBody = postBody.value.reduce((accum, prop) => {
             if (prop && prop.hasOwnProperty('value')) {
-                return accum.concat({...prop, value: ''});
+                return accum.concat({...prop, value: getDefaultValue(prop.fieldType)});
             }
             return accum.concat(removePostBodyValues(prop));
         }, []);

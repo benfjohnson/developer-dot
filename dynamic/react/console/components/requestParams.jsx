@@ -4,24 +4,12 @@
 
 import React from 'react';
 
-//import {store} from '../store';
-import {actionTypes} from '../reducers/reducer';
-
 const PARAM_TYPES = {
     QUERY_STRING: 'QUERY_STRING',
     PATH: 'PATH'
 };
 
-const handleInputChange = (e, paramType, paramName, endpointId) => {
-    // store.dispatch({
-    //     type: paramType === PARAM_TYPES.QUERY_STRING ? actionTypes.QUERY_PARAM_CHANGED : actionTypes.PATH_PARAM_CHANGED,
-    //     inputVal: e.target.value,
-    //     paramName: paramName,
-    //     endpointId: endpointId
-    // });
-};
-
-const RequestParams = ({endpointId, paramType, params}) => {
+const RequestParams = ({endpointId, paramType, params, onInputChange}) => {
     return (
         <form className={'api-console-input-section'}>
             <h4 className={'api-console-section-header'}>{paramType === PARAM_TYPES.QUERY_STRING ? 'Query String' : 'Path Parameters'}</h4>
@@ -33,7 +21,9 @@ const RequestParams = ({endpointId, paramType, params}) => {
                             <select
                                 className={'form-control'}
                                 id={`${endpointId}-qs-${i}`}
-                                onChange={(e) => (handleInputChange(e, paramType, key, endpointId))}
+                                onChange={(e) => {
+                                    onInputChange(e.target.value, key, endpointId);
+                                }}
                                 value={params[key].value || '*select*'}
                             >
                                 <option disabled={true} value={'*select*'}>{''}</option>
@@ -44,7 +34,7 @@ const RequestParams = ({endpointId, paramType, params}) => {
                                 id={`${endpointId}-qs-${i}`}
                                 onChange={
                                     (e) => {
-                                        handleInputChange(e, paramType, key, endpointId);
+                                        onInputChange(e.target.value, key, endpointId);
                                     }
                                 }
                                    placeholder={params[key].example || null}

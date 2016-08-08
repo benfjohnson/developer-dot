@@ -12,7 +12,23 @@ export default {
         };
     },
     QUERY_PARAM_CHANGED: 'QUERY_STRING_CHANGED',
+    queryParamChanged: (newValue, paramName, endpointId) => {
+        return {
+            type: 'QUERY_STRING_CHANGED',
+            newValue: newValue,
+            paramName: paramName,
+            endpointId: endpointId
+        };
+    },
     PATH_PARAM_CHANGED: 'PATH_PARAM_CHANGED',
+    pathParamChanged: (newValue, paramName, endpointId) => {
+        return {
+            type: 'PATH_PARAM_CHANGED',
+            newValue: newValue,
+            paramName: paramName,
+            endpointId: endpointId
+        };
+    },
     POST_BODY_CHANGED: 'POST_BODY_CHANGED',
     postBodyInputChanged: (endpointId, paramName, newValue) => {
         return {

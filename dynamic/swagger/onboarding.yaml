@@ -13,6 +13,7 @@
     - "https"
   consumes: 
     - "application/json"
+  x-ApiType: SOAP
   tags: []
   basePath: "/"
   paths: 

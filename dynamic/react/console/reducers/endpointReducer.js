@@ -95,7 +95,7 @@ export default (state, action) => {
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
     case actionTypes.PATH_PARAM_CHANGED:
-        newState.pathParams[action.paramName].value = action.inputVal;
+        newState.pathParams[action.paramName].value = action.newValue;
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
     case actionTypes.TOGGLE_DOCUMENTATION_ITEM_VISIBILITY:

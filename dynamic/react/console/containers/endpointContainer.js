@@ -64,6 +64,12 @@ const mapDispatchToProps = (dispatch) => {
         },
         onResetConsole: (endpointId) => {
             dispatch(actions.resetConsole(endpointId));
+        },
+        onQueryParamChanged: (newValue, paramName, endpointId) => {
+            dispatch(actions.queryParamChanged(newValue, paramName, endpointId));
+        },
+        onPathParamChanged: (newValue, paramName, endpointId) => {
+            dispatch(actions.pathParamChanged(newValue, paramName, endpointId));
         }
     };
 };

@@ -2,10 +2,7 @@ import React from 'react';
 import RequestParams from './requestParams';
 import PostBody from './postBody';
 
-//import {store} from '../store';
-import {actionTypes} from '../reducers/reducer';
 import {hasExampleData, replaceSpacesInStr} from '../helpers';
-
 
 const highlightPunctuation = (str) => {
     return str.replace(/"[^"]*"|([{}\[\],])/g, (m, group1) => {
@@ -42,7 +39,7 @@ const syntaxHighlight = (jsonObj) => {
     return highlightPunctuation(json);
 };
 
-const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole}) => (
+const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged}) => (
     <div>
         <div className={'try-it-now-header'} data-target={`#${replaceSpacesInStr(endpoint.name)}-console-body`} data-toggle={'collapse'} id={replaceSpacesInStr(`${endpoint.name}-console`)} onClick={
             () => {
@@ -85,8 +82,8 @@ const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampl
                             {'Reset'}
                             </span>
                         </div>
-                    {endpoint.pathParams ? <RequestParams endpointId={id} paramType={'PATH'} params={endpoint.pathParams}/> : null}
-                    {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
+                    {endpoint.pathParams ? <RequestParams endpointId={id} paramType={'PATH'} params={endpoint.pathParams} onInputChange={onPathParamChanged} /> : null}
+                    {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString} onInputChange={onQueryParamChanged} /> : null}
                     {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody} onPostBodyInputChanged={onPostBodyInputChanged} /> : null}
                     {endpoint.postBody ?
                         <div style={{marginBottom: '10px'}}>
@@ -112,7 +109,6 @@ const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampl
                         <div style={{background: 'blue', height: 'auto'}}></div>
                 </div>
                 <div className={'api-console-output col-md-8 col-xs-12'}>
-                {console.log('Im being rendered ruh roh!')}
                     <h5 className={'console-output-header'}>{'API Endpoint'}</h5>
                     <div className={'code-snippet-plaintext'}>{endpoint.path}</div>
                     <h5 className={'console-output-header'}>{'Method'}</h5>
