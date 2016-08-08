@@ -87,8 +87,8 @@ nav: certification
 <div class="row">
     <div class="col-xs-offset-3 col-xs-6 text-center">
          <ul class="pipe">
-        <li><a href="/avatax/test-your-integration">Test your integration</a></li>
-        <li><a href="/avatax/integration-checklists">Integration Checklists</a></li>
+        <li><a href="/avatax/testing-your-integration">Test your integration</a></li>
+        <li><a href="/avatax/certification">Integration Checklists</a></li>
         </ul>
     </div>
 </div>
