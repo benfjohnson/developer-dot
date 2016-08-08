@@ -35,7 +35,18 @@ const updateDataAtProperty = (propertyPath, newVal, postBodyData) => {
 
     let nestedObj = postBodyData;
 
-    pathArray.forEach((nestedParam) => {
+    pathArray.forEach((nestedParam, i) => {
+        if (i === pathArray.length - 1) {
+            if (nestedParam.indexOf('[') !== -1) {
+                const index = parseInt(nestedParam.slice(nestedParam.indexOf('[') + 1, nestedParam.indexOf(']')), 10);
+
+                nestedObj[index] = newVal;
+                return;
+            }
+            nestedObj[nestedParam] = newVal;
+            return;
+        }
+
         if (nestedParam.indexOf('[') !== -1) {
             const index = parseInt(nestedParam.slice(nestedParam.indexOf('[') + 1, nestedParam.indexOf(']')), 10);
 
@@ -96,20 +107,12 @@ export default (state, action) => {
     case actionTypes.POST_BODY_CHANGED:
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
-        // newState.postBody = postBodyReducer(newState.postBody, action);
+        newState.postBody = postBodyReducer(newState.postBody, action);
 
-        // updateDataAtProperty(action.postBodyParamName, action.newValue, newState.postBodyData);
-        // newState.curl = buildCurl(newState.isAuthenticated, newState);
+        updateDataAtProperty(action.postBodyParamName, action.newValue, newState.postBodyData);
+        newState.curl = buildCurl(newState.isAuthenticated, newState);
 
-        // return newState;
-
-        const newPostBody = postBodyReducer(newState.postBody, action);
-        const newPostBodyData = buildPostBodyData(newPostBody);
-        const newCurl = buildCurl(newState.isAuthenticated, newState);
-
-        return {...newState, postBody: newPostBody, postBodyData: newPostBodyData, curl: newCurl};
-
-        // return {...newState, postBody: newPostBody, postBodyData: newPostBodyData, curl: newCurl};
+        return newState;
     default:
         break;
     }

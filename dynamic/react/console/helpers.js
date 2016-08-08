@@ -23,18 +23,18 @@ const buildPostBodyData = (body) => {
 
     if (body.fieldType === 'array') {
         const arrayBody = body.value.reduce((accum, prop) => {
-            if (prop && prop.hasOwnProperty('value') && prop.value === '') {
-                return accum;
-            }
+            // if (prop && prop.hasOwnProperty('value') && prop.value === '') {
+            //     return accum;
+            // }
             return accum.concat(buildPostBodyData(prop));
         }, []);
 
         return arrayBody.length ? arrayBody : undefined;
     }
     const objBody = Object.keys(body).filter((n) => n !== 'uiState').reduce((accum, propName) => {
-        if (body[propName] && body[propName].hasOwnProperty('value') && body[propName].value === '') {
-            return accum;
-        }
+        // if (body[propName] && body[propName].hasOwnProperty('value') && body[propName].value === '') {
+        //     return accum;
+        // }
 
         return {...accum, [propName]: buildPostBodyData(body[propName])};
     }, {});
