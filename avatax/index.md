@@ -51,7 +51,7 @@ doctype: overview
             <h4>Prototyping tools</h4>
         </div>
         <div class="col-sm-3">
-            <h4>Develpment tools &amp; support</h4>
+            <h4>Development tools &amp; support</h4>
         </div>
         <div class="col-sm-3">
             <h4>Integration testing resources</h4>
