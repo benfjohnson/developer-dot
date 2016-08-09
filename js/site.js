@@ -53,7 +53,7 @@ var showHdrSearchForm = function() {
 };
 
 var handleSearch = function() {
-    getParameterByName = function(name, url) {
+    var getParameterByName = function(name, url) {
         if (!url) url = window.location.href;
         name = name.replace(/[\[\]]/g, '\\$&');
         var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -72,11 +72,11 @@ var handleSearch = function() {
         var productfacet = getParameterByName('product');
         var doctypefacet = getParameterByName('doctype');
 
-        productfacet = productfacet ? productfacet.toLowerCase() : null;
-        doctypefacet = doctypefacet ? doctypefacet.toLowerCase() : null;
-
         $('#product-facet').val(productfacet);
         $('#doctype-facet').val(doctypefacet);
+
+        productfacet = productfacet ? productfacet.toLowerCase() : null;
+        doctypefacet = doctypefacet ? doctypefacet.toLowerCase() : null;
 
         var client = algoliasearch('19A6FWAAB3', 'a480e1583c97f14a6ad92c7c605d9f23');
         var index = client.initIndex('developer-dot');
