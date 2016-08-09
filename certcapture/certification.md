@@ -138,7 +138,7 @@ Tax calculation should display a clean audit to limit errors and call volume to 
 <div class="col-xs-3">Pass connector identifier information via the TaxSvc.Profile.Client property</div>
 <div class="col-xs-8">Integrations must include information about the connector, such as name, version, and company name, as a signature to each transaction. EXAMPLE: TaxSvc.Profile.Client = “Dynamics AX,9.0,MyApp for AX by ACME INC,1.0”</div>
 </div>
-<div class="row">
+<div class="row padding-bottom">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Reasonable errors on server-side analysis</div>
 <div class="col-xs-8">There should be no errors except those that would result from normal (but invalid) user input (e.g. invalid address data). Such errors must be logged/displayed appropriately to the application.</div>

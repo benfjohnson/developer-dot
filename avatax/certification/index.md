@@ -306,7 +306,7 @@ Key:  R – Functionality required for certification     N – Functionalit
 <div class="col-xs-3">Reasonable ratio of GetTax and address validation calls to committed documents</div>
 <div class="col-xs-8">In a normal workflow, we expect to see (on average, including abandoned carts) up to 10 tax calculations per finalized document. In a straight-forward order entry process, the number of calls should be about three to five.</div>
 </div>
-<div class="row">
+<div class="row padding-bottom">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Demonstrate and document installation of software – Install Shield or equivalent where applicable</div>
 <div class="col-xs-8">Customers should have an easy and trouble free installation of the software.</div>
