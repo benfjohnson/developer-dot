@@ -3,11 +3,12 @@ layout: default
 title: Preferred Developers
 nav: resources
 ---
+<h2>Preferred Developers</h2>
 <div class="half">
 <p>If you need assistance building your integration to AvaTax Sales Tax API, we recommend contacting one of these Preferred Developers to help. They are available as independent contractors and are not employed by Avalara. If you're interested in being listed on this page, please contact <a href="mailto:developer@avalara.com">developer@avalara.com</a></p>
 
 <hr />
-<img src="/images/2013/04/alynnleelogo.gif" width="102" height="88" />
+<a href="mailto:sales@alynnlee.com"><img src="/images/2013/04/alynnleelogo.gif" width="102" height="88" /></a>
 <p>
     Alynnlee Productions<br />
     9017 Forest Hill Ave Ste 3B<br />
@@ -31,7 +32,7 @@ nav: resources
 <p>Contact us at <a href="mailto:info@activefrequency.com">info@activefrequency.com</a> to discuss your needs!</p>
 
 <hr />
-<img src="/images/2013/06/argentis_logo_HD-300x83.png" width="300" height="46" />
+<a href="mailto:info@argentisconsulting.com"><img src="/images/2013/06/argentis_logo_HD-300x83.png" width="300" height="46" /></a>
 <p>Argentis Consulting is dedicated to the development, distribution and support of recognized certified solutions for SAP Business One. Argentis is the developer of Apparel and Footwear, eProcurement, WMS, and AvaTax for SAP Business One, as well as the integrator of Miva Merchant, Magento, Ebay and Amazon (E-Commerce) for SAP Business One.</p>
 <p>
     Argentis Consulting<br />
@@ -42,7 +43,7 @@ nav: resources
 <a href="mailto:info@argentisconsulting.com">info@argentisconsulting.com</a>
 
 <hr />
-<img src="/images/2016/01/CLS-Logo-Tagline-Afullservice-300x97.png" width="300" height="97" />
+<a href="mailto:sales@classyllama.com"><img src="/images/2016/01/CLS-Logo-Tagline-Afullservice-300x97.png" width="300" height="97" /></a>
 <p>Classy Llama has been a Magento Gold Solutions Partner for over 5 years. With over 8 years in business, we've continually outgrown ourselves. Despite having performed over 400 customizations and integrations; ranking in the world's Top 20 Magento Enterprise sales; and contributing our code to Magento 2, one thing still drives us—our relationships. We are proud to serve our clients and partners, such as Avalara, who share our desire to connect and grow. That's why we've not only built over 100 new websites; but also built relationships, as we serve clients on Magento, the best platform for growth.</p>
 <p>
     Gino Nanninga<br />
@@ -51,7 +52,7 @@ nav: resources
 <a href="mailto:sales@classyllama.com">sales@classyllama.com</a>
 
 <hr />
-<h3>CloudTop Consulting Partners LLC</h3>
+<a href="mailto:wthomas@cloudtopconsulting.net"><h3>CloudTop Consulting Partners LLC</h3></a>
 <p><strong>CloudTop Consulting Partners</strong> is a consulting firm specializing in all things associated with Salesforce.com. We design, configure, integrate and build solutions for the <a href="http://developer.force.com/">force.com</a> platform. We have 3 years of experience working with Avalara customers to provide a perfect fit for their integration solutions. We have built a number of custom methods and solutions using the Avalara AvaTax SDK and worked with a variety of standard financial packages. We have a strong practice with <a href="http://www.accountingseed.com/">AccountingSeed</a> for on-platform financials.</p>
 <p>
     CloudTop Consulting Partners LLC<br />
@@ -80,12 +81,12 @@ nav: resources
 <a href="mailto:TMontgomery@greystonetech.com">TMontgomery@greystonetech.com</a>
 
 <hr />
-<img src="/images/2013/04/jmalogowhite-300x142.jpg" width="102" />
+<a href="http://www.jmawebtechnologies.com/contact-us"><img src="/images/2013/04/jmalogowhite-300x142.jpg" width="102" /></a>
 <p>Joseph Anderson, owner of JMA Web Technologies, specializes in QuickBooks Online and QuickBooks Pro, Premier, and Enterprise development. For a list of customers, please review <a href="http://appcenter.intuit.com/cloud-cart">appcenter.intuit.com/cloud-cart</a>.</p>
 <p>To contact Joseph, please use the <a href="http://www.jmawebtechnologies.com/contact-us">JMA contact form</a>.</p>
 
 <hr />
-<img src="/images/2016/01/Screen-Shot-2016-02-03-at-6.00.12-PM-300x139.png" width="300" height="139" />
+<a href="https://flowlink.io/"><img src="/images/2016/01/Screen-Shot-2016-02-03-at-6.00.12-PM-300x139.png" width="300" height="139" /></a>
 <p>We work with clients to build amazing software. Our E-Commerce and Healthcare Innovation practices help great clients do everything from unifying their e-commerce processes to creating software that identifies cancerous tumor drivers based on genetic data.</p>
 <p>If you're building a custom web application, we'll help you through every stage of the project, from brainstorming and needs planning to choosing the right technology stack (Ruby on Rails, Java, PHP, Node.js, and many others) to testing and deployment. If you're building an online store, we'll work with you to choose, customize, and launch the right tool (Solidus, Shopify, Prestashop, or one of a number of other popular e-commerce platforms). And, talk to us if you're integrating nearly any online service (CRM, shipping, accounting, marketing, and most other modern tools … check out our e-commerce integration platform, <a href="https://flowlink.io/">FlowLink</a>).</p>
 <p>
@@ -96,7 +97,7 @@ nav: resources
 <a href="mailto:info@nurelm.com">info@nurelm.com</a>
 
 <hr />
-<img src="/images/2015/10/PBSIlogo.png" width="200" />
+<a href="mailto:dboehm@pbsisoftware.com"><img src="/images/2015/10/PBSIlogo.png" width="200" /></a>
 <p>PBSI focuses mainly upon connecting ERP systems or other enterprise-oriented solutions to Avatax. Since 2000, we've been providing our services to both VAR's and end-users. Our CPA's can assist with the implementation of standard connectors. We can also write custom connectors to meet your specific needs in instances where a standard connector either does not exist, or will not suffice.</p>
 <p>Our custom connectors are primarily written in either C# or VB.Net. While most of our experience is derived from the Microsoft Dynamics channel, we would be interested in discussing your non-Microsoft Dynamics requirements as well.</p>
 <p>

@@ -16,7 +16,7 @@ nav: home
           <div class="col-sm-4 text-center">
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2">
-                  <h2>Accurate and easy sale tax calculation</h2>
+                  <h2>Accurate and easy sales tax calculation</h2>
                   <p>Instantaneously calculate sales tax in more than 12,000 taxing jurisdictions with our REST API</p>
               </div>
             </div>
@@ -52,7 +52,7 @@ nav: home
             <a href="/avatax"><img src="/images/devdot/DevDotSvgGAssets_BarCode.svg" height="110" /></a>
           </div>
           <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-            <a href="/comunications"><img src="/images/devdot/DevDotSvgGAssets_SatelliteDish.svg" height="110" /></a>
+            <a href="/communications"><img src="/images/devdot/DevDotSvgGAssets_SatelliteDish.svg" height="110" /></a>
           </div>
           <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
             <a href="/excise"><img src="/images/devdot/DevDotSvgGAssets_GasPump.svg" height="110" /></a>
@@ -106,7 +106,7 @@ nav: home
           </div>
         </div>
         <div class="row margin-top">
-          <div class="col-sm-12 text-center btn-callout"><a href="/avatax/get-started#signup" role="button">Get an Avalara AvaTax sandbox</a></div>
+          <div class="col-sm-12 text-center btn-callout"><a href="/avatax/signup" role="button">Get an Avalara AvaTax sandbox</a></div>
         </div>
     </div>
 </div>

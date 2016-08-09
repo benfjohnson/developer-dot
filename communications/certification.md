@@ -70,7 +70,7 @@ doctype: integration_checklists
 </div>
 
 <h5>Populate Transaction structure</h5>
-<p>See AvaTax for Comms documentation for description of fields and how they should be set.</p>
+<p>See <a href="/communications/api-reference/saas/soap/">AvaTax for Comms documentation</a> for description of fields and how they should be set.</p>
 <p>One of the Following is required:</p>
 <div class="row">
     <div class="col-xs-1"></div>

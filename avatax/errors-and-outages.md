@@ -5,7 +5,7 @@ product: avaTax
 doctype: use_cases
 nav: apis
 ---
-<h2>Handing Errors and Outages when things don't go your way.</h2>
+<h2>Handling Errors and Outages when things don't go your way.</h2>
 Although Avalara outages have been historically infrequent and short in duration, disruptions in connectivity due to service or internet outages are things that should be considered when designing your AvaTax SDK integration. Avalara sends out service notifications if there is an issue with our service.
 
 Avalara does not queue transactions when the web service is down. Unless a connection is made to the web service, you will only receive an HTTP 500 - Internal Server Error message which means you have lost connection to the AvaTax Web Service and your local system needs to track invoices until the web service is restored.
