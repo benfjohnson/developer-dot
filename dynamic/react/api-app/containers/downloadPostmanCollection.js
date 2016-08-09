@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import actions from '../actions';
+import actions from '../../shared/actions';
 import PostmanCollection from '../components/postmanCollection';
 
 const mapStateToProps = (state) => {

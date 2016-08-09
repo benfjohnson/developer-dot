@@ -1,5 +1,5 @@
 import endpointReducer from './endpointReducer';
-import actionTypes from '../actions';
+import actionTypes from '../../shared/actionTypes';
 
 const reducer = (state = {}, action) => {
     switch (action.type) {
@@ -28,7 +28,7 @@ const reducer = (state = {}, action) => {
         return {...state, auth: auth};
     case actionTypes.SUBMIT_DONE:
     case actionTypes.POST_BODY_CHANGED:
-    case actionTypes.QUERY_PARAM_CHANGED:
+    case actionTypes.QUERY_STRING_CHANGED:
     case actionTypes.PATH_PARAM_CHANGED:
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
@@ -48,4 +48,4 @@ const reducer = (state = {}, action) => {
     }
 };
 
-export {actionTypes, reducer};
+export {reducer};

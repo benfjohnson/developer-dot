@@ -1,5 +1,5 @@
 import queryStringReducer from './queryStringReducer';
-import {actionTypes} from './reducer';
+import actionTypes from '../../shared/actionTypes';
 import {buildQsPath, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData} from '../helpers';
 
 const DOC_TYPES = {
@@ -98,7 +98,7 @@ export default (state, action) => {
         newState.qsPath = buildQsPath(newState.queryString);
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
-    case actionTypes.QUERY_PARAM_CHANGED:
+    case actionTypes.QUERY_STRING_CHANGED:
         newState = {...newState, queryString: queryStringReducer(newState.queryString, action)};
         newState.qsPath = buildQsPath(newState.queryString);
         newState.curl = buildCurl(newState.isAuthenticated, newState);

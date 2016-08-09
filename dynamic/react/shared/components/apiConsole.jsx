@@ -2,7 +2,9 @@ import React from 'react';
 import RequestParams from './requestParams';
 import PostBody from './postBody';
 
-import {hasExampleData, replaceSpacesInStr} from '../helpers';
+import {hasExampleData} from '../helpers';
+
+const replaceSpaces = (str) => str.replace(/\s/g, '_');
 
 const highlightPunctuation = (str) => {
     return str.replace(/"[^"]*"|([{}\[\],])/g, (m, group1) => {
@@ -41,7 +43,7 @@ const syntaxHighlight = (jsonObj) => {
 
 const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => (
     <div>
-        <div className={'try-it-now-header'} data-target={`#${replaceSpacesInStr(endpoint.name)}-console-body`} data-toggle={'collapse'} id={replaceSpacesInStr(`${endpoint.name}-console`)} onClick={
+        <div className={'try-it-now-header'} data-target={`#${replaceSpaces(endpoint.name)}-console-body`} data-toggle={'collapse'} id={replaceSpaces(`${endpoint.name}-console`)} onClick={
             () => {
                 onConsoleVisibilityToggle(id);
             }
@@ -49,7 +51,7 @@ const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampl
             {'Try it now! '}
             <span className={'documentation-expand-icon glyphicon glyphicon-menu-down' + (endpoint.apiConsoleVisible ? ' rotate' : '')}></span>
         </div>
-        <div className={'collapse'} id={`${replaceSpacesInStr(endpoint.name)}-console-body`}>
+        <div className={'collapse'} id={`${replaceSpaces(endpoint.name)}-console-body`}>
             <div className={'row api-console'}>
                 <div className={'col-md-4 col-xs-12 api-console-form-wrapper'}>
                     <div>
@@ -113,7 +115,7 @@ const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampl
                     <div className={'code-snippet-plaintext'}>{endpoint.path}</div>
                     <h5 className={'console-output-header'}>{'Method'}</h5>
                     <div className={'code-snippet-plaintext'}>{endpoint.action.toUpperCase()}</div>
-                        {endpoint.PathParams || endpoint.queryString || endpoint.postBody ?
+                        {endpoint.pathParams || endpoint.queryString || endpoint.postBody ?
                         <div className={'row'} style={{marginBottom: '8px'}}>
                             <div className={'col-md-6 console-req-container'}>
                                 <h5 className={'console-output-header'}>{'Request'}</h5>

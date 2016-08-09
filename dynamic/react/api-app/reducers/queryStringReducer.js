@@ -1,8 +1,8 @@
-import {actionTypes} from './reducer';
+import actionTypes from '../../shared/actionTypes';
 
 export default (state, action) => {
     switch (action.type) {
-    case actionTypes.QUERY_PARAM_CHANGED:
+    case actionTypes.QUERY_STRING_CHANGED:
         const queryParam = {...(state[action.paramName])};
         const updatedQueryParam = {...queryParam, value: action.newValue};
 

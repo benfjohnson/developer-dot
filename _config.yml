@@ -26,16 +26,6 @@ sections: [
     ['post', 'Posts']
 ]
 
-apis: [
-    ['AvaTax','/avatax/console'],
-    ['LandedCost','/landedcost/console'],
-    ['Excise','/excise'],
-    ['CertCapture','/certcapture'],
-    ['TrustFile','/trustfile'],
-    ['Onboarding','/onboarding'],
-    ['Communications', '/communications']
-]
-
 gems: 
     - algoliasearch-jekyll
 
