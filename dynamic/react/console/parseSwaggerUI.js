@@ -1,4 +1,4 @@
-import {buildQsPath, buildCurl, buildPostmanCollection, buildAuth, buildPostBodyData} from './helpers';
+import {buildQsPath, buildCurl, buildPostmanCollection, buildAuth, buildInitialPostBodyData} from './helpers';
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
 
@@ -27,7 +27,7 @@ const buildSchema = (schema, required = [], propName = null) => {
         const arraySchema = buildSchema(schema.items);
 
         // items holds the schema definition of objects in our array, and value holds the actual objects of said schema...
-        return {uiState: {visible: true}, fieldType: schema.type, required: required.includes(propName), items: arraySchema, value: [arraySchema]};
+        return {uiState: {visible: true}, fieldType: schema.type, required: required.includes(propName), items: arraySchema};
     }
 
     const objToReturn = {fieldType: schema.type, required: required.includes(propName)};
@@ -50,21 +50,21 @@ const buildSchema = (schema, required = [], propName = null) => {
     if (schema.hasOwnProperty('maximum')) {
         objToReturn.maximum = schema.maximum;
     }
-    switch (schema.type) {
-    case 'string':
-        objToReturn.value = '';
-        break;
-    case 'number':
-    case 'float':
-        objToReturn.value = 0;
-        break;
-    case 'boolean':
-        objToReturn.value = true;
-        break;
-    default:
-        objToReturn.value = '';
-        break;
-    }
+    // switch (schema.type) {
+    // case 'string':
+    //     objToReturn.value = '';
+    //     break;
+    // case 'number':
+    // case 'float':
+    //     objToReturn.value = 0;
+    //     break;
+    // case 'boolean':
+    //     objToReturn.value = true;
+    //     break;
+    // default:
+    //     objToReturn.value = '';
+    //     break;
+    // }
 
     return objToReturn;
 };
@@ -138,7 +138,7 @@ export default (api, rootPath) => {
             }
             if (postBody) {
                 apiMethod.postBody = postBody;
-                apiMethod.postBodyData = buildPostBodyData(postBody);
+                apiMethod.postBodyData = buildInitialPostBodyData(postBody);
             }
 
             apiMethod.curl = buildCurl(swaggerData.auth, apiMethod);

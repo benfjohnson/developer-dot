@@ -1,23 +1,12 @@
 import React from 'react';
 
-//import {store} from '../store';
-import {actionTypes} from '../reducers/reducer';
 import PostBodySectionHeader from './postBodySectionHeader';
 import PostBodyItem from './postBodyItem';
 
-const handleAddItem = (paramName, endpointId, itemSchema) => {
-    // store.dispatch({
-    //     type: actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION,
-    //     postBodyParamName: paramName,
-    //     endpointId: endpointId,
-    //     itemSchema: itemSchema
-    // });
-};
-
-const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiState, displayName, onPostBodyInputChanged}) => {
+const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiState, displayName, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => {
     return (
         <div>
-            <PostBodySectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} propertyName={propertyName}>
+            <PostBodySectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} propertyName={propertyName} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}>
                 {collection.map((itm, i) => {
                     return (
                         <PostBodyItem
@@ -29,12 +18,12 @@ const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiSta
                             name={`${propertyName ? propertyName + ':' : ''}[${i}]`}
                             uiState={itm.uiState}
                             onPostBodyInputChanged={onPostBodyInputChanged}
+                            onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
+                            onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}
                             />);
                 })}
             </PostBodySectionHeader>
-            <div className={'clickable'} onClick={() => {
-                handleAddItem(propertyName, endpointId, schema);
-            }}>
+            <div className={'clickable'} onClick={onAddItemToPostbodyCollection.bind(null, propertyName, endpointId, schema)}>
                 <span className={'glyphicon glyphicon-plus'}></span><span className={''}>{`  Add ${displayName === 'Post Body' ? 'Item' : displayName}`}</span>
             </div>
         </div>

@@ -17,21 +17,6 @@ const initialState = typeof window !== 'undefined' ? window.__INITIAL_STATE__ : 
 
 const store = createStore(reducer, initialState, applyMiddleware(logger));
 
-// store.subscribe(() => {
-//     const state = store.getState();
-//     const error = state.error;
-
-//     /* eslint-disable no-console */
-//     console.log('NEW STATE', state);
-//     /* eslint-enable no-console */
-//     render(
-//         <Provider store={store}>
-//             <App api={state} error={error}/>
-//         </Provider>, 
-//         document.getElementById('api-console')
-//     });
-// });
-
 /*
  * Initially render our app on the client to sync it with our server-render.
  * Once rendered, emit an APP_LOADED action so we can do browser-specific behavior.

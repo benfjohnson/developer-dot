@@ -1,29 +1,9 @@
 import React from 'react';
 
-//import {store} from '../store';
-import {actionTypes} from '../reducers/reducer';
-
 import PostBodySectionHeader from './postBodySectionHeader';
 import PostBodyCollection from './postBodyCollection';
 
-const handleInputChange = (e, pbName, endpointId) => {
-    // store.dispatch({
-    //     type: actionTypes.POST_BODY_CHANGED,
-    //     inputVal: e.target.value,
-    //     postBodyParamName: pbName,
-    //     endpointId: endpointId
-    // });
-};
-
-const handleRemoveItem = (pbName, endpointId) => {
-    // store.dispatch({
-    //     type: actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION,
-    //     postBodyParamName: pbName,
-    //     endpointId: endpointId
-    // });
-};
-
-const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove, onPostBodyInputChanged}) => {
+const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => {
     const uid = `${endpointId}-${displayName}-${name}`;
 
     if (item.fieldType && item.fieldType !== 'array') {
@@ -33,9 +13,7 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove, 
                     {canRemove ?
                         <div
                             className={'clickable'}
-                            onClick={() => {
-                                handleRemoveItem(name, endpointId);
-                            }}
+                            onClick={onRemovePostbodyCollectionItem.bind(null, name, endpointId)}
                             style={{display: 'inline-block'}}
                         >
                             <span
@@ -81,12 +59,14 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove, 
                 schema={item.items}
                 uiState={uiState}
                 onPostBodyInputChanged={onPostBodyInputChanged}
+                onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
+                onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}
             />
         );
     }
 
     return (
-        <PostBodySectionHeader canRemove={canRemove} displayName={displayName} endpointId={endpointId} propertyName={name}>
+        <PostBodySectionHeader canRemove={canRemove} displayName={displayName} endpointId={endpointId} propertyName={name} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}>
             {Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
                 return (<PostBodyItem
                     canRemove={false}
@@ -98,6 +78,8 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove, 
                     name={`${name ? name + ':' : ''}` + itemKey}
                     uiState={item[itemKey].uiState}
                     onPostBodyInputChanged={onPostBodyInputChanged}
+                    onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
+                    onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}
                 />);
             })}
         </PostBodySectionHeader>

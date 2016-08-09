@@ -1,7 +1,7 @@
 import queryStringReducer from './queryStringReducer';
 import postBodyReducer from './postBodyReducer';
 import {actionTypes} from './reducer';
-import {buildQsPath, buildPostBodyData, buildCurl, fillOrRemoveSampleData} from '../helpers';
+import {buildQsPath, buildCurl, fillOrRemoveSampleData, fillPostBodySampleData, buildInitialPostBodyData} from '../helpers';
 
 const DOC_TYPES = {
     REQUEST: 'REQUEST',
@@ -25,6 +25,38 @@ const traversePropertyPath = (propertyPath, state) => {
     }, state);
 };
 
+const updatePostBodyProperty = (propertyPath, newVal, postBody) => {
+    if (propertyPath === '') {
+        return;
+    }
+
+    const pathArray = propertyPath.split(':');
+
+    let nestedObj = postBody;
+
+    pathArray.forEach((nestedParam, i) => {
+        if (i === pathArray.length - 1) {
+            if (nestedParam.indexOf('[') !== -1) {
+                const index = parseInt(nestedParam.slice(nestedParam.indexOf('[') + 1, nestedParam.indexOf(']')), 10);
+
+                nestedObj[index].value = newVal;
+                return;
+            }
+            nestedObj[nestedParam].value = newVal;
+            return;
+        }
+
+        if (nestedParam.indexOf('[') !== -1) {
+            const index = parseInt(nestedParam.slice(nestedParam.indexOf('[') + 1, nestedParam.indexOf(']')), 10);
+
+            nestedObj = nestedObj[index];
+        } else {
+            nestedObj = nestedObj[nestedParam];
+        }
+    });
+
+    nestedObj = newVal;
+};
 
 const updateDataAtProperty = (propertyPath, newVal, postBodyData) => {
     if (propertyPath === '') {
@@ -69,9 +101,6 @@ export default (state, action) => {
         return {...newState, apiConsoleVisible: true};
     case actionTypes.RESET_CONSOLE:
         newState = fillOrRemoveSampleData(newState, true);
-        if (newState.postBodyData) {
-            newState.postBodyData = buildPostBodyData(newState.postBody);
-        }
         newState.qsPath = buildQsPath(newState.queryString);
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         return {...newState, apiResponse: undefined};
@@ -83,9 +112,6 @@ export default (state, action) => {
         break;
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
         newState = fillOrRemoveSampleData(newState);
-        if (newState.postBody) {
-            newState.postBodyData = buildPostBodyData(newState.postBody);
-        }
         newState.qsPath = buildQsPath(newState.queryString);
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
@@ -105,6 +131,7 @@ export default (state, action) => {
         propToToggle.uiState.visible = !propToToggle.uiState.visible;
         break;
     case actionTypes.POST_BODY_CHANGED:
+        
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
         newState.postBody = postBodyReducer(newState.postBody, action);

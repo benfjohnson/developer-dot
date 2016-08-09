@@ -39,7 +39,7 @@ const syntaxHighlight = (jsonObj) => {
     return highlightPunctuation(json);
 };
 
-const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged}) => (
+const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => (
     <div>
         <div className={'try-it-now-header'} data-target={`#${replaceSpacesInStr(endpoint.name)}-console-body`} data-toggle={'collapse'} id={replaceSpacesInStr(`${endpoint.name}-console`)} onClick={
             () => {
@@ -84,7 +84,7 @@ const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampl
                         </div>
                     {endpoint.pathParams ? <RequestParams endpointId={id} paramType={'PATH'} params={endpoint.pathParams} onInputChange={onPathParamChanged} /> : null}
                     {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString} onInputChange={onQueryParamChanged} /> : null}
-                    {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody} onPostBodyInputChanged={onPostBodyInputChanged} /> : null}
+                    {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody} onPostBodyInputChanged={onPostBodyInputChanged} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} /> : null}
                     {endpoint.postBody ?
                         <div style={{marginBottom: '10px'}}>
                             <button
@@ -118,7 +118,7 @@ const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampl
                             <div className={'col-md-6 console-req-container'}>
                                 <h5 className={'console-output-header'}>{'Request'}</h5>
                                 {/* eslint-disable react/no-danger */}
-                                {endpoint.postBody ? <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: endpoint.postBodyData ? syntaxHighlight(endpoint.postBodyData) : ' '}}></pre></div> : <div className={'code-snippet code-snippet-code-text'}>{endpoint.curl}</div>}
+                                {endpoint.postBodyData ? <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: endpoint.postBodyData ? syntaxHighlight(endpoint.postBodyData) : ' '}}></pre></div> : <div className={'code-snippet code-snippet-code-text'}>{endpoint.curl}</div>}
                             </div>
                             <div className={'col-md-6 console-res-container'}>
                                 <h5 className={'console-output-header'}>{'Response'}</h5>

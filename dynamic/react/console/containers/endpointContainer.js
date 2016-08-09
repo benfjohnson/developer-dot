@@ -70,6 +70,12 @@ const mapDispatchToProps = (dispatch) => {
         },
         onPathParamChanged: (newValue, paramName, endpointId) => {
             dispatch(actions.pathParamChanged(newValue, paramName, endpointId));
+        },
+        onAddItemToPostbodyCollection: (paramName, endpointId, itemSchema) => {
+            dispatch(actions.addItemToPostbodyCollection(paramName, endpointId, itemSchema));
+        },
+        onRemovePostbodyCollectionItem: (paramName, endpointId) => {
+            dispatch(actions.removePostbodyCollectionItem(paramName, endpointId));
         }
     };
 };

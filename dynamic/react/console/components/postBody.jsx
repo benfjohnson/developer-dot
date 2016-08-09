@@ -14,6 +14,8 @@ const PostBody = (props) => (
                 name={''}
                 uiState={props.postBody.uiState}
                 onPostBodyInputChanged={props.onPostBodyInputChanged}
+                onAddItemToPostbodyCollection={props.onAddItemToPostbodyCollection}
+                onRemovePostbodyCollectionItem={props.onRemovePostbodyCollectionItem}
             />
         }
         </form>
