@@ -3,10 +3,10 @@ import React from 'react';
 import PostBodySectionHeader from './postBodySectionHeader';
 import PostBodyCollection from './postBodyCollection';
 
-const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => {
+const PostBodyItem = ({name, itemSchema, itemValue, endpointId, uiState, displayName, canRemove, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => {
     const uid = `${endpointId}-${displayName}-${name}`;
 
-    if (item.fieldType && item.fieldType !== 'array') {
+    if (itemSchema.fieldType && itemSchema.fieldType !== 'array') {
         return (
             <div className={'form-group'}>
                     <label className={'api-label-text'} htmlFor={uid}>{displayName}</label>
@@ -23,17 +23,17 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove, 
                             <span>{' Remove'}</span>
                         </div> : null
                     }
-                    {item.enum && item.enum.length ?
+                    {itemSchema.enum && itemSchema.enum.length ?
                         <select
                             className={'form-control'}
                             id={uid}
                             onChange={(e) => {
                                 onPostBodyInputChanged(endpointId, name, e.target.value);
                             }}
-                            value={item.value || '*select*'}
+                            value={itemValue || '*select*'}
                         >
                             <option disabled={true} value={'*select*'}>{''}</option>
-                            {item.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
+                            {itemSchema.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
                         </select> :
                         <input
                             className={'form-control'}
@@ -41,22 +41,22 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove, 
                             onChange={(e) => {
                                 onPostBodyInputChanged(endpointId, name, e.target.value);
                             }}
-                            placeholder={item.example}
-                            value={item.value}
+                            placeholder={itemSchema.example}
+                            value={itemValue}
                         />
                     }
             </div>
         );
     }
 
-    if (item.fieldType === 'array') {
+    if (itemSchema.fieldType === 'array') {
         return (
             <PostBodyCollection
-                collection={item.value}
                 displayName={displayName}
                 endpointId={endpointId}
                 propertyName={name}
-                schema={item.items}
+                itemValue={itemValue}
+                itemSchema={itemSchema.items}
                 uiState={uiState}
                 onPostBodyInputChanged={onPostBodyInputChanged}
                 onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
@@ -67,16 +67,17 @@ const PostBodyItem = ({name, item, endpointId, uiState, displayName, canRemove, 
 
     return (
         <PostBodySectionHeader canRemove={canRemove} displayName={displayName} endpointId={endpointId} propertyName={name} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}>
-            {Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
+            {Object.keys(itemSchema).filter((n) => n !== 'uiState' && n !== 'required' && itemSchema[n]).map((itemKey, i) => {
                 return (<PostBodyItem
                     canRemove={false}
                     displayName={itemKey}
                     endpointId={endpointId}
-                    item={item[itemKey]}
+                    itemSchema={itemSchema[itemKey]}
+                    itemValue={itemValue[itemKey]}
                     itemName={itemKey}
                     key={i}
                     name={`${name ? name + ':' : ''}` + itemKey}
-                    uiState={item[itemKey].uiState}
+                    uiState={itemSchema[itemKey].uiState}
                     onPostBodyInputChanged={onPostBodyInputChanged}
                     onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
                     onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}
@@ -91,7 +92,7 @@ PostBodyItem.propTypes = {
     canRemove: React.PropTypes.bool.isRequired,
     displayName: React.PropTypes.string.isRequired,
     endpointId: React.PropTypes.number.isRequired,
-    item: React.PropTypes.object.isRequired,
+    item: React.PropTypes.object,
     name: React.PropTypes.string.isRequired,
     uiState: React.PropTypes.shape({
         visible: React.PropTypes.bool

@@ -84,7 +84,7 @@ const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampl
                         </div>
                     {endpoint.pathParams ? <RequestParams endpointId={id} paramType={'PATH'} params={endpoint.pathParams} onInputChange={onPathParamChanged} /> : null}
                     {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString} onInputChange={onQueryParamChanged} /> : null}
-                    {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody} onPostBodyInputChanged={onPostBodyInputChanged} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} /> : null}
+                    {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody} postBodyData={endpoint.postBodyData} onPostBodyInputChanged={onPostBodyInputChanged} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} /> : null}
                     {endpoint.postBody ?
                         <div style={{marginBottom: '10px'}}>
                             <button

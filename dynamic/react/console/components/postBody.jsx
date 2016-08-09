@@ -10,7 +10,8 @@ const PostBody = (props) => (
                 canRemove={false}
                 displayName={'Post Body'}
                 endpointId={props.id}
-                item={props.postBody}
+                itemSchema={props.postBody}
+                itemValue={props.postBodyData}
                 name={''}
                 uiState={props.postBody.uiState}
                 onPostBodyInputChanged={props.onPostBodyInputChanged}
