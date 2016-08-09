@@ -1,7 +1,6 @@
 import queryStringReducer from './queryStringReducer';
-import postBodyReducer from './postBodyReducer';
 import {actionTypes} from './reducer';
-import {buildQsPath, buildCurl, fillOrRemoveSampleData, fillPostBodySampleData, buildInitialPostBodyData} from '../helpers';
+import {buildQsPath, buildCurl, fillOrRemoveSampleData} from '../helpers';
 
 const DOC_TYPES = {
     REQUEST: 'REQUEST',
@@ -19,43 +18,27 @@ const traversePropertyPath = (propertyPath, state) => {
         if (paramName.indexOf('[') !== -1) {
             const index = parseInt(paramName.slice(paramName.indexOf('[') + 1, paramName.indexOf(']')), 10);
 
-            return accum.value[index];
+            return accum.items[index];
         }
         return accum[paramName];
     }, state);
 };
 
-const updatePostBodyProperty = (propertyPath, newVal, postBody) => {
+const traversePostBodyData = (propertyPath, state) => {
     if (propertyPath === '') {
-        return;
+        return state;
     }
 
     const pathArray = propertyPath.split(':');
 
-    let nestedObj = postBody;
+    return pathArray.reduce((accum, paramName) => {
+        if (paramName.indexOf('[') !== -1) {
+            const index = parseInt(paramName.slice(paramName.indexOf('[') + 1, paramName.indexOf(']')), 10);
 
-    pathArray.forEach((nestedParam, i) => {
-        if (i === pathArray.length - 1) {
-            if (nestedParam.indexOf('[') !== -1) {
-                const index = parseInt(nestedParam.slice(nestedParam.indexOf('[') + 1, nestedParam.indexOf(']')), 10);
-
-                nestedObj[index].value = newVal;
-                return;
-            }
-            nestedObj[nestedParam].value = newVal;
-            return;
+            return accum[index];
         }
-
-        if (nestedParam.indexOf('[') !== -1) {
-            const index = parseInt(nestedParam.slice(nestedParam.indexOf('[') + 1, nestedParam.indexOf(']')), 10);
-
-            nestedObj = nestedObj[index];
-        } else {
-            nestedObj = nestedObj[nestedParam];
-        }
-    });
-
-    nestedObj = newVal;
+        return accum[paramName];
+    }, state);
 };
 
 const updateDataAtProperty = (propertyPath, newVal, postBodyData) => {
@@ -131,12 +114,37 @@ export default (state, action) => {
         propToToggle.uiState.visible = !propToToggle.uiState.visible;
         break;
     case actionTypes.POST_BODY_CHANGED:
-        
-    case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
-    case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
-        newState.postBody = postBodyReducer(newState.postBody, action);
+        //TODO: Refactor our postBody to use `items` and not an `[i]` in the name, since we no longer hold array in postBody var
+        const accessorName = action.postBodyParamName.replace(/\[\d+\]/g, 'items');
+        const newStateProperty = traversePropertyPath(accessorName, newState.postBody);
+        let castedValue;
 
-        updateDataAtProperty(action.postBodyParamName, action.newValue, newState.postBodyData);
+        switch (newStateProperty.fieldType) {
+        case 'number':
+            castedValue = isNaN(parseFloat(action.newValue)) ? action.newValue : parseFloat(action.newValue);
+            break;
+        case 'boolean':
+            castedValue = action.newValue === 'true';
+            break;
+        default:
+            castedValue = action.newValue;
+        }
+        updateDataAtProperty(action.postBodyParamName, castedValue, newState.postBodyData);
+        break;
+    case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
+        console.log('PBNAME');
+        console.log(action.postBodyParamName);
+        traversePostBodyData(action.postBodyParamName, newState.postBodyData).push({});
+        break;
+    case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
+        //newState.postBody = postBodyReducer(newState.postBody, action);
+        const itemToRemove = action.postBodyParamName.substr(0, action.postBodyParamName.lastIndexOf(':'));
+        console.log('itm to rem', itemToRemove);
+        const indexToRemove = parseInt(action.postBodyParamName.substr(action.postBodyParamName.lastIndexOf(':')).replace(/\D/g, ''), 10);
+        console.log('index torem', indexToRemove);
+        const newStatePropertyToRemove = traversePostBodyData(itemToRemove, newState.postBodyData);
+        console.log('NSPTR', newStatePropertyToRemove);
+        newStatePropertyToRemove.splice(indexToRemove, 1);
         newState.curl = buildCurl(newState.isAuthenticated, newState);
 
         return newState;

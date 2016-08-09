@@ -4,7 +4,7 @@ import React from 'react';
  * Defines a wrapper to nest object properties or
  * array items in a PostBodyå
  * */
-const PostBodySectionHeader = ({endpointId, propertyName, displayName, children, canRemove, onRemovePostbodyCollectionItem}) => {    
+const PostBodySectionHeader = ({endpointId, propertyName, displayName, children, canRemove, onRemovePostbodyCollectionItem}) => {
     return (
         <div className={'api-console-input-section'}>
             <h4 className={'api-console-section-header s5'}>
