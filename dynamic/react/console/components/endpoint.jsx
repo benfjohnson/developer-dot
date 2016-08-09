@@ -5,49 +5,44 @@ import RequestParamsDocumentation from './requestParamsDocumentation';
 import ApiDocumentation from './apiDocumentation';
 import {replaceSpacesInStr} from '../helpers';
 
-import {store} from '../store';
-import {actionTypes} from '../reducers/reducer';
-
 // Give our endpoint an id based on its name for our clientside routing in jekyll
-const EndPointComponent = (props) => (
-    <div data-magellan-target={replaceSpacesInStr(props.endpoint.name)} id={replaceSpacesInStr(props.endpoint.name)}>
+const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocCollapse, onConsoleVisibilityToggle, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => (
+    <div data-magellan-target={replaceSpacesInStr(endpoint.name)} id={replaceSpacesInStr(endpoint.name)}>
         <div className={'endpoint-summary'}>
-            <h2>{props.endpoint.name}</h2>
+            <h2>{endpoint.name}</h2>
             {
-                props.apiType === 'REST' ?
+                apiType === 'REST' ?
                 <a
-                    href={`#${replaceSpacesInStr(props.endpoint.name)}-console`}
+                    href={`#${replaceSpacesInStr(endpoint.name)}-console`}
                     onClick={
                         () => {
-                            $(`#${replaceSpacesInStr(props.endpoint.name)}-console-body`).collapse('show');
-                            store.dispatch({
-                                type: actionTypes.JUMP_TO_CONSOLE,
-                                endpointId: props.id
-                            });
+                            $(`#${replaceSpacesInStr(endpoint.name)}-console-body`).collapse('show');
+                            onJumpToConsole(id);
                         }
                     }
                 >{'Try it now!'}</a> : null
             }
             <br />
-            <ReactMarkdown source={props.endpoint.description} />
+            <ReactMarkdown source={endpoint.description} />
             <br />
             <br />
             <div>
                 <div className={'api-label-text'}>{'Api Endpoint'}</div>
-                <div className={'code-snippet-plaintext'}>{`${props.endpoint.action.toUpperCase()} ${props.endpoint.path}`}</div>
-                {props.endpoint.postBody ? <div><br /><div className={'api-label-text'}>{'Headers'}</div><div className={'code-snippet-plaintext'}>{'Content-Type: application/json'}</div></div> : null}
+                <div className={'code-snippet-plaintext'}>{`${endpoint.action.toUpperCase()} ${endpoint.path}`}</div>
+                {endpoint.postBody ? <div><br /><div className={'api-label-text'}>{'Headers'}</div><div className={'code-snippet-plaintext'}>{'Content-Type: application/json'}</div></div> : null}
             </div>
         </div>
         <br />
-        {props.endpoint.queryString ? <RequestParamsDocumentation paramType={'QUERY_STRING'} params={props.endpoint.queryString} /> : null}
-        {props.endpoint.pathParams ? <RequestParamsDocumentation paramType={'PATH'} params={props.endpoint.pathParams} /> : null}
-        {props.endpoint.requestSchema ? <ApiDocumentation documentationFor={'REQUEST'} id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.requestSchema} /> : null}
-        {props.endpoint.responseSchema ? <ApiDocumentation documentationFor={'RESPONSE'} id={props.id} name={props.endpoint.name.toLowerCase() + '_' + props.endpoint.action} postBody={props.endpoint.responseSchema} /> : null}
-        {props.apiType === 'REST' ? <ApiConsole endpoint={props.endpoint} id={props.id} /> : null}
+        {endpoint.queryString ? <RequestParamsDocumentation paramType={'QUERY_STRING'} params={endpoint.queryString} /> : null}
+        {endpoint.pathParams ? <RequestParamsDocumentation paramType={'PATH'} params={endpoint.pathParams} /> : null}
+        {endpoint.requestSchema ? <ApiDocumentation documentationFor={'REQUEST'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onToggleDocCollapse={onToggleDocCollapse} postBody={endpoint.requestSchema} /> : null}
+        {endpoint.responseSchema ? <ApiDocumentation documentationFor={'RESPONSE'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onToggleDocCollapse={onToggleDocCollapse} postBody={endpoint.responseSchema} /> : null}
+        {apiType === 'REST' ? <ApiConsole endpoint={endpoint} id={id} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onConsoleVisibilityToggle={onConsoleVisibilityToggle} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest}/> : null}
     </div>
 );
 
-EndPointComponent.displayName = 'EndPoint';
+EndPointComponent.displayName = 'Api Endpoint';
+
 EndPointComponent.propTypes = {
     apiType: React.PropTypes.oneOf(['REST', 'SOAP']).isRequired,
     endpoint: React.PropTypes.shape({
@@ -73,7 +68,8 @@ EndPointComponent.propTypes = {
                 value: React.PropTypes.any.isRequired
             })
         ),
-        postBody: React.PropTypes.object,
+        postBody: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
+        postBodyData: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         requestSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         responseSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         apiResponse: React.PropTypes.shape({
@@ -85,7 +81,18 @@ EndPointComponent.propTypes = {
         }),
         apiConsoleVisible: React.PropTypes.bool.isRequired
     }).isRequired,
-    id: React.PropTypes.number.isRequired
+    id: React.PropTypes.number.isRequired,
+    onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
+    onConsoleVisibilityToggle: React.PropTypes.func.isRequired,
+    onFillConsoleSampleData: React.PropTypes.func.isRequired,
+    onJumpToConsole: React.PropTypes.func.isRequired,
+    onPathParamChanged: React.PropTypes.func.isRequired,
+    onPostBodyInputChanged: React.PropTypes.func.isRequired,
+    onQueryParamChanged: React.PropTypes.func.isRequired,
+    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
+    onResetConsole: React.PropTypes.func.isRequired,
+    onSubmitConsoleRequest: React.PropTypes.func.isRequired,
+    onToggleDocCollapse: React.PropTypes.func.isRequired
 };
 
 export default EndPointComponent;

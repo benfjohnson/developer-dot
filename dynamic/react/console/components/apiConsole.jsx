@@ -2,66 +2,7 @@ import React from 'react';
 import RequestParams from './requestParams';
 import PostBody from './postBody';
 
-import request from 'request';
-import {store} from '../store';
-import {actionTypes} from '../reducers/reducer';
-import {replacePathParams, hasExampleData, replaceSpacesInStr} from '../helpers';
-
-const handleSubmit = (endpoint, id) => {
-    /* If our endpoint has a defined proxy, use that to make our API console request
-     * Otherwise, just use the path specified as `host` in Swagger file
-     */
-    const requestPath = endpoint.proxyRoute || endpoint.path;
-
-    const url = (endpoint.pathParams ? replacePathParams(requestPath, endpoint.pathParams) : requestPath) + (endpoint.qsPath || '');
-    const apiReq = {
-        url: url,
-        headers: {}
-    };
-
-    if (requestPath.indexOf('amazonaws') !== -1) {
-        apiReq.headers['api-key'] = 'b24757b69083fa34d27a7d814ea3a59c';
-    }
-
-    if (endpoint.postBody) {
-        apiReq.headers['Content-Type'] = 'application/json';
-        apiReq.body = JSON.stringify(endpoint.postBodyData);
-    }
-
-    request[endpoint.action](apiReq, (error, response, body) => {
-        let responseBody = {};
-
-        try {
-            responseBody = JSON.parse(body);
-        } catch (err) {
-            responseBody.error = err.message;
-        }
-
-        store.dispatch({
-            type: actionTypes.SUBMIT_DONE,
-            endpointId: id,
-            apiResponse: {
-                body: responseBody,
-                status: response ? response.statusCode.toString() : '',
-                statusMessage: error ? error.message : response.statusMessage || ''
-            }
-        });
-    });
-};
-
-const toggleVisibility = (endpointId) => {
-    store.dispatch({
-        type: actionTypes.CONSOLE_VISIBILITY_TOGGLED,
-        endpointId: endpointId
-    });
-};
-
-const handleFillSampleData = (id) => {
-    store.dispatch({
-        type: actionTypes.FILL_REQUEST_SAMPLE_DATA,
-        endpointId: id
-    });
-};
+import {hasExampleData, replaceSpacesInStr} from '../helpers';
 
 const highlightPunctuation = (str) => {
     return str.replace(/"[^"]*"|([{}\[\],])/g, (m, group1) => {
@@ -98,11 +39,11 @@ const syntaxHighlight = (jsonObj) => {
     return highlightPunctuation(json);
 };
 
-const ApiConsole = ({endpoint, id}) => (
+const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => (
     <div>
         <div className={'try-it-now-header'} data-target={`#${replaceSpacesInStr(endpoint.name)}-console-body`} data-toggle={'collapse'} id={replaceSpacesInStr(`${endpoint.name}-console`)} onClick={
             () => {
-                toggleVisibility(id);
+                onConsoleVisibilityToggle(id);
             }
         }>
             {'Try it now! '}
@@ -116,10 +57,7 @@ const ApiConsole = ({endpoint, id}) => (
                             {hasExampleData('QUERY_STRING', endpoint.queryString) || hasExampleData('POST_BODY', endpoint.postBody) || hasExampleData('PATH_PARAM', endpoint.pathParams) ?
                             <span
                                 className='m-l-1 clickable hdr-btn-adj-text'
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleFillSampleData(id);
-                                }}
+                                onClick={onFillConsoleSampleData.bind(null, id)}
                             >
                             {' Fill with Sample Data'}
                             </span> : null}
@@ -127,53 +65,43 @@ const ApiConsole = ({endpoint, id}) => (
                     <div style={{marginBottom: '10px'}}>
                             <button
                                 className='btn btn-primary'
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleSubmit(endpoint, id);
-                                }}
+                                onClick={
+                                    (e) => {
+                                        e.preventDefault();
+                                        onSubmitConsoleRequest(endpoint, id);
+                                    }
+                                }
                                 type={'button'}
                             >
                             {'Submit'}
                             </button>
                             <span
                                 className='m-l-1 clickable hdr-btn-adj-text'
-                                onClick={
-                                    () => {
-                                        store.dispatch({
-                                            type: actionTypes.RESET_CONSOLE,
-                                            endpointId: id
-                                        });
-                                    }
-                                }
+                                onClick={onResetConsole.bind(null, id)}
                                 type='reset'>
                             {'Reset'}
                             </span>
                         </div>
-                    {endpoint.pathParams ? <RequestParams endpointId={id} paramType={'PATH'} params={endpoint.pathParams}/> : null}
-                    {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
-                    {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody}/> : null}
+                    {endpoint.pathParams ? <RequestParams endpointId={id} onInputChange={onPathParamChanged} paramType={'PATH'} params={endpoint.pathParams}/> : null}
+                    {endpoint.queryString ? <RequestParams endpointId={id} onInputChange={onQueryParamChanged} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
+                    {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onPostBodyInputChanged={onPostBodyInputChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} postBody={endpoint.postBody} postBodyData={endpoint.postBodyData}/> : null}
                     {endpoint.postBody ?
                         <div style={{marginBottom: '10px'}}>
                             <button
                                 className='btn btn-primary'
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleSubmit(endpoint, id);
-                                }}
+                                onClick={
+                                    (e) => {
+                                        e.preventDefault();
+                                        onSubmitConsoleRequest(endpoint, id);
+                                    }
+                                }
                                 type={'button'}
                             >
                             {'Submit'}
                             </button>
                             <span
                                 className='m-l-1 hdr-btn-adj-text clickable'
-                                onClick={
-                                    () => {
-                                        store.dispatch({
-                                            type: actionTypes.RESET_CONSOLE,
-                                            endpointId: id
-                                        });
-                                    }
-                                }
+                                onClick={onResetConsole.bind(null, id)}
                                 type='reset'>
                                 {'Reset'}
                             </span>
@@ -190,7 +118,7 @@ const ApiConsole = ({endpoint, id}) => (
                             <div className={'col-md-6 console-req-container'}>
                                 <h5 className={'console-output-header'}>{'Request'}</h5>
                                 {/* eslint-disable react/no-danger */}
-                                {endpoint.postBody ? <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: endpoint.postBodyData ? syntaxHighlight(endpoint.postBodyData) : ' '}}></pre></div> : <div className={'code-snippet code-snippet-code-text'}>{endpoint.curl}</div>}
+                                {endpoint.postBodyData ? <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: endpoint.postBodyData ? syntaxHighlight(endpoint.postBodyData) : ' '}}></pre></div> : <div className={'code-snippet code-snippet-code-text'}>{endpoint.curl}</div>}
                             </div>
                             <div className={'col-md-6 console-res-container'}>
                                 <h5 className={'console-output-header'}>{'Response'}</h5>
@@ -213,6 +141,14 @@ const ApiConsole = ({endpoint, id}) => (
 ApiConsole.displayName = 'API Console';
 ApiConsole.propTypes = {
     endpoint: React.PropTypes.shape({
+        apiResponse: React.PropTypes.shape({
+            status: React.PropTypes.string.isRequired,
+            statusMessage: React.PropTypes.string.isRequired,
+            body: React.PropTypes.oneOfType([
+                React.PropTypes.object, React.PropTypes.array
+            ]).isRequired
+        }),
+        apiConsoleVisible: React.PropTypes.bool.isRequired,
         name: React.PropTypes.string.isRequired,
         description: React.PropTypes.string.isRequired,
         curl: React.PropTypes.string.isRequired,
@@ -235,17 +171,18 @@ ApiConsole.propTypes = {
                 value: React.PropTypes.any.isRequired
             })
         ),
-        postBody: React.PropTypes.object,
-        apiResponse: React.PropTypes.shape({
-            status: React.PropTypes.string.isRequired,
-            statusMessage: React.PropTypes.string.isRequired,
-            body: React.PropTypes.oneOfType([
-                React.PropTypes.object, React.PropTypes.array
-            ]).isRequired
-        }),
-        apiConsoleVisible: React.PropTypes.bool.isRequired
+        postBody: React.PropTypes.object
     }).isRequired,
-    id: React.PropTypes.number.isRequired
+    id: React.PropTypes.number.isRequired,
+    onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
+    onConsoleVisibilityToggle: React.PropTypes.func.isRequired,
+    onFillConsoleSampleData: React.PropTypes.func.isRequired,
+    onPathParamChanged: React.PropTypes.func.isRequired,
+    onPostBodyInputChanged: React.PropTypes.func.isRequired,
+    onQueryParamChanged: React.PropTypes.func.isRequired,
+    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
+    onResetConsole: React.PropTypes.func.isRequired,
+    onSubmitConsoleRequest: React.PropTypes.func.isRequired
 };
 
 export default ApiConsole;

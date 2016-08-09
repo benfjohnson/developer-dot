@@ -10,8 +10,12 @@ const PostBody = (props) => (
                 canRemove={false}
                 displayName={'Post Body'}
                 endpointId={props.id}
-                item={props.postBody}
+                itemSchema={props.postBody}
+                itemValue={props.postBodyData}
                 name={''}
+                onAddItemToPostbodyCollection={props.onAddItemToPostbodyCollection}
+                onPostBodyInputChanged={props.onPostBodyInputChanged}
+                onRemovePostbodyCollectionItem={props.onRemovePostbodyCollectionItem}
                 uiState={props.postBody.uiState}
             />
         }
@@ -23,7 +27,11 @@ PostBody.displayName = 'Post Body';
 PostBody.propTypes = {
     id: React.PropTypes.number.isRequired,
     name: React.PropTypes.string.isRequired,
-    postBody: React.PropTypes.object
+    onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
+    onPostBodyInputChanged: React.PropTypes.func.isRequired,
+    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
+    postBody: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
+    postBodyData: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array])
 };
 
 export default PostBody;
