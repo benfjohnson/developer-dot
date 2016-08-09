@@ -168,7 +168,7 @@ h2, h3 {
 
 /* Override bootstraps default padding for nav items to fit more on the page */
 .api-ref-side-nav > li > a,.api-ref-side-nav-active > li > a {
-    padding: 2.5px 10px;
+    padding: 2.5px 0;
 }
 
 @media(max-width: 770px) {
@@ -193,5 +193,5 @@ h2, h3 {
     color: #919195 ;
     letter-spacing: 0.1rem;
     line-height:16px;
-    text-transform: uppercase;
+    text-transform: none;
 }

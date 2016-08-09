@@ -1,39 +1,30 @@
 import React from 'react';
 
-import {store} from '../store';
-import {actionTypes} from '../reducers/reducer';
 import PostBodySectionHeader from './postBodySectionHeader';
 import PostBodyItem from './postBodyItem';
 
-const handleAddItem = (paramName, endpointId, itemSchema) => {
-    store.dispatch({
-        type: actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION,
-        postBodyParamName: paramName,
-        endpointId: endpointId,
-        itemSchema: itemSchema
-    });
-};
-
-const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiState, displayName}) => {
+const PostBodyCollection = ({propertyName, endpointId, itemValue, itemSchema, uiState, displayName, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => {
     return (
         <div>
-            <PostBodySectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} propertyName={propertyName}>
-                {collection.map((itm, i) => {
+            <PostBodySectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} propertyName={propertyName}>
+                {itemValue.map((itm, i) => {
                     return (
                         <PostBodyItem
-                            canRemove={collection.length > 1}
+                            canRemove={itemValue.length > 1}
                             displayName={`item ${i + 1}`}
                             endpointId={endpointId}
-                            item={itm}
+                            itemSchema={itemSchema}
+                            itemValue={itm}
                             key={i}
                             name={`${propertyName ? propertyName + ':' : ''}[${i}]`}
-                            uiState={itm.uiState}
-                            />);
+                            onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
+                            onPostBodyInputChanged={onPostBodyInputChanged}
+                            onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}
+                            uiState={itemSchema.uiState}
+                        />);
                 })}
             </PostBodySectionHeader>
-            <div className={'clickable'} onClick={() => {
-                handleAddItem(propertyName, endpointId, schema);
-            }}>
+            <div className={'clickable'} onClick={onAddItemToPostbodyCollection.bind(null, propertyName, endpointId, itemSchema)}>
                 <span className={'glyphicon glyphicon-plus'}></span><span className={''}>{`  Add ${displayName === 'Post Body' ? 'Item' : displayName}`}</span>
             </div>
         </div>
@@ -43,14 +34,15 @@ const PostBodyCollection = ({propertyName, endpointId, collection, schema, uiSta
 PostBodyCollection.displayName = 'Post Body Collection';
 
 PostBodyCollection.propTypes = {
-    collection: React.PropTypes.array.isRequired,
+    collection: React.PropTypes.array,
     displayName: React.PropTypes.string.isRequired,
     endpointId: React.PropTypes.number.isRequired,
-    propertyName: React.PropTypes.string.isRequired,
-    schema: React.PropTypes.object.isRequired,
-    uiState: React.PropTypes.shape({
-        visible: React.PropTypes.bool
-    })
+    itemSchema: React.PropTypes.object.isRequired,
+    itemValue: React.PropTypes.array.isRequired,
+    onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
+    onPostBodyInputChanged: React.PropTypes.func.isRequired,
+    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
+    propertyName: React.PropTypes.string.isRequired
 };
 
 export default PostBodyCollection;

@@ -1,4 +1,4 @@
-import {buildQsPath, buildCurl, buildPostmanCollection, buildAuth} from './helpers';
+import {buildQsPath, buildCurl, buildPostmanCollection, buildAuth, buildInitialPostBodyData} from './helpers';
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
 
@@ -27,10 +27,11 @@ const buildSchema = (schema, required = [], propName = null) => {
         const arraySchema = buildSchema(schema.items);
 
         // items holds the schema definition of objects in our array, and value holds the actual objects of said schema...
-        return {uiState: {visible: true}, fieldType: schema.type, required: required.includes(propName), items: arraySchema, value: [arraySchema]};
+        // note that uiState is stored in the items property of the array, so don't need it at top level'
+        return {fieldType: schema.type, required: required.includes(propName), items: arraySchema};
     }
 
-    const objToReturn = {fieldType: schema.type, required: required.includes(propName), value: ''};
+    const objToReturn = {fieldType: schema.type, required: required.includes(propName)};
 
     if (schema.example) {
         objToReturn.example = schema.example;
@@ -89,7 +90,7 @@ export default (api, rootPath) => {
 
     swaggerData.auth = buildAuth(api['x-auth-formula']);
 
-    swaggerData.apiInfo = [];
+    swaggerData.apiEndpoints = [];
 
     Object.keys(api.paths).forEach((k) => {
         const endpoint = api.paths[k];
@@ -123,6 +124,7 @@ export default (api, rootPath) => {
             }
             if (postBody) {
                 apiMethod.postBody = postBody;
+                apiMethod.postBodyData = buildInitialPostBodyData(postBody);
             }
 
             apiMethod.curl = buildCurl(swaggerData.auth, apiMethod);
@@ -133,7 +135,7 @@ export default (api, rootPath) => {
 
             apiMethod.requestSchema = buildPostBody(endpointParams);
 
-            swaggerData.apiInfo.push(apiMethod);
+            swaggerData.apiEndpoints.push(apiMethod);
         });
     });
 

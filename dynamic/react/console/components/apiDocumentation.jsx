@@ -27,6 +27,7 @@ const ApiDocumentation = (props) => (
             item={props.postBody}
             name={''}
             nestingLevel={0}
+            onToggleDocCollapse={props.onToggleDocCollapse}
             uiState={props.postBody.uiState}
         />
     </div>
@@ -37,6 +38,7 @@ ApiDocumentation.propTypes = {
     documentationFor: React.PropTypes.oneOf([DOC_TYPES.REQUEST, DOC_TYPES.RESPONSE]),
     id: React.PropTypes.number.isRequired,
     name: React.PropTypes.string.isRequired,
+    onToggleDocCollapse: React.PropTypes.func.isRequired,
     postBody: React.PropTypes.object
 };
 
