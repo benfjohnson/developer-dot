@@ -82,9 +82,9 @@ const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampl
                             {'Reset'}
                             </span>
                         </div>
-                    {endpoint.pathParams ? <RequestParams endpointId={id} paramType={'PATH'} params={endpoint.pathParams} onInputChange={onPathParamChanged} /> : null}
-                    {endpoint.queryString ? <RequestParams endpointId={id} paramType={'QUERY_STRING'} params={endpoint.queryString} onInputChange={onQueryParamChanged} /> : null}
-                    {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.postBody} postBodyData={endpoint.postBodyData} onPostBodyInputChanged={onPostBodyInputChanged} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} /> : null}
+                    {endpoint.pathParams ? <RequestParams endpointId={id} onInputChange={onPathParamChanged} paramType={'PATH'} params={endpoint.pathParams}/> : null}
+                    {endpoint.queryString ? <RequestParams endpointId={id} onInputChange={onQueryParamChanged} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
+                    {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onPostBodyInputChanged={onPostBodyInputChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} postBody={endpoint.postBody} postBodyData={endpoint.postBodyData}/> : null}
                     {endpoint.postBody ?
                         <div style={{marginBottom: '10px'}}>
                             <button
@@ -141,6 +141,14 @@ const ApiConsole = ({endpoint, id, onConsoleVisibilityToggle, onFillConsoleSampl
 ApiConsole.displayName = 'API Console';
 ApiConsole.propTypes = {
     endpoint: React.PropTypes.shape({
+        apiResponse: React.PropTypes.shape({
+            status: React.PropTypes.string.isRequired,
+            statusMessage: React.PropTypes.string.isRequired,
+            body: React.PropTypes.oneOfType([
+                React.PropTypes.object, React.PropTypes.array
+            ]).isRequired
+        }),
+        apiConsoleVisible: React.PropTypes.bool.isRequired,
         name: React.PropTypes.string.isRequired,
         description: React.PropTypes.string.isRequired,
         curl: React.PropTypes.string.isRequired,
@@ -163,17 +171,18 @@ ApiConsole.propTypes = {
                 value: React.PropTypes.any.isRequired
             })
         ),
-        postBody: React.PropTypes.object,
-        apiResponse: React.PropTypes.shape({
-            status: React.PropTypes.string.isRequired,
-            statusMessage: React.PropTypes.string.isRequired,
-            body: React.PropTypes.oneOfType([
-                React.PropTypes.object, React.PropTypes.array
-            ]).isRequired
-        }),
-        apiConsoleVisible: React.PropTypes.bool.isRequired
+        postBody: React.PropTypes.object
     }).isRequired,
-    id: React.PropTypes.number.isRequired
+    id: React.PropTypes.number.isRequired,
+    onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
+    onConsoleVisibilityToggle: React.PropTypes.func.isRequired,
+    onFillConsoleSampleData: React.PropTypes.func.isRequired,
+    onPathParamChanged: React.PropTypes.func.isRequired,
+    onPostBodyInputChanged: React.PropTypes.func.isRequired,
+    onQueryParamChanged: React.PropTypes.func.isRequired,
+    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
+    onResetConsole: React.PropTypes.func.isRequired,
+    onSubmitConsoleRequest: React.PropTypes.func.isRequired
 };
 
 export default ApiConsole;

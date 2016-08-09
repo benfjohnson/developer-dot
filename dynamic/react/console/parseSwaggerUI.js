@@ -50,21 +50,6 @@ const buildSchema = (schema, required = [], propName = null) => {
     if (schema.hasOwnProperty('maximum')) {
         objToReturn.maximum = schema.maximum;
     }
-    // switch (schema.type) {
-    // case 'string':
-    //     objToReturn.value = '';
-    //     break;
-    // case 'number':
-    // case 'float':
-    //     objToReturn.value = 0;
-    //     break;
-    // case 'boolean':
-    //     objToReturn.value = true;
-    //     break;
-    // default:
-    //     objToReturn.value = '';
-    //     break;
-    // }
 
     return objToReturn;
 };

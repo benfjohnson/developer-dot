@@ -52,6 +52,7 @@ ApiDocumentationHeader.propTypes = {
     endpointId: React.PropTypes.number.isRequired,
     isArray: React.PropTypes.bool.isRequired,
     nestingLevel: React.PropTypes.number.isRequired,
+    onToggleDocCollapse: React.PropTypes.func.isRequired,
     propertyName: React.PropTypes.string.isRequired,
     uiState: React.PropTypes.shape({
         visible: React.PropTypes.bool

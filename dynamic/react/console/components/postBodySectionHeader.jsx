@@ -37,10 +37,8 @@ PostBodySectionHeader.propTypes = {
     ]),
     displayName: React.PropTypes.string.isRequired,
     endpointId: React.PropTypes.number.isRequired,
-    propertyName: React.PropTypes.string.isRequired,
-    uiState: React.PropTypes.shape({
-        visible: React.PropTypes.bool
-    })
+    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
+    propertyName: React.PropTypes.string.isRequired
 };
 
 export default PostBodySectionHeader;

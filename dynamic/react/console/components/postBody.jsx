@@ -13,10 +13,10 @@ const PostBody = (props) => (
                 itemSchema={props.postBody}
                 itemValue={props.postBodyData}
                 name={''}
-                uiState={props.postBody.uiState}
-                onPostBodyInputChanged={props.onPostBodyInputChanged}
                 onAddItemToPostbodyCollection={props.onAddItemToPostbodyCollection}
+                onPostBodyInputChanged={props.onPostBodyInputChanged}
                 onRemovePostbodyCollectionItem={props.onRemovePostbodyCollectionItem}
+                uiState={props.postBody.uiState}
             />
         }
         </form>
@@ -27,8 +27,11 @@ PostBody.displayName = 'Post Body';
 PostBody.propTypes = {
     id: React.PropTypes.number.isRequired,
     name: React.PropTypes.string.isRequired,
-    postBody: React.PropTypes.object,
-    onPostBodyInputChanged: React.PropTypes.func
+    onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
+    onPostBodyInputChanged: React.PropTypes.func.isRequired,
+    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
+    postBody: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
+    postBodyData: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array])
 };
 
 export default PostBody;

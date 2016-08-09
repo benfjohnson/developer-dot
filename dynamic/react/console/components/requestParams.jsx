@@ -51,6 +51,7 @@ const RequestParams = ({endpointId, paramType, params, onInputChange}) => {
 RequestParams.displayName = 'Request Parameters';
 RequestParams.propTypes = {
     endpointId: React.PropTypes.number.isRequired,
+    onInputChange: React.PropTypes.func.isRequired,
     paramType: React.PropTypes.oneOf(['QUERY_STRING', 'PATH']).isRequired,
     params: React.PropTypes.objectOf(
         React.PropTypes.shape({

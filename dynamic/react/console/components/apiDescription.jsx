@@ -9,16 +9,22 @@ const mapStateToProps = (state) => (
     }
 );
 
-const render = ({apiName, apiDescription}) => (
+const ApiDescRender = ({apiName, apiDescription}) => (
     <div className={'api-summary'}>
         <h1>{apiName}</h1>
         <ReactMarkdown source={apiDescription} />
     </div>
 );
 
+ApiDescRender.displayName = 'Api Description';
+ApiDescRender.propTypes = {
+    apiDescription: React.PropTypes.string,
+    apiName: React.PropTypes.string.isRequired
+};
+
 const ApiDescription = connect(
     mapStateToProps,
     {}
-)(render);
+)(ApiDescRender);
 
 export default ApiDescription;

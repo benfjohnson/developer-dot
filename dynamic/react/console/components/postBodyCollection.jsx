@@ -6,7 +6,7 @@ import PostBodyItem from './postBodyItem';
 const PostBodyCollection = ({propertyName, endpointId, itemValue, itemSchema, uiState, displayName, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => {
     return (
         <div>
-            <PostBodySectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} propertyName={propertyName} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}>
+            <PostBodySectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} propertyName={propertyName}>
                 {itemValue.map((itm, i) => {
                     return (
                         <PostBodyItem
@@ -17,11 +17,11 @@ const PostBodyCollection = ({propertyName, endpointId, itemValue, itemSchema, ui
                             itemValue={itm}
                             key={i}
                             name={`${propertyName ? propertyName + ':' : ''}[${i}]`}
-                            uiState={itemSchema.uiState}
-                            onPostBodyInputChanged={onPostBodyInputChanged}
                             onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
+                            onPostBodyInputChanged={onPostBodyInputChanged}
                             onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}
-                            />);
+                            uiState={itemSchema.uiState}
+                        />);
                 })}
             </PostBodySectionHeader>
             <div className={'clickable'} onClick={onAddItemToPostbodyCollection.bind(null, propertyName, endpointId, itemSchema)}>
@@ -37,11 +37,12 @@ PostBodyCollection.propTypes = {
     collection: React.PropTypes.array,
     displayName: React.PropTypes.string.isRequired,
     endpointId: React.PropTypes.number.isRequired,
-    propertyName: React.PropTypes.string.isRequired,
-    schema: React.PropTypes.object,
-    uiState: React.PropTypes.shape({
-        visible: React.PropTypes.bool
-    })
+    itemSchema: React.PropTypes.object.isRequired,
+    itemValue: React.PropTypes.array.isRequired,
+    onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
+    onPostBodyInputChanged: React.PropTypes.func.isRequired,
+    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
+    propertyName: React.PropTypes.string.isRequired
 };
 
 export default PostBodyCollection;

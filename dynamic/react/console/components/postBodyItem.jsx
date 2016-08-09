@@ -54,33 +54,33 @@ const PostBodyItem = ({name, itemSchema, itemValue, endpointId, uiState, display
             <PostBodyCollection
                 displayName={displayName}
                 endpointId={endpointId}
-                propertyName={name}
-                itemValue={itemValue}
                 itemSchema={itemSchema.items}
-                uiState={uiState}
-                onPostBodyInputChanged={onPostBodyInputChanged}
+                itemValue={itemValue}
                 onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
+                onPostBodyInputChanged={onPostBodyInputChanged}
                 onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}
+                propertyName={name}
+                uiState={uiState}
             />
         );
     }
 
     return (
-        <PostBodySectionHeader canRemove={canRemove} displayName={displayName} endpointId={endpointId} propertyName={name} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}>
+        <PostBodySectionHeader canRemove={canRemove} displayName={displayName} endpointId={endpointId} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} propertyName={name}>
             {Object.keys(itemSchema).filter((n) => n !== 'uiState' && n !== 'required' && itemSchema[n]).map((itemKey, i) => {
                 return (<PostBodyItem
                     canRemove={false}
                     displayName={itemKey}
                     endpointId={endpointId}
+                    itemName={itemKey}
                     itemSchema={itemSchema[itemKey]}
                     itemValue={itemValue[itemKey]}
-                    itemName={itemKey}
                     key={i}
                     name={`${name ? name + ':' : ''}` + itemKey}
-                    uiState={itemSchema[itemKey].uiState}
-                    onPostBodyInputChanged={onPostBodyInputChanged}
                     onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
+                    onPostBodyInputChanged={onPostBodyInputChanged}
                     onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}
+                    uiState={itemSchema[itemKey].uiState}
                 />);
             })}
         </PostBodySectionHeader>
@@ -88,12 +88,17 @@ const PostBodyItem = ({name, itemSchema, itemValue, endpointId, uiState, display
 };
 
 PostBodyItem.displayName = 'Post Body Item';
+// TODO: itemValue should be required, but in calc region sometimes is undefined? Should be string object or array
 PostBodyItem.propTypes = {
     canRemove: React.PropTypes.bool.isRequired,
     displayName: React.PropTypes.string.isRequired,
     endpointId: React.PropTypes.number.isRequired,
-    item: React.PropTypes.object,
+    itemSchema: React.PropTypes.object,
+    itemValue: React.PropTypes.any,
     name: React.PropTypes.string.isRequired,
+    onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
+    onPostBodyInputChanged: React.PropTypes.func.isRequired,
+    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
     uiState: React.PropTypes.shape({
         visible: React.PropTypes.bool
     })

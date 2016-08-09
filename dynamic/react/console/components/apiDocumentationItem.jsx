@@ -56,7 +56,7 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, ne
     }
 
     return (
-        <ApiDocumentationHeader uiState={uiState} displayName={displayName} documentationFor={documentationFor} endpointId={endpointId} isArray={isArray} nestingLevel={nestingLevel} onToggleDocCollapse={onToggleDocCollapse} propertyName={name}>
+        <ApiDocumentationHeader displayName={displayName} documentationFor={documentationFor} endpointId={endpointId} isArray={isArray} nestingLevel={nestingLevel} onToggleDocCollapse={onToggleDocCollapse} propertyName={name} uiState={uiState}>
             {Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
                 return (<ApiDocumentationItem
                     displayName={itemKey}
@@ -85,6 +85,7 @@ ApiDocumentationItem.propTypes = {
     item: React.PropTypes.object.isRequired,
     name: React.PropTypes.string.isRequired,
     nestingLevel: React.PropTypes.number.isRequired,
+    onToggleDocCollapse: React.PropTypes.func.isRequired,
     uiState: React.PropTypes.shape({
         visible: React.PropTypes.bool
     })

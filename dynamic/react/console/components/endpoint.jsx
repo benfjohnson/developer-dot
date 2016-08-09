@@ -37,9 +37,11 @@ const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocC
         {endpoint.pathParams ? <RequestParamsDocumentation paramType={'PATH'} params={endpoint.pathParams} /> : null}
         {endpoint.requestSchema ? <ApiDocumentation documentationFor={'REQUEST'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onToggleDocCollapse={onToggleDocCollapse} postBody={endpoint.requestSchema} /> : null}
         {endpoint.responseSchema ? <ApiDocumentation documentationFor={'RESPONSE'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onToggleDocCollapse={onToggleDocCollapse} postBody={endpoint.responseSchema} /> : null}
-        {apiType === 'REST' ? <ApiConsole endpoint={endpoint} id={id} onConsoleVisibilityToggle={onConsoleVisibilityToggle} onFillConsoleSampleData={onFillConsoleSampleData} onSubmitConsoleRequest={onSubmitConsoleRequest} onPostBodyInputChanged={onPostBodyInputChanged} onResetConsole={onResetConsole} onQueryParamChanged={onQueryParamChanged} onPathParamChanged={onPathParamChanged} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} /> : null}
+        {apiType === 'REST' ? <ApiConsole endpoint={endpoint} id={id} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onConsoleVisibilityToggle={onConsoleVisibilityToggle} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest}/> : null}
     </div>
 );
+
+EndPointComponent.displayName = 'Api Endpoint';
 
 EndPointComponent.propTypes = {
     apiType: React.PropTypes.oneOf(['REST', 'SOAP']).isRequired,
@@ -66,7 +68,8 @@ EndPointComponent.propTypes = {
                 value: React.PropTypes.any.isRequired
             })
         ),
-        postBody: React.PropTypes.object,
+        postBody: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
+        postBodyData: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         requestSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         responseSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         apiResponse: React.PropTypes.shape({
@@ -79,7 +82,17 @@ EndPointComponent.propTypes = {
         apiConsoleVisible: React.PropTypes.bool.isRequired
     }).isRequired,
     id: React.PropTypes.number.isRequired,
-    onJumpToConsole: React.PropTypes.func.isRequired
+    onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
+    onConsoleVisibilityToggle: React.PropTypes.func.isRequired,
+    onFillConsoleSampleData: React.PropTypes.func.isRequired,
+    onJumpToConsole: React.PropTypes.func.isRequired,
+    onPathParamChanged: React.PropTypes.func.isRequired,
+    onPostBodyInputChanged: React.PropTypes.func.isRequired,
+    onQueryParamChanged: React.PropTypes.func.isRequired,
+    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
+    onResetConsole: React.PropTypes.func.isRequired,
+    onSubmitConsoleRequest: React.PropTypes.func.isRequired,
+    onToggleDocCollapse: React.PropTypes.func.isRequired
 };
 
 export default EndPointComponent;

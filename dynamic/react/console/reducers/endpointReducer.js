@@ -114,7 +114,7 @@ export default (state, action) => {
         propToToggle.uiState.visible = !propToToggle.uiState.visible;
         break;
     case actionTypes.POST_BODY_CHANGED:
-        //TODO: Refactor our postBody to use `items` and not an `[i]` in the name, since we no longer hold array in postBody var
+        // TODO: Refactor our postBody to use `items` and not an `[i]` in the name, since we no longer hold array in postBody var
         const accessorName = action.postBodyParamName.replace(/\[\d+\]/g, 'items');
         const newStateProperty = traversePropertyPath(accessorName, newState.postBody);
         let castedValue;
