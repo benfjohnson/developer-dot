@@ -27,7 +27,8 @@ const buildSchema = (schema, required = [], propName = null) => {
         const arraySchema = buildSchema(schema.items);
 
         // items holds the schema definition of objects in our array, and value holds the actual objects of said schema...
-        return {uiState: {visible: true}, fieldType: schema.type, required: required.includes(propName), items: arraySchema};
+        // note that uiState is stored in the items property of the array, so don't need it at top level'
+        return {fieldType: schema.type, required: required.includes(propName), items: arraySchema};
     }
 
     const objToReturn = {fieldType: schema.type, required: required.includes(propName)};

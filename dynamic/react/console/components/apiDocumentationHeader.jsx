@@ -25,7 +25,9 @@ const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, nestingL
 
     return (
         <div className={'documentation-collapseable-section'} style={style}>
-            <div className={`row api-documentation-section-header ${getSectionHighlightFromNestingLevel(nestingLevel)}`} data-target={`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`} data-toggle={'collapse'} onClick={() => (onToggleDocCollapse(documentationFor, propertyName, endpointId))}>
+            <div className={`row api-documentation-section-header ${getSectionHighlightFromNestingLevel(nestingLevel)}`} data-target={`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`} data-toggle={'collapse'} onClick={() => {
+                onToggleDocCollapse(documentationFor, propertyName, endpointId);
+            }}>
                 <div className={'col-md-2 api-doc-parameter-name s5 api-doc-left-col'}>{displayName}</div>
                 <div className={'col-md-8'}></div>
                 <div className={'col-md-2'}>
