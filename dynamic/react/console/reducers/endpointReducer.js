@@ -1,6 +1,6 @@
 import queryStringReducer from './queryStringReducer';
 import {actionTypes} from './reducer';
-import {buildQsPath, buildCurl, fillOrRemoveSampleData} from '../helpers';
+import {buildQsPath, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData} from '../helpers';
 
 const DOC_TYPES = {
     REQUEST: 'REQUEST',
@@ -132,18 +132,15 @@ export default (state, action) => {
         updateDataAtProperty(action.postBodyParamName, castedValue, newState.postBodyData);
         break;
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
-        console.log('PBNAME');
-        console.log(action.postBodyParamName);
-        traversePostBodyData(action.postBodyParamName, newState.postBodyData).push({});
+        const newArrObj = buildInitialPostBodyData(action.itemSchema);
+
+        traversePostBodyData(action.postBodyParamName, newState.postBodyData).push(newArrObj);
         break;
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
-        //newState.postBody = postBodyReducer(newState.postBody, action);
         const itemToRemove = action.postBodyParamName.substr(0, action.postBodyParamName.lastIndexOf(':'));
-        console.log('itm to rem', itemToRemove);
         const indexToRemove = parseInt(action.postBodyParamName.substr(action.postBodyParamName.lastIndexOf(':')).replace(/\D/g, ''), 10);
-        console.log('index torem', indexToRemove);
         const newStatePropertyToRemove = traversePostBodyData(itemToRemove, newState.postBodyData);
-        console.log('NSPTR', newStatePropertyToRemove);
+
         newStatePropertyToRemove.splice(indexToRemove, 1);
         newState.curl = buildCurl(newState.isAuthenticated, newState);
 

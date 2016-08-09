@@ -4,19 +4,13 @@ import PostBodySectionHeader from './postBodySectionHeader';
 import PostBodyItem from './postBodyItem';
 
 const PostBodyCollection = ({propertyName, endpointId, itemValue, itemSchema, uiState, displayName, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => {
-    console.log('ITEM SCHEMA', itemSchema);
-    console.log('ITEM VALUE', itemValue);
-
-    // todo: Better fix for nested arrays. Doing this for new `Items` that error on Units array 
-    const itmArray = itemValue || [];
-
     return (
         <div>
             <PostBodySectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} propertyName={propertyName} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}>
-                {itmArray.map((itm, i) => {
+                {itemValue.map((itm, i) => {
                     return (
                         <PostBodyItem
-                            canRemove={itmArray.length > 1}
+                            canRemove={itemValue.length > 1}
                             displayName={`item ${i + 1}`}
                             endpointId={endpointId}
                             itemSchema={itemSchema}
