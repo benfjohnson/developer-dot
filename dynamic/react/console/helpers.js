@@ -13,33 +13,28 @@ const buildQsPath = (queryString, example = false) => {
     return qsPath;
 };
 
-const buildPostBodyData = (body) => {
+// Generates initial postBodyData given Post Body's schema
+const buildInitialPostBodyData = (body) => {
     if (body === undefined) {
         return body;
     }
-    if (body.hasOwnProperty('value') && body.fieldType !== 'array') {
-        return body.value;
+    if (body.fieldType !== 'array' && body.fieldType !== 'object' && body.fieldType) {
+        return '';
     }
 
     if (body.fieldType === 'array') {
-        const arrayBody = body.value.reduce((accum, prop) => {
-            if (prop && prop.hasOwnProperty('value') && prop.value === '') {
-                return accum;
-            }
-            return accum.concat(buildPostBodyData(prop));
-        }, []);
+        return [buildInitialPostBodyData(body.items)];
+        // const arrayBody = Object.keys(body.items).filter((n) => n !== 'uiState' && n !== 'required').reduce((accum, prop) => {
+        //     return accum.concat(buildInitialPostBodyData(body.items[prop]));
+        // }, []);
 
-        return arrayBody.length ? arrayBody : undefined;
+        // return arrayBody;
     }
-    const objBody = Object.keys(body).filter((n) => n !== 'uiState').reduce((accum, propName) => {
-        if (body[propName] && body[propName].hasOwnProperty('value') && body[propName].value === '') {
-            return accum;
-        }
-
-        return {...accum, [propName]: buildPostBodyData(body[propName])};
+    const objBody = Object.keys(body).filter((n) => n !== 'uiState' && n !== 'required').reduce((accum, propName) => {
+        return {...accum, [propName]: buildInitialPostBodyData(body[propName])};
     }, {});
 
-    return Object.keys(objBody).length ? objBody : undefined;
+    return objBody;
 };
 
 const replacePathParams = (path, pathParams, example = false) => {
@@ -77,6 +72,20 @@ const buildCurl = (auth, endpoint) => {
     return curl;
 };
 
+const getDefaultValue = (fieldType) => {
+    switch (fieldType) {
+    case 'string':
+        return '';
+    case 'number':
+    case 'float':
+        return 0;
+    case 'boolean':
+        return true;
+    default:
+        return '';
+    }
+};
+
 const fillOrRemoveRequestParamSampleData = (params, remove) => {
     if (remove) {
         return Object.keys(params).reduce((accum, pName) => {
@@ -101,13 +110,13 @@ const removePostBodyValues = (postBody) => {
         return postBody;
     }
     if (postBody.hasOwnProperty('value') && postBody.fieldType !== 'array') {
-        return {...postBody, value: ''};
+        return {...postBody, value: getDefaultValue(postBody.fieldType)};
     }
 
     if (postBody.fieldType === 'array') {
         const arrayBody = postBody.value.reduce((accum, prop) => {
             if (prop && prop.hasOwnProperty('value')) {
-                return accum.concat({...prop, value: ''});
+                return accum.concat({...prop, value: getDefaultValue(prop.fieldType)});
             }
             return accum.concat(removePostBodyValues(prop));
         }, []);
@@ -124,32 +133,23 @@ const removePostBodyValues = (postBody) => {
     }, {});
 };
 
-const fillPostBodySampleData = (postBody) => {
-    if (postBody === undefined) {
-        return postBody;
+// Generates initial postBodyData given Post Body's schema
+const fillPostBodySampleData = (body) => {
+    if (body === undefined) {
+        return body;
     }
-    if (postBody.hasOwnProperty('value') && postBody.fieldType !== 'array') {
-        return {...postBody, value: postBody.example || ''};
-    }
-
-    if (postBody.fieldType === 'array') {
-        const arrayBody = postBody.value.reduce((accum, prop) => {
-            if (prop && prop.hasOwnProperty('value')) {
-                return accum.concat({...prop, value: (prop.example || '')});
-            }
-            return accum.concat(fillPostBodySampleData(prop));
-        }, []);
-
-        return {...postBody, value: arrayBody};
+    if (body.fieldType !== 'array' && body.fieldType !== 'object' && body.fieldType) {
+        return body.example || undefined;
     }
 
-    if (postBody.hasOwnProperty('visible')) {
-        return {...postBody, visible: true};
+    if (body.fieldType === 'array') {
+        return [fillPostBodySampleData(body.items)];
     }
-
-    return Object.keys(postBody).reduce((accum, propName) => {
-        return {...accum, [propName]: fillPostBodySampleData(postBody[propName])};
+    const objBody = Object.keys(body).filter((n) => n !== 'uiState' && n !== 'required').reduce((accum, propName) => {
+        return {...accum, [propName]: fillPostBodySampleData(body[propName])};
     }, {});
+
+    return objBody;
 };
 
 const fillOrRemoveSampleData = (endpointState, remove = false) => {
@@ -161,8 +161,8 @@ const fillOrRemoveSampleData = (endpointState, remove = false) => {
         endpointState.pathParams = fillOrRemoveRequestParamSampleData(endpointState.pathParams, remove);
     }
 
-    if (endpointState.postBody) {
-        endpointState.postBody = remove ? removePostBodyValues(endpointState.postBody) : fillPostBodySampleData(endpointState.postBody);
+    if (endpointState.postBodyData) {
+        endpointState.postBodyData = remove ? buildInitialPostBodyData(endpointState.postBody) : fillPostBodySampleData(endpointState.postBody);
     }
 
     return endpointState;
@@ -231,7 +231,7 @@ const buildPostmanCollection = (appState) => {
 
     // NOTE: For GETS w/ query or path params, no raw data -- need to replace in the URL
 
-    postmanCollection.item = appState.apiInfo.map((endpoint) => {
+    postmanCollection.item = appState.apiEndpoints.map((endpoint) => {
         const baseRequest = {
             name: endpoint.name,
             request: {
@@ -250,7 +250,7 @@ const buildPostmanCollection = (appState) => {
             });
             baseRequest.request.body = {
                 mode: 'raw',
-                raw: JSON.stringify(buildPostBodyData(fillPostBodySampleData(endpoint.postBody)))
+                raw: JSON.stringify(fillPostBodySampleData(endpoint.postBody))
             };
         } else {
             baseRequest.request.body = {
@@ -275,4 +275,4 @@ const buildPostmanCollection = (appState) => {
 
 const replaceSpacesInStr = (str) => str.replace(/\s/g, '_');
 
-export {buildQsPath, buildPostBodyData, buildCurl, replacePathParams, fillOrRemoveSampleData, hasExampleData, buildPostmanCollection, buildAuth, replaceSpacesInStr};
+export {buildQsPath, buildInitialPostBodyData, buildCurl, replacePathParams, fillOrRemoveSampleData, hasExampleData, buildPostmanCollection, buildAuth, replaceSpacesInStr};

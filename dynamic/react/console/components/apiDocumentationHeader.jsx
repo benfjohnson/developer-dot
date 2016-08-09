@@ -1,17 +1,5 @@
 import React from 'react';
 
-import {store} from '../store';
-import {actionTypes} from '../reducers/reducer';
-
-const handleToggleVisibility = (documentationFor, propertyName, endpointId) => {
-    store.dispatch({
-        type: actionTypes.TOGGLE_DOCUMENTATION_ITEM_VISIBILITY,
-        documentationFor: documentationFor,
-        postBodyParamName: propertyName,
-        endpointId: endpointId
-    });
-};
-
 const getSectionHighlightFromNestingLevel = (nestingLevel) => {
     const nestedClass = 'doc-section-header-nested';
 
@@ -32,17 +20,19 @@ const getSectionHighlightFromNestingLevel = (nestingLevel) => {
  * Defines a wrapper to nest object properties or
  * array items in a PostBody
  * */
-const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, nestingLevel, propertyName, displayName, collapsed, children}) => {
+const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, nestingLevel, propertyName, displayName, uiState, onToggleDocCollapse, children}) => {
     const style = nestingLevel > 1 ? {} : {marginTop: '10px', marginBottom: '10px'};
 
     return (
         <div className={'documentation-collapseable-section'} style={style}>
-            <div className={`row api-documentation-section-header ${getSectionHighlightFromNestingLevel(nestingLevel)}`} data-target={`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`} data-toggle={'collapse'} onClick={() => (handleToggleVisibility(documentationFor, propertyName, endpointId))}>
+            <div className={`row api-documentation-section-header ${getSectionHighlightFromNestingLevel(nestingLevel)}`} data-target={`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`} data-toggle={'collapse'} onClick={() => {
+                onToggleDocCollapse(documentationFor, propertyName, endpointId);
+            }}>
                 <div className={'col-md-2 api-doc-parameter-name s5 api-doc-left-col'}>{displayName}</div>
                 <div className={'col-md-8'}></div>
                 <div className={'col-md-2'}>
                     <span style={{fontWeight: 'bold'}}>{`${isArray ? 'Array[' : ''}${displayName.charAt(0).toUpperCase() + displayName.slice(1)}${isArray ? ']' : ''}`}</span>
-                    <span className={'documentation-expand-icon glyphicon glyphicon-menu-down' + (collapsed ? '' : ' rotate')} style={{float: 'right', marginLeft: '9px'}}></span>
+                    <span className={'documentation-expand-icon glyphicon glyphicon-menu-down' + ((!uiState.visible) ? '' : ' rotate')} style={{float: 'right', marginLeft: '9px'}}></span>
                 </div>
             </div>
             <div className={'collapse in'} id={`${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`}>
@@ -64,6 +54,7 @@ ApiDocumentationHeader.propTypes = {
     endpointId: React.PropTypes.number.isRequired,
     isArray: React.PropTypes.bool.isRequired,
     nestingLevel: React.PropTypes.number.isRequired,
+    onToggleDocCollapse: React.PropTypes.func.isRequired,
     propertyName: React.PropTypes.string.isRequired,
     uiState: React.PropTypes.shape({
         visible: React.PropTypes.bool

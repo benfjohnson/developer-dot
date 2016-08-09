@@ -1,24 +1,18 @@
 import React from 'react';
 
-import ApiPage from './pages/api';
-import ErrorPage from './pages/error';
+import AllEndpointsContainer from './containers/allEndpointsContainer';
+import DownloadPostmanCollection from './containers/downloadPostmanCollection';
+import ApiDescription from './components/apiDescription';
 
-const App = (props) => (
+const App = () => (
     <div>
-        {props.error ? <ErrorPage error={props.error}/> : <ApiPage api={props.api}/>}
+        <ApiDescription />
+        <DownloadPostmanCollection />
+        <br />
+        <AllEndpointsContainer />
     </div>
 );
 
 App.displayName = 'App';
-App.propTypes = {
-    api: React.PropTypes.shape({
-        apiName: React.PropTypes.string.isRequired,
-        apiDescription: React.PropTypes.string,
-        apiInfo: React.PropTypes.array.isRequired,
-        apiType: React.PropTypes.oneOf(['SOAP', 'REST']).isRequired,
-        postmanCollection: React.PropTypes.object.isRequired
-    }).isRequired,
-    error: React.PropTypes.string
-};
 
 export default App;
