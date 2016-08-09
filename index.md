@@ -106,7 +106,7 @@ nav: home
           </div>
         </div>
         <div class="row margin-top">
-          <div class="col-sm-12 text-center btn-callout"><a href="/avatax/get-started#signup" role="button">Get an Avalara AvaTax sandbox</a></div>
+          <div class="col-sm-12 text-center btn-callout"><a href="/avatax/signup" role="button">Get an Avalara AvaTax sandbox</a></div>
         </div>
     </div>
 </div>
