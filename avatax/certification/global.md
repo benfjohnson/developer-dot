@@ -110,7 +110,7 @@ The AvaTax Administration section provides the user with configuration, setup an
 <div class="col-xs-3">Ship-to address, including country code</div>
 <div class="col-xs-8"></div>
 </div>
-<div class="row">
+<div class="row padding-bottom">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Ship-from address, including country code</div>
 <div class="col-xs-8"></div>

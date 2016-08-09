@@ -241,7 +241,7 @@ Tax calculation should display a clean audit to limit errors and call volume to 
 <div class="col-xs-3">Reasonable errors on server-side analysis</div>
 <div class="col-xs-8">There should be no errors except those that would result from normal (but invalid) user input (e.g. invalid address data). Such errors must be logged/displayed appropriately to the application.</div>
 </div>
-<div class="row">
+<div class="row padding-bottom">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Reasonable ratio of GetTax calls to committed documents</div>
 <div class="col-xs-8">In a normal workflow, we expect to see (on average, including abandoned carts) up to 10 tax calculations per finalized document. In a straight-forward order entry process, the number of calls should be about three to five.</div>

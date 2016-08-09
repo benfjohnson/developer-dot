@@ -99,7 +99,7 @@ Address Validation should display a clean audit to limit errors and call volume 
 <div class="col-xs-3">Reasonable errors on server-side analysis</div>
 <div class="col-xs-8">There should be no errors except those that would result from normal (but invalid) user input (i.e. invalid address data). Such errors must be logged/displayed appropriately to the application. If an invalid address is returned, the user should be prompted to change it, but the transaction should be allowed to proceed even if they accept the invalid address as being correct.</div>
 </div>
-<div class="row">
+<div class="row padding-bottom">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Reasonable ratio of Address validation to GetTax calls</div>
 <div class="col-xs-8">Address validation calls should occur only when new addresses are entered or modified, as opposed to on-page-refresh, etc.</div>
