@@ -223,6 +223,10 @@
 {% if page.avaform == 1 %}
 <script src="https://d30qslfa084pac.cloudfront.net/common/avaform/avaform.3.min.js"></script>
 <script>setupAvaForm();</script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<script>
+    jQuery( document ).ready(function() {jQuery("#avaform-phone").mask("(999) 999-9999");});
+</script>
 {% endif %}
 
 {% if page.search == 1 %}
