@@ -63,11 +63,7 @@ h2, h3 {
 }
 
 .documentation-expand-icon {
-    border-radius: 50%;
-    border: 2px solid $Ava-blue;
-    padding: 2.4px;
-    color: $Ava-blue;
-    text-align: center;
+    fill: $Ava-blue;
 
     transition-duration: 0.4s;
     transition-property: transform;
@@ -90,9 +86,8 @@ h2, h3 {
     &:hover {
         color: $Darkest-blue;
 
-        span.documentation-expand-icon {
-            color: $Darkest-blue;
-            border-color: $Darkest-blue;
+        div.documentation-expand-icon {
+            fill: $Darkest-blue;
         }
     }
 }
@@ -106,8 +101,7 @@ h2, h3 {
     }
 
     .documentation-expand-icon {
-        color: white;
-        border-color: white;
+        fill: white;
     }
 }
 
@@ -127,8 +121,7 @@ h2, h3 {
     }
 
     .documentation-expand-icon {
-        color: $Darkest-blue;
-        border-color: $Darkest-blue;
+        fill: $Darkest-blue;
     }
 }
 

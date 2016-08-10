@@ -13,7 +13,7 @@ const PostmanCollection = ({apiType, appLoaded, auth, onAuthKeyChange, postmanCo
         <div>
             {auth && auth.params ? (
                 <form>
-                    <h4>{'Have development credentials? Generate a Postman Collection with your account info!'}</h4>
+                    <h4><a href={'/avatax/signup/'}>{'Have development credentials?'}</a>{' Generate a Postman Collection with your account info!'}</h4>
                     {Object.keys(auth.params).map((param, i) => (
                         <fieldset className={'form-group'} key={i}>
                             <label className={'api-label-text'}>{param}</label>
