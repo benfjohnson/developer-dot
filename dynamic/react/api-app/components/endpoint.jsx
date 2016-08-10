@@ -48,7 +48,7 @@ const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocC
                     {'Try it now! '}
                     <span className={'documentation-expand-icon glyphicon glyphicon-menu-down' + (endpoint.apiConsoleVisible ? ' rotate' : '')}></span>
                 </div>
-                <div className={'collapse' + (endpoint.apiConsoleVisible ? ' in' : '')} id={`${replaceSpaces(endpoint.name)}-console-body`}>
+                <div className={'collapse'} id={`${replaceSpaces(endpoint.name)}-console-body`}>
                     <ApiConsole endpoint={endpoint} id={id} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest}/>
                 </div>
             </div> : null}
