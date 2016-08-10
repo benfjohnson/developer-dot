@@ -7,7 +7,7 @@ import {replacePathParams} from '../../shared/helpers';
 
 const mapStateToProps = (state) => {
     return {
-        endpoint: state.apiEndpoints
+        apiEndpoints: state
     };
 };
 

@@ -6,7 +6,7 @@ import {reducer} from './react/api-app/reducers/reducer';
 import SwaggerParser from 'swagger-parser';
 import App from './react/api-app/app';
 import {renderToString} from 'react-dom/server';
-import parseSwaggerUi from './react/api-app/parseSwaggerUI';
+import parseSwaggerUi from './parseSwaggerUI';
 import mkdirp from 'mkdirp';
 import fs from 'fs';
 
