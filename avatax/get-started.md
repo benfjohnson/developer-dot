@@ -11,7 +11,7 @@ avaform: 1
 <h4><img src="/images/2012/09/orange-box-1-sm.png" alt="" /> Try the API</h4>
 Want to know how the API looks? Make some requests with the tool below. See how different inputs produce different tax calcluation results, and see what kind of tax information you can expect to get back.
 
-{% include ava_console.html %}
+{% include get-started-console.html %}
 
 <h4 id="signup"><img src="/images/2012/09/orange-box-2-sm.png" alt="" /> Create a Sandbox Account</h4>
 This sandbox account is for evaluation only and is initially active for 30 days, but you can request an extension if needed. You will need to add company profile and tax profile information to calculate sales tax. It is based on an AvaTax Basic subscription and includes access to Nexus Jurisdictions in the <strong>U.S. and Canada only</strong>. To access full AvaTax Pro System Tax Code functionality or Global Nexus Jurisdictions, please <a href="http://www.avalara.com/contact-us/">contact sales</a> to inquire about a paid development account.

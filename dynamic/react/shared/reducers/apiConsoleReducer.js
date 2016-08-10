@@ -1,34 +1,11 @@
 import queryStringReducer from './queryStringReducer';
-import {actionTypes} from './reducer';
-import {buildQsPath, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData} from '../helpers';
-
-const DOC_TYPES = {
-    REQUEST: 'REQUEST',
-    RESPONSE: 'RESPONSE'
-};
-
-const traversePropertyPath = (propertyPath, state) => {
-    if (propertyPath === '') {
-        return state;
-    }
-
-    const pathArray = propertyPath.split(':');
-
-    return pathArray.reduce((accum, paramName) => {
-        if (paramName.indexOf('[') !== -1) {
-            const index = parseInt(paramName.slice(paramName.indexOf('[') + 1, paramName.indexOf(']')), 10);
-
-            return accum.items[index];
-        }
-        return accum[paramName];
-    }, state);
-};
+import actionTypes from '../../shared/actionTypes';
+import {buildQsPath, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData, traversePropertyPath} from '../helpers';
 
 const traversePostBodyData = (propertyPath, state) => {
     if (propertyPath === '') {
         return state;
     }
-
     const pathArray = propertyPath.split(':');
 
     return pathArray.reduce((accum, paramName) => {
@@ -45,7 +22,6 @@ const updateDataAtProperty = (propertyPath, newVal, postBodyData) => {
     if (propertyPath === '') {
         return;
     }
-
     const pathArray = propertyPath.split(':');
 
     let nestedObj = postBodyData;
@@ -78,10 +54,6 @@ export default (state, action) => {
     let newState = {...state};
 
     switch (action.type) {
-    case actionTypes.CONSOLE_VISIBILITY_TOGGLED:
-        return {...newState, apiConsoleVisible: (!state.apiConsoleVisible)};
-    case actionTypes.JUMP_TO_CONSOLE:
-        return {...newState, apiConsoleVisible: true};
     case actionTypes.RESET_CONSOLE:
         newState = fillOrRemoveSampleData(newState, true);
         newState.qsPath = buildQsPath(newState.queryString);
@@ -98,7 +70,7 @@ export default (state, action) => {
         newState.qsPath = buildQsPath(newState.queryString);
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
-    case actionTypes.QUERY_PARAM_CHANGED:
+    case actionTypes.QUERY_STRING_CHANGED:
         newState = {...newState, queryString: queryStringReducer(newState.queryString, action)};
         newState.qsPath = buildQsPath(newState.queryString);
         newState.curl = buildCurl(newState.isAuthenticated, newState);
@@ -106,12 +78,6 @@ export default (state, action) => {
     case actionTypes.PATH_PARAM_CHANGED:
         newState.pathParams[action.paramName].value = action.newValue;
         newState.curl = buildCurl(newState.isAuthenticated, newState);
-        break;
-    case actionTypes.TOGGLE_DOCUMENTATION_ITEM_VISIBILITY:
-        const stateToChange = action.documentationFor === DOC_TYPES.REQUEST ? newState.requestSchema : newState.responseSchema;
-        const propToToggle = traversePropertyPath(action.postBodyParamName, stateToChange);
-
-        propToToggle.uiState.visible = !propToToggle.uiState.visible;
         break;
     case actionTypes.POST_BODY_CHANGED:
         // TODO: Refactor our postBody to use `items` and not an `[i]` in the name, since we no longer hold array in postBody var
@@ -146,7 +112,7 @@ export default (state, action) => {
 
         return newState;
     default:
-        break;
+        return state;
     }
 
     return newState;

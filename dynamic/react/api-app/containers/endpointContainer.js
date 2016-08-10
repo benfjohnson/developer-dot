@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
-import actions from '../actions';
+import actions from '../../shared/actions';
 import EndpointComponent from '../components/endpoint';
 import request from 'request';
-import {replacePathParams} from '../helpers';
+import {replacePathParams} from '../../shared/helpers';
 
 const mapStateToProps = (state, ownProps) => {
     return {

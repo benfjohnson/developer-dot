@@ -22,7 +22,7 @@ const PostmanCollection = ({apiType, appLoaded, auth, onAuthKeyChange, postmanCo
                     ))}
                 </form>
                 ) : null}
-            <a download={`${postmanCollection.info.name.replace(/\s/g, '-')}-postman-collection.json`} href={url}><button className='btn btn-info'>{'Download a Postman collection!'}</button></a>
+            <a download={`${postmanCollection.info.name.replace(/\s/g, '-')}-postman-collection.json`} href={url}><button className='btn btn-primary'>{'Download a Postman collection!'}</button></a>
         </div>
     );
 };

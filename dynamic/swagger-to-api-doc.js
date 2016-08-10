@@ -2,11 +2,11 @@ import path from 'path';
 import React from 'react';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import {reducer} from './react/console/reducers/reducer';
+import {reducer} from './react/api-app/reducers/reducer';
 import SwaggerParser from 'swagger-parser';
-import App from './react/console/app';
+import App from './react/api-app/app';
 import {renderToString} from 'react-dom/server';
-import parseSwaggerUi from './react/console/parseSwaggerUI';
+import parseSwaggerUi from './parseSwaggerUI';
 import mkdirp from 'mkdirp';
 import fs from 'fs';
 

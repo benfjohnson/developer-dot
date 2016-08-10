@@ -7,7 +7,7 @@ import {Provider} from 'react-redux';
 import {reducer} from './reducers/reducer';
 
 import App from './app';
-import {actionTypes} from './reducers/reducer';
+import actionTypes from '../shared/actionTypes';
 
 const logger = createLogger();
 

@@ -1,7 +1,7 @@
-import {buildQsPath, buildCurl, buildPostmanCollection, buildAuth, buildInitialPostBodyData} from './helpers';
+import {buildPostmanCollection, buildAuth} from './react/api-app/helpers';
+import {buildQsPath, buildCurl, buildInitialPostBodyData} from './react/shared/helpers';
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
-
 const buildSchema = (schema, required = [], propName = null) => {
     if (schema.hasOwnProperty('x-visibility') && schema['x-visibility'] === 'hidden') {
         return undefined;

@@ -5,15 +5,17 @@
   "scripts": {
     "prebuild:deploy": "node-sass _sass/style.scss css/style.css",
     "build:deploy": "postcss -u autoprefixer -o css/style.css css/style.css",
-    "build": "npm run build:deploy && npm run build-js-bundle && npm run build-all-pages",
+    "build": "npm run build:deploy && npm run build-js-bundle && npm run build-get-started-bundle && npm run build-all-pages",
     "prebuild:dev": "node-sass --recursive --source-map=true --source-map-contents=true --source-map-embed=true _sass/style.scss css/style.css",
     "build:dev": "postcss -u autoprefixer -o css/style.css css/style.css",
-    "post-dev": "watch 'npm run build:dev' _sass | npm run watch-js-bundle | jekyll serve",
+    "post-dev": "watch 'npm run build:dev' _sass | npm run watch-js-bundle | npm run watch-get-started-bundle | jekyll serve",
     "dev": "npm run build-all-pages && npm run post-dev",
-    "watch-js-bundle": "mkdir -p dynamic/public/javascript/build && watchify -t babelify --extension=.jsx --extension=.js -vd dynamic/react/console/index.js --outfile dynamic/public/javascript/build/api-bundle.js",
-    "build-js-bundle": "mkdir -p dynamic/public/javascript/build && browserify -t babelify --extension=.jsx --extension=.js -vd dynamic/react/console/index.js --outfile dynamic/public/javascript/build/api-bundle.js",
+    "watch-js-bundle": "mkdir -p dynamic/public/javascript/build && watchify -t babelify --extension=.jsx --extension=.js -vd dynamic/react/api-app/index.js --outfile dynamic/public/javascript/build/api-bundle.js",
+    "build-js-bundle": "mkdir -p dynamic/public/javascript/build && browserify -t babelify --extension=.jsx --extension=.js -vd dynamic/react/api-app/index.js --outfile dynamic/public/javascript/build/api-bundle.js",
     "build-all-pages": "browserify -t babelify --node --extension=.jsx --extension=.js -vd dynamic/build-all-pages.js --outfile /tmp/build-all-pages.js && node /tmp/build-all-pages.js",
     "build-page": "browserify -t babelify --node --extension=.jsx --extension=.js -vd dynamic/build-static-page.js --outfile /tmp/build-static-page.js && node /tmp/build-static-page.js",
+    "watch-get-started-bundle": "mkdir -p dynamic/public/javascript/build && watchify -t babelify --extension=.jsx --extension=.js -vd dynamic/react/get-started/index.js --outfile dynamic/public/javascript/build/get-started-bundle.js",
+    "build-get-started-bundle": "mkdir -p dynamic/public/javascript/build && browserify -t babelify --extension=.jsx --extension=.js -vd dynamic/react/get-started/index.js --outfile dynamic/public/javascript/build/get-started-bundle.js",
     "eslint": "eslint --ext .js,.jsx ./dynamic"
   },
   "devDependencies": {
