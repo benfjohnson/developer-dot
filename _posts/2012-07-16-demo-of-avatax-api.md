@@ -7,7 +7,7 @@ comments: true
 categories: [api, demo, Sales Tax APIs, sales tax service, video]
 product: avatax
 doctype: blog
-imgsrc: images/2012/07/avatax-api-demo-video-550x304.png
+imgsrc: /images/2012/07/avatax-api-demo-video-550x304.png
 ---
 <a href="/blog/2012/7/16/demo-of-avatax-api"><img class="size-large wp-image-1036" title="avatax-api-demo-video" src="/images/2012/07/avatax-api-demo-video-550x304.png" alt="" width="472" height="260" /></a> 
 

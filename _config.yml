@@ -28,6 +28,7 @@ sections: [
 
 gems: 
     - algoliasearch-jekyll
+    - jekyll-paginate
 
 algolia:
     application_id: '19A6FWAAB3'
@@ -62,6 +63,9 @@ redcarpet:
         'tables',
         'hardwrap'
     ]
+
+paginate: 10
+paginate_path: "/blog/page:num/"
 
 # applies to _posts only for some reason
 permalink: blog/:year/:month/:day/:title/
