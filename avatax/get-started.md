@@ -14,7 +14,7 @@ Want to know how the API looks? Make some requests with the tool below. See how 
 {% include get-started-console.html %}
 
 <h4 id="signup"><img src="/images/2012/09/orange-box-2-sm.png" alt="" /> Create a Sandbox Account</h4>
-This sandbox account is for evaluation only and is initially active for 30 days, but you can request an extension if needed. You will need to add company profile and tax profile information to calculate sales tax. It is based on an AvaTax Basic subscription and includes access to Nexus Jurisdictions in the <strong>U.S. and Canada only</strong>. To access full AvaTax Pro System Tax Code functionality or Global Nexus Jurisdictions, please <a href="http://www.avalara.com/contact-us/">contact sales</a> to inquire about a paid development account.
+This sandbox account is for evaluation only and is initially active for 90 days, but you can request an extension if needed. You will need to add company profile and tax profile information to calculate sales tax. It is based on an AvaTax Basic subscription and includes access to Nexus Jurisdictions in the <strong>U.S. and Canada only</strong>. To access full AvaTax Pro System Tax Code functionality or Global Nexus Jurisdictions, please <a href="http://www.avalara.com/contact-us/">contact sales</a> to inquire about a paid development account.
 <div class="avaform-wrapper"></div>
 
 <h4><img src="/images/2012/09/orange-box-3-sm.png" alt="" /> Log in to the Admin Console</h4>
@@ -138,3 +138,4 @@ Moving forward, it's a good idea to periodically review the Admin Console to ver
 <h4>What's Next?</h4>
 If you didn't already check out the <a href="/blog/2013/11/11/introduction-to-the-avalara-avatax-api">Introduction to the Avalara AvaTax API</a>, that's where you should go next. As you're designing your integration, you'll want to consider what kind of <a href="/avatax/use-cases">use cases</a> you need to accommodate. We also recommend that you take a look at the <a href="/avatax/api-reference/tax/v1">API Reference</a>, review our <a href="/avatax/certification">integration checklist</a>, and check out the <a href="https://community.avalara.com/avalara/category_sets/developers">Developer Community</a>. 
 </div><br />
+
