@@ -17,9 +17,6 @@ const mapDispatchToProps = (dispatch) => {
         onJumpToConsole: (endpointId) => {
             dispatch(actions.jumpToConsole(endpointId));
         },
-        onToggleDocCollapse: (documentationFor, propertyName, endpointId) => {
-            dispatch(actions.toggleDocumentationSectionVisibility(documentationFor, propertyName, endpointId));
-        },
         onConsoleVisibilityToggle: (endpointId) => {
             dispatch(actions.toggleApiConsoleVisibility(endpointId));
         },
