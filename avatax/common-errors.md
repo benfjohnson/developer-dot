@@ -1,12 +1,11 @@
 ---
-layout: default
+layout: page
 title: Common Errors
 product: avaTax
 doctype: use_cases
 nav: apis
 ---
 
-<h2>Common Errors</h2>
 <table border="1" width="620" cellspacing="0" cellpadding="5">
 <thead style="background-color: lightgray;">
 <tr>
@@ -133,7 +132,7 @@ nav: apis
 </tr>
 </tbody>
 </table>
-<h2><a name="address-validation"></a>Address Validation Errors</h2>
+<h3><a name="address-validation"></a>Address Validation Errors</h3>
 <table border="1" width="620" cellspacing="0" cellpadding="5">
 <thead style="background-color: lightgray;">
 <tr>
@@ -285,8 +284,8 @@ nav: apis
 </tr>
 </tbody>
 </table>
-<h2></h2>
-<h2><a name="cloudconnect"></a>CloudConnect Errors</h2>
+<h3></h3>
+<h3><a name="cloudconnect"></a>CloudConnect Errors</h3>
 If you're calling the service hosted on CloudConnect, you may encounter the following errors during your integration process:
 <table border="1" width="620" cellspacing="0" cellpadding="5">
 <thead style="background-color: lightgray;">
@@ -332,7 +331,7 @@ If you're calling the service hosted on CloudConnect, you may encounter the foll
 
 &nbsp;
 
-<h2>Related Community Discussions</h2>
+<h3>Related Community Discussions</h3>
 
 &nbsp;
 

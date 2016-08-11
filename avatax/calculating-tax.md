@@ -1,11 +1,10 @@
 ---
-layout: default
+layout: page
 title: Calculating Tax
 product: avaTax
 doctype: use_cases
 nav: apis
 ---
-<h2>Calculating Tax</h2>
 Getting a tax calculation is the primary reason developers use the Avalara AvaTax Service. Whether you are just looking to get a tax rate to populate into a database or application field, or you need to utilize all of the reporting and filing functionality that AvaTax offers, GetTax is the starting point.
 
 The request for this method consists of sales document attributes, like date, customer id, addresses, and line items. Please see the <a title="Avalara AvaTax API Reference" href="/avatax/api-reference">API reference</a> for a full listing of the available operations and attributes.
@@ -26,7 +25,7 @@ We expect to see freight charges passed to AvaTax just like any other charge –
 
 <hr />
 
-<h2>Related Community Discussions</h2>
+<h3>Related Community Discussions</h3>
 <div id="gsfn_list_widget">
 <div id="gsfn_content">Loading...</div>
 </div>

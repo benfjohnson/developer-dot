@@ -1,11 +1,11 @@
 ---
-layout: default
+layout: page
 title: Address Validation
 product: avaTax
 doctype: use_cases
 nav: apis
 ---
-<h2>Validate and normalize addresses for sales tax calculation.</h2>
+<h3>Validate and normalize addresses for sales tax calculation.</h3>
 Explicit address validations are standalone address validation calls (meaning address validation only – no tax calculations) that are passed to the AvaTax web service. Then, during the same call (or port opening), results are returned with either a success -- if no ambiguous address information was passed -- a normalized address is returned. Otherwise an error message (i.e. AddressRangeError [see below]) indicating the problem and summary details related to the address submitted is returned.
 
 A Typical Validate Address Error Results message would look like this:
@@ -21,7 +21,7 @@ Address validation is a difficult process to pin down with regards to the result
 900 winslow way, bainbridge island, 98110
 …will return
 900 Winslow Way E, Bainbridge Island, WA, 98110-2450
-<h3>Resolution of Addresses during Tax Calculation</h3>
+<h4>Resolution of Addresses during Tax Calculation</h4>
 When you make a GetTax call to our web service, the tax calculation engine attempts to resolve the address with the best possible address data that can be gleaned from the address data that was provided. The logic follows the flow chart below:
 
 <img src="/images/devdot/DevDot_TaxCallDiagram.svg" />
@@ -29,7 +29,7 @@ When you make a GetTax call to our web service, the tax calculation engine attem
 Even if an address will not pass explicit address validation, it may still be usable in a GetTax calculation. The GetTax method does not require a full street address to be able to determine taxing jurisdictions. While a fully validated street address is always better and more accurate, taxing jurisdictions can usually be unambiguously determined if, at a minimum, city, state and zip code are provided (and at least 2/3 are valid).
 
 &nbsp;
-<h3>Transactions</h3>
+<h4>Transactions</h4>
 Each Address Validation call is considered a transaction when calculating cost. You can learn more about how Avalara calculates transactions at this <a href="https://help.avalara.com/Account_Management/What_Is_a_Billable_AvaTax_Transaction%3F?origin=deflection">url</a>.
 
 &nbsp;
@@ -42,7 +42,7 @@ Each Address Validation call is considered a transaction when calculating cost. 
 
 &nbsp;
 
-<h2>Related Community Discussions</h2>
+<h3>Related Community Discussions</h3>
 
 &nbsp;
 
