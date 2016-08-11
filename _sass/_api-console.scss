@@ -10,7 +10,7 @@
 
 .api-console-output {
     color: white;
-    background: dimgrey;
+    background: $Darkest-grey;
     // display: table-cell;
     word-break: break-all;
     // float: none;
@@ -54,7 +54,7 @@
 }
 
 .code-snippet pre {
-    background: dimgrey;
+    background: $Darkest-grey;
     border: none;
 }
 

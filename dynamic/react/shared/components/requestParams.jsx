@@ -37,8 +37,7 @@ const RequestParams = ({endpointId, paramType, params, onInputChange}) => {
                                         onInputChange(e.target.value, key, endpointId);
                                     }
                                 }
-                                   placeholder={params[key].example || null}
-                                   value={params[key].value}
+                                value={params[key].value}
                             />
                         }
                     </div>
