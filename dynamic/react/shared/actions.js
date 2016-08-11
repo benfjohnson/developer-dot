@@ -64,26 +64,6 @@ export default {
             keyName: keyName
         };
     },
-    toggleDocumentationSectionVisibility: (documentationFor, propertyName, endpointId) => {
-        return {
-            type: actionTypes.TOGGLE_DOCUMENTATION_ITEM_VISIBILITY,
-            documentationFor: documentationFor,
-            postBodyParamName: propertyName,
-            endpointId: endpointId
-        };
-    },
-    toggleApiConsoleVisibility: (endpointId) => {
-        return {
-            type: actionTypes.CONSOLE_VISIBILITY_TOGGLED,
-            endpointId: endpointId
-        };
-    },
-    jumpToConsole: (endpointId) => {
-        return {
-            type: actionTypes.JUMP_TO_CONSOLE,
-            endpointId: endpointId
-        };
-    },
     resetConsole: (endpointId) => {
         return {
             type: actionTypes.RESET_CONSOLE,

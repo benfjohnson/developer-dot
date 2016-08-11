@@ -1,6 +1,24 @@
 import queryStringReducer from './queryStringReducer';
 import actionTypes from '../../shared/actionTypes';
-import {buildQsPath, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData, traversePropertyPath} from '../helpers';
+import {buildQsPath, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData} from '../helpers';
+
+// Method traverses a `postBody` endpoint property by colon-separated name and returns the
+// innermost property described by the propertyPath
+const traversePropertyPath = (propertyPath, state) => {
+    if (propertyPath === '') {
+        return state;
+    }
+    const pathArray = propertyPath.split(':');
+
+    return pathArray.reduce((accum, paramName) => {
+        if (paramName.indexOf('[') !== -1) {
+            const index = parseInt(paramName.slice(paramName.indexOf('[') + 1, paramName.indexOf(']')), 10);
+
+            return accum.items[index];
+        }
+        return accum[paramName];
+    }, state);
+};
 
 const traversePostBodyData = (propertyPath, state) => {
     if (propertyPath === '') {

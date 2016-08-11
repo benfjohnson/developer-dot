@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 
 import ApiDocumentationHeader from './apiDocumentationHeader';
 
-const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, nestingLevel, onToggleDocCollapse, endpointId, uiState, displayName, isRoot = false}) => {
+const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, nestingLevel, endpointId, uiState, displayName, isRoot = false}) => {
     if (item.fieldType && item.fieldType !== 'array') {
         // return (
         //     <div className={'row documentation-parameter-body'}>
@@ -33,7 +33,6 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, ne
                     item={item.items}
                     name={`${name ? name + ':' : ''}items`}
                     nestingLevel={nestingLevel}
-                    onToggleDocCollapse={onToggleDocCollapse}
                     uiState={item.items.uiState || {visible: true}}
             />
         );
@@ -54,7 +53,6 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, ne
                             key={i}
                             name={`${name ? name + ':' : ''}${itemKey}`}
                             nestingLevel={nestingLevel + 1}
-                            onToggleDocCollapse={onToggleDocCollapse}
                             uiState={item[itemKey].uiState}
                         />
                     );
@@ -64,7 +62,7 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, ne
     }
 
     return (
-        <ApiDocumentationHeader displayName={displayName} documentationFor={documentationFor} endpointId={endpointId} isArray={isArray} nestingLevel={nestingLevel} onToggleDocCollapse={onToggleDocCollapse} propertyName={name} uiState={uiState}>
+        <ApiDocumentationHeader displayName={displayName} documentationFor={documentationFor} endpointId={endpointId} isArray={isArray} nestingLevel={nestingLevel} propertyName={name} uiState={uiState}>
             {Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
                 return (<ApiDocumentationItem
                     displayName={itemKey}
@@ -75,7 +73,6 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, ne
                     key={i}
                     name={`${name ? name + ':' : ''}` + itemKey}
                     nestingLevel={nestingLevel + 1}
-                    onToggleDocCollapse={onToggleDocCollapse}
                     uiState={item[itemKey].uiState}
                 />);
             })}
@@ -93,7 +90,6 @@ ApiDocumentationItem.propTypes = {
     item: React.PropTypes.object.isRequired,
     name: React.PropTypes.string.isRequired,
     nestingLevel: React.PropTypes.number.isRequired,
-    onToggleDocCollapse: React.PropTypes.func.isRequired,
     uiState: React.PropTypes.shape({
         visible: React.PropTypes.bool
     })

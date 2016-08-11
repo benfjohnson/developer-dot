@@ -138,7 +138,6 @@ ApiConsole.propTypes = {
                 React.PropTypes.object, React.PropTypes.array
             ]).isRequired
         }),
-        apiConsoleVisible: React.PropTypes.bool.isRequired,
         name: React.PropTypes.string.isRequired,
         description: React.PropTypes.string.isRequired,
         curl: React.PropTypes.string.isRequired,
