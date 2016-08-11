@@ -97,8 +97,8 @@
     @extend .row;
     @extend .padding-top;
     @extend .padding-bottom;
-    margin-left:0;
-    margin-right:0;
+    margin-left: 0;
+    margin-right: 0;
     .pipe li {
         color: inherit;
         a {
@@ -136,7 +136,7 @@
 .pageTitle {
     font-family: 'apertura regular';
     text-transform: capitalize;
-    padding-bottom:10px;
+    padding-bottom: 10px;
     &, a {
         color: $Medium-grey;
         font-size: 26px;
@@ -443,4 +443,8 @@ footer {
     .form-group:first-of-type {
         padding-right: 0;
     }
+}
+
+.gsfn_link:after {
+    content: ' - '
 }
