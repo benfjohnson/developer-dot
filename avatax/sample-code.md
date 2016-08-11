@@ -1,9 +1,10 @@
 ---
-layout: default
+layout: page
 title: Samples & Libraries
 product: avaTax
 doctype: use_cases
 nav: apis
+community: samples
 ---
 <h2>Sameple Code and Libraries</h2>
 Code samples are designed to help you get started in writing correct code to interface with the Avalara AvaTax APIs. You can do this from a myriad of languages and frameworks and most of them are listed below. You will find officially supported libraries and those that are contributed by our community.
@@ -130,13 +131,3 @@ Submit questions or log bugs using the method provided in GitHub.
 If you have built libraries or sample code that connects to our services and would like to showcase them on this site, please send us an email at <a href="mailto:developer@avalara.com">developer@avalara.com</a>.
 
 <hr />
-
-<h4>Related Community Discussions</h4>
-<div id="gsfn_list_widget">
-<div id="gsfn_content">Loading...</div>
-</div>
-<script src="https://getsatisfaction.com/avalara/widgets/javascripts/f585970/widgets.js" type="text/javascript"></script><script src="https://getsatisfaction.com/avalara/topics.widget?callback=gsfnTopicsCallback&amp;length=240&amp;limit=5&amp;sort=recently_active&amp;user_defined_code=samples" type="text/javascript"></script>
-<div id="getsat-widget-8157"></div>
-<script src="https://loader.engage.gsfn.us/loader.js" type="text/javascript"></script><script type="text/javascript">// <![CDATA[
-if (typeof GSFN !== "undefined") { GSFN.loadWidget(8157,{"containerId":"getsat-widget-8157"}); }
-// ]]></script>

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 
 product: avaTax
 doctype: set_up_your_sandbox

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Test
 product: avaTax
 doctype: test_your_integration

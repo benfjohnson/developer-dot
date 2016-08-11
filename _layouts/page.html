@@ -9,3 +9,7 @@ layout: default
 </div>
 
 {{ content }}
+
+{% if page.community %}
+{% include community.html %}
+{% endif %}

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Thank you for registering.
 product: avaTax
 doctype: set_up_your_sandbox

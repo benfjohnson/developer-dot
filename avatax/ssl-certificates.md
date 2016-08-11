@@ -4,6 +4,7 @@ title: SSL Certificates
 product: avaTax
 doctype: use_cases
 nav: apis
+community: ssl
 ---
 <h2>Downloading the SSL Certificates public keychain</h2>
 Some web clients (such as cURL for Windows) will require you to download the Avalara AvaTax SSL public keychain and install it into your client's keychain repository. Refer back to the steps below only if you have problems establishing the HTTPS connection to the Avalara AvaTax REST API. Both development and production use a Verisign certificate.
@@ -15,13 +16,3 @@ Some web clients (such as cURL for Windows) will require you to download the Ava
 </ol>
 
 <hr />
-
-<h4>Related Community Discussions</h4>
-<div id="gsfn_list_widget">
-<div id="gsfn_content">Loading...</div>
-</div>
-<script src="https://getsatisfaction.com/avalara/widgets/javascripts/f585970/widgets.js" type="text/javascript"></script><script src="https://getsatisfaction.com/avalara/topics.widget?callback=gsfnTopicsCallback&amp;length=240&amp;limit=5&amp;sort=recently_active&amp;user_defined_code=ssl" type="text/javascript"></script>
-<div id="getsat-widget-8157"></div>
-<script src="https://loader.engage.gsfn.us/loader.js" type="text/javascript"></script><script type="text/javascript">// <![CDATA[
-if (typeof GSFN !== "undefined") { GSFN.loadWidget(8157,{"containerId":"getsat-widget-8157"}); }
-// ]]></script>

@@ -1,11 +1,12 @@
 ---
-layout: default
+layout: page
 title: Consumer Use Tax
 product: avaTax
 doctype: use_cases
 nav: apis
+community: consumerUse
 ---
-<h2>Add Consumer Use Tax reporting to your Avalara AvaTax integration</h2>
+<h3>Add Consumer Use Tax reporting to your Avalara AvaTax integration</h3>
 As a general rule, if the product is taxable, somebody has to pay the tax. If the seller is not required/registered to collect tax in a taxable state, the purchaser is responsible for remitting the tax. You can report and calculate this tax through the Avalara AvaTax service through the standard tax calculation and document recording methods, with a few variations.
 <ul>
 	<li>DocType: For consumer use transactions, use DocType PurchaseOrder (for quote-type and unsaved transactions) or PurchaseInvoice (for transactions that should be saved in AvaTax). This will trigger the tax paid vs. accrued tax logic outlined below, and make sure these transactions appear on the correct reports.</li>
@@ -15,13 +16,3 @@ As a general rule, if the product is taxable, somebody has to pay the tax. If th
 For more information on Consumer Use Tax reporting and implications, check out the <a href="https://help.avalara.com/007_AvalaraUniversity/Online_Product_Training/Consumer_Use_Tax_Webinar">Consumer Use documentation</a> at our help center.
 
 <hr />
-
-<h4>Related Community Discussions</h4>
-<div id="gsfn_list_widget">
-<div id="gsfn_content">Loading...</div>
-</div>
-<script src="https://getsatisfaction.com/avalara/widgets/javascripts/f585970/widgets.js" type="text/javascript"></script><script src="https://getsatisfaction.com/avalara/topics.widget?callback=gsfnTopicsCallback&amp;length=240&amp;limit=5&amp;sort=recently_active&amp;user_defined_code=consumerUse" type="text/javascript"></script>
-<div id="getsat-widget-8157"></div>
-<script src="https://loader.engage.gsfn.us/loader.js" type="text/javascript"></script><script type="text/javascript">// <![CDATA[
-if (typeof GSFN !== "undefined") { GSFN.loadWidget(8157,{"containerId":"getsat-widget-8157"}); }
-// ]]></script>

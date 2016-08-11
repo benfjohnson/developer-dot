@@ -1,9 +1,10 @@
 ---
-layout: default
+layout: page
 title: SOAP or REST?
 product: avaTax
 doctype: use_cases
 nav: apis
+community: apiDisambiguation
 ---
 <h2>Undecided whether to use our SOAP or REST APIs? Here's a full list of their functions and differences.</h2>
 The Avalara AvaTax service is SOAP-based, so that API covers all AvaTax functionality. However, we understand the demand for a more RESTful interface, so we provide the main functions of the AvaTax service as a REST API.
@@ -119,13 +120,3 @@ Here's a list of the primary functionalities available in each of our APIs:
 <blockquote><strong>Note: </strong>There are some legacy functions that are not mentioned in this chart that are available through the SOAP API only.</blockquote>
 
 <hr />
-
-<h4>Related Community Discussions</h4>
-<div id="gsfn_list_widget">
-<div id="gsfn_content">Loading...</div>
-</div>
-<script src="https://getsatisfaction.com/avalara/widgets/javascripts/f585970/widgets.js" type="text/javascript"></script><script src="https://getsatisfaction.com/avalara/topics.widget?callback=gsfnTopicsCallback&amp;length=240&amp;limit=5&amp;sort=recently_active&amp;user_defined_code=apiDisambiguation" type="text/javascript"></script>
-<div id="getsat-widget-8157"></div>
-<script src="https://loader.engage.gsfn.us/loader.js" type="text/javascript"></script><script type="text/javascript">// <![CDATA[
-if (typeof GSFN !== "undefined") { GSFN.loadWidget(8157,{"containerId":"getsat-widget-8157"}); }
-// ]]></script>

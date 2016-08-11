@@ -26,7 +26,7 @@ sections: [
     ['post', 'Posts']
 ]
 
-gems: 
+gems:
     - algoliasearch-jekyll
     - jekyll-paginate
 
