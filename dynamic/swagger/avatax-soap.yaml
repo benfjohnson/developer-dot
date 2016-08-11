@@ -54,7 +54,6 @@ paths:
     post:
       operationId: postTax
       summary: Post a Document
-      description: '<<FILLER>>'
       parameters:
         - in: header
           name: SOAPAction
@@ -78,7 +77,6 @@ paths:
     post:
       operationId: commitTax
       summary: Commit a Document
-      description: '<<FILLER>>'
       parameters:
         - in: header
           name: SOAPAction
@@ -126,7 +124,6 @@ paths:
     post:
       operationId: adjustTax
       summary: Adjust a Document
-      description: '<<FILLER>>'
       parameters:
         - in: header
           name: SOAPAction
@@ -150,7 +147,6 @@ paths:
     post:
       operationId: getTaxHistory
       summary: Retrieve a Document
-      description: '<<FILLER>>'
       parameters:
         - in: header
           name: SOAPAction
@@ -174,7 +170,6 @@ paths:
     post:
       operationId: ping
       summary: Test service connectivity
-      description: '<<FILLER>>'
       parameters:
         - in: header
           name: SOAPAction
@@ -198,7 +193,6 @@ paths:
     post:
       operationId: isAuthorized
       summary: Test authorized operations
-      description: '<<FILLER>>'
       parameters:
         - in: header
           name: SOAPAction
@@ -223,7 +217,6 @@ paths:
       operationId: applyPayment
       deprecated: true
       summary: DEPRECATED Change payment date
-      description: '<<FILLER>>'
       parameters:
         - in: header
           name: SOAPAction
@@ -248,7 +241,6 @@ paths:
       operationId: reconcileTaxHistory
       summary: DEPRECATED Mark documents as Reconciled
       deprecated: true
-      description: '<<FILLER>>'
       parameters:
         - in: header
           name: SOAPAction

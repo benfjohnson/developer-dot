@@ -3,12 +3,13 @@ import ApiConsole from '../../shared/components/apiConsole';
 import ReactMarkdown from 'react-markdown';
 import RequestParamsDocumentation from './requestParamsDocumentation';
 import ApiDocumentation from './apiDocumentation';
+import ExpanderIcon from './expanderIcon';
 
 const replaceSpaces = (str) => str.replace(/\s/g, '_');
 
 // Give our endpoint an id based on its name for our clientside routing in jekyll
 const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocCollapse, onConsoleVisibilityToggle, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => (
-    <div data-magellan-target={replaceSpaces(endpoint.name)} id={replaceSpaces(endpoint.name)}>
+    <div id={replaceSpaces(endpoint.name)}>
         <div className={'endpoint-summary'}>
             <h2>{endpoint.name}</h2>
             {
@@ -24,9 +25,13 @@ const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocC
                 >{'Try it now!'}</a> : null
             }
             <br />
-            <ReactMarkdown source={endpoint.description} />
             <br />
-            <br />
+            {
+                endpoint.description ?
+                <div>
+                    <ReactMarkdown source={endpoint.description} />
+                </div> : null
+            }
             <div>
                 <div className={'api-label-text'}>{'Api Endpoint'}</div>
                 <div className={'code-snippet-plaintext'}>{`${endpoint.action.toUpperCase()} ${endpoint.path}`}</div>
@@ -45,8 +50,10 @@ const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocC
                         onConsoleVisibilityToggle(id);
                     }
                 }>
-                    {'Try it now! '}
-                    <span className={'documentation-expand-icon glyphicon glyphicon-menu-down' + (endpoint.apiConsoleVisible ? ' rotate' : '')}></span>
+                    <div className={'documentation-expand-icon' + (endpoint.apiConsoleVisible ? ' rotate' : '')} style={{display: 'inline-block', marginRight: '5px'}}>
+                        <ExpanderIcon />
+                    </div>
+                    <span>{'Try it now! '}</span>
                 </div>
                 <div className={'collapse'} id={`${replaceSpaces(endpoint.name)}-console-body`}>
                     <ApiConsole endpoint={endpoint} id={id} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest}/>
