@@ -132,7 +132,7 @@ The results of this invoice were as follows:
 
 &nbsp;
 
-<h2>Related Community Discussions</h2>
+<h4>Related Community Discussions</h4>
 
 &nbsp;
 

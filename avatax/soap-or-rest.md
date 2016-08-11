@@ -120,7 +120,7 @@ Here's a list of the primary functionalities available in each of our APIs:
 
 <hr />
 
-<h2>Related Community Discussions</h2>
+<h4>Related Community Discussions</h4>
 <div id="gsfn_list_widget">
 <div id="gsfn_content">Loading...</div>
 </div>

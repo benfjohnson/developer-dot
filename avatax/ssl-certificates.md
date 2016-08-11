@@ -16,7 +16,7 @@ Some web clients (such as cURL for Windows) will require you to download the Ava
 
 <hr />
 
-<h2>Related Community Discussions</h2>
+<h4>Related Community Discussions</h4>
 <div id="gsfn_list_widget">
 <div id="gsfn_content">Loading...</div>
 </div>

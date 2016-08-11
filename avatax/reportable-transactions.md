@@ -22,7 +22,7 @@ Committing an invoice should be performed at whatever point an invoice will no l
 
 <hr />
 
-<h2>Related Community Discussions</h2>
+<h4>Related Community Discussions</h4>
 <div id="gsfn_list_widget">
 <div id="gsfn_content">Loading...</div>
 </div>

@@ -44,7 +44,7 @@ With the combination of the Avalara’s Server Status website and the script pro
 
 &nbsp;
 
-<h2>Related Community Discussions</h2>
+<h4>Related Community Discussions</h4>
 
 &nbsp;
 

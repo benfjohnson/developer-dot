@@ -135,17 +135,18 @@
 .pageTitle {
     font-family: 'apertura regular';
     text-transform: capitalize;
+    padding-bottom:10px;
     &, a {
         color: $Medium-grey;
         font-size: 26px;
         img {
-            width: 100px;
+            height: 20px;
             margin-top: -10px;
             margin-right: 3px;
         }
     }
     span {
-        font-size: 26px;
+        @extend h4;
     }
 }
 

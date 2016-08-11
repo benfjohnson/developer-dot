@@ -131,7 +131,7 @@ If you have built libraries or sample code that connects to our services and wou
 
 <hr />
 
-<h2>Related Community Discussions</h2>
+<h4>Related Community Discussions</h4>
 <div id="gsfn_list_widget">
 <div id="gsfn_content">Loading...</div>
 </div>

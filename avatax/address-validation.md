@@ -39,7 +39,7 @@ Each Address Validation call is considered a transaction when calculating cost. 
 
 &nbsp;
 
-<h2>Related Community Discussions</h2>
+<h4>Related Community Discussions</h4>
 
 &nbsp;
 

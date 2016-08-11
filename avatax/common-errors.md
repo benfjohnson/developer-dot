@@ -332,7 +332,7 @@ If you're calling the service hosted on CloudConnect, you may encounter the foll
 
 &nbsp;
 
-<h2>Related Community Discussions</h2>
+<h4>Related Community Discussions</h4>
 
 &nbsp;
 

@@ -42,10 +42,9 @@ h2 {
 }
 h3 {
     @extend .font-normal;
-    font-family: 'source sans pro regular', sans serif;
+    font-family: 'source sans pro light', sans serif;
     color: $Ava-orange;
-    font-size: 26px;
-    font-weight: 200;
+    font-size: 23px;
 }
 h4 {
     @extend .font-normal;

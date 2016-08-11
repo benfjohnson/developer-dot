@@ -41,7 +41,7 @@ If you're ready to start some testing, you may want to review the <a href="/avat
 
 &nbsp;
 
-<h2>Related Community Discussions</h2>
+<h4>Related Community Discussions</h4>
 
 &nbsp;
 

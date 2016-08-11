@@ -51,7 +51,7 @@ If your company deploys a security practice that requires locking down outbound 
 
 <hr />
 
-<h2>Related Community Discussions</h2>
+<h4>Related Community Discussions</h4>
 <div id="gsfn_list_widget">
 <div id="gsfn_content">Loading...</div>
 </div>
