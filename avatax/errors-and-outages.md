@@ -66,7 +66,5 @@ or turn on tracing as per the Microsoft .NET Framework 3.0 SDK documentation and
 	<li>There is a network / internal (local service) interruption preventing the web service call to contact the AvaTax web service.</li>
 	<li>There is a configuration problem with your adapter host settings.</li>
 </ul>
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-
 
 <hr />

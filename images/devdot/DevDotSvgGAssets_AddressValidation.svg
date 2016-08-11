@@ -1,1 +1,15 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><style>.cls-1{fill:#f60;}</style></defs><title>DevDotSvgGAssets</title><path class="cls-1" d="M90.08,20.42H57.72l-3,7H89v27H13v-27h1v-7H10.75C9.52,20.42,9,23.11,9,24.34V57.27c0,1.23.52,1.14,1.75,1.14H32.51L49,78.76V98.42h5v-32H49v5.65L38.52,58.42H59v40h3v-40H90.08c1.23,0,3.92.09,3.92-1.14V24.34C94,23.11,91.32,20.42,90.08,20.42Z"/><path class="cls-1" d="M64.4,4.7,62.26-.37C49.62,9,38.86,20.9,31.72,30c0,0-4.57-5.58-7.24-8.61l-3.78,8.91c5.43,8.1,9,15.06,11,18.38C35.55,42.17,44.94,22.81,64.4,4.7Z"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FF6600;}
+</style>
+<title>DevDotSvgGAssets</title>
+<g>
+	<path class="st0" d="M92.3,21.1h-32l-4.7,7.1h33.2v25.8H16.5V35.8h0V21.1H13c-2,0-3.6,1.6-3.6,3.6v32.9c0,2,1.6,3.6,3.6,3.6h20.6
+		l17.2,19.1v-12l-6.4-7.1h13.6V98h8V61.2h26.4c2,0,3.6-1.6,3.6-3.6V24.7C95.9,22.7,94.3,21.1,92.3,21.1z"/>
+	<path class="st0" d="M66.6,5.1L64.5,0C51.9,9.3,41.1,21.3,34,30.4c0,0-4.6-5.6-7.2-8.6l-3.8,8.9c5.4,8.1,9,15.1,11,18.4
+		C37.8,42.5,47.2,23.2,66.6,5.1z"/>
+</g>
+</svg>

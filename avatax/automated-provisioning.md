@@ -47,23 +47,3 @@ Once the account is provisioned, additional companies can be created.
 If a company requires more than one reportable location, additional locations can be defined.
 <h4>Request 4: /nexus</h4>
 If a company requires more than one nexus location, additional nexus can be set.
-=======
----
-layout: default
-title: Develop
-product: onboarding
-doctype: documentation
----
-<h3>Develop Your Integration</h3>
-Once you have access to the Onboarding API, there are a number of options and simplifications you can present to your users.
-<h4>Provisioning Workflow</h4>
-<h4>Registered in more than one jurisdiction?</h4>
-Account creation also creates a default company, with a single-location nexus set up. This tax registration (nexus) reflects all triggered jurisdictions for the provided merchant address. If the merchant needs to collect sales tax in additional locations (e.g. other states), nexus needs to be set up in those jurisdictions as well. You can call POST /nexus with additional addresses to set nexus associated with those merchant addresses. If a merchant prefers to choose nexus jurisdictions by name (rather than triggering them by address), they should set up their nexus in the Avalara Admin Console.
-<h4>Why Set Locations?</h4>
-When a company is created, a single location is also created. If a merchant needs to report out sales by physical location within a single jurisdiction (note: this is uncommon), additional locations should be created. Locations do not need to represent every merchant origin address, or every end-customer address (in fact, they should never represent an end-customer address).
-<h4>Credential Management</h4>
-Provisioning an account creates the account number and license key required to call that account. This credential information is returned in the response to POST /accounts. You should store this information in a secure, merchant-specific location. The merchant will also be emailed this credential information, but since it is specifically used for calling the AvaTax API (separate credentials are issued to the merchant to log in to the Avalara Admin Console), it is most useful when entered in your connector.
-<h4>Processing Payment</h4>
-Currently only free trial accounts can be created through the Onboarding API. Payment information does not need to be collected or provided to provision free trial accounts.
-<h4>Product Attachment</h4>
-If a merchant wants to upgrade from a free trial account to a full account, or to add additional services (tax return filing, certificate management) to their existing paid account, they should reach out to Avalara directly. Product attachment is not currently supported through the Onboarding API.
