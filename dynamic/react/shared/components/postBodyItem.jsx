@@ -30,9 +30,9 @@ const PostBodyItem = ({name, itemSchema, itemValue, endpointId, uiState, display
                             onChange={(e) => {
                                 onPostBodyInputChanged(endpointId, name, e.target.value);
                             }}
-                            value={itemValue || '*select*'}
+                            value={itemValue || ''}
                         >
-                            <option disabled={true} value={'*select*'}>{''}</option>
+                            <option value={''}>{''}</option>
                             {itemSchema.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
                         </select> :
                         <input
