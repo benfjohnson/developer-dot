@@ -14,18 +14,20 @@ const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocC
             <h2>{endpoint.name}</h2>
             {
                 apiType === 'REST' ?
-                <a
-                    href={`#${replaceSpaces(endpoint.name)}-console`}
-                    onClick={
-                        () => {
-                            $(`#${replaceSpaces(endpoint.name)}-console-body`).collapse('show');
-                            onJumpToConsole(id);
+                <div>
+                    <a
+                        href={`#${replaceSpaces(endpoint.name)}-console`}
+                        onClick={
+                            () => {
+                                $(`#${replaceSpaces(endpoint.name)}-console-body`).collapse('show');
+                                onJumpToConsole(id);
+                            }
                         }
-                    }
-                >{'Try it now!'}</a> : null
+                    >{'Try it now!'}</a>
+                    <br />
+                    <br />
+                </div> : null
             }
-            <br />
-            <br />
             {
                 endpoint.description ?
                 <div>
