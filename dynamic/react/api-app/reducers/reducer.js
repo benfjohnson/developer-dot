@@ -33,9 +33,6 @@ const reducer = (state = {}, action) => {
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
-    case actionTypes.TOGGLE_DOCUMENTATION_ITEM_VISIBILITY:
-    case actionTypes.CONSOLE_VISIBILITY_TOGGLED:
-    case actionTypes.JUMP_TO_CONSOLE:
     case actionTypes.RESET_CONSOLE:
         return {...state, apiEndpoints: state.apiEndpoints.map((endpoint, i) => {
             if (i === action.endpointId) {

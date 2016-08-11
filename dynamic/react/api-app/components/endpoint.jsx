@@ -8,7 +8,7 @@ import ExpanderIcon from './expanderIcon';
 const replaceSpaces = (str) => str.replace(/\s/g, '_');
 
 // Give our endpoint an id based on its name for our clientside routing in jekyll
-const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocCollapse, onConsoleVisibilityToggle, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => (
+const EndPointComponent = ({endpoint, apiType, id, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => (
     <div id={replaceSpaces(endpoint.name)}>
         <div className={'endpoint-summary'}>
             <h2>{endpoint.name}</h2>
@@ -20,7 +20,6 @@ const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocC
                         onClick={
                             () => {
                                 $(`#${replaceSpaces(endpoint.name)}-console-body`).collapse('show');
-                                onJumpToConsole(id);
                             }
                         }
                     >{'Try ' + endpoint.name + ' now!'}</a></h5>
@@ -43,19 +42,19 @@ const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocC
         <br />
         {endpoint.queryString ? <RequestParamsDocumentation paramType={'QUERY_STRING'} params={endpoint.queryString} /> : null}
         {endpoint.pathParams ? <RequestParamsDocumentation paramType={'PATH'} params={endpoint.pathParams} /> : null}
-        {endpoint.requestSchema ? <ApiDocumentation documentationFor={'REQUEST'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onToggleDocCollapse={onToggleDocCollapse} postBody={endpoint.requestSchema} /> : null}
-        {endpoint.responseSchema ? <ApiDocumentation documentationFor={'RESPONSE'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onToggleDocCollapse={onToggleDocCollapse} postBody={endpoint.responseSchema} /> : null}
+        {endpoint.requestSchema ? <ApiDocumentation documentationFor={'REQUEST'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.requestSchema} /> : null}
+        {endpoint.responseSchema ? <ApiDocumentation documentationFor={'RESPONSE'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.responseSchema} /> : null}
         {apiType === 'REST' ?
             <div>
                 <div className={'try-it-now-header'} data-target={`#${replaceSpaces(endpoint.name)}-console-body`} data-toggle={'collapse'} id={replaceSpaces(`${endpoint.name}-console`)} onClick={
                     () => {
-                        onConsoleVisibilityToggle(id);
+                        $(`#${replaceSpaces(endpoint.name)}-console-icon`).toggleClass('rotate');
                     }
                 }>
-                    <div className={'documentation-expand-icon' + (endpoint.apiConsoleVisible ? ' rotate' : '')} style={{display: 'inline-block', marginRight: '5px'}}>
-                        <ExpanderIcon />
+                    <div className={'documentation-expand-icon'} id={`${replaceSpaces(endpoint.name)}-console-icon`} style={{display: 'inline-block', marginRight: '5px'}}>
+                        <ExpanderIcon startPosition={'DOWN'}/>
                     </div>
-                    <h5><span>{'Try ' + endpoint.name + ' now!'}</span></h5>
+                    <h5 className={'clickable'} style={{display: 'inline-block'}}>{'Try ' + endpoint.name + ' now!'}</h5>
                 </div>
                 <div className={'collapse'} id={`${replaceSpaces(endpoint.name)}-console-body`}>
                     <ApiConsole endpoint={endpoint} id={id} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest}/>
@@ -101,21 +100,17 @@ EndPointComponent.propTypes = {
             body: React.PropTypes.oneOfType([
                 React.PropTypes.object, React.PropTypes.array
             ]).isRequired
-        }),
-        apiConsoleVisible: React.PropTypes.bool.isRequired
+        })
     }).isRequired,
     id: React.PropTypes.number.isRequired,
     onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
-    onConsoleVisibilityToggle: React.PropTypes.func.isRequired,
     onFillConsoleSampleData: React.PropTypes.func.isRequired,
-    onJumpToConsole: React.PropTypes.func.isRequired,
     onPathParamChanged: React.PropTypes.func.isRequired,
     onPostBodyInputChanged: React.PropTypes.func.isRequired,
     onQueryParamChanged: React.PropTypes.func.isRequired,
     onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
     onResetConsole: React.PropTypes.func.isRequired,
-    onSubmitConsoleRequest: React.PropTypes.func.isRequired,
-    onToggleDocCollapse: React.PropTypes.func.isRequired
+    onSubmitConsoleRequest: React.PropTypes.func.isRequired
 };
 
 export default EndPointComponent;

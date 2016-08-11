@@ -21,19 +21,19 @@ const getSectionHighlightFromNestingLevel = (nestingLevel) => {
  * Defines a wrapper to nest object properties or
  * array items in a PostBody
  * */
-const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, nestingLevel, propertyName, displayName, uiState, onToggleDocCollapse, children}) => {
+const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, nestingLevel, propertyName, displayName, uiState, children}) => {
     const style = nestingLevel > 1 ? {} : {marginTop: '10px', marginBottom: '10px'};
 
     return (
         <div className={'documentation-collapseable-section'} style={style}>
             <div className={`row api-documentation-section-header ${getSectionHighlightFromNestingLevel(nestingLevel)}`} data-target={`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`} data-toggle={'collapse'} onClick={() => {
-                onToggleDocCollapse(documentationFor, propertyName, endpointId);
+                $(`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}-icon`).toggleClass('rotate');
             }}>
                 <div className={'col-md-11 col-xs-10'}>
                     <span className={'api-doc-parameter-name'}>{`${isArray ? 'Array[' : ''}${displayName.charAt(0).toUpperCase() + displayName.slice(1)}${isArray ? ']' : ''}`}</span>
                 </div>
-                <div className={'col-md-1 col-xs-2 documentation-expand-icon' + (!uiState.visible ? '' : ' rotate')}>
-                        <ExpanderIcon />
+                <div className={'col-md-1 col-xs-2 documentation-expand-icon'} id={`${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}-icon`}>
+                        <ExpanderIcon startPosition={'UP'} />
                 </div>
             </div>
             <div>
@@ -57,7 +57,6 @@ ApiDocumentationHeader.propTypes = {
     endpointId: React.PropTypes.number.isRequired,
     isArray: React.PropTypes.bool.isRequired,
     nestingLevel: React.PropTypes.number.isRequired,
-    onToggleDocCollapse: React.PropTypes.func.isRequired,
     propertyName: React.PropTypes.string.isRequired,
     uiState: React.PropTypes.shape({
         visible: React.PropTypes.bool

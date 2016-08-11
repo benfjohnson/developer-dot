@@ -13,7 +13,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onConsoleVisibilityToggle: () => {},
         onFillConsoleSampleData: (endpointId) => {
             dispatch(actions.fillConsoleSampleData(endpointId));
         },
