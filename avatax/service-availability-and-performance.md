@@ -41,8 +41,6 @@ It illustrates the latency of the network from the source machine to Avalara’s
 
 With the combination of the Avalara’s Server Status website and the script provided, you should be able to determine the source of any network latency problems and respond accordingly. If you are still experiencing latency issues, please feel free to contact Avalara’s Customer Service Department for further troubleshooting.
 
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-
 
 &nbsp;
 

@@ -34,9 +34,6 @@ Each Address Validation call is considered a transaction when calculating cost. 
 
 &nbsp;
 
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-
-
 <hr />
 
 
