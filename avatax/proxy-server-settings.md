@@ -49,8 +49,6 @@ Avalara’s web services do not support host files. The system accessing our ser
 <h3>Clients deploying security enforced firewall rules:</h3>
 If your company deploys a security practice that requires locking down outbound /inbound traffic, it is recommended that you use the DNS names of development.avalara.net or avatax.avalara.net to resolve any issues.
 
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-
 <hr />
 
 <h2>Related Community Discussions</h2>
