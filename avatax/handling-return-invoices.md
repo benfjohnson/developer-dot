@@ -1,9 +1,10 @@
 ---
-layout: default
+layout: page
 title: Product Returns
 product: avaTax
 doctype: use_cases
 nav: apis
+community: returns
 ---
 <h2>Reflecting Returns and Credits Memos in AvaTax</h2>
 When you’re calculating tax on returns or credit memos through the API, there are a few things to keep in mind:
@@ -60,13 +61,3 @@ Once sent to the AvaTax web service, the tax engine will return negative tax amo
 Out of the 6 items originally processed, 2 items have been reversed on your tax reporting –- in this case $29.10 appears essentially as a “credit” on the current month’s tax liability.
 
 <hr />
-
-<h2>Related Community Discussions</h2>
-<div id="gsfn_list_widget">
-<div id="gsfn_content">Loading...</div>
-</div>
-<script src="https://getsatisfaction.com/avalara/widgets/javascripts/f585970/widgets.js" type="text/javascript"></script><script src="https://getsatisfaction.com/avalara/topics.widget?callback=gsfnTopicsCallback&amp;length=240&amp;limit=5&amp;sort=recently_active&amp;user_defined_code=returns" type="text/javascript"></script>
-<div id="getsat-widget-8157"></div>
-<script src="https://loader.engage.gsfn.us/loader.js" type="text/javascript"></script><script type="text/javascript">// <![CDATA[
-if (typeof GSFN !== "undefined") { GSFN.loadWidget(8157,{"containerId":"getsat-widget-8157"}); }
-// ]]></script>

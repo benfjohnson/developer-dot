@@ -1,9 +1,10 @@
 ---
-layout: default
+layout: page
 title: Develop
 product: avaTax
 doctype: use_cases
 nav: apis
+community: document
 ---
 
 {% for page in site.avatax %}
@@ -37,25 +38,3 @@ In addition to the workflows above, there are additional document types and proc
 	<li>If invoices or returns are voided, that cancellation needs to be communicated to AvaTax with a CancelTax call.</li>
 </ul>
 If you're ready to start some testing, you may want to review the <a href="/avatax/api-reference/tax/v1">API Reference</a>, how we deal with <a href="/avatax/calculating-tax#ShippingAndFreight">shipping charges</a>, and pick up some <a href="/avatax/sample-code">sample code</a>.
-
-
-&nbsp;
-
-<h2>Related Community Discussions</h2>
-
-&nbsp;
-
-<div id="gsfn_list_widget">
-
-<div id="gsfn_content">Loading...</div>
-
-&nbsp;
-</div>
-
-<script src="https://getsatisfaction.com/avalara/widgets/javascripts/f585970/widgets.js" type="text/javascript"></script><script src="https://getsatisfaction.com/avalara/topics.widget?callback=gsfnTopicsCallback&amp;length=240&amp;limit=5&amp;sort=recently_active&amp;user_defined_code=document" type="text/javascript"></script>
-
-<div id="getsat-widget-8157"></div>
-
-<script src="https://loader.engage.gsfn.us/loader.js" type="text/javascript"></script><script type="text/javascript">// <![CDATA[
-if (typeof GSFN !== "undefined") { GSFN.loadWidget(8157,{"containerId":"getsat-widget-8157"}); }
-// ]]></script>

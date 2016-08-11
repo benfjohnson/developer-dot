@@ -1,9 +1,10 @@
 ---
-layout: default
+layout: page
 title: Logins and Resources
 product: avaTax
 doctype: use_cases
 nav: apis
+community: auth
 ---
 To activate your Avalara AvaTax Sales Tax API account, please login to the Admin Console at <a href="https://admin-development.avalara.net">https://admin-development.avalara.net</a> (for Development Accounts) or <a href="https://admin-avatax.avalara.net">https://admin-avatax.avalara.net</a> (for Production Accounts) using your user id and password.  Web Service Access (for the API) is gained by using the account number and license key which are displayed after successful account activation.  Please be sure to record the account number and license key for future use.  In addition to activating your account, the Admin Console allows the creation of the company settings and tax profiles used to calculate tax, as well as access to saved transaction information and reports.
 <ul>
@@ -27,13 +28,3 @@ When a license key is reset by Avalara support, the new key is emailed to the Ac
 Warning: Resetting the license key has the effect of invalidating the old key, and breaks all connectors' future connection to the AvaTax web service still using that old license key (including AvaTax ERP Connectors using the same account number). In other words, when you reset your license key, you will need to change the credential properties on any and all connector(s) you have built, installed and/or deployed, but also the AvaTax ERP Connector using the same account number.
 
 <hr />
-
-<h2>Related Community Discussions</h2>
-<div id="gsfn_list_widget">
-<div id="gsfn_content">Loading...</div>
-</div>
-<script src="https://getsatisfaction.com/avalara/widgets/javascripts/f585970/widgets.js" type="text/javascript"></script><script src="https://getsatisfaction.com/avalara/topics.widget?callback=gsfnTopicsCallback&amp;length=240&amp;limit=5&amp;sort=recently_active&amp;user_defined_code=auth" type="text/javascript"></script>
-<div id="getsat-widget-8157"></div>
-<script src="https://loader.engage.gsfn.us/loader.js" type="text/javascript"></script><script type="text/javascript">// <![CDATA[
-if (typeof GSFN !== "undefined") { GSFN.loadWidget(8157,{"containerId":"getsat-widget-8157"}); }
-// ]]></script>

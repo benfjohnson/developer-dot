@@ -15,14 +15,14 @@ const EndPointComponent = ({endpoint, apiType, id, onFillConsoleSampleData, onSu
             {
                 apiType === 'REST' ?
                 <div>
-                    <a
+                    <h5><a
                         href={`#${replaceSpaces(endpoint.name)}-console`}
                         onClick={
                             () => {
                                 $(`#${replaceSpaces(endpoint.name)}-console-body`).collapse('show');
                             }
                         }
-                    >{'Try it now!'}</a>
+                    >{'Try ' + endpoint.name + ' now!'}</a></h5>
                     <br />
                     <br />
                 </div> : null
@@ -54,7 +54,7 @@ const EndPointComponent = ({endpoint, apiType, id, onFillConsoleSampleData, onSu
                     <div className={'documentation-expand-icon'} id={`${replaceSpaces(endpoint.name)}-console-icon`} style={{display: 'inline-block', marginRight: '5px'}}>
                         <ExpanderIcon startPosition={'DOWN'}/>
                     </div>
-                    <span>{'Try it now! '}</span>
+                    <h5><span>{'Try ' + endpoint.name + ' now!'}</span></h5>
                 </div>
                 <div className={'collapse'} id={`${replaceSpaces(endpoint.name)}-console-body`}>
                     <ApiConsole endpoint={endpoint} id={id} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest}/>
