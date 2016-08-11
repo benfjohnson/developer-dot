@@ -8,7 +8,7 @@ nav: home
     <div class="bg-map col-sm-12">
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2 text-center">
-            <h1 class="h1pp ">Bring real-time tax calculation to your financial app</h1>
+            <h1 class="h1pp ">Bring real-time tax calculation to your financial application</h1>
             <img src="/images/Dev.com_Laptop_Code_outlines.svg" />
           </div>
         </div>
@@ -16,8 +16,8 @@ nav: home
           <div class="col-sm-4 text-center">
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2">
-                  <h2>Accurate and easy sales tax calculation</h2>
-                  <p>Instantaneously calculate sales tax in more than 12,000 taxing jurisdictions with our REST API</p>
+                  <h2>Accurate and fast sales tax calculation</h2>
+                  <p>Instantaneously calculate sales tax in more than 70,000 taxing jurisdictions with our REST API.</p>
               </div>
             </div>
           </div>
@@ -25,7 +25,7 @@ nav: home
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2">
                   <h2>Exempt the right customers for the right reasons</h2>
-                  <p>Easily track, validate, and store exemption and resale certificates</p>
+                  <p>Automatically tie your non-taxable transactions directly the correct exemption or reseller certificate.</p>
               </div>
             </div>
           </div>
@@ -33,13 +33,13 @@ nav: home
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2">
                 <h2>Automated rules for global transactions</h2>
-                <p>Calculate tax & duties across the US, Canada, India, Brazil, and 100 additional countries</p>
+                <p>Determine accurate taxability & duties for millions of products and services in over 100 countries.</p>
               </div>
             </div>
           </div>
         </div>
         <div class="row margin-top">
-          <div class="col-sm-12 text-center btn-callout"><a href="/avatax/get-started" role="button">Try it Now</a></div>
+          <div class="col-sm-12 text-center btn-callout"><a href="/avatax/get-started" role="button">Try the API</a></div>
         </div>
         <div class="row bg-white border-top padding-bottom">
           <div class="col-sm-6 col-sm-offset-3 text-center">
@@ -93,20 +93,19 @@ nav: home
         </div>
         <div class="row border-top">
           <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 text-center">
-            <h2>A 90-day free Avalara AvaTax sandbox account lets you kick the wheels</h2>
+            <h2>Try it free for 90 days with an Avalara AvaTax sandbox account</h2>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
             <p>
               You'll be set up with an <a href="/avatax/get-started#signup">AvaTax Basic subscription</a> which lets you calculate taxes in the U.S. and Canada only.<br />
-              See the steps below so that you fully integrate with Avalara AvaTax and leverage what it can do for your financial application.<br />
               Please <a href="mailto:sales@avalara.com">contact us</a> if you need to request an extension, evaluate our global tax calculation or other compliance services.<br />
             </p>
           </div>
         </div>
         <div class="row margin-top">
-          <div class="col-sm-12 text-center btn-callout"><a href="/avatax/signup" role="button">Get an Avalara AvaTax sandbox</a></div>
+          <div class="col-sm-12 text-center btn-callout"><a href="/avatax/signup" role="button">Setup a free sandbox account</a></div>
         </div>
     </div>
 </div>
