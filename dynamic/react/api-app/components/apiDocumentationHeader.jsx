@@ -1,4 +1,5 @@
 import React from 'react';
+import ExpanderIcon from './expanderIcon';
 
 const getSectionHighlightFromNestingLevel = (nestingLevel) => {
     const nestedClass = 'doc-section-header-nested';
@@ -28,12 +29,17 @@ const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, nestingL
             <div className={`row api-documentation-section-header ${getSectionHighlightFromNestingLevel(nestingLevel)}`} data-target={`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`} data-toggle={'collapse'} onClick={() => {
                 onToggleDocCollapse(documentationFor, propertyName, endpointId);
             }}>
-                <div className={'col-md-2 api-doc-parameter-name s5 api-doc-left-col'}>{displayName}</div>
-                <div className={'col-md-8'}></div>
-                <div className={'col-md-2'}>
-                    <span style={{fontWeight: 'bold'}}>{`${isArray ? 'Array[' : ''}${displayName.charAt(0).toUpperCase() + displayName.slice(1)}${isArray ? ']' : ''}`}</span>
-                    <span className={'documentation-expand-icon glyphicon glyphicon-menu-down' + ((!uiState.visible) ? '' : ' rotate')} style={{float: 'right', marginLeft: '9px'}}></span>
+                <div className={'col-md-1 col-sm-2 col-xs-2 documentation-expand-icon' + (!uiState.visible ? '' : ' rotate')}>
+                        <ExpanderIcon />
                 </div>
+                <div className={'col-sm-5 col-xs-5'}>
+                    <span className={'api-doc-parameter-name s5 api-doc-left-col'}>{displayName}</span>
+                </div>
+                <div className={'col-sm-5 col-xs-5'} style={{textAlign: 'right'}}>
+                    <span style={{fontWeight: 'bold'}}>{`${isArray ? 'Array[' : ''}${displayName.charAt(0).toUpperCase() + displayName.slice(1)}${isArray ? ']' : ''}`}</span>
+                </div>
+            </div>
+            <div>
             </div>
             <div className={'collapse in'} id={`${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`}>
             {children}

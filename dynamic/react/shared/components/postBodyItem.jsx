@@ -41,7 +41,6 @@ const PostBodyItem = ({name, itemSchema, itemValue, endpointId, uiState, display
                             onChange={(e) => {
                                 onPostBodyInputChanged(endpointId, name, e.target.value);
                             }}
-                            placeholder={itemSchema.example}
                             value={itemValue}
                         />
                     }
