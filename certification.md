@@ -11,7 +11,7 @@ nav: certification
     <h1>Grow your your customer base and recurring revenue with a certified Avalara integration</h1>
     <div class="row">
         <div class="col-xs-4 text-right"><img src="/images/devdot/DevDotSvgGAssets_One.svg" height="75"/></div>
-        <div class="col-xs-6 text-left"><h4>Start by building a certified integration with Avalara AvaTax and its Admin Console for real-time tax calculation</h4></div>
+        <div class="col-xs-6 text-left"><h4>Start by building a certified integration with Avalara AvaTax for real-time tax calculation</h4></div>
     </div>
     <div class="row padding-bottom">
         <div class="col-xs-4 text-right"><img src="/images/devdot/DevDotSvgGAssets_Two.svg" height="75" /></div>
@@ -21,7 +21,7 @@ nav: certification
 </div>
 <div class="row border-top padding-top">
     <div class="col-xs-offset-3 col-xs-6 text-center">
-        <h2>We have an efficient timeline to becoming a market-ready, certified Avalara integration partner</h2>
+        <h2>Become a certified Avalara integration partner</h2>
     </div>
 </div>
 <div class="row padding-top padding-bottom">
@@ -48,7 +48,7 @@ nav: certification
 </div>
 <div class="row padding-top">
     <div class="col-xs-offset-3 col-xs-6 text-center">
-        <h2>Get started now, use our tools and resources to create a market-ready, certified Avalara integration headline</h2>
+        <h2>Get started now, use our tools and resources</h2>
     </div>
 </div>
 <div class="row padding-top">
@@ -93,5 +93,5 @@ nav: certification
     </div>
 </div>
 <div class="row padding-top">
-    <div class="col-xs-offset-3 col-xs-6 text-center btn-callout"><a href="/avatax/get-started#signup" role="button">Get an Avalara AvaTax sandbox</a></div>
+    <div class="col-xs-offset-3 col-xs-6 text-center btn-callout"><a href="/avatax/get-started" role="button">Get started</a></div>
 </div>

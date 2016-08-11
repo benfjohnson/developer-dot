@@ -9,7 +9,7 @@ doctype: overview
 <div class="row bg-map">
   <div class="col-sm-8 col-sm-offset-2 text-center">
     <h1 class="h1p">Real-time tax calculation for financial applications</h1>
-    <h1>A 90-day free Avalara AvaTax sandbox account lets you kick the wheels</h1>
+    <h1>Try free for 90 days with an Avalara AvaTax sandbox account</h1>
   </div>
   <div class="col-xs-offset-2 col-xs-8 text-center btn-callout"><a href="/avatax/signup" role="button">Get an Avalara AvaTax sandbox</a></div>
 </div>
@@ -37,7 +37,7 @@ doctype: overview
 </div>
 <div class="row padding-top padding-bottom">
   <div class="col-sm-8 col-sm-offset-2 text-center">
-    <h1 class="h1p">Become familiar with core AvaTax features</h1>
+    <h1 class="h1p">Learn what the AvaTax API can do for you</h1>
     <ul class="pipe">
         <li><a href="/avatax/use-cases">Use cases</a></li>
         <li><a href="/avatax/api-reference/tax/v1">API references</a></li>
@@ -48,7 +48,7 @@ doctype: overview
   <div class="col-sm-8 col-sm-offset-2 text-center">
     <div class="row">
         <div class="col-sm-3">
-            <h4>Prototyping tools</h4>
+            <h4>Fast and easy integration</h4>
         </div>
         <div class="col-sm-3">
             <h4>Development tools &amp; support</h4>
