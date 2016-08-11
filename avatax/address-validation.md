@@ -4,6 +4,7 @@ title: Address Validation
 product: avaTax
 doctype: use_cases
 nav: apis
+community: address
 ---
 <h3>Validate and normalize addresses for sales tax calculation.</h3>
 Explicit address validations are standalone address validation calls (meaning address validation only – no tax calculations) that are passed to the AvaTax web service. Then, during the same call (or port opening), results are returned with either a success -- if no ambiguous address information was passed -- a normalized address is returned. Otherwise an error message (i.e. AddressRangeError [see below]) indicating the problem and summary details related to the address submitted is returned.
@@ -37,26 +38,4 @@ Each Address Validation call is considered a transaction when calculating cost. 
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
 
-<hr />
-
-
-&nbsp;
-
-<h3>Related Community Discussions</h3>
-
-&nbsp;
-
-<div id="gsfn_list_widget">
-
-<div id="gsfn_content">Loading...</div>
-
-&nbsp;
-</div>
-
-<script src="https://getsatisfaction.com/avalara/widgets/javascripts/f585970/widgets.js" type="text/javascript"></script><script src="https://getsatisfaction.com/avalara/topics.widget?callback=gsfnTopicsCallback&amp;length=240&amp;limit=5&amp;sort=recently_active&amp;user_defined_code=address" type="text/javascript"></script>
-
-<div id="getsat-widget-8157"></div>
-
-<script src="https://loader.engage.gsfn.us/loader.js" type="text/javascript"></script><script type="text/javascript">// <![CDATA[
-if (typeof GSFN !== "undefined") { GSFN.loadWidget(8157,{"containerId":"getsat-widget-8157"}); }
-// ]]></script>
+<hr/>

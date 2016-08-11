@@ -4,6 +4,7 @@ title: VAT Transactions
 product: avaTax
 doctype: use_cases
 nav: apis
+community: Global
 ---
 <h2>VAT Transactions</h2>
 Clients with sales in the European Union (EU) that have global access enabled in their account can use Avalara AvaTax just as they do for US and Canadian taxes, but there are some important considerations regarding whether the buyer is a VAT-registered business or a non-business consumer that affect where the tax is sourced (origin or destination) and whether or not a tax amount should be calculated. The VAT decision process utilizes the <strong>BusinessIdentificationNo</strong> field of the GetTaxRequest or Line object, which is where you will send <strong>the buyer's</strong> VAT registration ID.
@@ -60,13 +61,3 @@ A reverse charge calculates both input and output tax types.
 
 
 <hr />
-
-<h2>Related Community Discussions</h2>
-<div id="gsfn_list_widget">
-<div id="gsfn_content">Loading...</div>
-</div>
-<script src="https://getsatisfaction.com/avalara/widgets/javascripts/f585970/widgets.js" type="text/javascript"></script><script src="https://getsatisfaction.com/avalara/topics.widget?callback=gsfnTopicsCallback&amp;length=240&amp;limit=5&amp;sort=recently_active&amp;user_defined_code=Global" type="text/javascript"></script>
-<div id="getsat-widget-8157"></div>
-<script src="https://loader.engage.gsfn.us/loader.js" type="text/javascript"></script><script type="text/javascript">// <![CDATA[
-if (typeof GSFN !== "undefined") { GSFN.loadWidget(8157,{"containerId":"getsat-widget-8157"}); }
-// ]]></script>
