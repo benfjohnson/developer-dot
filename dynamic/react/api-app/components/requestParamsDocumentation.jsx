@@ -13,7 +13,7 @@ const PARAM_TYPES = {
 const RequestParamsDocumentation = ({paramType, params}) => {
     return (
         <div>
-            <h3>{paramType === PARAM_TYPES.QUERY_STRING ? 'Querystring Parameters' : 'Path Parameters'}</h3>
+            <h4 className={'api-doc-header'}>{paramType === PARAM_TYPES.QUERY_STRING ? 'Querystring Parameters' : 'Path Parameters'}</h4>
             {Object.keys(params).map((key, i) => {
                 return (
                     <div className={'row documentation-parameter-body'} key={i}>

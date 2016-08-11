@@ -9,15 +9,7 @@ const DOC_TYPES = {
 
 const ApiDocumentation = (props) => (
     <div>
-        <div className={'row'}>
-            <div className='col-md-6'>
-                <h3>{props.documentationFor === DOC_TYPES.REQUEST ? 'Post Body Parameters' : 'Response'}</h3>
-            </div>
-            <div className={'col-md-2'}></div>
-            <div className='col-md-3'>
-                <h3 className={'api-documentation-req-or-res-type'}>{props.postBody.fieldType && props.postBody.fieldType === 'array' ? 'Array of' : 'Object'}</h3>
-            </div>
-        </div>
+        <h4 className={'api-doc-header'}>{props.documentationFor === DOC_TYPES.REQUEST ? 'Post Body Parameters' : 'Response'}<span>{props.postBody.fieldType && props.postBody.fieldType === 'array' ? '[Array]' : ''}</span></h4>
         <ApiDocumentationItem
             canRemove={false}
             displayName={'Post Body Parameters'}

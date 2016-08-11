@@ -1,5 +1,5 @@
 import SwaggerParser from 'swagger-parser';
-import parseSwaggerUi from '../../parseSwaggerUi';
+import parseSwaggerUi from '../../parseSwaggerUI';
 import path from 'path';
 
 export default (filename, callback) => {

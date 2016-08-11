@@ -9,7 +9,7 @@ const replaceSpaces = (str) => str.replace(/\s/g, '_');
 
 // Give our endpoint an id based on its name for our clientside routing in jekyll
 const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocCollapse, onConsoleVisibilityToggle, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => (
-    <div data-magellan-target={replaceSpaces(endpoint.name)} id={replaceSpaces(endpoint.name)}>
+    <div id={replaceSpaces(endpoint.name)}>
         <div className={'endpoint-summary'}>
             <h2>{endpoint.name}</h2>
             {
@@ -25,12 +25,11 @@ const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocC
                 >{'Try it now!'}</a> : null
             }
             <br />
+            <br />
             {
                 endpoint.description ?
                 <div>
                     <ReactMarkdown source={endpoint.description} />
-                    <br />
-                    <br />
                 </div> : null
             }
             <div>
@@ -51,7 +50,7 @@ const EndPointComponent = ({endpoint, apiType, id, onJumpToConsole, onToggleDocC
                         onConsoleVisibilityToggle(id);
                     }
                 }>
-                    <div style={{display: 'inline-block', marginRight: '5px'}} className={'documentation-expand-icon' + (endpoint.apiConsoleVisible ? ' rotate' : '')}>
+                    <div className={'documentation-expand-icon' + (endpoint.apiConsoleVisible ? ' rotate' : '')} style={{display: 'inline-block', marginRight: '5px'}}>
                         <ExpanderIcon />
                     </div>
                     <span>{'Try it now! '}</span>

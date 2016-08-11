@@ -75,13 +75,18 @@ h2, h3 {
         transform: rotate(180deg);
 }
 
+/* overwrite the _typography 0px bottom margin for our documentation headers */
+.api-doc-header {
+    margin-bottom: 10px;
+}
+
 .try-it-now-header {
     display: inline-block;
     color: $Ava-blue;
     cursor: pointer;
     font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
 
     &:hover {
         color: $Darkest-blue;
@@ -139,6 +144,8 @@ h2, h3 {
     top: 0px;
     /* When nav is fixed, it loses the col-sm-3 class of its parent, so replicate its size restriction */
     width: 25%;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .affix-bottom {
@@ -177,6 +184,10 @@ h2, h3 {
 
     .api-doc-parameter-name, .api-doc-left-col, .small-required-text {
         text-align: left;
+    }
+
+    .documentation-parameter-body {
+        border-bottom: 1px solid lightgrey;
     }
 }
 
