@@ -149,12 +149,3 @@ h5.console-output-header {
     margin-top: 0;
     margin-bottom: 10px;
 }
-
-.documentation-collapseable-section {
-    border: 1px solid lightgrey;
-    & & {
-        border-bottom: none;
-        border-left: none;
-        border-right: none;
-    }
-}

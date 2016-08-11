@@ -3,6 +3,10 @@
 //     color: $Ava-orange;
 // }
 
+.api-doc-parameter-name {
+    font-size: 17px;
+}
+
 .small-required-text {
     margin-bottom: 10px;
 }
@@ -49,15 +53,28 @@ h2, h3 {
 }
 
 .documentation-collapseable-section {
+    border: 1px solid lightgrey;
+    & & {
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
+    }
+}
+
+.documentation-collapseable-section {
     div.documentation-parameter-body {
         background: #f5f6fa;
     }
+
+    & +:not(.documentation-parameter-body) {
+        border-bottom: 1px solid lightgrey;
+    }
     
     border: 1px solid lightgrey;
+    
     & & {
         border-left: none;
         border-right: none;
-        border-bottom: none;
     }
 }
 
@@ -181,9 +198,9 @@ h2, h3 {
     //     text-align: left;
     // }
 
-    .documentation-parameter-body {
-        border-bottom: 1px solid lightgrey;
-    }
+    // .documentation-parameter-body {
+    //     border-bottom: 1px solid lightgrey;
+    // }
 }
 
 .api-label-text {
