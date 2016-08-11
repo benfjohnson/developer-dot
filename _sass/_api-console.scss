@@ -122,11 +122,14 @@ h5.console-output-header {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
+    -webkit-flex-wrap: wrap;
     display: flex;
     flex-wrap: wrap;
 }
 
 .api-console.row > .api-console-form-wrapper, .api-console-output {
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
     display: flex;
     flex-direction: column;
 }

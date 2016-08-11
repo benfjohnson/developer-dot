@@ -5,11 +5,19 @@ import ApiDocumentationHeader from './apiDocumentationHeader';
 
 const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, nestingLevel, onToggleDocCollapse, endpointId, uiState, displayName, isRoot = false}) => {
     if (item.fieldType && item.fieldType !== 'array') {
+        // return (
+        //     <div className={'row documentation-parameter-body'}>
+        //         <div className={'col-md-2 api-doc-left-col'}><div className={'api-doc-parameter-name s5'} title={displayName}>{displayName}</div>{item.required ? <div className='t2 small-required-text'>{'Required'}</div> : null}</div>
+        //         <div className={'col-md-8 t1'}><ReactMarkdown source={item.description || ''} /></div>
+        //         <div className={'col-md-2 t3'}>{`${isArray ? 'Array[' : ''}${item.fieldType}${isArray ? ']' : ''}`}</div>
+        //     </div>
+        // );
+
         return (
-            <div className={'row documentation-parameter-body'}>
-                <div className={'col-md-2 api-doc-left-col'}><div className={'api-doc-parameter-name s5'} title={displayName}>{displayName}</div>{item.required ? <div className='t2 small-required-text'>{'Required'}</div> : null}</div>
-                <div className={'col-md-8 t1'}><ReactMarkdown source={item.description || ''} /></div>
-                <div className={'col-md-2 t1'}>{`${isArray ? 'Array[' : ''}${item.fieldType}${isArray ? ']' : ''}`}</div>
+            <div className={'documentation-parameter-body'}>
+                <div><div className={'api-doc-parameter-name s5'} title={displayName}>{displayName}</div>{item.required ? <div className='t2 small-required-text'>{'Required'}</div> : null}</div>
+                <div className={'t1'}><ReactMarkdown source={item.description || ''} /></div>
+                <div className={'t3'}>{`${isArray ? 'Array[' : ''}${item.fieldType}${isArray ? ']' : ''}`}</div>
             </div>
         );
     }
