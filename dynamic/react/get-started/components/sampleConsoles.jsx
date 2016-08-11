@@ -1,5 +1,5 @@
 import React from 'react';
-import ApiConsoleWrapper from './ApiConsoleWrapper';
+import ApiConsoleWrapper from './apiConsoleWrapper';
 
 const SampleConsoles = ({apiEndpoints, onAddItemToPostbodyCollection, onConsoleVisibilityToggle, onFillConsoleSampleData, onPathParamChanged, onPostBodyInputChanged, onQueryParamChanged, onRemovePostbodyCollectionItem, onResetConsole, onSubmitConsoleRequest}) => {
     return (
