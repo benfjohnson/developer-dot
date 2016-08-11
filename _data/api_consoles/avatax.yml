@@ -25,5 +25,5 @@ nav_links:
     path: /avatax/get-started
   - title: Test your integration
     path: /avatax/testing-your-integration
-  - title: Integration Checklists
+  - title: Integration checklists
     path: /avatax/certification

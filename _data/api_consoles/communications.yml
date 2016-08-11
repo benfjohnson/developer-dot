@@ -37,5 +37,5 @@ nav_links:
     path: /communications
   - title: API references
     path: /communications/api-reference/saas/soap
-  - title: Integration Checklists
+  - title: Integration checklists
     path: /communications/certification
