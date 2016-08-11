@@ -101,8 +101,7 @@ export default (api, rootPath) => {
                 description: endpoint[action].description,
                 path: root + k,
                 action: action,
-                isAuthenticated: Boolean(swaggerData.auth),
-                apiConsoleVisible: false
+                isAuthenticated: Boolean(swaggerData.auth)
             };
 
             const endpointParams = endpoint[action].parameters || [];

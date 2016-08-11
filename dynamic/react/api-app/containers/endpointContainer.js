@@ -14,12 +14,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onJumpToConsole: (endpointId) => {
-            dispatch(actions.jumpToConsole(endpointId));
-        },
-        onConsoleVisibilityToggle: (endpointId) => {
-            dispatch(actions.toggleApiConsoleVisibility(endpointId));
-        },
         onFillConsoleSampleData: (endpointId) => {
             dispatch(actions.fillConsoleSampleData(endpointId));
         },

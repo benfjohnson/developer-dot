@@ -32,7 +32,7 @@ const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, nestingL
                 <div className={'col-md-11 col-xs-10'}>
                     <span className={'api-doc-parameter-name'}>{`${isArray ? 'Array[' : ''}${displayName.charAt(0).toUpperCase() + displayName.slice(1)}${isArray ? ']' : ''}`}</span>
                 </div>
-                <div id={`${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}-icon`} className={'col-md-1 col-xs-2 documentation-expand-icon'}>
+                <div className={'col-md-1 col-xs-2 documentation-expand-icon'} id={`${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}-icon`}>
                         <ExpanderIcon startPosition={'UP'} />
                 </div>
             </div>

@@ -125,11 +125,6 @@ const buildInitialPostBodyData = (body) => {
 
     if (body.fieldType === 'array') {
         return [buildInitialPostBodyData(body.items)];
-        // const arrayBody = Object.keys(body.items).filter((n) => n !== 'uiState' && n !== 'required').reduce((accum, prop) => {
-        //     return accum.concat(buildInitialPostBodyData(body.items[prop]));
-        // }, []);
-
-        // return arrayBody;
     }
     const objBody = Object.keys(body).filter((n) => n !== 'uiState' && n !== 'required').reduce((accum, propName) => {
         return {...accum, [propName]: buildInitialPostBodyData(body[propName])};
@@ -154,22 +149,4 @@ const fillOrRemoveSampleData = (endpointState, remove = false) => {
 };
 /* ******* END FILL SAMPLE DATA AND RESET API CONSOLE DATA HELPERS ******* */
 
-// Method traverses a `postBody` endpoint property by colon-separated name and returns the
-// innermost property described by the propertyPath
-const traversePropertyPath = (propertyPath, state) => {
-    if (propertyPath === '') {
-        return state;
-    }
-    const pathArray = propertyPath.split(':');
-
-    return pathArray.reduce((accum, paramName) => {
-        if (paramName.indexOf('[') !== -1) {
-            const index = parseInt(paramName.slice(paramName.indexOf('[') + 1, paramName.indexOf(']')), 10);
-
-            return accum.items[index];
-        }
-        return accum[paramName];
-    }, state);
-};
-
-export {hasExampleData, replacePathParams, buildQsPath, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData, fillPostBodySampleData, fillOrRemoveRequestParamSampleData, traversePropertyPath};
+export {hasExampleData, replacePathParams, buildQsPath, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData, fillPostBodySampleData, fillOrRemoveRequestParamSampleData};
