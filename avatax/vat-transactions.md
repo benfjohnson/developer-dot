@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: VAT Transactions
 product: avaTax
 doctype: use_cases
