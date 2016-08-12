@@ -116,7 +116,7 @@ export default (state, action) => {
         updateDataAtProperty(action.postBodyParamName, castedValue, newState.postBodyData);
         break;
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
-        const newArrObj = buildInitialPostBodyData(action.itemSchema);
+        const newArrObj = buildInitialPostBodyData(action.itemSchema, newState.showExcludedPostBodyFields);
 
         traversePostBodyData(action.postBodyParamName, newState.postBodyData).push(newArrObj);
         break;

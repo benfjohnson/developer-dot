@@ -96,38 +96,38 @@ const fillOrRemoveRequestParamSampleData = (params, remove) => {
         return newParams;
     }, {});
 };
-// Generates initial postBodyData given Post Body's schema
-const fillPostBodySampleData = (body) => {
-    if (body === undefined) {
-        return body;
+// Generates fills sample data in postBodyData given Post Body's schema
+const fillPostBodySampleData = (body, showExcludedPostBodyFields) => {
+    if (body === undefined || (body.isExcluded && !showExcludedPostBodyFields)) {
+        return undefined;
     }
     if (body.fieldType !== 'array' && body.fieldType !== 'object' && body.fieldType) {
         return body.example || undefined;
     }
 
     if (body.fieldType === 'array') {
-        return [fillPostBodySampleData(body.items)];
+        return [fillPostBodySampleData(body.items, showExcludedPostBodyFields)];
     }
-    const objBody = Object.keys(body).filter((n) => n !== 'uiState' && n !== 'required').reduce((accum, propName) => {
-        return {...accum, [propName]: fillPostBodySampleData(body[propName])};
+    const objBody = Object.keys(body).filter((n) => n !== 'uiState' && n !== 'required' && n !== 'isExcluded').reduce((accum, propName) => {
+        return {...accum, [propName]: fillPostBodySampleData(body[propName], showExcludedPostBodyFields)};
     }, {});
 
     return objBody;
 };
 // Generates initial postBodyData given Post Body's schema
-const buildInitialPostBodyData = (body) => {
-    if (body === undefined) {
-        return body;
+const buildInitialPostBodyData = (body, showExcludedPostBodyFields) => {
+    if (body === undefined || (body.isExcluded && !showExcludedPostBodyFields)) {
+        return undefined;
     }
     if (body.fieldType !== 'array' && body.fieldType !== 'object' && body.fieldType) {
         return '';
     }
 
     if (body.fieldType === 'array') {
-        return [buildInitialPostBodyData(body.items)];
+        return [buildInitialPostBodyData(body.items, showExcludedPostBodyFields)];
     }
-    const objBody = Object.keys(body).filter((n) => n !== 'uiState' && n !== 'required').reduce((accum, propName) => {
-        return {...accum, [propName]: buildInitialPostBodyData(body[propName])};
+    const objBody = Object.keys(body).filter((n) => n !== 'uiState' && n !== 'required' && n !== 'isExcluded').reduce((accum, propName) => {
+        return {...accum, [propName]: buildInitialPostBodyData(body[propName], showExcludedPostBodyFields)};
     }, {});
 
     return objBody;
@@ -142,7 +142,7 @@ const fillOrRemoveSampleData = (endpointState, remove = false) => {
     }
 
     if (endpointState.postBodyData) {
-        endpointState.postBodyData = remove ? buildInitialPostBodyData(endpointState.postBody) : fillPostBodySampleData(endpointState.postBody);
+        endpointState.postBodyData = remove ? buildInitialPostBodyData(endpointState.postBody, endpointState.showExcludedPostBodyFields) : fillPostBodySampleData(endpointState.postBody, endpointState.showExcludedPostBodyFields);
     }
 
     return endpointState;

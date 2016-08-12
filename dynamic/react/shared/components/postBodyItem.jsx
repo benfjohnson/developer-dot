@@ -3,11 +3,11 @@ import React from 'react';
 import PostBodySectionHeader from './postBodySectionHeader';
 import PostBodyCollection from './postBodyCollection';
 
-const PostBodyItem = ({name, itemSchema, itemValue, endpointId, uiState, displayName, canRemove, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => {
+const PostBodyItem = ({name, itemSchema, itemValue, endpointId, uiState, displayName, canRemove, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, showExcludedPostBodyFields}) => {
     const uid = `${endpointId}-${displayName}-${name}`;
 
     if (itemSchema.fieldType && itemSchema.fieldType !== 'array') {
-        return (
+        return !itemSchema.isExcluded || (itemSchema.isExcluded && showExcludedPostBodyFields) ? (
             <div className={'form-group'}>
                     <label className={'api-label-text'} htmlFor={uid}>{displayName}</label>
                     {canRemove ?
@@ -45,7 +45,7 @@ const PostBodyItem = ({name, itemSchema, itemValue, endpointId, uiState, display
                         />
                     }
             </div>
-        );
+        ) : null;
     }
 
     if (itemSchema.fieldType === 'array') {
@@ -53,37 +53,38 @@ const PostBodyItem = ({name, itemSchema, itemValue, endpointId, uiState, display
             <PostBodyCollection
                 displayName={displayName}
                 endpointId={endpointId}
-                itemSchema={itemSchema.items}
+                itemSchema={{...itemSchema.items, isExcluded: itemSchema.isExcluded}}
                 itemValue={itemValue}
                 onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
                 onPostBodyInputChanged={onPostBodyInputChanged}
                 onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}
                 propertyName={name}
+                showExcludedPostBodyFields={showExcludedPostBodyFields}
                 uiState={uiState}
             />
         );
     }
 
-    return (
-        <PostBodySectionHeader canRemove={canRemove} displayName={displayName} endpointId={endpointId} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} propertyName={name}>
-            {Object.keys(itemSchema).filter((n) => n !== 'uiState' && n !== 'required' && itemSchema[n]).map((itemKey, i) => {
-                return (<PostBodyItem
-                    canRemove={false}
-                    displayName={itemKey}
-                    endpointId={endpointId}
-                    itemName={itemKey}
-                    itemSchema={itemSchema[itemKey]}
-                    itemValue={itemValue[itemKey]}
-                    key={i}
-                    name={`${name ? name + ':' : ''}` + itemKey}
-                    onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
-                    onPostBodyInputChanged={onPostBodyInputChanged}
-                    onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}
-                    uiState={itemSchema[itemKey].uiState}
-                />);
-            })}
-        </PostBodySectionHeader>
-    );
+    return !itemSchema.isExcluded || (itemSchema.isExcluded && showExcludedPostBodyFields) ?
+            <PostBodySectionHeader canRemove={canRemove} displayName={displayName} endpointId={endpointId} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} propertyName={name}>
+                {Object.keys(itemSchema).filter((n) => n !== 'uiState' && n !== 'required' && n !== 'isExcluded' && itemSchema[n]).map((itemKey, i) => {
+                    return (<PostBodyItem
+                        canRemove={false}
+                        displayName={itemKey}
+                        endpointId={endpointId}
+                        itemName={itemKey}
+                        itemSchema={itemSchema[itemKey]}
+                        itemValue={itemValue[itemKey]}
+                        key={i}
+                        name={`${name ? name + ':' : ''}` + itemKey}
+                        onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
+                        onPostBodyInputChanged={onPostBodyInputChanged}
+                        onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}
+                        showExcludedPostBodyFields={showExcludedPostBodyFields}
+                        uiState={itemSchema[itemKey].uiState}
+                    />);
+                })}
+            </PostBodySectionHeader> : null;
 };
 
 PostBodyItem.displayName = 'Post Body Item';
@@ -98,6 +99,7 @@ PostBodyItem.propTypes = {
     onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
     onPostBodyInputChanged: React.PropTypes.func.isRequired,
     onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
+    showExcludedPostBodyFields: React.PropTypes.bool.isRequired,
     uiState: React.PropTypes.shape({
         visible: React.PropTypes.bool
     })

@@ -16,6 +16,7 @@ const PostBody = (props) => (
                 onAddItemToPostbodyCollection={props.onAddItemToPostbodyCollection}
                 onPostBodyInputChanged={props.onPostBodyInputChanged}
                 onRemovePostbodyCollectionItem={props.onRemovePostbodyCollectionItem}
+                showExcludedPostBodyFields={props.showExcludedPostBodyFields}
                 uiState={props.postBody.uiState}
             />
         }
@@ -31,7 +32,8 @@ PostBody.propTypes = {
     onPostBodyInputChanged: React.PropTypes.func.isRequired,
     onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
     postBody: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
-    postBodyData: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array])
+    postBodyData: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
+    showExcludedPostBodyFields: React.PropTypes.bool.isRequired
 };
 
 export default PostBody;

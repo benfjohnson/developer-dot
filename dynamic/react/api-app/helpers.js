@@ -53,7 +53,7 @@ const buildPostmanCollection = (appState) => {
             });
             baseRequest.request.body = {
                 mode: 'raw',
-                raw: JSON.stringify(fillPostBodySampleData(endpoint.postBody))
+                raw: JSON.stringify(fillPostBodySampleData(endpoint.postBody, endpoint.showExcludedPostBodyFields))
             };
         } else {
             baseRequest.request.body = {
