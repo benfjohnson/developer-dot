@@ -4,8 +4,7 @@ import ApiConsole from '../../shared/components/apiConsole';
 /* eslint-disable react/prop-types */
 const ApiConsoleWrapper = (props) => {
     return (
-        <div style={{margin: '10px'}}>
-            <h3>{props.endpoint.name}</h3>
+        <div className={'tab-pane' + (props.id === 0 ? ' active' : '')} id={props.endpoint.name.replace(/\s/g,'')} role='tabpanel' style={{margin: '10px'}}>
             <ApiConsole {...props} />
         </div>
     );

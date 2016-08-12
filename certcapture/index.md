@@ -8,7 +8,7 @@ doctype: overview
 <div class="row bg-map padding-bottom">
   <div class="col-sm-8 col-sm-offset-2 text-center ">
     <h1 class="h1p">CertCapture API</h1>
-    <img src="/images/devdot/DevDot_CertificateBindersGrey.svg" width="200" />
+    <img src="/images/devdot/DevDot_CertificateBindersGrey.svg" height="100" />
   </div>
 </div>
 <div class="row border-top padding-top padding-bottom">

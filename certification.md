@@ -27,22 +27,22 @@ nav: certification
 <div class="row padding-top padding-bottom">
     <div class="ring-shadow">
         <h2>Day 0</h2>
-        <img src="/images/devdot/DevDotSvgGAssets_KickOff.svg" width="50%"/>
+        <img src="/images/devdot/DevDotSvgGAssets_KickOff.svg" width="80"/>
         <h5>Kick off</h5>
     </div>
     <div class="ring-shadow">
         <h2>Day 30</h2>
-        <img src="/images/devdot/DevDotSvgGAssets_DesignBuild.svg" width="50%"/>
+        <img src="/images/devdot/DevDotSvgGAssets_DesignBuild.svg" width="80"/>
         <h5>Design/Build plan</h5>
     </div>
     <div class="ring-shadow">
         <h2>Day 60</h2>
-        <img src="/images/devdot/DevDotSvgGAssets_FunctionalTest.svg" width="50%"/>
+        <img src="/images/devdot/DevDotSvgGAssets_FunctionalTest.svg" width="80"/>
         <h5>Functional review</h5>
     </div>
     <div class="ring-shadow">
         <h2>Day 90</h2>
-        <img src="/images/devdot/DevDotSvgGAssets_MarketReady.svg" width="50%" />
+        <img src="/images/devdot/DevDotSvgGAssets_MarketReady.svg" width="80" />
         <h5>Market ready</h5>
     </div>
 </div>

@@ -24,9 +24,9 @@ const RequestParams = ({endpointId, paramType, params, onInputChange}) => {
                                 onChange={(e) => {
                                     onInputChange(e.target.value, key, endpointId);
                                 }}
-                                value={params[key].value || '*select*'}
+                                value={params[key].value || ''}
                             >
-                                <option disabled={true} value={'*select*'}>{''}</option>
+                                <option value={''}>{''}</option>
                                 {params[key].enum.map((option, ii) => (<option key={ii} value={option}>{option}</option>))}
                             </select> :
                             <input

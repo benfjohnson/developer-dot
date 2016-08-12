@@ -107,38 +107,39 @@ var handleSearch = function() {
                 });
             }
         });
-
-        var $searchPageForm = $('.search-form');
-
-        $('#query').on('input', function() {
-            if ($searchPageForm.hasClass('submitted') && !$(this).val()) {
-                $(this).parents('.form-group').addClass('has-error').addClass('has-feedback');
-            } else {
-                $(this).parents('.form-group').removeClass('has-error').removeClass('has-feedback');
-            }
-        });
-
-        $searchPageForm.submit(function(e) {
-            e.preventDefault();
-            $(this).addClass('submitted');
-
-            $('#query').parents('.form-group').removeClass('has-error').removeClass('has-feedback');
-            if (!$('#query').val()) {
-                $('#query').parents('.form-group').addClass('has-error').addClass('has-feedback');
-            } else {
-                var newurl = '/search/?q=' + encodeURIComponent($('#query').val());
-
-                if ($('#product-facet').val()) {
-                    newurl += '&product=' + encodeURIComponent($('#product-facet').val());
-                }
-                if ($('#doctype-facet').val()) {
-                    newurl += '&doctype=' + encodeURIComponent($('#doctype-facet').val());
-                }
-
-                location.href = newurl;
-            }
-        });
     }
+
+    var $searchPageForm = $('.search-form');
+
+    $('#query').on('input', function() {
+        if ($searchPageForm.hasClass('submitted') && !$(this).val()) {
+            $(this).parents('.form-group').addClass('has-error').addClass('has-feedback');
+        } else {
+            $(this).parents('.form-group').removeClass('has-error').removeClass('has-feedback');
+        }
+    });
+
+    $searchPageForm.submit(function(e) {
+        e.preventDefault();
+        $(this).addClass('submitted');
+
+        $('#query').parents('.form-group').removeClass('has-error').removeClass('has-feedback');
+        if (!$('#query').val()) {
+            $('#query').parents('.form-group').addClass('has-error').addClass('has-feedback');
+        } else {
+            var newurl = '/search/?q=' + encodeURIComponent($('#query').val());
+
+            if ($('#product-facet').val()) {
+                newurl += '&product=' + encodeURIComponent($('#product-facet').val());
+            }
+            if ($('#doctype-facet').val()) {
+                newurl += '&doctype=' + encodeURIComponent($('#doctype-facet').val());
+            }
+
+            location.href = newurl;
+        }
+    });
+
 };
 
 var setupAvaForm = function() {

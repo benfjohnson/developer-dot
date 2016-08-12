@@ -4,10 +4,18 @@ import ApiConsoleWrapper from './apiConsoleWrapper';
 const SampleConsoles = ({apiEndpoints, onAddItemToPostbodyCollection, onFillConsoleSampleData, onPathParamChanged, onPostBodyInputChanged, onQueryParamChanged, onRemovePostbodyCollectionItem, onResetConsole, onSubmitConsoleRequest}) => {
     return (
         <div>
-            {apiEndpoints.map((endpoint, i) => (
-                <ApiConsoleWrapper endpoint={endpoint} id={i} key={i} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest} />
-                )
-            )}
+            <ul className='nav nav-tabs' role='tablist'>
+                {apiEndpoints.map((endpoint, i) => (
+                        <li className={(i === 0 ? 'active' : '')} key={i} role='presentation'><a href={'#' + endpoint.name.replace(/\s/g, '')} role='tab' data-toggle='tab'>{endpoint.name}</a></li>
+                    )
+                )}
+            </ul>
+            <div className='tab-content'>
+                {apiEndpoints.map((endpoint, i) => (
+                        <ApiConsoleWrapper endpoint={endpoint} id={i} key={i} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest}/>
+                    )
+                )}
+            </div>
         </div>
     );
 };
