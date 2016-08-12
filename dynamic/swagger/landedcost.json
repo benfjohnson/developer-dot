@@ -785,6 +785,10 @@
         "entityType",
         "currency",
         "shipping"
+      ],
+      "x-excludedProperties": [
+        "discount",
+        "charges"
       ]
     },
     "TaxRateSections": {
@@ -946,6 +950,10 @@
                   "id",
                   "hsCode",
                   "description"
+                ],
+                "x-excludedProperties": [
+                  "discount",
+                  "preferenceProgram"
                 ]
               }
             }

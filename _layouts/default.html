@@ -226,7 +226,7 @@
 
 {% if page.api_console == 1 %}
 <script>
-    $("#bootstrap-scrollspy ul li a[href^='#']").on('click', function(e) {
+    $("#bootstrap-scrollspy ul li a[href^='#'], .try-it-now-link a[href^='#']").on('click', function(e) {
         // prevent default anchor click behavior
         e.preventDefault();
 
