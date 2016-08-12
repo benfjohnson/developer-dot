@@ -119,17 +119,19 @@ h5.console-output-header {
 .api-console.row {
     margin-left: 0;
     margin-right: 0;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    -webkit-flex-wrap: wrap;
     display: flex;
     flex-wrap: wrap;
 }
 
+/* Strangely fixes webkit flexbox-bootstrap row compat. issues. Sure... */
+.api-console.container:before,
+.api-console.container:after,
+.api-console.row:before,
+.api-console.row:after {
+    content: normal;
+}
+
 .api-console.row > .api-console-form-wrapper, .api-console-output {
-    display: -webkit-flex;
-    -webkit-flex-direction: column;
     display: flex;
     flex-direction: column;
 }
