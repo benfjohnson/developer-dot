@@ -28,6 +28,11 @@ const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, nestingL
         <div className={'documentation-collapseable-section'} style={style}>
             <div className={`row api-documentation-section-header ${getSectionHighlightFromNestingLevel(nestingLevel)}`} data-target={`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`} data-toggle={'collapse'} onClick={() => {
                 $(`#${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}-icon`).toggleClass('rotate');
+                const intervalId = setInterval(() => {
+                    $('#the-nav').affix('checkPosition');
+                }, 20);
+
+                setTimeout(() => clearInterval(intervalId), 350);
             }}>
                 <div className={'col-md-11 col-xs-10'}>
                     <span className={'api-doc-parameter-name'}>{`${isArray ? 'Array[' : ''}${displayName.charAt(0).toUpperCase() + displayName.slice(1)}${isArray ? ']' : ''}`}</span>
