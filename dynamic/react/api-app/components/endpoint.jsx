@@ -15,11 +15,12 @@ const EndPointComponent = ({endpoint, apiType, id, onFillConsoleSampleData, onSu
             {
                 apiType === 'REST' ?
                 <div>
-                    <h5><a
+                    <h5 className={'try-it-now-link'}><a
                         href={`#${replaceSpaces(endpoint.name)}-console`}
                         onClick={
                             () => {
                                 $(`#${replaceSpaces(endpoint.name)}-console-body`).collapse('show');
+                                $(`#${replaceSpaces(endpoint.name)}-console-icon`).toggleClass('rotate');
                             }
                         }
                     >{'Try ' + endpoint.name + ' now!'}</a></h5>
