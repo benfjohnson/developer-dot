@@ -30,11 +30,6 @@
         line-height: 1.5;
         letter-spacing: .035em;
         padding: ($grid-gutter-width / 2) ($grid-gutter-width);
-        transform: matrix(1, 0, 0, 1, -89, 0);
-        transition-delay: 0s;
-        transition-duration: 0.75s;
-        transition-property: all;
-        transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
         white-space: nowrap;
         &:hover {
             text-decoration: none;
