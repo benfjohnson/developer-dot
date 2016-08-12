@@ -42,6 +42,11 @@
     background-repeat: repeat;
 }
 
+// IE11 hack
+ @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+  .bg-map {
+    background-size: 600px 510px;}}
+
 .bg-white {
     background: white;
 }
