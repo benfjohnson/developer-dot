@@ -8,7 +8,7 @@ nav: certification
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3 text-center">
     <img src="/images/devdot/DevDotSvgGAssets_ComplianceCloudIllustrationCertification.svg" />
-    <h1>Grow your your customer base and recurring revenue with a certified Avalara integration</h1>
+    <h1>Grow your customer base and recurring revenue with a certified Avalara integration</h1>
     <div class="row">
         <div class="col-xs-4 text-right"><img src="/images/devdot/DevDotSvgGAssets_One.svg" height="75"/></div>
         <div class="col-xs-6 text-left"><h4>Start by building a certified integration with Avalara AvaTax for real-time tax calculation</h4></div>
