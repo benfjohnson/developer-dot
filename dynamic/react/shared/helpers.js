@@ -24,7 +24,7 @@ const hasExampleData = (type, paramObj = {}) => {
         return hasExampleData('POST_BODY', paramObj.items);
     }
 
-    return Object.keys(paramObj).filter((k) => k !== 'uiState').map((itm) => hasExampleData('POST_BODY', paramObj[itm])).some((wasTrue) => wasTrue);
+    return Object.keys(paramObj).filter((k) => (k !== 'uiState' && k !== 'required' && k !== 'isExcluded')).map((itm) => hasExampleData('POST_BODY', paramObj[itm])).some((wasTrue) => wasTrue);
 };
 
 const replacePathParams = (path, pathParams, example = false) => {
