@@ -15,11 +15,12 @@ const EndPointComponent = ({endpoint, apiType, id, onFillConsoleSampleData, onSu
             {
                 apiType === 'REST' ?
                 <div>
-                    <h5><a
+                    <h5 className={'try-it-now-link'}><a
                         href={`#${replaceSpaces(endpoint.name)}-console`}
                         onClick={
                             () => {
                                 $(`#${replaceSpaces(endpoint.name)}-console-body`).collapse('show');
+                                $(`#${replaceSpaces(endpoint.name)}-console-icon`).toggleClass('rotate');
                             }
                         }
                     >{'Try ' + endpoint.name + ' now!'}</a></h5>
@@ -57,7 +58,7 @@ const EndPointComponent = ({endpoint, apiType, id, onFillConsoleSampleData, onSu
                     <h5 className={'clickable'} style={{display: 'inline-block'}}>{'Try ' + endpoint.name + ' now!'}</h5>
                 </div>
                 <div className={'collapse'} id={`${replaceSpaces(endpoint.name)}-console-body`}>
-                    <ApiConsole endpoint={endpoint} id={id} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest}/>
+                    <ApiConsole endpoint={endpoint} id={id} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest} showExcludedPostBodyFields={endpoint.showExcludedPostBodyFields}/>
                 </div>
             </div> : null}
     </div>
@@ -94,6 +95,7 @@ EndPointComponent.propTypes = {
         postBodyData: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         requestSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         responseSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
+        showExcludedPostBodyFields: React.PropTypes.bool.isRequired,
         apiResponse: React.PropTypes.shape({
             status: React.PropTypes.string.isRequired,
             statusMessage: React.PropTypes.string.isRequired,

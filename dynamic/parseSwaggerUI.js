@@ -2,7 +2,7 @@ import {buildPostmanCollection, buildAuth} from './react/api-app/helpers';
 import {buildQsPath, buildCurl, buildInitialPostBodyData} from './react/shared/helpers';
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
-const buildSchema = (schema, required = [], propName = null) => {
+const buildSchema = (schema, required = [], excludedProperties = [], propName = null) => {
     if (schema.hasOwnProperty('x-visibility') && schema['x-visibility'] === 'hidden') {
         return undefined;
     }
@@ -18,20 +18,20 @@ const buildSchema = (schema, required = [], propName = null) => {
     }
 
     if (schema.type && schema.type === 'object' || schema.type === undefined) {
-        const nestedSchemaProps = Object.keys(schema.properties).map((nestedPropName) => ({[nestedPropName]: buildSchema(schema.properties[nestedPropName], schema.required, nestedPropName)}));
+        const nestedSchemaProps = Object.keys(schema.properties).map((nestedPropName) => ({[nestedPropName]: buildSchema(schema.properties[nestedPropName], schema.required, schema['x-excludedProperties'], nestedPropName)}));
 
-        return Object.assign({uiState: {visible: true}, required: required.includes(propName)}, ...nestedSchemaProps);
+        return Object.assign({uiState: {visible: true}, required: required.includes(propName), isExcluded: excludedProperties.includes(propName)}, ...nestedSchemaProps);
     }
 
     if (schema.type && schema.type === 'array') {
-        const arraySchema = buildSchema(schema.items);
+        const arraySchema = buildSchema(schema.items, schema.items.required, schema.items['x-excludedProperties']);
 
         // items holds the schema definition of objects in our array, and value holds the actual objects of said schema...
         // note that uiState is stored in the items property of the array, so don't need it at top level'
-        return {fieldType: schema.type, required: required.includes(propName), items: arraySchema};
+        return {fieldType: schema.type, required: required.includes(propName), isExcluded: excludedProperties.includes(propName), items: arraySchema};
     }
 
-    const objToReturn = {fieldType: schema.type, required: required.includes(propName)};
+    const objToReturn = {fieldType: schema.type, required: required.includes(propName), isExcluded: excludedProperties.includes(propName)};
 
     if (schema.example) {
         objToReturn.example = schema.example;
@@ -101,7 +101,8 @@ export default (api, rootPath) => {
                 description: endpoint[action].description,
                 path: root + k,
                 action: action,
-                isAuthenticated: Boolean(swaggerData.auth)
+                isAuthenticated: Boolean(swaggerData.auth),
+                showExcludedPostBodyFields: false // Determines whether or not we show API console input fields for params in the 'x-excludedProperties' array in Swagger
             };
 
             const endpointParams = endpoint[action].parameters || [];
@@ -123,7 +124,7 @@ export default (api, rootPath) => {
             }
             if (postBody) {
                 apiMethod.postBody = postBody;
-                apiMethod.postBodyData = buildInitialPostBodyData(postBody);
+                apiMethod.postBodyData = buildInitialPostBodyData(postBody, apiMethod.showExcludedPostBodyFields);
             }
 
             apiMethod.curl = buildCurl(swaggerData.auth, apiMethod);

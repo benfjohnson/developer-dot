@@ -69,12 +69,14 @@ paths:
           required: true
           type: string
           description: Address line 1
+          example: 400 Broad St
           in: query
           maxLength: 50
         - name: City
           required: false
           type: string
           description: City name. Optional unless PostalCode is not specified.
+          example: Seattle
           in: query
           maxLength: 50
         - name: Region
@@ -82,6 +84,7 @@ paths:
           type: string
           in: query
           maxLength: 3
+          example: WA
         - name: Country
           in: query
           required: true
@@ -92,6 +95,7 @@ paths:
           required: false
           type: string
           maxLength: 11
+          example: 98109
       responses:
         '200':
           description: 'Successful operation'
