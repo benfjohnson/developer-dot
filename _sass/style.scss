@@ -20,6 +20,7 @@
 .btn-callout {
     padding: 30px 0 60px;
     [role="button"] {
+        @extend .mouse;
         background-color: $Darkest-blue;
         border-color: white;
         border-radius: 4px;
@@ -29,11 +30,6 @@
         line-height: 1.5;
         letter-spacing: .035em;
         padding: ($grid-gutter-width / 2) ($grid-gutter-width);
-        transform: matrix(1, 0, 0, 1, -89, 0);
-        transition-delay: 0s;
-        transition-duration: 0.75s;
-        transition-property: all;
-        transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
         white-space: nowrap;
         &:hover {
             text-decoration: none;
@@ -45,6 +41,11 @@
     background-image: url(/images/devdot/DevDotSvgGAssets_MapBG.svg);
     background-repeat: repeat;
 }
+
+// IE11 hack
+ @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+  .bg-map {
+    background-size: 600px 510px;}}
 
 .bg-white {
     background: white;
@@ -74,7 +75,7 @@
     li {
         color: $Ava-blue;
         list-style: none;
-        display: inline;
+        display: inline-block;
         white-space: nowrap;
         a {
             color: inherit;
@@ -86,8 +87,9 @@
             font-family: 'source sans pro light';
             padding: 0 1em;
         }
-        &:last-child:after {
+        &:last-child:after, .no-separator {
             content: "";
+            padding:0;
         }
 
     }
@@ -97,8 +99,8 @@
     @extend .row;
     @extend .padding-top;
     @extend .padding-bottom;
-    margin-left:0;
-    margin-right:0;
+    margin-left: 0;
+    margin-right: 0;
     .pipe li {
         color: inherit;
         a {
@@ -136,17 +138,18 @@
 .pageTitle {
     font-family: 'apertura regular';
     text-transform: capitalize;
+    padding-bottom: 10px;
     &, a {
         color: $Medium-grey;
         font-size: 26px;
         img {
-            width: 100px;
+            height: 20px;
             margin-top: -10px;
             margin-right: 3px;
         }
     }
     span {
-        font-size: 26px;
+        @extend h4;
     }
 }
 
@@ -237,29 +240,31 @@ header {
 
                 .dropdown-menu-large {
                     background-color: $Form-fill;
-                    padding: 20px 10px;
-                    max-width: 775px;
-
+                    padding: 20px;
+                    border-bottom-left-radius: 0;
                     ul {
                         padding-left: 0;
                         margin-top: 10px;
                     }
                     li {
                         list-style: none;
+                        margin-bottom:6px;
                         &:hover {
                             background-color: inherit;
                         }
                     }
                     a {
-                        font-family: arial;
-                        color: $Ava-blue;
+                        font-family: 'source sans pro regular';
+                        color: $Darkest-blue;
                         padding: 0;
+                        letter-spacing:normal;
                         @media(min-width: $screen-sm-min) {
                             padding: 0;
                         }
                     }
                     .pipe {
                         @extend .pipe;
+                        li {margin-bottom:6px;}
                     }
                 }
             }
@@ -442,4 +447,8 @@ footer {
     .form-group:first-of-type {
         padding-right: 0;
     }
+}
+
+.gsfn_link:after {
+    content: ' - '
 }

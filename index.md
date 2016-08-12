@@ -49,13 +49,13 @@ nav: home
         </div>
         <div class="row bg-white padding-top">
           <div class="col-xs-2 col-xs-offset-2 col-sm-offset-2 col-sm-2 text-center">
-            <a href="/avatax"><img src="/images/devdot/DevDotSvgGAssets_BarCode.svg" height="110" /></a>
+            <a href="/avatax"><img src="/images/devdot/DevDotSvgGAssets_BarCode.svg" height="100" /></a>
           </div>
           <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-            <a href="/communications"><img src="/images/devdot/DevDotSvgGAssets_SatelliteDish.svg" height="110" /></a>
+            <a href="/communications"><img src="/images/devdot/DevDotSvgGAssets_SatelliteDish.svg" height="100" /></a>
           </div>
           <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-            <a href="/excise"><img src="/images/devdot/DevDotSvgGAssets_GasPump.svg" height="110" /></a>
+            <a href="/excise"><img src="/images/devdot/DevDotSvgGAssets_GasPump.svg" height="100" /></a>
           </div>
         </div>
         <div class="row bg-white padding-top padding-bottom">
@@ -71,13 +71,13 @@ nav: home
         </div>
         <div class="row bg-white padding-top">
           <div class="col-xs-2 col-xs-offset-2 col-sm-offset-2 col-sm-2 text-center">
-            <a href="/landedcost"><img src="/images/devdot/DevDotSvgGAssets_ShippingCrate.svg" height="110" /></a>
+            <a href="/landedcost"><img src="/images/devdot/DevDotSvgGAssets_ShippingCrate.svg" height="100" /></a>
           </div>
           <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-            <a href="/certcapture"><img src="/images/devdot/DevDot_CertificateBindersBlue.svg" height="110" /></a>
+            <a href="/certcapture"><img src="/images/devdot/DevDot_CertificateBindersBlue.svg" height="100" /></a>
           </div>
           <div class="col-xs-2 col-xs-offset-1 col-sm-offset-1 col-sm-2 text-center">
-            <a href="/trustfile"><img src="/images/devdot/DevDot_GovtBldgBlue-02.svg" height="110" /></a>
+            <a href="/trustfile"><img src="/images/devdot/DevDot_GovtBldgBlue-02.svg" height="100" /></a>
           </div>
         </div>
         <div class="row bg-white padding-top padding-bottom">

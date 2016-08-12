@@ -17,19 +17,19 @@ doctype: overview
   <div class="col-sm-8 col-sm-offset-2 text-center">
     <div class="row">
         <div class="col-xs-3">
-            <img src="/images/devdot/DevDotSvgGAssets_TaxCaLculation.svg" width="50%"/>
+            <img src="/images/devdot/DevDotSvgGAssets_TaxCaLculation.svg" width="40"/>
             <h4>Precise rate calculation</h4>
         </div>
         <div class="col-xs-3">
-            <img src="/images/devdot/DevDotSvgGAssets_Exemptions.svg" width="50%"/>
+            <img src="/images/devdot/DevDotSvgGAssets_Exemptions.svg" width="40"/>
             <h4>Exempt sales</h4>
         </div>
         <div class="col-xs-3">
-            <img src="/images/devdot/DevDotSvgGAssets_ProductTaxability.svg" width="50%"/>
+            <img src="/images/devdot/DevDotSvgGAssets_ProductTaxability.svg" width="40"/>
             <h4>Product taxability</h4>
         </div>
         <div class="col-xs-3">
-            <img src="/images/devdot/DevDotSvgGAssets_AddressValidation.svg" width="50%"/>
+            <img src="/images/devdot/DevDotSvgGAssets_AddressValidation.svg" width="40"/>
             <h4>Address validation</h4>
         </div>
     </div>

@@ -38,7 +38,7 @@ doctype: overview
         <p>The Avalara AvaTax for Communications API helps you quickly determine taxes for telecommunication services, as well as VoIP, internet services, satellite TV, and other communications services. <a href="/comunications">Learn more about the Communications Tax API</a></p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
-            <span>AvaTax Communication</span>
+            <span>Communications</span>
          </div>
         {% if site.data.api_consoles.communications.nav_links %}
           <ul class="pipe padding-bottom">
@@ -51,7 +51,7 @@ doctype: overview
         <p>The Excise Tax API allows you to automate tax for transactions involving motor fuels, petroleum products, and natural gas for thousands of jurisdictions in the U.S. and Canada. The API is a SOAP web service that is the external programmatic interface into the Avalara AvaTax Excise application, providing for a platform-independent mechanism to obtain tax calculation information. AvaTax Excise can be used independently of other Avalara APIs. <a href="/excise">Learn more about the Excise Tax API.</a>.</p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
-            <span>AvaTax Excise</span>
+            <span>Excise</span>
          </div>
         {% if site.data.api_consoles.excise.nav_links %}
           <ul class="pipe padding-bottom">
