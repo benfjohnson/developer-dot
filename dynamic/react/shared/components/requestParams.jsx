@@ -9,9 +9,14 @@ const PARAM_TYPES = {
     PATH: 'PATH'
 };
 
-const RequestParams = ({endpointId, paramType, params, onInputChange}) => {
+const RequestParams = ({endpoint, endpointId, paramType, params, onInputChange, onSubmitConsoleRequest}) => {
     return (
-        <form className={'api-console-input-section'}>
+        <form className={'api-console-input-section'} onSubmit={
+            (e) => {
+                e.preventDefault();
+                onSubmitConsoleRequest(endpoint, endpointId);
+            }
+        }>
             <h4 className={'api-console-section-header'}>{paramType === PARAM_TYPES.QUERY_STRING ? 'Query String' : 'Path Parameters'}</h4>
             {Object.keys(params).map((key, i) => {
                 return (
@@ -43,14 +48,48 @@ const RequestParams = ({endpointId, paramType, params, onInputChange}) => {
                     </div>
                 );
             })}
+            <input type={'submit'} value={'submit'} style={{display: 'none'}}/>
         </form>
     );
 };
 
 RequestParams.displayName = 'Request Parameters';
 RequestParams.propTypes = {
+    endpoint: React.PropTypes.shape({
+        apiResponse: React.PropTypes.shape({
+            status: React.PropTypes.string.isRequired,
+            statusMessage: React.PropTypes.string.isRequired,
+            body: React.PropTypes.oneOfType([
+                React.PropTypes.object, React.PropTypes.array
+            ]).isRequired
+        }),
+        name: React.PropTypes.string.isRequired,
+        description: React.PropTypes.string.isRequired,
+        curl: React.PropTypes.string.isRequired,
+        isAuthenticated: React.PropTypes.bool.isRequired,
+        path: React.PropTypes.string.isRequired,
+        action: React.PropTypes.string.isRequired,
+        queryString: React.PropTypes.objectOf(
+            React.PropTypes.shape({
+                description: React.PropTypes.string,
+                example: React.PropTypes.any,
+                required: React.PropTypes.bool,
+                value: React.PropTypes.any.isRequired
+            })
+        ),
+        pathParams: React.PropTypes.objectOf(
+            React.PropTypes.shape({
+                description: React.PropTypes.string,
+                example: React.PropTypes.any,
+                required: React.PropTypes.bool,
+                value: React.PropTypes.any.isRequired
+            })
+        ),
+        postBody: React.PropTypes.object
+    }).isRequired,
     endpointId: React.PropTypes.number.isRequired,
     onInputChange: React.PropTypes.func.isRequired,
+    onSubmitConsoleRequest: React.PropTypes.func.isRequired,
     paramType: React.PropTypes.oneOf(['QUERY_STRING', 'PATH']).isRequired,
     params: React.PropTypes.objectOf(
         React.PropTypes.shape({
