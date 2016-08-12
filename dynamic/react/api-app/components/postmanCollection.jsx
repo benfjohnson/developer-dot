@@ -5,9 +5,22 @@ const PostmanCollection = ({apiType, appLoaded, auth, onAuthKeyChange, postmanCo
         return null;
     }
 
+    const fileName = postmanCollection.info.name.replace(/\s/g, '-') + '-postman-collection.json';
+
     const json = JSON.stringify(postmanCollection);
+
     const blob = (appLoaded && typeof Blob !== 'undefined') ? new Blob([json], {type: 'application/json'}) : null;
+
     const url = (appLoaded && typeof URL !== 'undefined') ? URL.createObjectURL(blob) : null;
+
+    function clickHandler(evt) {
+        if(appLoaded && typeof window !== 'undefined' && typeof window.navigator.msSaveOrOpenBlob !== 'undefined') {
+            window.navigator.msSaveOrOpenBlob(blob, fileName);
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     return (
         <div>
@@ -22,7 +35,7 @@ const PostmanCollection = ({apiType, appLoaded, auth, onAuthKeyChange, postmanCo
                     ))}
                 </form>
                 ) : null}
-            <a download={`${postmanCollection.info.name.replace(/\s/g, '-')}-postman-collection.json`} href={url}><button className='btn btn-primary'>{'Download a Postman collection!'}</button></a>
+            <a download={fileName} onClick={clickHandler} href={url}><button className='btn btn-primary'>{'Download a Postman collection!'}</button></a>
         </div>
     );
 };
