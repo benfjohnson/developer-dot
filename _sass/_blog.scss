@@ -1,0 +1,43 @@
+.blog-preview {
+    background: $Rule-grey;
+    padding-right: 15px;
+    padding-left: 15px;
+    height: 300px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-color: $Darkest-grey;
+    border-style: solid;
+    border-width: 1px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+}
+a .btn .btn-blog {
+	background-color: #fff;
+    border-color: $Darkest-blue;
+    border-width: 2px;
+    position: absolute;
+    bottom: 30px;
+}
+
+.blog-excerpt {
+	padding-top: 10px;
+}
+
+img .blog-preview-image {
+	width: 100%;
+}
+
+span .next {
+	color: $Rule-grey;
+}
+
+span .previous {
+	color: $Rule-grey;	
+}
+
+img .blog-content {
+	float: left;
+	padding-right: 15px;
+	max-width: 100%;
+	height: auto;
+}

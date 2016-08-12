@@ -64,7 +64,7 @@ redcarpet:
         'hardwrap'
     ]
 
-paginate: 10
+paginate: 9
 paginate_path: "/blog/page:num/"
 
 # applies to _posts only for some reason

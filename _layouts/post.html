@@ -2,12 +2,13 @@
 layout: default
 ---
 
-<div>
+<div class="half">
     <h2>{{ page.title }}
         {% if page.subtitle %}<small>{{ page.subtitle }}</small>{% endif %}
     </h2>
+
+<div class="byline">By {{page.author}} | {{ page.date | date: "%B %d, %Y"}}</div>
+<div class="blog-content">{{ content }}</div>
+
+<a href="/blog" class="btn btn-callout">Back to posts</a>
 </div>
-
-<p>{{ content }}</p>
-
-<p><a href="/blog">Back to Blog</a></p>
