@@ -4,22 +4,6 @@ import PostBodyItem from './postBodyItem';
 
 const PostBody = (props) => (
     <div>
-        <form className={'api-console-post-form'}>
-        {
-            <PostBodyItem
-                canRemove={false}
-                displayName={'Post Body'}
-                endpointId={props.id}
-                itemSchema={props.postBody}
-                itemValue={props.postBodyData}
-                name={''}
-                onAddItemToPostbodyCollection={props.onAddItemToPostbodyCollection}
-                onPostBodyInputChanged={props.onPostBodyInputChanged}
-                onRemovePostbodyCollectionItem={props.onRemovePostbodyCollectionItem}
-                showExcludedPostBodyFields={props.showExcludedPostBodyFields}
-                uiState={props.postBody.uiState}
-            />
-        }
         <form className={'api-console-post-form'} onSubmit={
             (e) => {
                 e.preventDefault();
@@ -37,6 +21,7 @@ const PostBody = (props) => (
                     onAddItemToPostbodyCollection={props.onAddItemToPostbodyCollection}
                     onPostBodyInputChanged={props.onPostBodyInputChanged}
                     onRemovePostbodyCollectionItem={props.onRemovePostbodyCollectionItem}
+                    showExcludedPostBodyFields={props.showExcludedPostBodyFields}
                     uiState={props.postBody.uiState}
                 />
             }

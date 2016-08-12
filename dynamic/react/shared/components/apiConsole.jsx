@@ -73,12 +73,9 @@ const ApiConsole = ({endpoint, id, onFillConsoleSampleData, onSubmitConsoleReque
                         {'Reset'}
                         </span>
                     </div>
-                {endpoint.pathParams ? <RequestParams endpointId={id} onInputChange={onPathParamChanged} paramType={'PATH'} params={endpoint.pathParams}/> : null}
-                {endpoint.queryString ? <RequestParams endpointId={id} onInputChange={onQueryParamChanged} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
-                {endpoint.postBody ? <PostBody id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onPostBodyInputChanged={onPostBodyInputChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} postBody={endpoint.postBody} postBodyData={endpoint.postBodyData} showExcludedPostBodyFields={endpoint.showExcludedPostBodyFields}/> : null}
                 {endpoint.pathParams ? <RequestParams endpoint={endpoint} endpointId={id} onInputChange={onPathParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'PATH'} params={endpoint.pathParams}/> : null}
                 {endpoint.queryString ? <RequestParams endpoint={endpoint} endpointId={id} onInputChange={onQueryParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
-                {endpoint.postBody ? <PostBody endpoint={endpoint} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onPostBodyInputChanged={onPostBodyInputChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onSubmitConsoleRequest={onSubmitConsoleRequest} postBody={endpoint.postBody} postBodyData={endpoint.postBodyData}/> : null}
+                {endpoint.postBody ? <PostBody endpoint={endpoint} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onPostBodyInputChanged={onPostBodyInputChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onSubmitConsoleRequest={onSubmitConsoleRequest} postBody={endpoint.postBody} postBodyData={endpoint.postBodyData} showExcludedPostBodyFields={endpoint.showExcludedPostBodyFields}/> : null}
                 {endpoint.postBody ?
                     <div style={{marginBottom: '10px'}}>
                         <button
