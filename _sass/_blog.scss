@@ -1,43 +1,72 @@
 .blog-preview {
-    background: $Rule-grey;
+    background: $Form-fill;
     padding-right: 15px;
     padding-left: 15px;
+    padding-bottom: 15px;
     height: 300px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    border-color: $Darkest-grey;
-    border-style: solid;
-    border-width: 1px;
-    border-right-width: 0px;
-    border-left-width: 0px;
-}
-a .btn .btn-blog {
-	background-color: #fff;
-    border-color: $Darkest-blue;
-    border-width: 2px;
-    position: absolute;
-    bottom: 30px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-top: 1px solid $Form-top;
+    border-bottom: 1px solid $Disabled;
+    border-left: 1px solid $Form-sides;
+    border-right: 1px solid $Form-sides;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+
+    .gradient {
+        background: linear-gradient(to bottom, transparent, $Form-fill);
+        height: 58px;
+        position: absolute;
+        top: 165px;
+        left: 0;
+        z-index: 100;
+        width: 100%;
+    }
+
+    .btn-blog {
+        @extend .mouse;
+        border-color: $Darkest-blue;
+        border-width: 2px;
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        &:hover {
+            color: $Ava-blue;
+        }
+    }
+
+    .blog-excerpt {
+        padding-top: 10px;
+    }
+
+    .blog-preview-image {
+        width: 100%;
+    }
+
+
+    .readMore {
+        position: absolute;
+        bottom: 0;
+        z-index: 100;
+        margin: 0 -15px;
+        height: 75px;
+        width: 100%;
+        background-color: $Form-fill;
+    }
 }
 
-.blog-excerpt {
-	padding-top: 10px;
+.blog-pagination {
+    @extend .pipe;
+    @extend .padding-bottom;
+    li.page_number {color:inherit}
+    li.next,
+    li.previous {
+        color: $Disabled;
+    }
 }
 
-img .blog-preview-image {
-	width: 100%;
-}
-
-span .next {
-	color: $Rule-grey;
-}
-
-span .previous {
-	color: $Rule-grey;	
-}
-
-img .blog-content {
-	float: left;
-	padding-right: 15px;
-	max-width: 100%;
-	height: auto;
+.blog-content img {
+    max-width: 100%;
+    height: auto;
 }

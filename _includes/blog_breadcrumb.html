@@ -1,0 +1,11 @@
+<div class="breadcrumbs" style="padding-bottom:0;">
+    <div class="col-sm-12" style="padding-left:0;">
+        <ul class="pipe">
+            <li class="text-uppercase">Resources</span></li>
+            <li class="text-uppercase"><a href="/blog">Developer Blog</a></li>
+            {% if page.doctype == 'blog' %}
+            <li class="text-uppercase">{{page.title}}</li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
