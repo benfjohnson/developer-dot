@@ -25,7 +25,7 @@ nav: home
             <div class="row">
               <div class="col-sm-8 col-sm-offset-2">
                   <h2>Exempt the right customers for the right reasons</h2>
-                  <p>Automatically tie your non-taxable transactions directly the correct exemption or reseller certificate.</p>
+                  <p>Automatically tie your non-taxable transactions directly to the correct exemption or reseller certificate.</p>
               </div>
             </div>
           </div>
