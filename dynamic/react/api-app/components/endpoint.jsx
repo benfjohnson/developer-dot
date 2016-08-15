@@ -20,7 +20,12 @@ const EndPointComponent = ({endpoint, apiType, id, onFillConsoleSampleData, onSu
                         onClick={
                             () => {
                                 $(`#${replaceSpaces(endpoint.name)}-console-body`).collapse('show');
-                                $(`#${replaceSpaces(endpoint.name)}-console-icon`).toggleClass('rotate');
+                                $(`#${replaceSpaces(endpoint.name)}-console-icon`).addClass('rotate');
+                                const intervalId = setInterval(() => {
+                                    $('#the-nav').affix('checkPosition');
+                                }, 20);
+
+                                setTimeout(() => clearInterval(intervalId), 350);
                             }
                         }
                     >{'Try ' + endpoint.name + ' now!'}</a></h5>
@@ -50,6 +55,11 @@ const EndPointComponent = ({endpoint, apiType, id, onFillConsoleSampleData, onSu
                 <div className={'try-it-now-header'} data-target={`#${replaceSpaces(endpoint.name)}-console-body`} data-toggle={'collapse'} id={replaceSpaces(`${endpoint.name}-console`)} onClick={
                     () => {
                         $(`#${replaceSpaces(endpoint.name)}-console-icon`).toggleClass('rotate');
+                        const intervalId = setInterval(() => {
+                            $('#the-nav').affix('checkPosition');
+                        }, 20);
+
+                        setTimeout(() => clearInterval(intervalId), 350);
                     }
                 }>
                     <div className={'documentation-expand-icon'} id={`${replaceSpaces(endpoint.name)}-console-icon`} style={{display: 'inline-block', marginRight: '5px'}}>

@@ -42,7 +42,7 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, ne
     if (isRoot) {
         return (
             <div>
-                {Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
+                {Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && n !== 'isExcluded' && item[n]).map((itemKey, i) => {
                     return (
                         <ApiDocumentationItem
                             displayName={itemKey}
@@ -63,7 +63,7 @@ const ApiDocumentationItem = ({documentationFor, name, item, isArray = false, ne
 
     return (
         <ApiDocumentationHeader displayName={displayName} documentationFor={documentationFor} endpointId={endpointId} isArray={isArray} nestingLevel={nestingLevel} propertyName={name} uiState={uiState}>
-            {Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && item[n]).map((itemKey, i) => {
+            {Object.keys(item).filter((n) => n !== 'uiState' && n !== 'required' && n !== 'isExcluded' && item[n]).map((itemKey, i) => {
                 return (<ApiDocumentationItem
                     displayName={itemKey}
                     documentationFor={documentationFor}
