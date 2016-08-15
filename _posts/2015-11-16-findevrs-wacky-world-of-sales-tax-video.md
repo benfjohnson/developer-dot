@@ -15,7 +15,7 @@ Looks like the guys from FinDEVr has published all the videos from the latest ev
 
 <iframe class="wistia_embed" src="http://fast.wistia.net/embed/iframe/ivqjxi290r" name="wistia_embed" width="480" height="298" frameborder="0" scrolling="no"></iframe>
 
-<a href="http://finovate.com/videos/finovatefindevr-2015-avalara/">http://finovate.com/videos/finovatefindevr-2015-avalara/</a>
+<a href="http://finovate.com/findevr-live-avalara-helps-developers-navigate-the-wacky-world-of-sales-tax/">http://finovate.com/findevr-live-avalara-helps-developers-navigate-the-wacky-world-of-sales-tax/</a>
 
 The Synopsis :
 

@@ -17,4 +17,4 @@ Once my personal machines were upgraded to Windows 10 (still waiting for corpora
 
 Went off without a hitch. To be honest, I didn't expect anything different. But with a new OS upgrade, you never know where you'll run into compatibility issues, so it's always worth testing.
 
-If you've got any questions about using our <a href="/avatax/api-sample-code">AvaTax Sample Code</a> for PHP or other issues you run into using our services with PHP, drop by our <a href="https://community.avalara.com/avalara/category_sets/developers">community site</a> and ask. We'll try to get you an answer as quickly as we can.
+If you've got any questions about using our <a href="/avatax/sample-code">AvaTax Sample Code</a> for PHP or other issues you run into using our services with PHP, drop by our <a href="https://community.avalara.com/avalara/category_sets/developers">community site</a> and ask. We'll try to get you an answer as quickly as we can.
