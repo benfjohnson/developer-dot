@@ -102,4 +102,4 @@ redirects:
    thank-you-for-registering: /avatax/thank-you-for-registering
    resources: /avatax
    resources/self-test: /avatax/self-test
-
+   onboarding/api-reference: /avatax/api-reference/onboarding/v1/
