@@ -4,6 +4,7 @@ s3_bucket: developer.avalara.com
 gzip: true
 exclude_from_upload:
   - node_modules
+treat_zero_length_objects_as_redirects: true
 redirects:
     ​form: /avatax/get-started
     ​api-documentation: /avalara-apis
