@@ -124,7 +124,7 @@ Submit questions or log bugs using the method provided in GitHub.
 <a href="https://github.com/activefrequency/pyavatax">PyAvaTax sample</a> - <em>Supported by <a href="http://www.activefrequency.com/">Active Frequency</a>.</em>
 
 <strong>Node.js</strong>
-<a href="https://github.com/Matter-and-Form/node-avatax">Node.js sample</a>, also available on <a href="https://www.npmjs.com/package/avatax">NPM</a>.- <em>Supported by <a href="http://danielhritzkiv.com/">Daniel Hritzkiv</a> of <a href="https://matterandform.net/">Matter and Form</a>.</em>
+<a href="https://github.com/Matter-and-Form/node-avatax">Node.js sample</a>, also available on <a href="https://www.npmjs.com/package/avatax">NPM</a>.- <em>Supported by Daniel Hritzkiv of <a href="https://matterandform.net/">Matter and Form</a>.</em>
 
 <strong>/// Calling All Developers!</strong>
 
