@@ -8,6 +8,7 @@ const mapStateToProps = (state, ownProps) => {
     return {
         apiType: state.apiType,
         sampleAuthHeader: state.sampleAuthHeader,
+        sampleContentType: state.sampleContentType,
         endpoint: state.apiEndpoints[ownProps.id],
         id: ownProps.id
     };

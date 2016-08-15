@@ -26,7 +26,7 @@ produces:
 security:
   - basic_auth: []
 x-auth-formula: "`Basic ${btoa(`<username>:<password>`)}`"
-x-sample-auth-header: 'Basic <USERNAME>:<PASSWORD>'
+x-sample-auth-header: 'Basic aHR0cHdhdGNoOmY='
 x-api-proxy: https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod		
 x-ApiType: REST
 paths:

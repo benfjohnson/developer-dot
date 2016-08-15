@@ -8,7 +8,7 @@ import ExpanderIcon from './expanderIcon';
 const replaceSpaces = (str) => str.replace(/\s/g, '_');
 
 // Give our endpoint an id based on its name for our clientside routing in jekyll
-const EndPointComponent = ({endpoint, sampleAuthHeader, apiType, id, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => (
+const EndPointComponent = ({endpoint, sampleAuthHeader, sampleContentType, apiType, id, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => (
     <div id={replaceSpaces(endpoint.name)}>
         <div className={'endpoint-summary'}>
             <h2>{endpoint.name}</h2>
@@ -44,13 +44,13 @@ const EndPointComponent = ({endpoint, sampleAuthHeader, apiType, id, onFillConso
                 <div className={'code-snippet-plaintext'}>
                     <span>{`${endpoint.action.toUpperCase()} ${endpoint.path}`}</span>
                 </div>
-                {sampleAuthHeader || endpoint.postBody ?
+                {sampleAuthHeader || sampleContentType ?
                     <div>
                         <br />
                         <div className={'api-label-text'}>{'Headers'}</div>
                         <div className={'code-snippet-plaintext'}>
                             {sampleAuthHeader ? <span style={{display: 'block'}}>{`Authorization: ${sampleAuthHeader}`}</span> : null}
-                            {endpoint.postBody ? <span style={{display: 'block'}}>{'Content-Type: application/json'}</span> : null}
+                            {sampleContentType ? <span style={{display: 'block'}}>{`Content-Type: ${sampleContentType}`}</span> : null}
                         </div>
                     </div> :
                 null}
