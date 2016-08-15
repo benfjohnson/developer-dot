@@ -99,19 +99,19 @@ Video: <a href="http://www.youtube.com/watch?v=K7s9QiX_l2A" target="_blank">Exe
 <tr>
 <td>Take a transaction through the entire document lifecycle of an order/invoice etc.</td>
 <td>The transaction should follow the lifecycle logically in the AvaTax Admin console, ending with a committed transaction on the AvaTax Admin Console.</td>
-<td><a href="/avatax/designing-your-integration#Ecommerce" target="_blank">Sample Workflows</a>
+<td><a href="/avatax/use-cases" target="_blank">Sample Workflows</a>
 
 Video: <a href="http://www.youtube.com/watch?v=6465JvR3lNk" target="_blank">Transaction Lifecycle</a></td>
 </tr>
 <tr>
 <td>Take a return through its entire document lifecycle.</td>
 <td>The transaction should follow the lifecycle logically in the AvaTax Admin console, ending with a committed return transaction on the AvaTax Admin Console.</td>
-<td><a href="/avatax/designing-your-integration#Ecommerce" target="_blank">Sample Workflows</a></td>
+<td><a href="/avatax/use-cases" target="_blank">Sample Workflows</a></td>
 </tr>
 <tr>
 <td>If applicable, void/delete a transaction (if possible, both an invoice and a credit) in your application</td>
 <td>The transaction record in AvaTax should reflect a "Voided" document status.</td>
-<td><a href="/avatax/canceltax" target="_blank">Cancel Transactions</a>
+<td><a href="/avatax/voiding-documents" target="_blank">Cancel Transactions</a>
 
 Video: <a href="http://www.youtube.com/watch?v=kOtEmlzkO4U" target="_blank">Voided Invoice</a></td>
 </tr>
