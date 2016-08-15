@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Common Errors
-product: avaTax
+product: avatax
 doctype: use_cases
 nav: apis
 community: errors

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Proxy Server Settings
-product: avaTax
+product: avatax
 doctype: use_cases
 nav: apis
 community: proxy

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Address Validation
-product: avaTax
+product: avatax
 doctype: use_cases
 nav: apis
 community: address

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Logins and Resources
-product: avaTax
+product: avatax
 doctype: use_cases
 nav: apis
 community: auth

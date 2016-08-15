@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Go Live
-product: avaTax
+product: avatax
 doctype: use_cases
 nav: apis
 community: apis

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: AvaTax with Address Validation Checklist
-product: avaTax
+product: avatax
 doctype: integration_checklists
 nav: apis
 ---

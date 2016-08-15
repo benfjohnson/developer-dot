@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Drop Shipping
-product: avaTax
+product: avatax
 doctype: use_cases
 nav: apis
 community: shipping

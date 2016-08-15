@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Develop
-product: avaTax
+product: avatax
 doctype: use_cases
 nav: apis
 community: document

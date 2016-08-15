@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Product Returns
-product: avaTax
+product: avatax
 doctype: use_cases
 nav: apis
 community: returns

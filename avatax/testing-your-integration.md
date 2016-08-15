@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Test
-product: avaTax
+product: avatax
 doctype: test_your_integration
 nav: apis
 ---

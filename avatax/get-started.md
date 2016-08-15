@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Get Started
-product: avaTax
+product: avatax
 doctype: documentation
 avaform: 1
 ---

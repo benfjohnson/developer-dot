@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Consumer Use Tax
-product: avaTax
+product: avatax
 doctype: use_cases
 nav: apis
 community: consumerUse

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Thank you for registering.
-product: avaTax
+product: avatax
 doctype: set_up_your_sandbox
 nav: apis
 ---

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: AvaTax
-product: avaTax
+product: avatax
 nav: apis
 doctype: overview
 ---

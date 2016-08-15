@@ -1,7 +1,7 @@
 ---
 layout: page
 title: VAT Transactions
-product: avaTax
+product: avatax
 doctype: use_cases
 nav: apis
 community: Global

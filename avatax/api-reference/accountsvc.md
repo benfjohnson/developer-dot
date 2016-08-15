@@ -1,7 +1,7 @@
 ---
 layout: default
 title: AvaTax API Reference SOAP AccountSvc
-product: avaTax
+product: avatax
 doctype: api-reference
 nav: apis
 ---
