@@ -5,7 +5,7 @@ date: 2015-01-30 12:34
 author: lokeuei
 comments: true
 categories: [api, developer week, developers, Development, event, hackathon, Launches, Presentations, tax rates, Workshop]
-product: none
+product: blog
 doctype: blog
 imgsrc: /images/2015/01/Screen-Shot-2015-01-30-at-12.26.38-PM.png
 ---

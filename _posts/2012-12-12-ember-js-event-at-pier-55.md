@@ -5,7 +5,7 @@ date: 2012-12-12 15:32
 author: ben.macfarlane
 comments: true
 categories: [Development, ember, emberjs, meetup, pier 55, seattle, tom dale, video, yehuda katz]
-product: none
+product: blog
 doctype: blog
 ---
 Avalara has been using Ember.js for six months now so we were proud to host the inaugural <a href="http://www.meetup.com/Ember-js-Seattle-Meetup/">Seattle Ember.js Meetup</a> last Thursday. In a meeting that tested the capacity of our new space on the water at Pier 55 in downtown Seattle we were honored to host Yehuda Katz and Tom Dale from the core Ember.js team in a presentation that lasted two hours. In Avalara tradition we rolled out the margarita machine for the participants and the conversations with the presenters lasted well into the night.

@@ -5,7 +5,7 @@ date: 2014-09-25 10:38
 author: lokeuei
 comments: true
 categories: [apiworld, best practices, Development, documenting apis, presentation, Presentations, talk]
-product: none
+product: blog
 doctype: blog
 ---
 Anya delivered a thought provoking topic about Documenting APIs and it's best practices (with the help of some cats) at API World recently to some rave reviews.

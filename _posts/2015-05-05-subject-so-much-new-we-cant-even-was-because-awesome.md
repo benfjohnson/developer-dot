@@ -5,7 +5,7 @@ date: 2015-05-05 09:00
 author: greg.bulmash
 comments: true
 categories: [Uncategorized]
-product: none
+product: blog
 doctype: blog
 imgsrc: /images/2015/05/headshot-279x300.jpg
 ---

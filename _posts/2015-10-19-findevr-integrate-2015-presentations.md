@@ -5,7 +5,7 @@ date: 2015-10-19 09:00
 author: lokeuei
 comments: true
 categories: [Sales Tax APIs]
-product: none
+product: blog
 doctype: blog
 ---
 <iframe style="border: 1px solid #CCC; border-width: 1px; margin-bottom: 5px; max-width: 100%;" src="//www.slideshare.net/slideshow/embed_code/key/CSNMpjQc5Ev5Yn" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen="allowfullscreen"> </iframe>

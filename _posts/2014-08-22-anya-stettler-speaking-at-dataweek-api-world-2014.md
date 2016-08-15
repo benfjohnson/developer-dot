@@ -5,7 +5,7 @@ date: 2014-08-22 11:04
 author: seanrust
 comments: true
 categories: [Sales Tax APIs]
-product: none
+product: blog
 doctype: blog
 ---
 We're excited to announce that Anya Stettler, Sr. Developer Relations Engineer with Avalara, will be speaking at <a href="http://dataweek.co/hackathon/">DataWeek</a> + <a href="http://apiworld.co/">API World 2014</a> Conference &amp; Expo (Sept 15-17), San Francisco’s largest Data + API conference of 2014 - where you can attend 100+ talks and interact with 200+ new data &amp; API technologies!

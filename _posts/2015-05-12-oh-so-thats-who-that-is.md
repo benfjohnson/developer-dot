@@ -5,7 +5,7 @@ date: 2015-05-12 09:54
 author: anya.stettler
 comments: true
 categories: [Sales Tax APIs]
-product: none
+product: blog
 doctype: blog
 imgsrc: /images/2015/05/IMG_1053-195x300.jpeg
 ---

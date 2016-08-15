@@ -5,7 +5,7 @@ date: 2015-05-19 09:00
 author: lokeuei
 comments: true
 categories: [avalara, developer relations, employee, hello, introduction, loke tan, Sales Tax APIs, team]
-product: none
+product: blog
 doctype: blog
 imagesrc: /images/2015/05/Loke-Saber-257x300.jpg
 ---
