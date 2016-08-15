@@ -15,4 +15,4 @@ In my past life, I’ve spent a decade working at Microsoft  in the Windows Mob
 
 Our team will be really active this year around the conference, hackathon &amp; local meet-up scene, so when you see us, please come by and say Hi! we’d love to chat and find out what you’re doing with code and how you’re helping to &lt;cliche&gt;change the world. &lt;/cliche&gt;
 <div></div>
-<div>Here are the usual social media hangouts that I frequent : <a href="http://www.twitter.com/lokeuei" target="_blank">Twitter</a>, <a href="http://www.linkedin.com/in/lokeuei" target="_blank">LinkedIn</a>, <a href="http://www.youtube.com/gunrobot" target="_blank">YouTube</a>, <a href="https://foursquare.com/lokeuei" target="_blank">Foursquare</a> and <a href="http://www.facebook.com/lokeuei" target="_blank">Facebook</a>.</div>
+<div>Here are the usual social media hangouts that I frequent : <a href="http://www.twitter.com/lokeuei" target="_blank">Twitter</a>, <a href="http://www.linkedin.com/in/lokeuei" target="_blank">LinkedIn</a>, and <a href="http://www.facebook.com/lokeuei" target="_blank">Facebook</a>.</div>
