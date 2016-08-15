@@ -104,4 +104,4 @@ redirects:
    resources/self-test: /avatax/self-test
    onboarding/api-reference: /avatax/api-reference/onboarding/v1/
    avatax/api-reference: /avatax/api-reference/tax/v1/
-   
+   certification/preferred-developers: /resources/preferred-developers
