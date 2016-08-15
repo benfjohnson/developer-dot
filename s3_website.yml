@@ -2,9 +2,6 @@ s3_id: <%= ENV['access_key'] %>
 s3_secret: <%= ENV['secret_key'] %>
 s3_bucket: developer.avalara.com
 
-# disable gzip for now (for link checking).
-gzip: false
-
 exclude_from_upload:
   - node_modules
 
