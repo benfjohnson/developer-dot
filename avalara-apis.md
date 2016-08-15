@@ -35,7 +35,7 @@ doctype: overview
           </ul>
         {% endif %}
         <h2>Fees and taxes for telecommunications</h2>
-        <p>The Avalara AvaTax for Communications API helps you quickly determine taxes for telecommunication services, as well as VoIP, internet services, satellite TV, and other communications services. <a href="/comunications">Learn more about the Communications Tax API</a></p>
+        <p>The Avalara AvaTax for Communications API helps you quickly determine taxes for telecommunication services, as well as VoIP, internet services, satellite TV, and other communications services. <a href="/communications">Learn more about the Communications Tax API</a></p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>Communications</span>
