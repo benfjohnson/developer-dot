@@ -3,7 +3,7 @@ layout: default
 title: Get Started
 product: avaTax
 doctype: documentation
-avaform: 1
+avaform: 0
 ---
 <div class="half">
 <h2>Four simple steps to getting started in calculating sales tax with our REST API</h2>
