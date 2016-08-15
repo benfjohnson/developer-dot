@@ -7,17 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ site.title }}{% if page.title %} : {{ page.title }}{% endif %}</title>
     <meta name="description" content="{{ site.subtitle }}">
-    
+
     <meta property="og:title" content="Home"/>
-	<meta property="og:type" content="article"/>
-	<meta property="og:url" content="http://developer.avalara.com/"/>
-	<meta property="og:site_name" content="Avalara Developer Network"/>
-	<meta property="og:description" content="Avalara AvaTax
-Accurate and easy sales tax calculation
-Automatically tie your non-taxable transactions directly to the correct exemption or reseller certificate. Determine accurate taxability & duties for millions of products and services in over 100 countries."/>
-    
-    
-    
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://developer.avalara.com/"/>
+    <meta property="og:site_name" content="Avalara Developer Network"/>
+    <meta property="og:description" content="Avalara AvaTax Accurate and easy sales tax calculation Automatically tie your non-taxable transactions directly to the correct exemption or reseller certificate. Determine accurate taxability & duties for millions of products and services in over 100 countries."/>
+
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -35,15 +31,6 @@ Automatically tie your non-taxable transactions directly to the correct exemptio
     <meta name="msapplication-TileColor" content="#ffffff ">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff ">
-    <!-- Google Tag Manager -->
-    <noscript><iframe src='//www.googletagmanager.com/ns.html?id=GTM-MKB5LP'
-    height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MKB5LP');</script>
-    <!-- End Google Tag Manager -->
 
     <link rel="stylesheet" href="/css/style.css">
 
@@ -221,7 +208,9 @@ Automatically tie your non-taxable transactions directly to the correct exemptio
         <main class="col-sm-12">{{ content }}</main>
     </section>
     {% endif %}
-    {% if page.disqus == 1 %}<section class="row">{% include disqus.html %}</section>{% endif %}
+    {% if page.disqus == 1 %}
+    <section class="row">{% include disqus.html %}</section>
+    {% endif %}
 </div>
 <footer class="navbar navbar-default">
     <ul class="social">
@@ -257,11 +246,11 @@ Automatically tie your non-taxable transactions directly to the correct exemptio
         // animate
         $('html, body').animate({
             scrollTop: $(hash).offset().top
-        }, 450, function(){
+        }, 450, function() {
 
-        // when done, add hash to url
-        // (default click behaviour)
-        window.location.hash = hash;
+            // when done, add hash to url
+            // (default click behaviour)
+            window.location.hash = hash;
         });
     });
 </script>
@@ -272,7 +261,9 @@ Automatically tie your non-taxable transactions directly to the correct exemptio
 <script>setupAvaForm();</script>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 <script>
-    jQuery( document ).ready(function() {jQuery("#avaform-phone").mask("(999) 999-9999");});
+    jQuery(document).ready(function() {
+        jQuery("#avaform-phone").mask("(999) 999-9999");
+    });
 </script>
 {% endif %}
 
@@ -281,23 +272,22 @@ Automatically tie your non-taxable transactions directly to the correct exemptio
 <script>handleSearch();</script>
 {% endif %}
 
-{% if site.google_analytics_id != "" %}
+<!-- Google Tag Manager -->
+<noscript><iframe src='//www.googletagmanager.com/ns.html?id=GTM-MKB5LP' height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
 <script>
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', '{{ site.google_analytics_id }}', 'auto');
-    ga('send', 'pageview');
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MKB5LP');
 </script>
-{% endif %}
+<!-- End Google Tag Manager -->
 </body>
 </html>
