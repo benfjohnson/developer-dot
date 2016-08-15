@@ -10,6 +10,6 @@ before_script:
 script: 
   - bundle install
   - bundle exec jekyll build
-  - if [ -n "$ALGOLIA_API_KEY" ]; then bundle exec jekyll algolia push; fi
+  # - if [ -n "$ALGOLIA_API_KEY" ]; then bundle exec jekyll algolia push; fi
 after_success: 
   - if [ -n "$secret_key" ]; then s3_website push --force; fi
