@@ -2,8 +2,6 @@ s3_id: <%= ENV['access_key'] %>
 s3_secret: <%= ENV['secret_key'] %>
 s3_bucket: developer.avalara.com
 
-gzip: true
-
 exclude_from_upload:
   - node_modules
 
@@ -97,11 +95,11 @@ redirects:
    avalara-certified/avatax-15-certification-checklists/avatax-with-global-checklist: /avatax/certification/global
    avalara-certified/avatax-15-certification-checklists/avatax-with-returns-checklist: /avatax/certification/returns
    community: /blog
-   community/preferred-developers: /certification/preferred-developers
+   community/preferred-developers: /resources/preferred-developers
    community/social-media: /blog
    swagger-ui: /avalara-apis
    thank-you: /avatax/thank-you-for-registering
    thank-you-for-registering: /avatax/thank-you-for-registering
    resources: /avatax
    resources/self-test: /avatax/self-test
-   resources/preferred-developers: /certification/preferred-developers
+
