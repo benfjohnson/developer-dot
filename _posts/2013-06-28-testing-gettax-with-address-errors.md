@@ -5,7 +5,7 @@ date: 2013-06-28 18:57
 author: seanrust
 comments: true
 categories: [Sales Tax APIs]
-product: avatax
+product: avaTax
 doctype: blog
 ---
 When you're testing your integration, it's always a good idea to figure out how you're going to handle errors. Not all errors from our system are bad - some just mean a user has entered an invalid address (perhaps by making a typo!) - and your system should react accordingly. These address-related errors are to be expected in normal use of your connector.

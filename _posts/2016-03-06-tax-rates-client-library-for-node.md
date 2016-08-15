@@ -5,7 +5,7 @@ date: 2016-03-06 22:20
 author: greg.bulmash
 comments: true
 categories: [Sales Tax APIs]
-product: avatax
+product: avaTax
 doctype: blog
 ---
 The Avalara Developer Relations team is boldly going (cue music) into node.js. We released our first node.js helper library in August for the <a href="http://www.taxrates.com">TaxRates.com</a> API. This is our <i>free</i> and simple API for getting sales tax rates and authorities based on a street address or zip/postal code in the U.S. or Canada. The new node.js library makes it easy to integrate it into your node-based projects.

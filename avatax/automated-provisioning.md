@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Overview
-product: avatax
+product: avaTax
 doctype: use_cases
 nav: apis
 ---

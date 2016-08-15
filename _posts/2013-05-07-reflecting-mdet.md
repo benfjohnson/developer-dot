@@ -5,7 +5,7 @@ date: 2013-05-07 21:07
 author: anya.stettler
 comments: true
 categories: [Sales Tax APIs]
-product: avatax
+product: avaTax
 doctype: blog
 ---
 At the beginning of 2013, a new federal-level excise tax was introduced for some medical devices. If you have clients that need to reflect this tax, make sure you're doing the following:

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: AvaTax Certification
-product: avatax
+product: avaTax
 doctype: certification
 nav: apis
 ---

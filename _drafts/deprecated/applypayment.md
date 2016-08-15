@@ -5,7 +5,7 @@ date: 2014-06-03 02:08
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
+product: avaTax
 doctype: api-reference
 ---
 The ApplyPayment method of the TaxSvc was originally designed to update an existing document record with a PaymentDate value. This function (and cash-basis accounting in general) is no longer supported, and will not work on new or existing accounts, but remains in the TaxSvc WSDL and some automatically built adaptors for backwards compatibility.

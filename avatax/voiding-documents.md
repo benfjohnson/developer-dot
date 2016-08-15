@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Cancel Transactions
-product: avatax
+product: avaTax
 doctype: use_cases
 nav: apis
 community: cancel

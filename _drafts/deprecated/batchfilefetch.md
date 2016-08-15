@@ -5,7 +5,7 @@ date: 2013-03-08 23:40
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
+product: avaTax
 doctype: api-reference
 ---
 <h2>Request</h2>

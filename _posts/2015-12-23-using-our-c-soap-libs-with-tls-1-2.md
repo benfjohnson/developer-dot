@@ -5,7 +5,7 @@ date: 2015-12-23 13:03
 author: greg.bulmash
 comments: true
 categories: [Sales Tax APIs]
-product: avatax
+product: avaTax
 doctype: blog
 ---
 One of the fun parts of my job is getting to field developer support requests. Besides the joy of being able to solve a customer's problem and make them happy, I often get to fire up a development environment I'm unfamiliar with and learn something myself.

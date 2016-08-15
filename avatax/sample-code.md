@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Samples & Libraries
-product: avatax
+product: avaTax
 doctype: use_cases
 nav: apis
 community: samples

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Service Availability and Performance
-product: avatax
+product: avaTax
 doctype: use_cases
 nav: apis
 community: availability

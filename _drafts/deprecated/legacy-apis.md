@@ -5,7 +5,7 @@ date: 2014-01-23 22:19
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
+product: avaTax
 doctype: documentation
 ---
 The following legacy APIs are still available for use and supported, but there are more recent APIs that allow the same or better functionality.

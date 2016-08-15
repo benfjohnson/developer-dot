@@ -5,7 +5,7 @@ date: 2015-08-06 14:26
 author: lokeuei
 comments: true
 categories: [best practice, chat, discussion, open house, Q&amp;A, sales tax, Sales Tax APIs, troubleshooting]
-product: avatax
+product: avaTax
 doctype: blog
 imgsrc: /images/2015/08/Sticker-DevAndTaxes_Hangouts_600w.jpg
 ---

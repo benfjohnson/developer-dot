@@ -5,7 +5,7 @@ date: 2015-07-22 09:00
 author: lokeuei
 comments: true
 categories: [bizarre, hoisington, jurisdiction, kansas, sales tax, Sales Tax APIs, small, subway, weird]
-product: avatax
+product: avaTax
 doctype: blog
 imgsrc: /images/2015/07/Screen-Shot-2015-07-21-at-2.38.32-PM.png
 ---

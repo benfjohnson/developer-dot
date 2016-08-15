@@ -1,7 +1,7 @@
 ---
 layout: page
 title: SOAP or REST?
-product: avatax
+product: avaTax
 doctype: use_cases
 nav: apis
 community: apiDisambiguation

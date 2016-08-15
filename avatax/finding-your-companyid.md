@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Finding your CompanyId
-product: avatax
+product: avaTax
 doctype: use_cases
 nav: apis
 community: batch

@@ -5,7 +5,7 @@ date: 2013-11-11 22:03
 author: seanrust
 comments: true
 categories: [Sales Tax APIs]
-product: avatax
+product: avaTax
 doctype: blog
 ---
 Anya Stettler has put together a nice video overview of the Avalara AvaTax API. It's a great place to start learning the details you'll need for a good integration.

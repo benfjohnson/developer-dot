@@ -5,7 +5,7 @@ date: 2015-09-11 09:53
 author: anya.stettler
 comments: true
 categories: [Sales Tax APIs]
-product: avatax
+product: avaTax
 doctype: blog
 imgsrc: /images/2015/09/shutterstock_310565729.jpg
 ---

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Thank You
-product: avatax
+product: avaTax
 doctype: set_up_your_sandbox
 nav: apis
 ---

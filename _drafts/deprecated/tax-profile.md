@@ -5,7 +5,7 @@ date: 2013-04-09 23:28
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
+product: avaTax
 doctype: api-reference
 ---
 <h2><a name="Nexus"></a>Nexus</h2>

@@ -5,7 +5,7 @@ date: 2015-07-27 11:38
 author: lokeuei
 comments: true
 categories: [15.4, avatax, changes, field, release note, SDK, updates, wsdl]
-product: avatax
+product: avaTax
 doctype: blog
 ---
 The next AvaTax release (15.4) scheduled for August 5th 2015 will include some minor WSDL changes to include a few additional parameters. We do not foresee any impact to your code but we wanted everyone to be aware of this change in case it might. Here are the details :

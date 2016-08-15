@@ -5,7 +5,7 @@ date: 2016-01-18 09:00
 author: lokeuei
 comments: true
 categories: [avalara, avatax, core calculation, Experience, optimization, patient iteration, performance, Sales Tax APIs, Scaling, speed, teamwork]
-product: avatax
+product: avaTax
 doctype: blog
 imgsrc: /images/2016/01/Picture1.png
 ---

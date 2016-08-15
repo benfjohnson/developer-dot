@@ -5,7 +5,7 @@ date: 2015-11-16 09:00
 author: lokeuei
 comments: true
 categories: [Presentations, Sales Tax APIs]
-product: avatax
+product: avaTax
 doctype: blog
 imgsrc: /images/2015/11/Screen-Shot-2015-11-09-at-2.26.01-PM.png
 ---

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Integration Self-Test
-product: avatax
+product: avaTax
 doctype: test_your_integration
 ---
 <h2>Test Your Avalara AvaTax Sales Tax API Integration</h2>

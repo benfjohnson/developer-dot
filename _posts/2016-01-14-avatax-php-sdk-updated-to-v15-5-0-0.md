@@ -5,7 +5,7 @@ date: 2016-01-14 14:29
 author: lokeuei
 comments: true
 categories: [api, avatax, php, Sales Tax APIs, sdk, soap, updated, v15.5.0.0, wsdl]
-product: avatax
+product: avaTax
 doctype: blog
 ---
 We've just recently updated our PHP library on <a href="https://github.com/avadev/AvaTax-SOAP-PHP-SDK">Github</a>.

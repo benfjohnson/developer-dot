@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Calculating Tax
-product: avatax
+product: avaTax
 doctype: use_cases
 nav: apis
 community: calculate

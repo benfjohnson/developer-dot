@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Exempt Transactions
-product: avatax
+product: avaTax
 doctype: use_cases
 nav: apis
 community: exemption

@@ -72,7 +72,7 @@ Automatically tie your non-taxable transactions directly to the correct exemptio
             <img src="/images/AvLogo.svg" alt="Avalara Developer Network">
             <span>Developer</span>
         </a>
-        {% if product_name %}<span class="slash">/&nbsp;</span><a href='/{{product_name}}'>{{product_name}}</a>{% endif %}
+        {% if product_name %}<span class="slash">/&nbsp;</span><a href='/{{product_name | downcase}}'>{{product_name}}</a>{% endif %}
     </div>
     <nav class="navbar navbar-default navbar-static">
         <div class="navbar-header">

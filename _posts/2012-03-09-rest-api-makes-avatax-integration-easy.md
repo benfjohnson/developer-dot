@@ -5,7 +5,7 @@ date: 2012-03-09 08:49
 author: will.frei
 comments: true
 categories: [rest api, sales tax, Sales Tax APIs]
-product: avatax
+product: avaTax
 doctype: blog
 ---
 <blockquote>With any third party integration two things are absolutely essential – an easy and reliable API platform, and knowledgeable, responsive tech staff to help with the integration.  I’m glad to say, Avalara’s AvaTax REST system provides both! -Early integrator</blockquote>

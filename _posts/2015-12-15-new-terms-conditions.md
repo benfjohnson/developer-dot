@@ -5,7 +5,7 @@ date: 2015-12-15 17:55
 author: anya.stettler
 comments: true
 categories: [Sales Tax APIs]
-product: avatax
+product: avaTax
 doctype: blog
 ---
 Avalara just posted a new version of our <a href="http://www.avalara.com/new-terms/">AvaTax terms and conditions</a>, effective January 1, 2016. New Ts and Cs are always an opportunity for some fun recreational reading, but these are especially exciting. From section 3.b.ii:

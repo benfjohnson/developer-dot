@@ -5,7 +5,7 @@ date: 2013-03-31 22:50
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
+product: avaTax
 doctype: api-reference
 ---
 <h3>AccountFetch</h3>

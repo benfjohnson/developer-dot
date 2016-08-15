@@ -5,7 +5,7 @@ date: 2012-03-06 15:50
 author: steven.dunston
 comments: true
 categories: [api, Development, rate table, sales tax, zip code]
-product: avatax
+product: avaTax
 doctype: blog
 ---
 <em>This is the first of three posts aimed at giving developers a basic understanding of options for implementing a sales tax solution.</em>

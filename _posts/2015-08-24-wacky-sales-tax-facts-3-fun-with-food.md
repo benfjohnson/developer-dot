@@ -5,7 +5,7 @@ date: 2015-08-24 11:21
 author: lokeuei
 comments: true
 categories: [apis, bagel, bizarre, food, new york, rules, sales, Sales Tax APIs, tax, weird]
-product: avatax
+product: avaTax
 doctype: blog
 imgsrc: /images/2015/08/Screen-Shot-2015-08-18-at-2.03.49-PM.png
 ---

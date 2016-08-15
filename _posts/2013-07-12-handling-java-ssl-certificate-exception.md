@@ -5,7 +5,7 @@ date: 2013-07-12 22:32
 author: timothy.longley
 comments: true
 categories: [Sales Tax APIs]
-product: avatax
+product: avaTax
 doctype: blog
 ---
 If you are trying to make an HTTPS call to the AvaTax web service from a WebSphere Message Broker  and recieve an exception message similar to below, it is likely that the Message Broker is unable to build the entire certificate path. The Message Broker “keystore” must have all of the certificates in the "chain" of CA's.

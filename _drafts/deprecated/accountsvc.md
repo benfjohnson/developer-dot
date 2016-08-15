@@ -5,7 +5,7 @@ date: 2013-03-31 20:40
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
+product: avaTax
 doctype: api-reference
 ---
 AccountSvc is not typically recommended for standard, single-tenant integrations. It adds an additional layer of complexity to your integration by circumventing the standard Admin Console experience. This makes Avalara's ability to support the end customer more limited, and puts more of that support burden on the owner of the connector. For these reasons, we ask that you speak to a developer engineer directly before moving ahead with an AccountSvc integration. Using some resources in the AccountSvc API without sufficient understanding of the tax profile could result in serious tax liability issues for your client.

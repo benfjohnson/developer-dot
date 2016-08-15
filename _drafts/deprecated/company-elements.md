@@ -5,7 +5,7 @@ date: 2013-04-01 02:06
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
+product: avaTax
 doctype: api-reference
 ---
 <h3>CompanyFetch</h3>

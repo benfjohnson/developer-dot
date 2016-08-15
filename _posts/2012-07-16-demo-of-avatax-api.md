@@ -5,7 +5,7 @@ date: 2012-07-16 12:56
 author: avalara
 comments: true
 categories: [api, demo, Sales Tax APIs, sales tax service, video]
-product: avatax
+product: avaTax
 doctype: blog
 imgsrc: /images/2012/07/avatax-api-demo-video-550x304.png
 ---

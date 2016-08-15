@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Errors and Outages
-product: avatax
+product: avaTax
 doctype: use_cases
 nav: apis
 community: errors

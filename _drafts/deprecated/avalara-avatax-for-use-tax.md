@@ -5,7 +5,7 @@ date: 2015-06-02 14:59
 author: lokeuei
 comments: true
 categories: []
-product: avatax
+product: avaTax
 doctype: certification
 ---
 <div id="main-content" class="wiki-content">

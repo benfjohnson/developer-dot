@@ -5,7 +5,7 @@ date: 2015-07-07 21:11
 author: greg.bulmash
 comments: true
 categories: [Sales Tax APIs]
-product: avatax
+product: avaTax
 doctype: blog
 ---
 I'm using my blog post this month to start a conversation. I'm beginning work on an NPM module to simplify the AvaTax REST interface for node.js. This leaves me with two questions I'd like to pose:

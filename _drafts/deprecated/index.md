@@ -5,7 +5,7 @@ date: 2012-10-09 13:49
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
+product: avaTax
 doctype: certification
 ---
 How do you know if you're compliant with our best practices?  To start, we recommend watching an overview of our API.

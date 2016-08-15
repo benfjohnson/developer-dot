@@ -5,7 +5,7 @@ date: 2012-03-20 15:15
 author: steven.dunston
 comments: true
 categories: [Development, exempt status, nexus, sales tax, taxability]
-product: avatax
+product: avaTax
 doctype: blog
 imgsrc: /images/2012/03/sales-tax-logic1.png
 ---

@@ -5,7 +5,7 @@ date: 2013-03-08 22:44
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
+product: avaTax
 doctype: api-reference
 ---
 This function uses a Batch object to load and save a batch into the AvaTax system. It will automatically process the loaded batch. The file loaded needs to be in a .csv, .xls, or .xlsx format, with a header row, and data consistent with the appropriate import format. This import format is the same as the format required for imports through the Admin Console. Templates and information about these formats is available through our <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/055_Add_or_Import_Transactions">Admin Console documentation.</a>

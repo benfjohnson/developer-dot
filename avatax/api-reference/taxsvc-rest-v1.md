@@ -1,7 +1,7 @@
 ---
 layout: default
 title: AvaTax API Reference REST v1
-product: avatax
+product: avaTax
 doctype: api-reference
 nav: apis
 ---

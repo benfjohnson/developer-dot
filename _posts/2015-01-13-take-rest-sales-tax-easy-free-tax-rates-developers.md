@@ -5,7 +5,7 @@ date: 2015-01-13 09:00
 author: lokeuei
 comments: true
 categories: [api, json, Launches, lookup, rates, rest, sales tax, Sales Tax APIs, tax rates]
-product: avatax
+product: avaTax
 doctype: blog
 ---
 Tax compliance is challenging, and static tax rate tables are a common place to start looking for answers. Manually updating tax rates from a file is inefficient, though, and tax rates may change at any time – not just once per month. This is the perfect use case for a REST API, so that’s what we built. Our new Tax Rates API makes it easy to get the most current and accurate tax rate in your software. And it’s completely free.

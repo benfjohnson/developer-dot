@@ -5,7 +5,7 @@ date: 2015-06-16 09:00
 author: lokeuei
 comments: true
 categories: [bizarre, edge cases, jurisdictions, sales tax, Sales Tax APIs, weird]
-product: avatax
+product: avaTax
 doctype: blog
 imgsrc: /images/2015/06/12000-juris.jpg
 ---

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SSL Certificates
-product: avatax
+product: avaTax
 doctype: use_cases
 nav: apis
 community: ssl

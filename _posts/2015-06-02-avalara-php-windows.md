@@ -5,7 +5,7 @@ date: 2015-06-02 09:00
 author: greg.bulmash
 comments: true
 categories: [Sales Tax APIs]
-product: avatax
+product: avaTax
 doctype: blog
 imgsrc: /images/2015/06/zce_logo-150x150.jpg
 ---

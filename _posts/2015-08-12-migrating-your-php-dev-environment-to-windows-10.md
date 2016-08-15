@@ -5,7 +5,7 @@ date: 2015-08-12 14:22
 author: greg.bulmash
 comments: true
 categories: [Sales Tax APIs]
-product: avatax
+product: avaTax
 doctype: blog
 imgsrc: /images/2015/08/pingtest.jpg
 ---

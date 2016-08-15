@@ -5,7 +5,7 @@ date: 2013-03-07 00:29
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
+product: avaTax
 doctype: documentation
 ---
 <h2>Introduction</h2>

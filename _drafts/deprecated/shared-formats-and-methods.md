@@ -5,7 +5,7 @@ date: 2013-03-31 20:29
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
+product: avaTax
 doctype: documentation
 ---
 There are a few shared formats and methods that appear in all of the SOAP services. For the sake of simplicity, they are assembled here, and linked in the service-specific documentation.

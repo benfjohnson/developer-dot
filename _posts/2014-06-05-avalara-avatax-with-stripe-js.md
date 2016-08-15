@@ -5,7 +5,7 @@ date: 2014-06-05 17:15
 author: anya.stettler
 comments: true
 categories: [Sales Tax APIs]
-product: avatax
+product: avaTax
 doctype: blog
 imgsrc: /images/2014/06/Ecomm-with-stripe.png
 ---

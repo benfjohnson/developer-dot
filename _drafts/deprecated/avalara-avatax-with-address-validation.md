@@ -5,7 +5,7 @@ date: 2014-02-20 18:34
 author: julia.king
 comments: true
 categories: []
-product: avatax
+product: avaTax
 doctype: certification
 ---
 Certification for Avalara AvaTax with Address Validation requires the delivery of all functional requirements shown below.

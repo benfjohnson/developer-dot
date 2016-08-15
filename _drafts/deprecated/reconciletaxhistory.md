@@ -5,7 +5,7 @@ date: 2014-06-03 02:43
 author: anya.stettler
 comments: true
 categories: []
-product: avatax
+product: avaTax
 doctype: api-reference
 ---
 The ReconcileTaxHistory method of the TaxSvc was designed to allow users to pull a range of documents for reconciliation against a document of record (i.e. in the ERP), and then flag the reconciled documents as completed. Those flagged documents would then be omitted from subsequent ReconcileTaxHistory calls. This method no longer changes the "reconciled" document flag, but can be used to retrieve ranges of document data (much like the AccountSvc <a title="Document Elements" href="/api-docs/soap/accountsvc/document-elements">DocumentFetch</a>), and remains in the TaxSvc WSDL and some automatically built adaptors for backwards compatibility.
