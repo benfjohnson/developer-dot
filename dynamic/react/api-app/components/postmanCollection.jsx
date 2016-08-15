@@ -13,14 +13,13 @@ const PostmanCollection = ({apiType, appLoaded, auth, onAuthKeyChange, postmanCo
 
     const url = (appLoaded && typeof URL !== 'undefined') ? URL.createObjectURL(blob) : null;
 
-    function clickHandler(evt) {
-        if(appLoaded && typeof window !== 'undefined' && typeof window.navigator.msSaveOrOpenBlob !== 'undefined') {
+    const clickHandler = () => {
+        if (appLoaded && typeof window !== 'undefined' && typeof window.navigator.msSaveOrOpenBlob !== 'undefined') {
             window.navigator.msSaveOrOpenBlob(blob, fileName);
             return false;
-        } else {
-            return true;
         }
-    }
+        return true;
+    };
 
     return (
         <div>
