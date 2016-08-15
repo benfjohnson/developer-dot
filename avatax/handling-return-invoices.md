@@ -18,11 +18,11 @@ Return Invoice or Credit Memo processing is largely a business practice that the
 
 For the example provided below, we will process a return invoice on the following sales invoice, as seen on the Admin Console:
 
-<a href="/avatax/handling-return-invoices" target="_blank"><img class="size-full wp-image-344 " src="/images/devdot/ProductReturns_Invoice.svg" alt="Invoice" width="1455" height="73" /></a>
+<img src="/images/devdot/ProductReturns_Invoice.svg" alt="Invoice" width="100%" />
 
 With the following line items:
 
-<a href="/avatax/handling-return-invoices" target="_blank"><img class="size-full wp-image-345 " src="/images/devdot/ProductReturns_Lineitems.svg" alt="Line Items" width="1183" height="236" /></a>
+<img src="/images/devdot/ProductReturns_Lineitems.svg" alt="Line Items" width="100%" />
 
 As you address returns processing, keep in mind that:
 <ul>
@@ -39,7 +39,7 @@ As you address returns processing, keep in mind that:
 </li>
 </ol>
 <blockquote><strong>Note:</strong> you can use a DocCode once per DocType. A DocStatusError will result if you attempt to commit a second document with the same DocType and DocCode</blockquote>
-<a href="/avatax/handling-return-invoices" target="_blank"><img class="size-full wp-image-348 " src="/images/devdot/ProductReturns_Invoiceandreturn.svg" alt="Invoice and Return" width="1438" height="107" /></a>
+<img src="/images/devdot/ProductReturns_Invoiceandreturn.svg" alt="Invoice and Return" width="100%" />
 <ol start="2">
 	<li>Set the DocDate to the date when the return is being processed (not the date of the original order).</li>
 	<li>Set the TaxOverride.TaxDate to reflect the original order date (this will override the date used for tax calculation so that the same taxes are calculated as were on the original order).
@@ -54,7 +54,7 @@ As you address returns processing, keep in mind that:
 <ol start="4">
 	<li>Set the Amt property to a negative dollar amount on the line items (always leave the Qty as a positive number)</li>
 </ol>
-<a href="/avatax/handling-return-invoices" target="_blank"><img class="size-full wp-image-347 " src="/images/devdot/ProductReturns_Returnedlineitems.svg" alt="Returned Line Items" width="1186" height="109" /></a></li>
+<img src="/images/devdot/ProductReturns_Returnedlineitems.svg" alt="Returned Line Items"width="100%" /></li>
 </ul>
 Once sent to the AvaTax web service, the tax engine will return negative tax amounts on the line items based on the TaxDate specified. If no TaxDate is set, the document date will be used to calculate tax. Taxable Amounts on a Return Invoice show negative amounts equal to the items returned.
 

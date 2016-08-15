@@ -1,5 +1,108 @@
 s3_id: <%= ENV['access_key'] %>
 s3_secret: <%= ENV['secret_key'] %>
-s3_bucket: devdot-sitetest
+s3_bucket: developer.avalara.com
+
+# disable gzip for now (for link checking).
+gzip: false
+
 exclude_from_upload:
   - node_modules
+
+ignore_on_server:
+  - logs
+
+redirects:
+   form: /avatax/get-started
+   api-documentation: /avalara-apis
+   api-documentation/avatax16: /avalara-apis
+   api-documentation/avatax-15-api: /avatax
+   api-documentation/avatax-15-api/avatax-rest-api-reference: /avatax/api-reference/tax/v1
+   api-documentation/avatax-15-api/avatax-soap-api-reference: /avatax/api-reference/tax/soap
+   api-documentation/avatax-15-api/api-docs: /avatax
+   api-documentation/avatax-15-api/api-docs/ancillary-resources: /avatax/api-reference/tax/soap
+   api-documentation/avatax-15-api/api-docs/api-sample-code: /avatax/sample-code
+   api-documentation/avatax-15-api/api-docs/soap: /avatax/api-reference/tax/soap
+   api-documentation/avatax-15-api/api-docs/soap/applypayment: /avatax/api-reference/tax/soap#applyPayment
+   api-documentation/avatax-15-api/api-docs/soap/reconciletaxhistory: /avatax/api-reference/tax/soap#reconcileTaxHistory
+   api-documentation/avatax-15-api/api-docs/soap/shared-formats-and-methods: /avatax/api-reference/batch/soap
+   api-documentation/avatax-15-api/api-docs/soap/batchsvc: /avatax/api-reference/batch/soap
+   api-documentation/avatax-15-api/api-docs/soap/batchsvc/batchsave: /avatax/api-reference/batch/soap#batchSave
+   api-documentation/avatax-15-api/api-docs/soap/batchsvc/batchfetch: /avatax/api-reference/batch/soap#batchFetch
+   api-documentation/avatax-15-api/api-docs/soap/batchsvc/batchfilefetch: /avatax/api-reference/batch/soap#batchFileFetch
+   api-documentation/avatax-15-api/api-docs/soap/batchsvc/finding-your-companyid: /avatax/finding-your-companyid
+   api-documentation/avatax-15-api/api-docs/soap/accountsvc: /avatax/api-reference/account/soap
+   api-documentation/avatax-15-api/api-docs/soap/accountsvc/account: /avatax/api-reference/account/soap#accountFetch
+   api-documentation/avatax-15-api/api-docs/soap/accountsvc/company-elements: /avatax/api-reference/account/soap#companyFetch
+   api-documentation/avatax-15-api/api-docs/soap/accountsvc/tax-profile: /avatax/api-reference/account/soap#nexusFetch
+   api-documentation/avatax-15-api/api-docs/soap/accountsvc/document-elements: /avatax/api-reference/account/soap#documentFetch
+   api-documentation/avatax-15-api/api-docs/certcapture-api: /certcapture
+   api-documentation/avatax-15-api/api-docs/legacy-apis: /avalara-apis
+   api-documentation/avatax-15-api/designing-your-integration: /avatax/use-cases
+   api-documentation/avatax-15-api/designing-your-integration/consumer-use-tax: /avatax/consumer-use-tax
+   api-documentation/avatax-15-api/designing-your-integration/service-availability-and-performance: /avatax/service-availability-and-performance
+   api-documentation/avatax-15-api/designing-your-integration/soap-or-rest: /avatax/soap-or-rest
+   api-documentation/avatax-15-api/designing-your-integration/gettax: /avatax/calculating-tax
+   api-documentation/avatax-15-api/designing-your-integration/handling-tax-exempt-customers: /avatax/handling-tax-exempt-customers
+   api-documentation/avatax-15-api/designing-your-integration/posttax-and-committax: /avatax/reportable-transactions
+   api-documentation/avatax-15-api/designing-your-integration/canceltax: /avatax/voiding-documents
+   api-documentation/avatax-15-api/designing-your-integration/handling-return-invoices: /avatax/handling-return-invoices
+   api-documentation/avatax-15-api/designing-your-integration/address-validation: /avatax/address-validation
+   api-documentation/avatax-15-api/designing-your-integration/testing-your-integration-to-avatax: /avatax/testing-your-integration
+   api-documentation/avatax-15-api/designing-your-integration/testing-your-integration-to-avatax/vat-transactions: /avatax/vat-transactions
+   api-documentation/avatax-15-api/designing-your-integration/going-live: /avatax/going-live
+   api-documentation/avatax-15-api/designing-your-integration/errors-and-outages: /avatax/errors-and-outages
+   api-documentation/avatax-15-api/designing-your-integration/errors-and-outages/proxy-server-settings: /avatax/proxy-server-settings
+   api-documentation/avatax-15-api/designing-your-integration/errors-and-outages/common-errors: /avatax/common-errors
+   api-documentation/avatax-15-api/designing-your-integration/errors-and-outages/ssl-certificates: /avatax/ssl-certificates
+   api-documentation/avatax-15-api/designing-your-integration/api-integration-checklist: /avatax/certification
+   api-documentation/avatax-15-api/designing-your-integration/api-integration-checklist/avalara-avatax-with-global: /avatax/certification/global
+   api-documentation/avatax-15-api/designinÉur-integration/api-integration-checklist/avalara-avatax-with-certcapture: /certcapture/certification
+   api-documentation/avatax-15-api/designinÉgration/api-integration-checklist/avalara-avatax-with-address-validation: /avatax/certification/address-validation
+   api-documentation/avatax-15-api/designing-your-integration/api-integration-checklist/avalara-avatax-with-returns: /avatax/certification/returns
+   api-documentation/avatax-15-api/designing-your-integration/api-integration-checklist/avalara-avatax-for-use-tax: /avatax/certification/use-tax
+   api-documentation/avatax-15-api/designinÉr-integration/api-integration-checklist/avalara-avatax-for-point-of-sale: /avatax/certification
+   api-documentation/avatax-15-api/getting-started: avatax/get-started
+   api-documentation/avatax-15-api/getting-started/logins: avatax/logins
+   api-documentation/avatax-15-api/become-a-certified-partner: /certification
+   api-documentation/certcapture-api: /certcapture
+   api-documentation/certcapture-api/overview: /certcapture
+   api-documentation/communications-api: /communications
+   api-documentation/communications-api/certification-checklist: /communications/certification
+   api-documentation/communications-api/geocoder-api-reference: /communications/api-reference/geocode/soap
+   api-documentation/communications-api/overview: /communications
+   api-documentation/communications-api/api-reference: /communications/api-reference/saas/soap
+   api-documentation/excise-tax-api: /excise
+   api-documentation/excise-tax-api/overview: /excise
+   api-documentation/landedcost-api: /landedcost
+   api-documentation/landedcost-api/landedcost-api-reference: /landedcost/api-reference/calculate/v3
+   api-documentation/landedcost-api/overview: /landedcost
+   api-documentation/onboarding-api: /avatax/api-reference/onboarding/v1
+   api-documentation/onboarding-api/develop: /avatax/automated-provisioning
+   api-documentation/onboarding-api/onboarding-api-v1: /avatax/api-reference/onboarding/v1
+   api-documentation/onboarding-api/overview: /avatax/automated-provisioning
+   api-documentation/onboarding-api/typical-workflows: /avatax/automated-provisioning
+   api-documentation/trustfile-api: /trustfile
+   api-documentation/trustfile-api/connectors-api-reference: /trustfile/api-reference/connector-management/v3
+   api-documentation/trustfile-api/core-api-reference: /trustfile/api-reference/core/v3
+   api-documentation/trustfile-api/get-api-key: /trustfile
+   api-documentation/trustfile-api/overview: /trustfile
+   api-documentation/trustfile-api/provisioning-api-reference: /trustfile/api-reference/provisioning/v3
+   api-reference: /avatax/api-reference/tax/v1
+   avalara-apis/compare-versions: /avalara-apis
+   avalara-certified: /certification
+   avalara-certified/avatax-15-certification-checklists: /certification
+   avalara-certified/avatax-15-certification-checklists/avatax-checklist: /avatax/certification
+   avalara-certified/avatax-15-certification-checklists/avatax-use-tax-checklist: /avatax/certification/use-tax
+   avalara-certified/avatax-15-certification-checklists/avatax-with-address-validation-checklist: /avatax/certification/address-validation
+   avalara-certified/avatax-15-certification-checklists/avatax-with-certcapture-checklist: /certcapture/certification
+   avalara-certified/avatax-15-certification-checklists/avatax-with-global-checklist: /avatax/certification/global
+   avalara-certified/avatax-15-certification-checklists/avatax-with-returns-checklist: /avatax/certification/returns
+   community: /blog
+   community/preferred-developers: /certification/preferred-developers
+   community/social-media: /blog
+   swagger-ui: /avalara-apis
+   thank-you: /avatax/thank-you-for-registering
+   thank-you-for-registering: /avatax/thank-you-for-registering
+   resources: /avatax
+   resources/self-test: /avatax/self-test
+   resources/preferred-developers: /certification/preferred-developers
