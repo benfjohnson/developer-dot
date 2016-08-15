@@ -44,12 +44,9 @@ networkaddress.cache.ttl and networkaddress.cache.negative.ttl are not typically
 </li>
 </ol>
 Example:
-<pre class="prettyprint lang-java">java.security.Security.setProperty ("networkaddress.cache.ttl", "60");</pre>
+{% highlight java %}java.security.Security.setProperty ("networkaddress.cache.ttl", "60");{% endhighlight %}
 <h3>Clients using a “static” host file table:</h3>
 Avalara’s web services do not support host files. The system accessing our service must use DNS to lookup IP addressing. Failure to do so will put the client’s adaptor at risk in a failover situation (meaning our primary web service has been switched to a secondary due to an outage or preventative maintenance cycle).
 <h3>Clients deploying security enforced firewall rules:</h3>
 If your company deploys a security practice that requires locking down outbound /inbound traffic, it is recommended that you use the DNS names of development.avalara.net or avatax.avalara.net to resolve any issues.
-
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-
 <hr />

@@ -11,27 +11,17 @@ nav: apis
 
 <iframe id="player_1" src="http://www.youtube.com/embed/R0WUijv8xKk?rel=0&amp;enablejsapi=1&amp;wmode=opaque" width="705" height="396"></iframe>
 
-<img class="alignnone size-full wp-image-7023" src="/images/2012/10/Avalara_CERTIFIED-150x25-01.png" alt="Avalara_CERTIFIED-150x25-01" width="150" height="26" />
+<img src="/images/2012/10/Avalara_CERTIFIED-150x25-01.png" alt="Avalara_CERTIFIED-150x25-01" width="150" height="26" />
 
 An integration can be issued for any of the following feature subsets in addition to a basic calculation certification:
-
-
 To have your integration <a href="/certification">Certified by Avalara</a>, we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax with your application.  To be Certified for Avalara AvaTax, all of the items with an R beside them listed below are the required elements that must be present in your integration.
 <blockquote><strong>Note: </strong>Address validation is a requirement for certification, however we don’t require you to use our address validation service.</blockquote>
 There are several different certifications that can be achieved according to the functionality supported in your application.
 <ul>
-<li>
-<a href="/avatax/certification/address-validation">Calculation with Avalara AvaTax and Address Validation</a>
-</li>
-<li>
-<a href="/avatax/certification/returns">Calculation with Avalara AvaTax and Returns</a>
-</li>
-<li>
-<a href="/avatax/certification/global">Calculation with Avalara AvaTax for Global Calculations</a>
-</li>
-<li>
-<a href="/avatax/certification/use-tax">Calculation with Avalara AvaTax for Use Tax</a>
-</li>
+<li><a href="/avatax/certification/address-validation">Calculation with Avalara AvaTax and Address Validation</a></li>
+<li><a href="/avatax/certification/returns">Calculation with Avalara AvaTax and Returns</a></li>
+<li><a href="/avatax/certification/global">Calculation with Avalara AvaTax for Global Calculations</a></li>
+<li><a href="/avatax/certification/use-tax">Calculation with Avalara AvaTax for Use Tax</a></li>
 </ul>
 
 For more information about the benefits of certification, check out our <a href="/certification">Certification Guide</a>.

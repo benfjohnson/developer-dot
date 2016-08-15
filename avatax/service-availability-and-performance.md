@@ -11,7 +11,7 @@ Consuming sales tax related services can be considered mission-critical, especia
 
 Avalara’s Server Status can be viewed publicly at <a href="http://status.avalara.com" target="_blank">http://status.avalara.com</a>. This page outlines the availability of the service, current performance in terms of response time and a historical view of the availability for the past week.
 
-<img class="aligncenter" src="/images/2015/05/status.avalara.com_CROP.jpg" alt="" />
+<img src="/images/2015/05/status.avalara.com_CROP.jpg" width="100%" />
 
 Avalara is committed to providing a minimum service uptime of 99.5%. Certain interested customers can purchase a higher Service Level Agreement if they need a higher commitment to ensuring service availability. You can contact your assigned Avalara Account Manager for further information.
 <h3>Network Latency</h3>
@@ -24,23 +24,19 @@ If you have issues with latency when reaching Avalara’s services, you can try 
 Execute the following from the source machine:
 
 For UNIX based systems:
-<pre class="prettyprint lang-text">$ export URL=https://development.avalara.net/tax/taxsvc.asmx
-</pre>
-<pre class="prettyprint lang-text">$ for i in `seq 1 5`; do curl -w "tcp: %{time_connect} ssl:%{time_appconnect}\n" -sk -o /dev/null $URL; done
-</pre>
+
+{% highlight text %}$ export URL=https://development.avalara.net/tax/taxsvc.asmx{% endhighlight %}
+{% highlight text %}$ for i in `seq 1 5`; do curl -w "tcp: %{time_connect} ssl:%{time_appconnect}\n" -sk -o /dev/null $URL; done{% endhighlight %}
 For Windows systems:
-<pre class="prettyprint lang-text">C:&gt;\for /l %x in (1,1,5) do @(curl -w "tcp: %{time_connect} ssl:%{time_appconnect}\n" -sk -o /dev/null https://development.avalara.net/tax/taxsvc.asmx)
-</pre>
+{% highlight text %}C:&gt;\for /l %x in (1,1,5) do @(curl -w "tcp: %{time_connect} ssl:%{time_appconnect}\n" -sk -o /dev/null https://development.avalara.net/tax/taxsvc.asmx){% endhighlight %}
 This is a sample of the result from the test script above:
-<pre class="prettyprint lang-text">tcp: 0.049 ssl:0.220
+{% highlight text %}
+tcp: 0.049 ssl:0.220
 tcp: 0.048 ssl:0.219
 tcp: 0.047 ssl:0.220
 tcp: 0.048 ssl:0.221
 tcp: 0.047 ssl:0.220
-</pre>
+{% endhighlight %}
 It illustrates the latency of the network from the source machine to Avalara’s servers. The first number is the response time it takes to make a quick ping using plain TCP and the second making a ping with SSL negotiation turned on.
 
 With the combination of the Avalara’s Server Status website and the script provided, you should be able to determine the source of any network latency problems and respond accordingly. If you are still experiencing latency issues, please feel free to contact Avalara’s Customer Service Department for further troubleshooting.
-
-
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>

@@ -37,6 +37,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/BatchSave'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/BatchSave" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/BatchSave\""`'
           type: string
@@ -61,6 +62,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/BatchFetch'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/BatchFetch" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/BatchFetch\""`'
           type: string
@@ -85,6 +87,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/BatchFileFetch'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/BatchFileFetch" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/BatchFileFetch\""`'
           type: string
@@ -109,6 +112,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/BatchDelete'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/BatchDelete" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/BatchDelete\""`'
           type: string
@@ -133,6 +137,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/BatchProcess'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/BatchProcess" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/BatchProcess\""`'
           type: string
@@ -157,6 +162,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/BatchFileSave'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/BatchFileSave" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/BatchFileSave\""`'
           type: string
@@ -181,6 +187,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/BatchFileDelete'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/BatchFileDelete" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/BatchFileDelete\""`'
           type: string
@@ -204,6 +211,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/Ping'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/Ping" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/Ping\""`'
           type: string
@@ -227,6 +235,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/IsAuthorized'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/IsAuthorized" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/IsAuthorized\""`'
           type: string
