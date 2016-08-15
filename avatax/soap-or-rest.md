@@ -22,7 +22,7 @@ Here's a list of the primary functionalities available in each of our APIs:
 <tbody>
 <tr>
 <td>AddressSvc</td>
-<td style="width: 100px;"><a title="Address Validation" href="/api-docs/designing-your-integration/address-validation">Address Validation</a></td>
+<td style="width: 100px;"><a title="Address Validation" href="/avatax/address-validation">Address Validation</a></td>
 <td><a title="Address Validation" href="/avatax/api-reference/tax/v1#validateAddress">Validate</a> (GET)</td>
 <td><a href="/avatax/api-reference/tax/soap#validateAddress">ValidateAddress</a> request</td>
 </tr>
