@@ -11,7 +11,7 @@ imgsrc: /images/2014/01/AvaTaxCertsWorkflow.png
 ---
 The AvaTax Certs product is a stand-alone exemption certificate management product that can be used in conjunction with the AvaTax Calc product. The Certs product allows a company to track exempt customers, initiate automated correspondence to request certificate information from those customers, and track and manage the resulting exemption certificates. All valid certificates created/recorded in the AvaTax Certs product sync over to the AvaTax Calc product as well - once a customer has a valid exemption certificate in Certs, they will automatically be tax exempt for your tax calculations.
 
-There is a <a href="https://portal.avatax.com/api/doc/">RESTful API</a> to interact with the AvaTax Certs objects. That API documentation is password-protected. If you have an AvaTax Certs portal account, that same credential set will grant you access to the API documentation.
+There is a <a href="http://docs.certcapture6xrest.apiary.io/">RESTful API</a> to interact with the AvaTax Certs objects. That API documentation is password-protected. If you have an AvaTax Certs portal account, that same credential set will grant you access to the API documentation.
 
 Note that the AvaTax Certs product is currently being combined with the <a href="http://www.avalara.com/products/certcapture">CertCapture</a> product, but this article uses the resource terminology specific to the AvaTax Certs API.
 

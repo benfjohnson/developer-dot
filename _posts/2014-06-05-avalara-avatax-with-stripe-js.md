@@ -11,7 +11,7 @@ imgsrc: /images/2014/06/Ecomm-with-stripe.png
 ---
 The new AvaTax.js library makes it easy to calculate taxes with browser-based shopping carts and other web commerce environments -- providing real-time tax calculation results during the checkout process. Those accurate, on-demand tax calculations can be consumed at time of checkout, allowing you to display the results to your shoppers or use them in your payment processing. This diagram is a typical process flow for an E-commerce scenario.
 
-<a href="/images/2014/06/Ecomm-with-stripe.png"><img class="alignnone size-full wp-image-7766" src="/images/2014/06/Ecomm-with-stripe.png" alt="E-Commerce Workflow with Stripe integration" width="900" height="476" /></a>
+<img src="/images/2014/06/Ecomm-with-stripe.png" alt="E-Commerce Workflow with Stripe integration" width="100%" />
 
 Let's take a look at an easy example where AvaTax.js can be used in conjunction with Stripe.js to calculate tax and create a payment authorization token.
 
@@ -54,4 +54,4 @@ Otherwise, if you're recording an order to AvaTax that has been confirmed, and y
 <pre>GetTax(getTaxRequest, function(getTaxResult) { chargeCardViaStripe((getTaxResult.TotalTax + getTaxResult.TotalAmount) *100 )});</pre>
 </li>
 </ol>
-And you're done!  That one <a href="/avatax/gettax">GetTax</a> call can be used to calculate tax on a cart and/or to record a finalized order in the AvaTax™ system for reporting and filing. For more examples of calls using the AvaTax.js library, take a look at the test html files available in the <a href="https://github.com/avadev/AvaTax-Calc-REST-JavaScript">JavaScript sample repository</a>.
+And you're done!  That one <a href="/avatax/api-reference/tax/v1">GetTax</a> call can be used to calculate tax on a cart and/or to record a finalized order in the AvaTax™ system for reporting and filing. For more examples of calls using the AvaTax.js library, take a look at the test html files available in the <a href="https://github.com/avadev/AvaTax-Calc-REST-JavaScript">JavaScript sample repository</a>.
