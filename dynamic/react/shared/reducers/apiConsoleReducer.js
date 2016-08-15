@@ -107,9 +107,6 @@ export default (state, action) => {
         case 'number':
             castedValue = isNaN(parseFloat(action.newValue)) ? action.newValue : parseFloat(action.newValue);
             break;
-        case 'boolean':
-            castedValue = action.newValue === 'true';
-            break;
         default:
             castedValue = action.newValue;
         }
