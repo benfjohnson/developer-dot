@@ -35,17 +35,19 @@ Understanding and taking appropriate action on error messages is critical to the
 If a call fails, the receiver should always iterate through the messages collection that will be part of the result set and check the contents of the Name, Summary, Details and RefersTo fields of each message. Often the contents of these messages will indicate what the problem is.
 
 For example, from a DocumentNotFoundError:
-<pre class="prettyprint lang-html">The tax document could not be found.
-&lt;Details&gt;SO123456789&lt;/Details&gt;
-&lt;RefersTo&gt;Avalara.AvaTax.Services.Tax&lt;/RefersTo&gt;
-&lt;SeverityLevel&gt;Error&lt;/SeverityLevel&gt;
-</pre>
+{% highlight html %}
+The tax document could not be found.
+<Details>SO123456789</Details>
+<RefersTo>Avalara.AvaTax.Services.Tax</RefersTo>
+<SeverityLevel>Error</SeverityLevel>
+{% endhighlight %}
 All API calls should contain a path that will execute for:
-<pre class="prettyprint lang-cs">ResultCode = SeverityLevel.Success
+{% highlight csharp %}
+ResultCode = SeverityLevel.Success
 ResultCode = SeverityLevel.Warning
 ResultCode = SeverityLevel.Error
 ResultCode = SeverityLevel.Exception
-</pre>
+{% endhighlight %}
 Notes:
 Typically, Exception is only returned by a system error from the Avalara web service and will be caused by circumstances outside of the client application’s control (i.e. not having an internet connection will return the error).
 
@@ -55,11 +57,13 @@ The only known circumstance under which ResultCode=Warning would be returned is 
 At this time, the only API that may return SeverityLevel.Warning is PostTax. To account for the possibility that this may change in the future, we recommend you have a code path that will execute for ResultCode SeverityLevel.Warning for all API calls. This codepath may initially be the same as the codepath that is executed for a ResultCode of SeverityLevel.Error.
 
 The following error message...
-<pre class="prettyprint lang-text">The server was unable to process the request due to an internal error.
+{% highlight text %}
+The server was unable to process the request due to an internal error.
 For more information about the error, either turn on IncludeExceptionDetailInFaults 
 (either from ServiceBehaviorAttribute or from the configuration behavior) 
 on the server in order to send the exception information back to the client, 
-or turn on tracing as per the Microsoft .NET Framework 3.0 SDK documentation and inspect the server trace logs.</pre>
+or turn on tracing as per the Microsoft .NET Framework 3.0 SDK documentation and inspect the server trace logs.
+{% endhighlight %}
 ...is returned frequently when one of the following has occurred:
 <ul>
 	<li>There is a malformed data element (SOAP) being passed in the GetTax call, for example the date 10/01/2010 vs. 2010-10-01 or DocType= salesinvoice vs. SalesInvoice.</li>

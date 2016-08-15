@@ -21,13 +21,13 @@ Before we get started, here are some things you'll need to consider:
 </ul>
 With these things in mind, let's take a look at some general examples.
 <h3><a name="Ecommerce"></a>Ecommerce</h3>
-<img class="alignnone wp-image-2288" src="/images/devdot/DevDot_ECOMMdiagram.svg" alt="Avalara AvaTax Ecommerce Diagram" />
+<img src="/images/devdot/DevDot_ECOMMdiagram.svg" alt="Avalara AvaTax Ecommerce Diagram" width="100%" />
 <ul>
 	<li>For every tax calculation done before a sale is complete, you should use DocType SalesOrder. This will not create a record of the calculation in AvaTax, so you won't have to do any cleanup for abandoned carts.</li>
 	<li>When you recognize the sale, make another call to AvaTax with DocType SalesInvoice to record the transaction for reporting. You can commit the document at this time, or later, depending on your business process.</li>
 </ul>
 <h3>ERP</h3>
-<img class="alignnone wp-image-2289" src="/images/devdot/DevDot_ERPdiagram.svg" alt="Avalara AvaTax ERP Diagram" />
+<img src="/images/devdot/DevDot_ERPdiagram.svg" alt="Avalara AvaTax ERP Diagram" width="100%" />
 
 In addition to the workflows above, there are additional document types and processes to account for.
 <ul>

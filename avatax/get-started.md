@@ -8,31 +8,36 @@ avaform: 1
 <div class="half">
 <h2>Four simple steps to getting started in calculating sales tax with our REST API</h2>
 <strong>If you already have an Avalara AvaTax account</strong> and want to dive into the details, a good place to start is our <a href="/blog/2013/11/11/introduction-to-the-avalara-avatax-api">Introduction to the Avalara AvaTax API</a>.
-<h4><img src="/images/2012/09/orange-box-1-sm.png" alt="" /> Try the API</h4>
+<h4><img src="/images/2012/09/orange-box-1-sm.png" alt="1" /> Try the API</h4>
 Want to know how the API looks? Make some requests with the tool below. See how different inputs produce different tax calcluation results, and see what kind of tax information you can expect to get back.
 
 {% include get-started-console.html %}
 
-<h4 id="signup"><img src="/images/2012/09/orange-box-2-sm.png" alt="" /> Create a Sandbox Account</h4>
+<h4 id="signup"><img src="/images/2012/09/orange-box-2-sm.png" alt="2" /> Create a Sandbox Account</h4>
 This sandbox account is for evaluation only and is initially active for 90 days, but you can request an extension if needed. You will need to add company profile and tax profile information to calculate sales tax. It is based on an AvaTax Basic subscription and includes access to Nexus Jurisdictions in the <strong>U.S. and Canada only</strong>. To access full AvaTax Pro System Tax Code functionality or Global Nexus Jurisdictions, please <a href="http://www.avalara.com/contact-us/">contact sales</a> to inquire about a paid development account.
 <div class="avaform-wrapper"></div>
 
-<h4><img src="/images/2012/09/orange-box-3-sm.png" alt="" /> Log in to the Admin Console</h4>
+<h4><img src="/images/2012/09/orange-box-3-sm.png" alt="3" /> Log in to the Admin Console</h4>
 Visit our <a href="https://admin-development.avalara.net" target="_blank">AvaTax Development Admin Console</a> and you will be prompted to change your password. In addition to changing your password, you will need to <a href="http://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/040_Managing_Tax_Profiles/035_Organizing_Companies/020_Add_a_Company">add a company</a> and some <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/020_Add_Nexus_Jurisdictions">nexus jurisdiction selections</a> to get any tax results.
 <blockquote><strong>Note:</strong> In order to match the sample code we provide, use CompanyCode APITrialCompany when creating your company. If you use some other CompanyCode value remember to change the value in your samples.</blockquote>
-<h4><img src="/images/2012/09/orange-box-4-sm.png" alt="" /> Make a Tax Call</h4>
+<h4><img src="/images/2012/09/orange-box-4-sm.png" alt="4" /> Make a Tax Call</h4>
 Now that you have an account with company settings, you are ready to make an API request!
 
 We have automatically filled in the required POST parameters to calculate the sales tax on a $10 sale amount using the Avalara corporate address at 100 Ravine Lane, Bainbridge Island, WA.
 <h5><b>POST REQUEST</b></h5>
 We will make a POST request to URL:
-<pre class="prettyprint lang-text">https://development.avalara.net/1.0/tax/get</pre>
+{% highlight text %}
+https://development.avalara.net/1.0/tax/get
+{% endhighlight %}
 Use an online <a href="http://decodebase64.com/" target="_blank">encoding tool</a> or perhaps one of the <a href="https://chrome.google.com/webstore/search/rest%20client?utm_source=chrome-ntp-icon" target="_blank">REST client apps</a> for Google Chrome to create a Basic Authorization Header from your username and password.
 
 It will look something like this:
-<pre class="prettyprint lang-text">Authorization: Basic c29tZS51c2VyQGNvbXBhbnkuY29tOlA0JCR3MHJk</pre>
+{% highlight text %}
+Authorization: Basic c29tZS51c2VyQGNvbXBhbnkuY29tOlA0JCR3MHJk
+{% endhighlight %}
 The POST body will be:
-<pre class="prettyprint lang-json">{
+{% highlight json %}
+{
 "DocDate": "2013-01-16",
 "CustomerCode": "CUST1",
 "DocCode": "DOC0001",
@@ -51,7 +56,8 @@ The POST body will be:
 "Qty": 1,
 "Amount": 10
 }]
-}</pre>
+}
+{% endhighlight %}
 <b>DocDate</b> is the date used to calculate the tax, and to identify the date on which the invoice is recorded. This should be your invoice date.
 
 <b>CustomerCode</b> uniquely identifies the end customer making the purchase.
@@ -69,7 +75,8 @@ The POST body will be:
 	<li><em>You will need your account credentials (Username and Password) to make a successful API call.</em></li>
 </ul>
 <h5><b>POST RESPONSE</b></h5>
-<pre class="prettyprint lang-json">{
+{% highlight json %}
+{
 "DocCode": "DOC0001",
 "DocDate": "2013-01-16",
 "Timestamp": "2013-02-12T23:45:02.687",
@@ -123,7 +130,8 @@ The POST body will be:
 "JurisCode": "5303503736"
 }],
 "ResultCode": "Success"
-}</pre>
+}
+{% endhighlight %}
 Document-level tax calculation results are available at the root level of the response, notably TotalTax. This is the total amount of tax calculated on the invoice.
 
 Each Line item in the request is represented in the response by a TaxLine, which shows line-level tax calculation results. The jurisdictional breakout of the tax calculation for each line is displayed as an array of TaxDetails.
