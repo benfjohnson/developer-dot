@@ -17,6 +17,6 @@ One way to verify that all of the required certificates are in your keystore is 
 	<li>Type <code>keytool –list</code> and review the certificates stored. You should see at least one Verisign certificate authored by Avalara with an expiration date greater than the current date.</li>
 	<li>If not, you may need to recreate the keystore with 'keytool' using the "genkey" option and re-import your application certificates if any of the components of the certificate chain are missing or out of date.</li>
 </ol>
-Search <a href="http://www-01.ibm.com/support/">http://www-01.ibm.com/support/</a> for “keystore” or “keytool” or “genkey” for more information.
+Search <a href="https://www-947.ibm.com/support/entry/portal/support">https://www-947.ibm.com/support/entry/portal/support</a> for “keystore” or “keytool” or “genkey” for more information.
 
 <strong>Note:</strong>  If you are using a Microsoft Windows environment, Certificate Manager (CertMgr) can be accessed via your devices Management Console. You will need administrative rights to use this tool.
