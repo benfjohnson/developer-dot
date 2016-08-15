@@ -218,11 +218,11 @@ definitions:
         maxLength: 50
         type: string
         description: 'Client application identifier describing this tax transaction (i.e. invoice number, sales order number, etc.). Not required if the document is identified by DocId.'
-        example: INV001
+        example: SalesInvoice
       DocType:
         type: string
         description: 'Value describing what type of tax document is being cancelled. One of: SalesInvoice, ReturnInvoice, PurchaseInvoice. Not required if the document is identified by DocId.'
-        example: SalesOrder
+        example: SalesInvoice
       DocId:
         type: string
         description: 'Avatax-assigned unique Document Id, can be used in place of DocCode, DocType, and CompanyCode.'
