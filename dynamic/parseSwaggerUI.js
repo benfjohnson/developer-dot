@@ -85,7 +85,8 @@ export default (api, rootPath) => {
         apiName: api.info.title,
         apiDescription: api.info.description,
         appLoaded: false,
-        apiType: api['x-ApiType'] || 'SOAP'
+        apiType: api['x-ApiType'] || 'SOAP',
+        sampleAuthHeader: api['x-sample-auth-header'] || null
     };
 
     swaggerData.auth = buildAuth(api['x-auth-formula']);

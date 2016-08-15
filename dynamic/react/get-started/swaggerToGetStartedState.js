@@ -3,12 +3,13 @@ import parseSwaggerUi from '../../parseSwaggerUI';
 import path from 'path';
 
 export default (filename, callback) => {
-    var parser = new SwaggerParser();
+    const parser = new SwaggerParser();
+
     parser.dereference(path.join(__dirname, '..', '..', 'swagger', filename)).then((swaggerDoc) => {
         const getStartedState = parseSwaggerUi(swaggerDoc, null).apiEndpoints;
 
         callback(getStartedState);
-    }).catch( error => {
+    }).catch((error) => {
         console.error(error);
     });
 };
