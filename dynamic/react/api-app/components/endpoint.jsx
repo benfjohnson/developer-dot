@@ -51,6 +51,7 @@ const EndPointComponent = ({endpoint, sampleAuthHeader, sampleContentType, apiTy
                         <div className={'code-snippet-plaintext'}>
                             {sampleAuthHeader ? <span style={{display: 'block'}}>{`Authorization: ${sampleAuthHeader}`}</span> : null}
                             {sampleContentType ? <span style={{display: 'block'}}>{`Content-Type: ${sampleContentType}`}</span> : null}
+                            {endpoint.headerParams && endpoint.headerParams.SOAPAction ? <span style={{display: 'block'}}>{`SOAPAction: ${endpoint.headerParams.SOAPAction.example}`}</span> : null}
                         </div>
                     </div> :
                 null}

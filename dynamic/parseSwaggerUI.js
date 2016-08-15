@@ -58,7 +58,7 @@ const buildSchema = (schema, required = [], excludedProperties = [], propName = 
 // Used to generate either query string or path parameters:
 // paramType should be either 'query' or 'path'
 const buildRequestParams = (params, paramType) => {
-    if (paramType !== 'query' && paramType !== 'path') {
+    if (paramType !== 'query' && paramType !== 'path' && paramType !== 'header') {
         throw new Error('In parseSwaggerUI.buildRequestParams: Invalid `paramType` ' + paramType);
     }
     return params.filter((p) => (p.in === paramType)).reduce((paramObj, p) => (
@@ -87,7 +87,7 @@ export default (api, rootPath) => {
         appLoaded: false,
         apiType: api['x-ApiType'] || 'SOAP',
         sampleAuthHeader: api['x-sample-auth-header'] || null,
-        sampleContentType: api.consumes || null,
+        sampleContentType: api.consumes || null
     };
 
     swaggerData.auth = buildAuth(api['x-auth-formula']);
@@ -108,6 +108,7 @@ export default (api, rootPath) => {
             };
 
             const endpointParams = endpoint[action].parameters || [];
+            const headerParams = buildRequestParams(endpointParams, 'header');
             const pathParams = buildRequestParams(endpointParams, 'path');
             const queryString = buildRequestParams(endpointParams, 'query');
 
@@ -117,6 +118,9 @@ export default (api, rootPath) => {
                 apiMethod.proxyRoute = proxyRoot + k;
             }
 
+            if (Object.keys(headerParams).length) {
+                apiMethod.headerParams = headerParams;
+            }
             if (Object.keys(pathParams).length) {
                 apiMethod.pathParams = pathParams;
             }

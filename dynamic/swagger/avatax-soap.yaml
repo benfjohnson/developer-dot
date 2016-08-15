@@ -33,6 +33,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/GetTax'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/GetTax" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/GetTax\""`'
           type: string
@@ -57,6 +58,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/PostTax'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/PostTax" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/PostTax\""`'
           type: string
@@ -80,6 +82,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/CommitTax'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/CommitTax" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/CommitTax\""`'
           type: string
@@ -104,6 +107,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/CancelTax'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/CancelTax" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/CancelTax\""`'
           type: string
@@ -127,6 +131,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/AdjustTax'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/AdjustTax" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/AdjustTax\""`'
           type: string
@@ -150,6 +155,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/GetTaxHistory'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/GetTaxHistory" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/GetTaxHistory\""`'
           type: string
@@ -173,6 +179,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/Ping'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/Ping" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/Ping\""`'
           type: string
@@ -196,6 +203,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/IsAuthorized'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/IsAuthorized" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/IsAuthorized\""`'
           type: string
@@ -220,6 +228,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/ApplyPayment'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/ApplyPayment" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/ApplyPayment\""`'
           type: string
@@ -244,6 +253,7 @@ paths:
       parameters:
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/ReconcileTaxHistory'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/ReconcileTaxHistory" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/ReconcileTaxHistory\""`'
           type: string
@@ -269,6 +279,7 @@ paths:
       parameters: 
         - in: header
           name: SOAPAction
+          x-example: 'http://avatax.avalara.com/services/Validate'
           required: true
           description: 'SOAPAction must be "http://avatax.avalara.com/services/Validate" for this operation: e.g. `--header "SOAPAction: \"http://avatax.avalara.com/services/Validate\"" `'
           type: string
