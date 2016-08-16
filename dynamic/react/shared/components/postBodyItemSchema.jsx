@@ -1,8 +1,8 @@
 import React from 'react';
 
-import PostBodySectionHeader from './postBodySectionHeader';
+import PostBodySchemaSectionHeader from './postBodySchemaSectionHeader';
 
-const PostBodyItem = ({name, itemSchema, itemValue, endpointId, displayName, canRemove, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, showExcludedPostBodyFields}) => {
+const PostBodyItemSchema = ({name, itemSchema, itemValue, endpointId, displayName, canRemove, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, showExcludedPostBodyFields}) => {
     const uid = `${endpointId}-${displayName}-${name}`;
 
     // If this postBodyItem is an excluded property (we don't want it to initially appear in the form) and showExcludedProps option hasn't been used for this endpoint, don't show in form input
@@ -60,10 +60,10 @@ const PostBodyItem = ({name, itemSchema, itemValue, endpointId, displayName, can
 
         return (
             <div>
-                <PostBodySectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} propertyName={name}>
+                <PostBodySchemaSectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} propertyName={name}>
                     {itemValue.map((itm, i) => {
                         return (
-                            <PostBodyItem
+                            <PostBodyItemSchema
                                 canRemove={itemValue.length > 1}
                                 displayName={`item ${i + 1}`}
                                 endpointId={endpointId}
@@ -77,7 +77,7 @@ const PostBodyItem = ({name, itemSchema, itemValue, endpointId, displayName, can
                                 showExcludedPostBodyFields={showExcludedPostBodyFields}
                             />);
                     })}
-                </PostBodySectionHeader>
+                </PostBodySchemaSectionHeader>
                 <div className={'clickable'} onClick={onAddItemToPostbodyCollection.bind(null, name, endpointId, arraySchema)}>
                     <span className={'glyphicon glyphicon-plus'}></span><span className={''}>{`  Add ${displayName === 'Post Body' ? 'Item' : displayName}`}</span>
                 </div>
@@ -87,9 +87,9 @@ const PostBodyItem = ({name, itemSchema, itemValue, endpointId, displayName, can
 
     // At this point we're dealing with an object, so recursively render API Console form inputs for its keys
     return (
-        <PostBodySectionHeader canRemove={canRemove} displayName={displayName} endpointId={endpointId} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} propertyName={name}>
+        <PostBodySchemaSectionHeader canRemove={canRemove} displayName={displayName} endpointId={endpointId} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} propertyName={name}>
             {Object.keys(itemSchema).filter((n) => n !== 'required' && n !== 'isExcluded' && itemSchema[n]).map((itemKey, i) => {
-                return (<PostBodyItem
+                return (<PostBodyItemSchema
                     canRemove={false}
                     displayName={itemKey}
                     endpointId={endpointId}
@@ -104,12 +104,12 @@ const PostBodyItem = ({name, itemSchema, itemValue, endpointId, displayName, can
                     showExcludedPostBodyFields={showExcludedPostBodyFields}
                 />);
             })}
-        </PostBodySectionHeader>
+        </PostBodySchemaSectionHeader>
     );
 };
 
-PostBodyItem.displayName = 'Post Body Item';
-PostBodyItem.propTypes = {
+PostBodyItemSchema.displayName = 'Post Body Item';
+PostBodyItemSchema.propTypes = {
     canRemove: React.PropTypes.bool.isRequired,
     displayName: React.PropTypes.string.isRequired,
     endpointId: React.PropTypes.number.isRequired,
@@ -122,4 +122,4 @@ PostBodyItem.propTypes = {
     showExcludedPostBodyFields: React.PropTypes.bool.isRequired
 };
 
-export default PostBodyItem;
+export default PostBodyItemSchema;
