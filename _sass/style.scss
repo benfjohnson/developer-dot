@@ -457,22 +457,6 @@ footer {
     content: ' - '
 }
 
-// General tables
-tbody {
-    &:first-of-type {
-        tr:first-of-type {
-            border-top: 1px solid #ddd;
-        }
-    }
-}
-
-// css field truncation
-.truncated-field {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
 .styled-table {
     border: none;
     border-bottom: 1px solid $Rule-grey;
@@ -492,7 +476,10 @@ tbody {
     }
     tbody {
         background-color: $Form-fill;
+        &:first-of-type tr:first-of-type {
+            border-top: 1px solid #ddd;
 
+        }
         tr {
             &:first-of-type td {
                 border-top: none;
@@ -504,7 +491,6 @@ tbody {
                 border-bottom: none
             }
         }
-
         td {
             vertical-align: top;
             line-height: 2rem;
@@ -514,6 +500,29 @@ tbody {
     }
     td, th {
         padding: 5px 10px;
+    }
+}
+
+.card {
+    overflow: hidden;
+    & > div {
+        background: $Form-fill;
+        padding-bottom: 10000px;
+        margin-bottom: -10000px;
+    }
+    &:first-of-type > div {
+        padding-top: 10px;
+        img {
+            margin-bottom: 20px;
+        }
+    }
+    &.card-border-top {
+        h4 {
+            @extend .border-top;
+            margin-top: 0;
+            padding-top: 20px;
+
+        }
     }
 }
 
