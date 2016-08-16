@@ -98,6 +98,7 @@ export default (api, rootPath) => {
 
         Object.keys(endpoint).forEach((action) => {
             const apiMethod = {
+                operationId: endpoint[action].operationId,
                 name: endpoint[action].summary || endpoint[action].operationId,
                 description: endpoint[action].description,
                 path: root + k,

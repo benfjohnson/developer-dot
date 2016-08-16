@@ -6,4 +6,4 @@ nav_link:
 product: trustFile
 endpoint_hashes:
     - name: Company signup via API POST
-      link: '/#Company_singup_via_API_POST'
+      link: '/#PostCompanySignup'

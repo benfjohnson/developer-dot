@@ -6,28 +6,28 @@ nav_link:
 product: trustFile
 endpoint_hashes:
     - name: Get list of Connections
-      link: '/#Get_list_of_Connections'
+      link: '/#GetConnections'
     - name: Creates a connection
-      link: '/#Creates_a_connection'
+      link: '/#PostConnection'
     - name: Determine if connection with connectionId exists
-      link: '/#Determine_if_connection_with_connectionId_exists'
+      link: '/#HeadConnectionDetail'
     - name: Get information about connection
-      link: '/#Get_information_about_connection'
+      link: '/#GetConnectionDetail'
     - name: Update the connection with the given connectionId
-      link: '/#Update_the_connection_with_the_given_connectionId'
+      link: '/#PutConnection'
     - name: Delete a connection
-      link: '/#Delete_a_connection'
+      link: '/#DeleteConnection'
     - name: Get activity logs for connection
-      link: '/#Get_activity_logs_for_connection'
+      link: '/#GetConnectionActivities'
     - name: Authenticate with connection
-      link: '/#Authenticate_with_connection'
+      link: '/#GetConnectionAuthenticate'
     - name: Get status of the connector
-      link: '/#Get_status_of_the_connector'
+      link: '/#GetConnector'
     - name: Enable/Disable connector
-      link: '/#Enable_Disable_connector'
+      link: '/#PutConnector'
     - name: Get connector errors
-      link: '/#Get_connector_errors'
+      link: '/#GetErrors'
     - name: Retrieve items that have errors or are malformed
-      link: '/#Retrieve_items_that_have_errors_or_are_malformed'
+      link: '/#GetBadItems'
     - name: Get health and availability of connector
-      link: '/#Get_health_and_availability_of_connector'
+      link: '/#GetConnectorHealth'

@@ -6,11 +6,11 @@ nav_link:
 product: trustFile
 endpoint_hashes:
   - name: Post items
-    link: '/#Post items'
+    link: '/#PostItems'
   - name: Retrieve items by itemId for the given connectionId
-    link: '/#Retrieve_items_by_itemId_for_the_given_connectionId'
+    link: '/#GetItems'
   - name: Retrieve connectionId information
-    link: '/#Retrieve_connectionId_information'
+    link: '/#GetCompanies'
 
 nav_links:
   - title: Overview

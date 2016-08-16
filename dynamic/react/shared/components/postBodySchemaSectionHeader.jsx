@@ -2,7 +2,7 @@ import React from 'react';
 
 /*
  * Defines a wrapper to nest object properties or
- * array items in a PostBodyå
+ * array items in a PostBody
  * */
 const PostBodySchemaSectionHeader = ({endpointId, propertyName, displayName, children, canRemove, onRemovePostbodyCollectionItem}) => {
     return (

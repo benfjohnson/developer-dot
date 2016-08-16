@@ -6,13 +6,13 @@ nav_link:
 product: avaTax
 endpoint_hashes:
     - name: Calculate Tax and Record a Document
-      link: '/#Calculate_Tax_and_Record_a_Document'
+      link: '/#getTax'
     - name: Void a Document
-      link: '/#Void_a_Document'
+      link: '/#cancelTax'
     - name: Estimate Tax
-      link: '/#Estimate_Tax'
+      link: '/#estimateTax'
     - name: Validate an Address
-      link: '/#Validate_an_Address'
+      link: '/#validateAddress'
 
 nav_links:
   - title: Overview
