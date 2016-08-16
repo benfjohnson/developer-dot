@@ -16,7 +16,7 @@ const logger = createLogger();
 const initialState = typeof window !== 'undefined' ? window.__INITIAL_STATE__ : {};
 /* eslint-enable no-underscore-dangle */
 
-const store = createStore(reducer, initialState, applyMiddleware(logger));
+const store = process.env.NODE_ENV !== 'production' ? createStore(reducer, initialState, applyMiddleware(logger)) : createStore(reducer, initialState);
 
 /*
  * Initially render our app on the client to sync it with our server-render.

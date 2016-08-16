@@ -34,7 +34,7 @@ const PostmanCollection = ({apiType, appLoaded, auth, onAuthKeyChange, postmanCo
                     ))}
                 </form>
                 ) : null}
-            <a download={fileName} onClick={clickHandler} href={url}><button className='btn btn-primary'>{'Download a Postman collection!'}</button></a>
+            <a download={fileName} href={url} onClick={clickHandler}><button className='btn btn-primary'>{'Download a Postman collection!'}</button></a>
         </div>
     );
 };
