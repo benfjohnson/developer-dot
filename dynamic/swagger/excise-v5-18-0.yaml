@@ -43,7 +43,6 @@ Web service authentication in the Excise platform has 3 basic forms:
 "  
   version: '5_18_0'
   title: Excise API
-  x-ApiType: SOAP
   termsOfService: 'http://www.avalara.com/terms/'
   contact:
     name: 'For support, visit the Avalara Community'
@@ -55,6 +54,7 @@ host: excise.avalara.net
 basePath: /
 schemes:
   - https
+x-ApiType: SOAP
 consumes:
   - application/xml
 produces:
@@ -71,6 +71,7 @@ paths:
           required: true
           description: ""
           type: string
+          x-example: "http://taxes.services.fuelquest.com/Login"
         - name: Envelope
           in: body
           required: true
@@ -92,6 +93,7 @@ paths:
           required: true
           description: ""
           type: string
+          x-example: "http://taxes.services.fuelquest.com/Logout"
         - name: Envelope
           in: body
           required: true
@@ -113,6 +115,7 @@ paths:
           required: true
           description: ""
           type: string
+          x-example: "http://taxes.services.fuelquest.com/ProcessTransactions"
         - name: Envelope
           in: body
           required: true

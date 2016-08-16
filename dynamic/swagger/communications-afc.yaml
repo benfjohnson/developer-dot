@@ -25,7 +25,7 @@ x-basePath: 'https://eztaxasp.billsoft.com/EZTaxWebService/EZTaxWebService.svc'
 paths:
   /EZTaxWebService.svc?NpaNxxToPCode:
     post:
-      summary: NpaNxxToPCode
+      summary: NpaNxx To PCode
       operationId: NpaNxxToPCode
       description: This method returns the PCode for the specified NpaNxx value. If the NpaNxx value is invalid or has no EZtax jurisdiction the return will be NULL. Returns the `PCode` that corresponds to an `NpaNxx` value.
       parameters:
@@ -34,6 +34,7 @@ paths:
           description: Required header value to identify the web method
           required: true
           type: string
+          x-example: "http://tempuri.org/IEZTaxWebService/NpaNxxToPCode"
         - in: body
           description: NpaNxxToPCode SOAP Envelope
           name: Envelope
@@ -49,13 +50,14 @@ paths:
     post:
       description: Determines the tax rate information for a jurisdiction identified by the input PCode.
       operationId: GetTaxRates
-      summary: GetTaxRates
+      summary: Get Tax Rates
       parameters:
         - in: header
           name: SOAPAction
           description: Required header value to identify the web method
           required: true
           type: string
+          x-example: "http://tempuri.org/IEZTaxWebService/GetTaxRates"
         - in: body
           name: GetTaxRatesEnvelope
           description: GetTaxRates SOAP Envelope
@@ -71,12 +73,13 @@ paths:
     post:
       description: This method returns the addresses for the specified jurisdiction.  If the jurisdiction is invalid, the return will be NULL.
       operationId: GetAddress
-      summary: GetAddress
+      summary: Get Address
       parameters:
         - in: header
           name: SOAPAction
           required: true
           type: string
+          x-example: "http://tempuri.org/IEZTaxWebService/GetAddress"
         - in: body
           name: GetAddressEnvelope
           description: GetAddress SOAP Envelope
@@ -92,12 +95,13 @@ paths:
     post:
       description: Returns the current version of the AvaTax for Communications service.
       operationId: GetVersion
-      summary: GetVersion
+      summary: Get Version
       parameters:
         - in: header
           name: SOAPAction
           required: true
           type: string
+          x-example: "http://tempuri.org/IEZTaxWebService/GetVersion"
         - in: body
           name: GetVersionEnvelope
           description: GetVersion SOAP Envelope
@@ -113,10 +117,11 @@ paths:
     post:
       description: This method accepts transaction data and performs appropriate tax calculations.  Origination, Termination, and Bill To information is passed using PCodes.
       operationId: CalcTaxesWithPCode
-      summary: CalcTaxesWithPCode
+      summary: Calc Taxes With PCode
       parameters:
         - in: header
           name: SOAPAction
+          x-example: "http://tempuri.org/IEZTaxWebService/CalcTaxesWithPCode"
           required: true
           type: string
         - in: body
@@ -134,13 +139,14 @@ paths:
     post:
       description: This method accepts transaction data and performs appropriate tax calculations.  Origination, Termination, and Bill To information is passed using NpaNxx.
       operationId: CalcAdjWithNpaNxx
-      summary: CalcAdjWithNpaNxx
+      summary: Calc Adj With NpaNxx
       parameters:
         - in: header
           name: SOAPAction
           required: true
           type: string
           default: 'http://tempuri.org/IEZTaxWebService/CalcAdjWithNpaNxx'
+          x-example: "http://tempuri.org/IEZTaxWebService/CalcAdjWithNpaNxx"
         - in: body
           name: CalcAdjWithNpaNxxEnvelope
           description: CalcAdjWithNpaNxx SOAP Envelope
@@ -156,12 +162,13 @@ paths:
     post:
       description: This method accepts transaction data and performs reverse adjustments in order to arrive at the base sale amount and taxes for the desired total charge. Origination, Termination, and Bill To information is passed using Fips Codes.
       operationId: CalcReverseAdjWithFipsCode
-      summary: CalcReverseAdjWithFipsCode
+      summary: Calc Reverse Adj With Fips Code
       parameters:
         - in: header
           name: SOAPAction
           required: true
           type: string
+          x-example: "http://tempuri.org/IEZTaxWebService/CalcReverseAdjWithFipsCode"
         - in: body
           name: CalcReverseAdjWithFipsCodeEnvelope
           description: CalcReverseAdjWithFipsCode SOAP Envelope
@@ -177,12 +184,13 @@ paths:
     post:
       description: Accepts a pro-rated percentage that is used to calculate the taxable amount on the transaction and perform tax calculations. Bill To, Origination and Termination may be entered as PCode, FIPS Codes, ZipAddress or NpaNxx.
       operationId: CalcProRatedTaxes
-      summary: CalcProRatedTaxes
+      summary: Calc Pro Rated Taxes
       parameters:
         - in: header
           name: SOAPAction
           required: true
           type: string
+          x-example: "http://tempuri.org/IEZTaxWebService/CalcProRatedTaxes"
         - in: body
           name: CalcProRatedTaxesEnvelope
           description: CalcProRatedTaxes SOAP Envelope
@@ -198,11 +206,12 @@ paths:
     post:
       description: Determines the taxing jurisdiction for a transaction and returns the PCode at the lowest jurisdiction level.
       operationId: CalcJurisdiction
-      summary: CalcJurisdiction
+      summary: Calc Jurisdiction
       parameters:
         - in: header
           name: SOAPAction
           required: true
+          x-example: "http://tempuri.org/IEZTaxWebService/CalcJurisdiction"
           type: string
         - in: body
           name: CalcJurisdictionEnvelope
@@ -219,12 +228,13 @@ paths:
     post:
       description: This method accepts transaction and override data and performs appropriate tax calculations. Origination, Termination, and Bill To information is passed using PCode, Fips Code, NpaNxx, or ZipAddress.
       operationId: CalcTaxesWithOverrides
-      summary: CalcTaxesWithOverrides
+      summary: Calc Taxes With Overrides
       parameters:
         - in: header
           name: SOAPAction
           required: true
           type: string
+          x-example: "http://tempuri.org/IEZTaxWebService/CalcTaxesWithOverrides"
         - in: body
           name: CalcTaxesWithOverridesEnvelope
           description: CalcTaxesWithOverrides SOAP Envelope
@@ -240,12 +250,13 @@ paths:
     post:
       description: Processes a batch of telecom and/or sales and use transactions and adjustments in customer mode.
       operationId: CalcTaxesInCustMode
-      summary: CalcTaxesInCustMode
+      summary: Calc Taxes In Cust Mode
       parameters:
         - in: header
           name: SOAPAction
           required: true
           type: string
+          x-example: "http://tempuri.org/IEZTaxWebService/CalcTaxesInCustMode"
         - in: body
           name: CalcTaxesInCustModeEnvelope
           description: CalcTaxesInCustMode SOAP Envelope
@@ -261,12 +272,13 @@ paths:
     post:
       description: This method flags the beginning of a customer transaction batch and returns a customer batch ID that can be used to submit each transaction and process the entire batch.
       operationId: BeginCustomerBatch
-      summary: BeginCustomerBatch
+      summary: Begin Customer Batch
       parameters:
         - in: header
           name: SOAPAction
           required: true
           type: string
+          x-example: "http://tempuri.org/IEZTaxWebService/BeginCustomerBatch"
         - in: body
           name: BeginCustomerBatchEnvelope
           description: BeginCustomerBatch SOAP Envelope
@@ -282,10 +294,11 @@ paths:
     post:
       description: Submits an adjustment for the specified customer batch.
       operationId: CalcCustAdj
-      summary: CalcCustAdj
+      summary: Calc Cust Adj
       parameters:
         - in: header
           name: SOAPAction
+          x-example: "http://tempuri.org/IEZTaxWebService/CalcCustAdj"
           required: true
           type: string
         - in: body

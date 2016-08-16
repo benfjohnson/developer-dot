@@ -335,7 +335,7 @@ definitions:
           namespace: "http://avatax.avalara.com/services"
         type: object
         properties: 
-          BatchFileFetchRequest:
+          FetchRequest:
             $ref: '#/definitions/FetchRequest' 
   BatchDeleteEnvelope:
     xml:
