@@ -3,7 +3,7 @@ import React from 'react';
 import PostBodySectionHeader from './postBodySectionHeader';
 import PostBodyItem from './postBodyItem';
 
-const PostBodyCollection = ({propertyName, endpointId, itemValue, itemSchema, uiState, displayName, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, showExcludedPostBodyFields}) => {
+const PostBodyCollection = ({propertyName, endpointId, itemValue, itemSchema, displayName, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, showExcludedPostBodyFields}) => {
     // // Todo: Not sure if we need this, but for now prevents excluded charges from throwing error
     // const itmVal = itemValue || [];
 
@@ -24,7 +24,6 @@ const PostBodyCollection = ({propertyName, endpointId, itemValue, itemSchema, ui
                             onPostBodyInputChanged={onPostBodyInputChanged}
                             onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}
                             showExcludedPostBodyFields={showExcludedPostBodyFields}
-                            uiState={itemSchema.uiState}
                         />);
                 })}
             </PostBodySectionHeader>

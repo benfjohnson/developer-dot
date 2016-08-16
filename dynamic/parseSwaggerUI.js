@@ -20,14 +20,13 @@ const buildSchema = (schema, required = [], excludedProperties = [], propName = 
     if (schema.type && schema.type === 'object' || schema.type === undefined) {
         const nestedSchemaProps = Object.keys(schema.properties).map((nestedPropName) => ({[nestedPropName]: buildSchema(schema.properties[nestedPropName], schema.required, schema['x-excludedProperties'], nestedPropName)}));
 
-        return Object.assign({uiState: {visible: true}, required: required.includes(propName), isExcluded: excludedProperties.includes(propName)}, ...nestedSchemaProps);
+        return Object.assign({required: required.includes(propName), isExcluded: excludedProperties.includes(propName)}, ...nestedSchemaProps);
     }
 
     if (schema.type && schema.type === 'array') {
         const arraySchema = buildSchema(schema.items, schema.items.required, schema.items['x-excludedProperties']);
 
         // items holds the schema definition of objects in our array, and value holds the actual objects of said schema...
-        // note that uiState is stored in the items property of the array, so don't need it at top level'
         return {fieldType: schema.type, required: required.includes(propName), isExcluded: excludedProperties.includes(propName), items: arraySchema};
     }
 

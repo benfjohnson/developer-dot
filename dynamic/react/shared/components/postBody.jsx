@@ -22,7 +22,6 @@ const PostBody = (props) => (
                     onPostBodyInputChanged={props.onPostBodyInputChanged}
                     onRemovePostbodyCollectionItem={props.onRemovePostbodyCollectionItem}
                     showExcludedPostBodyFields={props.showExcludedPostBodyFields}
-                    uiState={props.postBody.uiState}
                 />
             }
             <input style={{display: 'none'}} type={'submit'} value={'submit'}/>
