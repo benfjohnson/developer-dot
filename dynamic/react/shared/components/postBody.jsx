@@ -25,7 +25,7 @@ const PostBody = (props) => (
                     uiState={props.postBody.uiState}
                 />
             }
-            <input type={'submit'} value={'submit'} style={{display: 'none'}}/>
+            <input style={{display: 'none'}} type={'submit'} value={'submit'}/>
         </form>
     </div>
 );

@@ -48,7 +48,7 @@ const RequestParams = ({endpoint, endpointId, paramType, params, onInputChange, 
                     </div>
                 );
             })}
-            <input type={'submit'} value={'submit'} style={{display: 'none'}}/>
+            <input style={{display: 'none'}} type={'submit'} value={'submit'}/>
         </form>
     );
 };
