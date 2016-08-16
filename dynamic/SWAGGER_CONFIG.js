@@ -4,6 +4,11 @@ export default {
         path: 'avatax/api-reference/batch/soap',
         product: 'avaTax'
     },
+    'avatax-accountsvc.yaml': {
+        name: 'Avatax AccountSvc SOAP API',
+        path: 'avatax/api-reference/account/soap',
+        product: 'avaTax'
+    },
     'avatax-rest.yaml': {
         name: 'Avatax REST API',
         path: 'avatax/api-reference/tax/v1',

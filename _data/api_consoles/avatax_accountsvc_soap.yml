@@ -1,0 +1,11 @@
+# AVATAX BatchSvc SOAP
+
+nav_link:
+    title: Avatax AccountSvc SOAP API
+    path: /avatax/api-reference/account/soap
+product: avaTax
+endpoint_hashes:
+    - name: Test service connectivity
+      link: '/#Test_service_connectivity'
+    - name: Test authorized operations
+      link: '/#Test_authorized_operations'
