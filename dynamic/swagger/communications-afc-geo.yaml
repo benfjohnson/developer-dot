@@ -25,7 +25,7 @@ paths:
   /LocatorService.svc?GeocodeAddress:
     post:
       description: This method accepts address information and determines exact location including PCode.
-      summary: GeocodeAddress
+      summary: Geocode Address
       operationId: GeocodeAddress
       parameters:
         - in: header
@@ -33,6 +33,7 @@ paths:
           description: Required header value to identify the web method
           required: true
           type: string
+          x-example: "http://tempuri.org/ILocatorService/GeocodeAddress"
         - in: body
           description: GeocodeAddress SOAP Envelope
           name: Envelope
@@ -48,13 +49,14 @@ paths:
     post:
       description: This method accepts longitude and latitude coordinates and determines exact location including PCode.
       operationId: GeocodeLatLong
-      summary: GeocodeLatLong
+      summary: Geocode Lat Long
       parameters:
         - in: header
           name: SOAPAction
           description: Required header value to identify the web method
           required: true
           type: string
+          x-example: "http://tempuri.org/ILocatorService/GeocodeLatLong"
         - in: body
           name: Envelope
           description: GeocodeLatLong Envelope
@@ -70,13 +72,14 @@ paths:
     post:
       description: Get a list of address locations that match the street address information provided.
       operationId: GeocodeAllMatches
-      summary: GeocodeAllMatches
+      summary: Geocode All Matches
       parameters:
         - in: header
           name: SOAPAction
           description: Required header value to identify the web method
           required: true
           type: string
+          x-example: "http://tempuri.org/ILocatorService/GeocodeAllMatches"
         - in: body
           name: Envelope
           description: GeocodeAllMatches Envelope
@@ -91,7 +94,7 @@ paths:
   /LocatorService.svc?GetServerTime:
     post:
       description: Returns the time on the server of the AvaTax for Communications service.
-      summary: GetServerTime
+      summary: Get Server Time
       operationId: GetServerTime
       parameters:
         - in: header
@@ -99,6 +102,7 @@ paths:
           description: Required header value to identify the web method
           required: true
           type: string
+          x-example: "http://tempuri.org/ILocatorService/GetServerTime"
         - in: body
           name: Envelope
           description: GetServerTime SOAP Envelope
