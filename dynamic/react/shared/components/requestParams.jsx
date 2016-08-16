@@ -29,7 +29,7 @@ const RequestParams = ({endpoint, endpointId, paramType, params, onInputChange, 
                                 onChange={(e) => {
                                     onInputChange(e.target.value, key, endpointId);
                                 }}
-                                value={params[key].value || ''}
+                                value={params[key].value}
                             >
                                 <option value={''}>{''}</option>
                                 {params[key].enum.map((option, ii) => (<option key={ii} value={option}>{option}</option>))}
