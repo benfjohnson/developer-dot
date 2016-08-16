@@ -106,4 +106,4 @@ redirects:
    avatax/api-reference: /avatax/api-reference/tax/v1/
    certification/preferred-developers: /resources/preferred-developers
    wp-content/apireference/master: /avatax/api-reference
-   wp-content/apireference/master/#avatax-soap-api: /avatax/api-reference/tax/soap/
+   wp-content/apireference/master/index.html: /avatax/api-reference/tax/soap/
