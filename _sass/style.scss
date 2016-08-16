@@ -109,6 +109,12 @@
             color: $Ava-blue;
         }
     }
+    &.blog {
+        padding-bottom: 0;
+        .col-sm-12 {
+            padding-left: 0;
+        }
+    }
 }
 
 .border-top {
@@ -121,6 +127,10 @@
 
 .padding-bottom {
     padding-bottom: 2em;
+}
+
+.padding-sides {
+    padding: 0 ($grid-gutter-width / 2);
 }
 
 .margin-left {
@@ -194,7 +204,7 @@ header {
         }
         .navbar-nav {
             @media(max-width: $screen-xs-max) {
-                margin: 0 -15px;
+                margin: 0 ($grid-gutter-width / -2);
             }
 
             li {
@@ -522,6 +532,20 @@ footer {
             margin-top: 0;
             padding-top: 20px;
 
+        }
+    }
+}
+
+.preferred-developers {
+    & > .col-sm-3 {
+        margin-top: 30px;
+        background-color: $Form-fill;
+        border-bottom: 2px solid #d7d7d7
+    }
+    & > .col-sm-9 {
+        margin-top: 30px;
+        h1 {
+            margin-top: 0;
         }
     }
 }

@@ -18,13 +18,13 @@ Consideration must then be given to how you will report taxes back to the custom
 </ul>
 Fallback methods may include:
 <ul>
-	<li><span style="line-height: 13.993056297302246px;">A rate that is higher than any jurisdiction in which you charge tax (e.g. 12%)</span></li>
+	<li>A rate that is higher than any jurisdiction in which you charge tax (e.g. 12%)</li>
 	<li>A 0% rate</li>
 	<li>A local rate table that gives an estimate by state or zip code.</li>
 </ul>
 Once service is restored, the tax can be transmitted to AvaTax using one of the following calculation methods:
 <ul>
-	<li><span style="line-height: 13.993056297302246px;">Use a tax override of TaxAmount to reflect the estimated tax.</span></li>
+	<li>Use a tax override of TaxAmount to reflect the estimated tax.</li>
 	<li>Use TaxIncluded to back-calculate the correct tax amount from the total (including estimated tax) charged to the customer.</li>
 	<li>Allow AvaTax to recalculate the tax amount, and absorb any additional payment of taxes.</li>
 </ul>
