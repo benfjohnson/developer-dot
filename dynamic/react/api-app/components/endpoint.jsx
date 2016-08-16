@@ -134,7 +134,9 @@ EndPointComponent.propTypes = {
     onQueryParamChanged: React.PropTypes.func.isRequired,
     onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
     onResetConsole: React.PropTypes.func.isRequired,
-    onSubmitConsoleRequest: React.PropTypes.func.isRequired
+    onSubmitConsoleRequest: React.PropTypes.func.isRequired,
+    sampleAuthHeader: React.PropTypes.string,
+    sampleContentType: React.PropTypes.array
 };
 
 export default EndPointComponent;

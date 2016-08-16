@@ -35,7 +35,7 @@ const PostBodyItem = ({name, itemSchema, itemValue, endpointId, displayName, can
                             onChange={(e) => {
                                 onPostBodyInputChanged(endpointId, name, e.target.value);
                             }}
-                            value={itemValue}
+                            value={itemValue || ''}
                         >
                             <option value={''}>{''}</option>
                             {itemSchema.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
@@ -46,7 +46,7 @@ const PostBodyItem = ({name, itemSchema, itemValue, endpointId, displayName, can
                             onChange={(e) => {
                                 onPostBodyInputChanged(endpointId, name, e.target.value);
                             }}
-                            value={itemValue}
+                            value={itemValue || ''}
                         />
                     }
             </div>

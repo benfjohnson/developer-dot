@@ -120,7 +120,7 @@ const buildInitialPostBodyData = (body, showExcludedPostBodyFields) => {
         return undefined;
     }
     if (body.fieldType !== 'array' && body.fieldType !== 'object' && body.fieldType) {
-        return '';
+        return undefined;
     }
 
     if (body.fieldType === 'array') {

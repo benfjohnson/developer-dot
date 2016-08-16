@@ -103,7 +103,8 @@ export default (api, rootPath) => {
                 path: root + k,
                 action: action,
                 isAuthenticated: Boolean(swaggerData.auth),
-                showExcludedPostBodyFields: false // Determines whether or not we show API console input fields for params in the 'x-excludedProperties' array in Swagger
+                // Determines whether or not we show API console input fields for params in the 'x-excludedProperties' array in Swagger
+                showExcludedPostBodyFields: false
             };
 
             const endpointParams = endpoint[action].parameters || [];
