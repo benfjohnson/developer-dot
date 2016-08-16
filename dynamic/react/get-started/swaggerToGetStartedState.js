@@ -10,6 +10,8 @@ export default (filename, callback) => {
 
         callback(getStartedState);
     }).catch((error) => {
+        /* eslint-disable no-console */
         console.error(error);
+        /* eslint-enable no-console */
     });
 };
