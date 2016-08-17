@@ -1,19 +1,17 @@
+#api-console {
+    padding-left: ($grid-gutter-width / 2);
+}
 .api-console-form-wrapper {
-    // background: $Rule-grey;
     background: whitesmoke;
     padding: 5px;
-    // display: table-cell;
     word-break: break-all;
     padding-left: 15px;
-    // float: none;
 }
 
 .api-console-output {
     color: white;
     background: $Darkest-grey;
-    // display: table-cell;
     word-break: break-all;
-    // float: none;
     padding: 5px;
 }
 
@@ -112,7 +110,6 @@
 h5.console-output-header {
     color: white;
     font-weight: bold;
-    // padding-left: 10px;
     margin-left: 10px;
 }
 
