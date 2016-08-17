@@ -219,6 +219,11 @@
         <li class="linkedin" title="linkedin"><a href="https://www.linkedin.com/company/avalara">LinkedIn</a></li>
         <li class="youtube" title="youtube"><a href="https://www.youtube.com/user/Avalara1">Youtube</a></li>
     </ul>
+    {% if page.api_console != 1 %}
+    <ul class="github">
+        <li><a href="https://github.com/Avalara/developer-dot/edit/master/{{page.path}}">Edit this page on GitHub</a></li></li>
+    </ul>
+    {% endif %}
     <ul class="global">
         <li><a href="https://www.avalara.com/"><span class="icon-sphere"></span>Avalara.com</a></li>
         <li><a href="https://help.avalara.com/"><span class="icon-help"></span>Help Center</a></li>

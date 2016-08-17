@@ -454,6 +454,15 @@ footer {
             }
         }
     }
+    .github {
+        clear:right;
+        float:right;
+        margin-top:10px;
+        @media(max-width: $screen-xs-max) {
+            float: none;
+        }
+
+    }
     &.navbar {
         margin-bottom: 0;
     }

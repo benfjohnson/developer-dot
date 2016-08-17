@@ -50,51 +50,51 @@ nav: home
         <div class="row bg-white padding-top">
           <div class="col-sm-2 col-sm-offset-2 col-md-offset-2 col-md-2 text-center">
             <a href="/avatax"><img src="/images/devdot/DevDotSvgGAssets_BarCode.svg" height="100" /></a>
-            <a href="/avatax"><h4 class="visible-xs-block">Sales and sellers use tax</h4></a>
+            <a href="/avatax"><h4 class="visible-xs-block">Sales and sellers use tax<br /><br /></h4></a>
           </div>
           <div class="col-sm-2 col-sm-offset-1 col-md-offset-1 col-md-2 text-center">
             <a href="/communications"><img src="/images/devdot/DevDotSvgGAssets_SatelliteDish.svg" height="100" /></a>
-            <a href="/communications"><h4 class="visible-xs-block">Telecommunication, internet and other communications services</h4></a>
+            <a href="/communications"><h4 class="visible-xs-block">Telecommunication, internet and other communications services<br /><br /></h4></a>
           </div>
           <div class="col-sm-2 col-sm-offset-1 col-md-offset-1 col-md-2 text-center">
             <a href="/excise"><img src="/images/devdot/DevDotSvgGAssets_GasPump.svg" height="100" /></a>
-            <a href="/excise"><h4 class="visible-xs-block">Fuels, petroleum products and natural gas</h4></a>
+            <a href="/excise"><h4 class="visible-xs-block">Fuels, petroleum products and natural gas<br /><br /></h4></a>
           </div>
         </div>
-        <div class="row bg-white padding-top padding-bottom">
+        <div class="row bg-white padding-top padding-bottom hidden-xs">
           <div class="col-sm-2 col-sm-offset-2 col-md-offset-2 col-md-2 text-center">
-            <a href="/avatax"><h4 class="hidden-xs">Sales and sellers use tax</h4></a>
+            <a href="/avatax"><h4>Sales and sellers use tax</h4></a>
           </div>
           <div class="col-sm-2 col-sm-offset-1 col-md-offset-1 col-md-2 text-center">
-            <a href="/communications"><h4 class="hidden-xs">Telecommunication, internet and other communications services</h4></a>
+            <a href="/communications"><h4>Telecommunication, internet and other communications services</h4></a>
           </div>
           <div class="col-sm-2 col-sm-offset-1 col-md-offset-1 col-md-2 text-center">
-            <a href="/excise"><h4 class="hidden-xs">Fuels, petroleum products and natural gas</h4></a>
+            <a href="/excise"><h4>Fuels, petroleum products and natural gas</h4></a>
           </div>
         </div>
         <div class="row bg-white padding-top">
           <div class="col-sm-2 col-sm-offset-2 col-md-offset-2 col-md-2 text-center">
             <a href="/landedcost"><img src="/images/devdot/DevDotSvgGAssets_ShippingCrate.svg" height="100" /></a>
-            <a href="/landedcost"><h4 class="visible-xs-block">Overseas selling and value-added tax (VAT)</h4></a>
+            <a href="/landedcost"><h4 class="visible-xs-block">Overseas selling and value-added tax (VAT)<br /><br /></h4></a>
           </div>
           <div class="col-sm-2 col-sm-offset-1 col-md-offset-1 col-md-2 text-center">
             <a href="/certcapture"><img src="/images/devdot/DevDot_CertificateBindersBlue.svg" height="100" /></a>
-            <a href="/certcapture"><h4 class="visible-xs-block">Compliance document management</h4></a>
+            <a href="/certcapture"><h4 class="visible-xs-block">Compliance document management<br /><br /></h4></a>
           </div>
           <div class="col-sm-2 col-sm-offset-1 col-md-offset-1 col-md-2 text-center">
             <a href="/trustfile"><img src="/images/devdot/DevDot_GovtBldgBlue-02.svg" height="100" /></a>
-            <a href="/trustfile"><h4 class="visible-xs-block">Tax-return filing</h4></a>
+            <a href="/trustfile"><h4 class="visible-xs-block">Tax-return filing<br /><br /></h4></a>
           </div>
         </div>
-        <div class="row bg-white padding-top padding-bottom">
+        <div class="row bg-white padding-top padding-bottom hidden-xs">
           <div class="col-sm-2 col-sm-offset-2 col-md-offset-2 col-md-2 text-center">
-            <a href="/landedcost"><h4 class="hidden-xs">Overseas selling and value-added tax (VAT)</h4></a>
+            <a href="/landedcost"><h4>Overseas selling and value-added tax (VAT)</h4></a>
           </div>
           <div class="col-sm-2 col-sm-offset-1 col-md-offset-1 col-md-2 text-center">
-            <a href="/certcapture"><h4 class="hidden-xs">Compliance document management</h4></a>
+            <a href="/certcapture"><h4>Compliance document management</h4></a>
           </div>
           <div class="col-sm-2 col-sm-offset-1 col-md-offset-1 col-md-2 text-center">
-            <a href="/trustfile"><h4 class="hidden-xs">Tax-return filing</h4></a>
+            <a href="/trustfile"><h4>Tax-return filing</h4></a>
           </div>
         </div>
         <div class="row border-top">
