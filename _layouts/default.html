@@ -190,13 +190,13 @@
 <div class="container-fluid {{page.doctype}}">
     {%if page.nav == 'apis' and page.doctype != 'overview' %}{% include api_breadcrumb.html %}{%endif%}
     {% if page.doctype == 'api_references' %}
-    <section class="row" style="padding:0 15px;">
-        <nav class="col-sm-3">{% include console-navigation.html %}</nav>
+    <section class="row padding-sides">
+        <nav class="col-sm-3 hidden-xs">{% include console-navigation.html %}</nav>
         <main class="col-sm-9">{{ content }}</main>
     </section>
     {% elsif page.doctype == 'use_cases' %}
-    <section class="row half" style="padding:0 15px;">
-        <nav class="col-sm-3">{% include use_cases.html %}</nav>
+    <section class="row half padding-sides">
+        <nav class="col-sm-3 hidden-xs">{% include use_cases.html %}</nav>
         <main class="col-sm-9">{{ content }}</main>
     </section>
     {% elsif page.doctype == 'overview' or page.nav == 'home' %}
@@ -204,7 +204,7 @@
         <main class="col-sm-12">{{ content }}</main>
     </section>
     {% else %}
-    <section class="row" style="padding:0 15px;">
+    <section class="row padding-sides">
         <main class="col-sm-12">{{ content }}</main>
     </section>
     {% endif %}
@@ -258,11 +258,11 @@
 
 {% if page.avaform == 1 %}
 <script src="https://d30qslfa084pac.cloudfront.net/common/avaform/avaform.3.min.js"></script>
-<script>setupAvaForm();</script>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 <script>
-    jQuery(document).ready(function() {
-        jQuery("#avaform-phone").mask("(999) 999-9999");
+    setupAvaForm();
+    $(function() {
+        $("#avaform-phone").mask("(999) 999-9999");
     });
 </script>
 {% endif %}
