@@ -1,5 +1,5 @@
 # TRUSTFILE CONNECTOR
-
+swagger_path: trustfile-connector.yaml
 nav_link:
     title: Trustfile - Connector
     path: /trustfile/api-reference/connector-management/v3

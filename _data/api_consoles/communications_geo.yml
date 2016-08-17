@@ -1,5 +1,5 @@
 # COMMUNICATIONS GEOCODER
-
+swagger_path: communications-afc-geo.yaml
 nav_link:
     title: Communications SOAP Geocoding
     path: /communications/api-reference/geocode/soap
@@ -13,4 +13,3 @@ endpoint_hashes:
       link: '/#GeocodeAllMatches'
     - name: Get Server Time
       link: '/#GetServerTime'
-      
