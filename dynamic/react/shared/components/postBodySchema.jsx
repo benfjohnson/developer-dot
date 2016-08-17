@@ -1,9 +1,14 @@
 import React from 'react';
 
 import PostBodyItemSchema from './postBodyItemSchema';
+import {hasExcludedProperties} from '../helpers';
 
 const PostBodySchema = (props) => (
     <div>
+        {hasExcludedProperties(props.postBody) ?
+            <div className={'clickable'} onClick={props.onToggleShowExcludedPostBodyProps.bind(null, props.id)}>
+                <span className={`glyphicon glyphicon-${props.endpoint.showExcludedPostBodyFields ? 'minus' : 'plus'}`}></span><span>{` ${props.endpoint.showExcludedPostBodyFields ? 'Hide advanced' : 'Show all'} request attributes`}</span>
+            </div> : null}
         <form className={'api-console-post-form'} onSubmit={
             (e) => {
                 e.preventDefault();

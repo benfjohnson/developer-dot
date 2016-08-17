@@ -34,6 +34,7 @@ const reducer = (state = {}, action) => {
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
     case actionTypes.RESET_CONSOLE:
+    case actionTypes.TOGGLE_SHOW_EXCLUDED_POST_BODY_PROPS:
         return {...state, apiEndpoints: state.apiEndpoints.map((endpoint, i) => {
             if (i === action.endpointId) {
                 return endpointReducer(endpoint, action);
