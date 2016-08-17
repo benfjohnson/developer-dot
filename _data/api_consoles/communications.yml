@@ -1,5 +1,5 @@
 # COMMUNICATIONS
-
+swagger_path: communications-afc.yaml
 nav_link:
     title: Communications SOAP
     path: /communications/api-reference/saas/soap
