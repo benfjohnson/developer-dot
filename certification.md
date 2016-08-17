@@ -6,10 +6,10 @@ nav: certification
 ---
 
 <div class="row">
-  <div class="col-sm-6 col-sm-offset-3 text-center">
+  <div class="col-md-6 col-md-offset-3 text-center">
     <img src="/images/devdot/DevDotSvgGAssets_ComplianceCloudIllustrationCertification.svg" />
     <h1>Grow your customer base and recurring revenue with a certified Avalara integration</h1>
-    <div class="row">
+    <div class="row padding-bottom">
         <div class="col-xs-4 text-right"><img src="/images/devdot/DevDotSvgGAssets_One.svg" height="75"/></div>
         <div class="col-xs-6 text-left"><h4>Start by building a certified integration with Avalara AvaTax for real-time tax calculation</h4></div>
     </div>
@@ -20,7 +20,7 @@ nav: certification
   </div>
 </div>
 <div class="row border-top padding-top">
-    <div class="col-xs-offset-3 col-xs-6 text-center">
+    <div class="col-sm-offset-3 col-sm-6 text-center">
         <h2>Become a certified Avalara integration partner</h2>
     </div>
 </div>
@@ -47,45 +47,49 @@ nav: certification
     </div>
 </div>
 <div class="row padding-top">
-    <div class="col-xs-offset-3 col-xs-6 text-center">
+    <div class="col-sm-offset-3 col-sm-6 text-center">
         <h2>Get started now, use our tools and resources</h2>
     </div>
 </div>
-<div class="row padding-top">
-    <div class="col-xs-offset-2 col-xs-2 text-center">
+<div class="row padding-top hidden-xs">
+    <div class="col-sm-offset-2 col-sm-2 text-center">
         <h4>Prototyping tools</h4>
     </div>
-    <div class="col-xs-2 text-center">
+    <div class="col-sm-2 text-center">
         <h4>Develpment tools & support</h4>
     </div>
-    <div class="col-xs-2 text-center">
+    <div class="col-sm-2 text-center">
         <h4>Integration testing resources</h4>
     </div>
-    <div class="col-xs-2 text-center">
+    <div class="col-sm-2 text-center">
         <h4>Certify your Integration</h4>
     </div>
 </div>
 <div class="row padding-top">
-    <div class="col-xs-offset-2 col-xs-2 text-center">
+    <div class="col-sm-offset-2 col-sm-2 text-center">
+        <h4 class="visible-xs-block">Prototyping tools</h4>
         <h5>Explore the API before you build. Make live API calls directly from our documentation.</h5>
     </div>
-    <div class="col-xs-2 text-center">
+    <div class="col-sm-2 text-center">
+        <h4 class="visible-xs-block">Develpment tools & support</h4>
         <h5>Get started quickly with our sample code and libraries. If you get stuck, your Certification Manager, Avalara Support, and Avalara's developer community are here with answers.</h5>
     </div>
-    <div class="col-xs-2 text-center">
+    <div class="col-sm-2 text-center">
+        <h4 class="visible-xs-block">Integration testing resources</h4>
         <h5>Run through our recommended testing scenarios on your own to check that all your bases are covered. Use our automated self-test tool to make sure the data you're sending looks good on our end before you certify.</h5>
     </div>
-    <div class="col-xs-2 text-center">
+    <div class="col-sm-2 text-center">
+        <h4 class="visible-xs-block">Certify your Integration</h4>
         <h5>Certify your integration to recieve sales and marketing support from Avalara.</h5>
     </div>
 </div>
 <div class="row padding-top">
-    <div class="col-xs-offset-3 col-xs-6 text-center">
+    <div class="col-sm-offset-3 col-sm-6 text-center">
         <h1>Fast and easy integration with AvaTax</h1>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-offset-3 col-xs-6 text-center">
+    <div class="col-sm-offset-3 col-sm-6 text-center">
          <ul class="pipe">
         <li><a href="/avatax/testing-your-integration">Test your integration</a></li>
         <li><a href="/avatax/certification">Integration Checklists</a></li>
@@ -93,5 +97,5 @@ nav: certification
     </div>
 </div>
 <div class="row padding-top">
-    <div class="col-xs-offset-3 col-xs-6 text-center btn-callout"><a href="/avatax/get-started" role="button">Get started</a></div>
+    <div class="col-sm-offset-3 col-sm-6 text-center btn-callout"><a href="/avatax/get-started" role="button">Get started</a></div>
 </div>

@@ -229,9 +229,7 @@ Note: Exemption number or Entity Use Code should be passed only if the customer
 <div class="col-xs-8">When invoices are deleted/cancelled, this information must be transmitted to AvaTax.</div>
 </div>
 
-<h1 id="UseTaxRequirements-ServerAudit/Clarity" data-fontsize="26" data-lineheight="34">Server Audit/Clarity</h1>
-
-
+<h3 id="UseTaxRequirements-ServerAudit/Clarity" data-fontsize="26" data-lineheight="34">Server Audit/Clarity</h3>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>

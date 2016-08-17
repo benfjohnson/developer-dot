@@ -157,8 +157,8 @@ h2, h3 {
 .affix {
     /* This defaults to 141px for dumb reasons, don't waste the screen space */
     top: 0px;
-    /* When nav is fixed, it loses the col-sm-3 class of its parent, so replicate its size restriction */
-    @extend .col-sm-3;
+    /* When nav is fixed, it loses the col--md3 class of its parent, so replicate its size restriction */
+    @extend .col-md-3;
     padding-left:0;
 }
 
