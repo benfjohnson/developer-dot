@@ -5,22 +5,22 @@ import RequestParamsDocumentation from './requestParamsDocumentation';
 import ApiDocumentation from './apiDocumentation';
 import ExpanderIcon from './expanderIcon';
 
-const replaceSpaces = (str) => str.replace(/\s/g, '_');
+const replaceSpaces = (str) => str.replace(/\s/g, '');
 
 // Give our endpoint an id based on its name for our clientside routing in jekyll
 const EndPointComponent = ({endpoint, sampleAuthHeader, sampleContentType, apiType, id, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => (
-    <div id={replaceSpaces(endpoint.name)}>
+    <div id={replaceSpaces(endpoint.operationId)}>
         <div className={'endpoint-summary'}>
             <h2>{endpoint.name}</h2>
             {
                 apiType === 'REST' ?
                 <div>
                     <h5 className={'try-it-now-link'}><a
-                        href={`#${replaceSpaces(endpoint.name)}-console`}
+                        href={`#${replaceSpaces(endpoint.operationId)}-console`}
                         onClick={
                             () => {
-                                $(`#${replaceSpaces(endpoint.name)}-console-body`).collapse('show');
-                                $(`#${replaceSpaces(endpoint.name)}-console-icon`).addClass('rotate');
+                                $(`#${replaceSpaces(endpoint.operationId)}-console-body`).collapse('show');
+                                $(`#${replaceSpaces(endpoint.operationId)}-console-icon`).addClass('rotate');
                                 const intervalId = setInterval(() => {
                                     $('#the-nav').affix('checkPosition');
                                 }, 20);
@@ -60,13 +60,13 @@ const EndPointComponent = ({endpoint, sampleAuthHeader, sampleContentType, apiTy
         </div>
         {endpoint.queryString ? <RequestParamsDocumentation paramType={'QUERY_STRING'} params={endpoint.queryString} /> : null}
         {endpoint.pathParams ? <RequestParamsDocumentation paramType={'PATH'} params={endpoint.pathParams} /> : null}
-        {endpoint.requestSchema ? <ApiDocumentation documentationFor={'REQUEST'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.requestSchema} /> : null}
-        {endpoint.responseSchema ? <ApiDocumentation documentationFor={'RESPONSE'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} postBody={endpoint.responseSchema} /> : null}
+        {endpoint.requestSchema ? <ApiDocumentation documentationFor={'REQUEST'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} requestOrResponseSchema={endpoint.requestSchema} /> : null}
+        {endpoint.responseSchema ? <ApiDocumentation documentationFor={'RESPONSE'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} requestOrResponseSchema={endpoint.responseSchema} /> : null}
         {apiType === 'REST' ?
             <div>
-                <div className={'try-it-now-header'} data-target={`#${replaceSpaces(endpoint.name)}-console-body`} data-toggle={'collapse'} id={replaceSpaces(`${endpoint.name}-console`)} onClick={
+                <div className={'try-it-now-header'} data-target={`#${replaceSpaces(endpoint.operationId)}-console-body`} data-toggle={'collapse'} id={`${replaceSpaces(endpoint.operationId)}-console`} onClick={
                     () => {
-                        $(`#${replaceSpaces(endpoint.name)}-console-icon`).toggleClass('rotate');
+                        $(`#${replaceSpaces(endpoint.operationId)}-console-icon`).toggleClass('rotate');
                         const intervalId = setInterval(() => {
                             $('#the-nav').affix('checkPosition');
                         }, 20);
@@ -74,12 +74,12 @@ const EndPointComponent = ({endpoint, sampleAuthHeader, sampleContentType, apiTy
                         setTimeout(() => clearInterval(intervalId), 350);
                     }
                 }>
-                    <div className={'documentation-expand-icon'} id={`${replaceSpaces(endpoint.name)}-console-icon`} style={{display: 'inline-block', marginRight: '5px'}}>
+                    <div className={'documentation-expand-icon'} id={`${replaceSpaces(endpoint.operationId)}-console-icon`} style={{display: 'inline-block', marginRight: '5px'}}>
                         <ExpanderIcon startPosition={'DOWN'}/>
                     </div>
                     <h5 className={'clickable'} style={{display: 'inline-block'}}>{'Try ' + endpoint.name + ' now!'}</h5>
                 </div>
-                <div className={'collapse'} id={`${replaceSpaces(endpoint.name)}-console-body`}>
+                <div className={'collapse'} id={`${replaceSpaces(endpoint.operationId)}-console-body`}>
                     <ApiConsole endpoint={endpoint} id={id} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest} showExcludedPostBodyFields={endpoint.showExcludedPostBodyFields}/>
                 </div>
             </div> : null}
@@ -134,7 +134,9 @@ EndPointComponent.propTypes = {
     onQueryParamChanged: React.PropTypes.func.isRequired,
     onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
     onResetConsole: React.PropTypes.func.isRequired,
-    onSubmitConsoleRequest: React.PropTypes.func.isRequired
+    onSubmitConsoleRequest: React.PropTypes.func.isRequired,
+    sampleAuthHeader: React.PropTypes.string,
+    sampleContentType: React.PropTypes.array
 };
 
 export default EndPointComponent;

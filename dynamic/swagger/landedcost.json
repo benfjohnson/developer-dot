@@ -37,6 +37,7 @@
     "/v3/validate-creds": {
       "get": {
         "summary": "Validate credentials",
+        "operationId": "validateCreds",
         "tags": [
           "Landed Cost Calculation API"
         ],

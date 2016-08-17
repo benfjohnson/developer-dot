@@ -2,9 +2,9 @@ import React from 'react';
 
 /*
  * Defines a wrapper to nest object properties or
- * array items in a PostBodyå
+ * array items in a PostBody
  * */
-const PostBodySectionHeader = ({endpointId, propertyName, displayName, children, canRemove, onRemovePostbodyCollectionItem}) => {
+const PostBodySchemaSectionHeader = ({endpointId, propertyName, displayName, children, canRemove, onRemovePostbodyCollectionItem}) => {
     return (
         <div className={'api-console-input-section'}>
             <h4 className={'api-console-section-header s5'}>
@@ -28,8 +28,8 @@ const PostBodySectionHeader = ({endpointId, propertyName, displayName, children,
     );
 };
 
-PostBodySectionHeader.displayName = 'Post Item Section Header';
-PostBodySectionHeader.propTypes = {
+PostBodySchemaSectionHeader.displayName = 'Post Item Section Header';
+PostBodySchemaSectionHeader.propTypes = {
     canRemove: React.PropTypes.bool.isRequired,
     children: React.PropTypes.oneOfType([
         React.PropTypes.element,
@@ -41,4 +41,4 @@ PostBodySectionHeader.propTypes = {
     propertyName: React.PropTypes.string.isRequired
 };
 
-export default PostBodySectionHeader;
+export default PostBodySchemaSectionHeader;

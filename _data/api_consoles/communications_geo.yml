@@ -5,12 +5,12 @@ nav_link:
     path: /communications/api-reference/geocode/soap
 product: communications
 endpoint_hashes:
-    - name: GeocodeAddress
+    - name: Geocode Address
       link: '/#GeocodeAddress'
-    - name: GeocodeLatLong
+    - name: Geocode Lat Long
       link: '/#GeocodeLatLong'
-    - name: GeocodeAllMatches
+    - name: Geocode All Matches
       link: '/#GeocodeAllMatches'
-    - name: GetServerTime
+    - name: Get Server Time
       link: '/#GetServerTime'
       

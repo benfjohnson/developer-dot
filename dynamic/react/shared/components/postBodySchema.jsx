@@ -1,8 +1,8 @@
 import React from 'react';
 
-import PostBodyItem from './postBodyItem';
+import PostBodyItemSchema from './postBodyItemSchema';
 
-const PostBody = (props) => (
+const PostBodySchema = (props) => (
     <div>
         <form className={'api-console-post-form'} onSubmit={
             (e) => {
@@ -11,7 +11,7 @@ const PostBody = (props) => (
             }
         }>
             {
-                <PostBodyItem
+                <PostBodyItemSchema
                     canRemove={false}
                     displayName={'Post Body'}
                     endpointId={props.id}
@@ -22,7 +22,6 @@ const PostBody = (props) => (
                     onPostBodyInputChanged={props.onPostBodyInputChanged}
                     onRemovePostbodyCollectionItem={props.onRemovePostbodyCollectionItem}
                     showExcludedPostBodyFields={props.showExcludedPostBodyFields}
-                    uiState={props.postBody.uiState}
                 />
             }
             <input style={{display: 'none'}} type={'submit'} value={'submit'}/>
@@ -30,8 +29,8 @@ const PostBody = (props) => (
     </div>
 );
 
-PostBody.displayName = 'Post Body';
-PostBody.propTypes = {
+PostBodySchema.displayName = 'Post Body';
+PostBodySchema.propTypes = {
     endpoint: React.PropTypes.shape({
         apiResponse: React.PropTypes.shape({
             status: React.PropTypes.string.isRequired,
@@ -75,4 +74,4 @@ PostBody.propTypes = {
     showExcludedPostBodyFields: React.PropTypes.bool.isRequired
 };
 
-export default PostBody;
+export default PostBodySchema;

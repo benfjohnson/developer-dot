@@ -6,20 +6,20 @@ nav_link:
 product: avaTax
 endpoint_hashes:
     - name: Save a batch
-      link: '/#Save_a_batch'
+      link: '/#batchSave'
     - name: Retrieve a batch
-      link: '/#Retrieve_a_batch'
+      link: '/#batchFetch'
     - name: Retrieve a file from a batch
-      link: '/#Retrieve_a_file_from_a_batch'
+      link: '/#batchFileFetch'
     - name: Delete a batch
-      link: '/#Delete_a_batch'
+      link: '/#batchDelete'
     - name: Process a batch
-      link: '/#Process_a_batch'
+      link: '/#batchProcess'
     - name: Save a batch file
-      link: '/#Save_a_batch_file'
+      link: '/#batchFileSave'
     - name: Delete a batch file
-      link: '/#Delete_a_batch_file'
+      link: '/#batchFileDelete'
     - name: Test service connectivity
-      link: '/#Test_service_connectivity'
+      link: '/#ping'
     - name: Test authorized operations
-      link: '/#Test_authorized_operations'
+      link: '/#isAuthorized'

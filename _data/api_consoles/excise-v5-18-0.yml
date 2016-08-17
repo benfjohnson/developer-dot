@@ -6,9 +6,9 @@ nav_link:
 product: excise
 endpoint_hashes:
     - name: Login
-      link: '/#Login'
+      link: '/#login'
     - name: Logout
-      link: '/#Logout'
+      link: '/#logout'
     - name: Process Transactions
-      link: '/#Process_Transactions'
+      link: '/#processTransactions'
       

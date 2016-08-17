@@ -98,7 +98,8 @@ export default (state, action) => {
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
     case actionTypes.POST_BODY_CHANGED:
-        // TODO: Refactor our postBody to use `items` and not an `[i]` in the name, since we no longer hold array in postBody var
+        // If any changed postBodySchema form input was an array item, need to access its `items`
+        // schema to determine its fieldType. With that in hand, we can directly update it at its index in our postBodyData
         const accessorName = action.postBodyParamName.replace(/\[\d+\]/g, 'items');
         const newStateProperty = traversePropertyPath(accessorName, newState.postBody);
         let castedValue;

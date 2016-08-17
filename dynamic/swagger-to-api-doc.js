@@ -30,7 +30,7 @@ export default (fileName, apiName, apiPath, product) => {
         }
 
         const buildHtml = (reactHtml, initialState) => {
-            const endpointLinks = initialState.apiEndpoints.map((endpt) => endpt.name).reduce((accum, endpt) => `${accum}["#${endpt.replace(/\s/g, '_').replace(/\//g, '_')}", "${endpt}"],\n`, '');
+            const endpointLinks = initialState.apiEndpoints.reduce((accum, endpt) => `${accum}["#${endpt.operationId.replace(/\s/g, '')}", "${endpt.name}"],\n`, '');
 
             return (
                 `---

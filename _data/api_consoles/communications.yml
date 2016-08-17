@@ -7,29 +7,29 @@ product: communications
 endpoint_hashes:
     - name: NpaNxxToPCode
       link: '/#NpaNxxToPCode'
-    - name: GetTaxRates
+    - name: Get Tax Rates
       link: '/#GetTaxRates'
-    - name: GetAddress
+    - name: Get Address
       link: '/#GetAddress'
-    - name: GetVersion
+    - name: Get Version
       link: '/#GetVersion'
-    - name: CalcTaxesWithPCode
+    - name: Calc Taxes With PCode
       link: '/#CalcTaxesWithPCode'
-    - name: CalcAdjWithNpaNxx
+    - name: Calc Adj With NpaNxx
       link: '/#CalcAdjWithNpaNxx'
-    - name: CalcReverseAdjWithFipsCode
+    - name: Calc Reverse Adj With Fips Code
       link: '/#CalcReverseAdjWithFipsCode'
-    - name: CalcProRatedTaxes
+    - name: Calc Pro Rated Taxes
       link: '/#CalcProRatedTaxes'
-    - name: CalcJurisdiction
+    - name: Calc Jurisdiction
       link: '/#CalcJurisdiction'
-    - name: CalcTaxesWithOverrides
+    - name: Calc Taxes With Overrides
       link: '/#CalcTaxesWithOverrides'
-    - name: CalcTaxesInCustMode
+    - name: Calc Taxes In Cust Mode
       link: '/#CalcTaxesInCustMode'
-    - name: BeginCustomerBatch
+    - name: Begin Customer Batch
       link: '/#BeginCustomerBatch'
-    - name: CalcCustAdj
+    - name: Calc Cust Adj
       link: '/#CalcCustAdj'
 
 nav_links:

@@ -9,17 +9,16 @@ const DOC_TYPES = {
 
 const ApiDocumentation = (props) => (
     <div>
-        <h4 className={'api-doc-header'}>{props.documentationFor === DOC_TYPES.REQUEST ? 'Post Body Parameters' : 'Response'}<span>{props.postBody.fieldType && props.postBody.fieldType === 'array' ? '[Array]' : ''}</span></h4>
+        <h4 className={'api-doc-header'}>{props.documentationFor === DOC_TYPES.REQUEST ? 'Post Body Parameters' : 'Response'}<span>{props.requestOrResponseSchema.fieldType && props.requestOrResponseSchema.fieldType === 'array' ? '[Array]' : ''}</span></h4>
         <ApiDocumentationItem
             canRemove={false}
             displayName={'Post Body Parameters'}
             documentationFor={props.documentationFor}
             endpointId={props.id}
             isRoot={true}
-            item={props.postBody}
+            item={props.requestOrResponseSchema}
             name={''}
             nestingLevel={0}
-            uiState={props.postBody.uiState}
         />
     </div>
 );
@@ -29,7 +28,7 @@ ApiDocumentation.propTypes = {
     documentationFor: React.PropTypes.oneOf([DOC_TYPES.REQUEST, DOC_TYPES.RESPONSE]),
     id: React.PropTypes.number.isRequired,
     name: React.PropTypes.string.isRequired,
-    postBody: React.PropTypes.object
+    requestOrResponseSchema: React.PropTypes.object.isRequired
 };
 
 export default ApiDocumentation;

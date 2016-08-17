@@ -24,7 +24,7 @@ const hasExampleData = (type, paramObj = {}) => {
         return hasExampleData('POST_BODY', paramObj.items);
     }
 
-    return Object.keys(paramObj).filter((k) => (k !== 'uiState' && k !== 'required' && k !== 'isExcluded')).map((itm) => hasExampleData('POST_BODY', paramObj[itm])).some((wasTrue) => wasTrue);
+    return Object.keys(paramObj).filter((k) => (k !== 'required' && k !== 'isExcluded')).map((itm) => hasExampleData('POST_BODY', paramObj[itm])).some((wasTrue) => wasTrue);
 };
 
 const replacePathParams = (path, pathParams, example = false) => {
@@ -108,7 +108,7 @@ const fillPostBodySampleData = (body, showExcludedPostBodyFields) => {
     if (body.fieldType === 'array') {
         return [fillPostBodySampleData(body.items, showExcludedPostBodyFields)];
     }
-    const objBody = Object.keys(body).filter((n) => n !== 'uiState' && n !== 'required' && n !== 'isExcluded').reduce((accum, propName) => {
+    const objBody = Object.keys(body).filter((n) => n !== 'required' && n !== 'isExcluded').reduce((accum, propName) => {
         return {...accum, [propName]: fillPostBodySampleData(body[propName], showExcludedPostBodyFields)};
     }, {});
 
@@ -120,13 +120,13 @@ const buildInitialPostBodyData = (body, showExcludedPostBodyFields) => {
         return undefined;
     }
     if (body.fieldType !== 'array' && body.fieldType !== 'object' && body.fieldType) {
-        return '';
+        return undefined;
     }
 
     if (body.fieldType === 'array') {
         return [buildInitialPostBodyData(body.items, showExcludedPostBodyFields)];
     }
-    const objBody = Object.keys(body).filter((n) => n !== 'uiState' && n !== 'required' && n !== 'isExcluded').reduce((accum, propName) => {
+    const objBody = Object.keys(body).filter((n) => n !== 'required' && n !== 'isExcluded').reduce((accum, propName) => {
         return {...accum, [propName]: buildInitialPostBodyData(body[propName], showExcludedPostBodyFields)};
     }, {});
 
