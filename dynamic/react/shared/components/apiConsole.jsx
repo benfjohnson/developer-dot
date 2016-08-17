@@ -39,7 +39,7 @@ const syntaxHighlight = (jsonObj) => {
     return highlightPunctuation(json);
 };
 
-const ApiConsole = ({endpoint, id, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem}) => {
+const ApiConsole = ({endpoint, id, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleShowExcludedPostBodyProps}) => {
     return (
         <div className={'row api-console'}>
             <div className={'col-md-4 col-xs-12 api-console-form-wrapper'}>
@@ -75,7 +75,7 @@ const ApiConsole = ({endpoint, id, onFillConsoleSampleData, onSubmitConsoleReque
                     </div>
                 {endpoint.pathParams ? <RequestParams endpoint={endpoint} endpointId={id} onInputChange={onPathParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'PATH'} params={endpoint.pathParams}/> : null}
                 {endpoint.queryString ? <RequestParams endpoint={endpoint} endpointId={id} onInputChange={onQueryParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
-                {endpoint.postBody ? <PostBodySchema endpoint={endpoint} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onPostBodyInputChanged={onPostBodyInputChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onSubmitConsoleRequest={onSubmitConsoleRequest} postBody={endpoint.postBody} postBodyData={endpoint.postBodyData} showExcludedPostBodyFields={endpoint.showExcludedPostBodyFields}/> : null}
+                {endpoint.postBody ? <PostBodySchema endpoint={endpoint} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onPostBodyInputChanged={onPostBodyInputChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onSubmitConsoleRequest={onSubmitConsoleRequest} onToggleShowExcludedPostBodyProps={onToggleShowExcludedPostBodyProps} postBody={endpoint.postBody} postBodyData={endpoint.postBodyData} showExcludedPostBodyFields={endpoint.showExcludedPostBodyFields}/> : null}
                 {endpoint.postBody ?
                     <div style={{marginBottom: '10px'}}>
                         <button
@@ -171,7 +171,8 @@ ApiConsole.propTypes = {
     onQueryParamChanged: React.PropTypes.func.isRequired,
     onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
     onResetConsole: React.PropTypes.func.isRequired,
-    onSubmitConsoleRequest: React.PropTypes.func.isRequired
+    onSubmitConsoleRequest: React.PropTypes.func.isRequired,
+    onToggleShowExcludedPostBodyProps: React.PropTypes.func.isRequired
 };
 
 export default ApiConsole;

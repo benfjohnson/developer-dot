@@ -69,5 +69,11 @@ export default {
             type: actionTypes.RESET_CONSOLE,
             endpointId: endpointId
         };
+    },
+    toggleShowExcludedPostBodyProps: (endpointId) => {
+        return {
+            type: actionTypes.TOGGLE_SHOW_EXCLUDED_POST_BODY_PROPS,
+            endpointId: endpointId
+        };
     }
 };

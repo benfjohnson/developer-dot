@@ -127,6 +127,10 @@ export default (state, action) => {
         newState.curl = buildCurl(newState.isAuthenticated, newState);
 
         return newState;
+    case actionTypes.TOGGLE_SHOW_EXCLUDED_POST_BODY_PROPS:
+        newState.showExcludedPostBodyFields = !newState.showExcludedPostBodyFields;
+        newState.postBodyData = buildInitialPostBodyData(newState.postBody, newState.showExcludedPostBodyFields);
+        return newState;
     default:
         return state;
     }

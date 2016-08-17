@@ -13,6 +13,7 @@ export default (state, action) => {
     case actionTypes.POST_BODY_CHANGED:
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
+    case actionTypes.TOGGLE_SHOW_EXCLUDED_POST_BODY_PROPS:
         return apiConsoleReducer(newState, action);
     default:
         break;

@@ -27,6 +27,22 @@ const hasExampleData = (type, paramObj = {}) => {
     return Object.keys(paramObj).filter((k) => (k !== 'required' && k !== 'isExcluded')).map((itm) => hasExampleData('POST_BODY', paramObj[itm])).some((wasTrue) => wasTrue);
 };
 
+// Func to recurse through a postBodySchema and return true if any properties have an isExcluded property of `true`
+const hasExcludedProperties = (postBodySchema) => {
+    // If an object or array has an isExcluded of `true`, then our work is done. If it's a 'primitive' object (string, number, bool) return its value regardless
+    if (postBodySchema.isExcluded || (postBodySchema.fieldType && postBodySchema.fieldType !== 'array')) {
+        return postBodySchema.isExcluded;
+    }
+    // Wasn't primitive or a true isExcluded, so we recurse on either the array's `items` property or the object keys
+    if (postBodySchema.fieldType && postBodySchema.fieldType === 'array') {
+        return hasExcludedProperties(postBodySchema.items);
+    }
+    // Don't need to filter out `fieldType` prop since objects don't have it
+    return Object.keys(postBodySchema).filter((key) => key !== 'required' && key !== 'isExcluded').some((propertyName) => {
+        return hasExcludedProperties(postBodySchema[propertyName]);
+    });
+};
+
 const replacePathParams = (path, pathParams, example = false) => {
     let newPath = path;
 
@@ -123,7 +139,7 @@ const buildInitialPostBodyData = (body, showExcludedPostBodyFields) => {
         return undefined;
     }
 
-    if (body.fieldType === 'array') {
+    if (body.fieldType && body.fieldType === 'array') {
         return [buildInitialPostBodyData(body.items, showExcludedPostBodyFields)];
     }
     const objBody = Object.keys(body).filter((n) => n !== 'required' && n !== 'isExcluded').reduce((accum, propName) => {
@@ -149,4 +165,4 @@ const fillOrRemoveSampleData = (endpointState, remove = false) => {
 };
 /* ******* END FILL SAMPLE DATA AND RESET API CONSOLE DATA HELPERS ******* */
 
-export {hasExampleData, replacePathParams, buildQsPath, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData, fillPostBodySampleData, fillOrRemoveRequestParamSampleData};
+export {hasExampleData, replacePathParams, buildQsPath, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData, fillPostBodySampleData, fillOrRemoveRequestParamSampleData, hasExcludedProperties};

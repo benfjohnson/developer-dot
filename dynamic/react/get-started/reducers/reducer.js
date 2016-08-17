@@ -14,6 +14,7 @@ export default (state, action) => {
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
     case actionTypes.AUTH_KEY_CHANGED:
     case actionTypes.RESET_CONSOLE:
+    case actionTypes.TOGGLE_SHOW_EXCLUDED_POST_BODY_PROPS:
         const newEndpointState = apiConsoleReducer(state[action.endpointId], action);
 
         return state.map((ep, i) => {

@@ -69,6 +69,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         onRemovePostbodyCollectionItem: (paramName, endpointId) => {
             dispatch(actions.removePostbodyCollectionItem(paramName, endpointId));
+        },
+        onToggleShowExcludedPostBodyProps: (endpointId) => {
+            dispatch(actions.toggleShowExcludedPostBodyProps(endpointId));
         }
     };
 };
