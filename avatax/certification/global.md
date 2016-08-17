@@ -7,12 +7,10 @@ nav: apis
 ---
 <div class="half">
 <h2>AvaTax with Global Checklist</h2>
-Certification for Avalara AvaTax with Global requires the delivery of all functional requirements shown below.
+<p>Certification for Avalara AvaTax with Global requires the delivery of all functional requirements shown below.</p>
 
-Key:  R: Functionality required for certification     N: Functionality not required, but noted
 <h3>AvaTax Administration &amp; Utilities Integration</h3>
-The AvaTax Administration section provides the user with configuration, setup and utility functions necessary to administer the AvaTax sales tax calculation.
-
+<p>The AvaTax Administration section provides the user with configuration, setup and utility functions necessary to administer the AvaTax sales tax calculation.</p>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>

@@ -7,13 +7,10 @@ nav: apis
 ---
 <div class="half">
 <h2>AvaTax with Address Validation Checklist</h2>
-Certification for Avalara AvaTax with Address Validation requires the delivery of all functional requirements shown below.
+<p>Certification for Avalara AvaTax with Address Validation requires the delivery of all functional requirements shown below.</p>
 
-Key:  R – Functionality required for certification     N – Functionality not required, but noted
 <h3>AvaTax Administration &amp; Utilities integration</h3>
-The AvaTax Administration section provides the user with configuration, setup and utility functions necessary to administer the AvaTax sales tax calculation and address validation functions.
-
-
+<p>The AvaTax Administration section provides the user with configuration, setup and utility functions necessary to administer the AvaTax sales tax calculation and address validation functions.</p>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
@@ -36,7 +33,7 @@ The AvaTax Administration section provides the user with configuration, setup an
 </div>
 
 <h3>Address Validation Touchpoints</h3>
-There are two recommended touchpoints for address validation: on-demand or integrated checkout address validation. One or the other is required.
+<p>There are two recommended touchpoints for address validation: on-demand or integrated checkout address validation. One or the other is required.</p>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
@@ -54,7 +51,7 @@ There are two recommended touchpoints for address validation: on-demand or integ
 </div>
 
 <h3>Sales/Billing Document integration</h3>
-Integrating with the Sales and/or Billing process involves making tax calculation and/or modifying a transaction.
+<p>Integrating with the Sales and/or Billing process involves making tax calculation and/or modifying a transaction.</p>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
@@ -63,7 +60,7 @@ Integrating with the Sales and/or Billing process involves making tax calculatio
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Send required header level data elements:
-<ul8>
+<ul>
 	<li>Destination address</li>
 	<li>Origin address</li>
 </ul>
@@ -82,7 +79,7 @@ Integrating with the Sales and/or Billing process involves making tax calculatio
 </div>
 
 <h3>Server Audit Clarity</h3>
-Address Validation should display a clean audit to limit errors and call volume to reasonable levels.
+<p>Address Validation should display a clean audit to limit errors and call volume to reasonable levels.</p>
 
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>

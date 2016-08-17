@@ -7,14 +7,9 @@ nav: apis
 ---
 <div class="half">
 <h2>Avalara AvaTax with CertCapture</h2>
-
-
-Certification for Avalara AvaTax with CertCapture requires the delivery of all functional requirements shown below. This checklist assumes that you are using AvaTax in conjunction with CertCapture.
-
-Key:  R: Functionality required for certification     N: Functionality not required, but noted
+<p>Certification for Avalara AvaTax with CertCapture requires the delivery of all functional requirements shown below. This checklist assumes that you are using AvaTax in conjunction with CertCapture.</p>
 <h3>AvaTax Administration &amp; Utilities Integration</h3>
-The AvaTax Administration section provides the user with configuration, setup and utility functions necessary to administer the AvaTax sales tax calculation.
-
+<p>The AvaTax Administration section provides the user with configuration, setup and utility functions necessary to administer the AvaTax sales tax calculation.</p>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
@@ -62,15 +57,12 @@ The AvaTax Administration section provides the user with configuration, setup an
 <div class="col-xs-3">AvaTax Admin Console link</div>
 <div class="col-xs-8">Link to <a href="https://admin-avatax.avalara.net/login.aspx">AvaTax production Admin Console</a></div>
 </div>
-
 <h3>Customer Record integration</h3>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
 <div class="col-xs-8">Comment</div>
 </div>
-</thead>
-<tbody>
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Customer Code</div>
@@ -84,9 +76,7 @@ The AvaTax Administration section provides the user with configuration, setup an
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Entity/Use Code</div>
-<div class="col-xs-8">This is a group of codes that indicate the type of exemption.  See <a title="standard list of codes" href="/avatax/handling-tax-exempt-customers#CustomerUsageType" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to manage this value in your application’s Customer record and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable.
-
-Note that either Exemption Number or Entity/Use code is required (not both). Entity/Use Code is preferred.</div>
+<div class="col-xs-8">This is a group of codes that indicate the type of exemption.  See <a title="standard list of codes" href="/avatax/handling-tax-exempt-customers#CustomerUsageType" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to manage this value in your application’s Customer record and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable. Note that either Exemption Number or Entity/Use code is required (not both). Entity/Use Code is preferred.</div>
 </div>
 <div class="row">
 <div class="col-xs-1">R</div>
@@ -123,16 +113,13 @@ Note that either Exemption Number or Entity/Use code is required (not both). Ent
 <div class="col-xs-3">Certificate Images</div>
 <div class="col-xs-8">Exemption Certificate images can be retrieved.</div>
 </div>
-
 <h3>Server Audit Clarity</h3>
-Tax calculation should display a clean audit to limit errors and call volume to reasonable levels.
-
+<p>Tax calculation should display a clean audit to limit errors and call volume to reasonable levels.</p>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
 <div class="col-xs-8">Comment</div>
 </div>
-
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Pass connector identifier information via the TaxSvc.Profile.Client property</div>

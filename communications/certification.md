@@ -7,11 +7,6 @@ doctype: integration_checklists
 ---
 <h2>Certified for Avalara AvaTax for Communications</h2>
 <p>Certification for Avalara AFC requires the delivery of all functional requirements shown below.</p>
-<p>
-    Key:<br />
-    R - Functionality required for certification<br />
-    N - Functionality not required, but noted
-</p>
 <h3 id="CertifiedforAvalaraAFC-AFCGeneral">AFC General</h3>
 <div class="row">
     <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>

@@ -58,16 +58,18 @@
 }
 
 .ring-shadow {
-    @extend .col-xs-2;
+    @extend .col-sm-2;
     @extend .text-center;
     background: white;
     border-radius: 50%;
     border: 1px solid #eeeeee;
-    box-shadow: -10px 0px 5px #eeeeee;
-    margin-left: -($grid-gutter-width / -2);
+    @media(min-width: $screen-sm-min) {
+        box-shadow: -10px 0px 5px #eeeeee;
+    }
+    margin-left: ($grid-gutter-width / -2);
     min-height: 225px;
     &:first-of-type {
-        @extend .col-xs-offset-2;
+        @extend .col-sm-offset-2;
     }
 }
 
@@ -111,7 +113,7 @@
     }
     &.blog {
         padding-bottom: 0;
-        .col-sm-12 {
+        .col-md-12 {
             padding-left: 0;
         }
     }
@@ -138,8 +140,8 @@
 }
 
 .half {
-    @media(min-width: $screen-sm-min) {
-        width: $screen-xs-max;
+    @media(min-width: $screen-md-min) {
+        width: $screen-sm-max;
     }
 }
 
@@ -181,7 +183,7 @@ header {
     .pageTitle {
         @extend .pageTitle;
         padding: $grid-gutter-width / 2;
-        @media(min-width: $screen-sm-min) {
+        @media(min-width: $screen-md-min) {
             padding: ($grid-gutter-width / 2) $grid-gutter-width;
         }
     }
@@ -212,7 +214,7 @@ header {
                     padding: 0 1em;
                 }
                 a {
-                    @media(min-width: $screen-sm-min) {
+                    @media(min-width: $screen-md-min) {
                         padding: ($grid-gutter-width / 2) $grid-gutter-width;
                     }
 
@@ -270,7 +272,7 @@ header {
                         color: $Darkest-blue;
                         padding: 0;
                         letter-spacing: normal;
-                        @media(min-width: $screen-sm-min) {
+                        @media(min-width: $screen-md-min) {
                             padding: 0;
                         }
                     }
@@ -358,7 +360,7 @@ footer {
     @extend .border-top;
     background: $Form-fill;
     padding: $grid-gutter-width / 2;
-    @media(min-width: $screen-sm-min) {
+    @media(min-width: $screen-md-min) {
         padding: ($grid-gutter-width / 2) $grid-gutter-width;
     }
 
@@ -452,6 +454,15 @@ footer {
             }
         }
     }
+    .github {
+        clear:right;
+        float:right;
+        margin-top:10px;
+        @media(max-width: $screen-xs-max) {
+            float: none;
+        }
+
+    }
     &.navbar {
         margin-bottom: 0;
     }
@@ -537,12 +548,12 @@ footer {
 }
 
 .preferred-developers {
-    & > .col-sm-3 {
+    & > .col-md-3 {
         margin-top: 30px;
         background-color: $Form-fill;
         border-bottom: 2px solid #d7d7d7
     }
-    & > .col-sm-9 {
+    & > .col-md-9 {
         margin-top: 30px;
         h1 {
             margin-top: 0;
