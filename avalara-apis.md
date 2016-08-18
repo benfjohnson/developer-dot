@@ -48,7 +48,7 @@ doctype: overview
           </ul>
         {% endif %}
         <h2>Excise fees and taxes for fuels</h2>
-        <p>The Excise Tax API allows you to automate tax for transactions involving motor fuels, petroleum products, and natural gas for thousands of jurisdictions in the U.S. and Canada. The API is a SOAP web service that is the external programmatic interface into the Avalara AvaTax Excise application, providing for a platform-independent mechanism to obtain tax calculation information. AvaTax Excise can be used independently of other Avalara APIs. <a href="/excise">Learn more about the Excise Tax API.</a>.</p>
+        <p>The Excise Tax API allows you to determine taxes for transactions involving bulk motor fuels, petroleum products, and natural gas for thousands of jurisdictions in the U.S. and Canada. The SOAP API provides platform-independent access to Avalara AvaTax Excise, and can be used independently of other Avalara APIs. <a href="/excise">Learn more about the Excise Tax API.</a>.</p>
         <div class="pageTitle">
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>Excise</span>
