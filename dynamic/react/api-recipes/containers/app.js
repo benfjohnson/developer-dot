@@ -1,4 +1,4 @@
-import SampleConsoles from '../components/sampleConsoles';
+import RecipeConsoles from '../components/recipeConsoles';
 import {connect} from 'react-redux';
 import actions from '../../shared/actions';
 import request from 'request';
@@ -75,6 +75,6 @@ const mapDispatchToProps = (dispatch) => {
 const App = connect(
     mapStateToProps,
     mapDispatchToProps
-)(SampleConsoles);
+)(RecipeConsoles);
 
 export default App;

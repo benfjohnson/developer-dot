@@ -1,6 +1,6 @@
 import queryStringReducer from './queryStringReducer';
 import actionTypes from '../../shared/actionTypes';
-import {buildQsPath, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData} from '../helpers';
+import {buildQsPath, buildCurl, fillOrRemoveSampleData, fillPostBodySampleData, buildInitialPostBodyData} from '../helpers';
 
 // Method traverses a `postBody` endpoint property by colon-separated name and returns the
 // innermost property described by the propertyPath
@@ -81,7 +81,11 @@ export default (state, action) => {
 
     switch (action.type) {
     case actionTypes.RESET_CONSOLE:
-        newState = fillOrRemoveSampleData(newState, true);
+        if (newState.postBodyDefaultData) {
+            newState.postBodyData = {...newState.postBodyDefaultData};
+        } else {
+            newState = fillOrRemoveSampleData(newState, true);
+        }
         newState.qsPath = buildQsPath(newState.queryString);
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         return {...newState, apiResponse: undefined};
@@ -92,7 +96,12 @@ export default (state, action) => {
         }
         break;
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
-        newState = fillOrRemoveSampleData(newState);
+        if (newState.postBodyDefaultData) {
+            // Have to use jQuery for deep extends (property merge)
+            newState.postBodyData = $.extend(true, {}, newState.postBodyDefaultData, fillPostBodySampleData(newState.postBody));
+        } else {
+            newState = fillOrRemoveSampleData(newState);
+        }
         newState.qsPath = buildQsPath(newState.queryString);
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
