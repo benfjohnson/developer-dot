@@ -4,13 +4,13 @@ title: Preferred developers
 nav: resources
 ---
 <div class="row half preferred-developers">
-	<div class="col-sm-3 hidden-xs">
+	<div class="col-md-3 hidden-xs">
 	    <h5>Need help with your integration?</h5>
 		<p>If you need assistance building your integration to AvaTax Sales Tax API, we recommend contacting one of these Preferred Developers to help. They are available as independent contractors and are not employed by Avalara &mdash; but they know the ropes.</p>
 		<h5>Want to get on this list?</h5> 
 		<p><a href="mailto:developer@avalara.com">Contact us</a> if you're interested in becoming a Preferred Developer</p>
 	</div>
-	<div class="col-sm-9">
+	<div class="col-md-9">
 		<h1>{{page.title}}</h1>
 		<img src="/images/2013/04/alynnleelogo.gif" width="102" height="88" />
 		<h4><a href="http://alynnlee.com/">Alynnlee Productions</a></h4>

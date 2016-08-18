@@ -1,5 +1,6 @@
 # AVATAX
 
+swagger_path: avatax-rest.yaml
 nav_link:
     title: Avatax REST API
     path: /avatax/api-reference/tax/v1

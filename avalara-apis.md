@@ -5,7 +5,7 @@ nav: apis
 doctype: overview
 ---
 <div class="row bg-map">
-  <div class="col-sm-6 col-sm-offset-3 text-center">
+  <div class="col-md-6 col-md-offset-3 text-center">
     <h1 class="h1p">API solutions for end-to-end tax compliance</h1>
       <ul class="pipe padding-bottom">
           <li><a href="#tax-calculation">Tax calculation</a></li>
@@ -15,12 +15,12 @@ doctype: overview
   </div>
 </div>
 <div class="row border-top">
-    <div class="col-sm-12">
+    <div class="col-md-12">
         <h1><a name="tax-calculation"></a>Tax Calculation APIs</h1>
     </div>
-    <div class="col-sm-7 col-sm-offset-3">
+    <div class="col-md-7 col-md-offset-3">
         <div class="row">
-            <div class="col-sm-12"><h2>Calculate sales &amp; sellers use tax, consumer use, and value-added tax (VAT)</h2></div>
+            <div class="col-md-12"><h2>Calculate sales &amp; sellers use tax, consumer use, and value-added tax (VAT)</h2></div>
         </div>
         <p>Calculate transactional taxes with rooftop-level accuracy and real-time product taxability information using our AvaTax RESTful API, or SOAP API, which include class wrappers (adapters) for a variety of languages to assist in calling the web service. <a href="/avatax/get-started#signup">Get started with the AvaTax API now.</a></p>
         <div class="pageTitle">
@@ -76,12 +76,12 @@ doctype: overview
     </div>
 </div>
 <div class="row border-top bg-fill padding-bottom">
-    <div class="col-sm-12">
+    <div class="col-md-12">
         <h1><a name="compliance"></a>Compliance Document Management API</h1>
     </div>
-    <div class="col-sm-7 col-sm-offset-3">
+    <div class="col-md-7 col-md-offset-3">
         <div class="row">
-            <div class="col-sm-12"><h2>Manage exemption certificates, W8/W9 forms, and fuel licenses</h2></div>
+            <div class="col-md-12"><h2>Manage exemption certificates, W8/W9 forms, and fuel licenses</h2></div>
         </div>
         <p>The CertCapture API enables you to retrieve or update exemption data from a remote application. This allows applications to interact with customer and certificate records, and to send automated certificate requests to customers. CertCapture may be used as a stand-alone certificate management solution, or in conjunction with AvaTax.  <a href="/certcapture">Learn more about the CertCapture API</a>.</p>
         <div class="pageTitle">
@@ -98,10 +98,10 @@ doctype: overview
     </div>
 </div>
 <div class="row border-top padding-bottom">
-    <div class="col-sm-12">
+    <div class="col-md-12">
         <h1><a name="returns-filing"></a>Returns and Filing APIs</h1>
     </div>
-    <div class="col-sm-7 col-sm-offset-3">    
+    <div class="col-md-7 col-md-offset-3">    
         <h2>Prepare and file AvaTax-integrated returns</h2>
         <p>Avalara Returns is a fully-managed solution that incorporates a Treasury solution for simple payment, guaranteed on-time filing, audit support, and notice management. There are currently no APIs available for Avalara Returns – data is populated from AvaTax transactions and returns are managed by the merchant through the provided Customer Portal. <a href="http://www.avalara.com/products/returns/">Learn more about Avalara Returns</a>.
         </p>

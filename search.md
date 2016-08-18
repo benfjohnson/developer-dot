@@ -7,7 +7,7 @@ permalink: /search/
 
 <div class="search half">
     <form class="horizontal row search-form">
-        <div class="col-sm-4 form-group">
+        <div class="col-md-4 form-group">
             <label for="doctype-facet"><h4>Refine by document type</h4></label><br />
             <select id="doctype-facet" class="form-control">
                 <option value="">Any</option>
@@ -20,7 +20,7 @@ permalink: /search/
                 <option value="blog">Blog Posts</option>
             </select>
         </div>
-        <div class="col-sm-3 form-group">
+        <div class="col-md-3 form-group">
             <label for="product-facet"><h4>Refine by product</h4></label><br />
             <select id="product-facet" class="form-control">
                 <option value="">Any</option>
@@ -32,21 +32,21 @@ permalink: /search/
                 <option value="communications">Communications</option>
             </select>
         </div>
-        <div class="col-sm-5">
+        <div class="col-md-5">
             <label for="query"><h4>Search again</h4></label>
             <div class="row">
-                <div class="col-sm-9 form-group">
+                <div class="col-md-9 form-group">
                     <input class="form-control" type="search" id="query">
                     <span class="form-control-feedback" aria-hidden="false">!</span>
                 </div>
-                <div class="col-sm-3 form-group">
+                <div class="col-md-3 form-group">
                     <button type="submit" class="btn btn-primary">Search</button>
                 </div>
             </div>
         </div>
     </form>    
     <div class="row padding-bottom">
-        <div class="col-sm-12">
+        <div class="col-md-12">
             <div id="search-results"></div>
         </div>
     </div>

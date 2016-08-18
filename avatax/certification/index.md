@@ -7,38 +7,29 @@ nav: apis
 ---
 <div class="half">
 <h2>Certification for AvaTax Integrations</h2>
-<div>How do you know if you’re compliant with our best practices?  To start, we recommend watching an overview of our API.</div>
-
+<p>How do you know if you’re compliant with our best practices?  To start, we recommend watching an overview of our API.</p>
 <iframe id="player_1" src="http://www.youtube.com/embed/R0WUijv8xKk?rel=0&amp;enablejsapi=1&amp;wmode=opaque" width="705" height="396"></iframe>
-
 <img src="/images/2012/10/Avalara_CERTIFIED-150x25-01.png" alt="Avalara_CERTIFIED-150x25-01" width="150" height="26" />
 
-An integration can be issued for any of the following feature subsets in addition to a basic calculation certification:
+<p>
+An integration can be issued for any of the following feature subsets in addition to a basic calculation certification:<br />
 To have your integration <a href="/certification">Certified by Avalara</a>, we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax with your application.  To be Certified for Avalara AvaTax, all of the items with an R beside them listed below are the required elements that must be present in your integration.
+</p>
 <blockquote><strong>Note: </strong>Address validation is a requirement for certification, however we don’t require you to use our address validation service.</blockquote>
-There are several different certifications that can be achieved according to the functionality supported in your application.
+<p>There are several different certifications that can be achieved according to the functionality supported in your application.</p>
 <ul>
 <li><a href="/avatax/certification/address-validation">Calculation with Avalara AvaTax and Address Validation</a></li>
 <li><a href="/avatax/certification/returns">Calculation with Avalara AvaTax and Returns</a></li>
 <li><a href="/avatax/certification/global">Calculation with Avalara AvaTax for Global Calculations</a></li>
 <li><a href="/avatax/certification/use-tax">Calculation with Avalara AvaTax for Use Tax</a></li>
 </ul>
-
-For more information about the benefits of certification, check out our <a href="/certification">Certification Guide</a>.
-
+<p>For more information about the benefits of certification, check out our <a href="/certification">Certification Guide</a>.</p>
 <h2>Certified for Avalara AvaTax<a name="CertifiedForAvalaraAvaTax"></a></h2>
-Certification for Avalara AvaTax requires the delivery of all functional requirements shown below.
-
-Key:  R – Functionality required for certification     N – Functionality not required, but noted
+<p>Certification for Avalara AvaTax requires the delivery of all functional requirements shown below.</p>
 <h3>Avalara AvaTax Administration &amp; Utilities Integration</h3>
-The AvaTax Administration section provides the user with configuration, setup and utility functions necessary to administer the AvaTax sales tax calculation and address validation functions. Note that these items cannot be examined on a analysis of your data performed by AvaTax support staff.
-
-Here’s a video showing an example of one of our integrations to AvaTax and how a configuration screen should be designed:
-
+<p>The AvaTax Administration section provides the user with configuration, setup and utility functions necessary to administer the AvaTax sales tax calculation and address validation functions. Note that these items cannot be examined on a analysis of your data performed by AvaTax support staff.</p>
+<p>Here’s a video showing an example of one of our integrations to AvaTax and how a configuration screen should be designed:</p>
 <iframe id="player_2" src="http://www.youtube.com/embed/9IGMZfrYU9A?enablejsapi=1&amp;wmode=opaque" width="705" height="396" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-
-Key:  R – Functionality required for certification     N – Functionality not required, but noted
-
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
@@ -79,9 +70,7 @@ Key:  R – Functionality required for certification     N – Functionalit
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Enable logging</div>
-<div class="col-xs-8">Enables detailed AvaTax transaction logging within the application including capture of round-trip processing time.We need the complete xml request/response for each call made to Avalara services. It does not need to run all the time as we understand the DB will grow unnecessarily large – you are free to only log the last week, 30 days, custom, or have a control for the next N hours, etc.
-
-The spirit of the requirement is to assist customers and support in troubleshooting exercises, so it needs to be retrievable by an end user (or an administrator) It should be specifically Avalara service calls.</div>
+<div class="col-xs-8">Enables detailed AvaTax transaction logging within the application including capture of round-trip processing time.We need the complete xml request/response for each call made to Avalara services. It does not need to run all the time as we understand the DB will grow unnecessarily large – you are free to only log the last week, 30 days, custom, or have a control for the next N hours, etc. The spirit of the requirement is to assist customers and support in troubleshooting exercises, so it needs to be retrievable by an end user (or an administrator) It should be specifically Avalara service calls.</div>
 </div>
 <div class="row">
 <div class="col-xs-1">N</div>
@@ -95,11 +84,8 @@ The spirit of the requirement is to assist customers and support in troubleshoot
 </div>
 
 <h3 data-fontsize="22" data-lineheight="32">Customer Record Integration</h3>
-Here’s a video showing an example of the required elements of the customer record integration to AvaTax:
-
+<p>Here’s a video showing an example of the required elements of the customer record integration to AvaTax:</p>
 <iframe id="player_3" src="http://www.youtube.com/embed/SkBgcKa_yFY?enablejsapi=1&amp;wmode=opaque" width="705" height="396" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-
-Key:  R – Functionality required for certification     N – Functionality not required, but noted
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
@@ -118,18 +104,12 @@ Key:  R – Functionality required for certification     N – Functionalit
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Entity/Use Code</div>
-<div class="col-xs-8">This is a group of codes that indicate the type of exemption.  See <a title="standard list of codes" href="/avatax/handling-tax-exempt-customers" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to <strong>manage this value in your application’s Customer record</strong> and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable.
-
-Note that either Exemption Number or Entity/Use code is required (not both). <strong>Entity/Use Code is preferred.</strong></div>
+<div class="col-xs-8">This is a group of codes that indicate the type of exemption.  See <a title="standard list of codes" href="/avatax/handling-tax-exempt-customers" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to <strong>manage this value in your application’s Customer record</strong> and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable. Note that either Exemption Number or Entity/Use code is required (not both). <strong>Entity/Use Code is preferred.</strong></div>
 </div>
 
 <h3>Items/Charge Integration</h3>
-Here’s a video showing an example of the item record elements necessary for a successful integration to AvaTax:
-
+<p>Here’s a video showing an example of the item record elements necessary for a successful integration to AvaTax:</p>
 <iframe id="player_4" src="http://www.youtube.com/embed/iZE8BEgZBt4?enablejsapi=1&amp;wmode=opaque" width="705" height="396" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-
-Key:  R – Functionality required for certification     N – Functionality not required, but noted
-
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
@@ -152,12 +132,8 @@ Key:  R – Functionality required for certification     N – Functionalit
 </div>
 
 <h3>Sales/Billing Document Integration</h3>
-Integrating with the Sales and/or Billing process involves making tax calculation and/or modifying a transaction.  Here’s a video showing an example of all necessary elements for a successful integration to AvaTax:
-
+<p>Integrating with the Sales and/or Billing process involves making tax calculation and/or modifying a transaction.  Here’s a video showing an example of all necessary elements for a successful integration to AvaTax:</p>
 <iframe id="player_5" src="http://www.youtube.com/embed/6465JvR3lNk?enablejsapi=1&amp;wmode=opaque" width="705" height="396" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-
-Key:  R – Functionality required for certification     N – Functionality not required, but noted
-
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
@@ -272,10 +248,7 @@ Key:  R – Functionality required for certification     N – Functionalit
 </div>
 
 <h3>Server Audit Clarity and Installation Requirements</h3>
-Tax calculation should display a clean audit to promote an error- and overage-free user experience. These properties are not visible from the Admin Console, and show up on an Avatax-side server audit of traffic on your account. Contact us if you would like an audit report run and emailed to you.
-
-Key:  R – Functionality required for certification     N – Functionality not required, but noted
-
+<p>Tax calculation should display a clean audit to promote an error- and overage-free user experience. These properties are not visible from the Admin Console, and show up on an Avatax-side server audit of traffic on your account. Contact us if you would like an audit report run and emailed to you.</p>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
@@ -301,5 +274,4 @@ Key:  R – Functionality required for certification     N – Functionalit
 <div class="col-xs-3">Demonstrate and document installation of software – Install Shield or equivalent where applicable</div>
 <div class="col-xs-8">Customers should have an easy and trouble free installation of the software.</div>
 </div>
-
 </div>

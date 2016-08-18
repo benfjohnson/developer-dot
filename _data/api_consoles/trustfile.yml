@@ -1,5 +1,5 @@
 # TRUSTFILE
-
+swagger_path: trustfile-core.yaml
 nav_link:
     title: Trustfile - Core
     path: /trustfile/api-reference/core/v3

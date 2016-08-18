@@ -1,5 +1,5 @@
 # AVATAX SOAP
-
+swagger_path: avatax-soap.yaml
 nav_link:
     title: Avatax SOAP API
     path: /avatax/api-reference/tax/soap

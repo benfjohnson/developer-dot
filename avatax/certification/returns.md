@@ -7,12 +7,9 @@ nav: apis
 ---
 <div class="half">
 <h2>AvaTax with Returns Checklist</h2>
-Certification for Avalara AvaTax with Returns requires the delivery of all functional requirements shown below.
-
-Key:  R – Functionality required for certification     N – Functionality not required, but noted
+<p>Certification for Avalara AvaTax with Returns requires the delivery of all functional requirements shown below.</p>
 <h3>AvaTax Administration &amp; Utilities Integration</h3>
-The AvaTax Administration section provides the user with configuration, setup and utility functions necessary to administer the AvaTax sales tax calculation.
-
+<p>The AvaTax Administration section provides the user with configuration, setup and utility functions necessary to administer the AvaTax sales tax calculation.</p>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
@@ -62,7 +59,6 @@ The AvaTax Administration section provides the user with configuration, setup an
 </div>
 
 <h3>Customer Record integration</h3>
-
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
@@ -81,9 +77,7 @@ The AvaTax Administration section provides the user with configuration, setup an
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Entity/Use Code</div>
-<div class="col-xs-8">This is a group of codes that indicate the type of exemption. See <a title="standard list of codes" href="/avatax/handling-tax-exempt-customers" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to manage this value in your application’s Customer record and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable.
-
-Note that either Exemption Number or Entity/Use code is required (not both). Entity/Use Code is preferred.</div>
+<div class="col-xs-8">This is a group of codes that indicate the type of exemption. See <a title="standard list of codes" href="/avatax/handling-tax-exempt-customers" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to manage this value in your application’s Customer record and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable. Note that either Exemption Number or Entity/Use code is required (not both). Entity/Use Code is preferred.</div>
 </div>
 
 <h3>Items/Charge integration</h3>
@@ -109,8 +103,7 @@ Note that either Exemption Number or Entity/Use code is required (not both). Ent
 </div>
 
 <h3>Sales/Billing Document integration</h3>
-Integrating with the Sales and/or Billing process involves making tax calculation and/or modifying a transaction.
-
+<p>Integrating with the Sales and/or Billing process involves making tax calculation and/or modifying a transaction.</p>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
@@ -119,7 +112,7 @@ Integrating with the Sales and/or Billing process involves making tax calculatio
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Send required header level data elements:
-<ul8>
+<ul>
 	<li>Document number</li>
 	<li>Customer code</li>
 	<li>Document date</li>
@@ -137,7 +130,7 @@ Integrating with the Sales and/or Billing process involves making tax calculatio
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Send required line (detail) level data elements:
-<ul8>
+<ul>
 	<li>Line number</li>
 	<li>Item code</li>
 	<li>Item description</li>
@@ -164,8 +157,7 @@ Integrating with the Sales and/or Billing process involves making tax calculatio
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">PostTax/CommitTax call – Credit Memos</div>
-<div class="col-xs-8">Ensure that returns are committed/posted for reporting appropriately.
-More information about <a title="handling returns" href="/avatax/handling-return-invoices" target="_blank">handling returns</a>.</div>
+<div class="col-xs-8">Ensure that returns are committed/posted for reporting appropriately. More information about <a title="handling returns" href="/avatax/handling-return-invoices" target="_blank">handling returns</a>.</div>
 </div>
 <div class="row">
 <div class="col-xs-1">R</div>
@@ -224,8 +216,7 @@ More information about <a title="handling returns" href="/avatax/handling-return
 </div>
 
 <h3>Server Audit Clarity</h3>
-Tax calculation should display a clean audit to limit errors and call volume to reasonable levels.
-
+<p>Tax calculation should display a clean audit to limit errors and call volume to reasonable levels.</p>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
