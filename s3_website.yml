@@ -586,3 +586,4 @@ redirects:
   api-documentation/api-reference-template:  /avalara-apis
   wp-content/apireference/master/wp-login.php:  /avatax/api-reference/tax/v1
   api-documentation/avatax-16-api/avatax-soap-api-reference:  /avalara-apis
+  landedcost/api-reference/calculate/v3: landedcost/api-reference/v3/index.html#calculate
