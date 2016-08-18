@@ -36,6 +36,14 @@ const traversePostBodyData = (propertyPath, state) => {
     }, state);
 };
 
+// Stricter parse float, also doesn't match if a value ends with .0+ (otherwise parseFloat will strip the zero which we want to keep)
+const parseFloatStrict = (value) => {
+    if (/^\-?[0-9]+(\.[0-9]*[^0]+)?$/.test(value)) {
+        return parseFloat(value);
+    }
+    return NaN;
+};
+
 const updateDataAtProperty = (propertyPath, newVal, postBodyData) => {
     if (propertyPath === '') {
         return;
@@ -104,13 +112,13 @@ export default (state, action) => {
         const newStateProperty = traversePropertyPath(accessorName, newState.postBody);
         let castedValue;
 
-        switch (newStateProperty.fieldType) {
-        case 'number':
-            castedValue = isNaN(parseFloat(action.newValue)) ? action.newValue : parseFloat(action.newValue);
-            break;
-        default:
-            castedValue = action.newValue;
+        if (action.newValue === '') {
+            castedValue = undefined;
+        } else {
+            // TODO: Should casting numerical inputs be left to the submit function?
+            castedValue = newStateProperty.fieldType === 'number' ? (parseFloatStrict(action.newValue) || action.newValue) : action.newValue;
         }
+
         updateDataAtProperty(action.postBodyParamName, castedValue, newState.postBodyData);
         break;
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
