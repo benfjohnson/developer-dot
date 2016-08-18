@@ -78,7 +78,7 @@
                             <div class="col-md-12"><a href="/avalara-apis">APIs overview</a></div>
                         </div>
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-sm-8">
                                 <h2>Tax calculation</h2>
                                 {% if site.data.api_consoles.avatax.nav_links %}
                                 <h4>Avalara AvaTax</h4>
@@ -113,7 +113,7 @@
                                 </ul>
                                 {% endif %}
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-sm-4">
                                 <h2>Compliance document management</h2>
                                 {% if site.data.api_consoles.certcapture.nav_links %}
                                 <h4>Avalara CertCapture</h4>
@@ -165,18 +165,18 @@
                         {% if product_name %}
                         <div class="col-md-9"><label><input type="checkbox" id="filterSite"> Search entire site</label></div>
                         <div class="col-md-3">
-                            <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <button type="button" class="close" aria-label="Close"><span>&times;</span></button>
                         </div>
                         {% else %}
                         <div class="col-md-12">
-                            <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <button type="button" class="close" aria-label="Close"><span>&times;</span></button>
                         </div>
                         {% endif %}
                     </div>
                     <div class="row">
                         <div class="form-group col-md-9">
                             <input class="form-control" type="search" {% if product_name %}placeholder="Search Developer / {{product_name | capitalize}}" {% else %}placeholder="Search" {% endif %}>
-                            <span class="form-control-feedback" aria-hidden="false">!</span>
+                            <span class="form-control-feedback">!</span>
                         </div>
                         <div class="form-group col-md-3">
                             <input type="submit" class="btn btn-primary" value="Search">
@@ -189,15 +189,16 @@
 </header>
 <div class="container-fluid {{page.doctype}}">
     {%if page.nav == 'apis' and page.doctype != 'overview' %}{% include api_breadcrumb.html %}{%endif%}
-    {% if page.doctype == 'api_references' %}
+    {% if page.doctype == 'api_references' or page.doctype == 'use_cases'%}
     <section class="row padding-sides">
-        <nav class="col-md-3 hidden-xs">{% include console-navigation.html %}</nav>
-        <main class="col-md-9">{{ content }}</main>
-    </section>
-    {% elsif page.doctype == 'use_cases' %}
-    <section class="row half padding-sides">
-        <nav class="col-md-3 hidden-xs">{% include use_cases.html %}</nav>
-        <main class="col-md-9">{{ content }}</main>
+        <nav class="col-md-3">
+            {% if page.doctype == 'api_references' %}
+                {% include api_reference_navigation.html %}
+            {% else %}
+                {% include use_cases_navigation.html %}
+            {% endif %}
+        </nav>
+        <main class="col-md-9{% if page.doctype == 'api_references' %} small-no-padding{% endif %}">{{ content }}</main>
     </section>
     {% elsif page.doctype == 'overview' or page.nav == 'home' %}
     <section class="row">
@@ -251,36 +252,13 @@
 <script src="/js/site.js"></script>
 
 {% if page.api_console == 1 %}
-<script>
-    $("#bootstrap-scrollspy ul li a[href^='#'], .try-it-now-link a[href^='#']").on('click', function(e) {
-        // prevent default anchor click behavior
-        e.preventDefault();
-
-        // store hash
-        var hash = this.hash;
-
-        // animate
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 450, function() {
-
-            // when done, add hash to url
-            // (default click behaviour)
-            window.location.hash = hash;
-        });
-    });
-</script>
+<script>apiReferenceScrollspy();</script>
 {% endif %}
 
 {% if page.avaform == 1 %}
 <script src="https://d30qslfa084pac.cloudfront.net/common/avaform/avaform.3.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-<script>
-    setupAvaForm();
-    $(function() {
-        $("#avaform-phone").mask("(999) 999-9999");
-    });
-</script>
+<script>setupAvaForm();</script>
 {% endif %}
 
 {% if page.search == 1 %}
@@ -290,8 +268,7 @@
 
 <!-- Google Tag Manager -->
 <noscript><iframe src='//www.googletagmanager.com/ns.html?id=GTM-MKB5LP' height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
-<script>
-    (function(w, d, s, l, i) {
+<script>(function(w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({
             'gtm.start': new Date().getTime(), event: 'gtm.js'
@@ -302,8 +279,7 @@
         j.src =
             '//www.googletagmanager.com/gtm.js?id=' + i + dl;
         f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-MKB5LP');
-</script>
+    })(window, document, 'script', 'dataLayer', 'GTM-MKB5LP');</script>
 <!-- End Google Tag Manager -->
 </body>
 </html>

@@ -1,4 +1,4 @@
-<div id='the-nav' class='nav-wrapper' data-spy='affix' data-offset-top='140' style='height: 100%; overflow-y: auto;'>
+<div id='the-nav' class='nav-wrapper hidden-xs hidden-sm' data-spy='affix' data-offset-top='140' style='height: 100%; overflow-y: auto;'>
     <ul class='api-ref-side-nav nav nav-pills nav-stacked'>
         {% for api_console_hash in site.data.api_consoles %}
             {% assign api_console = api_console_hash[1] %}
@@ -28,6 +28,38 @@
                     </li>
                 {% endif %}
             {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+<div class="sm-section-nav dropdown visible-xs-block visible-sm-block">
+    <button id="api-ref-nav" type="button" data-toggle="dropdown"><span class="capitalize">{{page.product}}</span> Endpoints</button>
+    <ul class="dropdown-menu" aria-labelledby="api-ref-nav">
+        {% for api_console_hash in site.data.api_consoles %}
+        {% assign api_console = api_console_hash[1] %}
+        {% assign currApi = api_console.nav_link.title | downcase %}
+        {% assign apiName = page.api_name | downcase %}
+        {% if currApi == apiName %}
+        <li><a href="#top">{{ api_console.nav_link.title }}</a>
+                <ul>
+                    {% for endpoint_link in page.endpoint_links %}
+                    <li><a href="{{ endpoint_link[0] }}">{{ endpoint_link[1] }}</a></li>
+                    {% endfor %}
+                </ul>
+        </li>
+        {% else %}
+        {% if page.product == api_console.product %}
+        <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a>
+            {% if api_console.endpoint_hashes %}
+            <ul>
+                {% for endpoint_hash in api_console.endpoint_hashes %}
+                {% capture full_endpoint_link %}{{api_console.nav_link.path}}{{endpoint_hash.link}}{% endcapture %}
+                <li><a href="{{ full_endpoint_link }}">{{ endpoint_hash.name }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endif %}
+        {% endif %}
         {% endfor %}
     </ul>
 </div>

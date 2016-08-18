@@ -174,6 +174,7 @@ var setupAvaForm = function() {
         container: ".avaform-wrapper",
         referer: "http://developer.avalara.com/"
     });
+    $('#avaform-phone').mask('(999) 999-9999');
 };
 
 var fixApiRefNav = function() {
@@ -192,6 +193,24 @@ var fixDropDownMenuLargePosition = function() {
     }, 100);
 };
 
+var apiReferenceScrollspy = function () {
+    $("#bootstrap-scrollspy ul li a[href^='#'], .try-it-now-link a[href^='#']").on('click', function(e) {
+        // prevent default anchor click behavior
+        e.preventDefault();
+
+        // store hash
+        var hash = this.hash;
+
+        // animate
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+        }, 450, function() {
+            // when done, add hash to url (default click behaviour)
+            window.location.hash = hash;
+        });
+    });
+};
+
 $(document).ready(function() {
     fixApiRefNav();
 
@@ -199,4 +218,13 @@ $(document).ready(function() {
     showHdrSearchForm();
 
     fixDropDownMenuLargePosition();
+
+    // When we show the section nav on xs/sm, clear the main content below the nav
+    $('.sm-section-nav').on('shown.bs.dropdown', function() {
+        $('main').addClass('section-nav-open');
+    });
+    // When we hide the section nav on xs/sm, reset the main content next to the nav
+    $('.sm-section-nav').on('hidden.bs.dropdown', function() {
+        $('main').removeClass('section-nav-open');
+    });
 });
