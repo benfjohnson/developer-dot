@@ -209,7 +209,9 @@
     </section>
     {% endif %}
     {% if page.disqus == 1 %}
-    <section class="row">{% include disqus.html %}</section>
+    <section class="row padding-sides">
+            <main class="col-md-12">{% include disqus.html %}</main>
+    </section>
     {% endif %}
 </div>
 <footer class="navbar navbar-default">
