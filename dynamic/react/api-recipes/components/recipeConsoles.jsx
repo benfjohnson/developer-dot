@@ -1,11 +1,11 @@
 import React from 'react';
-import ApiConsoleWrapper from './apiConsoleWrapper';
+import RecipeConsoleWrapper from './recipeConsoleWrapper';
 
 const RecipeConsoles = (props) => {
     return (
         <div>
             {props.apiEndpoints.map((endpoint, i) => (
-                <ApiConsoleWrapper endpoint={endpoint} id={i} key={i} onAddItemToPostbodyCollection={props.onAddItemToPostbodyCollection} onFillConsoleSampleData={props.onFillConsoleSampleData} onPathParamChanged={props.onPathParamChanged} onPostBodyInputChanged={props.onPostBodyInputChanged} onQueryParamChanged={props.onQueryParamChanged} onRemovePostbodyCollectionItem={props.onRemovePostbodyCollectionItem} onResetConsole={props.onResetConsole} onSubmitConsoleRequest={props.onSubmitConsoleRequest} onToggleShowExcludedPostBodyProps={props.onToggleShowExcludedPostBodyProps} />
+                <RecipeConsoleWrapper endpoint={endpoint} id={i} key={i} onAddItemToPostbodyCollection={props.onAddItemToPostbodyCollection} onFillConsoleSampleData={props.onFillConsoleSampleData} onPathParamChanged={props.onPathParamChanged} onPostBodyInputChanged={props.onPostBodyInputChanged} onQueryParamChanged={props.onQueryParamChanged} onRemovePostbodyCollectionItem={props.onRemovePostbodyCollectionItem} onResetConsole={props.onResetConsole} onSubmitConsoleRequest={props.onSubmitConsoleRequest} onToggleShowExcludedPostBodyProps={props.onToggleShowExcludedPostBodyProps} />
             ))}
         </div>
     );

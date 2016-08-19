@@ -69,7 +69,17 @@ const ConsoleInputForm = ({endpoint, id, onFillConsoleSampleData, onSubmitConsol
 
 ConsoleInputForm.displayName = 'Console Input Form';
 ConsoleInputForm.propTypes = {
-
+    endpoint: React.PropTypes.object,
+    id: React.PropTypes.number.isRequired,
+    onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
+    onFillConsoleSampleData: React.PropTypes.func.isRequired,
+    onPathParamChanged: React.PropTypes.func.isRequired,
+    onPostBodyInputChanged: React.PropTypes.func.isRequired,
+    onQueryParamChanged: React.PropTypes.func.isRequired,
+    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
+    onResetConsole: React.PropTypes.func.isRequired,
+    onSubmitConsoleRequest: React.PropTypes.func.isRequired,
+    onToggleShowExcludedPostBodyProps: React.PropTypes.func.isRequired
 };
 
 export default ConsoleInputForm;

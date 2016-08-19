@@ -1,20 +1,20 @@
 import React from 'react';
-import ApiConsole from '../../shared/components/apiConsole';
+import Recipe from './recipe';
 
 /* eslint-disable react/prop-types */
-const ApiConsoleWrapper = (props) => {
+const RecipeConsoleWrapper = (props) => {
     return (
         <div style={{margin: '10px'}}>
             <h2>{props.endpoint.name}</h2>
             <div style={{margin: '10px'}}>
                 {props.endpoint.recipeDescription}
             </div>
-            <ApiConsole {...props} />
+            <Recipe {...props} />
         </div>
     );
 };
 
-ApiConsoleWrapper.displayName = 'Api Endpoint - Console Wrapper';
+RecipeConsoleWrapper.displayName = 'Api Endpoint - Console Wrapper';
 
-export default ApiConsoleWrapper;
+export default RecipeConsoleWrapper;
 /* eslint-enable react/prop-types */

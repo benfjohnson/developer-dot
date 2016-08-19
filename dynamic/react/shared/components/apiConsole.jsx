@@ -2,6 +2,17 @@ import React from 'react';
 import ConsoleInputForm from './consoleInputForm';
 import ConsoleLiveData from './consoleLiveData';
 
+// Helper that determines what part of the endpoint is shown in the `Request` input of
+// the ConsoleLiveData component
+const getRequest = (endpoint) => {
+    if (endpoint.postBodyData) {
+        return endpoint.postBodyData;
+    } else if (endpoint.pathParams || endpoint.queryString) {
+        return endpoint.curl;
+    }
+    return null;
+};
+
 const ApiConsole = (props) => {
     return (
         <div className={'row api-console'}>
@@ -9,7 +20,11 @@ const ApiConsole = (props) => {
                 <ConsoleInputForm {...props} />
             </div>
             <div className={'col-md-8 col-xs-12 api-console-output'}>
-                <ConsoleLiveData endpoint={props.endpoint} />
+                <ConsoleLiveData
+                    action={props.endpoint.action}
+                    path={props.endpoint.path}
+                    request={getRequest(props.endpoint)}
+                    response={props.endpoint.apiResponse} />
             </div>
         </div>
     );
