@@ -131,8 +131,16 @@ export default (state, action) => {
         updateDataAtProperty(action.postBodyParamName, castedValue, newState.postBodyData);
         break;
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
-        const newArrObj = buildInitialPostBodyData(action.itemSchema, newState.showExcludedPostBodyFields);
+        // If postBodyDefaultData exists (supports recipes), need to populate a full array item
+        let newArrObj;
 
+        if (newState.postBodyDefaultData) {
+            const arr = traversePostBodyData(action.postBodyParamName, newState.postBodyData);
+
+            newArrObj = {...arr[arr.length - 1]};
+        } else {
+            newArrObj = buildInitialPostBodyData(action.itemSchema, newState.showExcludedPostBodyFields);
+        }
         traversePostBodyData(action.postBodyParamName, newState.postBodyData).push(newArrObj);
         break;
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
