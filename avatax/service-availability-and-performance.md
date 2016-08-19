@@ -9,7 +9,7 @@ community: availability
 <h2>Service Availability and Performance</h2>
 Consuming sales tax related services can be considered mission-critical, especially when making calculation queries through the Avatax product. As a cloud-based Software-as-a-Service provider, Avalara understands the need to ensure that our services are available continuously and respond in a timely manner.
 
-Avalara’s Server Status can be viewed publicly at <a href="http://status.avalara.com" target="_blank">http://status.avalara.com</a>. This page outlines the availability of the service, current performance in terms of response time and a historical view of the availability for the past week.
+Avalara’s Server Status can be viewed publicly at <a href="http://status.avalara.com">http://status.avalara.com</a>. This page outlines the availability of the service, current performance in terms of response time and a historical view of the availability for the past week.
 
 <img src="/images/2015/05/status.avalara.com_CROP.jpg" width="100%" />
 

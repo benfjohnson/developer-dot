@@ -19,7 +19,7 @@ If you are interested in flagging your customers as tax exempt within the AvaTax
 
 Okay, now let's get down to brass tacks. You have a customer who is buying things on your website and wants to let you know that they are tax exempt. Here's a diagram of the recommended workflow (with API calls):
 
-<a href="/images/2014/01/AvaTaxCertsWorkflow.png"><img class="alignnone size-full wp-image-6374" src="/images/2014/01/AvaTaxCertsWorkflow.png" alt="AvaTax Certs Workflow" width="1633" height="338" /></a>
+<a href="/images/2014/01/AvaTaxCertsWorkflow.png"><img src="/images/2014/01/AvaTaxCertsWorkflow.png" alt="AvaTax Certs Workflow" width="1633" height="338" /></a>
 
 *If you're using the AvaTax Calc product to calculate tax, it will reflect the existing exempt status for the customer.
 

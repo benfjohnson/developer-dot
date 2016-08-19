@@ -24,7 +24,7 @@ At the minimum you'll need to identify a target tax location, and then look up a
 
 Most businesses are probably calculating sales tax rates by ZIP Code. A five-digit ZIP Code is the simplest part of an address to use for a calculation. If you have a customer address, you have (or can look up) a five digit ZIP Code. There are about 42,000 ZIP Codes in the US, and most locations have a ZIP Code.
 
-Five-digit ZIP Code tax tables are readily available. You can download them from individual state department of revenue websites, or buy them from various providers. You can even find <a title="Five-Digit ZIP Code State Sales Tax Tables" href="http://www.taxrates.com/state-rates/">free tax tables</a>! The simplest way to add sales tax rates to an application is to use a lookup table such as this.
+Five-digit ZIP Code tax tables are readily available. You can download them from individual state department of revenue websites, or buy them from various providers. You can even find <a href="http://www.taxrates.com/state-rates/">free tax tables</a>! The simplest way to add sales tax rates to an application is to use a lookup table such as this.
 
 <strong>What's Not Good Enough</strong>
 

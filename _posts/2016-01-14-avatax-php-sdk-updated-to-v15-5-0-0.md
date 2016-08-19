@@ -22,6 +22,5 @@ Release Notes:
 </li>
 	<li>Sample code &amp; unit test cases have been updated &amp; added</li>
 </ol>
-&nbsp;
 
 You can download the SDK here : <a href="https://github.com/avadev/AvaTax-SOAP-PHP-SDK">https://github.com/avadev/AvaTax-SOAP-PHP-SDK</a>

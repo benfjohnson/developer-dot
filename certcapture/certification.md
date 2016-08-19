@@ -76,7 +76,7 @@ nav: apis
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Entity/Use Code</div>
-<div class="col-xs-8">This is a group of codes that indicate the type of exemption.  See <a title="standard list of codes" href="/avatax/handling-tax-exempt-customers#CustomerUsageType" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to manage this value in your application’s Customer record and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable. Note that either Exemption Number or Entity/Use code is required (not both). Entity/Use Code is preferred.</div>
+<div class="col-xs-8">This is a group of codes that indicate the type of exemption.  See <a href="/avatax/handling-tax-exempt-customers#CustomerUsageType">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to manage this value in your application’s Customer record and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable. Note that either Exemption Number or Entity/Use code is required (not both). Entity/Use Code is preferred.</div>
 </div>
 <div class="row">
 <div class="col-xs-1">R</div>

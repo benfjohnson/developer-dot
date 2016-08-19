@@ -13,9 +13,7 @@ Did you know that most developers will tell you that Sales Tax can be determined
 
 In my search to understand this concept, I came across the smallest Sales Tax Jurisdiction in the United States.
 
-<a href="/images/2015/07/Screen-Shot-2015-07-21-at-2.38.32-PM.png"><img class="alignleft wp-image-9270 size-full" src="/images/2015/07/Screen-Shot-2015-07-21-at-2.38.32-PM.png" alt="Screen Shot 2015-07-21 at 2.38.32 PM" width="807" height="599" /></a>
-
-&nbsp;
+<a href="/images/2015/07/Screen-Shot-2015-07-21-at-2.38.32-PM.png"><img src="/images/2015/07/Screen-Shot-2015-07-21-at-2.38.32-PM.png"  width="807" height="599" /></a>
 
 As you can see, this jurisdiction covers only one building in the Hoisington City District and is <em>sandwiched</em> between the other jurisdictions. This building is the local Subway on Broadway and Highway 281. It includes a half percent more tax than the businesses around the area. That makes sales tax determination something that requires rooftop level accuracy. Not getting this right could mean that your business could be subjected to penalties and fines when you do not collect the right amount of tax.
 

@@ -9,7 +9,7 @@ product: blog
 doctype: blog
 imgsrc: /images/2015/01/Screen-Shot-2015-01-30-at-12.26.38-PM.png
 ---
-<a href="/images/2015/01/Screen-Shot-2015-01-30-at-12.26.38-PM.png"><img class="alignnone size-large wp-image-9081" src="/images/2015/01/Screen-Shot-2015-01-30-at-12.26.38-PM.png" alt="Screen Shot 2015-01-30 at 12.26.38 PM" width="669" height="341" /></a>
+<a href="/images/2015/01/Screen-Shot-2015-01-30-at-12.26.38-PM.png"><img src="/images/2015/01/Screen-Shot-2015-01-30-at-12.26.38-PM.png" width="669" height="341" /></a>
 
 Avalara's Developer Relations &amp; Engineering team will be at the upcoming <a href="http://developerweek.com">DeveloperWeek &amp; Accelerate Hackathon</a> events down in San Francisco, CA from February 7th till February 11th. We will be sponsoring the Hackathon event and posting a <a href="http://www.accelerate.im/challenges/59">challenge</a> to build something cool with the new <a href="http://taxratesapi.avalara.com">Avalara TaxRates API</a>. There is a prize of $500 for the team that builds the coolest application with it.
 
@@ -21,8 +21,6 @@ Other activities:
 	<li>Our team will be at the Hiring Mixer on February 10th so if you're looking for a great place to work come find us.</li>
 	<li>Avalara will also have a booth at the DeveloperWeek Expo hall on February 10th - 11th. Come by our booth and say Hi.</li>
 </ol>
-&nbsp;
 
 We're looking forward to meeting all of you!
 
-&nbsp;

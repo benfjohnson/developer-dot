@@ -9,7 +9,9 @@ product: blog
 doctype: blog
 imgsrc: /images/2015/05/headshot-279x300.jpg
 ---
-<img class="alignleft size-medium wp-image-9157" src="/images/2015/05/headshot-279x300.jpg" alt="headshot" width="279" height="300" /> I'm Greg Bulmash, and as the FNG (Fabulous New Guru) on the Avalara Developer Relations team, I have been given the lofty assignment of laying down some awesome on the Avalara Developer Network blog the first Tuesday of every month. My first assignment from the powers that be: "Introduce yourself."
+<img src="/images/2015/05/headshot-279x300.jpg" alt="Greg Bulmash" width="279" height="300" />
+
+I'm Greg Bulmash, and as the FNG (Fabulous New Guru) on the Avalara Developer Relations team, I have been given the lofty assignment of laying down some awesome on the Avalara Developer Network blog the first Tuesday of every month. My first assignment from the powers that be: "Introduce yourself."
 
 The first thing that happens if you <a href="https://www.google.com/#newwindow=1&amp;q=%22Greg+Bulmash%22">Google my name as an exact phrase</a> is you come up with about 9,000 results. The first result is a <a href="http://www.snopes.com/humor/letters/mcdonaldsapp.asp">McDonalds/WalMart Application</a> link to Snopes.com, the encyclopedia of urban legends.
 
@@ -21,4 +23,4 @@ I'm self-taught as a coder if that means anything to anyone. Somewhere around 20
 
 It's one the reasons I work to help kids learn to code. Even though I didn't get a degree in the sciences, the experience of being able to write some halfway decent code as a kid (even if it was just BASIC) gave me the confidence to tackle PHP, then JavaScript, and even take a contract at Microsoft once where I had to pick up ASP.net and C# on the fly. I believe that developers are not only good at solving problems and learning new things, we <em>choose</em> this career because it requires us to do that on a regular basis.
 
-I am getting up to speed on the <a href="http://developer.avalara.com/wp-content/apireference/master/">Avalara APIs</a>, working on some fun projects to help make them easier to learn, and if you see me around the Seattle tech community meetups, another city's tech community meetups, or a conference, say hello. I'd be very happy to meet you.
+I am getting up to speed on the <a href="/avalara-apis">Avalara APIs</a>, working on some fun projects to help make them easier to learn, and if you see me around the Seattle tech community meetups, another city's tech community meetups, or a conference, say hello. I'd be very happy to meet you.

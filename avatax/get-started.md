@@ -14,7 +14,7 @@ Want to know how the API looks? Make some requests with the tool below. See how 
 
 {% include get-started-console.html %}
 
-<div class="half">
+<div class="half padding-bottom">
 <h4 id="signup"><img src="/images/2012/09/orange-box-2-sm.png" alt="2" /> Create a Sandbox Account</h4>
 This sandbox account is for evaluation only and is initially active for 90 days, but you can request an extension if needed. You will need to add company profile and tax profile information to calculate sales tax. It is based on an AvaTax Basic subscription and includes access to Nexus Jurisdictions in the <strong>U.S. and Canada only</strong>. To access full AvaTax Pro System Tax Code functionality or Global Nexus Jurisdictions, please <a href="http://www.avalara.com/contact-us/">contact sales</a> to inquire about a paid development account.
 
@@ -23,7 +23,7 @@ This sandbox account is for evaluation only and is initially active for 90 days,
 </div>
 
 <h4><img src="/images/2012/09/orange-box-3-sm.png" alt="3" /> Log in to the Admin Console</h4>
-Visit our <a href="https://admin-development.avalara.net" target="_blank">AvaTax Development Admin Console</a> and you will be prompted to change your password. In addition to changing your password, you will need to <a href="http://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/040_Managing_Tax_Profiles/035_Organizing_Companies/020_Add_a_Company">add a company</a> and some <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/020_Add_Nexus_Jurisdictions">nexus jurisdiction selections</a> to get any tax results.
+Visit our <a href="https://admin-development.avalara.net">AvaTax Development Admin Console</a> and you will be prompted to change your password. In addition to changing your password, you will need to <a href="http://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/040_Managing_Tax_Profiles/035_Organizing_Companies/020_Add_a_Company">add a company</a> and some <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/020_Add_Nexus_Jurisdictions">nexus jurisdiction selections</a> to get any tax results.
 <blockquote><strong>Note:</strong> In order to match the sample code we provide, use CompanyCode APITrialCompany when creating your company. If you use some other CompanyCode value remember to change the value in your samples.</blockquote>
 <h4><img src="/images/2012/09/orange-box-4-sm.png" alt="4" /> Make a Tax Call</h4>
 Now that you have an account with company settings, you are ready to make an API request!
@@ -34,7 +34,7 @@ We will make a POST request to URL:
 {% highlight text %}
 https://development.avalara.net/1.0/tax/get
 {% endhighlight %}
-Use an online <a href="http://decodebase64.com/" target="_blank">encoding tool</a> or perhaps one of the <a href="https://chrome.google.com/webstore/search/rest%20client?utm_source=chrome-ntp-icon" target="_blank">REST client apps</a> for Google Chrome to create a Basic Authorization Header from your username and password.
+Use an online <a href="http://decodebase64.com/">encoding tool</a> or perhaps one of the <a href="https://chrome.google.com/webstore/search/rest%20client?utm_source=chrome-ntp-icon">REST client apps</a> for Google Chrome to create a Basic Authorization Header from your username and password.
 
 It will look something like this:
 {% highlight text %}
@@ -141,14 +141,19 @@ The POST body will be:
 Document-level tax calculation results are available at the root level of the response, notably TotalTax. This is the total amount of tax calculated on the invoice.
 
 Each Line item in the request is represented in the response by a TaxLine, which shows line-level tax calculation results. The jurisdictional breakout of the tax calculation for each line is displayed as an array of TaxDetails.
+
 <h5>Verify Your Results in the Admin Console</h5>
+
 The tax request you made in Step 3 will be viewable in the Admin Console. Log in and navigate to the Transactions tab to verify that you have produced a successful outcome.
 
-<a href="/images/2012/09/AdminConsole.png"><img class="wp-image-2786 size-full" src="https://developer.avalara.com/wp-content/uploads/2012/09/AdminConsole-e1458102550176.png" alt="Example of successful outcome" width="975" height="199" /></a> 
-
-<div class="caption">Example of successful outcome</div>
+<div class="caption">
+    <img src="/images/2012/09/AdminConsole.png" width="100%" alt="Example of successful outcome" />
+    Example of successful outcome
+</div>
 
 Moving forward, it's a good idea to periodically review the Admin Console to verify that you're heading in the right direction.
+
 <h4>What's Next?</h4>
+
 If you didn't already check out the <a href="/blog/2013/11/11/introduction-to-the-avalara-avatax-api">Introduction to the Avalara AvaTax API</a>, that's where you should go next. As you're designing your integration, you'll want to consider what kind of <a href="/avatax/use-cases">use cases</a> you need to accommodate. We also recommend that you take a look at the <a href="/avatax/api-reference/tax/v1">API Reference</a>, review our <a href="/avatax/certification">integration checklist</a>, and check out the <a href="https://community.avalara.com/avalara/category_sets/developers">Developer Community</a>. 
-</div><br />
+</div>

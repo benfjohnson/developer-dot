@@ -38,8 +38,8 @@ nav: apis
 				</ul>
 			</td>
 			<td>
-				<a href="/avatax/logins/" target="_blank">Logins and Resources</a><br /><br />
-				<a href="http://www.youtube.com/watch?v=9IGMZfrYU9A" target="_blank">Utility and Configuration Screen (Video)</a>
+				<a href="/avatax/logins/">Logins and Resources</a><br /><br />
+				<a href="http://www.youtube.com/watch?v=9IGMZfrYU9A">Utility and Configuration Screen (Video)</a>
 			</td>
 		</tr>
 		<tr>
@@ -53,7 +53,7 @@ nav: apis
 					<li>If you have integrated to the AvaTax CertCapture product, the touch points for customers and exemption requests</li>
 				</ul>
 			</td>
-			<td><a href="http://www.youtube.com/watch?v=SkBgcKa_yFY" target="_blank">Customer Record (Video)</a></td>
+			<td><a href="http://www.youtube.com/watch?v=SkBgcKa_yFY">Customer Record (Video)</a></td>
 		</tr>
 		<tr>
 			<td>Look at the touch points in your item record (inventory maintenance)</td>
@@ -65,7 +65,7 @@ nav: apis
 					<li>How the item taxability is controlled (what will be transmitted to AvaTax as <a href="http://taxcode.avatax.avalara.com/">Tax Code</a>)</li>
 				</ul>
 			</td>
-			<td><a href="http://www.youtube.com/watch?v=iZE8BEgZBt4" target="_blank">Item Record (Video)</a></td>
+			<td><a href="http://www.youtube.com/watch?v=iZE8BEgZBt4">Item Record (Video)</a></td>
 		</tr>
 		<tr>
 			<td>Run a test transaction with more than one line, where each line has more than one quantity.</td>
@@ -78,14 +78,14 @@ nav: apis
 					<li>All information identified above in the customer record and item record should be saved in the transaction</li>
 				</ul>
 			</td>
-			<td><a href="http://www.youtube.com/watch?v=6465JvR3lNk" target="_blank">Transaction Lifecycle (Video)</a></td>
+			<td><a href="http://www.youtube.com/watch?v=6465JvR3lNk">Transaction Lifecycle (Video)</a></td>
 		</tr>
 		<tr>
 			<td>Process a transaction for a tax exempt customer</td>
 			<td>The transaction should be recorded in AvaTax with the identified tax exemption indicator</td>
 			<td>
-				<a href="/avatax/handling-tax-exempt-customers" target="_blank">Handling Tax Exempt Customers</a><br /><br />
-				<a href="http://www.youtube.com/watch?v=K7s9QiX_l2A" target="_blank">Exempt Customer (Video)</a>
+				<a href="/avatax/handling-tax-exempt-customers">Handling Tax Exempt Customers</a><br /><br />
+				<a href="http://www.youtube.com/watch?v=K7s9QiX_l2A">Exempt Customer (Video)</a>
 			</td>
 		</tr>
 		<tr>
@@ -99,27 +99,27 @@ nav: apis
 					<li>All customer and item information should be the same as on the original transaction</li>
 				</ul>
 			</td>
-			<td><a href="/avatax/handling-return-invoices" target="_blank">Product Returns</a></td>
+			<td><a href="/avatax/handling-return-invoices">Product Returns</a></td>
 		</tr>
 		<tr>
 			<td>Take a transaction through the entire document lifecycle of an order/invoice etc.</td>
 			<td>The transaction should follow the lifecycle logically in the AvaTax Admin console, ending with a committed transaction on the AvaTax Admin Console.</td>
 			<td>
-				<a href="/avatax/use-cases" target="_blank">Sample Workflows</a><br /><br />
-				<a href="http://www.youtube.com/watch?v=6465JvR3lNk" target="_blank">Transaction Lifecycle (Video)</a>
+				<a href="/avatax/use-cases">Sample Workflows</a><br /><br />
+				<a href="http://www.youtube.com/watch?v=6465JvR3lNk">Transaction Lifecycle (Video)</a>
 			</td>
 		</tr>
 		<tr>
 			<td>Take a return through its entire document lifecycle.</td>
 			<td>The transaction should follow the lifecycle logically in the AvaTax Admin console, ending with a committed return transaction on the AvaTax Admin Console.</td>
-			<td><a href="/avatax/use-cases" target="_blank">Sample Workflows</a></td>
+			<td><a href="/avatax/use-cases">Sample Workflows</a></td>
 		</tr>
 		<tr>
 			<td>If applicable, void/delete a transaction (if possible, both an invoice and a credit) in your application</td>
 			<td>The transaction record in AvaTax should reflect a "Voided" document status.</td>
 			<td>
-				<a href="/avatax/voiding-documents" target="_blank">Cancel Transactions</a><br /><br />
-				<a href="http://www.youtube.com/watch?v=kOtEmlzkO4U" target="_blank">Voided Invoice (Video)</a>
+				<a href="/avatax/voiding-documents">Cancel Transactions</a><br /><br />
+				<a href="http://www.youtube.com/watch?v=kOtEmlzkO4U">Voided Invoice (Video)</a>
 			</td>
 		</tr>
 	</tbody>

@@ -190,12 +190,12 @@
 <div class="container-fluid {{page.doctype}}">
     {%if page.nav == 'apis' and page.doctype != 'overview' %}{% include api_breadcrumb.html %}{%endif%}
     {% if page.doctype == 'api_references' or page.doctype == 'use_cases'%}
-    <section class="row padding-sides">
+    <section class="row padding-sides{% if page.doctype == 'use_cases' %} half{% endif %}">
         <nav class="col-md-3">
             {% if page.doctype == 'api_references' %}
-                {% include api_reference_navigation.html %}
+            {% include api_reference_navigation.html %}
             {% else %}
-                {% include use_cases_navigation.html %}
+            {% include use_cases_navigation.html %}
             {% endif %}
         </nav>
         <main class="col-md-9{% if page.doctype == 'api_references' %} small-no-padding{% endif %}">{{ content }}</main>
@@ -211,27 +211,27 @@
     {% endif %}
     {% if page.disqus == 1 %}
     <section class="row padding-sides">
-            <main class="col-md-12">{% include disqus.html %}</main>
+        <main class="col-md-12">{% include disqus.html %}</main>
     </section>
     {% endif %}
 </div>
 <footer class="navbar navbar-default">
     <ul class="social">
-        <li class="twitter" title="twitter"><a href="https://twitter.com/Avalara">Twitter</a></li>
-        <li class="facebook" title="facebook"><a href="https://www.facebook.com/avalara">Facebook</a></li>
-        <li class="linkedin" title="linkedin"><a href="https://www.linkedin.com/company/avalara">LinkedIn</a></li>
-        <li class="youtube" title="youtube"><a href="https://www.youtube.com/user/Avalara1">Youtube</a></li>
+        <li class="twitter"><a href="https://twitter.com/Avalara">Twitter</a></li>
+        <li class="facebook"><a href="https://www.facebook.com/avalara">Facebook</a></li>
+        <li class="linkedin"><a href="https://www.linkedin.com/company/avalara">LinkedIn</a></li>
+        <li class="youtube"><a href="https://www.youtube.com/user/Avalara1">Youtube</a></li>
     </ul>
     {% if page.api_console == 1 %}
-        {% for api_console_hash in site.data.api_consoles %}
-            {% assign api_console = api_console_hash[1] %}
-            {% assign api_console_path = api_console.nav_link.path | remove_first: '/' %}
-            {% if page.path contains api_console_path %}
-                {% assign githubpath = api_console.swagger_path | prepend: 'https://github.com/Avalara/developer-dot/edit/master/dynamic/swagger/' %}
-            {% endif %}
-        {% endfor %}
+    {% for api_console_hash in site.data.api_consoles %}
+    {% assign api_console = api_console_hash[1] %}
+    {% assign api_console_path = api_console.nav_link.path | remove_first: '/' %}
+    {% if page.path contains api_console_path %}
+    {% assign githubpath = api_console.swagger_path | prepend: 'https://github.com/Avalara/developer-dot/edit/master/dynamic/swagger/' %}
+    {% endif %}
+    {% endfor %}
     {% else %}
-        {% assign githubpath = page.path | prepend: 'https://github.com/Avalara/developer-dot/edit/master/' %}
+    {% assign githubpath = page.path | prepend: 'https://github.com/Avalara/developer-dot/edit/master/' %}
     {% endif %}
     <ul class="github">
         <li><a href="{{githubpath}}">Edit this page on GitHub</a></li>
@@ -267,19 +267,21 @@
 {% endif %}
 
 <!-- Google Tag Manager -->
-<noscript><iframe src='//www.googletagmanager.com/ns.html?id=GTM-MKB5LP' height='0' width='0' style='display:none;visibility:hidden'></iframe></noscript>
+<noscript>
+    <iframe src='//www.googletagmanager.com/ns.html?id=GTM-MKB5LP' height='0' width='0' style='display:none;visibility:hidden'></iframe>
+</noscript>
 <script>(function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            'gtm.start': new Date().getTime(), event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src =
-            '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-MKB5LP');</script>
+    w[l] = w[l] || [];
+    w[l].push({
+        'gtm.start': new Date().getTime(), event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src =
+        '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-MKB5LP');</script>
 <!-- End Google Tag Manager -->
 </body>
 </html>
