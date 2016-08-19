@@ -77,7 +77,7 @@ nav: apis
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Entity/Use Code</div>
-<div class="col-xs-8">This is a group of codes that indicate the type of exemption. See <a title="standard list of codes" href="/avatax/handling-tax-exempt-customers" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to manage this value in your application’s Customer record and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable. Note that either Exemption Number or Entity/Use code is required (not both). Entity/Use Code is preferred.</div>
+<div class="col-xs-8">This is a group of codes that indicate the type of exemption. See <a href="/avatax/handling-tax-exempt-customers">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to manage this value in your application’s Customer record and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable. Note that either Exemption Number or Entity/Use code is required (not both). Entity/Use Code is preferred.</div>
 </div>
 
 <h3>Items/Charge integration</h3>
@@ -157,7 +157,7 @@ nav: apis
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">PostTax/CommitTax call – Credit Memos</div>
-<div class="col-xs-8">Ensure that returns are committed/posted for reporting appropriately. More information about <a title="handling returns" href="/avatax/handling-return-invoices" target="_blank">handling returns</a>.</div>
+<div class="col-xs-8">Ensure that returns are committed/posted for reporting appropriately. More information about <a href="/avatax/handling-return-invoices">handling returns</a>.</div>
 </div>
 <div class="row">
 <div class="col-xs-1">R</div>
@@ -172,17 +172,17 @@ nav: apis
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Send original invoice date as tax calculation date for return orders/credit memos</div>
-<div class="col-xs-8">More information about <a title="handling returns" href="/avatax/handling-return-invoices" target="_blank">handling returns</a>.</div>
+<div class="col-xs-8">More information about <a href="/avatax/handling-return-invoices">handling returns</a>.</div>
 </div>
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Send current transaction date as document date for return orders/credit memos</div>
-<div class="col-xs-8">More information about <a title="handling returns" href="/avatax/handling-return-invoices" target="_blank">handling returns</a>.</div>
+<div class="col-xs-8">More information about <a href="/avatax/handling-return-invoices">handling returns</a>.</div>
 </div>
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Send discounts appropriately – standard discounts included in line-level extended amount, manufacturer’s coup8ons and hostess credits transmitted as additional line items.</div>
-<div class="col-xs-">More information about <a title="More information about handling discounts." href="https://community.avalara.com/avalara/topics/how_are_discounts_handled" target="_blank">handling discounts</a>.</div>
+<div class="col-xs-">More information about <a href="https://community.avalara.com/avalara/topics/how_are_discounts_handled" >handling discounts</a>.</div>
 </div>
 <div class="row">
 <div class="col-xs-1">N</div>

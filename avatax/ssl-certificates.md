@@ -10,7 +10,7 @@ community: ssl
 Some web clients (such as cURL for Windows) will require you to download the Avalara AvaTax SSL public keychain and install it into your client's keychain repository. Refer back to the steps below only if you have problems establishing the HTTPS connection to the Avalara AvaTax REST API. Both development and production use a Verisign certificate.
 <h4>Production Certificate (directly from the CA)</h4>
 <ol>
-	<li>Go to <a href="https://knowledge.verisign.com/support/mpki-for-ssl-support/index?page=content&amp;actp=CROSSLINK&amp;id=AR1553" target="_blank">VeriSign Root CA</a> and follow the instructions.</li>
+	<li>Go to <a href="https://knowledge.verisign.com/support/mpki-for-ssl-support/index?page=content&amp;actp=CROSSLINK&amp;id=AR1553">VeriSign Root CA</a> and follow the instructions.</li>
 	<li>Save the file in your preferred directory named like "certs-ca-bundle.crt".</li>
 	<li>Register that file following your standard certificate store process.</li>
 </ol>

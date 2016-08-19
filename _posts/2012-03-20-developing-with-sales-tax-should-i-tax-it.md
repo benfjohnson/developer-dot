@@ -13,11 +13,11 @@ imgsrc: /images/2012/03/sales-tax-logic1.png
 
 <strong><em>Developing With Sales Tax:</em></strong>
 <ol>
-	<li><a title="What's The Rate?" href="/blog/2012/03/06/developing-with-sales-tax-whats-the-rate/"><em>What’s The Rate?</em></a></li>
+	<li><a href="/blog/2012/03/06/developing-with-sales-tax-whats-the-rate/"><em>What’s The Rate?</em></a></li>
 	<li><em><strong>Should I Tax It?</strong></em></li>
 	<li><em>I Taxed It: Now What?</em></li>
 </ol>
-<a href="/images/2012/03/sales-tax-logic1.png"><img class="size-large wp-image-209" title="sales-tax-logic" src="/images/2012/03/sales-tax-logic1-550x479.png" alt="" width="472" height="411" /></a>
+<a href="/images/2012/03/sales-tax-logic1.png"><img src="/images/2012/03/sales-tax-logic1-550x479.png" width="472" height="411" /></a>
 
 <div class="caption">Before you apply a sales tax rate, you need to know the status of the seller, the product and the buyer.</div>
 

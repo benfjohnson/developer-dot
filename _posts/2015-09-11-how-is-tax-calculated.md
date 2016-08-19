@@ -9,7 +9,7 @@ product: avaTax
 doctype: blog
 imgsrc: /images/2015/09/shutterstock_310565729.jpg
 ---
-<a href="/images/2015/09/shutterstock_310565729.jpg"><img class=" size-full wp-image-9322 alignright" src="/images/2015/09/shutterstock_310565729.jpg" alt="shutterstock_310565729" width="167" height="250" /></a>
+<a href="/images/2015/09/shutterstock_310565729.jpg"><img src="/images/2015/09/shutterstock_310565729.jpg" width="167" height="250" /></a>
 
 When you look through the API documentation, you notice a bunch of required and 'situationally required' fields. What gives? What do we do with all that information anyway?
 
@@ -18,11 +18,11 @@ Well, like the parfait dessert pictured, sales tax has many (colorful) layers. A
 Let’s take a look at a hypothetical invoice. This is just the barebones required information, with our request on the left and response on the right. Note that if you're following along in your test environment, you might get different results! That's just fine! We'll talk about that as we dig into the calculation.
 
 In our sample request, I've specified
-<pre class="prettyprint lang-js">"DetailLevel": "Summary"</pre>
+{% highlight javascript %}"DetailLevel": "Summary"{% endhighlight %}
 to shorten our results, but you can see the full detail by leaving out this parameter, or by specifying
-<pre class="prettyprint lang-js">"DetailLevel": "Tax"</pre>
+{% highlight javascript %}"DetailLevel": "Tax"{% endhighlight %}
 Request:
-<pre class="prettyprint lang-js">{
+{% highlight javascript %}{
 "DocDate": "2015-09-08",
 "DocCode": "00501-IN",
 "CustomerCode": "0000",
@@ -61,9 +61,9 @@ Request:
 }
 ]
 }
-</pre>
+{% endhighlight %}
 Response:
-<pre class="prettyprint lang-js">{
+{% highlight javascript %}{
     "ResultCode": "Success",
     "DocCode": "93ac90e0-d2d9-42ac-8a0e-0e59884d3b46",
     "DocDate": "2015-09-11",
@@ -100,7 +100,7 @@ Response:
         }
     ]
 }
-</pre>
+{% endhighlight %}
 Okay, so what's happening here? Lets break it down.
 
 There are three main levels of tax calculation: customer taxability, product taxability, and tax profile. The application of these three levels results in the tax calculation you see returned by the API and/or recorded in AvaTax.
@@ -123,12 +123,6 @@ The taxability of the tax codes passed in the destination state determines the i
 
 Once the taxability of the customer and items have been established, the sourced rates are applied to the transaction.  First, sourcing is established; some states source some jurisdictions or products at the origin address for intrastate transactions. Then, those addresses are used to pull the appropriate taxing jurisdictions based on your tax profile and nexus designation. Sales tax or Seller’s use tax is charged depending on your nexus type. Those rates are applied at the line level to your taxable sales. In this case, I have Sales Tax only nexus in North Carolina. Nexus is not administered locally, so nexus at the state level will include all local nexus. My address triggered a state tax of 4.75% and a 2% county level tax for the county of Wake for a total composite rate of 6.75%.
 
-&nbsp;
-
 And then we're done!
 
-&nbsp;
-
 This is - if you can believe it - a pretty simplified explanation, and focuses on US calculations. There are other requirements for other tax systems, and even more depth for the calculations described here. If you want to know more about the ins and outs of sales tax calculation, you should take a look at our more detailed <a href="https://help.avalara.com/007_AvalaraUniversity/Online_Product_Training">product training</a> around sales tax.
-
-<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>

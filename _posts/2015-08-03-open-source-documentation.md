@@ -8,7 +8,7 @@ categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 ---
-<a href="https://github.com/tripit/slate"><img class="alignleft" style="width: 30%; height: 30%;" src="https://camo.githubusercontent.com/14cfd4aa8ce9c2899a6c87e988d7542d428d616d/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f39353834373239312f676974687562253230696d616765732f736c6174652f736c6174655f73637265656e73686f745f6e65772e706e67" alt="" width="1152" height="649" /></a>
+<a href="https://github.com/tripit/slate"><img src="https://camo.githubusercontent.com/14cfd4aa8ce9c2899a6c87e988d7542d428d616d/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f39353834373239312f676974687562253230696d616765732f736c6174652f736c6174655f73637265656e73686f745f6e65772e706e67" width="30%" height="30%" /></a>
 
 Since launching this developer site three years ago, we've made continued improvements to both the content and the site itself. One of the areas that has seen the most change is the API reference - it's a tricky thing to present that much information in a way that is easily traversed, navigated, and searched, while still intentionally guiding the reader. There is still room for improvement, but we've had success with an open-source tool called Slate.
 

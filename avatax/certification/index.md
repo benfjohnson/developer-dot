@@ -9,8 +9,7 @@ nav: apis
 <h2>Certification for AvaTax Integrations</h2>
 <p>How do you know if you’re compliant with our best practices?  To start, we recommend watching an overview of our API.</p>
 <iframe id="player_1" src="http://www.youtube.com/embed/R0WUijv8xKk?rel=0&amp;enablejsapi=1&amp;wmode=opaque" width="705" height="396"></iframe>
-<img src="/images/2012/10/Avalara_CERTIFIED-150x25-01.png" alt="Avalara_CERTIFIED-150x25-01" width="150" height="26" />
-
+<p><img src="/images/2012/10/Avalara_CERTIFIED-150x25-01.png" alt="Avalara Certified" /></p>
 <p>
 An integration can be issued for any of the following feature subsets in addition to a basic calculation certification:<br />
 To have your integration <a href="/certification">Certified by Avalara</a>, we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax with your application.  To be Certified for Avalara AvaTax, all of the items with an R beside them listed below are the required elements that must be present in your integration.
@@ -104,7 +103,7 @@ To have your integration <a href="/certification">Certified by Avalara</a>, we h
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Entity/Use Code</div>
-<div class="col-xs-8">This is a group of codes that indicate the type of exemption.  See <a title="standard list of codes" href="/avatax/handling-tax-exempt-customers" target="_blank">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to <strong>manage this value in your application’s Customer record</strong> and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable. Note that either Exemption Number or Entity/Use code is required (not both). <strong>Entity/Use Code is preferred.</strong></div>
+<div class="col-xs-8">This is a group of codes that indicate the type of exemption.  See <a  href="/avatax/handling-tax-exempt-customers">the standard codes</a>, but be aware that users are able to create custom codes as well.It is best to <strong>manage this value in your application’s Customer record</strong> and pass it to AvaTax as CustomerUsageType at either the document or line level, whichever is applicable. Note that either Exemption Number or Entity/Use code is required (not both). <strong>Entity/Use Code is preferred.</strong></div>
 </div>
 
 <h3>Items/Charge Integration</h3>
@@ -189,7 +188,7 @@ To have your integration <a href="/certification">Certified by Avalara</a>, we h
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">PostTax/CommitTax call – Credit Memos</div>
-<div class="col-xs-8">Ensure that returns are committed/posted for reporting appropriately. More details about <a title="handling returns" href="/avatax/handling-return-invoices" target="_blank">handling returns</a>.</div>
+<div class="col-xs-8">Ensure that returns are committed/posted for reporting appropriately. More details about <a href="/avatax/handling-return-invoices">handling returns</a>.</div>
 </div>
 <div class="row">
 <div class="col-xs-1">R</div>
@@ -204,17 +203,17 @@ To have your integration <a href="/certification">Certified by Avalara</a>, we h
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Send original invoice date as tax calculation date for return orders/credit memos</div>
-<div class="col-xs-8"> <a title="More information on handling returns" href="/avatax/handling-return-invoices" target="_blank">More information on handling returns</a>.</div>
+<div class="col-xs-8"><a href="/avatax/handling-return-invoices">More information on handling returns</a>.</div>
 </div>
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Send current transaction date as document date for return orders/credit memos</div>
-<div class="col-xs-8"> <a title="More information on handling returns" href="/avatax/handling-return-invoices" target="_blank">More information on handling returns</a>.</div>
+<div class="col-xs-8"><a href="/avatax/handling-return-invoices">More information on handling returns</a>.</div>
 </div>
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Send discounts appropriately – standard discounts included in line-level extended amount, manufacturer’s coupons and hostess credits transmitted as additional line items.</div>
-<div class="col-xs-8"> <a title="More information about handling discounts." href="https://community.avalara.com/avalara/topics/how_are_discounts_handled" target="_blank">More information about handling discounts</a>.</div>
+<div class="col-xs-8"><a href="https://community.avalara.com/avalara/topics/how_are_discounts_handled">More information about handling discounts</a>.</div>
 </div>
 <div class="row">
 <div class="col-xs-1">N</div>

@@ -9,7 +9,7 @@ product: avaTax
 doctype: blog
 imgsrc: /images/2012/07/avatax-api-demo-video-550x304.png
 ---
-<img src="/images/2012/07/avatax-api-demo-video-550x304.png" title="avatax-api-demo-video" alt="avatax-api-demo-video" width="100%" /> 
+<img src="/images/2012/07/avatax-api-demo-video-550x304.png" width="100%" /> 
 
 <div class="caption">Anya Stettler, Avalara AvaTax API Support Specialist</div>
 

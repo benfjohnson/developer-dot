@@ -23,7 +23,7 @@ This sandbox account is for evaluation only and is initially active for 90 days,
 </div>
 
 <h4><img src="/images/2012/09/orange-box-3-sm.png" alt="3" /> Log in to the Admin Console</h4>
-Visit our <a href="https://admin-development.avalara.net" target="_blank">AvaTax Development Admin Console</a> and you will be prompted to change your password. In addition to changing your password, you will need to <a href="http://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/040_Managing_Tax_Profiles/035_Organizing_Companies/020_Add_a_Company">add a company</a> and some <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/020_Add_Nexus_Jurisdictions">nexus jurisdiction selections</a> to get any tax results.
+Visit our <a href="https://admin-development.avalara.net">AvaTax Development Admin Console</a> and you will be prompted to change your password. In addition to changing your password, you will need to <a href="http://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/040_Managing_Tax_Profiles/035_Organizing_Companies/020_Add_a_Company">add a company</a> and some <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/020_Add_Nexus_Jurisdictions">nexus jurisdiction selections</a> to get any tax results.
 <blockquote><strong>Note:</strong> In order to match the sample code we provide, use CompanyCode APITrialCompany when creating your company. If you use some other CompanyCode value remember to change the value in your samples.</blockquote>
 <h4><img src="/images/2012/09/orange-box-4-sm.png" alt="4" /> Make a Tax Call</h4>
 Now that you have an account with company settings, you are ready to make an API request!
@@ -34,7 +34,7 @@ We will make a POST request to URL:
 {% highlight text %}
 https://development.avalara.net/1.0/tax/get
 {% endhighlight %}
-Use an online <a href="http://decodebase64.com/" target="_blank">encoding tool</a> or perhaps one of the <a href="https://chrome.google.com/webstore/search/rest%20client?utm_source=chrome-ntp-icon" target="_blank">REST client apps</a> for Google Chrome to create a Basic Authorization Header from your username and password.
+Use an online <a href="http://decodebase64.com/">encoding tool</a> or perhaps one of the <a href="https://chrome.google.com/webstore/search/rest%20client?utm_source=chrome-ntp-icon">REST client apps</a> for Google Chrome to create a Basic Authorization Header from your username and password.
 
 It will look something like this:
 {% highlight text %}
@@ -144,7 +144,7 @@ Each Line item in the request is represented in the response by a TaxLine, which
 <h5>Verify Your Results in the Admin Console</h5>
 The tax request you made in Step 3 will be viewable in the Admin Console. Log in and navigate to the Transactions tab to verify that you have produced a successful outcome.
 
-<a href="/images/2012/09/AdminConsole.png"><img class="wp-image-2786 size-full" src="https://developer.avalara.com/wp-content/uploads/2012/09/AdminConsole-e1458102550176.png" alt="Example of successful outcome" width="975" height="199" /></a> 
+<a href="/images/2012/09/AdminConsole.png"><img src="/images/2012/09/AdminConsole.png" alt="Example of successful outcome" width="975" height="199" /></a> 
 
 <div class="caption">Example of successful outcome</div>
 

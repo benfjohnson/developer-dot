@@ -22,7 +22,7 @@ For those of you not familiar with Fiddler, it's a great tool for analyzing the 
 
 As soon as I got the sample up and running, I could see via Fiddler's inspection of the traffic with Avalara that it was negotiating an SSL 3.0 / TLS 1.0 connection. So I did what any good programmer does, I Googled how to implement a TLS 1.2 connection in C#. There were a number of answers that all suggested adding the <code>System.Net</code> assembly in the <code>Using</code> directives and adding the following line to my code.
 
-<pre>ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;</pre>
+{% highlight csharp %}ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;{% endhighlight %}
 
 But whenever I tried to run that, it told me that <code>Tls12</code> wasn't part of the SecurityProtocolType enum. I dug down and found that the enum only had <code>Ssl</code> and <code>Tls</code> as values. I thought for a bit and remembered that all the articles recommending this approach said that TLS 1.2 had been implemented in .Net 4.5.
 
