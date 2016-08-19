@@ -1,9 +1,9 @@
 import React from 'react';
 
-import PostBodyItemSchema from './postBodyItemSchema';
+import PostBodyFormItem from './postBodyFormItem';
 import {hasExcludedProperties} from '../helpers';
 
-const PostBodySchema = (props) => (
+const PostBodyForm = (props) => (
     <div>
         {hasExcludedProperties(props.postBody) ?
             <div className={'clickable'} onClick={props.onToggleShowExcludedPostBodyProps.bind(null, props.id)}>
@@ -16,7 +16,7 @@ const PostBodySchema = (props) => (
             }
         }>
             {
-                <PostBodyItemSchema
+                <PostBodyFormItem
                     canRemove={false}
                     displayName={'Post Body'}
                     endpointId={props.id}
@@ -34,8 +34,8 @@ const PostBodySchema = (props) => (
     </div>
 );
 
-PostBodySchema.displayName = 'Post Body';
-PostBodySchema.propTypes = {
+PostBodyForm.displayName = 'Post Body';
+PostBodyForm.propTypes = {
     endpoint: React.PropTypes.shape({
         apiResponse: React.PropTypes.shape({
             status: React.PropTypes.string.isRequired,
@@ -79,4 +79,4 @@ PostBodySchema.propTypes = {
     showExcludedPostBodyFields: React.PropTypes.bool.isRequired
 };
 
-export default PostBodySchema;
+export default PostBodyForm;

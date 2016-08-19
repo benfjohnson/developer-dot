@@ -9,7 +9,7 @@ const PARAM_TYPES = {
     PATH: 'PATH'
 };
 
-const RequestParams = ({endpoint, endpointId, paramType, params, onInputChange, onSubmitConsoleRequest}) => {
+const QueryOrPathParamsForm = ({endpoint, endpointId, paramType, params, onInputChange, onSubmitConsoleRequest}) => {
     return (
         <form className={'api-console-input-section'} onSubmit={
             (e) => {
@@ -53,8 +53,8 @@ const RequestParams = ({endpoint, endpointId, paramType, params, onInputChange, 
     );
 };
 
-RequestParams.displayName = 'Request Parameters';
-RequestParams.propTypes = {
+QueryOrPathParamsForm.displayName = 'Request Parameters';
+QueryOrPathParamsForm.propTypes = {
     endpoint: React.PropTypes.shape({
         apiResponse: React.PropTypes.shape({
             status: React.PropTypes.string.isRequired,
@@ -101,4 +101,4 @@ RequestParams.propTypes = {
     )
 };
 
-export default RequestParams;
+export default QueryOrPathParamsForm;
