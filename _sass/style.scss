@@ -18,7 +18,7 @@
 }
 
 .btn {
-    font-family: 'source sans pro bold';
+    font-family: 'source sans pro bold', sans serif;
     font-size: 1.14em;
 }
 
@@ -93,7 +93,7 @@
         &:after {
             content: " |";
             color: $Disabled;
-            font-family: 'source sans pro light';
+            font-family: 'source sans pro light', sans serif;
             padding: 0 1em;
         }
         &:last-child:after, .no-separator {
@@ -216,7 +216,7 @@ header {
                 }
                 a {
 
-                    font-family: 'source sans pro bold';
+                    font-family: 'source sans pro bold', sans serif;
                     letter-spacing: .1em;
                     @extend .mouse;
                     color: inherit;
@@ -266,7 +266,7 @@ header {
                         }
                     }
                     a {
-                        font-family: 'source sans pro regular';
+                        font-family: 'source sans pro regular', sans serif;
                         color: $Darkest-blue;
                         padding: 0;
                         letter-spacing: normal;
@@ -585,7 +585,7 @@ footer {
 
 .section-nav-open {
     clear: left;
-    padding-top:1em;
+    padding-top: 1em;
 }
 
 #phelps-rage-face {
@@ -599,6 +599,20 @@ footer {
         line-height: 8px;
     }
     TABLE {
-        border:none;
+        border: none;
+    }
+}
+
+.caption {
+    font-family: 'source sans pro light', sans serif;
+    font-size: 16px;
+    color: #919195;
+    line-height: 24px;
+    padding-bottom: 20px;
+    margin-bottom:20px;
+    border-bottom: 1px $Rule-grey solid;
+    img {
+        margin-bottom: 20px;
+        display:block;
     }
 }

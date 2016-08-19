@@ -17,9 +17,11 @@ imgsrc: /images/2012/03/sales-tax-logic1.png
 	<li><em><strong>Should I Tax It?</strong></em></li>
 	<li><em>I Taxed It: Now What?</em></li>
 </ol>
-<a href="/images/2012/03/sales-tax-logic1.png"><img src="/images/2012/03/sales-tax-logic1-550x479.png" width="472" height="411" /></a>
 
-<div class="caption">Before you apply a sales tax rate, you need to know the status of the seller, the product and the buyer.</div>
+<div class="caption">
+    <img src="/images/2012/03/sales-tax-logic1.png" width="100%" alt="Before you apply a sales tax rate, you need to know the status of the seller, the product and the buyer." />
+    Before you apply a sales tax rate, you need to know the status of the seller, the product and the buyer.
+</div>
 
 In the previous post, we learned why you want to use geolocation to get an accurate tax rate. But getting the right tax rate doesn't help you if you don't know whether or not the rate applies to the transaction. There are three steps to determining whether to apply sales tax, and logically enough, they deal with the three primary objects in a transaction.
 <ol>

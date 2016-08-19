@@ -11,8 +11,7 @@ Some AvaTax APIs (notably <a href="/avatax/api-reference/batch/soap/">BatchSvc</
 
 The easiest way to locate your CompanyId is through the Admin Console.
 
-<img src="/images/2013/03/company-id-1024x506.jpg" alt="Log in to the Admin Console, and click on the company name to edit the profile. The CompanyId will appear in the page URL." /> 
-
-<div class="caption">Log in to the Admin Console, and click on the company name to edit the profile. The CompanyId will appear in the page URL.</div>
-
-<hr />
+<div class="caption">
+    <img src="/images/2013/03/company-id-624x308.jpg" alt="Log in to the Admin Console, and click on the company name to edit the profile. The CompanyId will appear in the page URL." />
+    Log in to the Admin Console, and click on the company name to edit the profile. The CompanyId will appear in the page URL.
+</div>
