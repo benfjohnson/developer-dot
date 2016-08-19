@@ -14,31 +14,52 @@ const PostBodyItemSchema = ({name, itemSchema, itemValue, endpointId, displayNam
     if (itemSchema.fieldType && itemSchema.fieldType !== 'array') {
         return (
             <div className={'form-group'}>
-                    <label className={'api-label-text'} htmlFor={uid}>{displayName}</label>
-                    {canRemove ?
-                        <div
-                            className={'clickable'}
-                            onClick={onRemovePostbodyCollectionItem.bind(null, name, endpointId)}
-                            style={{display: 'inline-block'}}
-                        >
+                <label className={'api-label-text'} htmlFor={uid}>{displayName}</label>
+                {canRemove ?
+                    <div
+                        className={'clickable'}
+                        onClick={onRemovePostbodyCollectionItem.bind(null, name, endpointId)}
+                        style={{display: 'inline-block'}}
+                    >
                             <span
                                 className={'m-l-1 glyphicon glyphicon-remove'}
                                 title={'Remove Item'}
                             />
-                            <span>{' Remove'}</span>
-                        </div> : null
-                    }
-                    {itemSchema.enum && itemSchema.enum.length ?
+                        <span>{' Remove'}</span>
+                    </div> : null
+                }
+                {itemSchema.enum && itemSchema.enum.length ?
+                    <select
+                        className={'form-control'}
+                        id={uid}
+                        onChange={(e) => {
+                            onPostBodyInputChanged(endpointId, name, e.target.value);
+                        }}
+                        value={itemValue || ''}
+                    >
+                        <option value={''}>{''}</option>
+                        {itemSchema.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
+                    </select> :
+                    itemSchema.fieldType === 'boolean' ?
                         <select
                             className={'form-control'}
                             id={uid}
                             onChange={(e) => {
-                                onPostBodyInputChanged(endpointId, name, e.target.value);
+                                let val;
+                                if (e.target.value === 'true') {
+                                    val = true;
+                                } else if (e.target.value === 'false') {
+                                    val = false;
+                                } else {
+                                    val = undefined;
+                                }
+                                onPostBodyInputChanged(endpointId, name, val);
                             }}
-                            value={itemValue || ''}
+                            value={itemValue === true ? 'true' : (itemValue === false ? 'false' : 'undefined')}
                         >
-                            <option value={''}>{''}</option>
-                            {itemSchema.enum.map((option, i) => (<option key={i} value={option}>{option}</option>))}
+                            <option value={'undefined'}>{''}</option>
+                            <option value={'true'}>{'true'}</option>
+                            <option value={'false'}>{'false'}</option>
                         </select> :
                         <input
                             className={'form-control'}
@@ -48,7 +69,8 @@ const PostBodyItemSchema = ({name, itemSchema, itemValue, endpointId, displayNam
                             }}
                             value={itemValue || ''}
                         />
-                    }
+
+                }
             </div>
         );
     }
