@@ -27,9 +27,9 @@ doctype: overview
             <img src="/images/AvLogo.svg" alt="Avalara">
             <span>AvaTax</span>
          </div>
-        {% if site.data.api_consoles.avatax.nav_links %}
+        {% if site.data.api_consoles.avatax1.nav_links %}
           <ul class="pipe padding-bottom">
-          {% for api_console_hash in site.data.api_consoles.avatax.nav_links %}
+          {% for api_console_hash in site.data.api_consoles.avatax1.nav_links %}
               <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
           {% endfor %}
           </ul>
