@@ -7,13 +7,13 @@ comments: true
 categories: [avalara, avatax, core calculation, Experience, optimization, patient iteration, performance, Sales Tax APIs, Scaling, speed, teamwork]
 product: avaTax
 doctype: blog
-imgsrc: /images/2016/01/Picture1.png
+imgsrc: /public/images/2016/01/Picture1.png
 ---
 Over the past year we’ve invested in our core tax calculation engine, growing its features, expanding its reach, and making it faster and faster.  This has presented some amazing challenges, especially to materially speed up a service while its transactional load grows by 60% annually.  Simply keeping up with that level of growth can be a challenge.  So, how did we manage to more than triple the speed at which our current engine calculates and returns information while keeping it stable, growing, and expanding?
 
 The improvement can be clearly seen in our internal latency metrics for typical tax documents over the last 18 months.  Average latency decreased steadily over time, with several larger drop offs from key performance initiatives.  The standard deviation gets smaller and smaller: a significant indicator of more predictable and stable performance.
 
-<a href="/images/2016/01/Picture1.png"><img src="/images/2016/01/Picture1.png" width="977" height="535" /></a>
+<img src="/public/images/2016/01/Picture1.png" width="977" height="535" alt="internal latency chart" />
 
 The problem is certainly tractable as long as it’s approached in an organized and planned fashion and you have a great team behind the work.  However, there are three key factors to success which I regard highly during these initiatives.  In short, these are:
 <ul>

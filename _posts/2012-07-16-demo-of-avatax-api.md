@@ -7,12 +7,12 @@ comments: true
 categories: [api, demo, Sales Tax APIs, sales tax service, video]
 product: avaTax
 doctype: blog
-imgsrc: /images/2012/07/avatax-api-demo-video-550x304.png
+imgsrc: /public/images/2012/07/avatax-api-demo-video-550x304.png
 ---
  
 
 <div class="caption">
-    <img src="/images/2012/07/avatax-api-demo-video-550x304.png" width="100%" alt="Anya Stettler, Avalara AvaTax API Support Specialist" />
+    <img src="/public/images/2012/07/avatax-api-demo-video-550x304.png" width="100%" alt="Anya Stettler, Avalara AvaTax API Support Specialist" />
     Anya Stettler, Avalara AvaTax API Support Specialist
 </div>
 

@@ -43,7 +43,7 @@
 }
 
 .bg-map {
-    background-image: url(/images/devdot/DevDotSvgGAssets_MapBG.svg);
+    background-image: url(/public/images/devdot/DevDotSvgGAssets_MapBG.svg);
     background-repeat: repeat;
 }
 
@@ -416,19 +416,19 @@ footer {
         }
         .twitter a {
             @extend .icon;
-            background-image: url(/images/devdot/DevDotSvgGAssets_Twitter.svg);
+            background-image: url(/public/images/devdot/DevDotSvgGAssets_Twitter.svg);
         }
         .facebook a {
             @extend .icon;
-            background-image: url(/images/devdot/DevDotSvgGAssets_Facebook.svg);
+            background-image: url(/public/images/devdot/DevDotSvgGAssets_Facebook.svg);
         }
         .linkedin a {
-            background-image: url(/images/devdot/DevDotSvgGAssets_LinkedIn.svg);
+            background-image: url(/public/images/devdot/DevDotSvgGAssets_LinkedIn.svg);
             @extend .icon;
         }
         .youtube a {
             @extend .icon;
-            background-image: url(/images/devdot/DevDotSvgGAssets_YouTube.svg);
+            background-image: url(/public/images/devdot/DevDotSvgGAssets_YouTube.svg);
         }
     }
     .legal {
@@ -586,21 +586,6 @@ footer {
 .section-nav-open {
     clear: left;
     padding-top: 1em;
-}
-
-#phelps-rage-face {
-    margin-bottom: 50px;
-
-    table, TD {
-        font-family: monospace, Courier;
-        font-size: 8px;
-        color: #000000;
-        background-color: #FFFFFF;
-        line-height: 8px;
-    }
-    TABLE {
-        border: none;
-    }
 }
 
 .caption {

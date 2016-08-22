@@ -7,11 +7,11 @@ comments: true
 categories: [Sales Tax APIs]
 product: avaTax
 doctype: blog
-imgsrc: /images/2014/06/Ecomm-with-stripe.png
+imgsrc: /public/images/2014/06/Ecomm-with-stripe.png
 ---
 The new AvaTax.js library makes it easy to calculate taxes with browser-based shopping carts and other web commerce environments -- providing real-time tax calculation results during the checkout process. Those accurate, on-demand tax calculations can be consumed at time of checkout, allowing you to display the results to your shoppers or use them in your payment processing. This diagram is a typical process flow for an E-commerce scenario.
 
-<img src="/images/2014/06/Ecomm-with-stripe.png" alt="E-Commerce Workflow with Stripe integration" width="100%" />
+<img src="/public/images/2014/06/Ecomm-with-stripe.png" alt="E-Commerce Workflow with Stripe integration" width="100%" />
 
 Let's take a look at an easy example where AvaTax.js can be used in conjunction with Stripe.js to calculate tax and create a payment authorization token.
 

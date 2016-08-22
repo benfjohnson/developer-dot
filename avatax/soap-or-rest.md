@@ -22,16 +22,16 @@ community: apiDisambiguation
 		<tr>
 			<td>AddressSvc</td>
 			<td><a href="/avatax/address-validation">Address Validation</a></td>
-			<td><a href="/avatax/api-reference/tax/v1#validateAddress">Validate</a> (GET)</td>
-			<td><a href="/avatax/api-reference/tax/soap#validateAddress">ValidateAddress</a> request</td>
+			<td><a href="/avatax/api-reference/tax/v1/#validateAddress">Validate</a> (GET)</td>
+			<td><a href="/avatax/api-reference/tax/soap/#validateAddress">ValidateAddress</a> request</td>
 		</tr>
 		<tr class="no-bottom-border">
 			<td rowspan="7">TaxSvc</td>
 			<td>Tax calculation (with lat/long)</td>
-			<td><a href="/avatax/api-reference/tax/v1#estimateTax">EstimateTax</a> request (GET) with lat/long required<br /><br />
-				<a href="/avatax/api-reference/tax/v1#getTax">GetTax</a> (POST) with lat/long as an optional alternative to a street address.
+			<td><a href="/avatax/api-reference/tax/v1/#estimateTax">EstimateTax</a> request (GET) with lat/long required<br /><br />
+				<a href="/avatax/api-reference/tax/v1/#getTax">GetTax</a> (POST) with lat/long as an optional alternative to a street address.
 			</td>
-			<td><a href="/avatax/api-reference/tax/soap#getTax">GetTax</a> with lat/long as an optional alternative to a street address</td>
+			<td><a href="/avatax/api-reference/tax/soap/#getTax">GetTax</a> with lat/long as an optional alternative to a street address</td>
 		</tr>
 		<tr class="no-top-border no-bottom-border">
 			<td>Tax calculation Elements</td>
@@ -40,8 +40,8 @@ community: apiDisambiguation
 		</tr>
 		<tr class="no-top-border no-bottom-border">
 			<td>Tax calculation</td>
-			<td><a href="/avatax/api-reference/tax/soap#getTax">GetTax</a> (POST)</td>
-			<td><a href="/avatax/api-reference/tax/soap#getTax">GetTax</a></td>
+			<td><a href="/avatax/api-reference/tax/soap/#getTax">GetTax</a> (POST)</td>
+			<td><a href="/avatax/api-reference/tax/soap/#getTax">GetTax</a></td>
 		</tr>
 		<tr class="no-top-border no-bottom-border">
 			<td><a href="/avatax/handling-tax-exempt-customers">Tax Exempt Transactions</a></td>
@@ -50,42 +50,32 @@ community: apiDisambiguation
 		</tr>
 		<tr class="no-top-border no-bottom-border">
 			<td><a href="/avatax/voiding-documents">Voiding documents</a></td>
-			<td><a href="/avatax/api-reference/tax/v1#cancelTax">CancelTax</a> (POST)</td>
-			<td><a href="/avatax/api-reference/tax/soap#cancelTax">CancelTax</a></td>
+			<td><a href="/avatax/api-reference/tax/v1/#cancelTax">CancelTax</a> (POST)</td>
+			<td><a href="/avatax/api-reference/tax/soap/#cancelTax">CancelTax</a></td>
 		</tr>
 		<tr class="no-top-border no-bottom-border">
 			<td><a href="/avatax/reportable-transactions">Posting documents</a></td>
-			<td>Documents can be recorded as uncommitted and then updated to be committed with a new <a href="/avatax/api-reference/tax/v1#getTax">GetTax</a> request</td>
-			<td>Documents can be recorded as uncommitted and then updated to be committed with <a href="/avatax/api-reference/tax/soap#getTax">GetTax</a>, or the status can be changed independently with <a href="/avatax/api-reference/tax/soap#postTax">PostTax</a></td>
+			<td>Documents can be recorded as uncommitted and then updated to be committed with a new <a href="/avatax/api-reference/tax/v1/#getTax">GetTax</a> request</td>
+			<td>Documents can be recorded as uncommitted and then updated to be committed with <a href="/avatax/api-reference/tax/soap/#getTax">GetTax</a>, or the status can be changed independently with <a href="/avatax/api-reference/tax/soap/#postTax">PostTax</a></td>
 		</tr>
 		<tr class="no-top-border no-bottom-border">
 			<td>Retrieve document history</td>
 			<td>n/a</td>
-			<td><a href="/avatax/api-reference/tax/soap#getTaxHistory">GetTaxHistory</a></td>
+			<td><a href="/avatax/api-reference/tax/soap/#getTaxHistory">GetTaxHistory</a></td>
 		</tr>
 		<tr class="no-top-border">
 		    <td>&nbsp;</td>
 			<td>Modify committed transaction records</td>
 			<td>n/a</td>
-			<td><a href="/avatax/api-reference/tax/soap#adjustTax">AdjustTax</a></td>
+			<td><a href="/avatax/api-reference/tax/soap/#adjustTax">AdjustTax</a></td>
 		</tr>
 		<tr>
 			<td>AccountSvc</td>
 			<td>Exposes a number of tax profile configuration settings through an API. Note that this functionality is only exposed for an account upon request and special consideration.</td>
 			<td>n/a</td>
-			<td><a href="/avatax/api-reference/account/soap#accountFetch">Account</a> (fetch)<br /><br />
-				<a href="/avatax/api-reference/account/soap#companyContactFetch">Company Contact</a> (fetch, save, delete)<br /><br />
-				<a href="/avatax/api-reference/account/soap#companyFetch">Company</a> (fetch, save, delete)<br /><br />
-				<a href="/avatax/api-reference/account/soap#companyLocationFetch">Company Location</a> (fetch, save, delete)<br /><br />
-				<a href="/avatax/api-reference/account/soap#companySettingsFetch">Company Settings</a> (fetch, save, delete)<br /><br />
-				<a href="/avatax/api-reference/account/soap#documentFetch">Document</a> (fetch)<br /><br />
-				<a href="/avatax/api-reference/account/soap#exemptionCertificateFetch">Exemption Certificate</a> (fetch, apply, revoke)<br /><br />
-				<a href="/avatax/api-reference/account/soap#itemFetch">Item</a> (fetch, save, delete)<br /><br />
-				<a href="/avatax/api-reference/account/soap#jurisdictionOverrideFetch">Jurisdictional Override</a> (fetch)<br /><br />
-				<a href="/avatax/api-reference/account/soap#nexusFetch">Nexus</a> (fetch, save, delete)<br /><br />
-				<a href="/avatax/api-reference/account/soap#taxCodeFetch">TaxCode</a> (fetch, save, delete)<br /><br />
-				<a href="/avatax/api-reference/account/soap#taxRuleFetch">TaxRule</a> (fetch, save, delete)<br /><br />
-				<a href="/avatax/api-reference/account/soap#userFetch">User</a> (fetch)
+			<td>
+			    <a href="/avatax/api-reference/account/soap/#ping">Test service connectivity</a><br /><br />
+			    <a href="/avatax/api-reference/account/soap/#isAuthorized">Test authorized operations</a>
 			</td>
 		</tr>
 		<tr>
@@ -98,9 +88,9 @@ community: apiDisambiguation
 			<td>BatchSvc</td>
 			<td>Allows for batch processing of transactions and settings through the API</td>
 			<td>n/a</td>
-			<td><a href="/avatax/api-reference/batch/soap#batchSave">BatchSave </a>(saves a batch file to the service)<br /><br />
-				<a href="/avatax/api-reference/batch/soap#batchFetch">BatchFetch</a> (fetches the status including error/result of a saved batch file)<br /><br />
-				<a href="/avatax/api-reference/batch/soap#batchFileFetch">BatchFileFetch</a> (fetches the result or errors of a saved batch file)
+			<td><a href="/avatax/api-reference/batch/soap/#batchSave">BatchSave </a>(saves a batch file to the service)<br /><br />
+				<a href="/avatax/api-reference/batch/soap/#batchFetch">BatchFetch</a> (fetches the status including error/result of a saved batch file)<br /><br />
+				<a href="/avatax/api-reference/batch/soap/#batchFileFetch">BatchFileFetch</a> (fetches the result or errors of a saved batch file)
 			</td>
 		</tr>
 	</tbody>
