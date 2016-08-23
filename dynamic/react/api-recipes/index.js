@@ -4,24 +4,17 @@ import {render} from 'react-dom';
 import {createStore, applyMiddleware} from 'redux';
 import createLogger from 'redux-logger';
 import {Provider} from 'react-redux';
-
 import reducer from './reducers/reducer';
-
 import App from './containers/app';
-import actionTypes from '../shared/actionTypes';
-
-import swaggerToRecipeState from './swaggerToRecipeState';
+import recipeConfig from './avatax-recipes';
 
 const logger = createLogger();
 
-swaggerToRecipeState('avatax-subset.yaml', (appState) => {
-    const store = process.env.NODE_ENV !== 'production' ? createStore(reducer, appState, applyMiddleware(logger)) : createStore(reducer, appState);
+const store = process.env.NODE_ENV !== 'production' ? createStore(reducer, recipeConfig, applyMiddleware(logger)) : createStore(reducer, recipeConfig);
 
-    render(
-        <Provider store={store}>
-            <App />
-        </Provider>,
-        document.getElementById('react-root'),
-        () => store.dispatch({type: actionTypes.APP_LOADED})
-    );
-});
+render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('react-root')
+);

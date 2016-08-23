@@ -1,35 +1,38 @@
 import React from 'react';
 import ConsoleLiveData from '../../shared/components/consoleLiveData';
-// TODO: REPLACE THIS WITH A CUSTOM FORM
-import ConsoleInputForm from '../../shared/components/consoleInputForm';
+import RecipeForm from './recipeForm';
 
-// Helper that determines what part of the endpoint is shown in the `Request` input of
+// Helper that determines what part of the recipe is shown in the `Request` input of
 // the ConsoleLiveData component
-const getRequest = (endpoint) => {
-    if (endpoint.postBodyData) {
-        return endpoint.postBodyData;
-    } else if (endpoint.pathParams || endpoint.queryString) {
-        return endpoint.curl;
+const getRequest = (recipe) => {
+    if (recipe.postBodyData) {
+        return recipe.postBodyData;
+    } else if (recipe.pathParams || recipe.queryString) {
+        return recipe.curl;
     }
     return null;
 };
 
 const Recipe = (props) => {
     return (
-        <div className={'api-console-output'}>
-            <ConsoleInputForm {...props} />
-            <ConsoleLiveData
-                    action={props.endpoint.action}
-                    path={props.endpoint.path}
-                    request={getRequest(props.endpoint)}
-                    response={props.endpoint.apiResponse} />
+        <div>
+            <RecipeForm recipe={props.recipe} inputs={props.recipe.inputs} onInputChange={props.onInputChange} onSubmitRequest={props.onSubmitRequest} request={props.recipe.request} />
+            <div className={'api-console-output'}>
+                <ConsoleLiveData
+                    action={props.recipe.action}
+                    path={props.recipe.path}
+                    request={props.recipe.request.postBody}
+                    response={props.recipe.response} />
+            </div>
         </div>
     );
 };
 
 Recipe.displayName = 'Recipe API Console';
 Recipe.propTypes = {
-    endpoint: React.PropTypes.object
+    onInputChange: React.PropTypes.func.isRequired,
+    onSubmitRequest: React.PropTypes.func.isRequired,
+    recipe: React.PropTypes.object.isRequired
 };
 
 export default Recipe;
