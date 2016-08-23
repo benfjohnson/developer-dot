@@ -50,7 +50,29 @@
                 "description": "Where you are sending your sweet swords",
                 "in": "postBody",
                 "field": "destination:country",
-                "value": ""
+                "value": "",
+                "enum": [
+                    {
+                        "show": "United States",
+                        "value": "US"
+                    },
+                    {
+                        "show": "France",
+                        "value": "FR"
+                    },
+                    {
+                        "show": "China",
+                        "value": "CN"
+                    },
+                    {
+                        "show": "South Korea",
+                        "value": "KR"
+                    },
+                    {
+                        "show": "Argentina",
+                        "value": "AR"
+                    }
+                ]
             }
         ]
     }

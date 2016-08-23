@@ -17,9 +17,17 @@ const RecipeForm = ({recipe, request, onInputChange, onSubmitRequest}) => {
                 return (
                     <div className={'form-group'} key={i} style={{width: '40%'}}>
                         <label>{input.name}</label>
-                        <input className={'form-control'} onChange={(e) => {
-                            onInputChange(recipe.id, input.name, request, e.target.value);
-                        }} value={input.value} />
+                        {input.enum ?
+                            <select className={'form-control'} onChange={(e) => {
+                                onInputChange(recipe.id, input.name, request, e.target.value);
+                            }} value={input.value}>
+                                <option value={''}>{''}</option>
+                                {input.enum.map((opt, j) => (<option key={j} value={opt.value}>{opt.show}</option>))}
+                            </select> :
+                            <input className={'form-control'} onChange={(e) => {
+                                onInputChange(recipe.id, input.name, request, e.target.value);
+                            }} value={input.value} />
+                        }
                     </div>
                 );
             })}
