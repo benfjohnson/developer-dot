@@ -1,8 +1,8 @@
 import React from 'react';
 
-import PostBodySchemaSectionHeader from './postBodySchemaSectionHeader';
+import PostBodyFormSection from './postBodyFormSection';
 
-const PostBodyItemSchema = ({name, itemSchema, itemValue, endpointId, displayName, canRemove, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, showExcludedPostBodyFields}) => {
+const PostBodyFormItem = ({name, itemSchema, itemValue, endpointId, displayName, canRemove, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, showExcludedPostBodyFields}) => {
     const uid = `${endpointId}-${displayName}-${name}`;
 
     // If this postBodyItem is an excluded property (we don't want it to initially appear in the form) and showExcludedProps option hasn't been used for this endpoint, don't show in form input
@@ -46,6 +46,7 @@ const PostBodyItemSchema = ({name, itemSchema, itemValue, endpointId, displayNam
                             id={uid}
                             onChange={(e) => {
                                 let val;
+
                                 if (e.target.value === 'true') {
                                     val = true;
                                 } else if (e.target.value === 'false') {
@@ -82,10 +83,10 @@ const PostBodyItemSchema = ({name, itemSchema, itemValue, endpointId, displayNam
 
         return (
             <div>
-                <PostBodySchemaSectionHeader canRemove={false} displayName={displayName} endpointId={endpointId} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} propertyName={name}>
+                <PostBodyFormSection canRemove={false} displayName={displayName} endpointId={endpointId} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} propertyName={name}>
                     {itemValue.map((itm, i) => {
                         return (
-                            <PostBodyItemSchema
+                            <PostBodyFormItem
                                 canRemove={itemValue.length > 1}
                                 displayName={`item ${i + 1}`}
                                 endpointId={endpointId}
@@ -99,7 +100,7 @@ const PostBodyItemSchema = ({name, itemSchema, itemValue, endpointId, displayNam
                                 showExcludedPostBodyFields={showExcludedPostBodyFields}
                             />);
                     })}
-                </PostBodySchemaSectionHeader>
+                </PostBodyFormSection>
                 <div className={'clickable'} onClick={onAddItemToPostbodyCollection.bind(null, name, endpointId, arraySchema)}>
                     <span className={'glyphicon glyphicon-plus'}></span><span className={''}>{`  Add ${displayName === 'Post Body' ? 'Item' : displayName}`}</span>
                 </div>
@@ -109,9 +110,9 @@ const PostBodyItemSchema = ({name, itemSchema, itemValue, endpointId, displayNam
 
     // At this point we're dealing with an object, so recursively render API Console form inputs for its keys
     return (
-        <PostBodySchemaSectionHeader canRemove={canRemove} displayName={displayName} endpointId={endpointId} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} propertyName={name}>
+        <PostBodyFormSection canRemove={canRemove} displayName={displayName} endpointId={endpointId} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} propertyName={name}>
             {Object.keys(itemSchema).filter((n) => n !== 'required' && n !== 'isExcluded' && itemSchema[n]).map((itemKey, i) => {
-                return (<PostBodyItemSchema
+                return (<PostBodyFormItem
                     canRemove={false}
                     displayName={itemKey}
                     endpointId={endpointId}
@@ -126,12 +127,12 @@ const PostBodyItemSchema = ({name, itemSchema, itemValue, endpointId, displayNam
                     showExcludedPostBodyFields={showExcludedPostBodyFields}
                 />);
             })}
-        </PostBodySchemaSectionHeader>
+        </PostBodyFormSection>
     );
 };
 
-PostBodyItemSchema.displayName = 'Post Body Item';
-PostBodyItemSchema.propTypes = {
+PostBodyFormItem.displayName = 'Post Body Item';
+PostBodyFormItem.propTypes = {
     canRemove: React.PropTypes.bool.isRequired,
     displayName: React.PropTypes.string.isRequired,
     endpointId: React.PropTypes.number.isRequired,
@@ -144,4 +145,4 @@ PostBodyItemSchema.propTypes = {
     showExcludedPostBodyFields: React.PropTypes.bool.isRequired
 };
 
-export default PostBodyItemSchema;
+export default PostBodyFormItem;

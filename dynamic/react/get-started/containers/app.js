@@ -4,7 +4,6 @@ import actions from '../../shared/actions';
 import request from 'request';
 import {replacePathParams} from '../../shared/helpers';
 
-
 const mapStateToProps = (state) => {
     return {
         apiEndpoints: state
@@ -66,6 +65,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         onRemovePostbodyCollectionItem: (paramName, endpointId) => {
             dispatch(actions.removePostbodyCollectionItem(paramName, endpointId));
+        },
+        onToggleShowExcludedPostBodyProps: (endpointId) => {
+            dispatch(actions.toggleShowExcludedPostBodyProps(endpointId));
         }
     };
 };

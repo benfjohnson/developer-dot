@@ -1,4 +1,4 @@
-/* Stateless component for either a querystring or
+/* Stateless component for either a query string or
  * path parameter that comes in an api request
  */
 
