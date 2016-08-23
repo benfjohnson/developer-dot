@@ -1,0 +1,57 @@
+[
+    {
+        "id": 0,
+        "action": "post",
+        "path": "http://sandbox.landedcost.api.avalara.com/v3/calculate",
+        "operationId": "calculate",
+        "recipeName": "Ship Swords to a Destination of your Choice!",
+        "recipeDescription": "You're a German blacksmith and have just sold a shipment of your finest swords to a customer internationally.\nPick a destination country and see how much landed cost is owed!",
+        "request": {
+            "postBody": {
+                "date": "2016-01-01T00:00:00.000Z",
+                "incoterms": "DAP",
+                "source": {
+                    "country": "DE"
+                },
+                "destination": {
+                    "country": ""
+                },
+                "entityType": "B2C",
+                "currency": "EUR",
+                "shipping": {
+                    "cost": 50,
+                    "insurance": 50,
+                    "mode": "ground",
+                    "express": true
+                },
+                "items": [
+                    {
+                        "id": "1",
+                        "hsCode": "930700",
+                        "description": "Swords",
+                        "price": 179.99,
+                        "quantity": 25,
+                        "units": [
+                            {
+                                "name": "kg",
+                                "amount": 10,
+                                "total": 10
+                            }
+                        ]
+                    }
+                ]
+            },
+            "queryString": null,
+            "pathParams": null
+        },
+        "inputs": [
+            {
+                "name": "Destination Country",
+                "description": "Where you are sending your sweet swords",
+                "in": "postBody",
+                "field": "destination:country",
+                "value": ""
+            }
+        ]
+    }
+]
