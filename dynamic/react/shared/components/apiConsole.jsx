@@ -1,128 +1,30 @@
 import React from 'react';
-import RequestParams from './requestParams';
-import PostBodySchema from './postBodySchema';
+import ConsoleInputForm from './consoleInputForm';
+import ConsoleLiveData from './consoleLiveData';
 
-import {hasExampleData} from '../helpers';
-
-const highlightPunctuation = (str) => {
-    return str.replace(/"[^"]*"|([{}\[\],])/g, (m, group1) => {
-        if (!group1) {
-            return m;
-        }
-
-        return '<span class="punctuation">' + m + '</span>';
-    });
+// Helper that determines what part of the endpoint is shown in the `Request` input of
+// the ConsoleLiveData component
+const getRequest = (endpoint) => {
+    if (endpoint.postBodyData) {
+        return endpoint.postBodyData;
+    } else if (endpoint.pathParams || endpoint.queryString) {
+        return endpoint.curl;
+    }
+    return null;
 };
 
-const syntaxHighlight = (jsonObj) => {
-    let json = JSON.stringify(jsonObj, null, 2);
-
-    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
-    json = json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, (match) => {
-        let cls = 'number';
-
-        if (/^"/.test(match)) {
-            if (/:$/.test(match)) {
-                cls = 'key';
-            } else {
-                cls = 'string';
-            }
-        } else if (/true|false/.test(match)) {
-            cls = 'boolean';
-        } else if (/null/.test(match)) {
-            cls = 'null';
-        }
-        return '<span class="' + cls + '">' + match + '</span>';
-    });
-
-    return highlightPunctuation(json);
-};
-
-const ApiConsole = ({endpoint, id, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleShowExcludedPostBodyProps}) => {
+const ApiConsole = (props) => {
     return (
         <div className={'row api-console'}>
             <div className={'col-md-4 col-xs-12 api-console-form-wrapper'}>
-                <div>
-                        <h3 style={{display: 'inline-block'}}>{'Input'}</h3>
-                        {hasExampleData('QUERY_STRING', endpoint.queryString) || hasExampleData('POST_BODY', endpoint.postBody) || hasExampleData('PATH_PARAM', endpoint.pathParams) ?
-                        <span
-                            className='m-l-1 clickable hdr-btn-adj-text'
-                            onClick={onFillConsoleSampleData.bind(null, id)}
-                        >
-                        {' Fill with Sample Data'}
-                        </span> : null}
-                </div>
-                <div style={{marginBottom: '10px'}}>
-                        <button
-                            className='btn btn-primary'
-                            onClick={
-                                (e) => {
-                                    e.preventDefault();
-                                    onSubmitConsoleRequest(endpoint, id);
-                                }
-                            }
-                            type={'button'}
-                        >
-                        {'Submit'}
-                        </button>
-                        <span
-                            className='m-l-1 clickable hdr-btn-adj-text'
-                            onClick={onResetConsole.bind(null, id)}
-                            type='reset'>
-                        {'Reset'}
-                        </span>
-                    </div>
-                {endpoint.pathParams ? <RequestParams endpoint={endpoint} endpointId={id} onInputChange={onPathParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'PATH'} params={endpoint.pathParams}/> : null}
-                {endpoint.queryString ? <RequestParams endpoint={endpoint} endpointId={id} onInputChange={onQueryParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
-                {endpoint.postBody ? <PostBodySchema endpoint={endpoint} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onPostBodyInputChanged={onPostBodyInputChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onSubmitConsoleRequest={onSubmitConsoleRequest} onToggleShowExcludedPostBodyProps={onToggleShowExcludedPostBodyProps} postBody={endpoint.postBody} postBodyData={endpoint.postBodyData} showExcludedPostBodyFields={endpoint.showExcludedPostBodyFields}/> : null}
-                {endpoint.postBody ?
-                    <div style={{marginBottom: '10px'}}>
-                        <button
-                            className='btn btn-primary'
-                            onClick={
-                                (e) => {
-                                    e.preventDefault();
-                                    onSubmitConsoleRequest(endpoint, id);
-                                }
-                            }
-                            type={'button'}
-                        >
-                        {'Submit'}
-                        </button>
-                        <span
-                            className='m-l-1 hdr-btn-adj-text clickable'
-                            onClick={onResetConsole.bind(null, id)}
-                            type='reset'>
-                            {'Reset'}
-                        </span>
-                    </div> : null}
-                    <div style={{background: 'blue', height: 'auto'}}></div>
+                <ConsoleInputForm {...props} />
             </div>
-            <div className={'api-console-output col-md-8 col-xs-12'}>
-                <h5 className={'console-output-header'}>{'API Endpoint'}</h5>
-                <div className={'code-snippet-plaintext'}>{endpoint.path}</div>
-                <h5 className={'console-output-header'}>{'Method'}</h5>
-                <div className={'code-snippet-plaintext'}>{endpoint.action.toUpperCase()}</div>
-                    {endpoint.pathParams || endpoint.queryString || endpoint.postBody ?
-                    <div className={'row'} style={{marginBottom: '8px'}}>
-                        <div className={'col-md-6 console-req-container'}>
-                            <h5 className={'console-output-header'}>{'Request'}</h5>
-                            {/* eslint-disable react/no-danger */}
-                            {endpoint.postBodyData ? <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: endpoint.postBodyData ? syntaxHighlight(endpoint.postBodyData) : ' '}}></pre></div> : <div className={'code-snippet code-snippet-code-text'}>{endpoint.curl}</div>}
-                        </div>
-                        <div className={'col-md-6 console-res-container'}>
-                            <h5 className={'console-output-header'}>{'Response'}</h5>
-                            <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: endpoint.apiResponse ? syntaxHighlight(endpoint.apiResponse.body) : ' '}}></pre></div>
-                        </div>
-                    </div> :
-                    <div>
-                            <h5 className={'console-output-header'}>{'Response'}</h5>
-                            <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: endpoint.apiResponse ? syntaxHighlight(endpoint.apiResponse.body) : ' '}}></pre></div>
-                            {/* eslint-enable react/no-danger */}
-                    </div>
-                    }
-                <div style={{background: 'blue', height: 'auto'}}></div>
+            <div className={'col-md-8 col-xs-12 api-console-output'}>
+                <ConsoleLiveData
+                    action={props.endpoint.action}
+                    path={props.endpoint.path}
+                    request={getRequest(props.endpoint)}
+                    response={props.endpoint.apiResponse} />
             </div>
         </div>
     );

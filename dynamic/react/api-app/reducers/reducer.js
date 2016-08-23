@@ -1,4 +1,4 @@
-import endpointReducer from './endpointReducer';
+import apiConsoleReducer from '../../shared/reducers/apiConsoleReducer';
 import actionTypes from '../../shared/actionTypes';
 
 const reducer = (state = {}, action) => {
@@ -24,7 +24,6 @@ const reducer = (state = {}, action) => {
                 })}
             };
         });
-
         return {...state, auth: auth};
     case actionTypes.SUBMIT_DONE:
     case actionTypes.POST_BODY_CHANGED:
@@ -37,7 +36,7 @@ const reducer = (state = {}, action) => {
     case actionTypes.TOGGLE_SHOW_EXCLUDED_POST_BODY_PROPS:
         return {...state, apiEndpoints: state.apiEndpoints.map((endpoint, i) => {
             if (i === action.endpointId) {
-                return endpointReducer(endpoint, action);
+                return apiConsoleReducer(endpoint, action);
             }
             return endpoint;
         })};

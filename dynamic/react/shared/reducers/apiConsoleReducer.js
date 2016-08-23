@@ -1,6 +1,6 @@
 import queryStringReducer from './queryStringReducer';
 import actionTypes from '../../shared/actionTypes';
-import {buildQsPath, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData} from '../helpers';
+import {buildQsPath, buildCurl, fillOrRemoveSampleData, fillPostBodySampleData, buildInitialPostBodyData} from '../helpers';
 
 // Method traverses a `postBody` endpoint property by colon-separated name and returns the
 // innermost property described by the propertyPath
@@ -81,7 +81,11 @@ export default (state, action) => {
 
     switch (action.type) {
     case actionTypes.RESET_CONSOLE:
-        newState = fillOrRemoveSampleData(newState, true);
+        if (newState.postBodyDefaultData) {
+            newState.postBodyData = {...newState.postBodyDefaultData};
+        } else {
+            newState = fillOrRemoveSampleData(newState, true);
+        }
         newState.qsPath = buildQsPath(newState.queryString);
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         return {...newState, apiResponse: undefined};
@@ -92,7 +96,12 @@ export default (state, action) => {
         }
         break;
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
-        newState = fillOrRemoveSampleData(newState);
+        if (newState.postBodyDefaultData) {
+            // Have to use jQuery for deep extends (property merge)
+            newState.postBodyData = $.extend(true, {}, newState.postBodyDefaultData, fillPostBodySampleData(newState.postBody));
+        } else {
+            newState = fillOrRemoveSampleData(newState);
+        }
         newState.qsPath = buildQsPath(newState.queryString);
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
@@ -106,7 +115,7 @@ export default (state, action) => {
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
     case actionTypes.POST_BODY_CHANGED:
-        // If any changed postBodySchema form input was an array item, need to access its `items`
+        // If any changed PostBodyForm input was an array item, need to access its `items`
         // schema to determine its fieldType. With that in hand, we can directly update it at its index in our postBodyData
         const accessorName = action.postBodyParamName.replace(/\[\d+\]/g, 'items');
         const newStateProperty = traversePropertyPath(accessorName, newState.postBody);
@@ -122,8 +131,16 @@ export default (state, action) => {
         updateDataAtProperty(action.postBodyParamName, castedValue, newState.postBodyData);
         break;
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
-        const newArrObj = buildInitialPostBodyData(action.itemSchema, newState.showExcludedPostBodyFields);
+        // If postBodyDefaultData exists (supports recipes), need to populate a full array item
+        let newArrObj;
 
+        if (newState.postBodyDefaultData) {
+            const arr = traversePostBodyData(action.postBodyParamName, newState.postBodyData);
+
+            newArrObj = {...arr[arr.length - 1]};
+        } else {
+            newArrObj = buildInitialPostBodyData(action.itemSchema, newState.showExcludedPostBodyFields);
+        }
         traversePostBodyData(action.postBodyParamName, newState.postBodyData).push(newArrObj);
         break;
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
