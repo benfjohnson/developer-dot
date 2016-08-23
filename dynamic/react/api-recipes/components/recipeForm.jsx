@@ -10,32 +10,32 @@
 
 import React from 'react';
 
-const RecipeForm = ({recipe, request, inputs, onInputChange, onSubmitRequest}) => {
+const RecipeForm = ({recipe, request, onInputChange, onSubmitRequest}) => {
     return (
         <form>
-            {inputs.map((input, i) => {
+            {recipe.inputs.map((input, i) => {
                 return (
-                    <div className={'form-group'} key={i}>
+                    <div className={'form-group'} key={i} style={{width: '40%'}}>
                         <label>{input.name}</label>
-                        <input onChange={(e) => {
+                        <input className={'form-control'} onChange={(e) => {
                             onInputChange(recipe.id, input.name, request, e.target.value);
                         }} value={input.value} />
                     </div>
                 );
             })}
-            <button onClick={(e) => {
+            <button className={'btn btn-primary'} onClick={(e) => {
                 e.preventDefault();
                 onSubmitRequest(recipe);
-            }}>{'Submit son'}</button>
+            }} style={{marginBottom: '10px'}}>{'Submit'}</button>
         </form>
     );
 };
 
 RecipeForm.displayName = 'Recipe Form';
 RecipeForm.propTypes = {
-    inputs: React.PropTypes.array.isRequired,
     onInputChange: React.PropTypes.func.isRequired,
     onSubmitRequest: React.PropTypes.func.isRequired,
+    recipe: React.PropTypes.object.isRequired,
     request: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]).isRequired
 };
 

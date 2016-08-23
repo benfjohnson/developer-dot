@@ -1,11 +1,11 @@
 import React from 'react';
-import RecipeConsoleWrapper from './recipeConsoleWrapper';
+import Recipe from './recipe';
 
 const RecipeConsoles = (props) => {
     return (
         <div>
             {props.recipes.map((recipe, i) => (
-                <RecipeConsoleWrapper key={i} onInputChange={props.onInputChange} onSubmitRequest={props.onSubmitRequest} recipe={recipe} />
+                <Recipe key={i} onInputChange={props.onInputChange} onSubmitRequest={props.onSubmitRequest} recipe={recipe} />
             ))}
         </div>
     );

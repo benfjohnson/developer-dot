@@ -2,7 +2,7 @@ import RecipeConsoles from '../components/recipeConsoles';
 import {connect} from 'react-redux';
 import {actions} from '../actions';
 import request from 'request';
-import {replacePathParams} from '../../shared/helpers';
+import {replaceStringPlaceholders, buildQueryString} from '../helpers';
 
 const mapStateToProps = (state) => {
     return {
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
         onSubmitRequest: (recipe) => {
             const requestPath = recipe.proxy ? recipe.proxy.route : recipe.path;
 
-            const url = requestPath; // (recipe.pathParams ? replacePathParams(requestPath, recipe.pathParams) : requestPath) + (recipe.qsPath || '');
+            const url = replaceStringPlaceholders(requestPath, recipe.request.pathParams || {}) + buildQueryString(recipe.request.queryString || {});
             const apiReq = {
                 url: url,
                 headers: {}
