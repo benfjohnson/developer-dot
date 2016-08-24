@@ -8,7 +8,7 @@ doctype: overview
 <div class="row bg-map padding-bottom">
   <div class="col-md-8 col-md-offset-2 text-center ">
     <h1 class="h1p">Communications Tax API</h1>
-    <img src="/images/devdot/DevDot_TelecomGrey.svg" height="100" />
+    <img src="/public/images/devdot/DevDot_TelecomGrey.svg" height="100" alt="Telecommunications" />
   </div>
 </div>
 <div class="row border-top padding-top padding-bottom">
@@ -33,10 +33,10 @@ doctype: overview
     <h1 class="h1p">Get started learning about and using this API</h1>
     <div class="row card">
         <div class="col-md-3 col-md-offset-2">
-            <img src="/images/devdot/DevDotSvgGAssets_One.svg" height="75">
+            <img src="/public/images/devdot/DevDotSvgGAssets_One.svg" height="75" alt="1" />
         </div>
         <div class="col-md-3 col-md-offset-2">
-            <img src="/images/devdot/DevDotSvgGAssets_Two.svg" height="75">
+            <img src="/public/images/devdot/DevDotSvgGAssets_Two.svg" height="75" alt="2" />
         </div>
     </div>
     <div class="row card card-border-top">

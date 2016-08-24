@@ -8,24 +8,24 @@ avaform: 1
 <div class="half">
 <h2>Four simple steps to getting started in calculating sales tax with our REST API</h2>
 <strong>If you already have an Avalara AvaTax account</strong> and want to dive into the details, a good place to start is our <a href="/blog/2013/11/11/introduction-to-the-avalara-avatax-api">Introduction to the Avalara AvaTax API</a>.
-<h4><img src="/images/2012/09/orange-box-1-sm.png" alt="1" /> Try the API</h4>
+<h4><img src="/public/images/2012/09/orange-box-1-sm.png" alt="1" /> Try the API</h4>
 Want to know how the API looks? Make some requests with the tool below. See how different inputs produce different tax calcluation results, and see what kind of tax information you can expect to get back.
 </div>
 
 {% include get-started-console.html %}
 
 <div class="half padding-bottom">
-<h4 id="signup"><img src="/images/2012/09/orange-box-2-sm.png" alt="2" /> Create a Sandbox Account</h4>
+<h4 id="signup"><img src="/public/images/2012/09/orange-box-2-sm.png" alt="2" /> Create a Sandbox Account</h4>
 This sandbox account is for evaluation only and is initially active for 90 days, but you can request an extension if needed. You will need to add company profile and tax profile information to calculate sales tax. It is based on an AvaTax Basic subscription and includes access to Nexus Jurisdictions in the <strong>U.S. and Canada only</strong>. To access full AvaTax Pro System Tax Code functionality or Global Nexus Jurisdictions, please <a href="http://www.avalara.com/contact-us/">contact sales</a> to inquire about a paid development account.
 
 <div class="row">
  <div class="avaform-wrapper col-md-6"></div>
 </div>
 
-<h4><img src="/images/2012/09/orange-box-3-sm.png" alt="3" /> Log in to the Admin Console</h4>
+<h4><img src="/public/images/2012/09/orange-box-3-sm.png" alt="3" /> Log in to the Admin Console</h4>
 Visit our <a href="https://admin-development.avalara.net">AvaTax Development Admin Console</a> and you will be prompted to change your password. In addition to changing your password, you will need to <a href="http://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/040_Managing_Tax_Profiles/035_Organizing_Companies/020_Add_a_Company">add a company</a> and some <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/020_Add_Nexus_Jurisdictions">nexus jurisdiction selections</a> to get any tax results.
 <blockquote><strong>Note:</strong> In order to match the sample code we provide, use CompanyCode APITrialCompany when creating your company. If you use some other CompanyCode value remember to change the value in your samples.</blockquote>
-<h4><img src="/images/2012/09/orange-box-4-sm.png" alt="4" /> Make a Tax Call</h4>
+<h4><img src="/public/images/2012/09/orange-box-4-sm.png" alt="4" /> Make a Tax Call</h4>
 Now that you have an account with company settings, you are ready to make an API request!
 
 We have automatically filled in the required POST parameters to calculate the sales tax on a $10 sale amount using the Avalara corporate address at 100 Ravine Lane, Bainbridge Island, WA.
@@ -147,7 +147,7 @@ Each Line item in the request is represented in the response by a TaxLine, which
 The tax request you made in Step 3 will be viewable in the Admin Console. Log in and navigate to the Transactions tab to verify that you have produced a successful outcome.
 
 <div class="caption">
-    <img src="/images/2012/09/AdminConsole.png" width="100%" alt="Example of successful outcome" />
+    <img src="/public/images/2012/09/AdminConsole.png" width="100%" alt="Example of successful outcome" />
     Example of successful outcome
 </div>
 

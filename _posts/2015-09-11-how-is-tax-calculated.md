@@ -7,9 +7,9 @@ comments: true
 categories: [Sales Tax APIs]
 product: avaTax
 doctype: blog
-imgsrc: /images/2015/09/shutterstock_310565729.jpg
+imgsrc: /public/images/2015/09/shutterstock_310565729.jpg
 ---
-<a href="/images/2015/09/shutterstock_310565729.jpg"><img src="/images/2015/09/shutterstock_310565729.jpg" width="167" height="250" /></a>
+<img src="/public/images/2015/09/shutterstock_310565729.jpg" width="167" height="250" alt="parfait dessert with many layers, just like tax determination" />
 
 When you look through the API documentation, you notice a bunch of required and 'situationally required' fields. What gives? What do we do with all that information anyway?
 

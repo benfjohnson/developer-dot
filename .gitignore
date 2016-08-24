@@ -1,58 +1,8 @@
-*.gem
-*.rbc
-/.config
-/coverage/
-/InstalledFiles
-/pkg/
-/spec/reports/
-/spec/examples.txt
-/test/tmp/
-/test/version_tmp/
-/tmp/
-
-# Don't need these --BEN
-/_site/
-/dynamic/_site/
-
-## Ignore generated API Reference pages, should be created on build ##
-avatax/api-reference/**/index.html
-communications/api-reference/**/index.html
-landedcost/api-reference/**/index.html
-taxrates/api-reference/**/index.html
-trustfile/api-reference/**/index.html
-excise/api-reference/**/index.html
-################
-
-## Specific to RubyMotion:
-.dat*
-.repl_history
-build/
-
-## Documentation cache and generated files:
-/.yardoc/
-/_yardoc/
-/doc/
-/rdoc/
-
-## Environment normalization:
-/.bundle/
-/vendor/bundle
-/lib/bundler/man/
-
-# for a library or gem, you might want to ignore these files since the code is
-# intended to run in multiple environments; otherwise, check them in:
-# Gemfile.lock
-# .ruby-version
-# .ruby-gemset
-
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
-
-.DS_Store
-
-_site/*
-
-_algolia_api_key*
-
-css/style*.*
+.bundle
+_site
 node_modules
+
+**/api-reference/**/index.html
+
+public/css/style.css*
+public/js/*-bundle.js

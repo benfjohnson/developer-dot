@@ -20,7 +20,7 @@ You can reset your own license key in development accounts (that is, accounts at
 When a license key is reset by Avalara support, the new key is emailed to the Account Admin(s) on this list and no one else. What this policy prevents is service interruption by individuals who do not know the total effect of this action. The effect of resetting a license key is the sole responsibility of the Company (Client) Account Administrator.
 
 <div class="caption">
-    <img src="/images/2012/05/resetting-license-key.jpg" alt="License keys are emailed to all account admin level users." width="100%" />
+    <img src="/public/images/2012/05/resetting-license-key.jpg" alt="License keys are emailed to all account admin level users." width="100%" />
     License keys are emailed to all account admin level users.
 </div>
 

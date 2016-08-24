@@ -124,7 +124,6 @@ export default (state, action) => {
         if (action.newValue === '') {
             castedValue = undefined;
         } else {
-            // TODO: Should casting numerical inputs be left to the submit function?
             castedValue = newStateProperty.fieldType === 'number' ? (parseFloatStrict(action.newValue) || action.newValue) : action.newValue;
         }
 

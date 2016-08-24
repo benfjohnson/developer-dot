@@ -1,0 +1,6 @@
+-
+  title: "Clash comparing _/expected to _site"
+  dir: .
+  build: true
+  compare: _expected _site
+
