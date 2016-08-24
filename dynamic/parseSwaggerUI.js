@@ -148,5 +148,6 @@ export default (api, rootPath) => {
 
     swaggerData.postmanCollection = buildPostmanCollection(swaggerData);
 
-    return swaggerData;
+    // Give every endpoint a simple ID
+    return {...swaggerData, apiEndpoints: swaggerData.apiEndpoints.map((endp, i) => ({...endp, id: i}))};
 };

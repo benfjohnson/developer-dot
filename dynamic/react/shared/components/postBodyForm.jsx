@@ -6,20 +6,20 @@ import {hasExcludedProperties} from '../helpers';
 const PostBodyForm = (props) => (
     <div>
         {hasExcludedProperties(props.endpoint.requestSchema) ?
-            <div className={'clickable'} onClick={props.onToggleShowExcludedPostBodyProps.bind(null, props.id)}>
+            <div className={'clickable'} onClick={props.onToggleShowExcludedPostBodyProps.bind(null, props.endpoint.id)}>
                 <span className={`glyphicon glyphicon-${props.endpoint.showExcludedPostBodyFields ? 'minus' : 'plus'}`}></span><span>{` ${props.endpoint.showExcludedPostBodyFields ? 'Hide advanced' : 'Show all'} request attributes`}</span>
             </div> : null}
         <form className={'api-console-post-form'} onSubmit={
             (e) => {
                 e.preventDefault();
-                props.onSubmitConsoleRequest(props.endpoint, props.id);
+                props.onSubmitConsoleRequest(props.endpoint, props.endpoint.id);
             }
         }>
             {
                 <PostBodyFormItem
                     canRemove={false}
                     displayName={'Post Body'}
-                    endpointId={props.id}
+                    endpointId={props.endpoint.id}
                     itemSchema={props.endpoint.requestSchema}
                     itemValue={props.endpoint.postBodyData}
                     name={''}
@@ -37,6 +37,7 @@ const PostBodyForm = (props) => (
 PostBodyForm.displayName = 'Post Body';
 PostBodyForm.propTypes = {
     endpoint: React.PropTypes.shape({
+        id: React.PropTypes.number.isRequired,
         apiResponse: React.PropTypes.shape({
             status: React.PropTypes.string.isRequired,
             statusMessage: React.PropTypes.string.isRequired,
@@ -70,7 +71,6 @@ PostBodyForm.propTypes = {
         postBodyData: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         showExcludedPostBodyFields: React.PropTypes.bool.isRequired
     }).isRequired,
-    id: React.PropTypes.number.isRequired,
     name: React.PropTypes.string.isRequired,
     onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
     onPostBodyInputChanged: React.PropTypes.func.isRequired,

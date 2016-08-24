@@ -9,8 +9,7 @@ const mapStateToProps = (state, ownProps) => {
         apiType: state.apiType,
         sampleAuthHeader: state.sampleAuthHeader,
         sampleContentType: state.sampleContentType,
-        endpoint: state.apiEndpoints[ownProps.id],
-        id: ownProps.id
+        endpoint: ownProps.endpoint
     };
 };
 

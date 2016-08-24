@@ -14,7 +14,7 @@ const ApiDocumentation = (props) => (
             canRemove={false}
             displayName={'Post Body Parameters'}
             documentationFor={props.documentationFor}
-            endpointId={props.id}
+            endpointId={props.endpointId}
             isRoot={true}
             item={props.requestOrResponseSchema}
             name={''}
@@ -26,7 +26,7 @@ const ApiDocumentation = (props) => (
 ApiDocumentation.displayName = 'API Documentation';
 ApiDocumentation.propTypes = {
     documentationFor: React.PropTypes.oneOf([DOC_TYPES.REQUEST, DOC_TYPES.RESPONSE]),
-    id: React.PropTypes.number.isRequired,
+    endpointId: React.PropTypes.number.isRequired,
     name: React.PropTypes.string.isRequired,
     requestOrResponseSchema: React.PropTypes.object.isRequired
 };

@@ -5,7 +5,7 @@ import QueryOrPathParamsForm from './queryOrPathParamsForm';
 import PostBodyForm from './postBodyForm';
 import {hasExampleData} from '../helpers';
 
-const ConsoleInputForm = ({endpoint, id, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleShowExcludedPostBodyProps}) => {
+const ConsoleInputForm = ({endpoint, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleShowExcludedPostBodyProps}) => {
     return (
         <div>
             <div>
@@ -13,7 +13,7 @@ const ConsoleInputForm = ({endpoint, id, onFillConsoleSampleData, onSubmitConsol
                 {hasExampleData('QUERY_STRING', endpoint.queryString) || hasExampleData('POST_BODY', endpoint.requestSchema) || hasExampleData('PATH_PARAM', endpoint.pathParams) ?
                 <span
                     className='m-l-1 clickable hdr-btn-adj-text'
-                    onClick={onFillConsoleSampleData.bind(null, id)}
+                    onClick={onFillConsoleSampleData.bind(null, endpoint.id)}
                 >
                 {' Fill with Sample Data'}
                 </span> : null}
@@ -24,7 +24,7 @@ const ConsoleInputForm = ({endpoint, id, onFillConsoleSampleData, onSubmitConsol
                         onClick={
                             (e) => {
                                 e.preventDefault();
-                                onSubmitConsoleRequest(endpoint, id);
+                                onSubmitConsoleRequest(endpoint, endpoint.id);
                             }
                         }
                         type={'button'}
@@ -33,14 +33,14 @@ const ConsoleInputForm = ({endpoint, id, onFillConsoleSampleData, onSubmitConsol
                     </button>
                     <span
                         className='m-l-1 clickable hdr-btn-adj-text'
-                        onClick={onResetConsole.bind(null, id)}
+                        onClick={onResetConsole.bind(null, endpoint.id)}
                         type='reset'>
                     {'Reset'}
                     </span>
             </div>
-        {endpoint.pathParams ? <QueryOrPathParamsForm endpoint={endpoint} endpointId={id} onInputChange={onPathParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'PATH'} params={endpoint.pathParams}/> : null}
-        {endpoint.queryString ? <QueryOrPathParamsForm endpoint={endpoint} endpointId={id} onInputChange={onQueryParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
-        {endpoint.requestSchema ? <PostBodyForm endpoint={endpoint} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onPostBodyInputChanged={onPostBodyInputChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onSubmitConsoleRequest={onSubmitConsoleRequest} onToggleShowExcludedPostBodyProps={onToggleShowExcludedPostBodyProps} /> : null}
+        {endpoint.pathParams ? <QueryOrPathParamsForm endpoint={endpoint} onInputChange={onPathParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'PATH'} params={endpoint.pathParams}/> : null}
+        {endpoint.queryString ? <QueryOrPathParamsForm endpoint={endpoint} onInputChange={onQueryParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
+        {endpoint.requestSchema ? <PostBodyForm endpoint={endpoint} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onPostBodyInputChanged={onPostBodyInputChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onSubmitConsoleRequest={onSubmitConsoleRequest} onToggleShowExcludedPostBodyProps={onToggleShowExcludedPostBodyProps} /> : null}
         {endpoint.requestSchema ?
             <div style={{marginBottom: '10px'}}>
                 <button
@@ -48,7 +48,7 @@ const ConsoleInputForm = ({endpoint, id, onFillConsoleSampleData, onSubmitConsol
                     onClick={
                         (e) => {
                             e.preventDefault();
-                            onSubmitConsoleRequest(endpoint, id);
+                            onSubmitConsoleRequest(endpoint, endpoint.id);
                         }
                     }
                     type={'button'}
@@ -57,7 +57,7 @@ const ConsoleInputForm = ({endpoint, id, onFillConsoleSampleData, onSubmitConsol
                 </button>
                 <span
                     className='m-l-1 hdr-btn-adj-text clickable'
-                    onClick={onResetConsole.bind(null, id)}
+                    onClick={onResetConsole.bind(null, endpoint.id)}
                     type='reset'>
                     {'Reset'}
                 </span>
@@ -70,7 +70,6 @@ const ConsoleInputForm = ({endpoint, id, onFillConsoleSampleData, onSubmitConsol
 ConsoleInputForm.displayName = 'Console Input Form';
 ConsoleInputForm.propTypes = {
     endpoint: React.PropTypes.object,
-    id: React.PropTypes.number.isRequired,
     onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
     onFillConsoleSampleData: React.PropTypes.func.isRequired,
     onPathParamChanged: React.PropTypes.func.isRequired,

@@ -33,6 +33,7 @@ const ApiConsole = (props) => {
 ApiConsole.displayName = 'API Console';
 ApiConsole.propTypes = {
     endpoint: React.PropTypes.shape({
+        id: React.PropTypes.number.isRequired,
         apiResponse: React.PropTypes.shape({
             status: React.PropTypes.string.isRequired,
             statusMessage: React.PropTypes.string.isRequired,
@@ -65,7 +66,6 @@ ApiConsole.propTypes = {
         requestSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         showExcludedPostBodyFields: React.PropTypes.bool.isRequired
     }).isRequired,
-    id: React.PropTypes.number.isRequired,
     onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
     onFillConsoleSampleData: React.PropTypes.func.isRequired,
     onPathParamChanged: React.PropTypes.func.isRequired,

@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 const Endpoints = ({apiEndpoints}) => {
     return (
         <div>
-            {apiEndpoints.map((endpoint, i) => <EndpointContainer id={i} key={i} />)}
+            {apiEndpoints.map((endpoint, i) => <EndpointContainer endpoint={endpoint} key={i} />)}
         </div>
     );
 };
