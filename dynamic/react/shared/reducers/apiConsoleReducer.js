@@ -2,7 +2,7 @@ import queryStringReducer from './queryStringReducer';
 import actionTypes from '../../shared/actionTypes';
 import {buildQsPath, buildCurl, fillOrRemoveSampleData, fillPostBodySampleData, buildInitialPostBodyData} from '../helpers';
 
-// Method traverses a `postBody` endpoint property by colon-separated name and returns the
+// Method traverses a `requestSchema` endpoint property by colon-separated name and returns the
 // innermost property described by the propertyPath
 const traversePropertyPath = (propertyPath, state) => {
     if (propertyPath === '') {
@@ -98,7 +98,7 @@ export default (state, action) => {
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
         if (newState.postBodyDefaultData) {
             // Have to use jQuery for deep extends (property merge)
-            newState.postBodyData = $.extend(true, {}, newState.postBodyDefaultData, fillPostBodySampleData(newState.postBody));
+            newState.postBodyData = $.extend(true, {}, newState.postBodyDefaultData, fillPostBodySampleData(newState.requestSchema));
         } else {
             newState = fillOrRemoveSampleData(newState);
         }
@@ -118,7 +118,7 @@ export default (state, action) => {
         // If any changed PostBodyForm input was an array item, need to access its `items`
         // schema to determine its fieldType. With that in hand, we can directly update it at its index in our postBodyData
         const accessorName = action.postBodyParamName.replace(/\[\d+\]/g, 'items');
-        const newStateProperty = traversePropertyPath(accessorName, newState.postBody);
+        const newStateProperty = traversePropertyPath(accessorName, newState.requestSchema);
         let castedValue;
 
         if (action.newValue === '') {
@@ -154,7 +154,7 @@ export default (state, action) => {
         return newState;
     case actionTypes.TOGGLE_SHOW_EXCLUDED_POST_BODY_PROPS:
         newState.showExcludedPostBodyFields = !newState.showExcludedPostBodyFields;
-        newState.postBodyData = buildInitialPostBodyData(newState.postBody, newState.showExcludedPostBodyFields);
+        newState.postBodyData = buildInitialPostBodyData(newState.requestSchema, newState.showExcludedPostBodyFields);
         return newState;
     default:
         return state;

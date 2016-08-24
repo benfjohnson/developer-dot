@@ -10,7 +10,7 @@ const ConsoleInputForm = ({endpoint, id, onFillConsoleSampleData, onSubmitConsol
         <div>
             <div>
                 <h3 style={{display: 'inline-block'}}>{'Input'}</h3>
-                {hasExampleData('QUERY_STRING', endpoint.queryString) || hasExampleData('POST_BODY', endpoint.postBody) || hasExampleData('PATH_PARAM', endpoint.pathParams) ?
+                {hasExampleData('QUERY_STRING', endpoint.queryString) || hasExampleData('POST_BODY', endpoint.requestSchema) || hasExampleData('PATH_PARAM', endpoint.pathParams) ?
                 <span
                     className='m-l-1 clickable hdr-btn-adj-text'
                     onClick={onFillConsoleSampleData.bind(null, id)}
@@ -40,8 +40,8 @@ const ConsoleInputForm = ({endpoint, id, onFillConsoleSampleData, onSubmitConsol
             </div>
         {endpoint.pathParams ? <QueryOrPathParamsForm endpoint={endpoint} endpointId={id} onInputChange={onPathParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'PATH'} params={endpoint.pathParams}/> : null}
         {endpoint.queryString ? <QueryOrPathParamsForm endpoint={endpoint} endpointId={id} onInputChange={onQueryParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
-        {endpoint.postBody ? <PostBodyForm endpoint={endpoint} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onPostBodyInputChanged={onPostBodyInputChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onSubmitConsoleRequest={onSubmitConsoleRequest} onToggleShowExcludedPostBodyProps={onToggleShowExcludedPostBodyProps} postBody={endpoint.postBody} postBodyData={endpoint.postBodyData} showExcludedPostBodyFields={endpoint.showExcludedPostBodyFields}/> : null}
-        {endpoint.postBody ?
+        {endpoint.requestSchema ? <PostBodyForm endpoint={endpoint} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onPostBodyInputChanged={onPostBodyInputChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onSubmitConsoleRequest={onSubmitConsoleRequest} onToggleShowExcludedPostBodyProps={onToggleShowExcludedPostBodyProps} /> : null}
+        {endpoint.requestSchema ?
             <div style={{marginBottom: '10px'}}>
                 <button
                     className='btn btn-primary'

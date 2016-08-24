@@ -35,7 +35,7 @@ const mapDispatchToProps = (dispatch) => {
                 apiReq.headers['api-key'] = 'b24757b69083fa34d27a7d814ea3a59c';
             }
 
-            if (endpoint.postBody) {
+            if (endpoint.postBodyData) {
                 apiReq.headers['Content-Type'] = 'application/json';
                 apiReq.body = JSON.stringify(endpoint.postBodyData);
             }

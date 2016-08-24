@@ -85,7 +85,8 @@ QueryOrPathParamsForm.propTypes = {
                 value: React.PropTypes.any.isRequired
             })
         ),
-        postBody: React.PropTypes.object
+        requestSchema: React.PropTypes.object,
+        postBodyData: React.PropTypes.oneOf([React.PropTypes.object, React.PropTypes.array])
     }).isRequired,
     endpointId: React.PropTypes.number.isRequired,
     onInputChange: React.PropTypes.func.isRequired,

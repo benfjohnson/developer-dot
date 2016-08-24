@@ -5,7 +5,7 @@ import {hasExcludedProperties} from '../helpers';
 
 const PostBodyForm = (props) => (
     <div>
-        {hasExcludedProperties(props.postBody) ?
+        {hasExcludedProperties(props.endpoint.requestSchema) ?
             <div className={'clickable'} onClick={props.onToggleShowExcludedPostBodyProps.bind(null, props.id)}>
                 <span className={`glyphicon glyphicon-${props.endpoint.showExcludedPostBodyFields ? 'minus' : 'plus'}`}></span><span>{` ${props.endpoint.showExcludedPostBodyFields ? 'Hide advanced' : 'Show all'} request attributes`}</span>
             </div> : null}
@@ -20,13 +20,13 @@ const PostBodyForm = (props) => (
                     canRemove={false}
                     displayName={'Post Body'}
                     endpointId={props.id}
-                    itemSchema={props.postBody}
-                    itemValue={props.postBodyData}
+                    itemSchema={props.endpoint.requestSchema}
+                    itemValue={props.endpoint.postBodyData}
                     name={''}
                     onAddItemToPostbodyCollection={props.onAddItemToPostbodyCollection}
                     onPostBodyInputChanged={props.onPostBodyInputChanged}
                     onRemovePostbodyCollectionItem={props.onRemovePostbodyCollectionItem}
-                    showExcludedPostBodyFields={props.showExcludedPostBodyFields}
+                    showExcludedPostBodyFields={props.endpoint.showExcludedPostBodyFields}
                 />
             }
             <input style={{display: 'none'}} type={'submit'} value={'submit'}/>
@@ -66,17 +66,16 @@ PostBodyForm.propTypes = {
                 value: React.PropTypes.any.isRequired
             })
         ),
-        postBody: React.PropTypes.object
+        requestSchema: React.PropTypes.object,
+        postBodyData: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
+        showExcludedPostBodyFields: React.PropTypes.bool.isRequired
     }).isRequired,
     id: React.PropTypes.number.isRequired,
     name: React.PropTypes.string.isRequired,
     onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
     onPostBodyInputChanged: React.PropTypes.func.isRequired,
     onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
-    onSubmitConsoleRequest: React.PropTypes.func.isRequired,
-    postBody: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
-    postBodyData: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
-    showExcludedPostBodyFields: React.PropTypes.bool.isRequired
+    onSubmitConsoleRequest: React.PropTypes.func.isRequired
 };
 
 export default PostBodyForm;

@@ -62,7 +62,7 @@ ApiConsole.propTypes = {
                 value: React.PropTypes.any.isRequired
             })
         ),
-        postBody: React.PropTypes.object,
+        requestSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         showExcludedPostBodyFields: React.PropTypes.bool.isRequired
     }).isRequired,
     id: React.PropTypes.number.isRequired,

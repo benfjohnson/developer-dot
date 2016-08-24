@@ -158,7 +158,7 @@ const fillOrRemoveSampleData = (endpointState, remove = false) => {
     }
 
     if (endpointState.postBodyData) {
-        endpointState.postBodyData = remove ? buildInitialPostBodyData(endpointState.postBody, endpointState.showExcludedPostBodyFields) : fillPostBodySampleData(endpointState.postBody, endpointState.showExcludedPostBodyFields);
+        endpointState.postBodyData = remove ? buildInitialPostBodyData(endpointState.requestSchema, endpointState.showExcludedPostBodyFields) : fillPostBodySampleData(endpointState.requestSchema, endpointState.showExcludedPostBodyFields);
     }
 
     return endpointState;

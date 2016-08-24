@@ -65,7 +65,8 @@ const buildRequestParams = (params, paramType) => {
     ), {});
 };
 
-const buildPostBody = (endpointParams) => {
+// Builds a schema of what a request to a particular endpoint should look like, based on its Swagger definition
+const buildRequestSchema = (endpointParams) => {
     const postBodyParams = endpointParams.filter((p) => (p.in === 'body'));
 
     // Can only be one post body per request, so safe to take first item
@@ -113,8 +114,6 @@ export default (api, rootPath) => {
             const pathParams = buildRequestParams(endpointParams, 'path');
             const queryString = buildRequestParams(endpointParams, 'query');
 
-            const postBody = buildPostBody(endpointParams);
-
             if (proxyRoot) {
                 apiMethod.proxyRoute = proxyRoot + k;
             }
@@ -129,9 +128,12 @@ export default (api, rootPath) => {
                 apiMethod.queryString = queryString;
                 apiMethod.qsPath = buildQsPath(queryString);
             }
-            if (postBody) {
-                apiMethod.postBody = postBody;
-                apiMethod.postBodyData = buildInitialPostBodyData(postBody, apiMethod.showExcludedPostBodyFields);
+
+            const requestSchema = buildRequestSchema(endpointParams);
+
+            if (requestSchema) {
+                apiMethod.requestSchema = requestSchema;
+                apiMethod.postBodyData = buildInitialPostBodyData(requestSchema, apiMethod.showExcludedPostBodyFields);
             }
 
             apiMethod.curl = buildCurl(swaggerData.auth, apiMethod);
@@ -139,8 +141,6 @@ export default (api, rootPath) => {
             if (endpoint[action].responses[200].schema) {
                 apiMethod.responseSchema = buildSchema(endpoint[action].responses[200].schema);
             }
-
-            apiMethod.requestSchema = buildPostBody(endpointParams);
 
             swaggerData.apiEndpoints.push(apiMethod);
         });
