@@ -15,7 +15,7 @@
   consumes: 
     - "application/json"
   tags: []
-  basePath: "/"
+  basePath: "/v1"
   paths: 
     /accounts: 
       post: 
