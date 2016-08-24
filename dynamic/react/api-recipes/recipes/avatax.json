@@ -7,7 +7,7 @@
             "route": "https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod/tax/get",
             "key": {
                 "name": "api-key",
-                "value": "b24757b69083fa34d27a7d814ea3a59c"
+                "location": "api-proxy-key/key"
             }
         },
         "operationId": "getTax",
@@ -64,7 +64,7 @@
             "route": "https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod/tax/{latitude},{longitude}/get",
             "key": {
                 "name": "api-key",
-                "value": "b24757b69083fa34d27a7d814ea3a59c"
+                "location": "api-proxy-key/key"
             }
         },
         "operationId": "estimateTax",

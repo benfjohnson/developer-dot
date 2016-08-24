@@ -13,14 +13,14 @@ export const actions = {
             newValue: newValue
         };
     },
-    submitRequest: (recipeId, responseBody, response, error) => {
+    submitRequest: (recipeId, responseBody, status, statusMessage) => {
         return {
             type: actionTypes.SUBMIT_REQUEST,
             recipeId: recipeId,
             apiResponse: {
                 body: responseBody,
-                status: response ? response.statusCode.toString() : '',
-                statusMessage: error ? error.message : response.statusMessage || ''
+                status: status,
+                statusMessage: statusMessage
             }
         };
     }

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import actions from '../../shared/actions';
 import request from 'request';
 import {replacePathParams} from '../../shared/helpers';
+import AWS from 'aws-sdk';
 
 const mapStateToProps = (state) => {
     return {
@@ -27,6 +28,10 @@ const mapDispatchToProps = (dispatch) => {
                 headers: {}
             };
 
+            // const keyBucket = new AWS.S3({Bucket: 'api-proxy-key', Key: 'key'}); //TODO start here...
+            // keyBucket.getObject({Bucket: 'api-proxy-key', Key: 'key'}).then((proxyKey) => {
+
+            // });
             if (requestPath.indexOf('amazonaws') !== -1) {
                 apiReq.headers['api-key'] = 'b24757b69083fa34d27a7d814ea3a59c';
             }
