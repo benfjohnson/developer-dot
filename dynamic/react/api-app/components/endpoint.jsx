@@ -114,7 +114,7 @@ EndPointComponent.propTypes = {
                 value: React.PropTypes.any.isRequired
             })
         ),
-        postBodyData: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
+        postBody: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         requestSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         responseSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         showExcludedPostBodyFields: React.PropTypes.bool.isRequired,

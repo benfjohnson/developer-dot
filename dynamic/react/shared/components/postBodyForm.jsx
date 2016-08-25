@@ -12,7 +12,7 @@ const PostBodyForm = (props) => (
         <form className={'api-console-post-form'} onSubmit={
             (e) => {
                 e.preventDefault();
-                props.onSubmitConsoleRequest(props.endpoint, props.endpoint.id);
+                props.onSubmitConsoleRequest(props.endpoint);
             }
         }>
             {
@@ -21,7 +21,7 @@ const PostBodyForm = (props) => (
                     displayName={'Post Body'}
                     endpointId={props.endpoint.id}
                     itemSchema={props.endpoint.requestSchema}
-                    itemValue={props.endpoint.postBodyData}
+                    itemValue={props.endpoint.postBody}
                     name={''}
                     onAddItemToPostbodyCollection={props.onAddItemToPostbodyCollection}
                     onPostBodyInputChanged={props.onPostBodyInputChanged}
@@ -68,7 +68,7 @@ PostBodyForm.propTypes = {
             })
         ),
         requestSchema: React.PropTypes.object,
-        postBodyData: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
+        postBody: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         showExcludedPostBodyFields: React.PropTypes.bool.isRequired
     }).isRequired,
     name: React.PropTypes.string.isRequired,

@@ -251,8 +251,14 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/site.js"></script>
 
+<!-- Because the AWS JavaScript SDK is dumb and doesn't work with browserify, have to include
+it the ole' fashioned way. Custom build that just has S3 sdk included: -->
+<script src='/js/aws-sdk-2.5.3.min.js'></script>
+<script>AWS.config.region = 'us-west-2';</script>
+
 {% if page.api_console == 1 %}
-<script>apiReferenceScrollspy();</script>
+    <!-- What does this do? -Ben -->
+    <script>apiReferenceScrollspy();</script>
 {% endif %}
 
 {% if page.avaform == 1 %}

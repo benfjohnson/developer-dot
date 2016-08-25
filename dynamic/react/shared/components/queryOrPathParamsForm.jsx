@@ -14,7 +14,7 @@ const QueryOrPathParamsForm = ({endpoint, paramType, params, onInputChange, onSu
         <form className={'api-console-input-section'} onSubmit={
             (e) => {
                 e.preventDefault();
-                onSubmitConsoleRequest(endpoint, endpoint.id);
+                onSubmitConsoleRequest(endpoint);
             }
         }>
             <h4 className={'api-console-section-header'}>{paramType === PARAM_TYPES.QUERY_STRING ? 'Query String' : 'Path Parameters'}</h4>
@@ -87,7 +87,7 @@ QueryOrPathParamsForm.propTypes = {
             })
         ),
         requestSchema: React.PropTypes.object,
-        postBodyData: React.PropTypes.oneOf([React.PropTypes.object, React.PropTypes.array])
+        postBody: React.PropTypes.oneOf([React.PropTypes.object, React.PropTypes.array])
     }).isRequired,
     onInputChange: React.PropTypes.func.isRequired,
     onSubmitConsoleRequest: React.PropTypes.func.isRequired,

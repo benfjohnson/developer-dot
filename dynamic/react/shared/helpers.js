@@ -87,8 +87,8 @@ const buildCurl = (auth, endpoint) => {
         curl += ' -H "Authorization: <YOUR_AUTH_INFO_HERE>"';
     }
 
-    if (endpoint.postBodyData) {
-        curl += ` -H "Content-Type: application/json" --data '${JSON.stringify(endpoint.postBodyData)}'`;
+    if (endpoint.postBody) {
+        curl += ` -H "Content-Type: application/json" --data '${JSON.stringify(endpoint.postBody)}'`;
     }
     return curl;
 };
@@ -112,7 +112,7 @@ const fillOrRemoveRequestParamSampleData = (params, remove) => {
         return newParams;
     }, {});
 };
-// Generates fills sample data in postBodyData given Post Body's schema
+// Generates fills sample data in postBody given Post Body's schema
 const fillPostBodySampleData = (body, showExcludedPostBodyFields) => {
     if (body === undefined || (body.isExcluded && !showExcludedPostBodyFields)) {
         return undefined;
@@ -130,7 +130,7 @@ const fillPostBodySampleData = (body, showExcludedPostBodyFields) => {
 
     return objBody;
 };
-// Generates initial postBodyData given Post Body's schema
+// Generates initial postBody given Post Body's schema
 const buildInitialPostBodyData = (body, showExcludedPostBodyFields) => {
     if (body === undefined || (body.isExcluded && !showExcludedPostBodyFields)) {
         return undefined;
@@ -157,12 +157,53 @@ const fillOrRemoveSampleData = (endpointState, remove = false) => {
         endpointState.pathParams = fillOrRemoveRequestParamSampleData(endpointState.pathParams, remove);
     }
 
-    if (endpointState.postBodyData) {
-        endpointState.postBodyData = remove ? buildInitialPostBodyData(endpointState.requestSchema, endpointState.showExcludedPostBodyFields) : fillPostBodySampleData(endpointState.requestSchema, endpointState.showExcludedPostBodyFields);
+    if (endpointState.postBody) {
+        endpointState.postBody = remove ? buildInitialPostBodyData(endpointState.requestSchema, endpointState.showExcludedPostBodyFields) : fillPostBodySampleData(endpointState.requestSchema, endpointState.showExcludedPostBodyFields);
     }
 
     return endpointState;
 };
 /* ******* END FILL SAMPLE DATA AND RESET API CONSOLE DATA HELPERS ******* */
 
-export {hasExampleData, replacePathParams, buildQsPath, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData, fillPostBodySampleData, fillOrRemoveRequestParamSampleData, hasExcludedProperties};
+/* (url: string, action: string, postBody?: {}|[], proxy?: {}) -> Promise
+ * Given the above inputs, determines if an AWS proxy key is needed to auth the API request
+ * The correct key is requested if so, and returns a promise which will yield the API request results
+ */
+const submitApiRequest = (url, action, postBody = null, proxy = null) => {
+    return Promise.resolve()
+    .then(() => {
+        if (proxy && proxy.key) {
+            const [bucket, key] = proxy.key.location.split('/');
+            const keyBucket = new AWS.S3({params: {Bucket: bucket, Key: key}});
+
+            return keyBucket.makeUnauthenticatedRequest('getObject', {}).promise();
+        }
+        return null;
+    })
+    .then((bucketResponse) => {
+        const req = {
+            method: action,
+            headers: {}
+        };
+
+        if (postBody) {
+            req.headers['Content-Type'] = 'application/json';
+            req.body = JSON.stringify(postBody);
+        }
+        if (bucketResponse) {
+            req.headers[proxy.key.name] = bucketResponse.Body;
+        }
+        return fetch(url, req);
+    })
+    .then((rawApiRes) => {
+        return rawApiRes.json().then((body) => {
+            return {
+                status: rawApiRes.status.toString(),
+                statusMessage: rawApiRes.statusText,
+                body: body
+            };
+        });
+    });
+};
+
+export {hasExampleData, replacePathParams, buildQsPath, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData, fillPostBodySampleData, fillOrRemoveRequestParamSampleData, hasExcludedProperties, submitApiRequest};

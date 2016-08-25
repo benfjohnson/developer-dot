@@ -5,8 +5,8 @@ import ConsoleLiveData from './consoleLiveData';
 // Helper that determines what part of the endpoint is shown in the `Request` input of
 // the ConsoleLiveData component
 const getRequest = (endpoint) => {
-    if (endpoint.postBodyData) {
-        return endpoint.postBodyData;
+    if (endpoint.postBody) {
+        return endpoint.postBody;
     } else if (endpoint.pathParams || endpoint.queryString) {
         return endpoint.curl;
     }

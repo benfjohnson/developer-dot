@@ -79,7 +79,7 @@ export default (api, rootPath) => {
     const scheme = api.schemes && api.schemes[0] ? api.schemes[0] : 'http';
     const root = (scheme && api.host && api.basePath) ? scheme + '://' + api.host + (api.basePath !== '/' ? api.basePath : '') : rootPath;
 
-    const proxyRoot = api['x-api-proxy'] || null;
+    const apiProxy = api['x-api-proxy'] || null;
 
     const swaggerData = {
         apiName: api.info.title,
@@ -114,8 +114,8 @@ export default (api, rootPath) => {
             const pathParams = buildRequestParams(endpointParams, 'path');
             const queryString = buildRequestParams(endpointParams, 'query');
 
-            if (proxyRoot) {
-                apiMethod.proxyRoute = proxyRoot + k;
+            if (apiProxy) {
+                apiMethod.proxy = {...apiProxy, route: apiProxy.route + k};
             }
 
             if (Object.keys(headerParams).length) {
@@ -133,7 +133,7 @@ export default (api, rootPath) => {
 
             if (requestSchema) {
                 apiMethod.requestSchema = requestSchema;
-                apiMethod.postBodyData = buildInitialPostBodyData(requestSchema, apiMethod.showExcludedPostBodyFields);
+                apiMethod.postBody = buildInitialPostBodyData(requestSchema, apiMethod.showExcludedPostBodyFields);
             }
 
             apiMethod.curl = buildCurl(swaggerData.auth, apiMethod);

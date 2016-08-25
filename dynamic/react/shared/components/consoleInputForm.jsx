@@ -24,7 +24,7 @@ const ConsoleInputForm = ({endpoint, onFillConsoleSampleData, onSubmitConsoleReq
                         onClick={
                             (e) => {
                                 e.preventDefault();
-                                onSubmitConsoleRequest(endpoint, endpoint.id);
+                                onSubmitConsoleRequest(endpoint);
                             }
                         }
                         type={'button'}
@@ -48,7 +48,7 @@ const ConsoleInputForm = ({endpoint, onFillConsoleSampleData, onSubmitConsoleReq
                     onClick={
                         (e) => {
                             e.preventDefault();
-                            onSubmitConsoleRequest(endpoint, endpoint.id);
+                            onSubmitConsoleRequest(endpoint);
                         }
                     }
                     type={'button'}

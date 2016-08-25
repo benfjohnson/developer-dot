@@ -1,9 +1,7 @@
 import SampleConsoles from '../components/sampleConsoles';
 import {connect} from 'react-redux';
 import actions from '../../shared/actions';
-import request from 'request';
-import {replacePathParams} from '../../shared/helpers';
-import AWS from 'aws-sdk';
+import {replacePathParams, submitApiRequest} from '../../shared/helpers';
 
 const mapStateToProps = (state) => {
     return {
@@ -16,41 +14,22 @@ const mapDispatchToProps = (dispatch) => {
         onFillConsoleSampleData: (endpointId) => {
             dispatch(actions.fillConsoleSampleData(endpointId));
         },
-        onSubmitConsoleRequest: (endpoint, endpointId) => {
+        onSubmitConsoleRequest: (endpoint) => {
             /* If our endpoint has a defined proxy, use that to make our API console request
             * Otherwise, just use the path specified as `host` in Swagger file
             */
-            const requestPath = endpoint.proxyRoute || endpoint.path;
+            const requestPath = endpoint.proxy ? endpoint.proxy.route : endpoint.path;
 
             const url = (endpoint.pathParams ? replacePathParams(requestPath, endpoint.pathParams) : requestPath) + (endpoint.qsPath || '');
-            const apiReq = {
-                url: url,
-                headers: {}
-            };
+            const postBody = endpoint.postBody || null;
+            const proxy = endpoint.proxy && endpoint.proxy.key ? endpoint.proxy : null;
 
-            // const keyBucket = new AWS.S3({Bucket: 'api-proxy-key', Key: 'key'}); //TODO start here...
-            // keyBucket.getObject({Bucket: 'api-proxy-key', Key: 'key'}).then((proxyKey) => {
-
-            // });
-            if (requestPath.indexOf('amazonaws') !== -1) {
-                apiReq.headers['api-key'] = 'b24757b69083fa34d27a7d814ea3a59c';
-            }
-
-            if (endpoint.postBodyData) {
-                apiReq.headers['Content-Type'] = 'application/json';
-                apiReq.body = JSON.stringify(endpoint.postBodyData);
-            }
-
-            request[endpoint.action](apiReq, (error, response, body) => {
-                let responseBody = {};
-
-                try {
-                    responseBody = JSON.parse(body);
-                } catch (err) {
-                    responseBody.error = err.message;
-                }
-
-                dispatch(actions.submitConsoleRequest(endpointId, responseBody, response, error));
+            submitApiRequest(url, endpoint.action, postBody, proxy)
+            .then((apiResponse) => {
+                dispatch(actions.submitConsoleRequest(endpoint.id, apiResponse.body, apiResponse.status, apiResponse.statusMessage));
+            })
+            .catch((err) => {
+                dispatch(actions.submitConsoleRequest(endpoint.id, err, err.message, err.message));
             });
         },
         onPostBodyInputChanged: (endpointId, paramName, newValue) => {
