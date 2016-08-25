@@ -43,7 +43,9 @@
     .punctuation {
         color: #fceb51;
     }
-    .highlighted-field {
+}
+
+.highlighted-field {
         background: #fceb51;
         &.string {
             color: darken(#71e4ff, 40%);
@@ -55,6 +57,9 @@
             color: darken(#8fffa7, 40%);
         }
     }
+
+.code-snippet-code-text .highlighted-field {
+    color: darken(#8fffa7, 40%);
 }
 
 .code-snippet-code-text {

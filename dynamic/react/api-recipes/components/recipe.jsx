@@ -25,7 +25,7 @@ const Recipe = (props) => {
             <div className={'api-console-output'}>
                 <ConsoleLiveData
                     action={props.recipe.action}
-                    highlightedFields={props.recipe.inputs.map((input) => input.field)}
+                    highlightedInputs={props.recipe.inputs}
                     path={props.recipe.path}
                     request={getRequest(props.recipe)}
                     response={props.recipe.response}

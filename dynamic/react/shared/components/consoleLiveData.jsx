@@ -1,6 +1,6 @@
 /* Component to render a simple API description, request, and response
  * Features dark color scheme and JSON syntax highlighting
- * Note that the `highlightedFields` prop is optional and currently only used by the recipe app
+ * Note that the `highlightedInputs` prop is optional and currently only used by the recipe app
  */
 
 import React from 'react';
@@ -19,6 +19,20 @@ const getPropertyName = (name) => {
     }
 
     return name;
+};
+
+const highlightQueryOrPathParams = (requestString, highlightedInputs) => {
+    if (!highlightedInputs) {
+        return requestString;
+    }
+    let retString = requestString;
+
+    highlightedInputs.filter((i) => i.in === 'queryString' || i.in === 'pathParams').forEach((input) => {
+        const rgx = input.in === 'queryString' ? new RegExp(`${input.field}=.+`) : new RegExp(`{${input.field}}|${input.value || '888FAIL888'}`);
+
+        retString = retString.replace(rgx, `<span class="highlighted-field">${retString.match(rgx)}</span>`);
+    });
+    return retString;
 };
 
 const addHighlightPlaceholderToPostBody = (propertyPath, data) => {
@@ -54,16 +68,19 @@ const highlightPunctuation = (str) => {
 };
 const syntaxHighlight = (jsonObj, highlightedFields) => {
     // Need to prevent changes to our postBody we want to stringify don't affect actual postBody
-    let JsonObjCopy = R.clone(jsonObj);
+    let jsonObjCopy;
 
     if (highlightedFields) {
+        jsonObjCopy = R.clone(jsonObj);
         // put highlight keyword in property name?
         highlightedFields.forEach((field) => {
-            JsonObjCopy = addHighlightPlaceholderToPostBody(field, JsonObjCopy);
+            jsonObjCopy = addHighlightPlaceholderToPostBody(field, jsonObjCopy);
         });
+    } else {
+        jsonObjCopy = jsonObj;
     }
 
-    let json = JSON.stringify(JsonObjCopy, null, 2);
+    let json = JSON.stringify(jsonObjCopy, null, 2);
 
     json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -90,7 +107,7 @@ const syntaxHighlight = (jsonObj, highlightedFields) => {
     return highlightPunctuation(json);
 };
 
-const ConsoleLiveData = ({action, highlightedFields, path, request, response}) => {
+const ConsoleLiveData = ({action, highlightedInputs, path, request, response}) => {
     return (
         <div>
             <h5 className={'console-output-header'}>{'API Endpoint'}</h5>
@@ -102,7 +119,7 @@ const ConsoleLiveData = ({action, highlightedFields, path, request, response}) =
                             <div className={'col-md-6 console-req-container'}>
                                 <h5 className={'console-output-header'}>{'Request'}</h5>
                                 {/* eslint-disable react/no-danger */}
-                                {typeof request === 'object' || Array.isArray(request) ? <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: syntaxHighlight(request, highlightedFields)}} /></div> : <div className={'code-snippet code-snippet-code-text'}>{request}</div>}
+                                {typeof request === 'object' || Array.isArray(request) ? <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: syntaxHighlight(request, highlightedInputs ? highlightedInputs.map((f) => f.field) : null)}} /></div> : <div className={'code-snippet code-snippet-code-text'} dangerouslySetInnerHTML={{__html: highlightQueryOrPathParams(request, highlightedInputs)}} />}
                             </div>
                             <div className={'col-md-6 console-res-container'}>
                                 <h5 className={'console-output-header'}>{'Response'}</h5>
@@ -122,7 +139,7 @@ const ConsoleLiveData = ({action, highlightedFields, path, request, response}) =
 ConsoleLiveData.displayName = 'Console Live Data';
 ConsoleLiveData.propTypes = {
     action: React.PropTypes.string.isRequired,
-    highlightedFields: React.PropTypes.arrayOf(React.PropTypes.string),
+    highlightedInputs: React.PropTypes.arrayOf(React.PropTypes.string),
     path: React.PropTypes.string.isRequired,
     /* Not required, as a GET might not require any input (e.g. LandedCost `validateCredentials` route) */
     request: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array, React.PropTypes.string]),

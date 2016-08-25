@@ -3,7 +3,9 @@
  * from a key-value reference object
  */
 const replaceStringPlaceholders = (path, map = {}) => {
-    return Object.keys(map).reduce((accum, key) => accum.replace(`{${key}}`, map[key]), path);
+    return Object.keys(map).reduce((accum, key) => {
+        return map[key] ? accum.replace(`{${key}}`, map[key]) : accum;
+    }, path);
 };
 
 /* (HashMap<String, String>) -> String
