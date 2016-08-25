@@ -9,7 +9,7 @@ nav: apis
 <h2>Certification for AvaTax Integrations</h2>
 <p>How do you know if you’re compliant with our best practices?  To start, we recommend watching an overview of our API.</p>
 <iframe id="player_1" src="http://www.youtube.com/embed/R0WUijv8xKk?rel=0&amp;enablejsapi=1&amp;wmode=opaque" width="705" height="396"></iframe>
-<p><img src="/public/images/2012/10/Avalara_CERTIFIED-150x25-01.png" alt="Avalara Certified" /></p>
+<p><img src="/public/images/blog/Avalara_CERTIFIED-150x25-01.png" alt="Avalara Certified" /></p>
 <p>
 An integration can be issued for any of the following feature subsets in addition to a basic calculation certification:<br />
 To have your integration <a href="/certification">Certified by Avalara</a>, we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax with your application.  To be Certified for Avalara AvaTax, all of the items with an R beside them listed below are the required elements that must be present in your integration.

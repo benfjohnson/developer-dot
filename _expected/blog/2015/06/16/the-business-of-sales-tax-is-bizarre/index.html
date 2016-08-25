@@ -14,22 +14,22 @@
     <meta property="og:site_name" content="Avalara Developer Network"/>
     <meta property="og:description" content="Avalara AvaTax Accurate and easy sales tax calculation Automatically tie your non-taxable transactions directly to the correct exemption or reseller certificate. Determine accurate taxability & duties for millions of products and services in over 100 countries."/>
 
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="/public/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/public/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/public/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/public/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/public/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/public/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/public/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/public/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/public/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/public/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/public/images/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff ">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="/public/images/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff ">
 
     <link rel="stylesheet" href="/public/css/style.css">
@@ -37,13 +37,11 @@
 </head>
 
 
-
-
 <body id="top" data-spy="scroll" data-target="#bootstrap-scrollspy" data-product=avaTax>
 <header>
     <div class="pageTitle">
         <a href="/">
-            <img src="/public/images/AvLogo.svg" alt="Avalara Developer Network">
+            <img src="/public/images/Avalara_logo.svg" alt="Avalara Developer Network">
             <span>Developer</span>
         </a>
         <span class="slash">/&nbsp;</span><a href="/avatax">avaTax</a>
@@ -219,13 +217,13 @@
 <blockquote>taxing _jurisdictions != zip_code</blockquote>
 <p>Here’s why :</p>
 
-<p><img src="/public/images/2015/06/12000-juris.jpg" alt="12000+ jurisdictions" width="500" /></p>
+<p><img src="/public/images/blog/12000-juris.jpg" alt="12000+ jurisdictions" width="500" /></p>
 
 <p>There are over 12,000 taxing jurisdictions in the United States, each with their own taxing rules and amounts. The following posts you’ll see some of these taxing rules in action.</p>
 
 <p>Each of these jurisdictions are marked by boundaries which aren’t “geometric” per se but and are usually determined by the local municipality, city or state. Take for example this map from the state of Colorado.</p>
 
-<p><img src="/public/images/2015/06/jurisdictions1.jpg" alt="jurisdictions" width="500" /></p>
+<p><img src="/public/images/blog/jurisdictions1.jpg" alt="jurisdictions" width="500" /></p>
 
 <p>As you can see</p>
 <ul>
@@ -235,7 +233,7 @@
 </ul>
 <p>If you look at Google Maps, you’ll see that the small squarish area contains only one building and it looks like a communications relay station.</p>
 
-<p><img src="/public/images/2015/06/arapahoe.jpg" alt="arapahoe" width="500" /></p>
+<p><img src="/public/images/blog/arapahoe.jpg" alt="arapahoe" width="500" /></p>
 
 <p>Perhaps that’s why it was actually hand-marked to be handled differently from the other areas around it.</p>
 
@@ -277,6 +275,10 @@
 <script src="/public/js/vendor/jquery-2.2.4.min.js"></script>
 <script src="/public/js/vendor/bootstrap.min.js"></script>
 <script src="/public/js/site.js"></script>
+
+
+<script src='/public/js/vendor/aws-sdk-2.5.3.min.js'></script>
+<script>AWS.config.region = 'us-west-2';</script>
 
 
 
