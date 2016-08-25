@@ -102,7 +102,7 @@ const PostBodyFormItem = ({name, itemSchema, itemValue, endpointId, displayName,
                     })}
                 </PostBodyFormSection>
                 <div className={'clickable'} onClick={onAddItemToPostbodyCollection.bind(null, name, endpointId, arraySchema)}>
-                    <span className={'glyphicon glyphicon-plus'}></span><span className={''}>{`  Add ${displayName === 'Post Body' ? 'Item' : displayName}`}</span>
+                    <span className={'glyphicon glyphicon-plus'} /><span className={''}>{`  Add ${displayName === 'Post Body' ? 'Item' : displayName}`}</span>
                 </div>
             </div>
         );
