@@ -9,7 +9,7 @@
   host: "onboarding.api.avalara.com"
   produces: 
     - "application/json"
-  x-ApiType: SOAP
+  x-ApiType: REST
   schemes: 
     - "https"
   consumes: 
