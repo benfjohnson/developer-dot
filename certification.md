@@ -7,14 +7,14 @@ nav: certification
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3 text-center">
-    <img src="/images/devdot/DevDotSvgGAssets_ComplianceCloudIllustrationCertification.svg" />
+    <img src="/public/images/devdot/DevDotSvgGAssets_ComplianceCloudIllustrationCertification.svg" alt="Certification cloud" />
     <h1>Grow your customer base and recurring revenue with a certified Avalara integration</h1>
     <div class="row padding-bottom">
-        <div class="col-xs-4 text-right"><img src="/images/devdot/DevDotSvgGAssets_One.svg" height="75"/></div>
+        <div class="col-xs-4 text-right"><img src="/public/images/devdot/DevDotSvgGAssets_One.svg" height="75" alt="1" /></div>
         <div class="col-xs-6 text-left"><h4>Start by building a certified integration with Avalara AvaTax for real-time tax calculation</h4></div>
     </div>
     <div class="row padding-bottom">
-        <div class="col-xs-4 text-right"><img src="/images/devdot/DevDotSvgGAssets_Two.svg" height="75" /></div>
+        <div class="col-xs-4 text-right"><img src="/public/images/devdot/DevDotSvgGAssets_Two.svg" height="75" alt="2" /></div>
         <div class="col-xs-6 text-left"><h4>Expand to offer the entire breadth of Avalara tax compliance solutions</h4></div>
     </div>
   </div>
@@ -27,22 +27,22 @@ nav: certification
 <div class="row padding-top padding-bottom">
     <div class="ring-shadow">
         <h2>Day 0</h2>
-        <img src="/images/devdot/DevDotSvgGAssets_KickOff.svg" width="80"/>
+        <img src="/public/images/devdot/DevDotSvgGAssets_KickOff.svg" width="80" alt="kick off" />
         <h5>Kick off</h5>
     </div>
     <div class="ring-shadow">
         <h2>Day 30</h2>
-        <img src="/images/devdot/DevDotSvgGAssets_DesignBuild.svg" width="80"/>
+        <img src="/public/images/devdot/DevDotSvgGAssets_DesignBuild.svg" width="80" alt="design/build plan" />
         <h5>Design/Build plan</h5>
     </div>
     <div class="ring-shadow">
         <h2>Day 60</h2>
-        <img src="/images/devdot/DevDotSvgGAssets_FunctionalTest.svg" width="80"/>
+        <img src="/public/images/devdot/DevDotSvgGAssets_FunctionalTest.svg" width="80" alt="functional review" />
         <h5>Functional review</h5>
     </div>
     <div class="ring-shadow">
         <h2>Day 90</h2>
-        <img src="/images/devdot/DevDotSvgGAssets_MarketReady.svg" width="80" />
+        <img src="/public/images/devdot/DevDotSvgGAssets_MarketReady.svg" width="80" alt="market ready" />
         <h5>Market ready</h5>
     </div>
 </div>

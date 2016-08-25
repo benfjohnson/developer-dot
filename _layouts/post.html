@@ -6,9 +6,7 @@ layout: default
 {% endif %}
 
 <div class="half">
-    <h1>{{ page.title }}
-        {% if page.subtitle %}<small>{{ page.subtitle }}</small>{% endif %}
-    </h1>
+    <h1>{{ page.title }}{% if page.subtitle %}<small>{{ page.subtitle }}</small>{% endif %}</h1>
     <p class="byline">By {{page.author}} | {{ page.date | date: "%B %d, %Y"}}</p>
     <p class="blog-content">{{ content }}</p>
     <p class="btn-callout"><a href="/blog" role="button">Back to posts</a></p>

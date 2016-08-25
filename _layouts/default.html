@@ -32,12 +32,7 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff ">
 
-    <link rel="stylesheet" href="/css/style.css">
-
-    {% if page.api_console == 1 %}
-    <link rel="stylesheet" href="/css/console.css">
-    {% endif %}
-
+    <link rel="stylesheet" href="/public/css/style.css">
     {% if page.avaform == 1 %}
     <link rel="stylesheet" href="http://d30qslfa084pac.cloudfront.net/common/avaform/style.css">
     {% endif %}
@@ -52,14 +47,14 @@
 {% endif %}
 {% endif %}
 
-<body id="top" data-spy='scroll' data-target='#bootstrap-scrollspy' data-product={{product_name}}>
+<body id="top" data-spy="scroll" data-target="#bootstrap-scrollspy" data-product={{product_name}}>
 <header>
     <div class="pageTitle">
         <a href="/">
-            <img src="/images/AvLogo.svg" alt="Avalara Developer Network">
+            <img src="/public/images/AvLogo.svg" alt="Avalara Developer Network">
             <span>Developer</span>
         </a>
-        {% if product_name %}<span class="slash">/&nbsp;</span><a href='/{{product_name | downcase}}'>{{product_name}}</a>{% endif %}
+        {% if product_name %}<span class="slash">/&nbsp;</span><a href="/{{product_name | downcase}}">{{product_name}}</a>{% endif %}
     </div>
     <nav class="navbar navbar-default navbar-static">
         <div class="navbar-header">
@@ -223,19 +218,21 @@
         <li class="youtube"><a href="https://www.youtube.com/user/Avalara1">Youtube</a></li>
     </ul>
     {% if page.api_console == 1 %}
-    {% for api_console_hash in site.data.api_consoles %}
-    {% assign api_console = api_console_hash[1] %}
-    {% assign api_console_path = api_console.nav_link.path | remove_first: '/' %}
-    {% if page.path contains api_console_path %}
-    {% assign githubpath = api_console.swagger_path | prepend: 'https://github.com/Avalara/developer-dot/edit/master/dynamic/swagger/' %}
-    {% endif %}
-    {% endfor %}
+        {% for api_console_hash in site.data.api_consoles %}
+            {% assign api_console = api_console_hash[1] %}
+            {% assign api_console_path = api_console.nav_link.path | remove_first: '/' %}
+            {% if page.path contains api_console_path %}
+                {% assign githubpath = api_console.swagger_path | prepend: 'https://github.com/Avalara/developer-dot/edit/master/dynamic/swagger/' %}
+            {% endif %}
+        {% endfor %}
     {% else %}
-    {% assign githubpath = page.path | prepend: 'https://github.com/Avalara/developer-dot/edit/master/' %}
+        {% assign githubpath = page.path | prepend: 'https://github.com/Avalara/developer-dot/edit/master/' %}
     {% endif %}
+    {% unless githubpath contains '/blog/page' %}
     <ul class="github">
         <li><a href="{{githubpath}}">Edit this page on GitHub</a></li>
     </ul>
+    {% endunless %}
     <ul class="global">
         <li><a href="https://www.avalara.com/"><span class="icon-sphere"></span>Avalara.com</a></li>
         <li><a href="https://help.avalara.com/"><span class="icon-help"></span>Help Center</a></li>
@@ -247,9 +244,9 @@
     </ul>
 </footer>
 
-<script src="/js/jquery-2.2.4.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/site.js"></script>
+<script src="/public/js/vendor/jquery-2.2.4.min.js"></script>
+<script src="/public/js/vendor/bootstrap.min.js"></script>
+<script src="/public/js/site.js"></script>
 
 <!-- Because the AWS JavaScript SDK is dumb and doesn't work with browserify, have to include
 it the ole' fashioned way. Custom build that just has S3 sdk included: -->
@@ -268,13 +265,13 @@ it the ole' fashioned way. Custom build that just has S3 sdk included: -->
 {% endif %}
 
 {% if page.search == 1 %}
-<script src="/js/algoliasearch.min.js"></script>
+<script src="/public/js/vendor/algoliasearch.min.js"></script>
 <script>handleSearch();</script>
 {% endif %}
 
 <!-- Google Tag Manager -->
 <noscript>
-    <iframe src='//www.googletagmanager.com/ns.html?id=GTM-MKB5LP' height='0' width='0' style='display:none;visibility:hidden'></iframe>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MKB5LP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
 </noscript>
 <script>(function(w, d, s, l, i) {
     w[l] = w[l] || [];

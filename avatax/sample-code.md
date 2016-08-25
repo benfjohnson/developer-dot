@@ -94,7 +94,7 @@ community: samples
 <p>Submit questions or log bugs using the method provided in GitHub.</p>
 <p>
     <strong>Perl</strong><br />
-    <a href="https://metacpan.org/release/WebService-Avalara-AvaTax">WebService::Avalara::AvaTax</a> - <em>Supported by Mark Gardner of <a href="http://www.ziprecruiter.com"><img src="/images/2013/03/ziprecruiter_logo.png" alt="ziprecruiter.com" width="98" height="25" /></a></em>
+    <a href="https://metacpan.org/release/WebService-Avalara-AvaTax">WebService::Avalara::AvaTax</a> - <em>Supported by Mark Gardner of <a href="http://www.ziprecruiter.com"><img src="/public/images/2013/03/ziprecruiter_logo.png" alt="ziprecruiter.com" width="98" height="25" /></a></em>
 </p>
 <p>
 <strong>Python</strong><br />

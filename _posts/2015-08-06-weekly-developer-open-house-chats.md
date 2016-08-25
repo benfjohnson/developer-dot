@@ -7,9 +7,9 @@ comments: true
 categories: [best practice, chat, discussion, open house, Q&amp;A, sales tax, Sales Tax APIs, troubleshooting]
 product: avaTax
 doctype: blog
-imgsrc: /images/2015/08/Sticker-DevAndTaxes_Hangouts_600w.jpg
+imgsrc: /public/images/2015/08/Sticker-DevAndTaxes_Hangouts_600w.jpg
 ---
-<a href="/images/2015/08/Sticker-DevAndTaxes_Hangouts_600w.jpg"><img src="/images/2015/08/Sticker-DevAndTaxes_Hangouts_600w.jpg" alt="Sticker: DevAndTaxes" width="600" height="150" /></a>
+<img src="/public/images/2015/08/Sticker-DevAndTaxes_Hangouts_600w.jpg" alt="Sticker: DevAndTaxes" width="600" height="150" />
 
 In the months of August &amp; September, Our team will be hosting a weekly online open-house chat via Google Hangouts. We will be online for up to two hours and will be available to answer questions, provide guidance or simply just to chat. This chat is useful for anyone who is evaluating our services or have difficulties with building their integration.
 

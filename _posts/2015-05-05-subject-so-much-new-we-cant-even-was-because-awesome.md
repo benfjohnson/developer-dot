@@ -7,9 +7,9 @@ comments: true
 categories: [Uncategorized]
 product: blog
 doctype: blog
-imgsrc: /images/2015/05/headshot-279x300.jpg
+imgsrc: /public/images/2015/05/headshot-279x300.jpg
 ---
-<img src="/images/2015/05/headshot-279x300.jpg" alt="Greg Bulmash" width="279" height="300" />
+<img src="/public/images/2015/05/headshot-279x300.jpg" alt="Greg Bulmash" width="279" height="300" />
 
 I'm Greg Bulmash, and as the FNG (Fabulous New Guru) on the Avalara Developer Relations team, I have been given the lofty assignment of laying down some awesome on the Avalara Developer Network blog the first Tuesday of every month. My first assignment from the powers that be: "Introduce yourself."
 

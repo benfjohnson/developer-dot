@@ -47,7 +47,7 @@ endpoint_links: [
 ---
 <div id="api-console">${reactHtml}</div>
 <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
-<script src="/dynamic/public/javascript/build/api-bundle.js"></script>`
+<script src="/public/js/api-bundle.js"></script>`
             );
         };
 

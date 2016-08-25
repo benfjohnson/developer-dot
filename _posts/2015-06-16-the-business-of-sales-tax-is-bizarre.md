@@ -7,7 +7,7 @@ comments: true
 categories: [bizarre, edge cases, jurisdictions, sales tax, Sales Tax APIs, weird]
 product: avaTax
 doctype: blog
-imgsrc: /images/2015/06/12000-juris.jpg
+imgsrc: /public/images/2015/06/12000-juris.jpg
 ---
 I'm not an economist, neither am I an accountant. The only exposure I have to the concept of accounting or economics were when we were forced to take these classes in college, but I've learned a ton while working for Avalara.
 
@@ -17,14 +17,14 @@ How complicated is it, Loke? I hear you say. Well let me show you. I'll be posti
 <blockquote>taxing _jurisdictions != zip_code</blockquote>
 Here's why :
 
-<a href="/images/2015/06/12000-juris.jpg"><img src="/images/2015/06/12000-juris.jpg" alt="12000+ jurisdictions" width="500" /></a>
+<img src="/public/images/2015/06/12000-juris.jpg" alt="12000+ jurisdictions" width="500" />
 
 There are over 12,000 taxing jurisdictions in the United States, each with their own taxing rules and amounts. The following posts you'll see some of these taxing rules in action.
 
 Each of these jurisdictions are marked by boundaries which aren't "geometric" per se but and are usually determined by the local municipality, city or state. Take for example this map from the state of Colorado.
 
 
-<a href="/images/2015/06/jurisdictions1.jpg"><img src="/images/2015/06/jurisdictions1.jpg" alt="jurisdictions" width="500" /></a>
+<img src="/public/images/2015/06/jurisdictions1.jpg" alt="jurisdictions" width="500" />
 
 As you can see
 <ul>
@@ -34,7 +34,7 @@ As you can see
 </ul>
 If you look at Google Maps, you'll see that the small squarish area contains only one building and it looks like a communications relay station.
 
-<a href="/images/2015/06/arapahoe.jpg"><img src="/images/2015/06/arapahoe.jpg" alt="arapahoe" width="500" /></a>
+<img src="/public/images/2015/06/arapahoe.jpg" alt="arapahoe" width="500" />
 
 Perhaps that's why it was actually hand-marked to be handled differently from the other areas around it.
 
