@@ -65,7 +65,8 @@ const buildRequestParams = (params, paramType) => {
     ), {});
 };
 
-const buildPostBody = (endpointParams) => {
+// Builds a schema of what a request to a particular endpoint should look like, based on its Swagger definition
+const buildRequestSchema = (endpointParams) => {
     const postBodyParams = endpointParams.filter((p) => (p.in === 'body'));
 
     // Can only be one post body per request, so safe to take first item
@@ -78,7 +79,7 @@ export default (api, rootPath) => {
     const scheme = api.schemes && api.schemes[0] ? api.schemes[0] : 'http';
     const root = (scheme && api.host && api.basePath) ? scheme + '://' + api.host + (api.basePath !== '/' ? api.basePath : '') : rootPath;
 
-    const proxyRoot = api['x-api-proxy'] || null;
+    const apiProxy = api['x-api-proxy'] || null;
 
     const swaggerData = {
         apiName: api.info.title,
@@ -113,10 +114,8 @@ export default (api, rootPath) => {
             const pathParams = buildRequestParams(endpointParams, 'path');
             const queryString = buildRequestParams(endpointParams, 'query');
 
-            const postBody = buildPostBody(endpointParams);
-
-            if (proxyRoot) {
-                apiMethod.proxyRoute = proxyRoot + k;
+            if (apiProxy) {
+                apiMethod.proxy = {...apiProxy, route: apiProxy.route + k};
             }
 
             if (Object.keys(headerParams).length) {
@@ -129,9 +128,12 @@ export default (api, rootPath) => {
                 apiMethod.queryString = queryString;
                 apiMethod.qsPath = buildQsPath(queryString);
             }
-            if (postBody) {
-                apiMethod.postBody = postBody;
-                apiMethod.postBodyData = buildInitialPostBodyData(postBody, apiMethod.showExcludedPostBodyFields);
+
+            const requestSchema = buildRequestSchema(endpointParams);
+
+            if (requestSchema) {
+                apiMethod.requestSchema = requestSchema;
+                apiMethod.postBody = buildInitialPostBodyData(requestSchema, apiMethod.showExcludedPostBodyFields);
             }
 
             apiMethod.curl = buildCurl(swaggerData.auth, apiMethod);
@@ -140,13 +142,12 @@ export default (api, rootPath) => {
                 apiMethod.responseSchema = buildSchema(endpoint[action].responses[200].schema);
             }
 
-            apiMethod.requestSchema = buildPostBody(endpointParams);
-
             swaggerData.apiEndpoints.push(apiMethod);
         });
     });
 
     swaggerData.postmanCollection = buildPostmanCollection(swaggerData);
 
-    return swaggerData;
+    // Give every endpoint a simple ID
+    return {...swaggerData, apiEndpoints: swaggerData.apiEndpoints.map((endp, i) => ({...endp, id: i}))};
 };

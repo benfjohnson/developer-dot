@@ -5,8 +5,8 @@ import ConsoleLiveData from './consoleLiveData';
 // Helper that determines what part of the endpoint is shown in the `Request` input of
 // the ConsoleLiveData component
 const getRequest = (endpoint) => {
-    if (endpoint.postBodyData) {
-        return endpoint.postBodyData;
+    if (endpoint.postBody) {
+        return endpoint.postBody;
     } else if (endpoint.pathParams || endpoint.queryString) {
         return endpoint.curl;
     }
@@ -33,6 +33,7 @@ const ApiConsole = (props) => {
 ApiConsole.displayName = 'API Console';
 ApiConsole.propTypes = {
     endpoint: React.PropTypes.shape({
+        id: React.PropTypes.number.isRequired,
         apiResponse: React.PropTypes.shape({
             status: React.PropTypes.string.isRequired,
             statusMessage: React.PropTypes.string.isRequired,
@@ -62,10 +63,9 @@ ApiConsole.propTypes = {
                 value: React.PropTypes.any.isRequired
             })
         ),
-        postBody: React.PropTypes.object,
+        requestSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         showExcludedPostBodyFields: React.PropTypes.bool.isRequired
     }).isRequired,
-    id: React.PropTypes.number.isRequired,
     onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
     onFillConsoleSampleData: React.PropTypes.func.isRequired,
     onPathParamChanged: React.PropTypes.func.isRequired,

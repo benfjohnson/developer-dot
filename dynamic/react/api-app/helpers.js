@@ -46,14 +46,14 @@ const buildPostmanCollection = (appState) => {
             response: []
         };
 
-        if (endpoint.postBody) {
+        if (endpoint.requestSchema) {
             baseRequest.request.header.push({
                 key: 'Content-Type',
                 value: 'application/json'
             });
             baseRequest.request.body = {
                 mode: 'raw',
-                raw: JSON.stringify(fillPostBodySampleData(endpoint.postBody, endpoint.showExcludedPostBodyFields))
+                raw: JSON.stringify(fillPostBodySampleData(endpoint.requestSchema, endpoint.showExcludedPostBodyFields))
             };
         } else {
             baseRequest.request.body = {

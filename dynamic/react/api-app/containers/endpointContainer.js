@@ -1,16 +1,13 @@
 import {connect} from 'react-redux';
 import actions from '../../shared/actions';
 import EndpointComponent from '../components/endpoint';
-import request from 'request';
-import {replacePathParams} from '../../shared/helpers';
-
+import {replacePathParams, submitApiRequest} from '../../shared/helpers';
 const mapStateToProps = (state, ownProps) => {
     return {
         apiType: state.apiType,
         sampleAuthHeader: state.sampleAuthHeader,
         sampleContentType: state.sampleContentType,
-        endpoint: state.apiEndpoints[ownProps.id],
-        id: ownProps.id
+        endpoint: ownProps.endpoint
     };
 };
 
@@ -19,37 +16,22 @@ const mapDispatchToProps = (dispatch) => {
         onFillConsoleSampleData: (endpointId) => {
             dispatch(actions.fillConsoleSampleData(endpointId));
         },
-        onSubmitConsoleRequest: (endpoint, endpointId) => {
+        onSubmitConsoleRequest: (endpoint) => {
             /* If our endpoint has a defined proxy, use that to make our API console request
             * Otherwise, just use the path specified as `host` in Swagger file
             */
-            const requestPath = endpoint.proxyRoute || endpoint.path;
+            const requestPath = endpoint.proxy ? endpoint.proxy.route : endpoint.path;
 
             const url = (endpoint.pathParams ? replacePathParams(requestPath, endpoint.pathParams) : requestPath) + (endpoint.qsPath || '');
-            const apiReq = {
-                url: url,
-                headers: {}
-            };
+            const postBody = endpoint.postBody || null;
+            const proxy = endpoint.proxy && endpoint.proxy.key ? endpoint.proxy : null;
 
-            if (requestPath.indexOf('amazonaws') !== -1) {
-                apiReq.headers['api-key'] = 'b24757b69083fa34d27a7d814ea3a59c';
-            }
-
-            if (endpoint.postBody) {
-                apiReq.headers['Content-Type'] = 'application/json';
-                apiReq.body = JSON.stringify(endpoint.postBodyData);
-            }
-
-            request[endpoint.action](apiReq, (error, response, body) => {
-                let responseBody = {};
-
-                try {
-                    responseBody = JSON.parse(body);
-                } catch (err) {
-                    responseBody.error = err.message;
-                }
-
-                dispatch(actions.submitConsoleRequest(endpointId, responseBody, response, error));
+            submitApiRequest(url, endpoint.action, postBody, proxy)
+            .then((apiResponse) => {
+                dispatch(actions.submitConsoleRequest(endpoint.id, apiResponse.body, apiResponse.status, apiResponse.statusMessage));
+            })
+            .catch((err) => {
+                dispatch(actions.submitConsoleRequest(endpoint.id, err, err.message, err.message));
             });
         },
         onPostBodyInputChanged: (endpointId, paramName, newValue) => {

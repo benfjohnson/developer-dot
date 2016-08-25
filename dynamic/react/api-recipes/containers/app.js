@@ -1,8 +1,8 @@
 import RecipeConsoles from '../components/recipeConsoles';
 import {connect} from 'react-redux';
 import {actions} from '../actions';
-import request from 'request';
 import {replaceStringPlaceholders, buildQueryString} from '../helpers';
+import {submitApiRequest} from '../../shared/helpers';
 
 const mapStateToProps = (state) => {
     return {
@@ -19,30 +19,16 @@ const mapDispatchToProps = (dispatch) => {
             const requestPath = recipe.proxy ? recipe.proxy.route : recipe.path;
 
             const url = replaceStringPlaceholders(requestPath, recipe.request.pathParams || {}) + buildQueryString(recipe.request.queryString || {});
-            const apiReq = {
-                url: url,
-                headers: {}
-            };
 
-            if (recipe.proxy && recipe.proxy.key) {
-                apiReq.headers[recipe.proxy.key.name] = recipe.proxy.key.value;
-            }
+            const postBody = recipe.request && recipe.request.postBody ? recipe.request.postBody : null;
+            const proxy = recipe.proxy && recipe.proxy.key ? recipe.proxy : null;
 
-            if (recipe.request && recipe.request.postBody) {
-                apiReq.headers['Content-Type'] = 'application/json';
-                apiReq.body = JSON.stringify(recipe.request.postBody);
-            }
-
-            request[recipe.action](apiReq, (error, response, body) => {
-                let responseBody = {};
-
-                try {
-                    responseBody = JSON.parse(body);
-                } catch (err) {
-                    responseBody.error = err.message;
-                }
-
-                dispatch(actions.submitRequest(recipe.id, responseBody, response, error));
+            submitApiRequest(url, recipe.action, postBody, proxy)
+            .then((apiResponse) => {
+                dispatch(actions.submitRequest(recipe.id, apiResponse.body, apiResponse.status, apiResponse.statusMessage));
+            })
+            .catch((err) => {
+                dispatch(actions.submitRequest(recipe.id, err, err.message, err.message));
             });
         }
     };

@@ -8,7 +8,7 @@ import ExpanderIcon from './expanderIcon';
 const replaceSpaces = (str) => str.replace(/\s/g, '');
 
 // Give our endpoint an id based on its name for our clientside routing in jekyll
-const EndPointComponent = ({endpoint, sampleAuthHeader, sampleContentType, apiType, id, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleShowExcludedPostBodyProps}) => (
+const EndPointComponent = ({endpoint, sampleAuthHeader, sampleContentType, apiType, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleShowExcludedPostBodyProps}) => (
     <div id={replaceSpaces(endpoint.operationId)}>
         <div className={'endpoint-summary'}>
             <h2>{endpoint.name}</h2>
@@ -60,8 +60,8 @@ const EndPointComponent = ({endpoint, sampleAuthHeader, sampleContentType, apiTy
         </div>
         {endpoint.queryString ? <RequestParamsDocumentation paramType={'QUERY_STRING'} params={endpoint.queryString} /> : null}
         {endpoint.pathParams ? <RequestParamsDocumentation paramType={'PATH'} params={endpoint.pathParams} /> : null}
-        {endpoint.requestSchema ? <ApiDocumentation documentationFor={'REQUEST'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} requestOrResponseSchema={endpoint.requestSchema} /> : null}
-        {endpoint.responseSchema ? <ApiDocumentation documentationFor={'RESPONSE'} id={id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} requestOrResponseSchema={endpoint.responseSchema} /> : null}
+        {endpoint.requestSchema ? <ApiDocumentation documentationFor={'REQUEST'} endpointId={endpoint.id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} requestOrResponseSchema={endpoint.requestSchema} /> : null}
+        {endpoint.responseSchema ? <ApiDocumentation documentationFor={'RESPONSE'} endpointId={endpoint.id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} requestOrResponseSchema={endpoint.responseSchema} /> : null}
         {apiType === 'REST' ?
             <div>
                 <div className={'try-it-now-header'} data-target={`#${replaceSpaces(endpoint.operationId)}-console-body`} data-toggle={'collapse'} id={`${replaceSpaces(endpoint.operationId)}-console`} onClick={
@@ -80,7 +80,7 @@ const EndPointComponent = ({endpoint, sampleAuthHeader, sampleContentType, apiTy
                     <h5 className={'clickable'} style={{display: 'inline-block'}}>{'Try ' + endpoint.name + ' now!'}</h5>
                 </div>
                 <div className={'collapse'} id={`${replaceSpaces(endpoint.operationId)}-console-body`}>
-                    <ApiConsole endpoint={endpoint} id={id} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest} onToggleShowExcludedPostBodyProps={onToggleShowExcludedPostBodyProps} showExcludedPostBodyFields={endpoint.showExcludedPostBodyFields}/>
+                    <ApiConsole endpoint={endpoint} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest} onToggleShowExcludedPostBodyProps={onToggleShowExcludedPostBodyProps} showExcludedPostBodyFields={endpoint.showExcludedPostBodyFields}/>
                 </div>
             </div> : null}
     </div>
@@ -91,6 +91,7 @@ EndPointComponent.displayName = 'Api Endpoint';
 EndPointComponent.propTypes = {
     apiType: React.PropTypes.oneOf(['REST', 'SOAP']).isRequired,
     endpoint: React.PropTypes.shape({
+        id: React.PropTypes.number.isRequired,
         name: React.PropTypes.string.isRequired,
         description: React.PropTypes.string.isRequired,
         curl: React.PropTypes.string.isRequired,
@@ -114,7 +115,6 @@ EndPointComponent.propTypes = {
             })
         ),
         postBody: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
-        postBodyData: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         requestSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         responseSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
         showExcludedPostBodyFields: React.PropTypes.bool.isRequired,
@@ -126,7 +126,6 @@ EndPointComponent.propTypes = {
             ]).isRequired
         })
     }).isRequired,
-    id: React.PropTypes.number.isRequired,
     onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
     onFillConsoleSampleData: React.PropTypes.func.isRequired,
     onPathParamChanged: React.PropTypes.func.isRequired,

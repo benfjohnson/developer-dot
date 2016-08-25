@@ -1,14 +1,14 @@
 import actionTypes from './actionTypes';
 
 export default {
-    submitConsoleRequest: (endpointId, responseBody, response, error) => {
+    submitConsoleRequest: (endpointId, responseBody, status, statusMessage) => {
         return {
             type: actionTypes.SUBMIT_DONE,
             endpointId: endpointId,
             apiResponse: {
                 body: responseBody,
-                status: response ? response.statusCode.toString() : '',
-                statusMessage: error ? error.message : response.statusMessage || ''
+                status: status,
+                statusMessage: statusMessage
             }
         };
     },
