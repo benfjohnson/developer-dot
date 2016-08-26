@@ -45,6 +45,23 @@
     }
 }
 
+.highlighted-field {
+        background: #fceb51;
+        &.string {
+            color: darken(#71e4ff, 40%);
+        }
+        &.number, &.boolean, &.null {
+            color: darken(#fc88ff, 40%);
+        }
+        &.key {
+            color: darken(#8fffa7, 40%);
+        }
+    }
+
+.code-snippet-code-text .highlighted-field {
+    color: darken(#8fffa7, 40%);
+}
+
 .code-snippet-code-text {
     color: #8fffa7;
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
