@@ -21,13 +21,15 @@ const Recipe = (props) => {
             <div style={{marginTop: '10px', marginBottom: '10px'}}>
                 {props.recipe.recipeDescription}
             </div>
-            <RecipeForm onInputChange={props.onInputChange} onSubmitRequest={props.onSubmitRequest} recipe={props.recipe} request={props.recipe.request} />
+            <RecipeForm onInputChange={props.onInputChange} onSubmitRequest={props.onSubmitRequest} recipe={props.recipe} />
             <div className={'api-console-output'}>
                 <ConsoleLiveData
                     action={props.recipe.action}
+                    highlightedInputs={props.recipe.inputs}
                     path={props.recipe.path}
                     request={getRequest(props.recipe)}
-                    response={props.recipe.response} />
+                    response={props.recipe.response}
+                />
             </div>
         </div>
     );

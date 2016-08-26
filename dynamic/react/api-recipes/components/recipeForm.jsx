@@ -1,8 +1,10 @@
 /* Component to render an `API Console Recipe Form`
  * This form takes in:
- * `request`         : JSON Post Body with one or more fields containing a placeholder ${...}
- *  ...                value, to be replaced by values in the `inputs` variable
- * `inputs`          : Array of inputs we want to allow a user to manipulate
+ * `recipe`          : Object containing the following relevant properties:
+ *     -> `id`       : Simple int id so that our reducer can update the correct recipe
+ *     -> `request`  : JSON Post Body with one or more fields containing a placeholder ${...}
+ *     ...             value, to be replaced by values in the `inputs` variable
+ *     -> `inputs`   : Array of inputs we want to allow a user to manipulate
  * `onInputChange`   : Handler for mapping new form input to the corresponding ${} `request` fields
  * `onSubmitRequest` : Handler that determines how to render when we've received the results of an
  *  ...              : API request
@@ -10,7 +12,7 @@
 
 import React from 'react';
 
-const RecipeForm = ({recipe, request, onInputChange, onSubmitRequest}) => {
+const RecipeForm = ({recipe, onInputChange, onSubmitRequest}) => {
     return (
         <form>
             {recipe.inputs.map((input, i) => {
@@ -19,13 +21,13 @@ const RecipeForm = ({recipe, request, onInputChange, onSubmitRequest}) => {
                         <label>{input.name}</label>
                         {input.enum ?
                             <select className={'form-control'} onChange={(e) => {
-                                onInputChange(recipe.id, input.name, request, e.target.value);
+                                onInputChange(recipe.id, input.name, recipe.request, e.target.value);
                             }} value={input.value}>
                                 <option value={''}>{''}</option>
                                 {input.enum.map((opt, j) => (<option key={j} value={opt.value}>{opt.show}</option>))}
                             </select> :
                             <input className={'form-control'} onChange={(e) => {
-                                onInputChange(recipe.id, input.name, request, e.target.value);
+                                onInputChange(recipe.id, input.name, recipe.request, e.target.value);
                             }} value={input.value} />
                         }
                     </div>
@@ -43,8 +45,7 @@ RecipeForm.displayName = 'Recipe Form';
 RecipeForm.propTypes = {
     onInputChange: React.PropTypes.func.isRequired,
     onSubmitRequest: React.PropTypes.func.isRequired,
-    recipe: React.PropTypes.object.isRequired,
-    request: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]).isRequired
+    recipe: React.PropTypes.object.isRequired
 };
 
 export default RecipeForm;

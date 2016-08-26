@@ -217,7 +217,7 @@
         "react/jsx-uses-react": 1,
         "react/jsx-uses-vars": 1,
         "react/no-danger": 1,
-        "react/no-did-mount-set-state": [1, "allow-in-func"],
+        /* "react/no-did-mount-set-state": [1, "allow-in-func"], */
         "react/no-did-update-set-state": 1,
         "react/no-multi-comp": 1,
         "react/no-unknown-property": 1,
@@ -226,6 +226,6 @@
         "react/require-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/self-closing-comp": 1,
         "react/sort-comp": 1,
-        "react/wrap-multilines": 1
+        "react/jsx-wrap-multilines": 1
     }
 }
