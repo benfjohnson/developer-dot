@@ -14,6 +14,11 @@ export default {
         path: 'avatax/api-reference/tax/v1',
         product: 'avaTax'
     },
+    'avatax-rest-v2.json': {
+        name: 'Avatax REST API V2',
+        path: 'avatax/api-reference/tax/v2',
+        product: 'avaTax'
+    },
     'avatax-soap.yaml': {
         name: 'Avatax SOAP API',
         path: 'avatax/api-reference/tax/soap',
