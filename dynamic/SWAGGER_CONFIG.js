@@ -1,20 +1,25 @@
 export default {
-    'avatax15/batchsvc.yaml': {
+    'avatax/batchsvc.yaml': {
         name: 'Avatax BatchSvc SOAP API',
         path: 'avatax/api-reference/batch/soap',
         product: 'avaTax'
     },
-    'avatax15/accountsvc.yaml': {
+    'avatax/accountsvc.yaml': {
         name: 'Avatax AccountSvc SOAP API',
         path: 'avatax/api-reference/account/soap',
         product: 'avaTax'
     },
-    'avatax15/rest.yaml': {
+    'avatax/rest.yaml': {
         name: 'Avatax REST API',
         path: 'avatax/api-reference/tax/v1',
         product: 'avaTax'
     },
-    'avatax15/soap.yaml': {
+    'avatax/v2/rest.json': {
+        name: 'Avatax REST API v2 (BETA)',
+        path: 'avatax/api-reference/tax/v2',
+        product: 'avaTax'
+    },
+    'avatax/soap.yaml': {
         name: 'Avatax SOAP API',
         path: 'avatax/api-reference/tax/soap',
         product: 'avaTax'
@@ -39,7 +44,7 @@ export default {
         path: 'excise/api-reference/tax-determination/v5_22_0',
         product: 'excise'
     },
-    'landed-cost/calculate.json': {
+    'landedcost/calculate.json': {
         name: 'LandedCost',
         path: 'landedcost/api-reference/v3',
         product: 'landedcost'

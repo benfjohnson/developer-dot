@@ -41,8 +41,7 @@ const ApiDocumentationHeader = ({documentationFor, endpointId, isArray, nestingL
                         <ExpanderIcon startPosition={'UP'} />
                 </div>
             </div>
-            <div>
-            </div>
+            <div/>
             <div className={'collapse in'} id={`${endpointId}-${documentationFor}-${propertyName.replace(/:/g, '')}`}>
             {children}
             </div>

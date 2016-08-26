@@ -62,7 +62,7 @@ const ConsoleInputForm = ({endpoint, onFillConsoleSampleData, onSubmitConsoleReq
                     {'Reset'}
                 </span>
             </div> : null}
-            <div style={{background: 'blue', height: 'auto'}}></div>
+            <div style={{background: 'blue', height: 'auto'}} />
         </div>
     );
 };
