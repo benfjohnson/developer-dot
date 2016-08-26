@@ -7,9 +7,9 @@ comments: true
 categories: [avalara, developer relations, employee, hello, introduction, loke tan, Sales Tax APIs, team]
 product: blog
 doctype: blog
-imagesrc: /public/images/2015/05/Loke-Saber-257x300.jpg
+imagesrc: /public/images/blog/Loke-Saber-257x300.jpg
 ---
-<img src="/public/images/2015/05/Loke-Saber-257x300.jpg" alt="Loke" width="257" height="300" />
+<img src="/public/images/blog/Loke-Saber-257x300.jpg" alt="Loke" width="257" height="300" />
 
 Hi! My name is Loke (pronounced as in Joke but with an “L”).  I work with <a href="/blog/2015/05/12/oh-so-thats-who-that-is">Anya</a> and <a href="/blog/2015/05/05/subject-so-much-new-we-cant-even-was-because-awesome">Greg</a> in Avalara’s Developer Relations team. We’re the team that will be here for you when you need help making sense of Sales Tax and getting your software connected to our services.
 

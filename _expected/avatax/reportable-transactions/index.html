@@ -14,22 +14,22 @@
     <meta property="og:site_name" content="Avalara Developer Network"/>
     <meta property="og:description" content="Avalara AvaTax Accurate and easy sales tax calculation Automatically tie your non-taxable transactions directly to the correct exemption or reseller certificate. Determine accurate taxability & duties for millions of products and services in over 100 countries."/>
 
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="/public/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/public/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/public/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/public/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/public/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/public/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/public/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/public/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/public/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/public/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/public/images/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff ">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="/public/images/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff ">
 
     <link rel="stylesheet" href="/public/css/style.css">
@@ -37,13 +37,11 @@
 </head>
 
 
-
-
 <body id="top" data-spy="scroll" data-target="#bootstrap-scrollspy" data-product=avaTax>
 <header>
     <div class="pageTitle">
         <a href="/">
-            <img src="/public/images/AvLogo.svg" alt="Avalara Developer Network">
+            <img src="/public/images/Avalara_logo.svg" alt="Avalara Developer Network">
             <span>Developer</span>
         </a>
         <span class="slash">/&nbsp;</span><a href="/avatax">avaTax</a>
@@ -269,7 +267,7 @@
 <p>The simplest method is to set the DocType to SalesInvoice and set Commit to true on the GetTaxRequest, and at this time <em>if you are using our REST interface, this is the only way to do it</em>.</p>
 <p>If you are using the SOAP interface, you can commit documents either with that same method, by calling PostTax, or by calling PostTax and then CommitTax. PostTax will allow you to either commit a document immediately (without initiating a recalculation), or to set the document in an intermediate state between uncommitted and committed. The document can then be moved from the intermediate state to committed with CommitTax (or rolled back to an uncommitted state with CancelTax).</p>
 <div class="caption">
-    <img src="/public/images/2012/05/DevDotDiagrams_Uncommitted_document.svg" alt="Document Status shows as document header level property in the Admin Console" width="100%" />
+    <img src="/public/images/blog/DevDotDiagrams_Uncommitted_document.svg" alt="Document Status shows as document header level property in the Admin Console" width="100%" />
     Document Status shows as document header level property in the Admin Console
 </div>
 <p>Uncommitted and posted documents can be replaced with any subsequent GetTax calls to the same DocCode (Document Number) which has the effect of changing the Document Status back to Uncommitted. A committed transaction can not be overwritten.</p>
@@ -324,6 +322,8 @@ if (typeof GSFN !== "undefined") { GSFN.loadWidget(8157,{"containerId":"getsat-w
 <script src="/public/js/site.js"></script>
 
 
+<script src='/public/js/vendor/aws-sdk-2.5.3.min.js'></script>
+<script>AWS.config.region = 'us-west-2';</script>
 
 
 

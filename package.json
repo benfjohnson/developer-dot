@@ -10,8 +10,8 @@
     "build:dev": "postcss -u autoprefixer -o public/css/style.css public/css/style.css",
     "post-dev": "watch 'npm run build:dev' _sass | npm run watch-js-bundle | npm run watch-get-started-bundle | npm run watch-recipe-bundle | jekyll serve",
     "dev": "npm run build-all-pages && npm run post-dev",
-    "watch-js-bundle": "mkdir -p dynamic/public/javascript/build && watchify -g [ envify --NODE_ENV development ] -t babelify --extension=.jsx --extension=.js -vd dynamic/react/api-app/index.js --outfile public/js/api-bundle.js",
-    "build-js-bundle": "mkdir -p dynamic/public/javascript/build && browserify -g [ envify --NODE_ENV production ] -t babelify --extension=.jsx --extension=.js -vd dynamic/react/api-app/index.js --outfile public/js/api-bundle.js",
+    "watch-js-bundle": "watchify -g [ envify --NODE_ENV development ] -t babelify --extension=.jsx --extension=.js -vd dynamic/react/api-app/index.js --outfile public/js/api-bundle.js",
+    "build-js-bundle": "browserify -g [ envify --NODE_ENV production ] -t babelify --extension=.jsx --extension=.js -vd dynamic/react/api-app/index.js --outfile public/js/api-bundle.js",
     "build-all-pages": "browserify -t babelify --node --extension=.jsx --extension=.js -vd dynamic/build-all-pages.js --outfile /tmp/build-all-pages.js && node /tmp/build-all-pages.js",
     "build-page": "browserify -t babelify --node --extension=.jsx --extension=.js -vd dynamic/build-static-page.js --outfile /tmp/build-static-page.js && node /tmp/build-static-page.js",
     "watch-get-started-bundle": "watchify -g [ envify --NODE_ENV development ] -t babelify --extension=.jsx --extension=.js -vd dynamic/react/get-started/index.js --outfile public/js/get-started-bundle.js",
@@ -20,7 +20,8 @@
     "build-recipe-bundle": "browserify -g [ envify --NODE_ENV production ] -t babelify --extension=.jsx --extension=.js -vd dynamic/react/api-recipes/index.js --outfile public/js/recipe-bundle.js",
     "eslint": "eslint --ext .js,.jsx ./dynamic",
     "test-html-proofer": "bundle exec htmlproofer ./_site --only-4xx --check-favicon",
-    "test": "npm run build && clash && npm run test-html-proofer"
+    "pretest": "git clean -dXi && npm run build",
+    "test": "clash && npm run test-html-proofer"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
@@ -37,6 +38,7 @@
     "envify": "^3.4.1",
     "eslint": "^3.1.1",
     "eslint-plugin-react": "^6.1.2",
+    "fs-readdir-recursive": "^1.0.0",
     "mkdirp": "^0.5.1",
     "node-sass": "^3.8.0",
     "postcss-cli": "^2.5.2",

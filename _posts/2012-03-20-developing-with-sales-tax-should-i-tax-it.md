@@ -7,7 +7,7 @@ comments: true
 categories: [Development, exempt status, nexus, sales tax, taxability]
 product: avaTax
 doctype: blog
-imgsrc: /public/images/2012/03/sales-tax-logic1.png
+imgsrc: /public/images/blog/sales-tax-logic1.png
 ---
 <em>This is the second of three posts aimed at giving developers a basic understanding of the complexities of sales tax.</em>
 
@@ -19,7 +19,7 @@ imgsrc: /public/images/2012/03/sales-tax-logic1.png
 </ol>
 
 <div class="caption">
-    <img src="/public/images/2012/03/sales-tax-logic1.png" width="100%" alt="Before you apply a sales tax rate, you need to know the status of the seller, the product and the buyer." />
+    <img src="/public/images/blog/sales-tax-logic1.png" width="100%" alt="Before you apply a sales tax rate, you need to know the status of the seller, the product and the buyer." />
     Before you apply a sales tax rate, you need to know the status of the seller, the product and the buyer.
 </div>
 

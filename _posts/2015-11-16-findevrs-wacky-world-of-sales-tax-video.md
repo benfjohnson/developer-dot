@@ -7,9 +7,9 @@ comments: true
 categories: [Presentations, Sales Tax APIs]
 product: avaTax
 doctype: blog
-imgsrc: /public/images/2015/11/Screen-Shot-2015-11-09-at-2.26.01-PM.png
+imgsrc: /public/images/blog/Screen-Shot-2015-11-09-at-2.26.01-PM.png
 ---
-<img src="/public/images/2015/11/Screen-Shot-2015-11-09-at-2.26.01-PM.png" width="548" height="160" alt="FinDEVr 2015 Avalara" />
+<img src="/public/images/blog/Screen-Shot-2015-11-09-at-2.26.01-PM.png" width="548" height="160" alt="FinDEVr 2015 Avalara" />
 
 Looks like the guys from FinDEVr has published all the videos from the latest event in San Francisco on their website. Here's the video recording of the presentation I gave at the event.
 
