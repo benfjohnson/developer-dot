@@ -20,7 +20,7 @@
     "build-recipe-bundle": "browserify -g [ envify --NODE_ENV production ] -t babelify --extension=.jsx --extension=.js -vd dynamic/react/api-recipes/index.js --outfile public/js/recipe-bundle.js",
     "eslint": "eslint --ext .js,.jsx ./dynamic",
     "test-html-proofer": "bundle exec htmlproofer ./_site --only-4xx --check-favicon",
-    "pretest": "git clean -dXf && rm -rf _site && npm install && npm run build",
+    "pretest": "git clean -dXi && npm run build",
     "test": "clash && npm run test-html-proofer"
   },
   "devDependencies": {
