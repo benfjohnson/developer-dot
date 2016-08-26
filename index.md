@@ -82,7 +82,7 @@ nav: home
             <a href="/certcapture"><h4 class="visible-xs-block">Compliance document management<br /><br /></h4></a>
           </div>
           <div class="col-sm-2 col-sm-offset-1 col-md-offset-1 col-md-2 text-center">
-            <a href="/trustfile"><img src="/public/images/devdot/DevDot_GovtBldgBlue-02.svg" height="100" alt=""tax-retun filings/></a>
+            <a href="/trustfile"><img src="/public/images/devdot/DevDot_GovtBldgBlue-02.svg" height="100" alt="tax-retun filings"/></a>
             <a href="/trustfile"><h4 class="visible-xs-block">Tax-return filing<br /><br /></h4></a>
           </div>
         </div>
