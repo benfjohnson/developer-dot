@@ -139,7 +139,14 @@ const ConsoleLiveData = ({action, highlightedInputs, path, request, response}) =
 ConsoleLiveData.displayName = 'Console Live Data';
 ConsoleLiveData.propTypes = {
     action: React.PropTypes.string.isRequired,
-    highlightedInputs: React.PropTypes.arrayOf(React.PropTypes.string),
+    highlightedInputs: React.PropTypes.arrayOf(React.PropTypes.shape({
+        name: React.PropTypes.string.isRequired,
+        description: React.PropTypes.string.isRequired,
+        field: React.PropTypes.string.isRequired,
+        in: React.PropTypes.string.isRequired,
+        value: React.PropTypes.string.isRequired,
+        enum: React.PropTypes.array
+    })),
     path: React.PropTypes.string.isRequired,
     /* Not required, as a GET might not require any input (e.g. LandedCost `validateCredentials` route) */
     request: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array, React.PropTypes.string]),
