@@ -1,5 +1,5 @@
 # ONBOARDING
-swagger_path: onboarding.yaml
+swagger_path: onboarding/v1.yaml
 nav_link:
     title: Onboarding API
     path: /avatax/api-reference/onboarding/v1

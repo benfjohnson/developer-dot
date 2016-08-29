@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prebuild:deploy": "rm -f public/css/style.css.map && node-sass _sass/style.scss public/css/style.css",
+    "prebuild:deploy": "node-sass _sass/style.scss public/css/style.css",
     "build:deploy": "postcss -u autoprefixer -o public/css/style.css public/css/style.css",
-    "build": "npm run build:deploy && npm run build-js-bundle && npm run build-get-started-bundle && npm run build-recipe-bundle && npm run build-all-pages",
+    "build": "git clean -dXf --exclude='!node_modules' && npm run build:deploy && npm run build-js-bundle && npm run build-get-started-bundle && npm run build-recipe-bundle && npm run build-all-pages",
     "prebuild:dev": "node-sass --recursive --source-map=true --source-map-contents=true --source-map-embed=true _sass/style.scss public/css/style.css",
     "build:dev": "postcss -u autoprefixer -o public/css/style.css public/css/style.css",
     "post-dev": "watch 'npm run build:dev' _sass | npm run watch-js-bundle | npm run watch-get-started-bundle | npm run watch-recipe-bundle | jekyll serve",
-    "dev": "npm run build-all-pages && npm run post-dev",
+    "dev": "git clean -dXf --exclude='!node_modules' &&  npm run build-all-pages && npm run post-dev",
     "watch-js-bundle": "watchify -g [ envify --NODE_ENV development ] -t babelify --extension=.jsx --extension=.js -vd dynamic/react/api-app/index.js --outfile public/js/api-bundle.js",
     "build-js-bundle": "browserify -g [ envify --NODE_ENV production ] -t babelify --extension=.jsx --extension=.js -vd dynamic/react/api-app/index.js --outfile public/js/api-bundle.js",
     "build-all-pages": "browserify -t babelify --node --extension=.jsx --extension=.js -vd dynamic/build-all-pages.js --outfile /tmp/build-all-pages.js && node /tmp/build-all-pages.js",
@@ -19,9 +19,9 @@
     "watch-recipe-bundle": "watchify -g [ envify --NODE_ENV development ] -t babelify --extension=.jsx --extension=.js -vd dynamic/react/api-recipes/index.js --outfile public/js/recipe-bundle.js",
     "build-recipe-bundle": "browserify -g [ envify --NODE_ENV production ] -t babelify --extension=.jsx --extension=.js -vd dynamic/react/api-recipes/index.js --outfile public/js/recipe-bundle.js",
     "eslint": "eslint --ext .js,.jsx ./dynamic",
-    "test-html-proofer": "bundle exec htmlproofer ./_site --only-4xx --check-favicon",
-    "pretest": "git clean -dXi && npm run build",
-    "test": "clash && npm run test-html-proofer"
+    "pretest": "npm run build",
+    "test": "bundle exec jekyll build && ./.jekyll_test.sh -v",
+    "test-html-proofer": "npm run test && bundle exec htmlproofer ./_site --only-4xx --check-favicon"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

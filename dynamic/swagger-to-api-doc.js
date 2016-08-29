@@ -19,7 +19,9 @@ export default (fileName, apiName, apiPath, product) => {
 
     fs.access(swaggerPath, (swaggerPathErr) => {
         if (swaggerPathErr) {
+            /* eslint-disable no-console */
             console.log('\x1b[31m', swaggerPathErr, '\x1b[0m');
+            /* eslint-enable no-console */
         } else {
             new SwaggerParser().dereference(swaggerPath).then((swaggerDoc) => {
                 let staticState;

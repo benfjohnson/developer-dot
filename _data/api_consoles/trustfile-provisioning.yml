@@ -1,5 +1,5 @@
 # TRUSTFILE PROVISIONING
-swagger_path: trustfile-provisioning.yaml
+swagger_path: trustfile/app.trustfile/swagger.yaml
 nav_link:
     title: Trustfile - Provisioning
     path: /trustfile/api-reference/provisioning/v3

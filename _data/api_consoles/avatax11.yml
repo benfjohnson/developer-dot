@@ -1,6 +1,6 @@
 # AVATAX
 
-swagger_path: avatax-rest-v2.json
+swagger_path: avatax/v2/rest.json
 nav_link:
     title: Avatax REST API v2 (BETA)
     path: /avatax/api-reference/tax/v2

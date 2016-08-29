@@ -14,7 +14,7 @@ import 'whatwg-fetch';
 const recipeName = window.__RECIPE_FILE_NAME__;
 /* eslint-enable no-underscore-dangle */
 
-fetch(`/dynamic/react/api-recipes/recipes/${recipeName}`)
+fetch(`/public/data/recipes/${recipeName}`)
 .then((response) => {
     if (response.status !== 200) {
         throw new Error('Something went wrong loading our Api recipe configuration');

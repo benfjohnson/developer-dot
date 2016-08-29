@@ -1,5 +1,5 @@
 # EXCISE v5.22
-swagger_path: excise-v5-22-0.yaml
+swagger_path: excise/5_22_0.yaml
 nav_link:
     title: Excise v5.22.0
     path: /excise/api-reference/tax-determination/v5_22_0

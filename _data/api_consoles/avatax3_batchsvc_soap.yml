@@ -1,5 +1,5 @@
 # AVATAX BatchSvc SOAP
-swagger_path: avatax-batchsvc.yaml
+swagger_path: avatax/batchsvc.yaml
 nav_link:
     title: Avatax BatchSvc SOAP API
     path: /avatax/api-reference/batch/soap
