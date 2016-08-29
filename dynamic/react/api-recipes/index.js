@@ -6,6 +6,8 @@ import createLogger from 'redux-logger';
 import {Provider} from 'react-redux';
 import reducer from './reducers/reducer';
 import App from './containers/app';
+// fetch polyfill
+import 'whatwg-fetch';
 
 /* Each recipe page should set a window variable to corresponding recipe config it wants to render */
 /* eslint-disable no-underscore-dangle */

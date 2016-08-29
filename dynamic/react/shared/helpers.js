@@ -1,3 +1,6 @@
+// fetch polyfill
+import 'whatwg-fetch';
+
 // Returns a bool if no example data exists at any point in the schema of the Post Body, Query String or Path Param
 const hasExampleData = (type, paramObj = {}) => {
     if (type !== 'QUERY_STRING' && type !== 'POST_BODY' && type !== 'PATH_PARAM') {
