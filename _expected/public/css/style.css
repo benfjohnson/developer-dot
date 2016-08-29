@@ -6094,6 +6094,18 @@ h2, h3 {
   .code-snippet .punctuation {
     color: #fceb51; }
 
+.highlighted-field {
+  background: #fceb51; }
+  .highlighted-field.string {
+    color: #0085a4; }
+  .highlighted-field.number, .highlighted-field.boolean, .highlighted-field.null {
+    color: #b600bb; }
+  .highlighted-field.key {
+    color: #00c22a; }
+
+.code-snippet-code-text .highlighted-field {
+  color: #00c22a; }
+
 .code-snippet-code-text {
   color: #8fffa7;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;

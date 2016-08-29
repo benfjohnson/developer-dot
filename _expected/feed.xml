@@ -45,7 +45,7 @@
 
 &lt;p&gt;I cannot give a definitive statement on when our next node.js library is coming, but things are in the works.&lt;/p&gt;
 
-&lt;p&gt;If you’re going to be at the &lt;a href=&quot;http://integratecon.com/hackathon/&quot;&gt;Integrate Hackathon&lt;/a&gt; later this month, look for me. I’ll be wearing an Avalara t-shirt and I just might have some swag to distribute (like our &lt;a href=&quot;/public/images/2015/09/sticker.jpg&quot;&gt;“Dev &amp;amp; Taxes” sugar skull sticker&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;If you’re going to be at the &lt;a href=&quot;http://integratecon.com/hackathon/&quot;&gt;Integrate Hackathon&lt;/a&gt; later this month, look for me. I’ll be wearing an Avalara t-shirt and I just might have some swag to distribute (like our &lt;a href=&quot;/public/images/blog/sticker.jpg&quot;&gt;“Dev &amp;amp; Taxes” sugar skull sticker&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;Once the conference starts, watch for the ever-popular and ever-ebullient Loke-Uei Tan to join us as a conference attendee and &lt;i&gt;&lt;a href=&quot;http://integrate2015.sched.org/speaker/lokeuei.tan?iframe=no#.VfLrRRF3mUM&quot;&gt;conference speaker&lt;/a&gt;&lt;/i&gt;.&lt;/p&gt;
 
@@ -62,11 +62,11 @@
     
       <item>
         <title>Performance Optimization of the AvaTax Core Calculation Platform</title>
-        <description>&lt;p&gt;Over the past year we’ve invested in our core tax calculation engine, growing its features, expanding its reach, and making it faster and faster.  This has presented some amazing challenges, especially to materially speed up a service while its transactional load grows by 60% annually.  Simply keeping up with that level of growth can be a challenge.  So, how did we manage to more than triple the speed at which our current engine calculates and returns information while keeping it stable, growing, and expanding?&lt;/p&gt;
+        <description>&lt;p&gt;Over the past year we’ve invested in our core tax calculation engine, growing SAits features, expanding its reach, and making it faster and faster.  This has presented some amazing challenges, especially to materially speed up a service while its transactional load grows by 60% annually.  Simply keeping up with that level of growth can be a challenge.  So, how did we manage to more than triple the speed at which our current engine calculates and returns information while keeping it stable, growing, and expanding?&lt;/p&gt;
 
 &lt;p&gt;The improvement can be clearly seen in our internal latency metrics for typical tax documents over the last 18 months.  Average latency decreased steadily over time, with several larger drop offs from key performance initiatives.  The standard deviation gets smaller and smaller: a significant indicator of more predictable and stable performance.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/public/images/2016/01/Picture1.png&quot; width=&quot;977&quot; height=&quot;535&quot; alt=&quot;internal latency chart&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/public/images/blog/Picture1.png&quot; width=&quot;977&quot; height=&quot;535&quot; alt=&quot;internal latency chart&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The problem is certainly tractable as long as it’s approached in an organized and planned fashion and you have a great team behind the work.  However, there are three key factors to success which I regard highly during these initiatives.  In short, these are:&lt;/p&gt;
 &lt;ul&gt;
@@ -260,7 +260,7 @@ Avalara AvaTax&lt;/p&gt;
     
       <item>
         <title>FinDEVr's Wacky World of Sales Tax Video</title>
-        <description>&lt;p&gt;&lt;img src=&quot;/public/images/2015/11/Screen-Shot-2015-11-09-at-2.26.01-PM.png&quot; width=&quot;548&quot; height=&quot;160&quot; alt=&quot;FinDEVr 2015 Avalara&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;/public/images/blog/Screen-Shot-2015-11-09-at-2.26.01-PM.png&quot; width=&quot;548&quot; height=&quot;160&quot; alt=&quot;FinDEVr 2015 Avalara&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Looks like the guys from FinDEVr has published all the videos from the latest event in San Francisco on their website. Here’s the video recording of the presentation I gave at the event.&lt;/p&gt;
 
@@ -334,7 +334,7 @@ Avalara AvaTax&lt;/p&gt;
       <item>
         <title>Superset WSDL for Brazilian Calculation!</title>
         <description>&lt;div class=&quot;caption&quot;&gt;
-    &lt;img src=&quot;/public/images/2015/10/5064720453_1f3995a5d1_z-300x274.jpg&quot; width=&quot;300&quot; alt=&quot;More SOAP!&quot; /&gt;
+    &lt;img src=&quot;/public/images/blog/5064720453_1f3995a5d1_z-300x274.jpg&quot; width=&quot;300&quot; alt=&quot;More SOAP!&quot; /&gt;
     More SOAP!
 &lt;/div&gt;
 

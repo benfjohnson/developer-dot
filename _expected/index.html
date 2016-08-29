@@ -14,22 +14,22 @@
     <meta property="og:site_name" content="Avalara Developer Network"/>
     <meta property="og:description" content="Avalara AvaTax Accurate and easy sales tax calculation Automatically tie your non-taxable transactions directly to the correct exemption or reseller certificate. Determine accurate taxability & duties for millions of products and services in over 100 countries."/>
 
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="/public/images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/public/images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/public/images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/public/images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/public/images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/public/images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/public/images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/public/images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/public/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/public/images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/public/images/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff ">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="/public/images/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff ">
 
     <link rel="stylesheet" href="/public/css/style.css">
@@ -37,13 +37,11 @@
 </head>
 
 
-
-
 <body id="top" data-spy="scroll" data-target="#bootstrap-scrollspy" data-product=>
 <header>
     <div class="pageTitle">
         <a href="/">
-            <img src="/public/images/AvLogo.svg" alt="Avalara Developer Network">
+            <img src="/public/images/Avalara_logo.svg" alt="Avalara Developer Network">
             <span>Developer</span>
         </a>
         
@@ -197,7 +195,7 @@
         <div class="row">
           <div class="col-md-8 col-md-offset-2 text-center">
             <h1 class="h1pp ">Bring real-time tax calculation to your financial application</h1>
-            <img src="/public/images/Dev.com_Laptop_Code_outlines.svg" alt="Welcome to the Avalara Developer Portal" />
+            <img src="/public/images/homepage_hero.svg" alt="Welcome to the Avalara Developer Portal" />
           </div>
         </div>
         <div class="row hidden-xs">
@@ -270,7 +268,7 @@
             <a href="/certcapture"><h4 class="visible-xs-block">Compliance document management<br /><br /></h4></a>
           </div>
           <div class="col-sm-2 col-sm-offset-1 col-md-offset-1 col-md-2 text-center">
-            <a href="/trustfile">&lt;img src="/public/images/devdot/DevDot_GovtBldgBlue-02.svg" height="100" alt=""tax-retun filings/&gt;</a>
+            <a href="/trustfile"><img src="/public/images/devdot/DevDot_GovtBldgBlue-02.svg" height="100" alt="tax-retun filings" /></a>
             <a href="/trustfile"><h4 class="visible-xs-block">Tax-return filing<br /><br /></h4></a>
           </div>
         </div>
@@ -337,6 +335,8 @@
 <script src="/public/js/site.js"></script>
 
 
+<script src='/public/js/vendor/aws-sdk-2.5.3.min.js'></script>
+<script>AWS.config.region = 'us-west-2';</script>
 
 
 

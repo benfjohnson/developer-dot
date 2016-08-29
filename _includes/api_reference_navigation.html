@@ -41,16 +41,7 @@
         </li>
         {% else %}
         {% if page.product == api_console.product %}
-        <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a>
-            {% if api_console.endpoint_hashes %}
-            <ul>
-                {% for endpoint_hash in api_console.endpoint_hashes %}
-                {% capture full_endpoint_link %}{{api_console.nav_link.path}}{{endpoint_hash.link}}{% endcapture %}
-                <li><a href="{{ full_endpoint_link }}">{{ endpoint_hash.name }}</a></li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        </li>
+        <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a></li>
         {% endif %}
         {% endif %}
         {% endfor %}

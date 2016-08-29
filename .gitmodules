@@ -1,0 +1,3 @@
+[submodule "dynamic/swagger"]
+	path = dynamic/swagger
+	url = https://github.com/Avalara/Swagger.git

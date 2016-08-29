@@ -9,7 +9,7 @@ nav: home
         <div class="row">
           <div class="col-md-8 col-md-offset-2 text-center">
             <h1 class="h1pp ">Bring real-time tax calculation to your financial application</h1>
-            <img src="/public/images/Dev.com_Laptop_Code_outlines.svg" alt="Welcome to the Avalara Developer Portal" />
+            <img src="/public/images/homepage_hero.svg" alt="Welcome to the Avalara Developer Portal" />
           </div>
         </div>
         <div class="row hidden-xs">
@@ -82,7 +82,7 @@ nav: home
             <a href="/certcapture"><h4 class="visible-xs-block">Compliance document management<br /><br /></h4></a>
           </div>
           <div class="col-sm-2 col-sm-offset-1 col-md-offset-1 col-md-2 text-center">
-            <a href="/trustfile"><img src="/public/images/devdot/DevDot_GovtBldgBlue-02.svg" height="100" alt=""tax-retun filings/></a>
+            <a href="/trustfile"><img src="/public/images/devdot/DevDot_GovtBldgBlue-02.svg" height="100" alt="tax-retun filings"/></a>
             <a href="/trustfile"><h4 class="visible-xs-block">Tax-return filing<br /><br /></h4></a>
           </div>
         </div>
