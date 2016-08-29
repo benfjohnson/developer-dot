@@ -50,6 +50,7 @@
     "request": "^2.74.0",
     "swagger-parser": "^3.4.1",
     "watch": "^0.19.2",
-    "watchify": "^3.6.1"
+    "watchify": "^3.6.1",
+    "whatwg-fetch": "^1.0.0"
   }
 }
