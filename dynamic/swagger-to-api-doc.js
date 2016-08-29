@@ -17,23 +17,27 @@ export default (fileName, apiName, apiPath, product) => {
 
     const swaggerPath = path.join(__dirname, 'swagger', fileName);
 
-    new SwaggerParser().dereference(swaggerPath).then((swaggerDoc) => {
-        let staticState;
+    fs.access(swaggerPath, (swaggerPathErr) => {
+        if (swaggerPathErr) {
+            console.log('\x1b[31m', swaggerPathErr, '\x1b[0m');
+        } else {
+            new SwaggerParser().dereference(swaggerPath).then((swaggerDoc) => {
+                let staticState;
 
-        try {
-            staticState = parseSwaggerUi(swaggerDoc, swaggerPath);
-        } catch (e) {
-            /* eslint-disable no-console */
-            console.log('Error parsing swaggerDoc', e);
-            /* eslint-enable no-console */
-            throw new Error('Error parsing swaggerDoc');
-        }
+                try {
+                    staticState = parseSwaggerUi(swaggerDoc, swaggerPath);
+                } catch (e) {
+                    /* eslint-disable no-console */
+                    console.log('Error parsing swaggerDoc', e);
+                    /* eslint-enable no-console */
+                    throw new Error('Error parsing swaggerDoc');
+                }
 
-        const buildHtml = (reactHtml, initialState) => {
-            const endpointLinks = initialState.apiEndpoints.reduce((accum, endpt) => `${accum}["#${endpt.operationId.replace(/\s/g, '')}", "${endpt.name}"],\n`, '');
+                const buildHtml = (reactHtml, initialState) => {
+                    const endpointLinks = initialState.apiEndpoints.reduce((accum, endpt) => `${accum}["#${endpt.operationId.replace(/\s/g, '')}", "${endpt.name}"],\n`, '');
 
-            return (
-                `---
+                    return (
+                        `---
 layout: default
 title: "API Console"
 api_console: 1
@@ -48,38 +52,40 @@ endpoint_links: [
 <div id="api-console">${reactHtml}</div>
 <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
 <script src="/public/js/api-bundle.js"></script>`
-            );
-        };
+                    );
+                };
 
-        const store = createStore(reducer, staticState);
+                const store = createStore(reducer, staticState);
 
-        const staticHtml = renderToString(
-            <Provider store={store}>
-                <App />
-            </Provider>
-        );
-        const HTML = buildHtml(staticHtml, staticState);
-        const savePath = path.join(__dirname, '..', apiPath);
+                const staticHtml = renderToString(
+                    <Provider store={store}>
+                        <App />
+                    </Provider>
+                );
+                const HTML = buildHtml(staticHtml, staticState);
+                const savePath = path.join(__dirname, '..', apiPath);
 
-        mkdirp(savePath, (err) => {
-            if (err) {
-                throw err;
-            }
+                mkdirp(savePath, (err) => {
+                    if (err) {
+                        throw err;
+                    }
 
-            fs.writeFile(`${savePath}/index.html`, HTML, (writeErr) => {
-                if (writeErr) {
-                    throw writeErr;
-                }
+                    fs.writeFile(`${savePath}/index.html`, HTML, (writeErr) => {
+                        if (writeErr) {
+                            throw writeErr;
+                        }
+                        /* eslint-disable no-console */
+                        console.log(`/${apiPath}/index.html saved successfully!`);
+                        /* eslint-enable no-console */
+                    });
+                });
+            }).catch((err) => {
                 /* eslint-disable no-console */
-                console.log(`/${apiPath}/index.html saved successfully!`);
+                console.log('Error thrown in SwaggerParser', err);
                 /* eslint-enable no-console */
+                throw new Error(err);
             });
-        });
-    }).catch((err) => {
-        /* eslint-disable no-console */
-        console.log('Error thrown in SwaggerParser', err);
-        /* eslint-enable no-console */
-        throw new Error(err);
+        }
     });
 };
 
