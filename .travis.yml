@@ -12,5 +12,5 @@ before_script:
 script:
   - npm run test
 after_success:
-  # - if [ -n "$ALGOLIA_API_KEY" ]; then bundle exec jekyll algolia push; fi
+  - if [ -n "$ALGOLIA_API_KEY" ]; then bundle exec jekyll algolia push; fi
   - if [ -n "$secret_key" ]; then s3_website push; fi
