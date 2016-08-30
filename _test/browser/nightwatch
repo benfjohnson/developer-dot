@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+var path = require('path');
+
+require(path.normalize(path.join(__dirname, '/../../node_modules/nightwatch/bin/runner.js')));
