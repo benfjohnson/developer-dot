@@ -1,5 +1,5 @@
 # TRUSTFILE CONNECTOR
-swagger_path: trustfile-connector.yaml
+swagger_path: trustfile/connector-microservice/swagger.yaml
 nav_link:
     title: Trustfile - Connector
     path: /trustfile/api-reference/connector-management/v3

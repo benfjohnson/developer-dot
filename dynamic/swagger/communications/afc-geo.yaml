@@ -10,6 +10,7 @@ info:
 host: ezgeoasp.billsoft.com
 schemes:
   - https
+basePath: '/'
 produces:
   - application/xml
 consumes:

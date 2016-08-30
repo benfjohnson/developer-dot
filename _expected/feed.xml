@@ -28,7 +28,7 @@
 
 &lt;p&gt;I hope you like the new look and feel of the site, and let us know your feedback!&lt;/p&gt;
 </description>
-        <pubDate>Wed, 17 Aug 2016 23:55:00 -0700</pubDate>
+        <pubDate>2016-08-17</pubDate>
         <link>/blog/2016/08/17/new-site/</link>
         <guid isPermaLink="true">/blog/2016/08/17/new-site/</guid>
         
@@ -51,7 +51,7 @@
 
 &lt;p&gt;Loke, Anya, and I will also be working the Avalara presence at &lt;a href=&quot;http://sanfran2015.findevr.com/&quot;&gt;FinDevR&lt;/a&gt; in San Francisco next month, so if you’re going to be at that event, make sure to stop by our table and say hello.&lt;/p&gt;
 </description>
-        <pubDate>Sun, 06 Mar 2016 22:20:00 -0800</pubDate>
+        <pubDate>2016-03-06</pubDate>
         <link>/blog/2016/03/06/tax-rates-client-library-for-node/</link>
         <guid isPermaLink="true">/blog/2016/03/06/tax-rates-client-library-for-node/</guid>
         
@@ -118,7 +118,7 @@
 Senior Director of Engineering
 Avalara AvaTax&lt;/p&gt;
 </description>
-        <pubDate>Mon, 18 Jan 2016 09:00:00 -0800</pubDate>
+        <pubDate>2016-01-18</pubDate>
         <link>/blog/2016/01/18/performance-optimization-of-the-avatax-core-calculation-platform/</link>
         <guid isPermaLink="true">/blog/2016/01/18/performance-optimization-of-the-avatax-core-calculation-platform/</guid>
         
@@ -166,7 +166,7 @@ Avalara AvaTax&lt;/p&gt;
 
 &lt;p&gt;You can download the SDK here : &lt;a href=&quot;https://github.com/avadev/AvaTax-SOAP-PHP-SDK&quot;&gt;https://github.com/avadev/AvaTax-SOAP-PHP-SDK&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Thu, 14 Jan 2016 14:29:00 -0800</pubDate>
+        <pubDate>2016-01-14</pubDate>
         <link>/blog/2016/01/14/avatax-php-sdk-updated-to-v15-5-0-0/</link>
         <guid isPermaLink="true">/blog/2016/01/14/avatax-php-sdk-updated-to-v15-5-0-0/</guid>
         
@@ -223,7 +223,7 @@ Avalara AvaTax&lt;/p&gt;
 &lt;li&gt; If you're testing any client/server communication on Windows, be it an API client, web client, etc., download and learn how to use Fiddler. It's worth its weight in gold.&lt;/li&gt;
 &lt;/ol&gt;
 </description>
-        <pubDate>Wed, 23 Dec 2015 13:03:00 -0800</pubDate>
+        <pubDate>2015-12-23</pubDate>
         <link>/blog/2015/12/23/using-our-c-soap-libs-with-tls-1-2/</link>
         <guid isPermaLink="true">/blog/2015/12/23/using-our-c-soap-libs-with-tls-1-2/</guid>
         
@@ -249,7 +249,7 @@ Avalara AvaTax&lt;/p&gt;
 
 &lt;p&gt;I’m just highlighting some interesting changes here - there are still caveats and exceptions in the new terms that you should be aware of - but this does represent a significant change from our current 2015 terms. Happy reading!&lt;/p&gt;
 </description>
-        <pubDate>Tue, 15 Dec 2015 17:55:00 -0800</pubDate>
+        <pubDate>2015-12-15</pubDate>
         <link>/blog/2015/12/15/new-terms-conditions/</link>
         <guid isPermaLink="true">/blog/2015/12/15/new-terms-conditions/</guid>
         
@@ -272,7 +272,7 @@ Avalara AvaTax&lt;/p&gt;
 
 &lt;p&gt;Transactional Sales Tax is not the easiest thing for an organization to tackle. With millions of addresses, thousands of taxability rules and taxing jurisdictions involved, it can be a daunting task. We’ll take a whimsical look at some of the more interesting &amp;amp; bizarre sales tax cases, look at the technology that Avalara has built to solve this problem and take a deeper dive into the APIs that are available for developers.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 16 Nov 2015 09:00:00 -0800</pubDate>
+        <pubDate>2015-11-16</pubDate>
         <link>/blog/2015/11/16/findevrs-wacky-world-of-sales-tax-video/</link>
         <guid isPermaLink="true">/blog/2015/11/16/findevrs-wacky-world-of-sales-tax-video/</guid>
         
@@ -295,7 +295,7 @@ Avalara AvaTax&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;//www.slideshare.net/AnyaStettler/api-description-to-developer-portal-translating-and-testing-your-documentation&quot;&gt;API Description to Developer Portal: Translating and Testing your Documentation&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;//www.slideshare.net/AnyaStettler&quot;&gt;Anya Stettler&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 </description>
-        <pubDate>Fri, 13 Nov 2015 12:18:00 -0800</pubDate>
+        <pubDate>2015-11-13</pubDate>
         <link>/blog/2015/11/13/defragcon-and-apistrat-2015/</link>
         <guid isPermaLink="true">/blog/2015/11/13/defragcon-and-apistrat-2015/</guid>
         
@@ -322,7 +322,7 @@ Avalara AvaTax&lt;/p&gt;
 
 &lt;p&gt;Enjoy!&lt;/p&gt;
 </description>
-        <pubDate>Mon, 19 Oct 2015 09:00:00 -0700</pubDate>
+        <pubDate>2015-10-19</pubDate>
         <link>/blog/2015/10/19/findevr-integrate-2015-presentations/</link>
         <guid isPermaLink="true">/blog/2015/10/19/findevr-integrate-2015-presentations/</guid>
         
@@ -344,7 +344,7 @@ Avalara AvaTax&lt;/p&gt;
 
 &lt;p&gt;Our documentation and client libraries will continue to focus on the standard (v1) WSDL, but you can consume the v2 WSDL directly for all of your complex SOAP calculation needs!&lt;/p&gt;
 </description>
-        <pubDate>Thu, 15 Oct 2015 13:22:00 -0700</pubDate>
+        <pubDate>2015-10-15</pubDate>
         <link>/blog/2015/10/15/superset-wsdl-brazilian-calculation-2/</link>
         <guid isPermaLink="true">/blog/2015/10/15/superset-wsdl-brazilian-calculation-2/</guid>
         

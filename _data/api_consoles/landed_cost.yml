@@ -1,5 +1,5 @@
 # LANDED COST
-swagger_path: landedcost.json
+swagger_path: landedcost/calculate.json
 nav_link:
     title: LandedCost
     path: /landedcost/api-reference/v3
