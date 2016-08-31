@@ -1,5 +1,5 @@
 import {buildPostmanCollection, buildAuth} from './react/api-app/helpers';
-import {buildQsPath, buildCurl, buildInitialPostBodyData} from './react/shared/helpers';
+import {buildQueryString, reduceParamsToKeyValuePair, buildCurl, buildInitialPostBodyData} from './react/shared/helpers';
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
 const buildSchema = (schema, required = [], excludedProperties = [], propName = null) => {
@@ -115,7 +115,7 @@ export default (api, rootPath) => {
             const queryString = buildRequestParams(endpointParams, 'query');
 
             if (apiProxy) {
-                apiMethod.proxy = {...apiProxy, route: apiProxy.route + k};
+                apiMethod.proxy = apiProxy;
             }
 
             if (Object.keys(headerParams).length) {
@@ -126,7 +126,7 @@ export default (api, rootPath) => {
             }
             if (Object.keys(queryString).length) {
                 apiMethod.queryString = queryString;
-                apiMethod.qsPath = buildQsPath(queryString);
+                apiMethod.qsPath = buildQueryString(reduceParamsToKeyValuePair(queryString));
             }
 
             const requestSchema = buildRequestSchema(endpointParams);

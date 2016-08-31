@@ -1,8 +1,7 @@
 import RecipeConsoles from '../components/recipeConsoles';
 import {connect} from 'react-redux';
 import {actions} from '../actions';
-import {replaceStringPlaceholders, buildQueryString} from '../helpers';
-import {submitApiRequest} from '../../shared/helpers';
+import {replaceStringPlaceholders, buildQueryString, submitApiRequest, submitProxiedRequest} from '../../shared/helpers';
 
 const mapStateToProps = (state) => {
     return {
@@ -16,14 +15,25 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(actions.inputChange(recipeId, inputName, requestBody, newValue));
         },
         onSubmitRequest: (recipe) => {
-            const requestPath = recipe.proxy ? recipe.proxy.route : recipe.path;
+            let apiRequest;
 
-            const url = replaceStringPlaceholders(requestPath, recipe.request.pathParams || {}) + buildQueryString(recipe.request.queryString || {});
+            if (recipe.proxy) {
+                apiRequest = submitProxiedRequest.bind(null, {
+                    proxy: recipe.proxy,
+                    action: recipe.action,
+                    path: recipe.path,
+                    queryString: recipe.request.queryString || {},
+                    pathParams: recipe.request.pathParams || {},
+                    postBody: recipe.request.postBody || {}
+                });
+            } else {
+                const url = replaceStringPlaceholders(recipe.path, recipe.request.pathParams || {}) + buildQueryString(recipe.request.queryString || {});
+                const postBody = recipe.request && recipe.request.postBody ? recipe.request.postBody : null;
 
-            const postBody = recipe.request && recipe.request.postBody ? recipe.request.postBody : null;
-            const proxy = recipe.proxy && recipe.proxy.key ? recipe.proxy : null;
+                apiRequest = submitApiRequest.bind(null, url, recipe.action, postBody);
+            }
 
-            submitApiRequest(url, recipe.action, postBody, proxy)
+            apiRequest()
             .then((apiResponse) => {
                 dispatch(actions.submitRequest(recipe.id, apiResponse.body, apiResponse.status, apiResponse.statusMessage));
             })

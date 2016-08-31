@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import actions from '../../shared/actions';
 import EndpointComponent from '../components/endpoint';
-import {replacePathParams, submitApiRequest} from '../../shared/helpers';
+import {replaceStringPlaceholders, reduceParamsToKeyValuePair, submitApiRequest, submitProxiedRequest} from '../../shared/helpers';
 const mapStateToProps = (state, ownProps) => {
     return {
         apiType: state.apiType,
@@ -20,13 +20,28 @@ const mapDispatchToProps = (dispatch) => {
             /* If our endpoint has a defined proxy, use that to make our API console request
             * Otherwise, just use the path specified as `host` in Swagger file
             */
-            const requestPath = endpoint.proxy ? endpoint.proxy.route : endpoint.path;
 
-            const url = (endpoint.pathParams ? replacePathParams(requestPath, endpoint.pathParams) : requestPath) + (endpoint.qsPath || '');
-            const postBody = endpoint.postBody || null;
-            const proxy = endpoint.proxy && endpoint.proxy.key ? endpoint.proxy : null;
+            // create either a proxied or normal API request
+            let apiRequest;
 
-            submitApiRequest(url, endpoint.action, postBody, proxy)
+            if (endpoint.proxy) {
+                // Api Reference has complex pathParam/queryString structure (example, fieldType, etc.)
+                // Just want key value pairs that our recipes use
+                apiRequest = submitProxiedRequest.bind(null, {
+                    proxy: endpoint.proxy,
+                    action: endpoint.action,
+                    path: endpoint.path,
+                    queryString: reduceParamsToKeyValuePair(endpoint.queryString),
+                    pathParams: reduceParamsToKeyValuePair(endpoint.pathParams),
+                    postBody: endpoint.postBody || {}
+                });
+            } else {
+                const url = (endpoint.pathParams ? replaceStringPlaceholders(endpoint.path, reduceParamsToKeyValuePair(endpoint.pathParams)) : endpoint.path) + (endpoint.qsPath || '');
+                const postBody = endpoint.postBody || null;
+
+                apiRequest = submitApiRequest.bind(null, url, endpoint.action, postBody);
+            }
+            apiRequest()
             .then((apiResponse) => {
                 dispatch(actions.submitConsoleRequest(endpoint.id, apiResponse.body, apiResponse.status, apiResponse.statusMessage));
             })

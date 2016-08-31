@@ -46,43 +46,33 @@ const hasExcludedProperties = (postBodySchema) => {
     });
 };
 
-const replacePathParams = (path, pathParams, example = false) => {
-    let newPath = path;
+// Function that converts Map<string, {example, fieldType, required, value}>
+// to Map<string, string>. Recipes only store key-value string pairs for their path params and query strings
+// so use this when dealing with Get Started or Api Reference apps to reduce to that
+const reduceParamsToKeyValuePair = (params = {}) => Object.keys(params).reduce((accum, k) => ({...accum, [k]: params[k].value}), {});
 
-    if (example) {
-        if (pathParams && Object.keys(pathParams)) {
-            Object.keys(pathParams).forEach((key) => {
-                newPath = newPath.replace(`{${key}}`, pathParams[key]);
-            });
-        }
-    } else if (pathParams && Object.keys(pathParams).some((k) => pathParams[k].value)) {
-        Object.keys(pathParams).forEach((key) => {
-            // Replace all path param placeholders with their values, only if it's non-empty/null
-            if (pathParams[key].value) {
-                newPath = newPath.replace(`{${key}}`, pathParams[key].value);
-            }
-        });
-    }
-    return newPath;
+/* (String, HashMap<String, String>) -> String
+ * Replaces {}-delimited placeholder values in a string with their equiv values
+ * from a key-value reference object
+ */
+const replaceStringPlaceholders = (path, map = {}) => {
+    return Object.keys(map).reduce((accum, key) => {
+        return map[key] ? accum.replace(`{${key}}`, map[key]) : accum;
+    }, path);
 };
 
-const buildQsPath = (queryString, example = false) => {
-    let qsPath = '';
-    let addedQsParamCount = 0;
+/* (HashMap<String, String>) -> String
+ * Given a key-value store, builds a URL query string
+ * Returns an empty string if invalid map provided
+ */
+const buildQueryString = (map = {}) => {
+    const queryString = Object.keys(map).map((key) => map[key] ? `${key}=${map[key]}` : '').filter((keyValStr) => keyValStr !== '').join('&');
 
-    if (example) {
-        if (queryString && Object.keys(queryString)) {
-            qsPath = Object.keys(queryString).reduce((qs, param) => (`${qs}${addedQsParamCount++ > 0 ? '&' : ''}${param}=${queryString[param]}`), '?');
-        }
-    } else if (queryString && Object.keys(queryString).some((p) => queryString[p] && queryString[p].value)) {
-        qsPath = Object.keys(queryString).reduce((qs, param) => (queryString[param].value ? `${qs}${addedQsParamCount++ > 0 ? '&' : ''}${param}=${queryString[param].value}` : qs), '?');
-    }
-
-    return qsPath;
+    return queryString ? `?${queryString}` : '';
 };
 
 const buildCurl = (auth, endpoint) => {
-    const endpointPath = replacePathParams(endpoint.path, endpoint.pathParams);
+    const endpointPath = replaceStringPlaceholders(endpoint.path, reduceParamsToKeyValuePair(endpoint.pathParams));
 
     let curl = `curl -X ${endpoint.action.toUpperCase()} "${endpointPath}${endpoint.qsPath || ''}" -H "Accept: application/json"`;
 
@@ -168,35 +158,26 @@ const fillOrRemoveSampleData = (endpointState, remove = false) => {
 };
 /* ******* END FILL SAMPLE DATA AND RESET API CONSOLE DATA HELPERS ******* */
 
-/* (url: string, action: string, postBody?: {}|[], proxy?: {}) -> Promise
- * Given the above inputs, determines if an AWS proxy key is needed to auth the API request
- * The correct key is requested if so, and returns a promise which will yield the API request results
- */
-const submitApiRequest = (url, action, postBody = null, proxy = null) => {
-    return Promise.resolve()
-    .then(() => {
-        if (proxy && proxy.key) {
-            const [bucket, key] = proxy.key.location.split('/');
-            const keyBucket = new AWS.S3({params: {Bucket: bucket, Key: key}});
+const submitProxiedRequest = (endpoint) => {
+    const [bucket, key] = endpoint.proxy.key.location.split('/');
+    const keyBucket = new AWS.S3({params: {Bucket: bucket, Key: key}});
 
-            return keyBucket.makeUnauthenticatedRequest('getObject', {}).promise();
-        }
-        return null;
-    })
-    .then((bucketResponse) => {
-        const req = {
-            method: action,
-            headers: {}
-        };
-
-        if (postBody) {
-            req.headers['Content-Type'] = 'application/json';
-            req.body = JSON.stringify(postBody);
-        }
-        if (bucketResponse) {
-            req.headers[proxy.key.name] = bucketResponse.Body;
-        }
-        return fetch(url, req);
+    return keyBucket.makeUnauthenticatedRequest('getObject', {}).promise()
+    .then((bucketRes) => {
+        return fetch(endpoint.proxy.route, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                apiKey: bucketRes.Body.toString(),
+                method: endpoint.action,
+                route: endpoint.path,
+                queryString: endpoint.queryString || {},
+                pathParams: endpoint.pathParams || {},
+                postBody: endpoint.postBody
+            })
+        });
     })
     .then((rawApiRes) => {
         return rawApiRes.json().then((body) => {
@@ -209,4 +190,31 @@ const submitApiRequest = (url, action, postBody = null, proxy = null) => {
     });
 };
 
-export {hasExampleData, replacePathParams, buildQsPath, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData, fillPostBodySampleData, fillOrRemoveRequestParamSampleData, hasExcludedProperties, submitApiRequest};
+
+/* (url: string, action: string, postBody?: {}|[]) -> Promise
+ * Given the above inputs, determines if an AWS proxy key is needed to auth the API request
+ * The correct key is requested if so, and returns a promise which will yield the API request results
+ */
+const submitApiRequest = (url, action, postBody = null) => {
+    const req = {
+        method: action,
+        headers: {}
+    };
+
+    if (postBody) {
+        req.headers['Content-Type'] = 'application/json';
+        req.body = JSON.stringify(postBody);
+    }
+    return fetch(url, req)
+    .then((rawApiRes) => {
+        return rawApiRes.json().then((body) => {
+            return {
+                status: rawApiRes.status.toString(),
+                statusMessage: rawApiRes.statusText,
+                body: body
+            };
+        });
+    });
+};
+
+export {hasExampleData, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData, fillPostBodySampleData, fillOrRemoveRequestParamSampleData, hasExcludedProperties, submitApiRequest, submitProxiedRequest, reduceParamsToKeyValuePair, replaceStringPlaceholders, buildQueryString};
