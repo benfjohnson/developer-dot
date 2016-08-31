@@ -231,6 +231,8 @@ module.exports = {
                 response.DocCode = undefined;
                 response.DocDate = undefined;
                 response.Timestamp = undefined;
+                response.TaxDate = undefined;
+                expectedResponseCalcTax.TaxDate = undefined;
                 this.assert.equal(JSON.stringify(response), JSON.stringify(expectedResponseCalcTax));
                 /* eslint-enable no-invalid-this */
             })
