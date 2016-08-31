@@ -1,9 +1,11 @@
-.bundle
 _site
 node_modules
 
 **/api-reference/
-!_expected/**/api-reference/
+!expected/**/api-reference
 
 public/css/style.css*
 public/js/*-bundle.js
+
+_test/**/_results
+!_test/**/api-reference

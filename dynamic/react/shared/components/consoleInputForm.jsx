@@ -12,7 +12,7 @@ const ConsoleInputForm = ({endpoint, onFillConsoleSampleData, onSubmitConsoleReq
                 <h3 style={{display: 'inline-block'}}>{'Input'}</h3>
                 {hasExampleData('QUERY_STRING', endpoint.queryString) || hasExampleData('POST_BODY', endpoint.requestSchema) || hasExampleData('PATH_PARAM', endpoint.pathParams) ?
                 <span
-                    className='m-l-1 clickable hdr-btn-adj-text'
+                    className='m-l-1 clickable hdr-btn-adj-text fill-sample-data'
                     onClick={onFillConsoleSampleData.bind(null, endpoint.id)}
                 >
                 {' Fill with Sample Data'}
@@ -20,7 +20,7 @@ const ConsoleInputForm = ({endpoint, onFillConsoleSampleData, onSubmitConsoleReq
             </div>
             <div style={{marginBottom: '10px'}}>
                     <button
-                        className='btn btn-primary'
+                        className='btn btn-primary submit'
                         onClick={
                             (e) => {
                                 e.preventDefault();

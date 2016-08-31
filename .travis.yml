@@ -10,7 +10,7 @@ before_script:
   - npm install
   - bundle install
 script:
-  - npm run test
+  - npm test
 after_success:
   - if [ -n "$ALGOLIA_API_KEY" ]; then bundle exec jekyll algolia push; fi
   - if [ -n "$secret_key" ]; then s3_website push; fi
