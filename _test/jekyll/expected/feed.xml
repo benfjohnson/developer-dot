@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Developer </title>
+    <description></description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>New Site!</title>
+        <description>&lt;p&gt;Frequent visitors to the site may have noticed some big changes this week! With the resources of Avalara’s Incubator team, we’ve launched a brand new site that offers a number of great improvements.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;. With the old site, we were managing site plugins and platform-specific integrations. This was slowing us down, and slowing down the site. The new site is based on a static page generator, Jekyll, which allows us to manage things more easily and to load pages faster.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Open source all the docs: Jekyll runs off of a series of markdown files, which we’ve made &lt;a href=&quot;https://github.com/avalara/developer-dot&quot;&gt;public on GitHub&lt;/a&gt;. Now, if you see a typo, or want to offer a clarification, you can send us a pull request to change any page of the site.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Super cool API Reference pages: The API reference on the site are now based on publicly available &lt;a href=&quot;https://openapis.org/&quot;&gt;OAPI&lt;/a&gt; (fka Swagger) descriptions of those APIs (even the SOAP ones!). This bases the documentation structure on the same thing as the code, meaning there’s less opportunity for them to diverge.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Try it now consoles: You can now try the &lt;a href=&quot;/avatax/api-reference/tax/v1/#getTax&quot;&gt;AvaTax&lt;/a&gt; and &lt;a href=&quot;/landedcost/api-reference/v3/#calculate&quot;&gt;LandedCost&lt;/a&gt; APIs without even signing up for an account. In the API reference, each section has a ‘try it now’ feature, where you can hit the live service and see what kind of results you’ll get back. This is a great opportunity to try an operation before you start getting deep into development.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I hope you like the new look and feel of the site, and let us know your feedback!&lt;/p&gt;
+</description>
+        <pubDate>2016-08-17</pubDate>
+        <link>/blog/2016/08/17/new-site/</link>
+        <guid isPermaLink="true">/blog/2016/08/17/new-site/</guid>
+        
+        
+        <category>Sales Tax APIs</category>
+        
+      </item>
+    
+      <item>
+        <title>Tax Rates Client Library for Node</title>
+        <description>&lt;p&gt;The Avalara Developer Relations team is boldly going (cue music) into node.js. We released our first node.js helper library in August for the &lt;a href=&quot;http://www.taxrates.com&quot;&gt;TaxRates.com&lt;/a&gt; API. This is our &lt;i&gt;free&lt;/i&gt; and simple API for getting sales tax rates and authorities based on a street address or zip/postal code in the U.S. or Canada. The new node.js library makes it easy to integrate it into your node-based projects.&lt;/p&gt;
+
+&lt;p&gt;You can find sample code in the readme of the &lt;a href=&quot;https://github.com/YiddishNinja/TaxRates-node&quot;&gt;TaxRates-node Github repository&lt;/a&gt;. You can also embed it in your node.js project: &lt;code style=&quot;background-color: #e6e6e6; font-family: courier; font-size: 12px;&quot;&gt;npm install avalara-taxrates&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;I cannot give a definitive statement on when our next node.js library is coming, but things are in the works.&lt;/p&gt;
+
+&lt;p&gt;If you’re going to be at the &lt;a href=&quot;http://integratecon.com/hackathon/&quot;&gt;Integrate Hackathon&lt;/a&gt; later this month, look for me. I’ll be wearing an Avalara t-shirt and I just might have some swag to distribute (like our &lt;a href=&quot;/public/images/blog/sticker.jpg&quot;&gt;“Dev &amp;amp; Taxes” sugar skull sticker&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Once the conference starts, watch for the ever-popular and ever-ebullient Loke-Uei Tan to join us as a conference attendee and &lt;i&gt;&lt;a href=&quot;http://integrate2015.sched.org/speaker/lokeuei.tan?iframe=no#.VfLrRRF3mUM&quot;&gt;conference speaker&lt;/a&gt;&lt;/i&gt;.&lt;/p&gt;
+
+&lt;p&gt;Loke, Anya, and I will also be working the Avalara presence at &lt;a href=&quot;http://sanfran2015.findevr.com/&quot;&gt;FinDevR&lt;/a&gt; in San Francisco next month, so if you’re going to be at that event, make sure to stop by our table and say hello.&lt;/p&gt;
+</description>
+        <pubDate>2016-03-06</pubDate>
+        <link>/blog/2016/03/06/tax-rates-client-library-for-node/</link>
+        <guid isPermaLink="true">/blog/2016/03/06/tax-rates-client-library-for-node/</guid>
+        
+        
+        <category>Sales Tax APIs</category>
+        
+      </item>
+    
+      <item>
+        <title>Performance Optimization of the AvaTax Core Calculation Platform</title>
+        <description>&lt;p&gt;Over the past year we’ve invested in our core tax calculation engine, growing SAits features, expanding its reach, and making it faster and faster.  This has presented some amazing challenges, especially to materially speed up a service while its transactional load grows by 60% annually.  Simply keeping up with that level of growth can be a challenge.  So, how did we manage to more than triple the speed at which our current engine calculates and returns information while keeping it stable, growing, and expanding?&lt;/p&gt;
+
+&lt;p&gt;The improvement can be clearly seen in our internal latency metrics for typical tax documents over the last 18 months.  Average latency decreased steadily over time, with several larger drop offs from key performance initiatives.  The standard deviation gets smaller and smaller: a significant indicator of more predictable and stable performance.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/images/blog/Picture1.png&quot; width=&quot;977&quot; height=&quot;535&quot; alt=&quot;internal latency chart&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The problem is certainly tractable as long as it’s approached in an organized and planned fashion and you have a great team behind the work.  However, there are three key factors to success which I regard highly during these initiatives.  In short, these are:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;Teamwork: without everyone pulling in the same direction, improvements made by one engineer are quickly lost in the mix of getting new things done and growing feature set with the demands of the business and your customers.&lt;/li&gt;
+	&lt;li&gt;Patient Iteration: set up development processes that manage performance for you. Don’t shortcut and rely on crunching the numbers manually and doing manual analysis.  Set up your engineering infrastructure in such a way that everyone shares in the ebb and flow of performance numbers on a daily basis and can understand the impact of their own work directly on system performance.&lt;/li&gt;
+	&lt;li&gt;A Single Master: lastly, making sure you don’t have components or aspects of your architecture that are serving two masters. For instance, having a single database serving two components that must be optimized for both read and write operations can quickly become a saga of loss and gain, push and pull. I’ll go into more examples later in this post.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The upshot of much of this is that there are numerous things engineers can do that are extremely clever and greatly improve upon the performance of a single aspect of your service.  However, without a framework and thinking as an organized team backing it up, it’s not likely to get you the consistent results you’re seeking.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Teamwork&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The first thing I want to highlight is the team behind the optimization and management of any high performance service.  If your team isn’t on the same page with each other, then constant pressure on performance can often lead to finger pointing and worse.  If you’ve had turnover in your team, then this can also quickly lead to what I call “speaking ill of the dead” where past members of the team become excuses for the problems of today.&lt;/p&gt;
+
+&lt;p&gt;I’ve read numerous articles over the years about great engineers who have found amazingly clever ways to speed up specific components of a service.  These often represent fantastic improvements for various atomic areas of the service.  However, if the whole team isn’t on the same track with these improvements, they can often get lost in the shuffle of a sprint.&lt;/p&gt;
+
+&lt;p&gt;The team should be committed to the performance of a product as a group, and the build and test process of that team should tie into that commitment in a way that gives it daily visibility and correlates strongly with the work every engineer is doing right at that moment.  In our case, this was done by integrating performance metrics directly into our monitoring and logging process which were on display in our work area continuously.&lt;/p&gt;
+
+&lt;p&gt;I’ll talk about process here in a moment.  However, the team must live the process that’s put in place.  This is so much more critical than I believe some appreciate, which is why this process is painful for many.  The finest process and cleverest ideas can quickly be derailed by a toxic or competitive environment where only a few star players are recognized for their efforts.  The goal should be a broad effort across the entire team to live and breathe performance.  Every member of the team should have confidence that not only are their team members at work to support and invest in them, but are also there to provide visibility and recognition for all good work accomplished.  Even when the work is to sustain existing improvements, it’s challenging and should be acknowledged, not just the flashy and clever small optimizations.  I’ve also seen many large optimizations hurt by individuals focusing on clever single contributor contributions while the product as a whole suffers.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Patient Iteration&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;When the team is fully on board and excited about performance, fast iteration must become the science of your execution.  The team must first invest in an infrastructure that allows for fast iteration of performance evaluation.  That is, there should be an automated process in place that can deploy and update the product, conduct a load test, and send out performance numbers to the whole team quickly.  Much like the build process in a continuous integration environment, the whole team needs to understand the moment a check in makes an impact to performance.  This enables correcting negative impacts or capitalizing on unexpected improvements quickly.  The sooner a performance impact is recognized, the fresher that code is in someone’s mind and the faster and cheaper it is to capitalize on or correct before it becomes a large performance effort at the end of a project cycle.&lt;/p&gt;
+
+&lt;p&gt;While I describe this section as patient iteration, it’s critical for the infrastructure to be able to run an automated performance test pass as fast as possible. There will inevitably be various ideas about what might net better performance for your system and not all factors can always be fully weighed and incorporated into an easy comparison.  Sometimes, the only way to vet an idea is by a quick implementation and test, but you want to fail fast!  This helps give the entire process the ability to experiment and make data driven performance decisions.&lt;/p&gt;
+
+&lt;p&gt;Key tools in our case were automated builds, as well as automated unit and performance tests driven by Jenkins and JMeter.  This was simply part of our continuous build environment which we made sure got better and better each and every sprint cycle.  Improvement of measurement and build tools should be a regular investment the team makes.&lt;/p&gt;
+
+&lt;p&gt;So, where does the patience come into the equation?  Every performance improvement you make can shift the performance profile of almost every other component in the system.  While presumably this change has been tested and shown to improve overall system performance, other components and aspects of the system may now have new bottlenecks and require new analysis to make that next optimization step.  This is a patient process, which is why I highly advocate that this iterative and automated process is cooked into your team’s daily routine and psyche as early as possible in the project life cycle.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Serving Two Masters&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Over the years I’ve been asked to step in and resolve major performance issues in large scale database systems and massive service oriented systems.  In each of these cases, I am consistently surprised at how many times N-tier and component architecture is not well followed.  That is to say that I find single pieces of the architecture that are built to accomplish multiple primary—and often conflicting—goals.  The end result is a component that continues to teeter/totter, being fast in one aspect and slower in another.  A sprint spent on performance optimization results in a negative impact instead of improvement.  This constant back and forth results in a frustrated team and a service that simply isn’t performing to expectations.&lt;/p&gt;
+
+&lt;p&gt;Don’t be afraid to break things up!  Separate out databases that you’re trying to optimize for different aspects of the service, create new components that are targeted to service a very specific aspect of the architecture, and optimize it to do exactly that and no more.&lt;/p&gt;
+
+&lt;p&gt;Here’s an example of what I mean by a component serving more than a single master.  I’ve often seen products that rely on a single database in their design.  This one database handles the persistence of inbound data coming in from customers.  This same database also supports reporting and presentation needs.  As database indexes are added to optimize query performance for the reporting and user interface the insert performance begins to suffer as a result.  Then I see tables getting broken out and queuing systems used, etc.  New requirements and requests from Product Management to expand reporting begins to place high lock issues on the data tables further slowing down both presentation layer as well as data inserts.  Denormalized tables are added to try and alleviate this pressure, and more complexity is added within this single database; meanwhile none of the consumers are wholly thrilled with the performance of their areas.  This is a clear case where one database is trying to serve multiple masters. Creating multiple databases should strongly be considered in this use case.&lt;/p&gt;
+
+&lt;p&gt;There can often be a lack of willingness to break out more components within a services architecture due to an earnest desire to keep things simple.  However, by not breaking out the components, it will most likely cause an opposite effect.  The custom code and design that then goes into trying to create a single component that can do more than one thing very well and very fast becomes extremely complex.&lt;/p&gt;
+
+&lt;p&gt;Evaluate your design.  If you have an aspect of your service that you find difficult to get performant, think through it.  Is that component trying to serve more than one master in your system?  If so, consider breaking it up.  You will likely find that this results in more components, but components that are simpler to design, and easier to maintain and manage from a performance perspective.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Finally&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;From my perspective it’s clear: performance is a team sport.  It’s a group activity that requires everyone and every role on the team to buy into and commit, as fundamental to the day to day practices as secure and reliable code check-ins.  In our case we set a performance goal of getting our latency below what anyone thought was possible at the time.  While there is a tremendous feeling of accomplishment to major gains, performance must also be a practice that is started early in the life cycle of a product or project and remains a daily concern of all involved.  If started too late or not integrated into the day to day process of a team you can get down to the end of a project and discover that you may need to start a major initiative to get performance to where it needs to be.  However, if applied well and watched closely, the end result can be amazingly successful for an entire company and satisfying for the whole team.&lt;/p&gt;
+
+&lt;p&gt;Jonathan Wiggs&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.linkedin.com/in/wiggs&quot;&gt;https://www.linkedin.com/in/wiggs&lt;/a&gt;
+Senior Director of Engineering
+Avalara AvaTax&lt;/p&gt;
+</description>
+        <pubDate>2016-01-18</pubDate>
+        <link>/blog/2016/01/18/performance-optimization-of-the-avatax-core-calculation-platform/</link>
+        <guid isPermaLink="true">/blog/2016/01/18/performance-optimization-of-the-avatax-core-calculation-platform/</guid>
+        
+        
+        <category>avalara</category>
+        
+        <category>avatax</category>
+        
+        <category>core calculation</category>
+        
+        <category>Experience</category>
+        
+        <category>optimization</category>
+        
+        <category>patient iteration</category>
+        
+        <category>performance</category>
+        
+        <category>Sales Tax APIs</category>
+        
+        <category>Scaling</category>
+        
+        <category>speed</category>
+        
+        <category>teamwork</category>
+        
+      </item>
+    
+      <item>
+        <title>AvaTax PHP SDK updated to v15.5.0.0</title>
+        <description>&lt;p&gt;We’ve just recently updated our PHP library on &lt;a href=&quot;https://github.com/avadev/AvaTax-SOAP-PHP-SDK&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Release Notes:&lt;/p&gt;
+&lt;ol&gt;
+	&lt;li&gt;Match with the latest AvaTax WSDL v15.5.0.0.&lt;/li&gt;
+	&lt;li&gt;Added the following functions in AccountSvc,
+&lt;ol&gt;
+	&lt;li&gt;Ping&lt;/li&gt;
+	&lt;li&gt;IsAuthorized&lt;/li&gt;
+	&lt;li&gt;FetchCompany – It fetches all companies for given Account Number-License Key.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+	&lt;li&gt;Sample code &amp;amp; unit test cases have been updated &amp;amp; added&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You can download the SDK here : &lt;a href=&quot;https://github.com/avadev/AvaTax-SOAP-PHP-SDK&quot;&gt;https://github.com/avadev/AvaTax-SOAP-PHP-SDK&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>2016-01-14</pubDate>
+        <link>/blog/2016/01/14/avatax-php-sdk-updated-to-v15-5-0-0/</link>
+        <guid isPermaLink="true">/blog/2016/01/14/avatax-php-sdk-updated-to-v15-5-0-0/</guid>
+        
+        
+        <category>api</category>
+        
+        <category>avatax</category>
+        
+        <category>php</category>
+        
+        <category>Sales Tax APIs</category>
+        
+        <category>sdk</category>
+        
+        <category>soap</category>
+        
+        <category>updated</category>
+        
+        <category>v15.5.0.0</category>
+        
+        <category>wsdl</category>
+        
+      </item>
+    
+      <item>
+        <title>Using our C# SOAP Libs with TLS 1.2</title>
+        <description>&lt;p&gt;One of the fun parts of my job is getting to field developer support requests. Besides the joy of being able to solve a customer’s problem and make them happy, I often get to fire up a development environment I’m unfamiliar with and learn something myself.&lt;/p&gt;
+
+&lt;p&gt;This past week, we had a question about &lt;a href=&quot;https://community.avalara.com/avalara/topics/it-seems-that-avalara-avatax-adapter-dll-cant-use-tls-1-2-protocol-and-that-affects-our-pci-compliance&quot;&gt;getting Avalara’s C# SOAP library to use TLS 1.2&lt;/a&gt;. TL;DR If you just want the instructions with no story, &lt;a href=&quot;https://community.avalara.com/avalara/topics/it-seems-that-avalara-avatax-adapter-dll-cant-use-tls-1-2-protocol-and-that-affects-our-pci-compliance&quot;&gt;visit the post on getting Avalara’s C# SOAP library to use TLS 1.2&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;The Story&lt;/h3&gt;
+
+&lt;p&gt;A developer was only able to get &lt;a href=&quot;https://github.com/avadev/AvaTax-Calc-SOAP-csharp&quot;&gt;Avalara’s AvaTax SOAP library for C#&lt;/a&gt; working with SSL 3.0 / TLS 1.0 and realized it was going to impact their ability to be PCI compliant. They posted a question to our community site and it got assigned to me.&lt;/p&gt;
+
+&lt;p&gt;I was at home when I had a chance to answer, so I fired up Visual Studio Community Edition on my machine, downloaded &lt;a href=&quot;https://github.com/avadev/AvaTax-Calc-SOAP-csharp&quot;&gt;Avalara’s AvaTax SOAP library for C#&lt;/a&gt; from Github, downloaded &lt;a href=&quot;http://www.telerik.com/download/fiddler&quot;&gt;Fiddler&lt;/a&gt;, and got to work.&lt;/p&gt;
+
+&lt;p&gt;For those of you not familiar with Fiddler, it’s a great tool for analyzing the network traffic (particularly HTTP/S) coming in and out of your machine, looking at headers and bodies of HTTP/S queries and responses, etc. It’s helped me solve a number of problems with API clients without adding debug code, because I could watch the live traffic between the client and the server.&lt;/p&gt;
+
+&lt;p&gt;As soon as I got the sample up and running, I could see via Fiddler’s inspection of the traffic with Avalara that it was negotiating an SSL 3.0 / TLS 1.0 connection. So I did what any good programmer does, I Googled how to implement a TLS 1.2 connection in C#. There were a number of answers that all suggested adding the &lt;code&gt;System.Net&lt;/code&gt; assembly in the &lt;code&gt;Using&lt;/code&gt; directives and adding the following line to my code.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;n&quot;&gt;ServicePointManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SecurityProtocol&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SecurityProtocolType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Tls12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;But whenever I tried to run that, it told me that &lt;code&gt;Tls12&lt;/code&gt; wasn’t part of the SecurityProtocolType enum. I dug down and found that the enum only had &lt;code&gt;Ssl&lt;/code&gt; and &lt;code&gt;Tls&lt;/code&gt; as values. I thought for a bit and remembered that all the articles recommending this approach said that TLS 1.2 had been implemented in .Net 4.5.&lt;/p&gt;
+
+&lt;p&gt;Now I’m not normally a C# developer, but I was lucky enough to write the docs for a C# library that accompanied Microsoft’s first release of WebDriver for the short-lived Internet Explorer Developer Channel, and I knew from writing those docs that there were various targeting variables in the project properties (because you had to check/adjust certain variables to get WebDriver to run). I went into the project properties, and sure enough, we were targeting .Net 4.0 instead of 4.5 or higher. I upgraded that to .Net 4.5, tested the code again, and Fiddler started reporting TLS 1.2 connections.&lt;/p&gt;
+
+&lt;p&gt;I &lt;a href=&quot;https://community.avalara.com/avalara/topics/it-seems-that-avalara-avatax-adapter-dll-cant-use-tls-1-2-protocol-and-that-affects-our-pci-compliance&quot;&gt;wrote up my response, posted it to our community site&lt;/a&gt;, and was able to solve that developer’s issue.&lt;/p&gt;
+
+&lt;p&gt;What are my top 3 takeaways for you from this?&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt; Yes, you can run our AvaTax code library for C# with TLS 1.2.&lt;/li&gt;
+&lt;li&gt; Never be afraid to Google stuff. :-)&lt;/li&gt;
+&lt;li&gt; If you're testing any client/server communication on Windows, be it an API client, web client, etc., download and learn how to use Fiddler. It's worth its weight in gold.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>2015-12-23</pubDate>
+        <link>/blog/2015/12/23/using-our-c-soap-libs-with-tls-1-2/</link>
+        <guid isPermaLink="true">/blog/2015/12/23/using-our-c-soap-libs-with-tls-1-2/</guid>
+        
+        
+        <category>Sales Tax APIs</category>
+        
+      </item>
+    
+      <item>
+        <title>New Terms and Conditions</title>
+        <description>&lt;p&gt;Avalara just posted a new version of our &lt;a href=&quot;http://www.avalara.com/new-terms/&quot;&gt;AvaTax terms and conditions&lt;/a&gt;, effective January 1, 2016. New Ts and Cs are always an opportunity for some fun recreational reading, but these are especially exciting. From section 3.b.ii:&lt;/p&gt;
+&lt;blockquote&gt; ii. If Customer does submit Documents to the AvaTax Service in a billing month, but usage of the AvaTax APIs or the number of invoice lines submitted significantly exceeds ordinary AvaTax usage in that month, the following calculations may be used to determine “Document” usage during that month:
+1. Every 50 API calls to the address validation service will count as one “Document”;
+2. Every 100 API calls to the tax calculation service will count as one “Document”; and
+3. Every 1,000 invoice lines sent to the tax calculation service will count as one “Document”.&lt;/blockquote&gt;
+&lt;p&gt;That’s a big change! Our existing terms of service only allow 10 address validation calls, 10 tax calculations, or 35 line items before that count outbilled your finalized transactions!&lt;/p&gt;
+
+&lt;p&gt;Unnecessary API calls should still be avoided (100 is still finite, and no need to introduce additional processing time where it isn’t needed), but this ratio should allow integrations a little more flexibility.&lt;/p&gt;
+
+&lt;p&gt;Another big change can be found in section 3.a:&lt;/p&gt;
+&lt;blockquote&gt;All such records will be considered Documents, regardless of the tax result generated by the AvaTax Service, except for records on which no tax is calculated solely because the Customer has configured the AvaTax Service to not calculate tax on transactions in the jurisdiction of the destination address included on the record.&lt;/blockquote&gt;
+&lt;p&gt;Prior to January 1, 2016, we counted calculations and documents as billable regardless of their destination or the tax calculated on them. After the change, we will not bill for non-nexus transactions (that is, transactions with ship-to addresses in non-nexus states). This will have the biggest impact on businesses with limited state registrations, and removes the need to “suppress” non-nexus calls to the AvaTax service.&lt;/p&gt;
+
+&lt;p&gt;I’m just highlighting some interesting changes here - there are still caveats and exceptions in the new terms that you should be aware of - but this does represent a significant change from our current 2015 terms. Happy reading!&lt;/p&gt;
+</description>
+        <pubDate>2015-12-15</pubDate>
+        <link>/blog/2015/12/15/new-terms-conditions/</link>
+        <guid isPermaLink="true">/blog/2015/12/15/new-terms-conditions/</guid>
+        
+        
+        <category>Sales Tax APIs</category>
+        
+      </item>
+    
+      <item>
+        <title>FinDEVr's Wacky World of Sales Tax Video</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/public/images/blog/Screen-Shot-2015-11-09-at-2.26.01-PM.png&quot; width=&quot;548&quot; height=&quot;160&quot; alt=&quot;FinDEVr 2015 Avalara&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Looks like the guys from FinDEVr has published all the videos from the latest event in San Francisco on their website. Here’s the video recording of the presentation I gave at the event.&lt;/p&gt;
+
+&lt;iframe class=&quot;wistia_embed&quot; src=&quot;http://fast.wistia.net/embed/iframe/ivqjxi290r&quot; name=&quot;wistia_embed&quot; width=&quot;480&quot; height=&quot;298&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://finovate.com/findevr-live-avalara-helps-developers-navigate-the-wacky-world-of-sales-tax/&quot;&gt;http://finovate.com/findevr-live-avalara-helps-developers-navigate-the-wacky-world-of-sales-tax/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The Synopsis :&lt;/p&gt;
+
+&lt;p&gt;Transactional Sales Tax is not the easiest thing for an organization to tackle. With millions of addresses, thousands of taxability rules and taxing jurisdictions involved, it can be a daunting task. We’ll take a whimsical look at some of the more interesting &amp;amp; bizarre sales tax cases, look at the technology that Avalara has built to solve this problem and take a deeper dive into the APIs that are available for developers.&lt;/p&gt;
+</description>
+        <pubDate>2015-11-16</pubDate>
+        <link>/blog/2015/11/16/findevrs-wacky-world-of-sales-tax-video/</link>
+        <guid isPermaLink="true">/blog/2015/11/16/findevrs-wacky-world-of-sales-tax-video/</guid>
+        
+        
+        <category>Presentations</category>
+        
+        <category>Sales Tax APIs</category>
+        
+      </item>
+    
+      <item>
+        <title>DefragCon and APIStrat 2015!</title>
+        <description>&lt;p&gt;This week I had the great pleasure of talking at &lt;a href=&quot;http://defragcon.com/&quot;&gt;DefragCon 2015&lt;/a&gt;. I talked about the technological and political implications around using API descriptions to build a Developer Portal. This is something we’ve been working through here at Avalara - how to minimize the delay between updates to the service and updates to our site? How do we know that everything is correct forever with no manual work???&lt;/p&gt;
+
+&lt;p&gt;If this is something that interests you, reach out or take a look at my slides!&lt;/p&gt;
+
+&lt;p&gt;If you’re going to be in Austin for &lt;a href=&quot;http://austin2015.apistrat.com/&quot;&gt;APIStrat&lt;/a&gt; next week, I’ll be talking about this some more!&lt;/p&gt;
+
+&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/CM0pERuspeevIN&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&quot; allowfullscreen=&quot;&quot;&gt; &lt;/iframe&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;//www.slideshare.net/AnyaStettler/api-description-to-developer-portal-translating-and-testing-your-documentation&quot;&gt;API Description to Developer Portal: Translating and Testing your Documentation&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;//www.slideshare.net/AnyaStettler&quot;&gt;Anya Stettler&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>2015-11-13</pubDate>
+        <link>/blog/2015/11/13/defragcon-and-apistrat-2015/</link>
+        <guid isPermaLink="true">/blog/2015/11/13/defragcon-and-apistrat-2015/</guid>
+        
+        
+        <category>Sales Tax APIs</category>
+        
+      </item>
+    
+      <item>
+        <title>FinDEVr &amp; Integrate 2015 Presentations</title>
+        <description>&lt;iframe style=&quot;border: 1px solid #CCC; border-width: 1px; margin-bottom: 5px; max-width: 100%;&quot; src=&quot;//www.slideshare.net/slideshow/embed_code/key/CSNMpjQc5Ev5Yn&quot; width=&quot;425&quot; height=&quot;355&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt; &lt;/iframe&gt;
+
+&lt;p&gt;&lt;strong&gt; &lt;a ref=&quot;//www.slideshare.net/lokeuei/how-to-build-a-successful-api-certification-program-integrate-2015&quot;&gt;How to Build a Successful API Certification Program - Integrate 2015&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;//www.slideshare.net/lokeuei&quot;&gt;Loke Tan&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A few weeks ago I had the honor of speaking at two developer conferences that were held in California. The first was &lt;a href=&quot;http://integratecon.com&quot;&gt;Integrate 2015&lt;/a&gt; which is also part of the &lt;a href=&quot;http://apiworld.co&quot;&gt;API World &lt;/a&gt;series of events. My talk was titled “How to build a successful API Certification Program” and it details all the learnings and experience we’ve gone through building and operating our own Certification Program here at Avalara.&lt;/p&gt;
+
+&lt;iframe style=&quot;border: 1px solid #CCC; border-width: 1px; margin-bottom: 5px; max-width: 100%;&quot; src=&quot;//www.slideshare.net/slideshow/embed_code/key/p7uzgolAQyYR5V&quot; width=&quot;425&quot; height=&quot;355&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt; &lt;/iframe&gt;
+
+&lt;p&gt;&lt;strong&gt; &lt;a href=&quot;//www.slideshare.net/lokeuei/the-wacky-world-of-sales-tax-findevr-2015&quot;&gt;The Wacky World of Sales Tax - FinDEVr 2015&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;//www.slideshare.net/lokeuei&quot;&gt;Loke Tan&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The second talk was at the Financial Developers event called &lt;a href=&quot;http://findevr.com&quot;&gt;FinDEVr&lt;/a&gt; where over 500 financial developers &amp;amp; business development attendees met to share ideas about their financial related technologies. My talk was titled “The Wacky World of Sales Tax” and it was a whimsical look at the complex business of Sales Tax and how developer can benefit from working with Avalara’s API.&lt;/p&gt;
+
+&lt;p&gt;Both the presentations are available on &lt;a href=&quot;http://www.slideshare.net/lokeuei&quot;&gt;Slideshare&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+</description>
+        <pubDate>2015-10-19</pubDate>
+        <link>/blog/2015/10/19/findevr-integrate-2015-presentations/</link>
+        <guid isPermaLink="true">/blog/2015/10/19/findevr-integrate-2015-presentations/</guid>
+        
+        
+        <category>Sales Tax APIs</category>
+        
+      </item>
+    
+      <item>
+        <title>Superset WSDL for Brazilian Calculation!</title>
+        <description>&lt;div class=&quot;caption&quot;&gt;
+    &lt;img src=&quot;/public/images/blog/5064720453_1f3995a5d1_z-300x274.jpg&quot; width=&quot;300&quot; alt=&quot;More SOAP!&quot; /&gt;
+    More SOAP!
+&lt;/div&gt;
+
+&lt;p&gt;As we’ve moved to providing better and more precise&lt;a href=&quot;http://www.avalara.com/blog/2015/03/10/avalara-adds-brazil-to-global-tax-compliance-cloud-platform/&quot;&gt; international calculation&lt;/a&gt;, Avalara has found that our current API doesn’t capture everything we might need. We want to provide more precise calculations, but we also want our existing integrations to continue to seamlessly calculate. As such, we have launched a second version of the AvaTax WSDL. This version will play host to all of our Global functionality to prevent introducing breaking changes for customers who aren’t going to take advantage of that functionality. The v2 WSDL is available here: https://development.avalara.net/tax/taxsvcv2.wsdl&lt;/p&gt;
+
+&lt;p&gt;The v2 WSDL is a superset of functionality in the v1, with the addition of items such as VAT number and fields needed for Brazil. If you’re calculating against our current WSDL (or the current REST API), and/or if you don’t need more complex international calculations (e.g. for Brazil), no need to switch! This alternate WSDL is intended only to accommodate those more complex global use cases for customers and partners that need them.&lt;/p&gt;
+
+&lt;p&gt;Our documentation and client libraries will continue to focus on the standard (v1) WSDL, but you can consume the v2 WSDL directly for all of your complex SOAP calculation needs!&lt;/p&gt;
+</description>
+        <pubDate>2015-10-15</pubDate>
+        <link>/blog/2015/10/15/superset-wsdl-brazilian-calculation-2/</link>
+        <guid isPermaLink="true">/blog/2015/10/15/superset-wsdl-brazilian-calculation-2/</guid>
+        
+        
+        <category>Sales Tax APIs</category>
+        
+      </item>
+    
+  </channel>
+</rss>

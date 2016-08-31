@@ -1,0 +1,74 @@
+{
+    "src_folders": "_test/browser",
+    "output_folder": "_test/browser/_results/browserstack",
+    "custom_commands_path": "",
+    "custom_assertions_path": "",
+    "page_objects_path": "",
+    "globals_path": "",
+    "selenium": {
+        "start_process": false,
+        "host": "hub.browserstack.com",
+        "port": 80
+    },
+    "test_settings": {
+        "default": {
+            "launch_url": "http://hub.browserstack.com",
+            "selenium_port": 80,
+            "selenium_host": "hub.browserstack.com",
+            "silent": true,
+            "screenshots": {
+                "enabled": false,
+                "path": ""
+            },
+            "desiredCapabilities": {
+                "javascriptEnabled": true,
+                "acceptSslCerts": true,
+                "browserstack.user": "",
+                "browserstack.key": "",
+                "browserstack.local": true,
+                "browserstack.debug": true,
+                "os": "windows",
+                "os_version": "7",
+                "browser": "firefox"
+            },
+            "exclude": [
+                "exclude"
+            ]
+        },
+        "chrome": {
+            "desiredCapabilities": {
+                "javascriptEnabled": true,
+                "acceptSslCerts": true,
+                "browserstack.user": "",
+                "browserstack.key": "",
+                "browserstack.local": true,
+                "browserstack.debug": true,
+                "os": "windows",
+                "os_version": "7",
+                "browser": "chrome"
+            },
+            "exclude": [
+                "exclude",
+                "ff"
+            ]
+        },
+        "ie11": {
+            "desiredCapabilities": {
+                "javascriptEnabled": true,
+                "acceptSslCerts": true,
+                "browserstack.user": "",
+                "browserstack.key": "",
+                "browserstack.local": true,
+                "browserstack.debug": true,
+                "os": "windows",
+                "os_version": "7",
+                "browser": "internet explorer",
+                "browser_version": "11"
+            },
+            "exclude": [
+                "exclude",
+                "ff"
+            ]
+        }
+    }
+}
