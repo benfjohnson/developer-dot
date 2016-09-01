@@ -1,6 +1,6 @@
 import queryStringReducer from './queryStringReducer';
 import actionTypes from '../../shared/actionTypes';
-import {buildQsPath, buildCurl, fillOrRemoveSampleData, fillPostBodySampleData, buildInitialPostBodyData} from '../helpers';
+import {buildQueryString, reduceParamsToKeyValuePair, buildCurl, fillOrRemoveSampleData, fillPostBodySampleData, buildInitialPostBodyData} from '../helpers';
 
 // Method traverses a `requestSchema` endpoint property by colon-separated name and returns the
 // innermost property described by the propertyPath
@@ -86,7 +86,7 @@ export default (state, action) => {
         } else {
             newState = fillOrRemoveSampleData(newState, true);
         }
-        newState.qsPath = buildQsPath(newState.queryString);
+        newState.qsPath = buildQueryString(reduceParamsToKeyValuePair(newState.queryString));
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         return {...newState, apiResponse: undefined};
     case actionTypes.SUBMIT_DONE:
@@ -102,12 +102,12 @@ export default (state, action) => {
         } else {
             newState = fillOrRemoveSampleData(newState);
         }
-        newState.qsPath = buildQsPath(newState.queryString);
+        newState.qsPath = buildQueryString(reduceParamsToKeyValuePair(newState.queryString));
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
     case actionTypes.QUERY_STRING_CHANGED:
         newState = {...newState, queryString: queryStringReducer(newState.queryString, action)};
-        newState.qsPath = buildQsPath(newState.queryString);
+        newState.qsPath = buildQueryString(reduceParamsToKeyValuePair(newState.queryString));
         newState.curl = buildCurl(newState.isAuthenticated, newState);
         break;
     case actionTypes.PATH_PARAM_CHANGED:

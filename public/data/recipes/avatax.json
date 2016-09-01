@@ -4,7 +4,7 @@
         "action": "post",
         "path": "https://development.avalara.net/1.0/tax/get",
         "proxy": {
-            "route": "https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod/tax/get",
+            "route": "https://e3zwcxla5k.execute-api.us-west-2.amazonaws.com/prod/",
             "key": {
                 "name": "api-key",
                 "location": "api-proxy-key/key"
@@ -61,7 +61,7 @@
         "action": "get",
         "path": "https://development.avalara.net/1.0/tax/{latitude},{longitude}/get",
         "proxy": {
-            "route": "https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod/tax/{latitude},{longitude}/get",
+            "route": "https://e3zwcxla5k.execute-api.us-west-2.amazonaws.com/prod/",
             "key": {
                 "name": "api-key",
                 "location": "api-proxy-key/key"

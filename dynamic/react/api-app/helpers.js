@@ -1,4 +1,4 @@
-import {replacePathParams, buildQsPath, fillPostBodySampleData, fillOrRemoveRequestParamSampleData} from '../shared/helpers';
+import {replaceStringPlaceholders, reduceParamsToKeyValuePair, buildQueryString, fillPostBodySampleData, fillOrRemoveRequestParamSampleData} from '../shared/helpers';
 
 const buildAuth = (authFormula) => {
     // Grab all auth variables out of authFormula str (should be in <> brackets)
@@ -63,11 +63,11 @@ const buildPostmanCollection = (appState) => {
         }
 
         if (endpoint.pathParams) {
-            baseRequest.request.url = replacePathParams(endpoint.path, fillOrRemoveRequestParamSampleData(endpoint.pathParams));
+            baseRequest.request.url = replaceStringPlaceholders(endpoint.path, reduceParamsToKeyValuePair(fillOrRemoveRequestParamSampleData(endpoint.pathParams)));
         }
 
         if (endpoint.queryString) {
-            baseRequest.request.url += buildQsPath(fillOrRemoveRequestParamSampleData(endpoint.queryString));
+            baseRequest.request.url += buildQueryString(reduceParamsToKeyValuePair(fillOrRemoveRequestParamSampleData(endpoint.queryString)));
         }
 
         return baseRequest;

@@ -18,6 +18,14 @@
     "schemes": [
         "https"
     ],
+    "x-ApiType": "REST",
+    "x-api-proxy": {
+        "route": "https://e3zwcxla5k.execute-api.us-west-2.amazonaws.com/prod/",
+        "key": {
+            "name": "api-key",
+            "location": "api-proxy-key/key"
+        }
+    },
     "basePath":"/",
     "paths":{
         "/api/v2/accounts/{id}":{
