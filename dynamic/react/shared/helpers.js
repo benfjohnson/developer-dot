@@ -71,13 +71,13 @@ const buildQueryString = (map = {}) => {
     return queryString ? `?${queryString}` : '';
 };
 
-const buildCurl = (auth, endpoint) => {
+const buildCurl = (sampleAuthHeader, endpoint) => {
     const endpointPath = replaceStringPlaceholders(endpoint.path, reduceParamsToKeyValuePair(endpoint.pathParams));
 
     let curl = `curl -X ${endpoint.action.toUpperCase()} "${endpointPath}${endpoint.qsPath || ''}" -H "Accept: application/json"`;
 
-    if (auth) {
-        curl += ' -H "Authorization: <YOUR_AUTH_INFO_HERE>"';
+    if (sampleAuthHeader) {
+        curl += ` -H "Authorization: ${sampleAuthHeader}"`;
     }
 
     if (endpoint.postBody) {
