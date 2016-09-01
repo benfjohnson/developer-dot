@@ -5,7 +5,6 @@ import {replaceStringPlaceholders, reduceParamsToKeyValuePair, submitApiRequest,
 const mapStateToProps = (state, ownProps) => {
     return {
         apiType: state.apiType,
-        sampleAuthHeader: state.sampleAuthHeader,
         sampleContentType: state.sampleContentType,
         endpoint: ownProps.endpoint
     };

@@ -16,8 +16,8 @@
         "application/json"
     ],
     "x-ApiType": "REST",
-    "xx-auth-formula": "`avalaraapikey id:${btoa(`<id>`)} key:${btoa(`<key>`)}`",
-    "x-sample-auth-header": "avalaraapikey id:dXNlckBjb21wYW55LmNvbQ== key:bXl2b2ljZWlzbXlwYXNzcG9ydA==",
+    "xxNOT_USED-auth-formula": "`avalaraapikey id:${btoa(`<id>`)} key:${btoa(`<key>`)}`",
+    "xxNOT_USED-sample-auth-header": "avalaraapikey id:dXNlckBjb21wYW55LmNvbQ== key:bXl2b2ljZWlzbXlwYXNzcG9ydA==",
     "tags": [
         {
             "name": "Landed Cost Calculation API"
