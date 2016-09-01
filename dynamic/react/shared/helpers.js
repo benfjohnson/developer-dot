@@ -1,3 +1,5 @@
+/* global AWS:false */
+
 // fetch polyfill
 import 'whatwg-fetch';
 

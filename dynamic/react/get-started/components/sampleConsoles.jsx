@@ -6,7 +6,7 @@ const SampleConsoles = ({apiEndpoints, onAddItemToPostbodyCollection, onFillCons
         <div>
             <ul className='nav nav-tabs' role='tablist'>
                 {apiEndpoints.map((endpoint, i) => (
-                        <li className={(i === 0 ? 'active' : '')} key={i}><a data-toggle='tab' href={'#' + endpoint.name.replace(/\s/g, '')} id={endpoint.name.replace(/\s/g, '') + 'tab'} role='tab' >{endpoint.name}</a></li>
+                        <li className={(i === 0 ? 'active' : '')} key={i}><a data-toggle='tab' href={'#' + endpoint.name.replace(/\s/g, '')} id={endpoint.name.replace(/\s/g, '') + 'tab'} role='tab'>{endpoint.name}</a></li>
                     )
                 )}
             </ul>
