@@ -87,7 +87,7 @@ export default (state, action) => {
             newState = fillOrRemoveSampleData(newState, true);
         }
         newState.qsPath = buildQueryString(reduceParamsToKeyValuePair(newState.queryString));
-        newState.curl = buildCurl(newState.isAuthenticated, newState);
+        newState.curl = buildCurl(newState.sampleAuthHeader, newState);
         return {...newState, apiResponse: undefined};
     case actionTypes.SUBMIT_DONE:
         newState.apiResponse = action.apiResponse;
@@ -103,16 +103,16 @@ export default (state, action) => {
             newState = fillOrRemoveSampleData(newState);
         }
         newState.qsPath = buildQueryString(reduceParamsToKeyValuePair(newState.queryString));
-        newState.curl = buildCurl(newState.isAuthenticated, newState);
+        newState.curl = buildCurl(newState.sampleAuthHeader, newState);
         break;
     case actionTypes.QUERY_STRING_CHANGED:
         newState = {...newState, queryString: queryStringReducer(newState.queryString, action)};
         newState.qsPath = buildQueryString(reduceParamsToKeyValuePair(newState.queryString));
-        newState.curl = buildCurl(newState.isAuthenticated, newState);
+        newState.curl = buildCurl(newState.sampleAuthHeader, newState);
         break;
     case actionTypes.PATH_PARAM_CHANGED:
         newState.pathParams[action.paramName].value = action.newValue;
-        newState.curl = buildCurl(newState.isAuthenticated, newState);
+        newState.curl = buildCurl(newState.sampleAuthHeader, newState);
         break;
     case actionTypes.POST_BODY_CHANGED:
         // If any changed PostBodyForm input was an array item, need to access its `items`
@@ -148,7 +148,7 @@ export default (state, action) => {
         const newStatePropertyToRemove = traversePostBodyData(itemToRemove, newState.postBody);
 
         newStatePropertyToRemove.splice(indexToRemove, 1);
-        newState.curl = buildCurl(newState.isAuthenticated, newState);
+        newState.curl = buildCurl(newState.sampleAuthHeader, newState);
 
         return newState;
     case actionTypes.TOGGLE_SHOW_EXCLUDED_POST_BODY_PROPS:

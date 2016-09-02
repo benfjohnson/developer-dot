@@ -8,7 +8,7 @@ import ExpanderIcon from './expanderIcon';
 const replaceSpaces = (str) => str.replace(/\s/g, '');
 
 // Give our endpoint an id based on its name for our clientside routing in jekyll
-const EndPointComponent = ({endpoint, sampleAuthHeader, sampleContentType, apiType, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleShowExcludedPostBodyProps}) => (
+const EndPointComponent = ({endpoint, sampleContentType, apiType, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleShowExcludedPostBodyProps}) => (
     <div id={replaceSpaces(endpoint.operationId)}>
         <div className={'endpoint-summary'}>
             <h2>{endpoint.name}</h2>
@@ -44,13 +44,13 @@ const EndPointComponent = ({endpoint, sampleAuthHeader, sampleContentType, apiTy
                 <div className={'code-snippet-plaintext'}>
                     <span>{`${endpoint.action.toUpperCase()} ${endpoint.path}`}</span>
                 </div>
-                {sampleAuthHeader || sampleContentType ?
+                {endpoint.sampleAuthHeader || sampleContentType ?
                     <div>
                         <br />
                         <div className={'api-label-text'}>{'Headers'}</div>
                         <div className={'code-snippet-plaintext'}>
-                            {sampleAuthHeader ? <span style={{display: 'block'}}>{`Authorization: ${sampleAuthHeader}`}</span> : null}
-                            {sampleContentType ? <span style={{display: 'block'}}>{`Content-Type: ${sampleContentType}`}</span> : null}
+                            {endpoint.sampleAuthHeader ? <span style={{display: 'block'}}>{`Authorization: ${endpoint.sampleAuthHeader}`}</span> : null}
+                            {sampleContentType && (endpoint.action.toUpperCase() === 'POST' || endpoint.action.toUpperCase() === 'PUT') ? <span style={{display: 'block'}}>{`Content-Type: ${sampleContentType}`}</span> : null}
                             {endpoint.headerParams && endpoint.headerParams.SOAPAction ? <span style={{display: 'block'}}>{`SOAPAction: ${endpoint.headerParams.SOAPAction.example}`}</span> : null}
                         </div>
                     </div> :
@@ -95,7 +95,7 @@ EndPointComponent.propTypes = {
         name: React.PropTypes.string.isRequired,
         description: React.PropTypes.string.isRequired,
         curl: React.PropTypes.string.isRequired,
-        isAuthenticated: React.PropTypes.bool.isRequired,
+        sampleAuthHeader: React.PropTypes.string,
         path: React.PropTypes.string.isRequired,
         action: React.PropTypes.string.isRequired,
         queryString: React.PropTypes.objectOf(
@@ -135,7 +135,6 @@ EndPointComponent.propTypes = {
     onResetConsole: React.PropTypes.func.isRequired,
     onSubmitConsoleRequest: React.PropTypes.func.isRequired,
     onToggleShowExcludedPostBodyProps: React.PropTypes.func.isRequired,
-    sampleAuthHeader: React.PropTypes.string,
     sampleContentType: React.PropTypes.array
 };
 

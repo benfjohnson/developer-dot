@@ -111,7 +111,7 @@ export default (api, rootPath) => {
                 description: endpoint[action].description,
                 path: root + k,
                 action: action,
-                isAuthenticated: Boolean(swaggerData.auth),
+                sampleAuthHeader: swaggerData.sampleAuthHeader,
                 // Determines whether or not we show API console input fields for params in the 'x-excludedProperties' array in Swagger
                 showExcludedPostBodyFields: false
             };
@@ -151,7 +151,7 @@ export default (api, rootPath) => {
                 apiMethod.postBody = buildInitialPostBodyData(requestSchema, apiMethod.showExcludedPostBodyFields);
             }
 
-            apiMethod.curl = buildCurl(swaggerData.auth, apiMethod);
+            apiMethod.curl = buildCurl(swaggerData.sampleAuthHeader, apiMethod);
 
             if (endpoint[action].responses[200].schema) {
                 apiMethod.responseSchema = buildSchema(endpoint[action].responses[200].schema);

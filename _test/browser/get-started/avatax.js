@@ -79,7 +79,7 @@ module.exports = {
             .click('#ValidateanAddress .fill-sample-data')
             .getText('#ValidateanAddress .console-req-container .code-snippet', function(req) {
                 /* eslint-disable no-invalid-this */
-                this.assert.equal(req.value, 'curl -X GET "https://development.avalara.net/1.0/address/validate?Line1=400 Broad St&City=Seattle&Region=WA&PostalCode=98109" -H "Accept: application/json" -H "Authorization: "');
+                this.assert.equal(req.value, 'curl -X GET "https://development.avalara.net/1.0/address/validate?Line1=400 Broad St&City=Seattle&Region=WA&PostalCode=98109" -H "Accept: application/json" -H "Authorization: Basic aHR0cHdhdGNoOmY="');
                 /* eslint-enable no-invalid-this */
             })
 
