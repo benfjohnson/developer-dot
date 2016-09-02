@@ -5,45 +5,45 @@
             {% assign currApi = api_console.nav_link.title | downcase %}
             {% assign apiName = page.api_name | downcase %}
             {% if currApi == apiName %}
-                <li><a href="#top">{{ api_console.nav_link.title }}</a>
-                    <div id='bootstrap-scrollspy' style="padding-left:10px;">
-                        <ul class='api-ref-side-nav-active nav nav-pills nav-stacked'>
-                            {% for endpoint_link in page.endpoint_links %}
-                            <li><a style="overflow: hidden" href="{{ endpoint_link[0] }}">{{ endpoint_link[1] }}</a></li>
+                <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a></li>
+                {% if api_console.nav_link.has_tags %}
+                    {% for tags_for_page_hash in site.data.api_tag_pages %}
+                        {% assign tags_for_page = tags_for_page_hash[1] %}
+                        {% if tags_for_page.api_name == api_console.nav_link.title %}
+                            {% for api_tag in tags_for_page.api_tags %}
+                                {% if api_tag.name == page.tag_name %}
+                                    <li style="padding-left: 10px;"><a href="#top">{{ api_tag.name }}</a>
+                                        <div id='bootstrap-scrollspy' style="padding-left:10px;">
+                                            <ul class='api-ref-side-nav-active nav nav-pills nav-stacked'>
+                                                {% for endpoint_link in page.endpoint_links %}
+                                                    <li><a style="overflow: hidden" href="{{ endpoint_link[0] }}">{{ endpoint_link[1] }}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </li>
+                                {% else %}
+                                    {% assign tag_path = api_console.nav_link.path | append: "/" | append: api_tag.name %}
+                                    <li style="padding-left: 10px;"><a href="{{ tag_path }}">{{ api_tag.name }}</a></li>
+                                {% endif %}
                             {% endfor %}
-                        </ul>
-                    </div>
-                </li>
-            {% else %}
-                {% if page.product == api_console.product %}
-                    <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a>
-
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <li><a href="#top">{{ api_console.nav_link.title }}</a>
+                        <div id='bootstrap-scrollspy' style="padding-left:10px;">
+                            <ul class='api-ref-side-nav-active nav nav-pills nav-stacked'>
+                                {% for endpoint_link in page.endpoint_links %}
+                                <li><a style="overflow: hidden" href="{{ endpoint_link[0] }}">{{ endpoint_link[1] }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </li>
                 {% endif %}
+            {% else %}
+                {% if page.product == api_console.product %}
+                    <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a></li>
+                {% endif %}
             {% endif %}
-        {% endfor %}
-    </ul>
-</div>
-<div class="sm-section-nav dropdown visible-xs-block visible-sm-block">
-    <button id="api-ref-nav" type="button" data-toggle="dropdown"><span class="capitalize">{{page.product}}</span> Endpoints</button>
-    <ul class="dropdown-menu" aria-labelledby="api-ref-nav">
-        {% for api_console_hash in site.data.api_consoles %}
-        {% assign api_console = api_console_hash[1] %}
-        {% assign currApi = api_console.nav_link.title | downcase %}
-        {% assign apiName = page.api_name | downcase %}
-        {% if currApi == apiName %}
-        <li><a href="#top">{{ api_console.nav_link.title }}</a>
-                <ul>
-                    {% for endpoint_link in page.endpoint_links %}
-                    <li><a href="{{ endpoint_link[0] }}">{{ endpoint_link[1] }}</a></li>
-                    {% endfor %}
-                </ul>
-        </li>
-        {% else %}
-        {% if page.product == api_console.product %}
-        <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a></li>
-        {% endif %}
-        {% endif %}
         {% endfor %}
     </ul>
 </div>

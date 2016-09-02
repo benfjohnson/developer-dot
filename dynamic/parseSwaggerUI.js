@@ -86,8 +86,9 @@ export default (api, rootPath) => {
     const swaggerData = {
         /* `tagMap`TO BE DELETED FROM APP STATE
          * Used to build pages on a per-tag (rather than per-api) basis
+         * Only create it and populate it with a mapping if specified by `x-group-by-tags` header in API
          */
-        tagMap: {},
+        tagMap: api['x-group-by-tags'] ? {} : null,
         apiName: api.info.title,
         apiDescription: api.info.description,
         appLoaded: false,
@@ -116,10 +117,10 @@ export default (api, rootPath) => {
             };
 
             // Update `tagMap` for this endpoint
-            if (endpoint[action].tags && endpoint[action].tags.length) {
+            if (swaggerData.tagMap && endpoint[action].tags && endpoint[action].tags.length) {
                 endpoint[action].tags.forEach((tag) => {
-                    tagMap[tag] = tagMap[tag] || [];
-                    tagMap.push(apiMethod.operationId);
+                    swaggerData.tagMap[tag] = swaggerData.tagMap[tag] || [];
+                    swaggerData.tagMap[tag].push(apiMethod.operationId);
                 });
             }
 
