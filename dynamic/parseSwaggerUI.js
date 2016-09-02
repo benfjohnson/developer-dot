@@ -73,6 +73,8 @@ const buildRequestSchema = (endpointParams) => {
     return postBodyParams.length ? buildSchema(postBodyParams[0].schema) : null;
 };
 
+// const buildTagEndpointMap = (tags)
+
 export default (api, rootPath) => {
     // Build base URL path (e.g. http://localhost:8082/v3)
 
@@ -82,6 +84,11 @@ export default (api, rootPath) => {
     const apiProxy = api['x-api-proxy'] || null;
 
     const swaggerData = {
+        /* `tagMap`TO BE DELETED FROM APP STATE
+         * Used to build pages on a per-tag (rather than per-api) basis
+         * Only create it and populate it with a mapping if specified by `x-group-by-tags` header in API
+         */
+        tagMap: api['x-group-by-tags'] ? {} : null,
         apiName: api.info.title,
         apiDescription: api.info.description,
         appLoaded: false,
@@ -108,6 +115,14 @@ export default (api, rootPath) => {
                 // Determines whether or not we show API console input fields for params in the 'x-excludedProperties' array in Swagger
                 showExcludedPostBodyFields: false
             };
+
+            // Update `tagMap` for this endpoint
+            if (swaggerData.tagMap && endpoint[action].tags && endpoint[action].tags.length) {
+                endpoint[action].tags.forEach((tag) => {
+                    swaggerData.tagMap[tag] = swaggerData.tagMap[tag] || [];
+                    swaggerData.tagMap[tag].push(apiMethod.operationId);
+                });
+            }
 
             const endpointParams = endpoint[action].parameters || [];
             const headerParams = buildRequestParams(endpointParams, 'header');

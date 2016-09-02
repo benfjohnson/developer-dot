@@ -18,8 +18,10 @@
     "schemes": [
         "https"
     ],
+    "x-group-by-tags": true,
     "x-auth-formula": "`Basic ${btoa(`<username>:<password>`)}`",
     "x-sample-auth-header": "Basic aHR0cHdhdGNoOmY=",
+
     "x-ApiType": "REST",
     "x-api-proxy": {
         "route": "https://e3zwcxla5k.execute-api.us-west-2.amazonaws.com/prod/",

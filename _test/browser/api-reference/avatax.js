@@ -176,7 +176,8 @@ module.exports = {
             .end();
     },
     'API Reference: AvaTax: REST v2 (verify number of endpoints)': function(browser) {
-        const expectedNumberOfApiEndpoints = 113;
+        // NOTE: THESE NOW ALL EXIST ON SUB 'TAG' PAGES
+        const expectedNumberOfApiEndpoints = 0;
 
         browser
             .maximizeWindow()

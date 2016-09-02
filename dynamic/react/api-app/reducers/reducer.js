@@ -34,8 +34,8 @@ const reducer = (state = {}, action) => {
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
     case actionTypes.RESET_CONSOLE:
     case actionTypes.TOGGLE_SHOW_EXCLUDED_POST_BODY_PROPS:
-        return {...state, apiEndpoints: state.apiEndpoints.map((endpoint, i) => {
-            if (i === action.endpointId) {
+        return {...state, apiEndpoints: state.apiEndpoints.map((endpoint) => {
+            if (endpoint.id === action.endpointId) {
                 return apiConsoleReducer(endpoint, action);
             }
             return endpoint;

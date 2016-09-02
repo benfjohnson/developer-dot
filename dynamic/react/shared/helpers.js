@@ -55,7 +55,7 @@ const reduceParamsToKeyValuePair = (params = {}) => Object.keys(params).reduce((
  * Replaces {}-delimited placeholder values in a string with their equiv values
  * from a key-value reference object
  */
-const replaceStringPlaceholders = (path, map = {}) => {
+const replaceStringPlaceholders = (path, map) => {
     return Object.keys(map).reduce((accum, key) => {
         return map[key] ? accum.replace(`{${key}}`, map[key]) : accum;
     }, path);
@@ -160,8 +160,11 @@ const fillOrRemoveSampleData = (endpointState, remove = false) => {
 
 const submitProxiedRequest = (endpoint) => {
     const [bucket, key] = endpoint.proxy.key.location.split('/');
+    /* eslint-disable no-undef */
+    // AWS node library doesn't work with browserify, hardcoded the script tag into default.html
     const keyBucket = new AWS.S3({params: {Bucket: bucket, Key: key}});
 
+    /* eslint-enable no-undef */
     return keyBucket.makeUnauthenticatedRequest('getObject', {}).promise()
     .then((bucketRes) => {
         return fetch(endpoint.proxy.route, {

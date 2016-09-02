@@ -75,7 +75,8 @@ PostBodyForm.propTypes = {
     onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
     onPostBodyInputChanged: React.PropTypes.func.isRequired,
     onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
-    onSubmitConsoleRequest: React.PropTypes.func.isRequired
+    onSubmitConsoleRequest: React.PropTypes.func.isRequired,
+    onToggleShowExcludedPostBodyProps: React.PropTypes.func.isRequired
 };
 
 export default PostBodyForm;
