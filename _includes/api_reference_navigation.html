@@ -5,8 +5,8 @@
             {% assign currApi = api_console.nav_link.title | downcase %}
             {% assign apiName = page.api_name | downcase %}
             {% if currApi == apiName %}
-                <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a></li>
                 {% if api_console.nav_link.has_tags %}
+                    <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a></li>
                     {% for tags_for_page_hash in site.data.api_tag_pages %}
                         {% assign tags_for_page = tags_for_page_hash[1] %}
                         {% if tags_for_page.api_name == api_console.nav_link.title %}

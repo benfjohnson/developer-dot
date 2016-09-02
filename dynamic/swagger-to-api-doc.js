@@ -97,7 +97,7 @@ endpoint_links: [
 
                         let tagPageConfig = `api_name: ${apiName}\napi_tags:\n`;
 
-                        Object.keys(tagMap).forEach((tag, i) => {
+                        Object.keys(tagMap).forEach((tag) => {
                             tagPageConfig += `  - name: '${tag}'\n`;
                         });
 
@@ -110,7 +110,10 @@ endpoint_links: [
                             /* eslint-enable no-console */
                         });
                     });
-                    // In this case, actually want to save off pages for each tag's endpoints
+
+                    // Save off a simplified version of the App for our set of tags' 'root page'
+                    saveStaticPage(null, apiPath, buildHtml, {...staticState, apiEndpoints: []});
+                    // Want to save off pages for each tagin the API's endpoints
                     Object.keys(tagMap).forEach((tag) => {
                         const operationIdsForTag = tagMap[tag];
                         const newApiPath = path.join(path.join(apiPath, tag));
