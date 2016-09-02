@@ -17,8 +17,8 @@ export default (state, action) => {
     case actionTypes.TOGGLE_SHOW_EXCLUDED_POST_BODY_PROPS:
         const newEndpointState = apiConsoleReducer(state[action.endpointId], action);
 
-        return state.map((ep, i) => {
-            return i === action.endpointId ? newEndpointState : ep;
+        return state.map((ep) => {
+            return ep.id === action.endpointId ? newEndpointState : ep;
         });
     default:
         return state;
