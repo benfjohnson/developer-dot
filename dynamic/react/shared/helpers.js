@@ -55,7 +55,7 @@ const reduceParamsToKeyValuePair = (params = {}) => Object.keys(params).reduce((
  * Replaces {}-delimited placeholder values in a string with their equiv values
  * from a key-value reference object
  */
-const replaceStringPlaceholders = (path, map = {}) => {
+const replaceStringPlaceholders = (path, map) => {
     return Object.keys(map).reduce((accum, key) => {
         return map[key] ? accum.replace(`{${key}}`, map[key]) : accum;
     }, path);
