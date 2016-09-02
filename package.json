@@ -26,7 +26,7 @@
         "test-web": "_test/browser/nightwatch --config _test/browser/nightwatch.json --retries 1",
         "posttest-web": "pkill -f jekyll && echo 'Terminating jekyll process...'",
         "test-web-bstack": "_test/browser/nightwatch --config _test/browser/nightwatchBrowserStack.json --retries 1",
-        "test-redux": "mocha --compilers js:babel-register --recursive _test/react",
+        "test-redux": "NODE_ENV=test mocha --compilers js:babel-register --recursive _test/react",
         "test-redux:watch": "npm run test-redux -- --watch"
     },
     "devDependencies": {

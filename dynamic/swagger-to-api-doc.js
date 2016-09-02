@@ -2,7 +2,7 @@ import path from 'path';
 import React from 'react';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import {reducer} from './react/api-app/reducers/reducer';
+import reducer from './react/api-app/reducers/reducer';
 import SwaggerParser from 'swagger-parser';
 import App from './react/api-app/app';
 import {renderToString} from 'react-dom/server';
