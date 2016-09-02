@@ -160,8 +160,11 @@ const fillOrRemoveSampleData = (endpointState, remove = false) => {
 
 const submitProxiedRequest = (endpoint) => {
     const [bucket, key] = endpoint.proxy.key.location.split('/');
+    /* eslint-disable no-undef */
+    // AWS node library doesn't work with browserify, hardcoded the script tag into default.html
     const keyBucket = new AWS.S3({params: {Bucket: bucket, Key: key}});
 
+    /* eslint-enable no-undef */
     return keyBucket.makeUnauthenticatedRequest('getObject', {}).promise()
     .then((bucketRes) => {
         return fetch(endpoint.proxy.route, {
