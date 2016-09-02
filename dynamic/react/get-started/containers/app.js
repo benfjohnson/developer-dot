@@ -69,17 +69,11 @@ const mapDispatchToProps = (dispatch) => {
         onQueryParamChanged: (newValue, paramName, endpointId) => {
             dispatch(actions.queryParamChanged(newValue, paramName, endpointId));
         },
-        onPathParamChanged: (newValue, paramName, endpointId) => {
-            dispatch(actions.pathParamChanged(newValue, paramName, endpointId));
-        },
         onAddItemToPostbodyCollection: (paramName, endpointId, itemSchema) => {
             dispatch(actions.addItemToPostbodyCollection(paramName, endpointId, itemSchema));
         },
         onRemovePostbodyCollectionItem: (paramName, endpointId) => {
             dispatch(actions.removePostbodyCollectionItem(paramName, endpointId));
-        },
-        onToggleShowExcludedPostBodyProps: (endpointId) => {
-            dispatch(actions.toggleShowExcludedPostBodyProps(endpointId));
         }
     };
 };

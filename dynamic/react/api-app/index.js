@@ -5,7 +5,7 @@ import {createStore, applyMiddleware} from 'redux';
 import createLogger from 'redux-logger';
 import {Provider} from 'react-redux';
 
-import {reducer} from './reducers/reducer';
+import reducer from './reducers/reducer';
 
 import App from './app';
 import actionTypes from '../shared/actionTypes';
