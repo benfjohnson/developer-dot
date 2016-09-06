@@ -1,18 +1,18 @@
 import React from 'react';
 import ApiConsoleWrapper from './apiConsoleWrapper';
 
-const SampleConsoles = ({apiEndpoints, onAddItemToPostbodyCollection, onFillConsoleSampleData, onPathParamChanged, onPostBodyInputChanged, onQueryParamChanged, onRemovePostbodyCollectionItem, onResetConsole, onSubmitConsoleRequest, onToggleShowExcludedPostBodyProps}) => {
+const SampleConsoles = ({apiEndpoints, onAddItemToPostbodyCollection, onFillConsoleSampleData, onPostBodyInputChanged, onQueryParamChanged, onRemovePostbodyCollectionItem, onResetConsole, onSubmitConsoleRequest}) => {
     return (
         <div>
             <ul className='nav nav-tabs' role='tablist'>
                 {apiEndpoints.map((endpoint, i) => (
-                        <li className={(i === 0 ? 'active' : '')} key={i}><a data-toggle='tab' href={'#' + endpoint.name.replace(/\s/g, '')} id={endpoint.name.replace(/\s/g, '') + 'tab'} role='tab' >{endpoint.name}</a></li>
+                        <li className={(i === 0 ? 'active' : '')} key={i}><a data-toggle='tab' href={'#' + endpoint.name.replace(/\s/g, '')} id={endpoint.name.replace(/\s/g, '') + 'tab'} role='tab'>{endpoint.name}</a></li>
                     )
                 )}
             </ul>
             <div className='tab-content'>
                 {apiEndpoints.map((endpoint, i) => (
-                        <ApiConsoleWrapper endpoint={endpoint} key={i} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest} onToggleShowExcludedPostBodyProps={onToggleShowExcludedPostBodyProps} />
+                        <ApiConsoleWrapper endpoint={endpoint} key={i} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onFillConsoleSampleData={onFillConsoleSampleData} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest} />
                     )
                 )}
             </div>
@@ -30,8 +30,7 @@ SampleConsoles.propTypes = {
     onQueryParamChanged: React.PropTypes.func.isRequired,
     onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
     onResetConsole: React.PropTypes.func.isRequired,
-    onSubmitConsoleRequest: React.PropTypes.func.isRequired,
-    onToggleShowExcludedPostBodyProps: React.PropTypes.func.isRequired
+    onSubmitConsoleRequest: React.PropTypes.func.isRequired
 };
 
 export default SampleConsoles;
