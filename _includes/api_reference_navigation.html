@@ -1,4 +1,16 @@
-<div id='the-nav' class='nav-wrapper hidden-xs hidden-sm' data-spy='affix' data-offset-top='140' style='height: 100%; overflow-y: auto;'>
+{% comment %}
+    Following if is a temporary fix for bootstrap affix "jumping" bug in chrome.
+    Should investigate a better solution when we have the time. -BJ
+{% endcomment %}
+{% if page.api_name == "Avatax REST API v2 (BETA)" %}
+    {% if page.tag_name %}
+        <div id='the-nav' class='nav-wrapper hidden-xs hidden-sm' data-spy='affix' data-offset-top='140' style='height: 100%; overflow-y: auto;'>
+    {% else %}
+        <div id='the-nav' class='nav-wrapper hidden-xs hidden-sm' style='height: 100%; overflow-y: auto;'>
+    {% endif %}
+{% else %}
+    <div id='the-nav' class='nav-wrapper hidden-xs hidden-sm' data-spy='affix' data-offset-top='140' style='height: 100%; overflow-y: auto;'>
+{% endif %}
     <ul class='api-ref-side-nav nav nav-pills nav-stacked'>
         {% for api_console_hash in site.data.api_consoles %}
             {% assign api_console = api_console_hash[1] %}
