@@ -2,7 +2,6 @@
 import {expect} from 'chai';
 import R from 'ramda';
 
-import actionTypes from '../../dynamic/react/shared/actionTypes';
 import {actions} from '../../dynamic/react/api-recipes/actions';
 import reducer from '../../dynamic/react/api-recipes/reducers/reducer';
 
@@ -347,15 +346,11 @@ describe('apiRecipes Reducer', () => {
             /* eslint-enable quote-props */
             /* eslint-enable quotes */
 
-
-
-
-
             expect(reducer(state, action)).to.eql(expectedState);
         });
     });
 
-    describe('INPUT_CHANGED', () => {
+    describe('SUBMIT_REQUEST', () => {
         it('returns expected state', () => {
             /* eslint-disable quotes */
             /* eslint-disable quote-props */
@@ -498,6 +493,7 @@ describe('apiRecipes Reducer', () => {
                 }
             ];
             const expectedState = R.clone(state);
+
             expectedState[1].response = action.apiResponse;
 
             /* eslint-enable quote-props */
@@ -506,9 +502,4 @@ describe('apiRecipes Reducer', () => {
             expect(reducer(state, action)).to.eql(expectedState);
         });
     });
-
-    // SUBMIT_REQUEST
-
 });
-
-

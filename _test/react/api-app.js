@@ -43404,7 +43404,7 @@ describe('apiApp Reducer', () => {
             };
             const expectedState = R.clone(state);
 
-            expectedState.apiEndpoints[8].curl = "curl -X GET \"http://sandbox.landedcost.api.avalara.com/v2/hscodes/HTS/{code}\" -H \"Accept: application/json\""
+            expectedState.apiEndpoints[8].curl = "curl -X GET \"http://sandbox.landedcost.api.avalara.com/v2/hscodes/HTS/{code}\" -H \"Accept: application/json\"";
             expectedState.apiEndpoints[8].pathParams.system.value = 'HTS';
             /* eslint-enable quote-props */
             /* eslint-enable quotes */
@@ -67400,7 +67400,7 @@ describe('apiApp Reducer', () => {
             };
             const expectedState = R.clone(state);
 
-            expectedState.apiEndpoints[1].postBody.items[0].units.pop()
+            expectedState.apiEndpoints[1].postBody.items[0].units.pop();
             /* eslint-enable quote-props */
             /* eslint-enable quotes */
 
