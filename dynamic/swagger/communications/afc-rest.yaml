@@ -1,0 +1,1912 @@
+---
+swagger: "2.0"
+info:
+  description: "APIs to interface with communications tax calculations. The api_key\
+    \ represents the UserId:Password converted to Base64 to be used for Authentication."
+  version: "v1"
+  title: "Saas Pro"
+  termsOfService: "None"
+basePath: "/"
+paths:
+  /OrangeZ/Config:
+    get:
+      tags:
+      - "Config"
+      summary: "Get check"
+      operationId: "OrangeZConfigGet"
+      produces: []
+      parameters: []
+      responses:
+        204:
+          description: "No Content"
+  /OrangeZ/Health:
+    get:
+      tags:
+      - "Health"
+      summary: "Get Health"
+      operationId: "OrangeZHealthGet"
+      produces: []
+      parameters: []
+      responses:
+        204:
+          description: "No Content"
+  /api/v1/Application/AFCDatabaseEngineVersion:
+    get:
+      tags:
+      - "Application"
+      summary: "Get the Tax Engine Database Version"
+      operationId: "ApiV1ApplicationAFCDatabaseEngineVersionGet"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "string"
+  /api/v1/Application/AFCEngineVersion:
+    get:
+      tags:
+      - "Application"
+      summary: "Get the version of the Tax Calculator Dll"
+      operationId: "ApiV1ApplicationAFCEngineVersionGet"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "string"
+  /api/v1/Application/RESTVersion:
+    get:
+      tags:
+      - "Application"
+      summary: "Get the version of the Rest APIs"
+      operationId: "ApiV1ApplicationRESTVersionGet"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "string"
+  /api/v1/Application/ServerTime:
+    get:
+      tags:
+      - "Application"
+      summary: "Get Server Time in UTC"
+      operationId: "ApiV1ApplicationServerTimeGet"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "string"
+            format: "date-time"
+  /api/v1/BridgeConference/Taxes:
+    post:
+      tags:
+      - "BridgeConference"
+      summary: "Calculates taxes on a bridge conference transaction."
+      operationId: "ApiV1BridgeConferenceTaxesPost"
+      consumes:
+      - "application/json"
+      - "text/json"
+      - "application/json-patch+json"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - name: "transaction"
+        in: "body"
+        description: "BridgeConferenceTransaction object."
+        required: false
+        schema:
+          "$ref": "#/definitions/BridgeConferenceTransaction"
+      responses:
+        '200':
+          description: "OK"
+          schema:
+            "$ref": "#/definitions/BridgeConferenceResults"
+      deprecated: false
+  /api/v1/BridgeConference/Adjustments:
+    post:
+      tags:
+      - "BridgeConference"
+      summary: "Calculates tax adjustments on a bridge conference transaction."
+      operationId: "ApiV1BridgeConferenceAdjustmentsPost"
+      consumes:
+      - "application/json"
+      - "text/json"
+      - "application/json-patch+json"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - name: "transaction"
+        in: "body"
+        description: "BridgeConferenceTransaction object."
+        required: false
+        schema:
+          "$ref": "#/definitions/BridgeConferenceTransaction"
+      responses:
+        '200':
+          description: "OK"
+          schema:
+            "$ref": "#/definitions/BridgeConferenceResults"
+      deprecated: false
+  /api/v1/CalculateAdjustments:
+    post:
+      tags:
+      - "CalculateAdjustments"
+      summary: "Gets all applicable taxes for the adjustment passed in."
+      operationId: "ApiV1CalculateAdjustmentsPost"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - in: "body"
+        name: "anAdjustment"
+        description: "Adjustment for which Taxes will be returned."
+        required: false
+        schema:
+          $ref: "#/definitions/Transaction"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/TaxData"
+  /api/v1/CalculateJurisdiction:
+    post:
+      tags:
+      - "CalculateJurisdiction"
+      summary: "Determines the taxing jurisdiction for a transaction and returns the\
+        \ JCode at the lowest level."
+      operationId: "ApiV1CalculateJurisdictionPost"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - in: "body"
+        name: "aTransaction"
+        description: "Transaction object."
+        required: false
+        schema:
+          $ref: "#/definitions/Transaction"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "integer"
+            format: "int32"
+  /api/v1/CalculateProRated/Adjustments:
+    post:
+      tags:
+      - "CalculateProRated"
+      summary: "Calculates adjustments for a pro-rated transaction."
+      operationId: "ApiV1CalculateProRatedAdjustmentsPost"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - in: "body"
+        name: "transaction"
+        description: "Pro-rated transaction."
+        required: false
+        schema:
+          $ref: "#/definitions/ProRatedTransaction"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/TaxData"
+  /api/v1/CalculateProRated/Taxes:
+    post:
+      tags:
+      - "CalculateProRated"
+      summary: "Calculates taxes for a pro-rated transaction."
+      operationId: "ApiV1CalculateProRatedTaxesPost"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - in: "body"
+        name: "transaction"
+        description: "Pro-rated transaction."
+        required: false
+        schema:
+          $ref: "#/definitions/ProRatedTransaction"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/TaxData"
+  /api/v1/CalculateReversal/Adjustments:
+    post:
+      tags:
+      - "CalculateReversal"
+      summary: "API for processing reverse tax calculations"
+      operationId: "ApiV1CalculateReversalAdjustmentsPost"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - in: "body"
+        name: "anAdjustment"
+        description: "Telecom transaction"
+        required: false
+        schema:
+          $ref: "#/definitions/Transaction"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/ReverseTaxResults"
+  /api/v1/CalculateReversal/Taxes:
+    post:
+      tags:
+      - "CalculateReversal"
+      summary: "API for processing reverse tax calculations"
+      operationId: "ApiV1CalculateReversalTaxesPost"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - in: "body"
+        name: "aTransaction"
+        description: "Telecom transaction"
+        required: false
+        schema:
+          $ref: "#/definitions/Transaction"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/ReverseTaxResults"
+  /api/v1/CalculateTaxes:
+    post:
+      tags:
+      - "CalculateTaxes"
+      summary: "Gets all applicable taxes for the transaction passed in."
+      operationId: "ApiV1CalculateTaxesPost"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - in: "body"
+        name: "aTransaction"
+        description: "Transaction for which Taxes will be returned."
+        required: false
+        schema:
+          $ref: "#/definitions/Transaction"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/TaxData"
+  /api/v1/CalculateWithOverrides/Taxes:
+    post:
+      tags:
+      - "CalculateWithOverrides"
+      summary: "Applies the specified tax rate override info and calculates taxes on
+        the transaction."
+      operationId: "ApiV1CalculateWithOverridesTaxesPost"
+      consumes:
+      - "application/json"
+      - "text/json"
+      - "application/json-patch+json"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - name: "request"
+        in: "body"
+        description: "Object containing transaction to be processed and tax rate override
+          list."
+        required: false
+        schema:
+          "$ref": "#/definitions/CalculateWithOverridesRequest"
+      responses:
+        '200':
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              "$ref": "#/definitions/TaxData"
+  /api/v1/CalculateWithOverrides/Adjustments:
+    post:
+      tags:
+      - "CalculateWithOverrides"
+      summary: "Applies the specified tax rate override info and calculates adjustments
+        on the transaction."
+      operationId: "ApiV1CalculateWithOverridesAdjustmentsPost"
+      consumes:
+      - "application/json"
+      - "text/json"
+      - "application/json-patch+json"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - name: "request"
+        in: "body"
+        description: "Object containing transaction to be processed and tax rate override
+          list."
+        required: false
+        schema:
+          "$ref": "#/definitions/CalculateWithOverridesRequest"
+      responses:
+        '200':
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              "$ref": "#/definitions/TaxData"
+  /api/v1/CustMode/BeginBatch:
+    get:
+      tags:
+      - "CustMode"
+      summary: "API to initiate a new customer batch."
+      operationId: "ApiV1CustModeBeginBatchGet"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "integer"
+            format: "int64"
+  /api/v1/CustMode/CalcAdjustments:
+    post:
+      tags:
+      - "CustMode"
+      summary: "Submits a transaction for calculating adjustments for the specified\
+        \ customer batch."
+      operationId: "ApiV1CustModeCalcAdjustmentsPost"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - in: "body"
+        name: "trans"
+        description: "Object specifying the customer batch ID and transaction data"
+        required: false
+        schema:
+          $ref: "#/definitions/CustModeTransaction"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "boolean"
+  /api/v1/CustMode/CalcTaxes:
+    post:
+      tags:
+      - "CustMode"
+      summary: "Submits a trasnaction for calculating taxes for the specified customer\
+        \ batch."
+      operationId: "ApiV1CustModeCalcTaxesPost"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - in: "body"
+        name: "trans"
+        description: "Object specifying the customer batch ID and transaction data."
+        required: false
+        schema:
+          $ref: "#/definitions/CustModeTransaction"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "boolean"
+  /api/v1/CustMode/CalcTaxesInCustMode:
+    post:
+      tags:
+      - "CustMode"
+      summary: "Processes the list of transactions specified in customer mode."
+      operationId: "ApiV1CustModeCalcTaxesInCustModePost"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - in: "body"
+        name: "request"
+        description: "Object containing transactions to be processed."
+        required: false
+        schema:
+          $ref: "#/definitions/CalcTaxesInCustModeRequest"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/CustomerResults"
+  /api/v1/CustMode/ProcessBatch:
+    post:
+      tags:
+      - "CustMode"
+      summary: "Triggers the processing of the specified customer batch."
+      operationId: "ApiV1CustModeProcessBatchPost"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - in: "body"
+        name: "request"
+        description: ""
+        required: false
+        schema:
+          $ref: "#/definitions/ProcessBatchRequest"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/CustomerResults"
+  /api/v1/Location/Address/{pCode}:
+    get:
+      tags:
+      - "Location"
+      summary: "Translates a PCode to a List of ZipAddresses"
+      operationId: "ApiV1LocationAddressByPCodeGet"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - name: "pCode"
+        in: "path"
+        description: ""
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/AddressData"
+  /api/v1/Location/PCode:
+    post:
+      tags:
+      - "Location"
+      summary: "Converts the Given request data to a PCode. Only one of the fields\
+        \ should be used for the conversion: ZipAddress, FipsCode or NPANxx"
+      operationId: "ApiV1LocationPCodePost"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - in: "body"
+        name: "request"
+        description: ""
+        required: false
+        schema:
+          $ref: "#/definitions/RequestPCodeDetail"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "integer"
+            format: "int32"
+  /api/v1/Location/PCodeToFips/{pCode}:
+    get:
+      tags:
+      - "Location"
+      summary: "Translates a PCode to a Fips"
+      operationId: "ApiV1LocationPCodeToFipsByPCodeGet"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - name: "pCode"
+        in: "path"
+        description: ""
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "string"
+  /api/v1/TaxLookup/Category/{taxType}:
+    get:
+      tags:
+      - "TaxLookup"
+      summary: "Gets Tax Category from a TaxType"
+      operationId: "ApiV1TaxLookupCategoryByTaxTypeGet"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - name: "taxType"
+        in: "path"
+        description: "TaxType"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "string"
+  /api/v1/TaxLookup/Description/{taxType}:
+    get:
+      tags:
+      - "TaxLookup"
+      summary: "Gets the Tax Description from a TaxType"
+      operationId: "ApiV1TaxLookupDescriptionByTaxTypeGet"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - name: "taxType"
+        in: "path"
+        description: "TaxType"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "string"
+  /api/v1/TaxLookup/TaxRates/{pCode}:
+    get:
+      tags:
+      - "TaxLookup"
+      summary: "Returns applicable tax information for the jurisdiciton passed in\
+        \ if no tax applicable it returns empty array            If input Pcode not\
+        \ found, returns 404 status code and error of \"PCode Not Found\""
+      operationId: "ApiV1TaxLookupTaxRatesByPCodeGet"
+      produces:
+      - "text/plain"
+      - "application/json"
+      - "text/json"
+      parameters:
+      - name: "pCode"
+        in: "path"
+        description: "P Code for a jurisdiction"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/TaxRateInfo"
+securityDefinitions: {}
+definitions:
+BridgeConferenceTransaction:
+    description: "Bridge Conference Transaction"
+    type: "object"
+    properties:
+      ProcessInvalidParticipant:
+        description: "Process invalid participants"
+        type: "boolean"
+      ReturnParticipantTaxes:
+        description: "Return participant taxes and summarized taxes"
+        type: "boolean"
+      BillingPCode:
+        format: "int32"
+        description: "Billing PCode"
+        type: "integer"
+      BridgePCode:
+        format: "int32"
+        description: "Bridge PCode"
+        type: "integer"
+      HostPCode:
+        format: "int32"
+        description: "Host PCode"
+        type: "integer"
+      BillingNpaNxx:
+        format: "int32"
+        description: "Billing NPANXX"
+        type: "integer"
+      BridgeNpaNxx:
+        format: "int32"
+        description: "Bridge NPANXX"
+        type: "integer"
+      HostNpaNxx:
+        format: "int32"
+        description: "Host NPANXX"
+        type: "integer"
+      BillingAddress:
+        "$ref": "#/definitions/ZipAddress"
+        description: "Billing Address"
+      BridgeAddress:
+        "$ref": "#/definitions/ZipAddress"
+        description: "Bridge Address"
+      HostAddress:
+        "$ref": "#/definitions/ZipAddress"
+        description: "Host Address"
+      Participants:
+        description: "List of Participants"
+        type: "array"
+        items:
+          "$ref": "#/definitions/BridgeConferenceParticipant"
+      CustomerType:
+        format: "int32"
+        description: "See the CommsPlatform.API.WrapperClasses User's Manual for valid
+          Customer Types"
+        type: "integer"
+      BusinessClass:
+        format: "int32"
+        description: "See the CommsPlatform.API.WrapperClasses User's Manual for valid
+          Customer Types"
+        type: "integer"
+      Sale:
+        description: "True if this is a sale otherwise false"
+        type: "boolean"
+      TransactionType:
+        format: "int32"
+        description: "Transaction Type"
+        type: "integer"
+      ServiceType:
+        format: "int32"
+        description: "Service Type"
+        type: "integer"
+      ServiceClass:
+        format: "int32"
+        description: "See the CommsPlatform.API.WrapperClasses User's Manual for valid
+          Service Classes"
+        type: "integer"
+      Date:
+        format: "date-time"
+        description: "Transaction Bill Date.  Field is provided to allow rating and
+          taxing to occur on a date other than Billing Date.
+        type: string"
+      Charge:
+        format: "double"
+        description: "Charge amount to customer for transaction"
+        type: "number"
+      Incorporated:
+        description: "True if this transaction is within an incorporated area of the
+          local jurisdiction, otherwise False."
+        type: "boolean"
+      FederalExempt:
+        description: "True if Transaction is exempt from Federal Tax, otherwise False"
+        type: "boolean"
+      StateExempt:
+        description: "True if Transaction is exempt from State Tax, otherwise False"
+        type: "boolean"
+      CountyExempt:
+        description: "True if Transaction is exempt from County Tax, otherwise False"
+        type: "boolean"
+      LocalExempt:
+        description: "True if Transaction is exempt from Local Tax, otherwise False"
+        type: "boolean"
+      FederalPCode:
+        format: "int32"
+        description: "Jurisdiction for Federal Exemption"
+        type: "integer"
+      StatePCode:
+        format: "int32"
+        description: "Jurisdiction for State Exemption"
+        type: "integer"
+      CountyPCode:
+        format: "int32"
+        description: "Jurisdiction for County Exemption"
+        type: "integer"
+      LocalPCode:
+        format: "int32"
+        description: "Jurisdiction for Local Exemption"
+        type: "integer"
+      Exemptions:
+        description: "List of Tax Exemptions"
+        type: "array"
+        items:
+          "$ref": "#/definitions/TaxExemption"
+      ExemptionType:
+        format: "int32"
+        description: "See the EZTax User's Manual for valid Exemption Types"
+        type: "integer"
+      InvoiceNumber:
+        format: "int32"
+        description: "Invoice Number - User Defined"
+        type: "integer"
+      Optional:
+        format: "int32"
+        description: "User defined value for reporting"
+        type: "integer"
+      CustomerNumber:
+        description: "Customer Number - User Defined"
+        type: "string"
+      CompanyIdentifier:
+        description: "Customer Identifier - User Defined"
+        type: "string"
+      OptionalAlpha1:
+        description: "Optional String Value - User Defined"
+        type: "string"
+      Optional4:
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+        type: "integer"
+      Optional5:
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+        type: "integer"
+      Optional6:
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+        type: "integer"
+      Optional7:
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+        type: "integer"
+      Optional8:
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+        type: "integer"
+      Optional9:
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+        type: "integer"
+      Optional10:
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+        type: "integer"
+      AdjustmentMethod:
+        format: "int32"
+        description: "See the CommsPlatform.API.WrapperClasses User's Manual for valid
+          Adjustment Methods"
+        type: "integer"
+      Lines:
+        format: "int32"
+        description: "Number of lines (use with Transaction Type: LOCAL_TYPE and Service
+          Type: LINES)"
+        type: "integer"
+      Locations:
+        format: "int32"
+        description: "Number of Locations (use with Transaction Type: LOCAL_TYPE and
+          Service Type: LOCATION)"
+        type: "integer"
+      Minutes:
+        format: "double"
+        description: "Minutes of call, set to zero when not appropriate. NOTE: Some
+          taxes are per minute."
+        type: "number"
+      Debit:
+        description: "Determines if this is a prepaid debit card transaction."
+        type: "boolean"
+      DiscountType:
+        format: "int32"
+        description: "See the CommsPlatform.API.WrapperClasses User's Manual for valid
+          Discount Types"
+        type: "integer"
+      FacilitiesBased:
+        description: "Specifies if the carrier delivering the service has company owned
+          facilitiesprovide the service."
+        type: "boolean"
+      Franchise:
+        description: "Indicates if the company provides services sold pursuant to a
+          franchise agreement between the carrier and jurisdiction."
+        type: "boolean"
+      Lifeline:
+        description: "Indicates if customer is a Lifeline participant."
+        type: "boolean"
+      Regulated:
+        description: "True if Regulated, otherwise False"
+        type: "boolean"
+      ServiceLevelNumber:
+        format: "int32"
+        description: "Service Level Number - User Defined"
+        type: "integer"
+      Exclusions:
+        description: "List of Exclusions"
+        type: "array"
+        items:
+          "$ref": "#/definitions/Exclusion"
+      CategoryExemptions:
+        description: "List of Category Exemptions"
+        type: "array"
+        items:
+          "$ref": "#/definitions/CategoryExemption"
+      OptionalFields:
+        description: "List of optional alphanumeric fields passed in by the client."
+        type: "array"
+        items:
+          "$ref": "#/definitions/OptionalField"
+  BridgeConferenceParticipant:
+    description: "Structure returned when invoking the bridge conference tax calculation
+      APIs."
+    type: "object"
+    properties:
+      ParticipantAddress:
+        "$ref": "#/definitions/ZipAddress"
+        description: "Bill to Address"
+      ParticipantPCode:
+        format: "int32"
+        description: "Bill to PCode"
+        type: "integer"
+      ParticipantNpaNxx:
+        format: "int32"
+        description: "Bill to NpaNxx"
+        type: "integer"
+      ParticipantRef:
+        description: "Participant Id String Value - User Defined"
+        type: "string"
+  BridgeConferenceResults:
+    description: "Structure returned when invoking the bridge conference tax calculation
+      APIs."
+    type: "object"
+    properties:
+      ParticipantResults:
+        description: "Participant Taxes"
+        type: "array"
+        items:
+          "$ref": "#/definitions/BridgeConferenceParticipantResult"
+      Taxes:
+        description: "Summarized Taxes for Bridge Conference"
+        type: "array"
+        items:
+          "$ref": "#/definitions/TaxData"
+  BridgeConferenceParticipantResult:
+    description: "Structure returned when invoking the bridge conference tax calculation
+      APIs."
+    type: "object"
+    properties:
+      ParticipantRef:
+        description: "Participant Ref"
+        type: "string"
+      ErrorCode:
+        format: "int32"
+        description: "Error Code"
+        type: "integer"
+      TransactionType:
+        format: "int32"
+        description: "Transaction Type"
+        type: "integer"
+      ServiceType:
+        format: "int32"
+        description: "Service Type"
+        type: "integer"
+      ParticipantTaxes:
+        description: "Participant Taxes"
+        type: "array"
+        items:
+          "$ref": "#/definitions/TaxData"	  
+  Transaction:
+    type: "object"
+    properties:
+      OriginationAddress:
+        description: "Origination Address"
+        $ref: "#/definitions/ZipAddress"
+      OriginationFipsCode:
+        type: "string"
+        description: "Origination FipsCode"
+      OriginationPCode:
+        type: "integer"
+        format: "int32"
+        description: "Origination PCode"
+      OriginationNpaNxx:
+        type: "integer"
+        format: "int32"
+        description: "Origination NpaNxx"
+      TerminationAddress:
+        description: "Termination Address"
+        $ref: "#/definitions/ZipAddress"
+      TerminationFipsCode:
+        type: "string"
+        description: "Termination FipsCode"
+      TerminationPCode:
+        type: "integer"
+        format: "int32"
+        description: "Termination PCode"
+      TerminationNpaNxx:
+        type: "integer"
+        format: "int32"
+        description: "Termination NpaNxx"
+      BillToAddress:
+        description: "Bill to Address"
+        $ref: "#/definitions/ZipAddress"
+      BillToFipsCode:
+        type: "string"
+        description: "Bill to Fips Code"
+      BillToPCode:
+        type: "integer"
+        format: "int32"
+        description: "Bill to PCode"
+      BillToNpaNxx:
+        type: "integer"
+        format: "int32"
+        description: "Bill to NpaNxx"
+      IsPrivateLine:
+        type: "boolean"
+        description: "Indicate if the transaction is a private line transaction -\
+          \ User input            default value it false."
+      PrivateLineSplit:
+        type: "number"
+        format: "double"
+        description: "The split between the ending points of a private line - User\
+          \ input            If IsPrivateLine is false, this value will be ignored\
+          \            The valid value should be in [0, 1]            The value indicate\
+          \ how much the portion of charge belongs to the origin user"
+      CustomerType:
+        type: "integer"
+        format: "int32"
+        description: "See the EZTaxWebservice User's Manual for valid Customer Types"
+      BusinessClass:
+        type: "integer"
+        format: "int32"
+        description: "See the EZTaxWebservice User's Manual for valid Customer Types"
+      Sale:
+        type: "boolean"
+        description: "True if this is a sale otherwise false"
+      TransactionType:
+        type: "integer"
+        format: "int32"
+        description: "Transaction Type"
+      ServiceType:
+        type: "integer"
+        format: "int32"
+        description: "Service Type"
+      ServiceClass:
+        type: "integer"
+        format: "int32"
+        description: "See the EZTaxWebservice User's Manual for valid Service Classes"
+      Date:
+        type: "string"
+        format: "date-time"
+        description: "Transaction Bill Date.  Field is provided to allow rating and\
+          \ taxing to occur on a date other than Billing Date."
+      Charge:
+        type: "number"
+        format: "double"
+        description: "Charge amount to customer for transaction"
+      Incorporated:
+        type: "boolean"
+        description: "True if this transaction is within an incorporated area of the\
+          \ local jurisdiction, otherwise False."
+      FederalExempt:
+        type: "boolean"
+        description: "True if Transaction is exempt from Federal Tax, otherwise False"
+      StateExempt:
+        type: "boolean"
+        description: "True if Transaction is exempt from State Tax, otherwise False"
+      CountyExempt:
+        type: "boolean"
+        description: "True if Transaction is exempt from County Tax, otherwise False"
+      LocalExempt:
+        type: "boolean"
+        description: "True if Transaction is exempt from Local Tax, otherwise False"
+      FederalPCode:
+        type: "integer"
+        format: "int32"
+        description: "Jurisdiction for Federal Exemption"
+      StatePCode:
+        type: "integer"
+        format: "int32"
+        description: "Jurisdiction for State Exemption"
+      CountyPCode:
+        type: "integer"
+        format: "int32"
+        description: "Jurisdiction for County Exemption"
+      LocalPCode:
+        type: "integer"
+        format: "int32"
+        description: "Jurisdiction for Local Exemption"
+      Exemptions:
+        type: "array"
+        description: "List of Tax Exemptions"
+        items:
+          $ref: "#/definitions/TaxExemption"
+      ExemptionType:
+        type: "integer"
+        format: "int32"
+        description: "See the EZTax User's Manual for valid Exemption Types"
+      InvoiceNumber:
+        type: "integer"
+        format: "int32"
+        description: "Invoice Number - User Defined"
+      Optional:
+        type: "integer"
+        format: "int32"
+        description: "User defined value for reporting"
+      CustomerNumber:
+        type: "string"
+        description: "Customer Number - User Defined"
+      CompanyIdentifier:
+        type: "string"
+        description: "Customer Identifier - User Defined"
+      OptionalAlpha1:
+        type: "string"
+        description: "Optional String Value - User Defined"
+      Optional4:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional5:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional6:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional7:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional8:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional9:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional10:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      AdjustmentMethod:
+        type: "integer"
+        format: "int32"
+        description: "See the EZTaxWebservice User's Manual for valid Adjustment Methods"
+      Lines:
+        type: "integer"
+        format: "int32"
+        description: "Number of lines (use with Transaction Type: LOCAL_TYPE and Service\
+          \ Type: LINES)"
+      Locations:
+        type: "integer"
+        format: "int32"
+        description: "Number of Locations (use with Transaction Type: LOCAL_TYPE and\
+          \ Service Type: LOCATION)"
+      Minutes:
+        type: "number"
+        format: "double"
+        description: "Minutes of call, set to zero when not appropriate. NOTE: Some\
+          \ taxes are per minute."
+      Debit:
+        type: "boolean"
+        description: "Determines if this is a prepaid debit card transaction."
+      DiscountType:
+        type: "integer"
+        format: "int32"
+        description: "See the EZTaxWebservice User's Manual for valid Discount Types"
+      FacilitiesBased:
+        type: "boolean"
+        description: "Specifies if the carrier delivering the service has company\
+          \ owned facilitiesprovide the service."
+      Franchise:
+        type: "boolean"
+        description: "Indicates if the company provides services sold pursuant to\
+          \ a franchise agreement between the carrier and jurisdiction."
+      Lifeline:
+        type: "boolean"
+        description: "Indicates if customer is a Lifeline participant."
+      Regulated:
+        type: "boolean"
+        description: "True if Regulated, otherwise False"
+      ServiceLevelNumber:
+        type: "integer"
+        format: "int32"
+        description: "Service Level Number - User Defined"
+      Exclusions:
+        type: "array"
+        description: "List of Exclusions"
+        items:
+          $ref: "#/definitions/Exclusion"
+      CategoryExemptions:
+        type: "array"
+        description: "List of Category Exemptions"
+        items:
+          $ref: "#/definitions/CategoryExemption"
+      OptionalFields:
+        type: "array"
+        description: "List of optional alphanumeric fields passed in by the client."
+        items:
+          $ref: "#/definitions/OptionalField"
+      TaxInclusive:
+        type: "boolean"
+        description: "Indicates if the charge of this transaction is tax-inclusive\
+          \ (reverse tax calculation)."
+    description: "Transaction Wrapper Class"
+  ZipAddress:
+    type: "object"
+    properties:
+      CountryISO:
+        type: "string"
+        description: "Country ISO code."
+      County:
+        type: "string"
+        description: "County name."
+      Locality:
+        type: "string"
+        description: "Locality name."
+      State:
+        type: "string"
+        description: "Two-character state abbreviation."
+      ZipCode:
+        type: "string"
+        description: "Zip code for taxing jurisdiction."
+      ZipP4:
+        type: "string"
+        description: "Zip + 4 for taxing jurisdiction."
+    description: "Zip Address Class"
+  TaxExemption:
+    type: "object"
+    properties:
+      PCode:
+        type: "integer"
+        format: "int32"
+        description: "Jurisdiction Code for Tax Exemption"
+      TaxLevel:
+        type: "integer"
+        format: "int32"
+        description: "See the EZTaxWebservice User's Manual for valid Tax Levels"
+      TaxType:
+        type: "integer"
+        format: "int32"
+        description: "See the EZTaxWebservice User's Manual for valid Tax Types"
+    description: "Tax Exemption class"
+  Exclusion:
+    type: "object"
+    properties:
+      CountryISO:
+        type: "string"
+        description: "CountryISO"
+      State:
+        type: "string"
+        description: "Two-character abbreviation for State"
+      ExclusionOn:
+        type: "boolean"
+        description: "True if entity Exclusion applies in the state, otherwise False"
+    description: "Exclusions Class"
+  CategoryExemption:
+    type: "object"
+    properties:
+      CountryISO:
+        type: "string"
+        description: "CountryISO"
+      State:
+        type: "string"
+        description: "Two-character abbreviation for State"
+      TaxCategory:
+        type: "integer"
+        format: "int32"
+        description: "See the CommsPlatform.API.WrapperClasses User's Manual for valid\
+          \ Tax Categories"
+    description: "Category Exemption Class"
+  OptionalField:
+    type: "object"
+    properties:
+      OptionalKeyNo:
+        type: "integer"
+        format: "int32"
+        description: "Key number (1 to 10) for optional field."
+      OptionalValue:
+        type: "string"
+        description: "Optional field value."
+    description: "Data structure used to provide optional alphanumeric data for transactions."
+  TaxData:
+    type: "object"
+    properties:
+      AdjustmentType:
+        type: "integer"
+        format: "int32"
+        description: "See the EZTaxWebservice User's Manual for valid Adjustment Types"
+      Billable:
+        type: "boolean"
+        description: "Billable flag from tax logic."
+      CalculationType:
+        type: "integer"
+        format: "int32"
+        description: "See the EZTaxWebservice User's Manual for valid Calculation\
+          \ Types"
+      CategoryDescription:
+        type: "string"
+        description: "Tax Category Description."
+      CategoryID:
+        type: "integer"
+        format: "int32"
+        description: "Tax category ID."
+      CompanyIdentifier:
+        type: "string"
+        description: "Customer Identifier - User Defined"
+      Compliance:
+        type: "boolean"
+        description: "Compliance flag from tax logic."
+      CustomerNumber:
+        type: "string"
+        description: "Customer Number - User Defined"
+      Description:
+        type: "string"
+        description: "Tax description."
+      ExemptionType:
+        type: "integer"
+        format: "int32"
+        description: "See the EZTaxWebservice User's Manual for valid Exemption Types"
+      ExemptSaleAmount:
+        type: "number"
+        format: "double"
+        description: "Amount of the charge exempt from taxes."
+      InvoiceNumber:
+        type: "integer"
+        format: "int32"
+        description: "Invoice Number - User Defined"
+      Optional:
+        type: "integer"
+        format: "int32"
+        description: "User defined value for reporting"
+      OptionalAlpha1:
+        type: "string"
+        description: "Optional String Value - User Defined"
+      Optional4:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional5:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional6:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional7:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional8:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional9:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional10:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      PCode:
+        type: "integer"
+        format: "int32"
+        description: "PCode for tax."
+      Rate:
+        type: "number"
+        format: "double"
+        description: "Tax rate or amount applied."
+      RefundUncollect:
+        type: "number"
+        format: "double"
+        description: "Taxable measure if tax is smaller than 0."
+      ServiceLevelNumber:
+        type: "integer"
+        format: "int32"
+        description: "Service Level Number - User Defined"
+      Surcharge:
+        type: "boolean"
+        description: "Surcharge flag from tax logic."
+      TaxableMeasure:
+        type: "number"
+        format: "double"
+        description: "Amount of Charge plus any taxed taxes."
+      TaxAmount:
+        type: "number"
+        format: "double"
+        description: "Calculated tax amount."
+      TaxLevel:
+        type: "integer"
+        format: "int32"
+        description: "See the EZTaxWebservice User's Manual for valid Tax Levels"
+      TaxType:
+        type: "integer"
+        format: "int32"
+        description: "See the EZTaxWebservice User's Manual for valid Tax Types"
+      Lines:
+        type: "integer"
+        format: "int32"
+        description: "Number of lines (use with Transaction Type: LOCAL_TYPE and Service\
+          \ Type: LINES)"
+      Locations:
+        type: "integer"
+        format: "int32"
+        description: "Number of Locations (use with Transaction Type: LOCAL_TYPE and\
+          \ Service Type: LOCATION)"
+      Minutes:
+        type: "number"
+        format: "double"
+        description: "Minutes of call, set to zero when not appropriate. NOTE: Some\
+          \ taxes are per minute."
+      OptionalFields:
+        type: "array"
+        description: "List of optional alphanumeric fields passed in by the client."
+        items:
+          $ref: "#/definitions/OptionalField"
+      TransCharge:
+        type: "number"
+        format: "double"
+        description: "Transaction charge amount."
+    description: ""
+  ProRatedTransaction:
+    type: "object"
+    properties:
+      ProRatedPercent:
+        type: "number"
+        format: "double"
+        description: "Percentage to prorate."
+      Transaction:
+        description: "Telecom data."
+        $ref: "#/definitions/Transaction"
+    description: "Parameter for pro-rated tax calculation API."
+  ReverseTaxResults:
+    type: "object"
+    properties:
+      BaseSaleAmount:
+        type: "number"
+        format: "double"
+        description: "Base sale amount necessary to arrive at desired total tax."
+      Taxes:
+        type: "array"
+        description: "Taxes generated for the transaction."
+        items:
+          $ref: "#/definitions/TaxData"
+    description: "Structure returned when invoking the reverse tax calculation APIs."
+  CalculateWithOverridesRequest:
+    description: "Paremeter for the tax calculation with override APIs."
+    type: "object"
+    properties:
+      Transaction:
+        "$ref": "#/definitions/Transaction"
+        description: "Telecom transaction data."
+      Overrides:
+        description: "List of tax rate overrides."
+        type: "array"
+        items:
+          "$ref": "#/definitions/TaxRateOverrideInfo"
+  TaxRateOverrideInfo:
+    description: "Tax Rate Override Info Class"
+    required:
+    - "Pcode"
+    - "Scope"
+    - "TaxType"
+    - "TaxLevel"
+    - "LevelExemptible"
+    - "BracketInfo"
+    type: "object"
+    properties:
+      Pcode:
+        format: "int32"
+        description: "Jurisdiction P Code for this tax rate override"
+        type: "integer"
+      Scope:
+        format: "int32"
+        description: "The override scope"
+        type: "integer"
+      TaxType:
+        format: "int32"
+        description: "TaxType and TaxLevel is the primary key for TaxRateOverrideInfo\r\n
+          \           Therefore they are required field"
+        type: "integer"
+      TaxLevel:
+        format: "int32"
+        description: "TaxLevel is part of the primary key for TaxRateOverrideInfo\r\n
+          \           Therefore it is required field"
+        type: "integer"
+      LevelExemptible:
+        description: "Overwrite the value in eztax database"
+        type: "boolean"
+      BracketInfo:
+        description: "Overwrite the brackets in eztax database"
+        type: "array"
+        items:
+          "$ref": "#/definitions/TaxBracketInfo"
+  CustModeTransaction:
+    type: "object"
+    properties:
+      CustBatchID:
+        type: "integer"
+        format: "int64"
+        description: "Customer batch ID."
+      Transaction:
+        description: "Transaction to process."
+        $ref: "#/definitions/Transaction"
+    description: "Parameter for the CustMode/CalcTaxes and CustMode/CalcAdj APIs."
+  CalcTaxesInCustModeRequest:
+    type: "object"
+    properties:
+      Transactions:
+        type: "array"
+        description: "List of telecom transactions to proceess. For use in CalcTaxesInCustMode\
+          \ API only."
+        items:
+          $ref: "#/definitions/Transaction"
+      Adjustments:
+        type: "array"
+        description: "List of telecom adjustments to proceess. For use in CalcTaxesInCustMode\
+          \ API only."
+        items:
+          $ref: "#/definitions/Transaction"
+      SalesUseTransactions:
+        type: "array"
+        description: "List of sales and use transactions to process. For use in CalcTaxesInCustMode\
+          \ API only."
+        items:
+          $ref: "#/definitions/SalesUseTransaction"
+      SalesUseAdjustments:
+        type: "array"
+        description: "List of sales and use adjustments to process. For use in CalcTaxesInCustMode\
+          \ API only."
+        items:
+          $ref: "#/definitions/SalesUseTransaction"
+      Nexus:
+        type: "array"
+        description: "Nexus list."
+        items:
+          $ref: "#/definitions/Nexus"
+      Exclusions:
+        type: "array"
+        description: "Exclusion list."
+        items:
+          $ref: "#/definitions/Exclusion"
+      ReturnDetail:
+        type: "boolean"
+        description: "Indicates if the individual transaction taxes should be returned\
+          \ in the response."
+    description: "Parameter for CustMode/CalcTaxesInCustMode API."
+  ProcessBatchRequest:
+    type: "object"
+    properties:
+      CustBatchId:
+        type: "integer"
+        format: "int64"
+        description: "Customer batch ID."
+      Nexus:
+        type: "array"
+        description: "Nexus list."
+        items:
+          $ref: "#/definitions/Nexus"
+      Exclusions:
+        type: "array"
+        description: "Exclusion list."
+        items:
+          $ref: "#/definitions/Exclusion"
+      ReturnDetail:
+        type: "boolean"
+        description: "Indicates if the individual transaction taxes should be returned\
+          \ in the response."
+    description: "Parameter for CustMode/ProcessBatch API."
+  SalesUseTransaction:
+    type: "object"
+    properties:
+      CustomerType:
+        type: "integer"
+        format: "int32"
+        description: "See the CommsPlatform.API.WrapperClasses User's Manual for valid\
+          \ Customer Types"
+      SaleOrConsumed:
+        type: "integer"
+        format: "int32"
+        description: "See the EZTaxBesservice User's Manual for valid SaleOrConsumed\
+          \ values"
+      Sale:
+        type: "boolean"
+        description: "True if this is a sale otherwise false"
+      TransactionType:
+        type: "integer"
+        format: "int32"
+        description: "See the CommsPlatform.API.WrapperClasses User's Manual for valid\
+          \ Transaction Types and valid             Transaction and Service Type combinations."
+      ServiceType:
+        type: "integer"
+        format: "int32"
+        description: "See the CommsPlatform.API.WrapperClasses User's Manual for valid\
+          \ Service Types and valid             Transaction and Service Type combinations."
+      SaleAttributes:
+        description: "Includes additional information that may effect the rate at\
+          \ which this            transaction is taxed."
+        $ref: "#/definitions/ISaleAttributes"
+      Date:
+        type: "string"
+        format: "date-time"
+        description: "Transaction Bill Date.  Field is provided to allow rating and\
+          \ taxing to occur on a date other than Billing Date."
+      Charge:
+        type: "number"
+        format: "double"
+        description: "Charge amount to customer for transaction"
+      Incorporated:
+        type: "boolean"
+        description: "True if this transaction is within an incorporated area of the\
+          \ local jurisdiction, otherwise False."
+      FederalExempt:
+        type: "boolean"
+        description: "True if Transaction is exempt from Federal Tax, otherwise False"
+      StateExempt:
+        type: "boolean"
+        description: "True if Transaction is exempt from State Tax, otherwise False"
+      CountyExempt:
+        type: "boolean"
+        description: "True if Transaction is exempt from County Tax, otherwise False"
+      LocalExempt:
+        type: "boolean"
+        description: "True if Transaction is exempt from Local Tax, otherwise False"
+      FederalPCode:
+        type: "integer"
+        format: "int32"
+        description: "Jurisdiction for Federal Exemption"
+      StatePCode:
+        type: "integer"
+        format: "int32"
+        description: "Jurisdiction for State Exemption"
+      CountyPCode:
+        type: "integer"
+        format: "int32"
+        description: "Jurisdiction for County Exemption"
+      LocalPCode:
+        type: "integer"
+        format: "int32"
+        description: "Jurisdiction for Local Exemption"
+      Exemptions:
+        type: "array"
+        description: "List of Tax Exemptions"
+        items:
+          $ref: "#/definitions/TaxExemption"
+      CategoryExemptions:
+        type: "array"
+        description: "List of Category Exemptions"
+        items:
+          $ref: "#/definitions/CategoryExemption"
+      ExemptionType:
+        type: "integer"
+        format: "int32"
+        description: "See the CommsPlatform.API.WrapperClasses User's Manual for valid\
+          \ Exemption Types"
+      InvoiceNumber:
+        type: "integer"
+        format: "int32"
+        description: "Invoice Number - User Defined"
+      Optional:
+        type: "integer"
+        format: "int32"
+        description: "User defined value for reporting"
+      CustomerNumber:
+        type: "string"
+        description: "Customer Number - User Defined"
+      CompanyIdentifier:
+        type: "string"
+        description: "Customer Identifier - User Defined"
+      OptionalAlpha1:
+        type: "string"
+        description: "Optional String Value - User Defined"
+      Optional4:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional5:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional6:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional7:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional8:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional9:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      Optional10:
+        type: "integer"
+        format: "int32"
+        description: "Optional Unsigned Integer Value - User Defined"
+      AdjustmentMethod:
+        type: "integer"
+        format: "int32"
+        description: "See the CommsPlatform.API.WrapperClasses User's Manual for valid\
+          \ Adjustment Methods"
+      FOB:
+        type: "integer"
+        format: "int32"
+        description: "See the CommsPlatform.API.WrapperClasses User's Manual for valid\
+          \ FOB (Freight on Board) values"
+      ShipFromAddress:
+        description: "Address item was shipped from"
+        $ref: "#/definitions/ZipAddress"
+      ShipFromFipsCode:
+        type: "string"
+        description: "FipsCode of location item was shipped from"
+      ShipFromPCode:
+        type: "integer"
+        format: "int32"
+        description: "PCode of location item was shipped from"
+      ShipToAddress:
+        description: "Address item was shipped to"
+        $ref: "#/definitions/ZipAddress"
+      ShipToFipsCode:
+        type: "string"
+        description: "FipsCode of location item was shipped to"
+      ShipToPCode:
+        type: "integer"
+        format: "int32"
+        description: "PCode of location item was shipped to"
+      TaxInclusive:
+        type: "boolean"
+        description: "Indicates if the charge of this transaction is tax-inclusive\
+          \ (reverse tax calculation)."
+      OptionalFields:
+        type: "array"
+        description: "List of optional alphanumeric fields passed in by the client."
+        items:
+          $ref: "#/definitions/OptionalField"
+    description: "Sales and Use Transaction"
+  Nexus:
+    type: "object"
+    properties:
+      State:
+        type: "string"
+        description: "Two-character abbreviation for State"
+      HasNexus:
+        type: "boolean"
+        description: "True if entity has Nexus in the state, otherwise False"
+    description: "Nexus Class"
+  ISaleAttributes:
+    type: "object"
+    description: "Sales Attributes Interface"
+  CustomerResults:
+    type: "object"
+    properties:
+      Taxes:
+        type: "array"
+        description: "Individual taxes for each transaction."
+        items:
+          $ref: "#/definitions/TaxData"
+      SummarizedTaxes:
+        type: "array"
+        description: "Summarized taxes for customer batch."
+        items:
+          $ref: "#/definitions/CustomerTaxData"
+    description: "Data structure returned when processing transactions in customer\
+      \ mode."
+  CustomerTaxData:
+    type: "object"
+    properties:
+      PCode:
+        type: "integer"
+        format: "int32"
+        description: "PCode for tax."
+      TaxType:
+        type: "integer"
+        format: "int32"
+        description: "See the CommsPlatform.API.WrapperClasses User's Manual for valid\
+          \ Tax Types"
+      TaxLevel:
+        type: "integer"
+        format: "int32"
+        description: "See the CommsPlatform.API.WrapperClasses User's Manual for valid\
+          \ Tax Levels"
+      CalculationType:
+        type: "integer"
+        format: "int32"
+        description: "See the CommsPlatform.API.WrapperClasses User's Manual for valid\
+          \ Calculation Types"
+      Rate:
+        type: "number"
+        format: "double"
+        description: "Tax rate or amount applied."
+      TaxAmount:
+        type: "number"
+        format: "double"
+        description: "Tax Amount"
+      ExemptSaleAmount:
+        type: "number"
+        format: "double"
+        description: "Amount of the charge exempt from taxes."
+      Description:
+        type: "string"
+        description: "Description."
+      Surcharge:
+        type: "integer"
+        format: "int32"
+        description: "Surcharge flag from tax logic."
+      MaxBase:
+        type: "number"
+        format: "double"
+        description: "Max amount to which tax is applied."
+      MinBase:
+        type: "number"
+        format: "double"
+        description: "Min amount to which tax is applied."
+      ExcessTax:
+        type: "number"
+        format: "double"
+        description: "Rate for Max Base."
+      TotalCharge:
+        type: "number"
+        format: "double"
+        description: "Total Charge"
+      CategoryID:
+        type: "integer"
+        format: "int32"
+        description: "Tax category ID."
+      CategoryDescription:
+        type: "string"
+        description: "Tax Category Description."
+      Lines:
+        type: "integer"
+        format: "int32"
+        description: "Number of lines (use with Transaction Type: LOCAL_TYPE and Service\
+          \ Type: LINES)"
+      Locations:
+        type: "integer"
+        format: "int32"
+        description: "Number of Locations (use with Transaction Type: LOCAL_TYPE and\
+          \ Service Type: LOCATION)"
+      Minutes:
+        type: "number"
+        format: "double"
+        description: "Minutes of call, set to zero when not appropriate. NOTE: Some\
+          \ taxes are per minute."
+    description: "Customer taxes when using Customer Mode."
+  RequestPCodeDetail:
+    type: "object"
+    properties:
+      FipsCode:
+        type: "string"
+        description: "Fips code - leave null if other value is used"
+      NpaNxx:
+        type: "integer"
+        format: "int32"
+        description: "NPANXX - leave null if other value is used"
+      ZipAddress:
+        description: "Zip Address - leave null if other value is used"
+        $ref: "#/definitions/ZipAddress"
+    description: "Request PCode Detail Class"
+  AddressData:
+    type: "object"
+    properties:
+      CountryISO:
+        type: "string"
+        description: "Country ISO code."
+      County:
+        type: "string"
+        description: "County name."
+      Locality:
+        type: "string"
+        description: "Locality name."
+      State:
+        type: "string"
+        description: "Two-character state abbreviation."
+      TaxLevel:
+        type: "integer"
+        format: "int32"
+        description: "Tax Level"
+      ZipBegin:
+        type: "string"
+        description: "Begin of Zip code range"
+      ZipEnd:
+        type: "string"
+        description: "End of Zip code range"
+      ZipP4Begin:
+        type: "string"
+        description: "Begin of Zip+4 code range"
+      ZipP4End:
+        type: "string"
+        description: "End of Zip+4 code range"
+    description: "Address Data"
+  TaxRateInfo:
+    type: "object"
+    properties:
+      TaxType:
+        type: "integer"
+        format: "int32"
+        description: "Tax Type"
+      TaxLevel:
+        type: "integer"
+        format: "int32"
+        description: "Tax Level"
+      RateHistory:
+        type: "array"
+        description: "Rate History"
+        items:
+          $ref: "#/definitions/TaxRateHistory"
+    description: "Tax Rate Info Class"
+  TaxRateHistory:
+    type: "object"
+    properties:
+      EffectiveDate:
+        type: "string"
+        format: "date-time"
+        description: "Effective Date"
+      LevelExemptible:
+        type: "boolean"
+        description: "Level Exemptible"
+      BracketInfo:
+        type: "array"
+        description: "Bracket Info"
+        items:
+          $ref: "#/definitions/TaxBracketInfo"
+    description: "Tax Rate History Class"
+  TaxBracketInfo:
+    type: "object"
+    required:
+    - "MaxBase"
+    - "Rate"
+    properties:
+      Rate:
+        type: "number"
+        format: "double"
+        description: "Rate is the tax rate which can not be negative.            If\
+          \ it is for a rated tax, its value is 0 to 1            Otherwise its value\
+          \ could be larger than one."
+      MaxBase:
+        type: "number"
+        format: "double"
+        description: "MaxBase field has to be greater than Zero"
+      CountyOverrideTax:
+        type: "number"
+        format: "double"
+        description: "This field is meaningful only if CountyOverrideOn is true  \
+          \          And it should be consistent for all brackets of a tax"
+      StateOverrideTax:
+        type: "number"
+        format: "double"
+        description: "This field is meaningful only if StateOverrideOn is true   \
+          \         And it should be consistent for all brackets of a tax"
+      StateOverrideOn:
+        type: "boolean"
+        description: "Flag to indicate StateOverrideTax is the new tax rate      \
+          \      for state sales or use tax            And it should be consistent\
+          \ for all brackets of a tax"
+      CountyOverrideOn:
+        type: "boolean"
+        description: "Flag to indicate CountyOverrideTax is the new tax rate     \
+          \       for county sales or use tax            And it should be consistent\
+          \ for all brackets of a tax"
+    description: "Tax Bracket Info"
