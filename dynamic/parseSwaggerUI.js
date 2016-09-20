@@ -153,8 +153,10 @@ export default (api, rootPath) => {
 
             apiMethod.curl = buildCurl(swaggerData.sampleAuthHeader, apiMethod);
 
-            if (endpoint[action].responses[200].schema) {
+            if (endpoint[action].responses[200] && endpoint[action].responses[200].schema) {
                 apiMethod.responseSchema = buildSchema(endpoint[action].responses[200].schema);
+            } else if (endpoint[action].responses[204] && endpoint[action].responses[204].schema) {
+                apiMethod.responseSchema = buildSchema(endpoint[action].responses[204].schema);
             }
 
             swaggerData.apiEndpoints.push(apiMethod);

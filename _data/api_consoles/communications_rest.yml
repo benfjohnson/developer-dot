@@ -1,0 +1,6 @@
+# COMMUNICATIONS GEOCODER
+swagger_path: communications/afc-rest.yaml
+nav_link:
+    title: Communications REST API
+    path: /communications/api-reference/rest
+product: communications
