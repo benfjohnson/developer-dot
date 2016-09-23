@@ -4,6 +4,7 @@ swagger_path: avatax/v2/rest.json
 nav_link:
     title: Avatax REST API v2 (BETA)
     path: /avatax/api-reference/tax/v2
+    has_tags: true
 product: avaTax
 endpoint_hashes:
     - name: Calculate Tax and Record a Document

@@ -1,5 +1,5 @@
 import {buildPostmanCollection, buildAuth} from './react/api-app/helpers';
-import {buildQsPath, buildCurl, buildInitialPostBodyData} from './react/shared/helpers';
+import {buildQueryString, reduceParamsToKeyValuePair, buildCurl, buildInitialPostBodyData} from './react/shared/helpers';
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
 const buildSchema = (schema, required = [], excludedProperties = [], propName = null) => {
@@ -73,6 +73,8 @@ const buildRequestSchema = (endpointParams) => {
     return postBodyParams.length ? buildSchema(postBodyParams[0].schema) : null;
 };
 
+// const buildTagEndpointMap = (tags)
+
 export default (api, rootPath) => {
     // Build base URL path (e.g. http://localhost:8082/v3)
 
@@ -82,6 +84,11 @@ export default (api, rootPath) => {
     const apiProxy = api['x-api-proxy'] || null;
 
     const swaggerData = {
+        /* `tagMap`TO BE DELETED FROM APP STATE
+         * Used to build pages on a per-tag (rather than per-api) basis
+         * Only create it and populate it with a mapping if specified by `x-group-by-tags` header in API
+         */
+        tagMap: api['x-group-by-tags'] ? {} : null,
         apiName: api.info.title,
         apiDescription: api.info.description,
         appLoaded: false,
@@ -104,10 +111,18 @@ export default (api, rootPath) => {
                 description: endpoint[action].description,
                 path: root + k,
                 action: action,
-                isAuthenticated: Boolean(swaggerData.auth),
+                sampleAuthHeader: swaggerData.sampleAuthHeader,
                 // Determines whether or not we show API console input fields for params in the 'x-excludedProperties' array in Swagger
                 showExcludedPostBodyFields: false
             };
+
+            // Update `tagMap` for this endpoint
+            if (swaggerData.tagMap && endpoint[action].tags && endpoint[action].tags.length) {
+                endpoint[action].tags.forEach((tag) => {
+                    swaggerData.tagMap[tag] = swaggerData.tagMap[tag] || [];
+                    swaggerData.tagMap[tag].push(apiMethod.operationId);
+                });
+            }
 
             const endpointParams = endpoint[action].parameters || [];
             const headerParams = buildRequestParams(endpointParams, 'header');
@@ -115,7 +130,7 @@ export default (api, rootPath) => {
             const queryString = buildRequestParams(endpointParams, 'query');
 
             if (apiProxy) {
-                apiMethod.proxy = {...apiProxy, route: apiProxy.route + k};
+                apiMethod.proxy = apiProxy;
             }
 
             if (Object.keys(headerParams).length) {
@@ -126,7 +141,7 @@ export default (api, rootPath) => {
             }
             if (Object.keys(queryString).length) {
                 apiMethod.queryString = queryString;
-                apiMethod.qsPath = buildQsPath(queryString);
+                apiMethod.qsPath = buildQueryString(reduceParamsToKeyValuePair(queryString));
             }
 
             const requestSchema = buildRequestSchema(endpointParams);
@@ -136,10 +151,12 @@ export default (api, rootPath) => {
                 apiMethod.postBody = buildInitialPostBodyData(requestSchema, apiMethod.showExcludedPostBodyFields);
             }
 
-            apiMethod.curl = buildCurl(swaggerData.auth, apiMethod);
+            apiMethod.curl = buildCurl(swaggerData.sampleAuthHeader, apiMethod);
 
-            if (endpoint[action].responses[200].schema) {
+            if (endpoint[action].responses[200] && endpoint[action].responses[200].schema) {
                 apiMethod.responseSchema = buildSchema(endpoint[action].responses[200].schema);
+            } else if (endpoint[action].responses[204] && endpoint[action].responses[204].schema) {
+                apiMethod.responseSchema = buildSchema(endpoint[action].responses[204].schema);
             }
 
             swaggerData.apiEndpoints.push(apiMethod);

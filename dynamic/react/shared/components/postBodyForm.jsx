@@ -48,7 +48,7 @@ PostBodyForm.propTypes = {
         name: React.PropTypes.string.isRequired,
         description: React.PropTypes.string.isRequired,
         curl: React.PropTypes.string.isRequired,
-        isAuthenticated: React.PropTypes.bool.isRequired,
+        sampleAuthHeader: React.PropTypes.string,
         path: React.PropTypes.string.isRequired,
         action: React.PropTypes.string.isRequired,
         queryString: React.PropTypes.objectOf(
@@ -75,7 +75,8 @@ PostBodyForm.propTypes = {
     onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
     onPostBodyInputChanged: React.PropTypes.func.isRequired,
     onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
-    onSubmitConsoleRequest: React.PropTypes.func.isRequired
+    onSubmitConsoleRequest: React.PropTypes.func.isRequired,
+    onToggleShowExcludedPostBodyProps: React.PropTypes.func.isRequired
 };
 
 export default PostBodyForm;

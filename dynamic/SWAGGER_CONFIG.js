@@ -34,6 +34,11 @@ export default {
         path: 'communications/api-reference/geocode/soap',
         product: 'communications'
     },
+    'communications/afc-rest.yaml': {
+        name: 'Communications REST API',
+        path: 'communications/api-reference/rest',
+        product: 'communications'
+    },
     'excise/5_18_0.yaml': {
         name: 'Excise v5.18.0',
         path: 'excise/api-reference/tax-determination/v5_18_0',

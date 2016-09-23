@@ -1,6 +1,6 @@
 import queryStringReducer from './queryStringReducer';
 import actionTypes from '../../shared/actionTypes';
-import {buildQsPath, buildCurl, fillOrRemoveSampleData, fillPostBodySampleData, buildInitialPostBodyData} from '../helpers';
+import {buildQueryString, reduceParamsToKeyValuePair, buildCurl, fillOrRemoveSampleData, buildInitialPostBodyData} from '../helpers';
 
 // Method traverses a `requestSchema` endpoint property by colon-separated name and returns the
 // innermost property described by the propertyPath
@@ -81,14 +81,11 @@ export default (state, action) => {
 
     switch (action.type) {
     case actionTypes.RESET_CONSOLE:
-        if (newState.postBodyDefaultData) {
-            newState.postBody = {...newState.postBodyDefaultData};
-        } else {
-            newState = fillOrRemoveSampleData(newState, true);
-        }
-        newState.qsPath = buildQsPath(newState.queryString);
-        newState.curl = buildCurl(newState.isAuthenticated, newState);
-        return {...newState, apiResponse: undefined};
+        newState = fillOrRemoveSampleData(newState, true);
+        newState.qsPath = buildQueryString(reduceParamsToKeyValuePair(newState.queryString));
+        newState.curl = buildCurl(newState.sampleAuthHeader, newState);
+        newState.apiResponse = undefined;
+        break;
     case actionTypes.SUBMIT_DONE:
         newState.apiResponse = action.apiResponse;
         if (action.error) {
@@ -96,23 +93,18 @@ export default (state, action) => {
         }
         break;
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
-        if (newState.postBodyDefaultData) {
-            // Have to use jQuery for deep extends (property merge)
-            newState.postBody = $.extend(true, {}, newState.postBodyDefaultData, fillPostBodySampleData(newState.requestSchema));
-        } else {
-            newState = fillOrRemoveSampleData(newState);
-        }
-        newState.qsPath = buildQsPath(newState.queryString);
-        newState.curl = buildCurl(newState.isAuthenticated, newState);
+        newState = fillOrRemoveSampleData(newState);
+        newState.qsPath = buildQueryString(reduceParamsToKeyValuePair(newState.queryString));
+        newState.curl = buildCurl(newState.sampleAuthHeader, newState);
         break;
     case actionTypes.QUERY_STRING_CHANGED:
         newState = {...newState, queryString: queryStringReducer(newState.queryString, action)};
-        newState.qsPath = buildQsPath(newState.queryString);
-        newState.curl = buildCurl(newState.isAuthenticated, newState);
+        newState.qsPath = buildQueryString(reduceParamsToKeyValuePair(newState.queryString));
+        newState.curl = buildCurl(newState.sampleAuthHeader, newState);
         break;
     case actionTypes.PATH_PARAM_CHANGED:
         newState.pathParams[action.paramName].value = action.newValue;
-        newState.curl = buildCurl(newState.isAuthenticated, newState);
+        newState.curl = buildCurl(newState.sampleAuthHeader, newState);
         break;
     case actionTypes.POST_BODY_CHANGED:
         // If any changed PostBodyForm input was an array item, need to access its `items`
@@ -130,16 +122,8 @@ export default (state, action) => {
         updateDataAtProperty(action.postBodyParamName, castedValue, newState.postBody);
         break;
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
-        // If postBodyDefaultData exists (supports recipes), need to populate a full array item
-        let newArrObj;
+        const newArrObj = buildInitialPostBodyData(action.itemSchema, newState.showExcludedPostBodyFields);
 
-        if (newState.postBodyDefaultData) {
-            const arr = traversePostBodyData(action.postBodyParamName, newState.postBody);
-
-            newArrObj = {...arr[arr.length - 1]};
-        } else {
-            newArrObj = buildInitialPostBodyData(action.itemSchema, newState.showExcludedPostBodyFields);
-        }
         traversePostBodyData(action.postBodyParamName, newState.postBody).push(newArrObj);
         break;
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
@@ -148,15 +132,14 @@ export default (state, action) => {
         const newStatePropertyToRemove = traversePostBodyData(itemToRemove, newState.postBody);
 
         newStatePropertyToRemove.splice(indexToRemove, 1);
-        newState.curl = buildCurl(newState.isAuthenticated, newState);
+        newState.curl = buildCurl(newState.sampleAuthHeader, newState);
 
-        return newState;
+        break;
     case actionTypes.TOGGLE_SHOW_EXCLUDED_POST_BODY_PROPS:
         newState.showExcludedPostBodyFields = !newState.showExcludedPostBodyFields;
         newState.postBody = buildInitialPostBodyData(newState.requestSchema, newState.showExcludedPostBodyFields);
-        return newState;
+        break;
     default:
-        return state;
     }
 
     return newState;

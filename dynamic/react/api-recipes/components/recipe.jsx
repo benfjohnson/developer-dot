@@ -1,7 +1,7 @@
 import React from 'react';
 import ConsoleLiveData from '../../shared/components/consoleLiveData';
 import RecipeForm from './recipeForm';
-import {replaceStringPlaceholders, buildQueryString} from '../helpers';
+import {replaceStringPlaceholders, buildQueryString} from '../../shared/helpers';
 
 // Helper that determines what part of the recipe is shown in the `Request` input of
 // the ConsoleLiveData component

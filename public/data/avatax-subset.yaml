@@ -28,8 +28,9 @@ produces:
 security:
   - basic_auth: []
 x-auth-formula: "`Basic ${btoa(`<username>:<password>`)}`"
+x-sample-auth-header: "Basic aHR0cHdhdGNoOmY="
 x-api-proxy: 
-  route: https://swn36zl7ba.execute-api.us-west-2.amazonaws.com/prod
+  route: https://e3zwcxla5k.execute-api.us-west-2.amazonaws.com/prod/
   key:
     name: api-key
     location: api-proxy-key/key
