@@ -3,10 +3,19 @@ swagger: '2.0'
 info:
   version: v1
   title: Saas Pro
-  description: APIs to interface with communications tax calculations. The api_key
-    represents the UserId:Password converted to Base64 to be used for Authentication.
+  description: The AFC REST service provides APIs to calculate taxes on communiations transactions and lookup tax rate and jurisdiction information.
   termsOfService: None
 basePath: "/"
+schemes:
+  - https
+consumes:
+  - text/json
+produces:
+  - text/json
+security:
+  - basic_auth: []
+x-auth-formula: "`Basic ${btoa(`<username>:<password>`)}`"
+x-sample-auth-header: 'Basic aHR0cHdhdGNoOmY='
 paths:
   "/api/v1/CalculateTaxes":
     post:
@@ -1874,4 +1883,7 @@ definitions:
         type: array
         items:
           "$ref": "#/definitions/TaxBracketInfo"
-securityDefinitions: {}
+securityDefinitions:
+  basic_auth:
+    type: basic
+    description: "In order to access the AFC SaaS Pro REST service, you will need an active account and a user name and password provided to you by Avalara. Authentication is in the format `Basic [user name]:[password]` encoded to Base64, as per basic access authentication. For example: `Authorization: Basic a2VlcG1vdmluZzpub3RoaW5nMnNlZWhlcmU=`"
