@@ -18,9 +18,10 @@ You attempted to retrieve data with a "$filter" parameter that contained syntax 
       "details": [
         {
           "code": "ParserUnterminatedValueError",
-          "number": 21,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "The filter contained a string value that was not properly terminated.",
+          "description": "-0-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/ParserUnterminatedValueError",
           "severity": "Error"
         }

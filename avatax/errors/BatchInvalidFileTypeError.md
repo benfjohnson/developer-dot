@@ -18,9 +18,10 @@ You uploaded a batch file with an incorrect file type.
       "details": [
         {
           "code": "BatchInvalidFileTypeError",
-          "number": 202,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "The BatchFile '-1-' had a compressed file of type '-0-'.  Compressed files can only contain CSV, XLS, XLSX, XML, POSTED, and UNPOSTED file types.",
+          "description": "",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/BatchInvalidFileTypeError",
           "severity": "Error"
         }

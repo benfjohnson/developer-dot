@@ -18,9 +18,10 @@ You attempted to reset a password but you did not provide a correct old password
       "details": [
         {
           "code": "OldPasswordInvalid",
-          "number": 23,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "Existing password is invalid.",
+          "description": "-0-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/OldPasswordInvalid",
           "severity": "Error"
         }

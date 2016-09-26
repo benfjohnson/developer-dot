@@ -18,9 +18,10 @@ You attempted to create a document with a code that matches an existing transact
       "details": [
         {
           "code": "DocumentCodeConflict",
-          "number": 303,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "Two documents exist for the company '-0-' with the document code '-1-'.  Please void one of them using its ID number.",
+          "description": "",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/DocumentCodeConflict",
           "severity": "Error"
         }

@@ -18,9 +18,10 @@ You attempted to set a value that was not permitted.
       "details": [
         {
           "code": "RangeSetError",
-          "number": 8,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "-1- must be one of the following: -2-.",
+          "description": "-0-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/RangeSetError",
           "severity": "Error"
         }

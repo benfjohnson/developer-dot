@@ -18,9 +18,10 @@ You may not save a transaction (also called a Document) directly to the database
       "details": [
         {
           "code": "DocumentSaveNotAllowed",
-          "number": 401,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "Documents may not be saved or created directly.  Please use the Transaction Create endpoint.",
+          "description": "",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/DocumentSaveNotAllowed",
           "severity": "Error"
         }

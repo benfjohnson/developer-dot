@@ -18,9 +18,10 @@ The company code for a company is set when the company is created and may not be
       "details": [
         {
           "code": "CannotChangeCompanyCode",
-          "number": 25,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "Company Code cannot be changed.",
+          "description": "The company code for company -0- (-1-) is '-2-', but you provided '-3-'",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/CannotChangeCompanyCode",
           "severity": "Error"
         }

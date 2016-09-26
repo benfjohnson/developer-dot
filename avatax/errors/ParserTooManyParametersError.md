@@ -18,9 +18,10 @@ You attempted a fetch call that included too many parameters.
       "details": [
         {
           "code": "ParserTooManyParametersError",
-          "number": 20,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "Your filter was too large to parse.  Please create a filter with fewer values.",
+          "description": "",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/ParserTooManyParametersError",
           "severity": "Error"
         }

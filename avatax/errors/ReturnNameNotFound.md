@@ -18,9 +18,10 @@ You attempted to create a filing calendar for a return that is not recognized by
       "details": [
         {
           "code": "ReturnNameNotFound",
-          "number": 122,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "The form named '-0-' cannot be found.",
+          "description": "",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/ReturnNameNotFound",
           "severity": "Error"
         }

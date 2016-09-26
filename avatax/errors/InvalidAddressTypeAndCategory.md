@@ -18,9 +18,10 @@ When creating a location, you must specify a compatible AddressType and AddressC
       "details": [
         {
           "code": "InvalidAddressTypeAndCategory",
-          "number": 123,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "Invalid AddressType and AddressCategory combination.",
+          "description": "-0- -1-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/InvalidAddressTypeAndCategory",
           "severity": "Error"
         }

@@ -18,9 +18,10 @@ You attempted to act on, retrieve, update, or delete an object that does not exi
       "details": [
         {
           "code": "EntityNotFoundError",
-          "number": 4,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "-0- with ID '-1-' not found.",
+          "description": "",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/EntityNotFoundError",
           "severity": "Error"
         }

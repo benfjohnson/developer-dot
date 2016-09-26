@@ -18,11 +18,12 @@ Your API call did not contain authentication information.
       "details": [
         {
           "code": "AuthenticationIncomplete",
-          "number": 34,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "You must provide an Authorization header of the type Basic or Bearer to authenticate correctly.",
+          "description": "-0-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/AuthenticationIncomplete",
-          "severity": "Error"
+          "severity": "Exception"
         }
       ]
     }

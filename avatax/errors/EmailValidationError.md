@@ -18,9 +18,10 @@ You attempted to provide an email address that does not conform to email address
       "details": [
         {
           "code": "EmailValidationError",
-          "number": 15,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "The specified email address was not valid.",
+          "description": "-0-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/EmailValidationError",
           "severity": "Error"
         }

@@ -18,9 +18,10 @@ You attempted to create a nexus in a tax authority that is underneath a parent t
       "details": [
         {
           "code": "ParentNexusNotFound",
-          "number": 146,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "To declare nexus here, you must also declare nexus for -0-.",
+          "description": "Nexus without parent: Country: -1-, Region: -2-, JurisTypeId: -3-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/ParentNexusNotFound",
           "severity": "Error"
         }

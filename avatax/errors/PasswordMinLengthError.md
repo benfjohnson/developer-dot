@@ -18,9 +18,9 @@ Your password must be a minimum of 8 characters in length.
       "details": [
         {
           "code": "PasswordMinLengthError",
-          "number": 11,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "Password must be at least 8 characters long.",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/PasswordMinLengthError",
           "severity": "Error"
         }

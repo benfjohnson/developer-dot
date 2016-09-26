@@ -18,9 +18,10 @@ The "EntityNo" field on the company object is provided as a convenience and may 
       "details": [
         {
           "code": "CannotChangeEntityNo",
-          "number": 26,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "Entity Number cannot be changed.",
+          "description": "The entity number for company -0- (-1-) is '-2-', but you provided '-3-'",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/CannotChangeEntityNo",
           "severity": "Error"
         }

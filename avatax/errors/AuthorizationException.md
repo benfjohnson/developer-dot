@@ -18,11 +18,12 @@ Your account is not authorized to call this API.
       "details": [
         {
           "code": "AuthorizationException",
-          "number": 31,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "This service or operation is not authorized for this account or user.",
+          "description": "-0-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/AuthorizationException",
-          "severity": "Error"
+          "severity": "Exception"
         }
       ]
     }

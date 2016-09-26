@@ -18,9 +18,10 @@ You attempted to create a tax rule that designated a device as medical excise ta
       "details": [
         {
           "code": "MedicalExciseError",
-          "number": 131,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "TaxTypeId must be E (Excise) and RateTypeId must be M (Medical) for US country level rules (JurisTypeId CNT and JurisCode US).",
+          "description": "-0- -1- -2- -3- -4- -5- -6-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/MedicalExciseError",
           "severity": "Error"
         }

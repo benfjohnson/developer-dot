@@ -18,9 +18,10 @@ You created a tax rule with a RateDepends option, but that rule is not a Taxabil
       "details": [
         {
           "code": "RateDependsTaxabilityError",
-          "number": 132,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "RateDepends option only valid for TaxRuleType 4 (Taxability Rule).",
+          "description": "-0- -1- -2- -3- -4- -5-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/RateDependsTaxabilityError",
           "severity": "Error"
         }

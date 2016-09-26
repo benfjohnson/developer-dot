@@ -18,9 +18,10 @@ When resetting a license key for your account, you must provide a flag that indi
       "details": [
         {
           "code": "MustConfirmResetLicenseKey",
-          "number": 141,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "You must set the value 'confirmResetLicenseKey' to true in order to reset your license key.  After you reset your license key, all tax calls using the old license key will fail.",
+          "description": "",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/MustConfirmResetLicenseKey",
           "severity": "Error"
         }

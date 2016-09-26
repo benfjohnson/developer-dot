@@ -18,11 +18,12 @@ The API you attempted to call resulted in an unhandled exception within Avalara 
       "details": [
         {
           "code": "UnhandledException",
-          "number": 50,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "Unhandled exception was hit during this operation.",
+          "description": "-0-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/UnhandledException",
-          "severity": "Error"
+          "severity": "Exception"
         }
       ]
     }

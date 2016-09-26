@@ -18,9 +18,10 @@ A user account may not call DELETE on the user itself.
       "details": [
         {
           "code": "DeleteUserSelfError",
-          "number": 22,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "User is trying to delete self.",
+          "description": "-0-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/DeleteUserSelfError",
           "severity": "Error"
         }

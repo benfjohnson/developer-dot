@@ -18,11 +18,12 @@ Your AvaTax account has expired, or is not yet enabled.  You may need to contact
       "details": [
         {
           "code": "AccountExpiredException",
-          "number": 39,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "The account -1- (#-0-) has expired.",
+          "description": "The account was valid from -3- to -4-.  Please contact your customer account manager to reactivate this account.",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/AccountExpiredException",
-          "severity": "Error"
+          "severity": "Exception"
         }
       ]
     }

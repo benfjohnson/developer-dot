@@ -18,11 +18,12 @@ This user account is currently inactive.
       "details": [
         {
           "code": "InactiveUserError",
-          "number": 33,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "The user '-0-' is not currently active.  Please contact your customer account manager to reactivate this user.",
+          "description": "",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/InactiveUserError",
-          "severity": "Error"
+          "severity": "Exception"
         }
       ]
     }

@@ -18,9 +18,10 @@ This error occurs when you try to modify the tax profile of a company that inher
       "details": [
         {
           "code": "CompanyProfileNotSet",
-          "number": 61,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "You attempted to add tax configuration to a company that does not have its own tax profile.",
+          "description": "The company -0- (ID #-1-) has the HasProfile flag set to false. To add -2- to this company, set its HasProfile flag to true.",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/CompanyProfileNotSet",
           "severity": "Error"
         }

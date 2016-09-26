@@ -18,11 +18,12 @@ You called an API that requires an object, but you did not provide an object.
       "details": [
         {
           "code": "ModelRequiredException",
-          "number": 38,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "A required Model was not provided.",
+          "description": "-0-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/ModelRequiredException",
-          "severity": "Error"
+          "severity": "Exception"
         }
       ]
     }

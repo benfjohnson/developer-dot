@@ -18,9 +18,10 @@ You attempted to set a value that must be within a range, but your value was out
       "details": [
         {
           "code": "RangeError",
-          "number": 6,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "-1- is expected to be between -2- and -3-.",
+          "description": "-0-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/RangeError",
           "severity": "Error"
         }

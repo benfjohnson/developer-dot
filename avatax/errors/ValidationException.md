@@ -18,11 +18,12 @@ Your API call contained an incorrectly structured object.
       "details": [
         {
           "code": "ValidationException",
-          "number": 32,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "The data you supplied in the '-0-' could not be successfully parsed.",
+          "description": "This error code is a summary of many other exception codes.",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/ValidationException",
-          "severity": "Error"
+          "severity": "Exception"
         }
       ]
     }

@@ -18,9 +18,10 @@ You specified a country/region that was not recognized by the ISO 3166 country/r
       "details": [
         {
           "code": "InvalidCountryRegion",
-          "number": 126,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "The region '-1-' is not a recognized region within country '-0-'.",
+          "description": "",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/InvalidCountryRegion",
           "severity": "Error"
         }

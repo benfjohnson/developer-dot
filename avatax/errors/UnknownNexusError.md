@@ -18,9 +18,10 @@ You attempted to declare nexus in a jurisdiction that is not recognized by AvaTa
       "details": [
         {
           "code": "UnknownNexusError",
-          "number": 145,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "Unknown nexus: Country: -0-, Region: -1-, JurisCode: -2-, JurisTypeId: -3-, JurisName: -4-, ShortName: -5-, SignatureCode: -6-, StateAssignedNo: -7-. ",
+          "description": "For a list of defined nexus, please use /api/v2/definitions/nexus",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/UnknownNexusError",
           "severity": "Error"
         }

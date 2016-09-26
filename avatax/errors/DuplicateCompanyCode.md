@@ -18,9 +18,10 @@ You cannot create two companies with the same company code.
       "details": [
         {
           "code": "DuplicateCompanyCode",
-          "number": 142,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "The company code '-0-' has already been defined.",
+          "description": "Please select a different company code.",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
           "severity": "Error"
         }

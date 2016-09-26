@@ -18,9 +18,10 @@ Nexus is a concept used to declare that your business is subject to taxation by 
       "details": [
         {
           "code": "DuplicateNexusError",
-          "number": 144,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "Cannot create duplicate nexus entries.",
+          "description": "There is more than one nexus with the following information: CompanyId: -0-, Region: -1-, JurisCode: -2-, JurisTypeId: -3-, JurisName: -4-, NexusTypeId: -5-, EffectiveDate: -6-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/DuplicateNexusError",
           "severity": "Error"
         }

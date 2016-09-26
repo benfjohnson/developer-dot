@@ -18,9 +18,10 @@ The default location for a company must be a physical-type location rather than 
       "details": [
         {
           "code": "DefaultCompanyLocation",
-          "number": 124,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "Default outlet/location must be a Location Type (not a Salesperson Type).",
+          "description": "-0- -1-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/DefaultCompanyLocation",
           "severity": "Error"
         }

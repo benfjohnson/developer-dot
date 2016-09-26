@@ -18,11 +18,12 @@ A problem was detected with Avalara Identity.
       "details": [
         {
           "code": "IdentityServerError",
-          "number": 36,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "The Avalara Identity Server was not available to authenticate your request.",
+          "description": "-0-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/IdentityServerError",
-          "severity": "Error"
+          "severity": "Exception"
         }
       ]
     }

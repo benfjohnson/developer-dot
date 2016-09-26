@@ -18,11 +18,12 @@ The credentials you provided to AvaTax could not be validated.
       "details": [
         {
           "code": "AuthenticationException",
-          "number": 30,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "The user or account could not be authenticated.",
+          "description": "-0-",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/AuthenticationException",
-          "severity": "Error"
+          "severity": "Exception"
         }
       ]
     }

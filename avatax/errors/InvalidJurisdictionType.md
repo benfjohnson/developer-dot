@@ -18,9 +18,10 @@ You specified a jurisdiction type that is not recognized.
       "details": [
         {
           "code": "InvalidJurisdictionType",
-          "number": 140,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "The value '-0-' is not a valid Avalara-recognized jurisdiction type.",
+          "description": "",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/InvalidJurisdictionType",
           "severity": "Error"
         }

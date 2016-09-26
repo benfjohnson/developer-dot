@@ -18,9 +18,9 @@ The password you attempted to provide did not meet certain requirements.
       "details": [
         {
           "code": "PasswordError",
-          "number": 10,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "Password must be 6-50 characters with no spaces.",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/PasswordError",
           "severity": "Error"
         }

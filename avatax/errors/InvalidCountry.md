@@ -18,9 +18,10 @@ The country code you provided is not recognized as a valid ISO 3166 country code
       "details": [
         {
           "code": "InvalidCountry",
-          "number": 125,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "The country '-0-' is not a recognized country code.",
+          "description": "",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/InvalidCountry",
           "severity": "Error"
         }

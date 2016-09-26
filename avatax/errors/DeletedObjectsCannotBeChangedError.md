@@ -18,9 +18,10 @@ You attempted to modify an object that is in a deleted state.
       "details": [
         {
           "code": "DeletedObjectsCannotBeChangedError",
-          "number": 110,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "An object that has been deleted cannot be modified.",
+          "description": "",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/DeletedObjectsCannotBeChangedError",
           "severity": "Error"
         }

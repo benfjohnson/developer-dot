@@ -18,9 +18,10 @@ This error indicates that you have provided an incorrect "$include" value to the
       "details": [
         {
           "code": "BadDocumentFetch",
-          "number": 400,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "The document fetch command was incorrect.",
+          "description": "",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/BadDocumentFetch",
           "severity": "Error"
         }

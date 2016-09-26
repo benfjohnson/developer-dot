@@ -18,11 +18,12 @@ The Bearer Token that you used for authentication was not valid.
       "details": [
         {
           "code": "BearerTokenInvalid",
-          "number": 37,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "number": 0,
+          "message": "The Bearer token you provided was not recognized by Avalara Identity.",
+          "description": "If you have received a bearer token from Avalara Identity, this token may have expired.  Please contact Avalara Identity and request a refreshed token.",
+          "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/BearerTokenInvalid",
-          "severity": "Error"
+          "severity": "Exception"
         }
       ]
     }
