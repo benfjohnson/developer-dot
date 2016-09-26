@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+Your password must be a minimum of 8 characters in length.
 
 ## Example
 
@@ -38,22 +38,6 @@ TBD
 
 ## Explanation
 
-{
-      "code": "PasswordMinLengthError",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 11,
-          "Summary": "Password must be at least 8 characters long.",
-          "Details": null,
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/PasswordMinLengthError",
-          "Name": "PasswordMinLengthError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": "An invalid password was specified."
-        }
-      ]
-    }
+Passwords for AvaTax must obey certain complexity requirements. 
+
+This password is not permitted because it is too short.

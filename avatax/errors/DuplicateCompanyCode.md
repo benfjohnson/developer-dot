@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+You cannot create two companies with the same company code.
 
 ## Example
 
@@ -38,22 +38,6 @@ TBD
 
 ## Explanation
 
-{
-      "code": "DuplicateCompanyCode",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 142,
-          "Summary": "The company code '-0-' has already been defined.",
-          "Details": "Please select a different company code.",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
-          "Name": "DuplicateCompanyCode",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+In AvaTax, each company you create needs a unique code that distinguishes it from other companies.
+
+You must ensure that each company has a unique code.  If you attempt to create two companies with the same code, you will get this error message.

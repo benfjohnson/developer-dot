@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+You attempted to reset a password but you did not provide a correct old password value.
 
 ## Example
 
@@ -38,22 +38,4 @@ TBD
 
 ## Explanation
 
-{
-      "code": "OldPasswordInvalid",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 23,
-          "Summary": "Existing password is invalid.",
-          "Details": "-0-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/OldPasswordInvalid",
-          "Name": "OldPasswordInvalid",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+When resetting a password, you must provide a correct old password value.

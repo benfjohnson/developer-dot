@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+Reserved for future use.
 
 ## Example
 
@@ -38,22 +38,4 @@ TBD
 
 ## Explanation
 
-{
-      "code": "BrazilExemptValidationError",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 128,
-          "Summary": "The value '-0-' must be one of the following values for Brazil when the rate is zero: -1-.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/BrazilExemptValidationError",
-          "Name": "BrazilExemptValidationError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+Reserved for future use.

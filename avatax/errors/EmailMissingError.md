@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+You must provide an email address with this request.
 
 ## Example
 
@@ -38,22 +38,4 @@ TBD
 
 ## Explanation
 
-{
-      "code": "EmailMissingError",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 16,
-          "Summary": "A required email address was not provided.",
-          "Details": "-0-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/EmailMissingError",
-          "Name": "EmailMissingError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+This request requires that you provide an email address.  Please provide a valid email address.

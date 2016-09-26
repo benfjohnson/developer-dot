@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+A problem occurred when you attempted to create a transaction through AvaTax.
 
 ## Example
 
@@ -38,22 +38,6 @@ TBD
 
 ## Explanation
 
-{
-      "code": "GetTaxError",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 300,
-          "Summary": "",
-          "Details": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
-          "FaultCode": null,
-          "HelpLink": "http://developer.avalara.com/avatax/errors/GetTaxError",
-          "Name": "GetTaxError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+Creating a transaction was known as "GetTax" in Avalara's SOAP API.  For compatibility reasons, this error message is also labeled a "GetTax" error message.
+
+Please refer to the details section for specific details about this error message and next steps.

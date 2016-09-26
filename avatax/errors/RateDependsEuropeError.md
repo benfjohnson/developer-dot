@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+The RateDepends option is only valid for countries in the European Union.
 
 ## Example
 
@@ -38,22 +38,6 @@ TBD
 
 ## Explanation
 
-{
-      "code": "RateDependsEuropeError",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 133,
-          "Summary": "RateDepends option only valid for countries in the European Union.",
-          "Details": "-0-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/RateDependsEuropeError",
-          "Name": "RateDependsEuropeError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+You attempted to create a TaxRule using the RateDepends option for a country that is outside of the European Union.
+
+Please remove the RateDepends option or change the country code to be within the EU.

@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+A user account may not call DELETE on the user itself.
 
 ## Example
 
@@ -38,22 +38,4 @@ TBD
 
 ## Explanation
 
-{
-      "code": "DeleteUserSelfError",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 22,
-          "Summary": "User is trying to delete self.",
-          "Details": "-0-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/DeleteUserSelfError",
-          "Name": "DeleteUserSelfError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+As a user that has successfully authenticated against AvaTax, you may not call DELETE on your own user object.  To delete this user, please use different account credentials.

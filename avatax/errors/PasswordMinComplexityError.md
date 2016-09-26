@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+This password does not meet the complexity requirements set by AvaTax.
 
 ## Example
 
@@ -38,22 +38,6 @@ TBD
 
 ## Explanation
 
-{
-      "code": "PasswordMinComplexityError",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 12,
-          "Summary": "Passwords must be a combination of upper/lower case, numbers, and non-alphanumeric characters.",
-          "Details": null,
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/PasswordMinComplexityError",
-          "Name": "PasswordMinComplexityError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": "An invalid password was specified."
-        }
-      ]
-    }
+Passwords for AvaTax must obey certain complexity requirements. 
+
+This password is not permitted because it lacks certain complexity features.

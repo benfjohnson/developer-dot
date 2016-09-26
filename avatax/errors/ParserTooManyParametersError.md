@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+You attempted a fetch call that included too many parameters.
 
 ## Example
 
@@ -38,22 +38,4 @@ TBD
 
 ## Explanation
 
-{
-      "code": "ParserTooManyParametersError",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 20,
-          "Summary": "Your filter was too large to parse.  Please create a filter with fewer values.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/ParserTooManyParametersError",
-          "Name": "ParserTooManyParametersError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+AvaTax restricts your fetch request to no more than 1,000 parameters.  Please consider restructuring your query so that it is less complex.

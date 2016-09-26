@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+You attempted to set a value that must be within a range, but your value was outside of the range.
 
 ## Example
 
@@ -38,22 +38,4 @@ TBD
 
 ## Explanation
 
-{
-      "code": "RangeError",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 6,
-          "Summary": "-1- is expected to be between -2- and -3-.",
-          "Details": "-0-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/RangeError",
-          "Name": "RangeError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+AvaTax requires the value of this field to be within the defined parameters.  Please review the data you attempted to upload and correct it so that it is within the specified value.

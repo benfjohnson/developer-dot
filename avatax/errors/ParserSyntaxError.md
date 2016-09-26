@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+You provided an unrecognized string or token in the "$filter" parameter of your fetch request.
 
 ## Example
 
@@ -38,22 +38,4 @@ TBD
 
 ## Explanation
 
-{
-      "code": "ParserSyntaxError",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 19,
-          "Summary": "Unexpected token '-0-' in the filter.  Expected '-1-'",
-          "Details": "-2-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/ParserSyntaxError",
-          "Name": "ParserSyntaxError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+Avalara only permits certain values and operations in the "$filter" parameter.  You provided a token that is not one of the recognized tokens.

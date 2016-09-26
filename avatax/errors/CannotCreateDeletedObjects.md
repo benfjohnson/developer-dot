@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+You may not create an object with a "Deleted" flag.
 
 ## Example
 
@@ -38,22 +38,6 @@ TBD
 
 ## Explanation
 
-{
-      "code": "CannotCreateDeletedObjects",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 120,
-          "Summary": "You cannot create a deleted object with an inactive / deleted flag.  To delete an object, call DELETE",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/CannotCreateDeletedObjects",
-          "Name": "CannotCreateDeletedObjects",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+Some objects within AvaTax have flags that indicate that the object has been deleted.  These flags exist for internal use and are not available for modification.
+
+You must create an object in an "Active" status.  To delete an object, please call the DELETE endpoint for that object's URL.

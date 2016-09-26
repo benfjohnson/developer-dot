@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+Indicates that there is a server configuration problem with one of the servers in Avalara's AvaTax cluster.
 
 ## Example
 
@@ -38,22 +38,4 @@ TBD
 
 ## Explanation
 
-{
-      "code": "ServerConfiguration",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 1,
-          "Summary": "The AvaTax API Server has a configuration error.",
-          "Details": "",
-          "FaultCode": "Server",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/ServerConfiguration",
-          "Name": "ServerConfiguration",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+This error indicates that Avalara's service reliability team has been notified of a server configuration problem.  There is no action to take for this error.

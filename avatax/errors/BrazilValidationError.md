@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+Reserved for future use.
 
 ## Example
 
@@ -38,22 +38,4 @@ TBD
 
 ## Explanation
 
-{
-      "code": "BrazilValidationError",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 127,
-          "Summary": "The value '-0-' must be one of the following values for Brazil: -1-.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/BrazilValidationError",
-          "Name": "BrazilValidationError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+Reserved for future use.

@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+If an object has been deleted, you may not modify it further after its deletion.
 
 ## Example
 
@@ -38,22 +38,7 @@ TBD
 
 ## Explanation
 
-{
-      "code": "CannotModifyDeletedObjects",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 121,
-          "Summary": "You cannot modify an object to set its inactive / deleted flag.  To delete an object, call DELETE.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/CannotModifyDeletedObjects",
-          "Name": "CannotModifyDeletedObjects",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+Deleting objects is done via the DELETE endpoint.  
+
+Once an object has been deleted, its URL is reserved and may not be reused.
+

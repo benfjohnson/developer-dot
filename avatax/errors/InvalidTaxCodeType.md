@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+You specified a tax code type that is not recognized by Avalara.
 
 ## Example
 
@@ -38,22 +38,4 @@ TBD
 
 ## Explanation
 
-{
-      "code": "InvalidTaxCodeType",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 147,
-          "Summary": "The TaxCodeType -0- is not valid.",
-          "Details": "Please call /api/v2/definitions/taxcodetypes for a list of valid taxcodetypes.",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/InvalidTaxCodeType",
-          "Name": "InvalidTaxCodeType",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+Please use the API endpoint GET "/api/v2/definitions/taxcodetypes" to get a list of defined tax code types.

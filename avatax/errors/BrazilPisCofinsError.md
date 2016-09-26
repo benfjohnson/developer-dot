@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+Reserved for future use.
 
 ## Example
 
@@ -38,22 +38,4 @@ TBD
 
 ## Explanation
 
-{
-      "code": "BrazilPisCofinsError",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 129,
-          "Summary": "JurisCode must be PIS/COFINS for Cumulative and NonCumulative.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/BrazilPisCofinsError",
-          "Name": "BrazilPisCofinsError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+Reserved for future use.

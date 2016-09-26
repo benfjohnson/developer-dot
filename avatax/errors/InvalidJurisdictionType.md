@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+You specified a jurisdiction type that is not recognized.
 
 ## Example
 
@@ -38,22 +38,4 @@ TBD
 
 ## Explanation
 
-{
-      "code": "InvalidJurisdictionType",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 140,
-          "Summary": "The value '-0-' is not a valid Avalara-recognized jurisdiction type.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/InvalidJurisdictionType",
-          "Name": "InvalidJurisdictionType",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+For a list of recognized jurisdiction types, please see the Swagger documentation.

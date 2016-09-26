@@ -12,7 +12,7 @@ disqus: 1
 
 ## Summary
 
-TBD
+One of the fields designated in your object model was null, but a string value is required.
 
 ## Example
 
@@ -38,22 +38,6 @@ TBD
 
 ## Explanation
 
-{
-      "code": "StringValueRequiredError",
-      "message": null,
-      "target": "Unknown",
-      "details": [
-        {
-          "ErrorCode": 14,
-          "Summary": "Field -0- is required.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/StringValueRequiredError",
-          "Name": "StringValueRequiredError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
-        }
-      ]
-    }
+This error occurs when you upload an object that has a "null" value where AvaTax requires a non-null string.
+
+Please check your object and provide a value in that field.
