@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - InvalidJurisdictionType
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# InvalidJurisdictionType
 
 ## Summary
 
@@ -18,20 +13,15 @@ You specified a jurisdiction type that is not recognized.
 
     {
       "code": "InvalidJurisdictionType",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 140,
-          "Summary": "The value '-0-' is not a valid Avalara-recognized jurisdiction type.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/InvalidJurisdictionType",
-          "Name": "InvalidJurisdictionType",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "InvalidJurisdictionType",
+          "number": 140,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/InvalidJurisdictionType",
+          "severity": "Error"
         }
       ]
     }

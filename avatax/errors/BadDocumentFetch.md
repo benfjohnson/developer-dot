@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - BadDocumentFetch
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# BadDocumentFetch
 
 ## Summary
 
@@ -18,20 +13,15 @@ This error indicates that you have provided an incorrect "$include" value to the
 
     {
       "code": "BadDocumentFetch",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 400,
-          "Summary": "The document fetch command was incorrect.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/BadDocumentFetch",
-          "Name": "BadDocumentFetch",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "BadDocumentFetch",
+          "number": 400,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/BadDocumentFetch",
+          "severity": "Error"
         }
       ]
     }
@@ -44,4 +34,3 @@ By default, if you fetch a document, you will only retrieve a summary of its dat
 * Summary - Produces a summary of tax for the transaction as a whole.
 * Lines - Lists all line items on this transaction.
 * Details - Retrieves all tax details calculated for all lines for this transaction.
-

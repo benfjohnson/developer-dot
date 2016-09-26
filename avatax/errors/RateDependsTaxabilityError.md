@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - RateDependsTaxabilityError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# RateDependsTaxabilityError
 
 ## Summary
 
@@ -18,20 +13,15 @@ You created a tax rule with a RateDepends option, but that rule is not a Taxabil
 
     {
       "code": "RateDependsTaxabilityError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 132,
-          "Summary": "RateDepends option only valid for TaxRuleType 4 (Taxability Rule).",
-          "Details": "-0- -1- -2- -3- -4- -5-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/RateDependsTaxabilityError",
-          "Name": "RateDependsTaxabilityError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "RateDependsTaxabilityError",
+          "number": 132,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/RateDependsTaxabilityError",
+          "severity": "Error"
         }
       ]
     }

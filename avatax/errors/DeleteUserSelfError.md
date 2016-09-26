@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - DeleteUserSelfError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# DeleteUserSelfError
 
 ## Summary
 
@@ -18,20 +13,15 @@ A user account may not call DELETE on the user itself.
 
     {
       "code": "DeleteUserSelfError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 22,
-          "Summary": "User is trying to delete self.",
-          "Details": "-0-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/DeleteUserSelfError",
-          "Name": "DeleteUserSelfError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "DeleteUserSelfError",
+          "number": 22,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/DeleteUserSelfError",
+          "severity": "Error"
         }
       ]
     }

@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - AuthenticationException
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# AuthenticationException
 
 ## Summary
 
@@ -18,20 +13,15 @@ The credentials you provided to AvaTax could not be validated.
 
     {
       "code": "AuthenticationException",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 30,
-          "Summary": "The user or account could not be authenticated.",
-          "Details": "-0-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/AuthenticationException",
-          "Name": "AuthenticationException",
-          "RefersTo": null,
-          "Severity": "Exception",
-          "Source": null,
-          "Documentation": null
+          "code": "AuthenticationException",
+          "number": 30,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/AuthenticationException",
+          "severity": "Error"
         }
       ]
     }

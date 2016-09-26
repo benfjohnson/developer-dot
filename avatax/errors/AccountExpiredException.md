@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - AccountExpiredException
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# AccountExpiredException
 
 ## Summary
 
@@ -18,20 +13,15 @@ Your AvaTax account has expired, or is not yet enabled.  You may need to contact
 
     {
       "code": "AccountExpiredException",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 39,
-          "Summary": "The account -1- (#-0-) has expired.",
-          "Details": "The account was valid from -3- to -4-.  Please contact your customer account manager to reactivate this account.",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/AccountExpiredException",
-          "Name": "AccountExpiredException",
-          "RefersTo": null,
-          "Severity": "Exception",
-          "Source": null,
-          "Documentation": null
+          "code": "AccountExpiredException",
+          "number": 39,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/AccountExpiredException",
+          "severity": "Error"
         }
       ]
     }

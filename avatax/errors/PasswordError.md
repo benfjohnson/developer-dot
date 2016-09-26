@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - PasswordError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# PasswordError
 
 ## Summary
 
@@ -18,20 +13,15 @@ The password you attempted to provide did not meet certain requirements.
 
     {
       "code": "PasswordError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 10,
-          "Summary": "Password must be 6-50 characters with no spaces.",
-          "Details": null,
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/PasswordError",
-          "Name": "PasswordError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": "An invalid password was specified."
+          "code": "PasswordError",
+          "number": 10,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/PasswordError",
+          "severity": "Error"
         }
       ]
     }

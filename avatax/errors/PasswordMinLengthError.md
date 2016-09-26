@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - PasswordMinLengthError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# PasswordMinLengthError
 
 ## Summary
 
@@ -18,20 +13,15 @@ Your password must be a minimum of 8 characters in length.
 
     {
       "code": "PasswordMinLengthError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 11,
-          "Summary": "Password must be at least 8 characters long.",
-          "Details": null,
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/PasswordMinLengthError",
-          "Name": "PasswordMinLengthError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": "An invalid password was specified."
+          "code": "PasswordMinLengthError",
+          "number": 11,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/PasswordMinLengthError",
+          "severity": "Error"
         }
       ]
     }

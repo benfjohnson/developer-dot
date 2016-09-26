@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - IncorrectPathError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# IncorrectPathError
 
 ## Summary
 
@@ -18,20 +13,15 @@ You attempted to modify an object but you provided an object that matches a diff
 
     {
       "code": "IncorrectPathError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 139,
-          "Summary": "You attempted to update the model at URL '-0-', but the model you supplied belongs to URL '-1-'.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/IncorrectPathError",
-          "Name": "IncorrectPathError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "IncorrectPathError",
+          "number": 139,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/IncorrectPathError",
+          "severity": "Error"
         }
       ]
     }

@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - UPCCodeInvalidChars
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# UPCCodeInvalidChars
 
 ## Summary
 
@@ -18,20 +13,15 @@ Your UPC code contains invalid characters.
 
     {
       "code": "UPCCodeInvalidChars",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 137,
-          "Summary": "A UPC or EIN/GTIN code may only contain the digits 0 through 9.",
-          "Details": "-0-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/UPCCodeInvalidChars",
-          "Name": "UPCCodeInvalidChars",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "UPCCodeInvalidChars",
+          "number": 137,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/UPCCodeInvalidChars",
+          "severity": "Error"
         }
       ]
     }

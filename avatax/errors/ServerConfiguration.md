@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - ServerConfiguration
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# ServerConfiguration
 
 ## Summary
 
@@ -18,20 +13,15 @@ Indicates that there is a server configuration problem with one of the servers i
 
     {
       "code": "ServerConfiguration",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 1,
-          "Summary": "The AvaTax API Server has a configuration error.",
-          "Details": "",
-          "FaultCode": "Server",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/ServerConfiguration",
-          "Name": "ServerConfiguration",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "ServerConfiguration",
+          "number": 1,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/ServerConfiguration",
+          "severity": "Error"
         }
       ]
     }

@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - DocumentSaveNotAllowed
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# DocumentSaveNotAllowed
 
 ## Summary
 
@@ -18,20 +13,15 @@ You may not save a transaction (also called a Document) directly to the database
 
     {
       "code": "DocumentSaveNotAllowed",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 401,
-          "Summary": "Documents may not be saved or created directly.  Please use the Transaction Create endpoint.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/DocumentSaveNotAllowed",
-          "Name": "DocumentSaveNotAllowed",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "DocumentSaveNotAllowed",
+          "number": 401,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/DocumentSaveNotAllowed",
+          "severity": "Error"
         }
       ]
     }

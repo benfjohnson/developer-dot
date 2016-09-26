@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - CannotChangeCompanyCode
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# CannotChangeCompanyCode
 
 ## Summary
 
@@ -18,20 +13,15 @@ The company code for a company is set when the company is created and may not be
 
     {
       "code": "CannotChangeCompanyCode",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 25,
-          "Summary": "Company Code cannot be changed.",
-          "Details": "The company code for company -0- (-1-) is '-2-', but you provided '-3-'",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/CannotChangeCompanyCode",
-          "Name": "CannotChangeCompanyCode",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "CannotChangeCompanyCode",
+          "number": 25,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/CannotChangeCompanyCode",
+          "severity": "Error"
         }
       ]
     }

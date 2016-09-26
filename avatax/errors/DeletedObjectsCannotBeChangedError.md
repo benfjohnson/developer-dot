@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - DeletedObjectsCannotBeChangedError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# DeletedObjectsCannotBeChangedError
 
 ## Summary
 
@@ -18,20 +13,15 @@ You attempted to modify an object that is in a deleted state.
 
     {
       "code": "DeletedObjectsCannotBeChangedError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 110,
-          "Summary": "An object that has been deleted cannot be modified.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/DeletedObjectsCannotBeChangedError",
-          "Name": "DeletedObjectsCannotBeChangedError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "DeletedObjectsCannotBeChangedError",
+          "number": 110,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/DeletedObjectsCannotBeChangedError",
+          "severity": "Error"
         }
       ]
     }

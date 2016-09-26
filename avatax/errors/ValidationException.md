@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - ValidationException
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# ValidationException
 
 ## Summary
 
@@ -18,20 +13,15 @@ Your API call contained an incorrectly structured object.
 
     {
       "code": "ValidationException",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 32,
-          "Summary": "The data you supplied in the '-0-' could not be successfully parsed.",
-          "Details": "This error code is a summary of many other exception codes.",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/ValidationException",
-          "Name": "ValidationException",
-          "RefersTo": null,
-          "Severity": "Exception",
-          "Source": null,
-          "Documentation": null
+          "code": "ValidationException",
+          "number": 32,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/ValidationException",
+          "severity": "Error"
         }
       ]
     }

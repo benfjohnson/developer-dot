@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - BrazilExemptValidationError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# BrazilExemptValidationError
 
 ## Summary
 
@@ -18,20 +13,15 @@ Reserved for future use.
 
     {
       "code": "BrazilExemptValidationError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 128,
-          "Summary": "The value '-0-' must be one of the following values for Brazil when the rate is zero: -1-.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/BrazilExemptValidationError",
-          "Name": "BrazilExemptValidationError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "BrazilExemptValidationError",
+          "number": 128,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/BrazilExemptValidationError",
+          "severity": "Error"
         }
       ]
     }

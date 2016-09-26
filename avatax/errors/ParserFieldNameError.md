@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - ParserFieldNameError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# ParserFieldNameError
 
 ## Summary
 
@@ -18,20 +13,15 @@ You attempted to search on a field that does not exist or cannot be searched.
 
     {
       "code": "ParserFieldNameError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 17,
-          "Summary": "The field named '-0-' could not be found.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/ParserFieldNameError",
-          "Name": "ParserFieldNameError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "ParserFieldNameError",
+          "number": 17,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/ParserFieldNameError",
+          "severity": "Error"
         }
       ]
     }

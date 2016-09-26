@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - RangeCompareError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# RangeCompareError
 
 ## Summary
 
@@ -18,20 +13,15 @@ You specified an out-of-bounds field value.
 
     {
       "code": "RangeCompareError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 7,
-          "Summary": "-1- is expected to be -2- -3-.",
-          "Details": "-0-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/RangeCompareError",
-          "Name": "RangeCompareError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "RangeCompareError",
+          "number": 7,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/RangeCompareError",
+          "severity": "Error"
         }
       ]
     }

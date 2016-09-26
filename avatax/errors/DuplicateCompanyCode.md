@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - DuplicateCompanyCode
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# DuplicateCompanyCode
 
 ## Summary
 
@@ -18,20 +13,15 @@ You cannot create two companies with the same company code.
 
     {
       "code": "DuplicateCompanyCode",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 142,
-          "Summary": "The company code '-0-' has already been defined.",
-          "Details": "Please select a different company code.",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
-          "Name": "DuplicateCompanyCode",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "DuplicateCompanyCode",
+          "number": 142,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
+          "severity": "Error"
         }
       ]
     }

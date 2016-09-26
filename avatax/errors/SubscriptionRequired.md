@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - SubscriptionRequired
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# SubscriptionRequired
 
 ## Summary
 
@@ -18,20 +13,15 @@ This Avalara API call requires an active subscription to a specific service.
 
     {
       "code": "SubscriptionRequired",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 600,
-          "Summary": "",
-          "Details": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
-          "FaultCode": null,
-          "HelpLink": "http://developer.avalara.com/avatax/errors/SubscriptionRequired",
-          "Name": "SubscriptionRequired",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "SubscriptionRequired",
+          "number": 600,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/SubscriptionRequired",
+          "severity": "Error"
         }
       ]
     }

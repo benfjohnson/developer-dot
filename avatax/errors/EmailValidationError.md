@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - EmailValidationError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# EmailValidationError
 
 ## Summary
 
@@ -18,20 +13,15 @@ You attempted to provide an email address that does not conform to email address
 
     {
       "code": "EmailValidationError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 15,
-          "Summary": "The specified email address was not valid.",
-          "Details": "-0-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/EmailValidationError",
-          "Name": "EmailValidationError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "EmailValidationError",
+          "number": 15,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/EmailValidationError",
+          "severity": "Error"
         }
       ]
     }

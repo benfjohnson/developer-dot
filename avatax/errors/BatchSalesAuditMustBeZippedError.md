@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - BatchSalesAuditMustBeZippedError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# BatchSalesAuditMustBeZippedError
 
 ## Summary
 
@@ -18,20 +13,15 @@ Sales audit files must be uploaded in ZIP or RAR formats.
 
     {
       "code": "BatchSalesAuditMustBeZippedError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 200,
-          "Summary": "SalesAuditExport needs a zipped file with an extension of '.ZIP' or '.RAR'.  Your file had the extension '-0-'.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/BatchSalesAuditMustBeZippedError",
-          "Name": "BatchSalesAuditMustBeZippedError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "BatchSalesAuditMustBeZippedError",
+          "number": 200,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/BatchSalesAuditMustBeZippedError",
+          "severity": "Error"
         }
       ]
     }

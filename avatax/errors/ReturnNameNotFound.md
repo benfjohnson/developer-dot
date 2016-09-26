@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - ReturnNameNotFound
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# ReturnNameNotFound
 
 ## Summary
 
@@ -18,20 +13,15 @@ You attempted to create a filing calendar for a return that is not recognized by
 
     {
       "code": "ReturnNameNotFound",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 122,
-          "Summary": "The form named '-0-' cannot be found.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/ReturnNameNotFound",
-          "Name": "ReturnNameNotFound",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "ReturnNameNotFound",
+          "number": 122,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/ReturnNameNotFound",
+          "severity": "Error"
         }
       ]
     }

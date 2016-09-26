@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - CannotChangeEntityNo
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# CannotChangeEntityNo
 
 ## Summary
 
@@ -18,20 +13,15 @@ The "EntityNo" field on the company object is provided as a convenience and may 
 
     {
       "code": "CannotChangeEntityNo",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 26,
-          "Summary": "Entity Number cannot be changed.",
-          "Details": "The entity number for company -0- (-1-) is '-2-', but you provided '-3-'",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/CannotChangeEntityNo",
-          "Name": "CannotChangeEntityNo",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "CannotChangeEntityNo",
+          "number": 26,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/CannotChangeEntityNo",
+          "severity": "Error"
         }
       ]
     }

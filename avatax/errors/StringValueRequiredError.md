@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - StringValueRequiredError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# StringValueRequiredError
 
 ## Summary
 
@@ -18,20 +13,15 @@ One of the fields designated in your object model was null, but a string value i
 
     {
       "code": "StringValueRequiredError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 14,
-          "Summary": "Field -0- is required.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/StringValueRequiredError",
-          "Name": "StringValueRequiredError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "StringValueRequiredError",
+          "number": 14,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/StringValueRequiredError",
+          "severity": "Error"
         }
       ]
     }

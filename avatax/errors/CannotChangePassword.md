@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - CannotChangePassword
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# CannotChangePassword
 
 ## Summary
 
@@ -18,20 +13,15 @@ You attempted to change passwords for a user who is not permitted to change thei
 
     {
       "code": "CannotChangePassword",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 24,
-          "Summary": "User is not allowed to change password.",
-          "Details": "-0-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/CannotChangePassword",
-          "Name": "CannotChangePassword",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "CannotChangePassword",
+          "number": 24,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/CannotChangePassword",
+          "severity": "Error"
         }
       ]
     }

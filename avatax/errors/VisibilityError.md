@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - VisibilityError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# VisibilityError
 
 ## Summary
 
@@ -18,20 +13,15 @@ You attempted to request an object from AvaTax that you are not permitted to see
 
     {
       "code": "VisibilityError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 40,
-          "Summary": "An object visibility exception occurred.",
-          "Details": "The following object URL was flagged as not visible: -0-",
-          "FaultCode": "Server",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/VisibilityError",
-          "Name": "VisibilityError",
-          "RefersTo": null,
-          "Severity": "Exception",
-          "Source": null,
-          "Documentation": null
+          "code": "VisibilityError",
+          "number": 40,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/VisibilityError",
+          "severity": "Error"
         }
       ]
     }

@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - InvalidCountryRegion
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# InvalidCountryRegion
 
 ## Summary
 
@@ -18,20 +13,15 @@ You specified a country/region that was not recognized by the ISO 3166 country/r
 
     {
       "code": "InvalidCountryRegion",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 126,
-          "Summary": "The region '-1-' is not a recognized region within country '-0-'.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/InvalidCountryRegion",
-          "Name": "InvalidCountryRegion",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "InvalidCountryRegion",
+          "number": 126,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/InvalidCountryRegion",
+          "severity": "Error"
         }
       ]
     }

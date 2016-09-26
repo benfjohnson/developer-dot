@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - DocumentCodeConflict
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# DocumentCodeConflict
 
 ## Summary
 
@@ -18,20 +13,15 @@ You attempted to create a document with a code that matches an existing transact
 
     {
       "code": "DocumentCodeConflict",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 303,
-          "Summary": "Two documents exist for the company '-0-' with the document code '-1-'.  Please void one of them using its ID number.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/DocumentCodeConflict",
-          "Name": "DocumentCodeConflict",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "DocumentCodeConflict",
+          "number": 303,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/DocumentCodeConflict",
+          "severity": "Error"
         }
       ]
     }

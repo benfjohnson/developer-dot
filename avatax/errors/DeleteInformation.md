@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - DeleteInformation
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# DeleteInformation
 
 ## Summary
 
@@ -18,20 +13,15 @@ This message represents information provided about an object that was deleted.
 
     {
       "code": "DeleteInformation",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 100,
-          "Summary": "-0- -2- was deleted.",
-          "Details": "The -0- -2- (#-1-) had an active flag of -3- before deletion.",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/DeleteInformation",
-          "Name": "DeleteInformation",
-          "RefersTo": null,
-          "Severity": "Success",
-          "Source": null,
-          "Documentation": null
+          "code": "DeleteInformation",
+          "number": 100,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/DeleteInformation",
+          "severity": "Error"
         }
       ]
     }

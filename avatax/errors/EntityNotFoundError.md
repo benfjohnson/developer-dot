@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - EntityNotFoundError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# EntityNotFoundError
 
 ## Summary
 
@@ -18,20 +13,15 @@ You attempted to act on, retrieve, update, or delete an object that does not exi
 
     {
       "code": "EntityNotFoundError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 4,
-          "Summary": "-0- with ID '-1-' not found.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/EntityNotFoundError",
-          "Name": "EntityNotFoundError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "EntityNotFoundError",
+          "number": 4,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/EntityNotFoundError",
+          "severity": "Error"
         }
       ]
     }

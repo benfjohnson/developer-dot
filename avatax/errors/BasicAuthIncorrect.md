@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - BasicAuthIncorrect
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# BasicAuthIncorrect
 
 ## Summary
 
@@ -18,20 +13,15 @@ Your Basic authorization header was not encoded correctly.
 
     {
       "code": "BasicAuthIncorrect",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 35,
-          "Summary": "The Basic header must be in the format 'Basic (Base64Encoded(value))' where Value is either 'username' + ':' + 'password' or 'accountid' + ':' + 'licensekey'.",
-          "Details": "-0-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/BasicAuthIncorrect",
-          "Name": "BasicAuthIncorrect",
-          "RefersTo": null,
-          "Severity": "Exception",
-          "Source": null,
-          "Documentation": null
+          "code": "BasicAuthIncorrect",
+          "number": 35,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/BasicAuthIncorrect",
+          "severity": "Error"
         }
       ]
     }

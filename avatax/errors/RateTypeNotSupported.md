@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - RateTypeNotSupported
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# RateTypeNotSupported
 
 ## Summary
 
@@ -18,20 +13,15 @@ You attempted to choose a rate type that is not supported for the country you se
 
     {
       "code": "RateTypeNotSupported",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 135,
-          "Summary": "RateTypeId -1- not supported for country '-0-'.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/RateTypeNotSupported",
-          "Name": "RateTypeNotSupported",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "RateTypeNotSupported",
+          "number": 135,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/RateTypeNotSupported",
+          "severity": "Error"
         }
       ]
     }

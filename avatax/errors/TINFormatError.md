@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - TINFormatError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# TINFormatError
 
 ## Summary
 
@@ -18,20 +13,15 @@ The U.S. Taxpayer Identification Number you provided is not in a recognized form
 
     {
       "code": "TINFormatError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 143,
-          "Summary": "Taxpayer ID Number (TIN) is not in the correct format.",
-          "Details": "The TIN is a nine digit number. Acceptable formats: 123456789, 12-3456789, 123-456-789, and 123-45-6789.",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/TINFormatError",
-          "Name": "TINFormatError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "TINFormatError",
+          "number": 143,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/TINFormatError",
+          "severity": "Error"
         }
       ]
     }

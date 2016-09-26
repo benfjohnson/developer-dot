@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - RangeError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# RangeError
 
 ## Summary
 
@@ -18,20 +13,15 @@ You attempted to set a value that must be within a range, but your value was out
 
     {
       "code": "RangeError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 6,
-          "Summary": "-1- is expected to be between -2- and -3-.",
-          "Details": "-0-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/RangeError",
-          "Name": "RangeError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "RangeError",
+          "number": 6,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/RangeError",
+          "severity": "Error"
         }
       ]
     }

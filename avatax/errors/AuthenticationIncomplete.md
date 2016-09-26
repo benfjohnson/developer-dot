@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - AuthenticationIncomplete
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# AuthenticationIncomplete
 
 ## Summary
 
@@ -18,20 +13,15 @@ Your API call did not contain authentication information.
 
     {
       "code": "AuthenticationIncomplete",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 34,
-          "Summary": "You must provide an Authorization header of the type Basic or Bearer to authenticate correctly.",
-          "Details": "-0-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/AuthenticationIncomplete",
-          "Name": "AuthenticationIncomplete",
-          "RefersTo": null,
-          "Severity": "Exception",
-          "Source": null,
-          "Documentation": null
+          "code": "AuthenticationIncomplete",
+          "number": 34,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/AuthenticationIncomplete",
+          "severity": "Error"
         }
       ]
     }

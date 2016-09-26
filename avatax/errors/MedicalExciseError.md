@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - MedicalExciseError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# MedicalExciseError
 
 ## Summary
 
@@ -18,20 +13,15 @@ You attempted to create a tax rule that designated a device as medical excise ta
 
     {
       "code": "MedicalExciseError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 131,
-          "Summary": "TaxTypeId must be E (Excise) and RateTypeId must be M (Medical) for US country level rules (JurisTypeId CNT and JurisCode US).",
-          "Details": "-0- -1- -2- -3- -4- -5- -6-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/MedicalExciseError",
-          "Name": "MedicalExciseError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "MedicalExciseError",
+          "number": 131,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/MedicalExciseError",
+          "severity": "Error"
         }
       ]
     }

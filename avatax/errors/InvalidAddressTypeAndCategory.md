@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - InvalidAddressTypeAndCategory
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# InvalidAddressTypeAndCategory
 
 ## Summary
 
@@ -18,20 +13,15 @@ When creating a location, you must specify a compatible AddressType and AddressC
 
     {
       "code": "InvalidAddressTypeAndCategory",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 123,
-          "Summary": "Invalid AddressType and AddressCategory combination.",
-          "Details": "-0- -1-",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/InvalidAddressTypeAndCategory",
-          "Name": "InvalidAddressTypeAndCategory",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "InvalidAddressTypeAndCategory",
+          "number": 123,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/InvalidAddressTypeAndCategory",
+          "severity": "Error"
         }
       ]
     }

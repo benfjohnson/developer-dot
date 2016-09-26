@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - CompanyProfileNotSet
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# CompanyProfileNotSet
 
 ## Summary
 
@@ -18,20 +13,15 @@ This error occurs when you try to modify the tax profile of a company that inher
 
     {
       "code": "CompanyProfileNotSet",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 61,
-          "Summary": "You attempted to add tax configuration to a company that does not have its own tax profile.",
-          "Details": "The company -0- (ID #-1-) has the HasProfile flag set to false. To add -2- to this company, set its HasProfile flag to true.",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/CompanyProfileNotSet",
-          "Name": "CompanyProfileNotSet",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "CompanyProfileNotSet",
+          "number": 61,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/CompanyProfileNotSet",
+          "severity": "Error"
         }
       ]
     }

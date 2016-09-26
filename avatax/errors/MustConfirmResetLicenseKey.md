@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - MustConfirmResetLicenseKey
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# MustConfirmResetLicenseKey
 
 ## Summary
 
@@ -18,20 +13,15 @@ When resetting a license key for your account, you must provide a flag that indi
 
     {
       "code": "MustConfirmResetLicenseKey",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 141,
-          "Summary": "You must set the value 'confirmResetLicenseKey' to true in order to reset your license key.  After you reset your license key, all tax calls using the old license key will fail.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/MustConfirmResetLicenseKey",
-          "Name": "MustConfirmResetLicenseKey",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "MustConfirmResetLicenseKey",
+          "number": 141,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/MustConfirmResetLicenseKey",
+          "severity": "Error"
         }
       ]
     }

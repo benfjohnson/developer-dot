@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - StringLengthError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# StringLengthError
 
 ## Summary
 
@@ -18,20 +13,15 @@ One of the strings you uploaded to the server is too long and cannot be saved.
 
     {
       "code": "StringLengthError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 13,
-          "Summary": "Field -0- must be between -1- and -2- characters in length.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/StringLengthError",
-          "Name": "StringLengthError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "StringLengthError",
+          "number": 13,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/StringLengthError",
+          "severity": "Error"
         }
       ]
     }

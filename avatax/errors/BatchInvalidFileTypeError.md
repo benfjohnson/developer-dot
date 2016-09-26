@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - BatchInvalidFileTypeError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# BatchInvalidFileTypeError
 
 ## Summary
 
@@ -18,20 +13,15 @@ You uploaded a batch file with an incorrect file type.
 
     {
       "code": "BatchInvalidFileTypeError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 202,
-          "Summary": "The BatchFile '-1-' had a compressed file of type '-0-'.  Compressed files can only contain CSV, XLS, XLSX, XML, POSTED, and UNPOSTED file types.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/BatchInvalidFileTypeError",
-          "Name": "BatchInvalidFileTypeError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "BatchInvalidFileTypeError",
+          "number": 202,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/BatchInvalidFileTypeError",
+          "severity": "Error"
         }
       ]
     }

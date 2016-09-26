@@ -1,14 +1,9 @@
-
 ---
-layout: post
+layout: page
 title: AvaTax Errors - BatchZipMustContainOneFileError
-date: 2016-09-26
-comments: true
 categories: [AvaTax Error Codes]
-disqus: 1
+disqus: 0
 ---
-
-# BatchZipMustContainOneFileError
 
 ## Summary
 
@@ -18,20 +13,15 @@ Compressed files uploaded to the Batch service must contain exactly one file.
 
     {
       "code": "BatchZipMustContainOneFileError",
-      "message": null,
       "target": "Unknown",
       "details": [
         {
-          "ErrorCode": 201,
-          "Summary": "The zip file -0- did not contain exactly one file.",
-          "Details": "",
-          "FaultCode": "Client",
-          "HelpLink": "http://developer.avalara.com/avatax/errors/BatchZipMustContainOneFileError",
-          "Name": "BatchZipMustContainOneFileError",
-          "RefersTo": null,
-          "Severity": "Error",
-          "Source": null,
-          "Documentation": null
+          "code": "BatchZipMustContainOneFileError",
+          "number": 201,
+          "message": "",
+          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "helpLink": "http://developer.avalara.com/avatax/errors/BatchZipMustContainOneFileError",
+          "severity": "Error"
         }
       ]
     }
