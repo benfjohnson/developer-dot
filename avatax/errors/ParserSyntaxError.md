@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - ParserSyntaxError
+title: ParserSyntaxError
+number: 19
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - BrazilPisCofinsError
+title: BrazilPisCofinsError
+number: 129
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

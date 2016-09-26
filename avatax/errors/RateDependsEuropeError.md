@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - RateDependsEuropeError
+title: RateDependsEuropeError
+number: 133
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

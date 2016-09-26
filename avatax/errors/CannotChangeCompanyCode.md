@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - CannotChangeCompanyCode
+title: CannotChangeCompanyCode
+number: 25
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

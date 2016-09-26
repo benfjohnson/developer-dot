@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - ServerUnreachable
+title: ServerUnreachable
+number: 500
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

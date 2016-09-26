@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - ParserTooManyParametersError
+title: ParserTooManyParametersError
+number: 20
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

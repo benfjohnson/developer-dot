@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - CannotChangePassword
+title: CannotChangePassword
+number: 24
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

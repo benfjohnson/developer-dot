@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - AuthenticationException
+title: AuthenticationException
+number: 30
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

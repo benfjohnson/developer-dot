@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - InvalidDateRangeError
+title: InvalidDateRangeError
+number: 81
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

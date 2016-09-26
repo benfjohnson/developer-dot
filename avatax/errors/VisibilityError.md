@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - VisibilityError
+title: VisibilityError
+number: 40
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

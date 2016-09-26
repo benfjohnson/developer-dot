@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - InvalidTaxCodeType
+title: InvalidTaxCodeType
+number: 147
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

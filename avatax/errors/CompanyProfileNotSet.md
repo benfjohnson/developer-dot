@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - CompanyProfileNotSet
+title: CompanyProfileNotSet
+number: 61
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

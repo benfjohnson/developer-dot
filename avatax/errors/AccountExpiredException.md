@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - AccountExpiredException
+title: AccountExpiredException
+number: 39
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

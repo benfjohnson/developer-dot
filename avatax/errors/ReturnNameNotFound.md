@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - ReturnNameNotFound
+title: ReturnNameNotFound
+number: 122
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

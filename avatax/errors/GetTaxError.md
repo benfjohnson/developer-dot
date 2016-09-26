@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - GetTaxError
+title: GetTaxError
+number: 300
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

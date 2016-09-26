@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - AddressConflictException
+title: AddressConflictException
+number: 301
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

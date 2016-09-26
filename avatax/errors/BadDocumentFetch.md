@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - BadDocumentFetch
+title: BadDocumentFetch
+number: 400
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - DuplicateNexusError
+title: DuplicateNexusError
+number: 144
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - DefaultCompanyLocation
+title: DefaultCompanyLocation
+number: 124
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

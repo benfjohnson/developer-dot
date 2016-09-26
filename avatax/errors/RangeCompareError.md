@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - RangeCompareError
+title: RangeCompareError
+number: 7
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

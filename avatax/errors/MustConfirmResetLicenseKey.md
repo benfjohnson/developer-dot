@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - MustConfirmResetLicenseKey
+title: MustConfirmResetLicenseKey
+number: 141
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

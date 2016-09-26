@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - DeletedObjectsCannotBeChangedError
+title: DeletedObjectsCannotBeChangedError
+number: 110
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

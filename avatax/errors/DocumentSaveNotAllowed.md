@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - DocumentSaveNotAllowed
+title: DocumentSaveNotAllowed
+number: 401
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

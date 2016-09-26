@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - IncorrectPathError
+title: IncorrectPathError
+number: 139
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

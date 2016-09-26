@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - JurisdictionNotFoundError
+title: JurisdictionNotFoundError
+number: 130
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

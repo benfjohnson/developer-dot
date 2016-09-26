@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - DocumentCodeConflict
+title: DocumentCodeConflict
+number: 303
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

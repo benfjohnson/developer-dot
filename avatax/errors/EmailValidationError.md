@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - EmailValidationError
+title: EmailValidationError
+number: 15
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

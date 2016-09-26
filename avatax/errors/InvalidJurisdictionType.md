@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - InvalidJurisdictionType
+title: InvalidJurisdictionType
+number: 140
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

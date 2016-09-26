@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - DeleteInformation
+title: DeleteInformation
+number: 100
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - DeleteUserSelfError
+title: DeleteUserSelfError
+number: 22
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

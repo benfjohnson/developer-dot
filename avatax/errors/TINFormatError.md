@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - TINFormatError
+title: TINFormatError
+number: 143
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

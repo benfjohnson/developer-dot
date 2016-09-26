@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - StringLengthError
+title: StringLengthError
+number: 13
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

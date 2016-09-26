@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - InvalidAddressTypeAndCategory
+title: InvalidAddressTypeAndCategory
+number: 123
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - BatchSalesAuditMustBeZippedError
+title: BatchSalesAuditMustBeZippedError
+number: 200
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

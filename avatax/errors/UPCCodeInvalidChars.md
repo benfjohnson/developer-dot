@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - UPCCodeInvalidChars
+title: UPCCodeInvalidChars
+number: 137
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

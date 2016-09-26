@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - CannotCreateDeletedObjects
+title: CannotCreateDeletedObjects
+number: 120
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

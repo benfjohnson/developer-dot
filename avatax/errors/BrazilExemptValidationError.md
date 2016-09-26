@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - BrazilExemptValidationError
+title: BrazilExemptValidationError
+number: 128
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

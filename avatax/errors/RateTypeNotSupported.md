@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - RateTypeNotSupported
+title: RateTypeNotSupported
+number: 135
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

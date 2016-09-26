@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - CannotModifyDeletedObjects
+title: CannotModifyDeletedObjects
+number: 121
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

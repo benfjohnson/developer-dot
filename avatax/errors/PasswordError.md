@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - PasswordError
+title: PasswordError
+number: 10
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

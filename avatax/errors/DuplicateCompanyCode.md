@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - DuplicateCompanyCode
+title: DuplicateCompanyCode
+number: 142
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

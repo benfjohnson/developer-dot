@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - ModelRequiredException
+title: ModelRequiredException
+number: 38
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - ValidationException
+title: ValidationException
+number: 32
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

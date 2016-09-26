@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - UnhandledException
+title: UnhandledException
+number: 50
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

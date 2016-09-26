@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - InvalidCountryRegion
+title: InvalidCountryRegion
+number: 126
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

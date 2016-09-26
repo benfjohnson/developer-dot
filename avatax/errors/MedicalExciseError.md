@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - MedicalExciseError
+title: MedicalExciseError
+number: 131
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - RateDependsTaxabilityError
+title: RateDependsTaxabilityError
+number: 132
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - PasswordMinLengthError
+title: PasswordMinLengthError
+number: 11
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

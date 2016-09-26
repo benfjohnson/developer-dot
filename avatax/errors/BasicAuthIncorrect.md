@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - BasicAuthIncorrect
+title: BasicAuthIncorrect
+number: 35
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

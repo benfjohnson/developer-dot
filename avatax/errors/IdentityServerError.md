@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - IdentityServerError
+title: IdentityServerError
+number: 36
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

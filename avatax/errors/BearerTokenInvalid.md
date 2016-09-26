@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - BearerTokenInvalid
+title: BearerTokenInvalid
+number: 37
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

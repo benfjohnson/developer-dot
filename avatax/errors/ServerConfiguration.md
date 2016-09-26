@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - ServerConfiguration
+title: ServerConfiguration
+number: 1
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

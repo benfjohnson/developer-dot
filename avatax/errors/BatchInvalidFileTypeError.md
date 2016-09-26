@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - BatchInvalidFileTypeError
+title: BatchInvalidFileTypeError
+number: 202
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

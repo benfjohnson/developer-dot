@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - CannotChangeEntityNo
+title: CannotChangeEntityNo
+number: 26
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

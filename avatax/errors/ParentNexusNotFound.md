@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - ParentNexusNotFound
+title: ParentNexusNotFound
+number: 146
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

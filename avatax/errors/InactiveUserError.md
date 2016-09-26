@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - InactiveUserError
+title: InactiveUserError
+number: 33
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

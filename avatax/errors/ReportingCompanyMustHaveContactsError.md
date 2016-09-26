@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - ReportingCompanyMustHaveContactsError
+title: ReportingCompanyMustHaveContactsError
+number: 60
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

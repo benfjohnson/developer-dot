@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - UPCCodeInvalidLength
+title: UPCCodeInvalidLength
+number: 138
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

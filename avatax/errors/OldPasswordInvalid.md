@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - OldPasswordInvalid
+title: OldPasswordInvalid
+number: 23
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

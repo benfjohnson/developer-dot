@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - AuthorizationException
+title: AuthorizationException
+number: 31
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - RangeSetError
+title: RangeSetError
+number: 8
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

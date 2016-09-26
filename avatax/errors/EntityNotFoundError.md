@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - EntityNotFoundError
+title: EntityNotFoundError
+number: 4
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

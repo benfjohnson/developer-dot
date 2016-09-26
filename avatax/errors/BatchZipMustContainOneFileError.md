@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - BatchZipMustContainOneFileError
+title: BatchZipMustContainOneFileError
+number: 201
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

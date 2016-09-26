@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - ModelStateInvalid
+title: ModelStateInvalid
+number: 70
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - PasswordMinComplexityError
+title: PasswordMinComplexityError
+number: 12
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - SubscriptionRequired
+title: SubscriptionRequired
+number: 600
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

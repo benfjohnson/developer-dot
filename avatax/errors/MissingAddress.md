@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - MissingAddress
+title: MissingAddress
+number: 304
 categories: [AvaTax Error Codes]
 disqus: 0
 ---

@@ -1,6 +1,7 @@
 ---
 layout: page
-title: AvaTax Errors - EmailMissingError
+title: EmailMissingError
+number: 16
 categories: [AvaTax Error Codes]
 disqus: 0
 ---
