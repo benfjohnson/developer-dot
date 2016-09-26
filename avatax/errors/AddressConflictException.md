@@ -1,41 +1,44 @@
+
 ---
 layout: post
-title: AvaTax Errors - SubscriptionRequired
-date: 2016-09-21 17:00
+title: AvaTax Errors - AddressConflictException
+date: 2016-09-26
 comments: true
 categories: [AvaTax Error Codes]
 disqus: 1
 ---
 
-# SubscriptionRequired
+# AddressConflictException
 
-This error message indicates that a subscription is required to use this API.  Your account does not currently have this subscription, or the subscription has expired.
+## Summary
+
+You attempted to add multiple addresses to a transaction that was flagged as a single-address transaction.
 
 ## Example
 
-	{
-		"error": {
-			"code": "SubscriptionRequired",
-			"message": "The user or account could not be authenticated.",
-			"target": "SubscriptionRequired",
-			"details": [
-				{
-					"ErrorCode": 30,
-					"Name": "SubscriptionRequired",
-					"Summary": "Using this API requires a subscription to 'AvaTaxST'.",
-					"Details": "Please contact your customer account manager for more details about this product.",
-					"FaultCode": "CustomerAccountSetup",
-					"HelpLink": "http://developer.avalara.com/avatax/errors/SubscriptionRequired",
-					"Severity": "Exception"
-				}
-			]
-		}
-	}
+    {
+      "code": "AddressConflictException",
+      "message": null,
+      "target": "Unknown",
+      "details": [
+        {
+          "ErrorCode": 301,
+          "Summary": "You specified both a 'SingleAddress' and a different address type on the element '-0-'.",
+          "Details": "When using SingleAddress mode, you may only provide one address element.",
+          "FaultCode": "Client",
+          "HelpLink": "http://developer.avalara.com/avatax/errors/AddressConflictException",
+          "Name": "AddressConflictException",
+          "RefersTo": null,
+          "Severity": "Error",
+          "Source": null,
+          "Documentation": null
+        }
+      ]
+    }
 
 ## Explanation
 
-Some APIs within Avalara AvaTax are available to all customers.  Other APIs are only available to customers who subscribe to certain features.
+You used the "SingleAddress" mode when configuring your transaction.  In "SingleAddress" mode, your transaction is assumed to have taken place at a single physical location, for example, at a point-of-sale cash register, and the transaction constitutes an in-person purchase with immediate exchange of goods.
 
-For example, a customer with a subscription to "Avalara AvaTax Sales Tax", also known as "AvaTaxST", can create transactions, adjust them, and verify them.  A customer with a subscription to Avalara Managed Returns, also known as "MRS", can request filing services to file taxes for some transactions and can preview some data from their tax returns.
+This error occurs when you specify both "SingleAddress" and some other address.  When you are using SingleAddress mode, you cannot specify any other addresses.
 
-If you encounter this message on an API you wish to use, you should contact your customer account manager.  Please be prepared to provide information about the API you were trying to use.

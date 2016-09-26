@@ -1,41 +1,43 @@
+
 ---
 layout: post
-title: AvaTax Errors - SubscriptionRequired
-date: 2016-09-21 17:00
+title: AvaTax Errors - BatchInvalidFileTypeError
+date: 2016-09-26
 comments: true
 categories: [AvaTax Error Codes]
 disqus: 1
 ---
 
-# SubscriptionRequired
+# BatchInvalidFileTypeError
 
-This error message indicates that a subscription is required to use this API.  Your account does not currently have this subscription, or the subscription has expired.
+## Summary
+
+You uploaded a batch file with an incorrect file type.
 
 ## Example
 
-	{
-		"error": {
-			"code": "SubscriptionRequired",
-			"message": "The user or account could not be authenticated.",
-			"target": "SubscriptionRequired",
-			"details": [
-				{
-					"ErrorCode": 30,
-					"Name": "SubscriptionRequired",
-					"Summary": "Using this API requires a subscription to 'AvaTaxST'.",
-					"Details": "Please contact your customer account manager for more details about this product.",
-					"FaultCode": "CustomerAccountSetup",
-					"HelpLink": "http://developer.avalara.com/avatax/errors/SubscriptionRequired",
-					"Severity": "Exception"
-				}
-			]
-		}
-	}
+    {
+      "code": "BatchInvalidFileTypeError",
+      "message": null,
+      "target": "Unknown",
+      "details": [
+        {
+          "ErrorCode": 202,
+          "Summary": "The BatchFile '-1-' had a compressed file of type '-0-'.  Compressed files can only contain CSV, XLS, XLSX, XML, POSTED, and UNPOSTED file types.",
+          "Details": "",
+          "FaultCode": "Client",
+          "HelpLink": "http://developer.avalara.com/avatax/errors/BatchInvalidFileTypeError",
+          "Name": "BatchInvalidFileTypeError",
+          "RefersTo": null,
+          "Severity": "Error",
+          "Source": null,
+          "Documentation": null
+        }
+      ]
+    }
 
 ## Explanation
 
-Some APIs within Avalara AvaTax are available to all customers.  Other APIs are only available to customers who subscribe to certain features.
+AvaTax supports batch files that contain CSV (comma-delimited) files, Microsoft Excel files (in either XLS or XLSX formats), XML files, or POSTED/UNPOSTED files.
 
-For example, a customer with a subscription to "Avalara AvaTax Sales Tax", also known as "AvaTaxST", can create transactions, adjust them, and verify them.  A customer with a subscription to Avalara Managed Returns, also known as "MRS", can request filing services to file taxes for some transactions and can preview some data from their tax returns.
-
-If you encounter this message on an API you wish to use, you should contact your customer account manager.  Please be prepared to provide information about the API you were trying to use.
+If you upload a compressed file, AvaTax will decompress that file and verify that the enclosed file type is correct.  Please check the file extension on your uploaded file to verify that it matches one of the known file types.

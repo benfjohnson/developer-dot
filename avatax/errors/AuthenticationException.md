@@ -1,41 +1,53 @@
+
 ---
 layout: post
-title: AvaTax Errors - SubscriptionRequired
-date: 2016-09-21 17:00
+title: AvaTax Errors - AuthenticationException
+date: 2016-09-26
 comments: true
 categories: [AvaTax Error Codes]
 disqus: 1
 ---
 
-# SubscriptionRequired
+# AuthenticationException
 
-This error message indicates that a subscription is required to use this API.  Your account does not currently have this subscription, or the subscription has expired.
+## Summary
+
+The credentials you provided to AvaTax could not be validated.
 
 ## Example
 
-	{
-		"error": {
-			"code": "SubscriptionRequired",
-			"message": "The user or account could not be authenticated.",
-			"target": "SubscriptionRequired",
-			"details": [
-				{
-					"ErrorCode": 30,
-					"Name": "SubscriptionRequired",
-					"Summary": "Using this API requires a subscription to 'AvaTaxST'.",
-					"Details": "Please contact your customer account manager for more details about this product.",
-					"FaultCode": "CustomerAccountSetup",
-					"HelpLink": "http://developer.avalara.com/avatax/errors/SubscriptionRequired",
-					"Severity": "Exception"
-				}
-			]
-		}
-	}
+    {
+      "code": "AuthenticationException",
+      "message": null,
+      "target": "Unknown",
+      "details": [
+        {
+          "ErrorCode": 30,
+          "Summary": "The user or account could not be authenticated.",
+          "Details": "-0-",
+          "FaultCode": "Client",
+          "HelpLink": "http://developer.avalara.com/avatax/errors/AuthenticationException",
+          "Name": "AuthenticationException",
+          "RefersTo": null,
+          "Severity": "Exception",
+          "Source": null,
+          "Documentation": null
+        }
+      ]
+    }
 
 ## Explanation
 
-Some APIs within Avalara AvaTax are available to all customers.  Other APIs are only available to customers who subscribe to certain features.
+AvaTax provides multiple modes by which you can authenticate your API call.  You may provide one of the following:
 
-For example, a customer with a subscription to "Avalara AvaTax Sales Tax", also known as "AvaTaxST", can create transactions, adjust them, and verify them.  A customer with a subscription to Avalara Managed Returns, also known as "MRS", can request filing services to file taxes for some transactions and can preview some data from their tax returns.
+	Basic username:password
+	Basic accountid:licensekey
+	Bearer token
 
-If you encounter this message on an API you wish to use, you should contact your customer account manager.  Please be prepared to provide information about the API you were trying to use.
+This error message indicates that the username and password you provided could not be found.  
+
+Common troubleshooting steps:
+
+* Have you forgotten to Base-64 encode your username+password?
+* Have you mistyped your username or password?
+* Are you attempting to authenticate against the sandbox server when you intended to use the production server, or vice versa?
