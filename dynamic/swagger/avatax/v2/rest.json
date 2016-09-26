@@ -79,285 +79,10 @@
 					"ApiKeySecurity": [],
 					"OauthSecurity": []
 				}]
-			},
-			"put": {
-				"tags": ["Accounts",
-				"AvalaraInternal"],
-				"summary": "Update a single account",
-				"operationId": "ApiV2AccountsByIdPut",
-				"consumes": ["application/json",
-				"text/json",
-				"application/json-patch+json"],
-				"produces": [],
-				"parameters": [{
-					"name": "model",
-					"in": "body",
-					"description": "The account object you wish to update.",
-					"required": false,
-					"schema": {
-						"$ref": "#/definitions/AccountModel"
-					}
-				},
-				{
-					"name": "id",
-					"in": "path",
-					"description": "The ID of the account you wish to update.",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				},
-				{
-					"name": "Authorization",
-					"in": "header",
-					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
-					"required": false,
-					"type": "string"
-				}],
-				"responses": {
-					"204": {
-						"description": "No Content"
-					},
-					"200": {
-						"description": "OK",
-						"schema": {
-							"$ref": "#/definitions/AccountModel"
-						}
-					},
-					"404": {
-						"description": "NotFound",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"401": {
-						"description": "Unauthorized",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"400": {
-						"description": "BadRequest",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					}
-				},
-				"deprecated": false,
-				"security": [{
-					"UserSecurity": [],
-					"ApiKeySecurity": [],
-					"OauthSecurity": []
-				}]
-			},
-			"delete": {
-				"tags": ["Accounts",
-				"AvalaraInternal"],
-				"summary": "Delete a single account",
-				"description": "Deleting an account will delete all companies, and all account level users attached to this account.",
-				"operationId": "ApiV2AccountsByIdDelete",
-				"consumes": [],
-				"produces": [],
-				"parameters": [{
-					"name": "id",
-					"in": "path",
-					"description": "The ID of the account you wish to delete.",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				},
-				{
-					"name": "Authorization",
-					"in": "header",
-					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
-					"required": false,
-					"type": "string"
-				}],
-				"responses": {
-					"204": {
-						"description": "No Content"
-					},
-					"200": {
-						"description": "OK",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"404": {
-						"description": "NotFound",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"401": {
-						"description": "Unauthorized",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"400": {
-						"description": "BadRequest",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					}
-				},
-				"deprecated": false,
-				"security": [{
-					"UserSecurity": [],
-					"ApiKeySecurity": [],
-					"OauthSecurity": []
-				}]
 			}
 		},
 		"/api/v2/accounts": {
-			"get": {
-				"tags": ["Accounts",
-				"AvalaraInternal"],
-				"summary": "Retrieve all accounts",
-				"operationId": "ApiV2AccountsGet",
-				"consumes": [],
-				"produces": [],
-				"parameters": [{
-					"name": "$include",
-					"in": "query",
-					"description": "A comma separated list of child objects to return underneath the primary object.",
-					"required": false,
-					"type": "string"
-				},
-				{
-					"name": "$filter",
-					"in": "query",
-					"description": "A filter statement to identify specific records to retrieve, as defined by https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#97-filtering .",
-					"required": false,
-					"type": "string"
-				},
-				{
-					"name": "$top",
-					"in": "query",
-					"description": "If nonzero, return no more than this number of results.",
-					"required": false,
-					"type": "integer",
-					"format": "int32"
-				},
-				{
-					"name": "$skip",
-					"in": "query",
-					"description": "A comma separated list of sort statements in the format '(fieldname) [ASC|DESC]', for example 'id ASC'.",
-					"required": false,
-					"type": "integer",
-					"format": "int32"
-				},
-				{
-					"name": "$orderBy",
-					"in": "query",
-					"description": "A comma separated list of sort statements in the format '(fieldname) [ASC|DESC]', for example 'id ASC'.",
-					"required": false,
-					"type": "string"
-				},
-				{
-					"name": "Authorization",
-					"in": "header",
-					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
-					"required": false,
-					"type": "string"
-				}],
-				"responses": {
-					"204": {
-						"description": "No Content"
-					},
-					"200": {
-						"description": "OK",
-						"schema": {
-							"$ref": "#/definitions/FetchResult[AccountModel]"
-						}
-					},
-					"404": {
-						"description": "NotFound",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"401": {
-						"description": "Unauthorized",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"400": {
-						"description": "BadRequest",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					}
-				},
-				"deprecated": false,
-				"security": [{
-					"UserSecurity": [],
-					"ApiKeySecurity": [],
-					"OauthSecurity": []
-				}]
-			},
-			"post": {
-				"tags": ["Accounts",
-				"AvalaraInternal"],
-				"summary": "Create a new account",
-				"operationId": "ApiV2AccountsPost",
-				"consumes": ["application/json",
-				"text/json",
-				"application/json-patch+json"],
-				"produces": [],
-				"parameters": [{
-					"name": "model",
-					"in": "body",
-					"description": "The account you wish to create.",
-					"required": false,
-					"schema": {
-						"$ref": "#/definitions/AccountModel"
-					}
-				},
-				{
-					"name": "Authorization",
-					"in": "header",
-					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
-					"required": false,
-					"type": "string"
-				}],
-				"responses": {
-					"204": {
-						"description": "No Content"
-					},
-					"200": {
-						"description": "OK",
-						"schema": {
-							"$ref": "#/definitions/AccountModel"
-						}
-					},
-					"404": {
-						"description": "NotFound",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"401": {
-						"description": "Unauthorized",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"400": {
-						"description": "BadRequest",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					}
-				},
-				"deprecated": false,
-				"security": [{
-					"UserSecurity": [],
-					"ApiKeySecurity": [],
-					"OauthSecurity": []
-				}]
-			}
+			
 		},
 		"/api/v2/accounts/{id}/resetlicensekey": {
 			"post": {
@@ -3690,64 +3415,7 @@
 			}
 		},
 		"/api/v2/passwords": {
-			"put": {
-				"tags": ["Passwords",
-				"AvalaraInternal"],
-				"summary": "Change Password",
-				"operationId": "ApiV2PasswordsPut",
-				"consumes": ["application/json",
-				"text/json",
-				"application/json-patch+json"],
-				"produces": [],
-				"parameters": [{
-					"name": "model",
-					"in": "body",
-					"description": "An object containing your current password and the new password.",
-					"required": false,
-					"schema": {
-						"$ref": "#/definitions/PasswordChangeModel"
-					}
-				},
-				{
-					"name": "Authorization",
-					"in": "header",
-					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
-					"required": false,
-					"type": "string"
-				}],
-				"responses": {
-					"204": {
-						"description": "No Content"
-					},
-					"200": {
-						"description": "OK"
-					},
-					"404": {
-						"description": "NotFound",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"401": {
-						"description": "Unauthorized",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"400": {
-						"description": "BadRequest",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					}
-				},
-				"deprecated": false,
-				"security": [{
-					"UserSecurity": [],
-					"ApiKeySecurity": [],
-					"OauthSecurity": []
-				}]
-			}
+			
 		},
 		"/api/v2/companies/{companyId}/settings/{id}": {
 			"get": {
@@ -4266,149 +3934,6 @@
 					"ApiKeySecurity": [],
 					"OauthSecurity": []
 				}]
-			},
-			"put": {
-				"tags": ["Subscriptions",
-				"AvalaraInternal"],
-				"summary": "Update a single subscription",
-				"operationId": "ApiV2AccountsByAccountIdSubscriptionsByIdPut",
-				"consumes": ["application/json",
-				"text/json",
-				"application/json-patch+json"],
-				"produces": [],
-				"parameters": [{
-					"name": "model",
-					"in": "body",
-					"description": "The subscription you wish to update.",
-					"required": false,
-					"schema": {
-						"$ref": "#/definitions/SubscriptionModel"
-					}
-				},
-				{
-					"name": "accountId",
-					"in": "path",
-					"description": "The ID of the account that this subscription belongs to.",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				},
-				{
-					"name": "id",
-					"in": "path",
-					"description": "The ID of the subscription you wish to update",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				},
-				{
-					"name": "Authorization",
-					"in": "header",
-					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
-					"required": false,
-					"type": "string"
-				}],
-				"responses": {
-					"204": {
-						"description": "No Content"
-					},
-					"200": {
-						"description": "OK",
-						"schema": {
-							"$ref": "#/definitions/SubscriptionModel"
-						}
-					},
-					"404": {
-						"description": "NotFound",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"401": {
-						"description": "Unauthorized",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"400": {
-						"description": "BadRequest",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					}
-				},
-				"deprecated": false,
-				"security": [{
-					"UserSecurity": [],
-					"ApiKeySecurity": [],
-					"OauthSecurity": []
-				}]
-			},
-			"delete": {
-				"tags": ["Subscriptions",
-				"AvalaraInternal"],
-				"summary": "Delete a single subscription",
-				"operationId": "ApiV2AccountsByAccountIdSubscriptionsByIdDelete",
-				"consumes": [],
-				"produces": [],
-				"parameters": [{
-					"name": "accountId",
-					"in": "path",
-					"description": "The ID of the account that owns this subscription.",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				},
-				{
-					"name": "id",
-					"in": "path",
-					"description": "The ID of the subscription you wish to delete.",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				},
-				{
-					"name": "Authorization",
-					"in": "header",
-					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
-					"required": false,
-					"type": "string"
-				}],
-				"responses": {
-					"204": {
-						"description": "No Content"
-					},
-					"200": {
-						"description": "OK",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"404": {
-						"description": "NotFound",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"401": {
-						"description": "Unauthorized",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"400": {
-						"description": "BadRequest",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					}
-				},
-				"deprecated": false,
-				"security": [{
-					"UserSecurity": [],
-					"ApiKeySecurity": [],
-					"OauthSecurity": []
-				}]
 			}
 		},
 		"/api/v2/accounts/{accountId}/subscriptions": {
@@ -4471,81 +3996,6 @@
 						"description": "OK",
 						"schema": {
 							"$ref": "#/definitions/FetchResult[SubscriptionModel]"
-						}
-					},
-					"404": {
-						"description": "NotFound",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"401": {
-						"description": "Unauthorized",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"400": {
-						"description": "BadRequest",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					}
-				},
-				"deprecated": false,
-				"security": [{
-					"UserSecurity": [],
-					"ApiKeySecurity": [],
-					"OauthSecurity": []
-				}]
-			},
-			"post": {
-				"tags": ["Subscriptions",
-				"AvalaraInternal"],
-				"summary": "Create a new subscription",
-				"operationId": "ApiV2AccountsByAccountIdSubscriptionsPost",
-				"consumes": ["application/json",
-				"text/json",
-				"application/json-patch+json"],
-				"produces": [],
-				"parameters": [{
-					"name": "models",
-					"in": "body",
-					"description": "The subscription you wish to create.",
-					"required": false,
-					"schema": {
-						"type": "array",
-						"items": {
-							"$ref": "#/definitions/SubscriptionModel"
-						}
-					}
-				},
-				{
-					"name": "accountId",
-					"in": "path",
-					"description": "The ID of the account that owns this subscription.",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				},
-				{
-					"name": "Authorization",
-					"in": "header",
-					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
-					"required": false,
-					"type": "string"
-				}],
-				"responses": {
-					"204": {
-						"description": "No Content"
-					},
-					"200": {
-						"description": "OK",
-						"schema": {
-							"type": "array",
-							"items": {
-								"$ref": "#/definitions/SubscriptionModel"
-							}
 						}
 					},
 					"404": {
@@ -7024,72 +6474,6 @@
 					"ApiKeySecurity": [],
 					"OauthSecurity": []
 				}]
-			},
-			"delete": {
-				"tags": ["Users",
-				"AvalaraInternal"],
-				"summary": "Delete a single user",
-				"operationId": "ApiV2AccountsByAccountIdUsersByIdDelete",
-				"consumes": [],
-				"produces": [],
-				"parameters": [{
-					"name": "id",
-					"in": "path",
-					"description": "The ID of the user you wish to delete.",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				},
-				{
-					"name": "accountId",
-					"in": "path",
-					"description": "The accountID of the user you wish to delete.",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				},
-				{
-					"name": "Authorization",
-					"in": "header",
-					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
-					"required": false,
-					"type": "string"
-				}],
-				"responses": {
-					"204": {
-						"description": "No Content"
-					},
-					"200": {
-						"description": "OK",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"404": {
-						"description": "NotFound",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"401": {
-						"description": "Unauthorized",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"400": {
-						"description": "BadRequest",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					}
-				},
-				"deprecated": false,
-				"security": [{
-					"UserSecurity": [],
-					"ApiKeySecurity": [],
-					"OauthSecurity": []
-				}]
 			}
 		},
 		"/api/v2/accounts/{accountId}/users": {
@@ -7159,81 +6543,6 @@
 						"description": "OK",
 						"schema": {
 							"$ref": "#/definitions/FetchResult[UserModel]"
-						}
-					},
-					"404": {
-						"description": "NotFound",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"401": {
-						"description": "Unauthorized",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					},
-					"400": {
-						"description": "BadRequest",
-						"schema": {
-							"$ref": "#/definitions/ErrorResult"
-						}
-					}
-				},
-				"deprecated": false,
-				"security": [{
-					"UserSecurity": [],
-					"ApiKeySecurity": [],
-					"OauthSecurity": []
-				}]
-			},
-			"post": {
-				"tags": ["Users",
-				"AvalaraInternal"],
-				"summary": "Create new users",
-				"operationId": "ApiV2AccountsByAccountIdUsersPost",
-				"consumes": ["application/json",
-				"text/json",
-				"application/json-patch+json"],
-				"produces": [],
-				"parameters": [{
-					"name": "models",
-					"in": "body",
-					"description": "The user or array of users you wish to create.",
-					"required": false,
-					"schema": {
-						"type": "array",
-						"items": {
-							"$ref": "#/definitions/UserModel"
-						}
-					}
-				},
-				{
-					"name": "accountId",
-					"in": "path",
-					"description": "The unique ID number of the account where these users will be created.",
-					"required": true,
-					"type": "integer",
-					"format": "int32"
-				},
-				{
-					"name": "Authorization",
-					"in": "header",
-					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
-					"required": false,
-					"type": "string"
-				}],
-				"responses": {
-					"204": {
-						"description": "No Content"
-					},
-					"200": {
-						"description": "OK",
-						"schema": {
-							"type": "array",
-							"items": {
-								"$ref": "#/definitions/UserModel"
-							}
 						}
 					},
 					"404": {
@@ -7673,7 +6982,7 @@
 			"example": {
 				"id": 12345,
 				"name": "Test Account",
-				"effectiveDate": "2016-09-23T00:00:00-07:00",
+				"effectiveDate": "2016-09-26T00:00:00-07:00",
 				"accountStatusId": "Test"
 			}
 		},
@@ -7893,17 +7202,16 @@
 			},
 			"example": {
 				"error": {
-					"code": "IncorrectData",
+					"code": "DuplicateCompanyCode",
 					"message": "The company code 'DEFAULT' has already been defined.  Please select a different company code.",
 					"target": "HttpRequest",
 					"details": [{
-						"errorCode": 142,
-						"summary": "The company code 'DEFAULT' has already been defined.",
-						"details": "Please select a different company code.",
+						"code": "DuplicateCompanyCode",
+						"number": 142,
+						"message": "The company code 'DEFAULT' has already been defined.",
+						"description": "Please select a different company code.",
 						"faultCode": "Client",
-						"helpLink": "http://developer.avalara.com/blogs/getting-started",
-						"name": "DuplicateCompanyCode",
-						"refersTo": "companyCode",
+						"helpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
 						"severity": "Error"
 					}]
 				}
@@ -7914,83 +7222,8 @@
 			"type": "object",
 			"properties": {
 				"code": {
-					"description": "Category of the error",
-					"enum": ["Unknown",
-					"Authentication",
-					"RequestParsing",
-					"IncorrectData",
-					"InternalError",
-					"SubscriptionRequired"],
-					"type": "string"
-				},
-				"message": {
-					"description": "Short one-line message to summaryize what went wrong",
-					"type": "string"
-				},
-				"target": {
-					"description": "What object or service caused the error?",
-					"enum": ["Unknown",
-					"HttpRequest",
-					"HttpRequestHeaders",
-					"IncorrectData",
-					"AvaTaxApiServer",
-					"AvalaraIdentityServer",
-					"CustomerAccountSetup"],
-					"type": "string"
-				},
-				"details": {
-					"description": "Array of detailed error messages",
-					"type": "array",
-					"items": {
-						"$ref": "#/definitions/ErrorDetail"
-					}
-				}
-			},
-			"example": {
-				"code": "IncorrectData",
-				"message": "The company code 'DEFAULT' has already been defined.  Please select a different company code.",
-				"target": "HttpRequest",
-				"details": [{
-					"errorCode": 142,
-					"summary": "The company code 'DEFAULT' has already been defined.",
-					"details": "Please select a different company code.",
-					"faultCode": "Client",
-					"helpLink": "http://developer.avalara.com/blogs/getting-started",
-					"name": "DuplicateCompanyCode",
-					"refersTo": "companyCode",
-					"severity": "Error"
-				}]
-			}
-		},
-		"ErrorDetail": {
-			"description": "Message object",
-			"type": "object",
-			"properties": {
-				"errorCode": {
-					"format": "int32",
-					"description": "Error message identifier",
-					"type": "integer"
-				},
-				"summary": {
-					"description": "Concise summary of the message",
-					"type": "string"
-				},
-				"details": {
-					"description": "Message details",
-					"type": "string"
-				},
-				"faultCode": {
-					"description": "Indicates the SoapFault code",
-					"type": "string"
-				},
-				"helpLink": {
-					"description": "URL to help for this message",
-					"type": "string"
-				},
-				"name": {
-					"description": "Name of the error.",
-					"enum": ["AccountIdZeroError",
-					"CompanyIdZeroError",
+					"description": "Type of error that occurred",
+					"enum": ["ServerConfiguration",
 					"EntityNotFoundError",
 					"ValueRequiredError",
 					"RangeError",
@@ -8046,7 +7279,6 @@
 					"MedicalExciseError",
 					"RateDependsTaxabilityError",
 					"RateDependsEuropeError",
-					"SourcingError",
 					"RateTypeNotSupported",
 					"CannotUpdateNestedObjects",
 					"UPCCodeInvalidChars",
@@ -8065,13 +7297,159 @@
 					"BatchInvalidFileTypeError",
 					"GetTaxError",
 					"AddressConflictException",
-					"CompanyCodeMismatch",
 					"DocumentCodeConflict",
 					"MissingAddress",
 					"BadDocumentFetch",
 					"DocumentSaveNotAllowed",
 					"ServerUnreachable",
 					"SubscriptionRequired"],
+					"type": "string"
+				},
+				"message": {
+					"description": "Short one-line message to summaryize what went wrong",
+					"type": "string"
+				},
+				"target": {
+					"description": "What object or service caused the error?",
+					"enum": ["Unknown",
+					"HttpRequest",
+					"HttpRequestHeaders",
+					"IncorrectData",
+					"AvaTaxApiServer",
+					"AvalaraIdentityServer",
+					"CustomerAccountSetup"],
+					"type": "string"
+				},
+				"details": {
+					"description": "Array of detailed error messages",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ErrorDetail"
+					}
+				}
+			},
+			"example": {
+				"code": "DuplicateCompanyCode",
+				"message": "The company code 'DEFAULT' has already been defined.  Please select a different company code.",
+				"target": "HttpRequest",
+				"details": [{
+					"code": "DuplicateCompanyCode",
+					"number": 142,
+					"message": "The company code 'DEFAULT' has already been defined.",
+					"description": "Please select a different company code.",
+					"faultCode": "Client",
+					"helpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
+					"severity": "Error"
+				}]
+			}
+		},
+		"ErrorDetail": {
+			"description": "Message object",
+			"type": "object",
+			"properties": {
+				"code": {
+					"description": "Name of the error.",
+					"enum": ["ServerConfiguration",
+					"EntityNotFoundError",
+					"ValueRequiredError",
+					"RangeError",
+					"RangeCompareError",
+					"RangeSetError",
+					"PasswordError",
+					"PasswordMinLengthError",
+					"PasswordMinComplexityError",
+					"StringLengthError",
+					"StringValueRequiredError",
+					"EmailValidationError",
+					"EmailMissingError",
+					"ParserFieldNameError",
+					"ParserFieldValueError",
+					"ParserSyntaxError",
+					"ParserTooManyParametersError",
+					"ParserUnterminatedValueError",
+					"DeleteUserSelfError",
+					"OldPasswordInvalid",
+					"CannotChangePassword",
+					"CannotChangeCompanyCode",
+					"CannotChangeEntityNo",
+					"AuthenticationException",
+					"AuthorizationException",
+					"ValidationException",
+					"InactiveUserError",
+					"AuthenticationIncomplete",
+					"BasicAuthIncorrect",
+					"IdentityServerError",
+					"BearerTokenInvalid",
+					"ModelRequiredException",
+					"AccountExpiredException",
+					"VisibilityError",
+					"UnhandledException",
+					"ReportingCompanyMustHaveContactsError",
+					"CompanyProfileNotSet",
+					"ModelStateInvalid",
+					"DateRangeError",
+					"InvalidDateRangeError",
+					"DeleteInformation",
+					"DeletedObjectsCannotBeChangedError",
+					"CannotCreateDeletedObjects",
+					"CannotModifyDeletedObjects",
+					"ReturnNameNotFound",
+					"InvalidAddressTypeAndCategory",
+					"DefaultCompanyLocation",
+					"InvalidCountry",
+					"InvalidCountryRegion",
+					"BrazilValidationError",
+					"BrazilExemptValidationError",
+					"BrazilPisCofinsError",
+					"JurisdictionNotFoundError",
+					"MedicalExciseError",
+					"RateDependsTaxabilityError",
+					"RateDependsEuropeError",
+					"RateTypeNotSupported",
+					"CannotUpdateNestedObjects",
+					"UPCCodeInvalidChars",
+					"UPCCodeInvalidLength",
+					"IncorrectPathError",
+					"InvalidJurisdictionType",
+					"MustConfirmResetLicenseKey",
+					"DuplicateCompanyCode",
+					"TINFormatError",
+					"DuplicateNexusError",
+					"UnknownNexusError",
+					"ParentNexusNotFound",
+					"InvalidTaxCodeType",
+					"BatchSalesAuditMustBeZippedError",
+					"BatchZipMustContainOneFileError",
+					"BatchInvalidFileTypeError",
+					"GetTaxError",
+					"AddressConflictException",
+					"DocumentCodeConflict",
+					"MissingAddress",
+					"BadDocumentFetch",
+					"DocumentSaveNotAllowed",
+					"ServerUnreachable",
+					"SubscriptionRequired"],
+					"type": "string"
+				},
+				"number": {
+					"format": "int32",
+					"description": "Error message identifier",
+					"type": "integer"
+				},
+				"message": {
+					"description": "Concise summary of the message, suitable for display in the caption of an alert box.",
+					"type": "string"
+				},
+				"description": {
+					"description": "A more detailed description of the problem referenced by this error message, suitable for display in the contents area of an alert box.",
+					"type": "string"
+				},
+				"faultCode": {
+					"description": "Indicates the SoapFault code",
+					"type": "string"
+				},
+				"helpLink": {
+					"description": "URL to help for this message",
 					"type": "string"
 				},
 				"refersTo": {
@@ -8085,24 +7463,15 @@
 					"Error",
 					"Exception"],
 					"type": "string"
-				},
-				"source": {
-					"description": "Source of the message",
-					"type": "string"
-				},
-				"documentation": {
-					"description": "Documentation of the message",
-					"type": "string"
 				}
 			},
 			"example": {
-				"errorCode": 142,
-				"summary": "The company code 'DEFAULT' has already been defined.",
-				"details": "Please select a different company code.",
+				"code": "DuplicateCompanyCode",
+				"number": 142,
+				"message": "The company code 'DEFAULT' has already been defined.",
+				"description": "Please select a different company code.",
 				"faultCode": "Client",
-				"helpLink": "http://developer.avalara.com/blogs/getting-started",
-				"name": "DuplicateCompanyCode",
-				"refersTo": "companyCode",
+				"helpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
 				"severity": "Error"
 			}
 		},
@@ -9755,7 +9124,7 @@
 				"cap": 0.0,
 				"threshold": 0.0,
 				"options": "",
-				"effectiveDate": "2016-09-23T00:00:00-07:00",
+				"effectiveDate": "2016-09-26T00:00:00-07:00",
 				"description": "Freight",
 				"countyFIPS": "013",
 				"isSTPro": false,
@@ -10774,11 +10143,11 @@
 			},
 			"example": {
 				"id": 123456789,
-				"code": "9166106c-757a-4e20-a89f-80b733e5f36f",
+				"code": "1ab42a08-fb53-4eaa-99f5-5cf1b3dbd675",
 				"companyId": 12345,
-				"date": "2016-09-23T00:00:00-07:00",
-				"taxDate": "2016-09-23T00:00:00-07:00",
-				"paymentDate": "2016-09-23T00:00:00-07:00",
+				"date": "2016-09-26T00:00:00-07:00",
+				"taxDate": "2016-09-26T00:00:00-07:00",
+				"paymentDate": "2016-09-26T00:00:00-07:00",
 				"status": "Committed",
 				"type": "SalesInvoice",
 				"currencyCode": "USD",
@@ -10827,7 +10196,7 @@
 					"lineAmount": 1000.0,
 					"quantity": 1.00,
 					"ref1": "Note: Deliver to Bob",
-					"reportingDate": "2016-09-23T00:00:00-07:00",
+					"reportingDate": "2016-09-26T00:00:00-07:00",
 					"revAccount": "",
 					"sourcing": "Destination",
 					"tax": 62.50,
@@ -10835,7 +10204,7 @@
 					"taxCalculated": 62.50,
 					"taxCode": "PS081282",
 					"taxCodeId": 0,
-					"taxDate": "2016-09-23T00:00:00-07:00",
+					"taxDate": "2016-09-26T00:00:00-07:00",
 					"taxEngine": "",
 					"taxOverrideType": "None",
 					"taxOverrideAmount": 0.00,
@@ -11083,7 +10452,7 @@
 				"lineAmount": 1000.0,
 				"quantity": 1.00,
 				"ref1": "Note: Deliver to Bob",
-				"reportingDate": "2016-09-23T00:00:00-07:00",
+				"reportingDate": "2016-09-26T00:00:00-07:00",
 				"revAccount": "",
 				"sourcing": "Destination",
 				"tax": 62.50,
@@ -11091,7 +10460,7 @@
 				"taxCalculated": 62.50,
 				"taxCode": "PS081282",
 				"taxCodeId": 0,
-				"taxDate": "2016-09-23T00:00:00-07:00",
+				"taxDate": "2016-09-26T00:00:00-07:00",
 				"taxEngine": "",
 				"taxOverrideType": "None",
 				"taxOverrideAmount": 0.00,
@@ -11603,10 +10972,10 @@
 				"adjustmentDescription": "Price drop before shipping",
 				"newTransaction": {
 					"type": "SalesInvoice",
-					"code": "b50fb210-e9d0-4a79-afdb-5e3fecb88170",
-					"date": "2016-09-23T00:00:00-07:00",
+					"code": "37449e6c-da28-49b5-85d4-57563f4cf1ae",
+					"date": "2016-09-26T00:00:00-07:00",
 					"customerCode": "ABC",
-					"purchaseOrderNo": "2016-09-23-001",
+					"purchaseOrderNo": "2016-09-26-001",
 					"addresses": {
 						"SingleLocation": {
 							"line1": "123 Main Street",
@@ -11625,7 +10994,7 @@
 						"description": "Yarn"
 					}],
 					"commit": true,
-					"taxDate": "2016-09-23T00:00:00-07:00",
+					"taxDate": "2016-09-26T00:00:00-07:00",
 					"currencyCode": "USD",
 					"description": "Yarn"
 				}
@@ -11812,10 +11181,10 @@
 			},
 			"example": {
 				"type": "SalesInvoice",
-				"code": "7d392ace-a6e3-402c-a34c-d3b0d5e5fdc7",
-				"date": "2016-09-23T00:00:00-07:00",
+				"code": "93be64a2-71e9-4ca0-93ac-95cb927a587d",
+				"date": "2016-09-26T00:00:00-07:00",
 				"customerCode": "ABC",
-				"purchaseOrderNo": "2016-09-23-001",
+				"purchaseOrderNo": "2016-09-26-001",
 				"addresses": {
 					"SingleLocation": {
 						"line1": "123 Main Street",
@@ -11834,7 +11203,7 @@
 					"description": "Yarn"
 				}],
 				"commit": true,
-				"taxDate": "2016-09-23T00:00:00-07:00",
+				"taxDate": "2016-09-26T00:00:00-07:00",
 				"currencyCode": "USD",
 				"description": "Yarn"
 			}
@@ -11988,7 +11357,7 @@
 			"example": {
 				"type": "TaxAmount",
 				"taxAmount": 6.25,
-				"taxDate": "2016-09-23T00:00:00-07:00",
+				"taxDate": "2016-09-26T00:00:00-07:00",
 				"reason": "Precalculated Tax"
 			}
 		},
@@ -12029,12 +11398,12 @@
 			},
 			"example": {
 				"verify": {
-					"verifyTransactionDate": "2016-09-23T00:00:00-07:00",
+					"verifyTransactionDate": "2016-09-26T00:00:00-07:00",
 					"verifyTotalAmount": 100.0,
 					"verifyTotalTax": 6.25
 				},
 				"changeCode": {
-					"newCode": "fc9f77f0-acd0-4472-a718-319617401207"
+					"newCode": "7574954f-3a3a-405a-a13c-2779ae836fa3"
 				},
 				"commit": {
 					"commit": true
@@ -12062,7 +11431,7 @@
 				}
 			},
 			"example": {
-				"verifyTransactionDate": "2016-09-23T00:00:00-07:00",
+				"verifyTransactionDate": "2016-09-26T00:00:00-07:00",
 				"verifyTotalAmount": 100.0,
 				"verifyTotalTax": 6.25
 			}
@@ -12080,7 +11449,7 @@
 				}
 			},
 			"example": {
-				"newCode": "286982a9-73f7-44d6-9200-457c19bba990"
+				"newCode": "ddac8e96-7f0f-4c7a-b1dc-c050da8c8b6b"
 			}
 		},
 		"CommitTransactionModel": {
