@@ -79,10 +79,285 @@
 					"ApiKeySecurity": [],
 					"OauthSecurity": []
 				}]
+			},
+			"put": {
+				"tags": ["Accounts",
+				"AvalaraInternal"],
+				"summary": "Update a single account",
+				"operationId": "ApiV2AccountsByIdPut",
+				"consumes": ["application/json",
+				"text/json",
+				"application/json-patch+json"],
+				"produces": [],
+				"parameters": [{
+					"name": "model",
+					"in": "body",
+					"description": "The account object you wish to update.",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/AccountModel"
+					}
+				},
+				{
+					"name": "id",
+					"in": "path",
+					"description": "The ID of the account you wish to update.",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/AccountModel"
+						}
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
+			},
+			"delete": {
+				"tags": ["Accounts",
+				"AvalaraInternal"],
+				"summary": "Delete a single account",
+				"description": "Deleting an account will delete all companies, and all account level users attached to this account.",
+				"operationId": "ApiV2AccountsByIdDelete",
+				"consumes": [],
+				"produces": [],
+				"parameters": [{
+					"name": "id",
+					"in": "path",
+					"description": "The ID of the account you wish to delete.",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
 			}
 		},
 		"/api/v2/accounts": {
-			
+			"get": {
+				"tags": ["Accounts",
+				"AvalaraInternal"],
+				"summary": "Retrieve all accounts",
+				"operationId": "ApiV2AccountsGet",
+				"consumes": [],
+				"produces": [],
+				"parameters": [{
+					"name": "$include",
+					"in": "query",
+					"description": "A comma separated list of child objects to return underneath the primary object.",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "$filter",
+					"in": "query",
+					"description": "A filter statement to identify specific records to retrieve, as defined by https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#97-filtering .",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "$top",
+					"in": "query",
+					"description": "If nonzero, return no more than this number of results.",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "$skip",
+					"in": "query",
+					"description": "A comma separated list of sort statements in the format '(fieldname) [ASC|DESC]', for example 'id ASC'.",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "$orderBy",
+					"in": "query",
+					"description": "A comma separated list of sort statements in the format '(fieldname) [ASC|DESC]', for example 'id ASC'.",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/FetchResult[AccountModel]"
+						}
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
+			},
+			"post": {
+				"tags": ["Accounts",
+				"AvalaraInternal"],
+				"summary": "Create a new account",
+				"operationId": "ApiV2AccountsPost",
+				"consumes": ["application/json",
+				"text/json",
+				"application/json-patch+json"],
+				"produces": [],
+				"parameters": [{
+					"name": "model",
+					"in": "body",
+					"description": "The account you wish to create.",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/AccountModel"
+					}
+				},
+				{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/AccountModel"
+						}
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
+			}
 		},
 		"/api/v2/accounts/{id}/resetlicensekey": {
 			"post": {
@@ -3415,7 +3690,64 @@
 			}
 		},
 		"/api/v2/passwords": {
-			
+			"put": {
+				"tags": ["Passwords",
+				"AvalaraInternal"],
+				"summary": "Change Password",
+				"operationId": "ApiV2PasswordsPut",
+				"consumes": ["application/json",
+				"text/json",
+				"application/json-patch+json"],
+				"produces": [],
+				"parameters": [{
+					"name": "model",
+					"in": "body",
+					"description": "An object containing your current password and the new password.",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/PasswordChangeModel"
+					}
+				},
+				{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
+			}
 		},
 		"/api/v2/companies/{companyId}/settings/{id}": {
 			"get": {
@@ -3934,6 +4266,149 @@
 					"ApiKeySecurity": [],
 					"OauthSecurity": []
 				}]
+			},
+			"put": {
+				"tags": ["Subscriptions",
+				"AvalaraInternal"],
+				"summary": "Update a single subscription",
+				"operationId": "ApiV2AccountsByAccountIdSubscriptionsByIdPut",
+				"consumes": ["application/json",
+				"text/json",
+				"application/json-patch+json"],
+				"produces": [],
+				"parameters": [{
+					"name": "model",
+					"in": "body",
+					"description": "The subscription you wish to update.",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/SubscriptionModel"
+					}
+				},
+				{
+					"name": "accountId",
+					"in": "path",
+					"description": "The ID of the account that this subscription belongs to.",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "id",
+					"in": "path",
+					"description": "The ID of the subscription you wish to update",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SubscriptionModel"
+						}
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
+			},
+			"delete": {
+				"tags": ["Subscriptions",
+				"AvalaraInternal"],
+				"summary": "Delete a single subscription",
+				"operationId": "ApiV2AccountsByAccountIdSubscriptionsByIdDelete",
+				"consumes": [],
+				"produces": [],
+				"parameters": [{
+					"name": "accountId",
+					"in": "path",
+					"description": "The ID of the account that owns this subscription.",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "id",
+					"in": "path",
+					"description": "The ID of the subscription you wish to delete.",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
 			}
 		},
 		"/api/v2/accounts/{accountId}/subscriptions": {
@@ -3996,6 +4471,81 @@
 						"description": "OK",
 						"schema": {
 							"$ref": "#/definitions/FetchResult[SubscriptionModel]"
+						}
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
+			},
+			"post": {
+				"tags": ["Subscriptions",
+				"AvalaraInternal"],
+				"summary": "Create a new subscription",
+				"operationId": "ApiV2AccountsByAccountIdSubscriptionsPost",
+				"consumes": ["application/json",
+				"text/json",
+				"application/json-patch+json"],
+				"produces": [],
+				"parameters": [{
+					"name": "models",
+					"in": "body",
+					"description": "The subscription you wish to create.",
+					"required": false,
+					"schema": {
+						"type": "array",
+						"items": {
+							"$ref": "#/definitions/SubscriptionModel"
+						}
+					}
+				},
+				{
+					"name": "accountId",
+					"in": "path",
+					"description": "The ID of the account that owns this subscription.",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/SubscriptionModel"
+							}
 						}
 					},
 					"404": {
@@ -6474,6 +7024,72 @@
 					"ApiKeySecurity": [],
 					"OauthSecurity": []
 				}]
+			},
+			"delete": {
+				"tags": ["Users",
+				"AvalaraInternal"],
+				"summary": "Delete a single user",
+				"operationId": "ApiV2AccountsByAccountIdUsersByIdDelete",
+				"consumes": [],
+				"produces": [],
+				"parameters": [{
+					"name": "id",
+					"in": "path",
+					"description": "The ID of the user you wish to delete.",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "accountId",
+					"in": "path",
+					"description": "The accountID of the user you wish to delete.",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
 			}
 		},
 		"/api/v2/accounts/{accountId}/users": {
@@ -6543,6 +7159,81 @@
 						"description": "OK",
 						"schema": {
 							"$ref": "#/definitions/FetchResult[UserModel]"
+						}
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
+			},
+			"post": {
+				"tags": ["Users",
+				"AvalaraInternal"],
+				"summary": "Create new users",
+				"operationId": "ApiV2AccountsByAccountIdUsersPost",
+				"consumes": ["application/json",
+				"text/json",
+				"application/json-patch+json"],
+				"produces": [],
+				"parameters": [{
+					"name": "models",
+					"in": "body",
+					"description": "The user or array of users you wish to create.",
+					"required": false,
+					"schema": {
+						"type": "array",
+						"items": {
+							"$ref": "#/definitions/UserModel"
+						}
+					}
+				},
+				{
+					"name": "accountId",
+					"in": "path",
+					"description": "The unique ID number of the account where these users will be created.",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/UserModel"
+							}
 						}
 					},
 					"404": {
@@ -6978,12 +7669,6 @@
 						"$ref": "#/definitions/UserModel"
 					}
 				}
-			},
-			"example": {
-				"id": 12345,
-				"name": "Test Account",
-				"effectiveDate": "2016-09-26T00:00:00-07:00",
-				"accountStatusId": "Test"
 			}
 		},
 		"SubscriptionModel": {
@@ -7049,13 +7734,6 @@
 					"type": "integer",
 					"readOnly": true
 				}
-			},
-			"example": {
-				"id": 12345,
-				"accountId": 123456789,
-				"subscriptionTypeId": 2,
-				"subscriptionDescription": "AvaTaxPro",
-				"effectiveDate": "2015-01-01T00:00:00"
 			}
 		},
 		"UserModel": {
@@ -7177,18 +7855,6 @@
 					"type": "integer",
 					"readOnly": true
 				}
-			},
-			"example": {
-				"id": 12345,
-				"accountId": 123456789,
-				"companyId": 123456,
-				"firstName": "Bob",
-				"lastName": "Example",
-				"email": "bob@example.org",
-				"postalCode": "98110",
-				"securityRoleId": "AccountUser",
-				"passwordStatus": "UserCanChange",
-				"isActive": true
 			}
 		},
 		"ErrorResult": {
@@ -7198,22 +7864,6 @@
 				"error": {
 					"$ref": "#/definitions/ErrorInfo",
 					"description": "Information about the error(s)"
-				}
-			},
-			"example": {
-				"error": {
-					"code": "DuplicateCompanyCode",
-					"message": "The company code 'DEFAULT' has already been defined.  Please select a different company code.",
-					"target": "HttpRequest",
-					"details": [{
-						"code": "DuplicateCompanyCode",
-						"number": 142,
-						"message": "The company code 'DEFAULT' has already been defined.",
-						"description": "Please select a different company code.",
-						"faultCode": "Client",
-						"helpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
-						"severity": "Error"
-					}]
 				}
 			}
 		},
@@ -7327,20 +7977,6 @@
 						"$ref": "#/definitions/ErrorDetail"
 					}
 				}
-			},
-			"example": {
-				"code": "DuplicateCompanyCode",
-				"message": "The company code 'DEFAULT' has already been defined.  Please select a different company code.",
-				"target": "HttpRequest",
-				"details": [{
-					"code": "DuplicateCompanyCode",
-					"number": 142,
-					"message": "The company code 'DEFAULT' has already been defined.",
-					"description": "Please select a different company code.",
-					"faultCode": "Client",
-					"helpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
-					"severity": "Error"
-				}]
 			}
 		},
 		"ErrorDetail": {
@@ -7464,15 +8100,6 @@
 					"Exception"],
 					"type": "string"
 				}
-			},
-			"example": {
-				"code": "DuplicateCompanyCode",
-				"number": 142,
-				"message": "The company code 'DEFAULT' has already been defined.",
-				"description": "Please select a different company code.",
-				"faultCode": "Client",
-				"helpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
-				"severity": "Error"
 			}
 		},
 		"FetchResult[AccountModel]": {
@@ -7510,10 +8137,6 @@
 					"description": "Set this value to true to reset the license key for this account.\r\n            This license key reset function will only work when called using the credentials of the account administrator of this account.",
 					"type": "boolean"
 				}
-			},
-			"example": {
-				"accountId": 123456789,
-				"confirmResetLicenseKey": true
 			}
 		},
 		"LicenseKeyModel": {
@@ -7533,11 +8156,6 @@
 					"description": "If your software allows you to specify the HTTP Authorization header directly, this is the header string you \r\n            should use when contacting Avalara to make API calls with this license key.",
 					"type": "string"
 				}
-			},
-			"example": {
-				"accountId": 123456789,
-				"privateLicenseKey": "742A02AA463CDE741E932EC365360CA3CF378BD9",
-				"httpRequestHeader": "Basic MTIzNDU2Nzg5Ojc0MkEwMkFBNDYzQ0RFNzQxRTkzMkVDMzY1MzYwQ0EzQ0YzNzhCRDk="
 			}
 		},
 		"AddressInfo": {
@@ -7596,13 +8214,6 @@
 					"description": "Geospatial longitude measurement",
 					"type": "number"
 				}
-			},
-			"example": {
-				"line1": "123 Main Street",
-				"city": "Irvine",
-				"region": "CA",
-				"country": "US",
-				"postalCode": "92615"
 			}
 		},
 		"AddressResolutionModel": {
@@ -7640,26 +8251,6 @@
 						"$ref": "#/definitions/TaxAuthorityInfo"
 					}
 				}
-			},
-			"example": {
-				"address": {
-					"line1": "123 Main Street",
-					"city": "Irvine",
-					"region": "CA",
-					"country": "US",
-					"postalCode": "92615"
-				},
-				"coordinates": {
-					"latitude": 33.684884,
-					"longitude": -117.851321
-				},
-				"resolutionQuality": "Rooftop",
-				"taxAuthorities": [{
-					"avalaraId": "AGAM",
-					"jurisdictionName": "CALIFORNIA",
-					"jurisdictionType": "State",
-					"signatureCode": "AGAM"
-				}]
 			}
 		},
 		"CoordinateInfo": {
@@ -7676,10 +8267,6 @@
 					"description": "Longitude",
 					"type": "number"
 				}
-			},
-			"example": {
-				"latitude": 33.684884,
-				"longitude": -117.851321
 			}
 		},
 		"TaxAuthorityInfo": {
@@ -7713,12 +8300,6 @@
 					"minLength": 0,
 					"type": "string"
 				}
-			},
-			"example": {
-				"avalaraId": "AGAM",
-				"jurisdictionName": "CALIFORNIA",
-				"jurisdictionType": "State",
-				"signatureCode": "AGAM"
 			}
 		},
 		"BatchModel": {
@@ -7851,23 +8432,6 @@
 						"$ref": "#/definitions/BatchFileModel"
 					}
 				}
-			},
-			"example": {
-				"id": 0,
-				"name": "TestBatch",
-				"accountId": 12345,
-				"companyId": 56789,
-				"type": "DocumentImport",
-				"batchAgent": "manual",
-				"files": [{
-					"id": 56789,
-					"batchId": 12345,
-					"name": "samplebatch.csv",
-					"content": "UHJvY2Vzc0NvZGUJRG9jQ29kZQlEb2NUeXBlCURvY0RhdGUJQ29tcGFueUNvZGUJQ3VzdG9tZXJDb2RlCUxpbmVObwlBbW91bnQJRGlzY291bnQJRGVzdFRheFJlZ2lvbglPcmlnVGF4UmVnaW9uDQozCTEyMzRzZGZ3MgkxCTYvNi8yMDE2CXdhcmVob3VzZQkxCTEJMTAwCTUJQkdVSAlBRk9a",
-					"contentLength": 0,
-					"contentType": "text/csv",
-					"fileExtension": ".csv"
-				}]
 			}
 		},
 		"BatchFileModel": {
@@ -7925,15 +8489,6 @@
 					"description": "Number of errors that occurred when processing this file.",
 					"type": "integer"
 				}
-			},
-			"example": {
-				"id": 56789,
-				"batchId": 12345,
-				"name": "samplebatch.csv",
-				"content": "UHJvY2Vzc0NvZGUJRG9jQ29kZQlEb2NUeXBlCURvY0RhdGUJQ29tcGFueUNvZGUJQ3VzdG9tZXJDb2RlCUxpbmVObwlBbW91bnQJRGlzY291bnQJRGVzdFRheFJlZ2lvbglPcmlnVGF4UmVnaW9uDQozCTEyMzRzZGZ3MgkxCTYvNi8yMDE2CXdhcmVob3VzZQkxCTEJMTAwCTUJQkdVSAlBRk9a",
-				"contentLength": 0,
-				"contentType": "text/csv",
-				"fileExtension": ".csv"
 			}
 		},
 		"FetchResult[BatchModel]": {
@@ -8159,21 +8714,6 @@
 						"$ref": "#/definitions/UPCModel"
 					}
 				}
-			},
-			"example": {
-				"id": 12345,
-				"accountId": 123456789,
-				"companyCode": "DEFAULT",
-				"name": "Default Company",
-				"isDefault": false,
-				"isActive": true,
-				"hasProfile": true,
-				"isReportingEntity": false,
-				"baseCurrencyCode": "USD",
-				"roundingLevelId": "Line",
-				"isTest": true,
-				"taxDependencyLevelId": 0,
-				"inProgress": false
 			}
 		},
 		"ContactModel": {
@@ -8315,21 +8855,6 @@
 					"type": "integer",
 					"readOnly": true
 				}
-			},
-			"example": {
-				"id": 56789,
-				"companyId": 12345,
-				"contactCode": "DEFAULT",
-				"firstName": "Bob",
-				"lastName": "McExample",
-				"title": "Owner",
-				"line1": "123 Main Street",
-				"city": "Irvine",
-				"region": "CA",
-				"postalCode": "92615",
-				"country": "US",
-				"email": "bob@example.org",
-				"phone": "714 555-1212"
 			}
 		},
 		"ItemModel": {
@@ -8399,13 +8924,6 @@
 					"type": "integer",
 					"readOnly": true
 				}
-			},
-			"example": {
-				"id": 56789,
-				"companyId": 12345,
-				"itemCode": "CERMUG",
-				"taxCode": "P0000000",
-				"description": "Ceramic Mug"
 			}
 		},
 		"LocationModel": {
@@ -8568,25 +9086,6 @@
 					"type": "integer",
 					"readOnly": true
 				}
-			},
-			"example": {
-				"id": 56789,
-				"companyId": 12345,
-				"locationCode": "DEFAULT",
-				"description": "Bob's Artisan Pottery",
-				"addressTypeId": "Location",
-				"addressCategoryId": "MainOffice",
-				"line1": "123 Main Street",
-				"city": "Irvine",
-				"county": "Orange",
-				"region": "CA",
-				"postalCode": "92615",
-				"country": "US",
-				"isDefault": true,
-				"isRegistered": true,
-				"dbaName": "Bob's Artisan Pottery",
-				"outletName": "Main Office",
-				"registeredDate": "2015-01-01T00:00:00"
 			}
 		},
 		"NexusModel": {
@@ -8738,21 +9237,6 @@
 					"type": "integer",
 					"readOnly": true
 				}
-			},
-			"example": {
-				"id": 0,
-				"companyId": 12345,
-				"country": "US",
-				"region": "CA",
-				"jurisTypeId": "STA",
-				"jurisCode": "06",
-				"jurisName": "CALIFORNIA",
-				"effectiveDate": "2015-01-01T00:00:00",
-				"shortName": "CA",
-				"nexusTypeId": "SalesOrSellersUseTax",
-				"hasLocalNexus": true,
-				"localNexusTypeId": "All",
-				"hasPermanentEstablishment": true
 			}
 		},
 		"SettingModel": {
@@ -8793,13 +9277,6 @@
 					"minLength": 0,
 					"type": "string"
 				}
-			},
-			"example": {
-				"id": 56789,
-				"companyId": 12345,
-				"set": "ItemsToRemember",
-				"name": "Texas",
-				"value": "Alamo"
 			}
 		},
 		"TaxCodeModel": {
@@ -8893,19 +9370,6 @@
 					"type": "integer",
 					"readOnly": true
 				}
-			},
-			"example": {
-				"id": 56789,
-				"companyId": 12345,
-				"taxCode": "PS081282",
-				"taxCodeTypeId": "P",
-				"description": "Yarn",
-				"parentTaxCode": "PS080100",
-				"isPhysical": true,
-				"goodsServiceCode": 0,
-				"entityUseCode": "",
-				"isActive": true,
-				"isSSTCertified": false
 			}
 		},
 		"TaxRuleModel": {
@@ -9107,29 +9571,6 @@
 					"type": "integer",
 					"readOnly": true
 				}
-			},
-			"example": {
-				"id": 56789,
-				"companyId": 12345,
-				"taxCode": "FR020800",
-				"stateFIPS": "04",
-				"jurisName": "MARICOPA",
-				"jurisCode": "013",
-				"jurisTypeId": "CTY",
-				"customerUsageType": "",
-				"taxTypeId": "BothSalesAndUseTax",
-				"taxRuleTypeId": "ProductTaxabilityRule",
-				"isAllJuris": true,
-				"value": 0.0,
-				"cap": 0.0,
-				"threshold": 0.0,
-				"options": "",
-				"effectiveDate": "2016-09-26T00:00:00-07:00",
-				"description": "Freight",
-				"countyFIPS": "013",
-				"isSTPro": false,
-				"country": "US",
-				"region": "AZ"
 			}
 		},
 		"UPCModel": {
@@ -9214,15 +9655,6 @@
 					"type": "integer",
 					"readOnly": true
 				}
-			},
-			"example": {
-				"id": 123456789,
-				"companyId": 1234567,
-				"upc": "023032550992",
-				"legacyTaxCode": "PS081282",
-				"description": "Yarn",
-				"usage": 0,
-				"isSystem": 0
 			}
 		},
 		"FetchResult[CompanyModel]": {
@@ -9370,22 +9802,6 @@
 					"minLength": 0,
 					"type": "string"
 				}
-			},
-			"example": {
-				"name": "Bob's Artisan Pottery",
-				"companyCode": "DEFAULT",
-				"taxpayerIdNumber": "12-3456789",
-				"line1": "123 Main Street",
-				"city": "Irvine",
-				"region": "CA",
-				"postalCode": "92615",
-				"country": "US",
-				"firstName": "Bob",
-				"lastName": "Example",
-				"title": "Owner",
-				"email": "bob@example.org",
-				"phoneNumber": "714 555-2121",
-				"mobileNumber": "714 555-1212"
 			}
 		},
 		"FetchResult[ContactModel]": {
@@ -9465,16 +9881,6 @@
 						"type": "string"
 					}
 				}
-			},
-			"example": {
-				"types": {
-					"D": "Digital",
-					"F": "Freight",
-					"O": "Other",
-					"P": "Product",
-					"S": "Service",
-					"U": "Unknown"
-				}
 			}
 		},
 		"FetchResult[SubscriptionTypeModel]": {
@@ -9517,10 +9923,6 @@
 					"type": "string",
 					"readOnly": true
 				}
-			},
-			"example": {
-				"id": 2,
-				"description": "AvaTaxPro"
 			}
 		},
 		"FetchResult[String]": {
@@ -9582,10 +9984,6 @@
 					"type": "string",
 					"readOnly": true
 				}
-			},
-			"example": {
-				"id": 3,
-				"description": "AccountAdmin"
 			}
 		},
 		"FetchResult[TaxAuthorityModel]": {
@@ -9638,12 +10036,6 @@
 					"description": "The unique ID number of the jurisdiction for this tax authority.",
 					"type": "integer"
 				}
-			},
-			"example": {
-				"id": 12345,
-				"name": "COLORADO",
-				"taxAuthorityTypeId": 45,
-				"jurisdictionId": 12345
 			}
 		},
 		"FetchResult[TaxAuthorityFormModel]": {
@@ -9685,10 +10077,6 @@
 					"minLength": 0,
 					"type": "string"
 				}
-			},
-			"example": {
-				"taxAuthorityId": 69,
-				"formName": "CABOE401A2"
 			}
 		},
 		"FetchResult[ItemModel]": {
@@ -9753,10 +10141,6 @@
 					"minLength": 8,
 					"type": "string"
 				}
-			},
-			"example": {
-				"oldPassword": "MyOldPassword123!",
-				"newPassword": "ANewPassword567:)"
 			}
 		},
 		"FetchResult[SettingModel]": {
@@ -9819,14 +10203,6 @@
 						"$ref": "#/definitions/RateModel"
 					}
 				}
-			},
-			"example": {
-				"totalRate": 0.0625,
-				"rates": [{
-					"rate": 0.0625,
-					"name": "CALIFORNIA",
-					"type": "State"
-				}]
 			}
 		},
 		"RateModel": {
@@ -9852,11 +10228,6 @@
 					"Special"],
 					"type": "string"
 				}
-			},
-			"example": {
-				"rate": 0.0625,
-				"name": "CALIFORNIA",
-				"type": "State"
 			}
 		},
 		"FetchResult[TaxRuleModel]": {
@@ -10140,123 +10511,6 @@
 						"$ref": "#/definitions/TransactionSummary"
 					}
 				}
-			},
-			"example": {
-				"id": 123456789,
-				"code": "1ab42a08-fb53-4eaa-99f5-5cf1b3dbd675",
-				"companyId": 12345,
-				"date": "2016-09-26T00:00:00-07:00",
-				"taxDate": "2016-09-26T00:00:00-07:00",
-				"paymentDate": "2016-09-26T00:00:00-07:00",
-				"status": "Committed",
-				"type": "SalesInvoice",
-				"currencyCode": "USD",
-				"customerUsageType": "",
-				"customerVendorCode": "ABC",
-				"exemptNo": "",
-				"reconciled": true,
-				"locationCode": "DEFAULT",
-				"salespersonCode": "DEF",
-				"taxOverrideType": "None",
-				"taxOverrideAmount": 0.00,
-				"taxOverrideReason": "",
-				"totalAmount": 1000.0,
-				"totalExempt": 0.0,
-				"totalTax": 62.50,
-				"totalTaxable": 1000.0,
-				"totalTaxCalculated": 62.50,
-				"adjustmentReason": "NotAdjusted",
-				"adjustmentDescription": "",
-				"locked": false,
-				"region": "CA",
-				"country": "US",
-				"version": 0,
-				"originAddressId": 123456789,
-				"destinationAddressId": 123456789,
-				"exchangeRate": 0.0,
-				"isSellerImporterOfRecord": false,
-				"description": "Yarn",
-				"lines": [{
-					"id": 123456789,
-					"transactionId": 123456789,
-					"lineNumber": "1",
-					"boundaryOverrideId": 0,
-					"customerUsageType": "",
-					"description": "Yarn",
-					"destinationAddressId": 12345,
-					"originAddressId": 123456789,
-					"discountAmount": 100.0,
-					"discountTypeId": 0,
-					"exemptAmount": 0.0,
-					"exemptCertId": 0,
-					"exemptNo": "",
-					"isItemTaxable": true,
-					"isSSTP": false,
-					"itemCode": "116292",
-					"lineAmount": 1000.0,
-					"quantity": 1.00,
-					"ref1": "Note: Deliver to Bob",
-					"reportingDate": "2016-09-26T00:00:00-07:00",
-					"revAccount": "",
-					"sourcing": "Destination",
-					"tax": 62.50,
-					"taxableAmount": 1000.0,
-					"taxCalculated": 62.50,
-					"taxCode": "PS081282",
-					"taxCodeId": 0,
-					"taxDate": "2016-09-26T00:00:00-07:00",
-					"taxEngine": "",
-					"taxOverrideType": "None",
-					"taxOverrideAmount": 0.00,
-					"taxOverrideReason": "",
-					"taxIncluded": false,
-					"details": [{
-						"id": 123456789,
-						"transactionLineId": 123456789,
-						"transactionId": 123456789,
-						"addressId": 12345,
-						"country": "US",
-						"region": "CA",
-						"stateFIPS": "06",
-						"exemptAmount": 0.00,
-						"exemptReasonId": 4,
-						"inState": false,
-						"jurisCode": "06",
-						"jurisName": "CALIFORNIA",
-						"jurisdictionId": 5000531,
-						"signatureCode": "AGAM",
-						"stateAssignedNo": "",
-						"jurisType": "STA",
-						"nonTaxableAmount": 0.0,
-						"nonTaxableRuleId": 0,
-						"nonTaxableType": "BaseRule",
-						"rate": 0.0625,
-						"rateRuleId": 1321915,
-						"rateSourceId": 3,
-						"serCode": "",
-						"sourcing": "Destination",
-						"tax": 62.50,
-						"taxableAmount": 1000.0,
-						"taxType": "Sales",
-						"taxName": "CA STATE TAX",
-						"taxAuthorityTypeId": 45,
-						"taxRegionId": 2127184,
-						"taxCalculated": 62.50,
-						"taxOverride": 0.00,
-						"rateType": "General"
-					}]
-				}],
-				"addresses": [{
-					"id": 0,
-					"transactionId": 0,
-					"boundaryLevel": "Address",
-					"line1": "100 Ravine Lane Northeast #220",
-					"city": "Bainbridge Island",
-					"region": "WA",
-					"postalCode": "98110",
-					"country": "US",
-					"taxRegionId": 0
-				}]
 			}
 		},
 		"TransactionLineModel": {
@@ -10431,76 +10685,6 @@
 						"$ref": "#/definitions/TransactionLineDetailModel"
 					}
 				}
-			},
-			"example": {
-				"id": 123456789,
-				"transactionId": 123456789,
-				"lineNumber": "1",
-				"boundaryOverrideId": 0,
-				"customerUsageType": "",
-				"description": "Yarn",
-				"destinationAddressId": 12345,
-				"originAddressId": 123456789,
-				"discountAmount": 100.0,
-				"discountTypeId": 0,
-				"exemptAmount": 0.0,
-				"exemptCertId": 0,
-				"exemptNo": "",
-				"isItemTaxable": true,
-				"isSSTP": false,
-				"itemCode": "116292",
-				"lineAmount": 1000.0,
-				"quantity": 1.00,
-				"ref1": "Note: Deliver to Bob",
-				"reportingDate": "2016-09-26T00:00:00-07:00",
-				"revAccount": "",
-				"sourcing": "Destination",
-				"tax": 62.50,
-				"taxableAmount": 1000.0,
-				"taxCalculated": 62.50,
-				"taxCode": "PS081282",
-				"taxCodeId": 0,
-				"taxDate": "2016-09-26T00:00:00-07:00",
-				"taxEngine": "",
-				"taxOverrideType": "None",
-				"taxOverrideAmount": 0.00,
-				"taxOverrideReason": "",
-				"taxIncluded": false,
-				"details": [{
-					"id": 123456789,
-					"transactionLineId": 123456789,
-					"transactionId": 123456789,
-					"addressId": 12345,
-					"country": "US",
-					"region": "CA",
-					"stateFIPS": "06",
-					"exemptAmount": 0.00,
-					"exemptReasonId": 4,
-					"inState": false,
-					"jurisCode": "06",
-					"jurisName": "CALIFORNIA",
-					"jurisdictionId": 5000531,
-					"signatureCode": "AGAM",
-					"stateAssignedNo": "",
-					"jurisType": "STA",
-					"nonTaxableAmount": 0.0,
-					"nonTaxableRuleId": 0,
-					"nonTaxableType": "BaseRule",
-					"rate": 0.0625,
-					"rateRuleId": 1321915,
-					"rateSourceId": 3,
-					"serCode": "",
-					"sourcing": "Destination",
-					"tax": 62.50,
-					"taxableAmount": 1000.0,
-					"taxType": "Sales",
-					"taxName": "CA STATE TAX",
-					"taxAuthorityTypeId": 45,
-					"taxRegionId": 2127184,
-					"taxCalculated": 62.50,
-					"taxOverride": 0.00,
-					"rateType": "General"
-				}]
 			}
 		},
 		"TransactionAddressModel": {
@@ -10560,17 +10744,6 @@
 					"description": "The unique ID number of the tax region for this address.",
 					"type": "integer"
 				}
-			},
-			"example": {
-				"id": 0,
-				"transactionId": 0,
-				"boundaryLevel": "Address",
-				"line1": "100 Ravine Lane Northeast #220",
-				"city": "Bainbridge Island",
-				"region": "WA",
-				"postalCode": "98110",
-				"country": "US",
-				"taxRegionId": 0
 			}
 		},
 		"TransactionSummary": {
@@ -10679,9 +10852,6 @@
 					"description": "The amount of the transaction that was exempt.",
 					"type": "number"
 				}
-			},
-			"example": {
-				
 			}
 		},
 		"TransactionLineDetailModel": {
@@ -10881,41 +11051,6 @@
 					"Zero"],
 					"type": "string"
 				}
-			},
-			"example": {
-				"id": 123456789,
-				"transactionLineId": 123456789,
-				"transactionId": 123456789,
-				"addressId": 12345,
-				"country": "US",
-				"region": "CA",
-				"stateFIPS": "06",
-				"exemptAmount": 0.00,
-				"exemptReasonId": 4,
-				"inState": false,
-				"jurisCode": "06",
-				"jurisName": "CALIFORNIA",
-				"jurisdictionId": 5000531,
-				"signatureCode": "AGAM",
-				"stateAssignedNo": "",
-				"jurisType": "STA",
-				"nonTaxableAmount": 0.0,
-				"nonTaxableRuleId": 0,
-				"nonTaxableType": "BaseRule",
-				"rate": 0.0625,
-				"rateRuleId": 1321915,
-				"rateSourceId": 3,
-				"serCode": "",
-				"sourcing": "Destination",
-				"tax": 62.50,
-				"taxableAmount": 1000.0,
-				"taxType": "Sales",
-				"taxName": "CA STATE TAX",
-				"taxAuthorityTypeId": 45,
-				"taxRegionId": 2127184,
-				"taxCalculated": 62.50,
-				"taxOverride": 0.00,
-				"rateType": "General"
 			}
 		},
 		"FetchResult[TransactionModel]": {
@@ -10965,38 +11100,6 @@
 				"newTransaction": {
 					"$ref": "#/definitions/CreateTransactionModel",
 					"description": "Replace the current transaction with tax data calculated for this new transaction"
-				}
-			},
-			"example": {
-				"adjustmentReason": "PriceAdjusted",
-				"adjustmentDescription": "Price drop before shipping",
-				"newTransaction": {
-					"type": "SalesInvoice",
-					"code": "37449e6c-da28-49b5-85d4-57563f4cf1ae",
-					"date": "2016-09-26T00:00:00-07:00",
-					"customerCode": "ABC",
-					"purchaseOrderNo": "2016-09-26-001",
-					"addresses": {
-						"SingleLocation": {
-							"line1": "123 Main Street",
-							"city": "Irvine",
-							"region": "CA",
-							"country": "US",
-							"postalCode": "92615"
-						}
-					},
-					"lines": [{
-						"number": "1",
-						"quantity": 1.0,
-						"amount": 100.0,
-						"taxCode": "PS081282",
-						"itemCode": "Y0001",
-						"description": "Yarn"
-					}],
-					"commit": true,
-					"taxDate": "2016-09-26T00:00:00-07:00",
-					"currencyCode": "USD",
-					"description": "Yarn"
 				}
 			}
 		},
@@ -11178,34 +11281,6 @@
 					"minLength": 0,
 					"type": "string"
 				}
-			},
-			"example": {
-				"type": "SalesInvoice",
-				"code": "93be64a2-71e9-4ca0-93ac-95cb927a587d",
-				"date": "2016-09-26T00:00:00-07:00",
-				"customerCode": "ABC",
-				"purchaseOrderNo": "2016-09-26-001",
-				"addresses": {
-					"SingleLocation": {
-						"line1": "123 Main Street",
-						"city": "Irvine",
-						"region": "CA",
-						"country": "US",
-						"postalCode": "92615"
-					}
-				},
-				"lines": [{
-					"number": "1",
-					"quantity": 1.0,
-					"amount": 100.0,
-					"taxCode": "PS081282",
-					"itemCode": "Y0001",
-					"description": "Yarn"
-				}],
-				"commit": true,
-				"taxDate": "2016-09-26T00:00:00-07:00",
-				"currencyCode": "USD",
-				"description": "Yarn"
 			}
 		},
 		"LineItemModel": {
@@ -11315,14 +11390,6 @@
 					"$ref": "#/definitions/TaxOverrideModel",
 					"description": "Specifies a tax override for this line"
 				}
-			},
-			"example": {
-				"number": "1",
-				"quantity": 1.0,
-				"amount": 100.0,
-				"taxCode": "PS081282",
-				"itemCode": "Y0001",
-				"description": "Yarn"
 			}
 		},
 		"TaxOverrideModel": {
@@ -11353,12 +11420,6 @@
 					"description": "This provides the reason for a tax override for audit purposes.  It is required for types 2-4.",
 					"type": "string"
 				}
-			},
-			"example": {
-				"type": "TaxAmount",
-				"taxAmount": 6.25,
-				"taxDate": "2016-09-26T00:00:00-07:00",
-				"reason": "Precalculated Tax"
 			}
 		},
 		"VoidTransactionModel": {
@@ -11374,9 +11435,6 @@
 					"AdjustmentCancelled"],
 					"type": "string"
 				}
-			},
-			"example": {
-				"code": "DocVoided"
 			}
 		},
 		"SettleTransactionModel": {
@@ -11394,19 +11452,6 @@
 				"commit": {
 					"$ref": "#/definitions/CommitTransactionModel",
 					"description": "To use the \"Settle\" endpoint to commit a transaction for reporting purposes, fill out this value.\r\n                If you use Avalara Returns, committing a transaction will cause that transaction to be filed."
-				}
-			},
-			"example": {
-				"verify": {
-					"verifyTransactionDate": "2016-09-26T00:00:00-07:00",
-					"verifyTotalAmount": 100.0,
-					"verifyTotalTax": 6.25
-				},
-				"changeCode": {
-					"newCode": "7574954f-3a3a-405a-a13c-2779ae836fa3"
-				},
-				"commit": {
-					"commit": true
 				}
 			}
 		},
@@ -11429,11 +11474,6 @@
 					"description": "Total Tax - The total tax for the document.",
 					"type": "number"
 				}
-			},
-			"example": {
-				"verifyTransactionDate": "2016-09-26T00:00:00-07:00",
-				"verifyTotalAmount": 100.0,
-				"verifyTotalTax": 6.25
 			}
 		},
 		"ChangeTransactionCodeModel": {
@@ -11447,9 +11487,6 @@
 					"minLength": 0,
 					"type": "string"
 				}
-			},
-			"example": {
-				"newCode": "ddac8e96-7f0f-4c7a-b1dc-c050da8c8b6b"
 			}
 		},
 		"CommitTransactionModel": {
@@ -11460,9 +11497,6 @@
 					"description": "Set this value to be true to commit this transaction.\r\n            Committing a transaction allows it to be reported on a tax return.  Uncommitted transactions will not be reported.",
 					"type": "boolean"
 				}
-			},
-			"example": {
-				"commit": true
 			}
 		},
 		"FetchResult[UPCModel]": {
@@ -11536,16 +11570,6 @@
 						"type": "integer"
 					}
 				}
-			},
-			"example": {
-				"permissions": ["CompanyFetch",
-				"CompanySave",
-				"NexusFetch",
-				"NexusSave"],
-				"accessLevel": "SingleAccount",
-				"companies": [123,
-				456,
-				789]
 			}
 		},
 		"PingResultModel": {
@@ -11572,12 +11596,6 @@
 					"description": "The username of the currently authenticated user, if any.",
 					"type": "string"
 				}
-			},
-			"example": {
-				"version": "1.0.0.0",
-				"authenticated": true,
-				"authenticationType": "UsernamePassword",
-				"authenticatedUserName": "TestUser"
 			}
 		}
 	},
