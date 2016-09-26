@@ -7605,18 +7605,21 @@
 					"format": "int32",
 					"description": "The unique ID number assigned to this account.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 12345
 				},
 				"name": {
 					"description": "The name of this account.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Test Account"
 				},
 				"effectiveDate": {
 					"format": "date-time",
 					"description": "The earliest date on which this account may be used.",
-					"type": "string"
+					"type": "string",
+					"example": "2016-09-26T00:00:00-07:00"
 				},
 				"endDate": {
 					"format": "date-time",
@@ -7629,7 +7632,8 @@
 					"Active",
 					"Test",
 					"New"],
-					"type": "string"
+					"type": "string",
+					"example": 2
 				},
 				"createdDate": {
 					"format": "date-time",
@@ -7681,29 +7685,34 @@
 					"format": "int32",
 					"description": "The unique ID number of this subscription.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 12345
 				},
 				"accountId": {
 					"format": "int32",
 					"description": "The unique ID number of the account this subscription belongs to.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 123456789
 				},
 				"subscriptionTypeId": {
 					"format": "int32",
 					"description": "The unique ID number of the service that the account is subscribed to.",
-					"type": "integer"
+					"type": "integer",
+					"example": 2
 				},
 				"subscriptionDescription": {
 					"description": "A friendly description of the service that the account is subscribed to.",
 					"maxLength": 25,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "AvaTaxPro"
 				},
 				"effectiveDate": {
 					"format": "date-time",
 					"description": "The date when the subscription began.",
-					"type": "string"
+					"type": "string",
+					"example": "2015-01-01T00:00:00"
 				},
 				"endDate": {
 					"format": "date-time",
@@ -7749,18 +7758,21 @@
 					"format": "int32",
 					"description": "The unique ID number of this user.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 12345
 				},
 				"accountId": {
 					"format": "int32",
 					"description": "The unique ID number of the account to which this user belongs.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 123456789
 				},
 				"companyId": {
 					"format": "int32",
 					"description": "If this user is locked to one company (and its children), this is the unique ID number of the company to which this user belongs.",
-					"type": "integer"
+					"type": "integer",
+					"example": 123456
 				},
 				"userName": {
 					"description": "The username which is used to log on to the AvaTax website, or to authenticate against API calls.",
@@ -7773,25 +7785,29 @@
 					"description": "The first or given name of the user.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Bob"
 				},
 				"lastName": {
 					"description": "The last or family name of the user.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Example"
 				},
 				"email": {
 					"description": "The email address to be used to contact this user.  If the user has forgotten a password, an email can be sent to this email address with information on how to reset this password.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "bob@example.org"
 				},
 				"postalCode": {
 					"description": "The postal code in which this user resides.",
 					"maxLength": 10,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "98110"
 				},
 				"securityRoleId": {
 					"description": "The security level for this user.",
@@ -7818,18 +7834,21 @@
 					"ComplianceRootUser",
 					"ComplianceOperator",
 					"SSTAdmin"],
-					"type": "string"
+					"type": "string",
+					"example": 4
 				},
 				"passwordStatus": {
 					"description": "The status of the user's password.",
 					"enum": ["UserCannotChange",
 					"UserCanChange",
 					"UserMustChange"],
-					"type": "string"
+					"type": "string",
+					"example": 1
 				},
 				"isActive": {
 					"description": "True if this user is currently active.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				},
 				"createdDate": {
 					"format": "date-time",
@@ -7863,7 +7882,21 @@
 			"properties": {
 				"error": {
 					"$ref": "#/definitions/ErrorInfo",
-					"description": "Information about the error(s)"
+					"description": "Information about the error(s)",
+					"example": {
+						"code": "DuplicateCompanyCode",
+						"message": "The company code 'DEFAULT' has already been defined.  Please select a different company code.",
+						"target": "HttpRequest",
+						"details": [{
+							"code": "DuplicateCompanyCode",
+							"number": 142,
+							"message": "The company code 'DEFAULT' has already been defined.",
+							"description": "Please select a different company code.",
+							"faultCode": "Client",
+							"helpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
+							"severity": "Error"
+						}]
+					}
 				}
 			}
 		},
@@ -7953,11 +7986,13 @@
 					"DocumentSaveNotAllowed",
 					"ServerUnreachable",
 					"SubscriptionRequired"],
-					"type": "string"
+					"type": "string",
+					"example": 142
 				},
 				"message": {
 					"description": "Short one-line message to summaryize what went wrong",
-					"type": "string"
+					"type": "string",
+					"example": "The company code 'DEFAULT' has already been defined.  Please select a different company code."
 				},
 				"target": {
 					"description": "What object or service caused the error?",
@@ -7968,14 +8003,24 @@
 					"AvaTaxApiServer",
 					"AvalaraIdentityServer",
 					"CustomerAccountSetup"],
-					"type": "string"
+					"type": "string",
+					"example": 1
 				},
 				"details": {
 					"description": "Array of detailed error messages",
 					"type": "array",
 					"items": {
 						"$ref": "#/definitions/ErrorDetail"
-					}
+					},
+					"example": [{
+						"code": "DuplicateCompanyCode",
+						"number": 142,
+						"message": "The company code 'DEFAULT' has already been defined.",
+						"description": "Please select a different company code.",
+						"faultCode": "Client",
+						"helpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
+						"severity": "Error"
+					}]
 				}
 			}
 		},
@@ -8065,28 +8110,34 @@
 					"DocumentSaveNotAllowed",
 					"ServerUnreachable",
 					"SubscriptionRequired"],
-					"type": "string"
+					"type": "string",
+					"example": 142
 				},
 				"number": {
 					"format": "int32",
 					"description": "Error message identifier",
-					"type": "integer"
+					"type": "integer",
+					"example": 142
 				},
 				"message": {
 					"description": "Concise summary of the message, suitable for display in the caption of an alert box.",
-					"type": "string"
+					"type": "string",
+					"example": "The company code 'DEFAULT' has already been defined."
 				},
 				"description": {
 					"description": "A more detailed description of the problem referenced by this error message, suitable for display in the contents area of an alert box.",
-					"type": "string"
+					"type": "string",
+					"example": "Please select a different company code."
 				},
 				"faultCode": {
 					"description": "Indicates the SoapFault code",
-					"type": "string"
+					"type": "string",
+					"example": "Client"
 				},
 				"helpLink": {
 					"description": "URL to help for this message",
-					"type": "string"
+					"type": "string",
+					"example": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode"
 				},
 				"refersTo": {
 					"description": "Item the message refers to, if applicable.  This is used to indicate a missing or incorrect value.",
@@ -8098,7 +8149,8 @@
 					"Warning",
 					"Error",
 					"Exception"],
-					"type": "string"
+					"type": "string",
+					"example": 2
 				}
 			}
 		},
@@ -8131,11 +8183,13 @@
 				"accountId": {
 					"format": "int32",
 					"description": "The primary key of the account ID to reset",
-					"type": "integer"
+					"type": "integer",
+					"example": 123456789
 				},
 				"confirmResetLicenseKey": {
 					"description": "Set this value to true to reset the license key for this account.\r\n            This license key reset function will only work when called using the credentials of the account administrator of this account.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				}
 			}
 		},
@@ -8146,15 +8200,18 @@
 				"accountId": {
 					"format": "int32",
 					"description": "The primary key of the account",
-					"type": "integer"
+					"type": "integer",
+					"example": 123456789
 				},
 				"privateLicenseKey": {
 					"description": "This is your private license key.  You must record this license key for safekeeping.\r\n            If you lose this key, you must contact the ResetLicenseKey API in order to request a new one.\r\n            Each account can only have one license key at a time.",
-					"type": "string"
+					"type": "string",
+					"example": "742A02AA463CDE741E932EC365360CA3CF378BD9"
 				},
 				"httpRequestHeader": {
 					"description": "If your software allows you to specify the HTTP Authorization header directly, this is the header string you \r\n            should use when contacting Avalara to make API calls with this license key.",
-					"type": "string"
+					"type": "string",
+					"example": "Basic MTIzNDU2Nzg5Ojc0MkEwMkFBNDYzQ0RFNzQxRTkzMkVDMzY1MzYwQ0EzQ0YzNzhCRDk="
 				}
 			}
 		},
@@ -8166,7 +8223,8 @@
 					"description": "Line1",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "123 Main Street"
 				},
 				"line2": {
 					"description": "Line2",
@@ -8184,25 +8242,29 @@
 					"description": "City",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Irvine"
 				},
 				"region": {
 					"description": "State / Province / Region",
 					"maxLength": 3,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "CA"
 				},
 				"country": {
 					"description": "Two character ISO 3166 Country Code",
 					"maxLength": 2,
 					"minLength": 2,
-					"type": "string"
+					"type": "string",
+					"example": "US"
 				},
 				"postalCode": {
 					"description": "Postal Code / Zip Code",
 					"maxLength": 11,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "92615"
 				},
 				"latitude": {
 					"format": "double",
@@ -8222,11 +8284,22 @@
 			"properties": {
 				"address": {
 					"$ref": "#/definitions/AddressInfo",
-					"description": "The resolved address"
+					"description": "The resolved address",
+					"example": {
+						"line1": "123 Main Street",
+						"city": "Irvine",
+						"region": "CA",
+						"country": "US",
+						"postalCode": "92615"
+					}
 				},
 				"coordinates": {
 					"$ref": "#/definitions/CoordinateInfo",
-					"description": "The geospatial coordinates of this address"
+					"description": "The geospatial coordinates of this address",
+					"example": {
+						"latitude": 33.684884,
+						"longitude": -117.851321
+					}
 				},
 				"resolutionQuality": {
 					"description": "The resolution quality of the geospatial coordinates",
@@ -8242,14 +8315,21 @@
 					"Interpolated",
 					"Rooftop",
 					"Constant"],
-					"type": "string"
+					"type": "string",
+					"example": 10
 				},
 				"taxAuthorities": {
 					"description": "List of tax authorities that apply to this geospatial coordinate",
 					"type": "array",
 					"items": {
 						"$ref": "#/definitions/TaxAuthorityInfo"
-					}
+					},
+					"example": [{
+						"avalaraId": "AGAM",
+						"jurisdictionName": "CALIFORNIA",
+						"jurisdictionType": "State",
+						"signatureCode": "AGAM"
+					}]
 				}
 			}
 		},
@@ -8260,12 +8340,14 @@
 				"latitude": {
 					"format": "double",
 					"description": "Latitude",
-					"type": "number"
+					"type": "number",
+					"example": 33.684884
 				},
 				"longitude": {
 					"format": "double",
 					"description": "Longitude",
-					"type": "number"
+					"type": "number",
+					"example": -117.851321
 				}
 			}
 		},
@@ -8276,13 +8358,15 @@
 			"properties": {
 				"avalaraId": {
 					"description": "Avalara Id",
-					"type": "string"
+					"type": "string",
+					"example": "AGAM"
 				},
 				"jurisdictionName": {
 					"description": "Jurisdiction Name",
 					"maxLength": 128,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "CALIFORNIA"
 				},
 				"jurisdictionType": {
 					"description": "Jurisdiction Type",
@@ -8292,13 +8376,15 @@
 					"County",
 					"City",
 					"Special"],
-					"type": "string"
+					"type": "string",
+					"example": 1
 				},
 				"signatureCode": {
 					"description": "Signature Code",
 					"maxLength": 4,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "AGAM"
 				}
 			}
 		},
@@ -8315,25 +8401,29 @@
 					"format": "int32",
 					"description": "The unique ID number of this batch.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 0
 				},
 				"name": {
 					"description": "The user-friendly readable name for this batch.",
 					"maxLength": 194,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "TestBatch"
 				},
 				"accountId": {
 					"format": "int32",
 					"description": "The Account ID number of the account that owns this batch.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 12345
 				},
 				"companyId": {
 					"format": "int32",
 					"description": "The Company ID number of the company that owns this batch.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 56789
 				},
 				"type": {
 					"description": "The type of this batch.",
@@ -8350,7 +8440,8 @@
 					"TransactionImport",
 					"UPCBulkImport",
 					"UPCValidationImport"],
-					"type": "string"
+					"type": "string",
+					"example": 4
 				},
 				"status": {
 					"description": "This batch's current processing status",
@@ -8375,7 +8466,8 @@
 					"description": "The agent used to create this batch",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "manual"
 				},
 				"startedDate": {
 					"format": "date-time",
@@ -8430,7 +8522,16 @@
 					"type": "array",
 					"items": {
 						"$ref": "#/definitions/BatchFileModel"
-					}
+					},
+					"example": [{
+						"id": 56789,
+						"batchId": 12345,
+						"name": "samplebatch.csv",
+						"content": "UHJvY2Vzc0NvZGUJRG9jQ29kZQlEb2NUeXBlCURvY0RhdGUJQ29tcGFueUNvZGUJQ3VzdG9tZXJDb2RlCUxpbmVObwlBbW91bnQJRGlzY291bnQJRGVzdFRheFJlZ2lvbglPcmlnVGF4UmVnaW9uDQozCTEyMzRzZGZ3MgkxCTYvNi8yMDE2CXdhcmVob3VzZQkxCTEJMTAwCTUJQkdVSAlBRk9a",
+						"contentLength": 0,
+						"contentType": "text/csv",
+						"fileExtension": ".csv"
+					}]
 				}
 			}
 		},
@@ -8447,42 +8548,49 @@
 					"format": "int32",
 					"description": "The unique ID number assigned to this batch file.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 56789
 				},
 				"batchId": {
 					"format": "int32",
 					"description": "The unique ID number of the batch that this file belongs to.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 12345
 				},
 				"name": {
 					"description": "Logical Name of file (e.g. \"Input\" or \"Error\").",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "samplebatch.csv"
 				},
 				"content": {
 					"format": "byte",
 					"description": "Content of the batch file.",
-					"type": "string"
+					"type": "string",
+					"example": "UHJvY2Vzc0NvZGUJRG9jQ29kZQlEb2NUeXBlCURvY0RhdGUJQ29tcGFueUNvZGUJQ3VzdG9tZXJDb2RlCUxpbmVObwlBbW91bnQJRGlzY291bnQJRGVzdFRheFJlZ2lvbglPcmlnVGF4UmVnaW9uDQozCTEyMzRzZGZ3MgkxCTYvNi8yMDE2CXdhcmVob3VzZQkxCTEJMTAwCTUJQkdVSAlBRk9a"
 				},
 				"contentLength": {
 					"format": "int32",
 					"description": "Size of content, in bytes.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 0
 				},
 				"contentType": {
 					"description": "Content mime type (e.g. text/csv).  This is used for HTTP downloading.",
 					"maxLength": 100,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "text/csv"
 				},
 				"fileExtension": {
 					"description": "File extension (e.g. CSV).",
 					"maxLength": 10,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": ".csv"
 				},
 				"errorCount": {
 					"format": "int32",
@@ -8526,13 +8634,15 @@
 					"format": "int32",
 					"description": "The unique ID number of this company.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 12345
 				},
 				"accountId": {
 					"format": "int32",
 					"description": "The unique ID number of the account this company belongs to.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 123456789
 				},
 				"parentCompanyId": {
 					"format": "int32",
@@ -8550,17 +8660,20 @@
 					"maxLength": 25,
 					"minLength": 0,
 					"type": "string",
-					"readOnly": true
+					"readOnly": true,
+					"example": "DEFAULT"
 				},
 				"name": {
 					"description": "The name of this company, as shown to customers.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Default Company"
 				},
 				"isDefault": {
 					"description": "This flag is true if this company is the default company for this account.  Only one company may be set as the default.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": false
 				},
 				"defaultLocationId": {
 					"format": "int32",
@@ -8569,7 +8682,8 @@
 				},
 				"isActive": {
 					"description": "This flag indicates whether tax activity can occur for this company.  Set this flag to true to permit the company to process transactions.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				},
 				"taxpayerIdNumber": {
 					"description": "For United States companies, this field contains your Taxpayer Identification Number.  \r\n            This is a nine digit number that is usually called an EIN for an Employer Identification Number if this company is a corporation, \r\n            or SSN for a Social Security Number if this company is a person.",
@@ -8579,11 +8693,13 @@
 				},
 				"hasProfile": {
 					"description": "Set this flag to true to give this company its own unique tax profile.\r\n            If this flag is true, this company will have its own Nexus, TaxRule, TaxCode, and Item definitions.\r\n            If this flag is false, this company will inherit all profile values from its parent.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				},
 				"isReportingEntity": {
 					"description": "Set this flag to true if this company must file its own tax returns.\r\n            For users who have Returns enabled, this flag turns on monthly Worksheet generation for the company.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": false
 				},
 				"sstEffectiveDate": {
 					"format": "date-time",
@@ -8600,13 +8716,15 @@
 					"description": "This is the three character ISO-4217 currency code of the default currency used by this company.",
 					"maxLength": 3,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "USD"
 				},
 				"roundingLevelId": {
 					"description": "Indicates whether this company prefers to round amounts at the document level or line level.",
 					"enum": ["Line",
 					"Document"],
-					"type": "string"
+					"type": "string",
+					"example": 0
 				},
 				"warningsEnabled": {
 					"description": "Set this value to true to receive warnings in API calls via SOAP.",
@@ -8614,7 +8732,8 @@
 				},
 				"isTest": {
 					"description": "Set this flag to true to indicate that this company is a test company.\r\n            If you have Returns enabled, Test companies will not file tax returns and can be used for validation purposes.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				},
 				"taxDependencyLevelId": {
 					"description": "Used to apply tax detail dependency at a jurisdiction level.",
@@ -8622,11 +8741,13 @@
 					"State",
 					"TaxRegion",
 					"Address"],
-					"type": "string"
+					"type": "string",
+					"example": 0
 				},
 				"inProgress": {
 					"description": "Set this value to true to indicate that you are still working to finish configuring this company.\r\n            While this value is true, no tax reporting will occur and the company will not be usable for transactions.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": false
 				},
 				"businessIdentificationNo": {
 					"description": "Business Identification No",
@@ -8727,25 +8848,29 @@
 					"format": "int32",
 					"description": "The unique ID number of this contact.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 56789
 				},
 				"companyId": {
 					"format": "int32",
 					"description": "The unique ID number of the company to which this contact belongs.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 12345
 				},
 				"contactCode": {
 					"description": "A unique code for this contact.",
 					"maxLength": 25,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "DEFAULT"
 				},
 				"firstName": {
 					"description": "The first or given name of this contact.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Bob"
 				},
 				"middleName": {
 					"description": "The middle name of this contact.",
@@ -8757,19 +8882,22 @@
 					"description": "The last or family name of this contact.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "McExample"
 				},
 				"title": {
 					"description": "Professional title of this contact.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Owner"
 				},
 				"line1": {
 					"description": "The first line of the postal mailing address of this contact.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "123 Main Street"
 				},
 				"line2": {
 					"description": "The second line of the postal mailing address of this contact.",
@@ -8787,37 +8915,43 @@
 					"description": "The city of the postal mailing address of this contact.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Irvine"
 				},
 				"region": {
 					"description": "The state, region, or province of the postal mailing address of this contact.",
 					"maxLength": 3,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "CA"
 				},
 				"postalCode": {
 					"description": "The postal code or zip code of the postal mailing address of this contact.",
 					"maxLength": 10,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "92615"
 				},
 				"country": {
 					"description": "The ISO 3166 two-character country code of the postal mailing address of this contact.",
 					"maxLength": 2,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "US"
 				},
 				"email": {
 					"description": "The email address of this contact.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "bob@example.org"
 				},
 				"phone": {
 					"description": "The main phone number for this contact.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "714 555-1212"
 				},
 				"mobile": {
 					"description": "The mobile phone number for this contact.",
@@ -8869,19 +9003,22 @@
 					"format": "int64",
 					"description": "The unique ID number of this item.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 56789
 				},
 				"companyId": {
 					"format": "int32",
 					"description": "The unique ID number of the company that owns this item.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 12345
 				},
 				"itemCode": {
 					"description": "A unique code representing this item.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "CERMUG"
 				},
 				"taxCodeId": {
 					"format": "int32",
@@ -8892,13 +9029,15 @@
 					"description": "The unique code string of the Tax Code that is applied when selling this item.\r\n            When creating or updating an item, you can either specify the Tax Code ID number or the Tax Code string; you do not need to specify both values.",
 					"maxLength": 25,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "P0000000"
 				},
 				"description": {
 					"description": "A friendly description of this item in your product catalog.",
 					"maxLength": 255,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Ceramic Mug"
 				},
 				"createdDate": {
 					"format": "date-time",
@@ -8938,31 +9077,36 @@
 					"format": "int32",
 					"description": "The unique ID number of this location.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 56789
 				},
 				"companyId": {
 					"format": "int32",
 					"description": "The unique ID number of the company that operates at this location.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 12345
 				},
 				"locationCode": {
 					"description": "A code that identifies this location.  Must be unique within your company.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "DEFAULT"
 				},
 				"description": {
 					"description": "A friendly name for this location.",
 					"maxLength": 255,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Bob's Artisan Pottery"
 				},
 				"addressTypeId": {
 					"description": "Indicates whether this location is a physical place of business or a temporary salesperson location.",
 					"enum": ["Location",
 					"Salesperson"],
-					"type": "string"
+					"type": "string",
+					"example": 1
 				},
 				"addressCategoryId": {
 					"description": "Indicates the type of place of business represented by this location.",
@@ -8971,13 +9115,15 @@
 					"Warehouse",
 					"Salesperson",
 					"Other"],
-					"type": "string"
+					"type": "string",
+					"example": 2
 				},
 				"line1": {
 					"description": "The first line of the physical address of this location.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "123 Main Street"
 				},
 				"line2": {
 					"description": "The second line of the physical address of this location.",
@@ -8995,51 +9141,60 @@
 					"description": "The city of the physical address of this location.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Irvine"
 				},
 				"county": {
 					"description": "The county name of the physical address of this location.  Not required.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Orange"
 				},
 				"region": {
 					"description": "The state, region, or province of the physical address of this location.",
 					"maxLength": 3,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "CA"
 				},
 				"postalCode": {
 					"description": "The postal code or zip code of the physical address of this location.",
 					"maxLength": 10,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "92615"
 				},
 				"country": {
 					"description": "The two character ISO-3166 country code of the physical address of this location.",
 					"maxLength": 2,
 					"minLength": 2,
-					"type": "string"
+					"type": "string",
+					"example": "US"
 				},
 				"isDefault": {
 					"description": "Set this flag to true to indicate that this is the default location for this company.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				},
 				"isRegistered": {
 					"description": "Set this flag to true to indicate that this location has been registered with a tax authority.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				},
 				"dbaName": {
 					"description": "If this location has a different business name from its legal entity name, specify the \"Doing Business As\" name for this location.",
 					"maxLength": 100,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Bob's Artisan Pottery"
 				},
 				"outletName": {
 					"description": "A friendly name for this location.",
 					"maxLength": 100,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Main Office"
 				},
 				"effectiveDate": {
 					"format": "date-time",
@@ -9060,7 +9215,8 @@
 				"registeredDate": {
 					"format": "date-time",
 					"description": "The date when this location was registered with a tax authority.  Not required.",
-					"type": "string"
+					"type": "string",
+					"example": "2015-01-01T00:00:00"
 				},
 				"createdDate": {
 					"format": "date-time",
@@ -9101,27 +9257,31 @@
 					"format": "int32",
 					"description": "The unique ID number of this declaration of nexus.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 0
 				},
 				"companyId": {
 					"format": "int32",
 					"description": "The unique ID number of the company that declared nexus.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 12345
 				},
 				"country": {
 					"description": "The two character ISO-3166 country code of the country in which this company declared nexus.",
 					"maxLength": 2,
 					"minLength": 2,
 					"type": "string",
-					"readOnly": true
+					"readOnly": true,
+					"example": "US"
 				},
 				"region": {
 					"description": "The two or three character ISO region code of the region, state, or province in which this company declared nexus.",
 					"maxLength": 3,
 					"minLength": 0,
 					"type": "string",
-					"readOnly": true
+					"readOnly": true,
+					"example": "CA"
 				},
 				"jurisTypeId": {
 					"description": "The jurisdiction type of the jurisdiction in which this company declared nexus.",
@@ -9130,26 +9290,30 @@
 					"CIT",
 					"STJ",
 					"CNT"],
-					"type": "string"
+					"type": "string",
+					"example": 1
 				},
 				"jurisCode": {
 					"description": "The code identifying the jurisdiction in which this company declared nexus.",
 					"maxLength": 10,
 					"minLength": 0,
 					"type": "string",
-					"readOnly": true
+					"readOnly": true,
+					"example": "06"
 				},
 				"jurisName": {
 					"description": "The common name of the jurisdiction in which this company declared nexus.",
 					"maxLength": 200,
 					"minLength": 0,
 					"type": "string",
-					"readOnly": true
+					"readOnly": true,
+					"example": "CALIFORNIA"
 				},
 				"effectiveDate": {
 					"format": "date-time",
 					"description": "The date when this nexus began.  If not known, set to null.",
-					"type": "string"
+					"type": "string",
+					"example": "2015-01-01T00:00:00"
 				},
 				"endDate": {
 					"format": "date-time",
@@ -9161,7 +9325,8 @@
 					"maxLength": 15,
 					"minLength": 0,
 					"type": "string",
-					"readOnly": true
+					"readOnly": true,
+					"example": "CA"
 				},
 				"signatureCode": {
 					"description": "The signature code of the boundary region as defined by Avalara.",
@@ -9184,7 +9349,8 @@
 					"SalesTax",
 					"SSTVolunteer",
 					"SSTNonVolunteer"],
-					"type": "string"
+					"type": "string",
+					"example": 1
 				},
 				"sourcing": {
 					"description": "Indicates whether this nexus is defined as origin or destination nexus.",
@@ -9194,18 +9360,21 @@
 				},
 				"hasLocalNexus": {
 					"description": "True if you are also declaring local nexus within this jurisdiction.\r\n            Many U.S. states have options for declaring nexus in local jurisdictions as well as within the state.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				},
 				"localNexusTypeId": {
 					"description": "If you are declaring local nexus within this jurisdiction, this indicates whether you are declaring only \r\n            a specified list of local jurisdictions, all state-administered local jurisdictions, or all local jurisdictions.",
 					"enum": ["Selected",
 					"StateAdministered",
 					"All"],
-					"type": "string"
+					"type": "string",
+					"example": 2
 				},
 				"hasPermanentEstablishment": {
 					"description": "Set this value to true if your company has a permanent establishment within this jurisdiction.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				},
 				"taxId": {
 					"description": "Optional - the tax identification number under which you declared nexus.",
@@ -9251,31 +9420,36 @@
 					"format": "int32",
 					"description": "The unique ID number of this setting.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 56789
 				},
 				"companyId": {
 					"format": "int32",
 					"description": "The unique ID number of the company this setting refers to.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 12345
 				},
 				"set": {
 					"description": "A user-defined \"set\" containing this name-value pair.",
 					"maxLength": 25,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "ItemsToRemember"
 				},
 				"name": {
 					"description": "A user-defined \"name\" for this name-value pair.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Texas"
 				},
 				"value": {
 					"description": "The value of this name-value pair.",
 					"maxLength": 200,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Alamo"
 				}
 			}
 		},
@@ -9291,60 +9465,71 @@
 					"format": "int32",
 					"description": "The unique ID number of this tax code.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 56789
 				},
 				"companyId": {
 					"format": "int32",
 					"description": "The unique ID number of the company that owns this tax code.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 12345
 				},
 				"taxCode": {
 					"description": "A code string that identifies this tax code.",
 					"maxLength": 25,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "PS081282"
 				},
 				"taxCodeTypeId": {
 					"description": "The type of this tax code.",
 					"maxLength": 2,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "P"
 				},
 				"description": {
 					"description": "A friendly description of this tax code.",
 					"maxLength": 255,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Yarn"
 				},
 				"parentTaxCode": {
 					"description": "If this tax code is a subset of a different tax code, this identifies the parent code.",
 					"maxLength": 25,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "PS080100"
 				},
 				"isPhysical": {
 					"description": "True if this tax code refers to a physical object.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				},
 				"goodsServiceCode": {
 					"format": "int64",
 					"description": "The Avalara Goods and Service Code represented by this tax code.",
-					"type": "integer"
+					"type": "integer",
+					"example": 0
 				},
 				"entityUseCode": {
 					"description": "The Avalara Entity Use Code represented by this tax code.",
 					"maxLength": 40,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": ""
 				},
 				"isActive": {
 					"description": "True if this tax code is active and can be used in transactions.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				},
 				"isSSTCertified": {
 					"description": "True if this tax code has been certified by the Streamlined Sales Tax governing board.\r\n            By default, you should leave this value empty.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": false
 				},
 				"createdDate": {
 					"format": "date-time",
@@ -9385,13 +9570,15 @@
 					"format": "int32",
 					"description": "The unique ID number of this tax rule.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 56789
 				},
 				"companyId": {
 					"format": "int32",
 					"description": "The unique ID number of the company that owns this tax rule.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 12345
 				},
 				"taxCodeId": {
 					"format": "int32",
@@ -9402,25 +9589,29 @@
 					"description": "The code string of the tax code for this rule.\r\n            When creating or updating a tax rule, you may specify either the taxCodeId value or the taxCode value.",
 					"maxLength": 25,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "FR020800"
 				},
 				"stateFIPS": {
 					"description": "For U.S. tax rules, this is the state's Federal Information Processing Standard (FIPS) code.",
 					"maxLength": 2,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "04"
 				},
 				"jurisName": {
 					"description": "The name of the jurisdiction to which this tax rule applies.",
 					"maxLength": 200,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "MARICOPA"
 				},
 				"jurisCode": {
 					"description": "The code of the jurisdiction to which this tax rule applies.",
 					"maxLength": 10,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "013"
 				},
 				"jurisTypeId": {
 					"description": "The type of the jurisdiction to which this tax rule applies.",
@@ -9429,13 +9620,15 @@
 					"CIT",
 					"STJ",
 					"CNT"],
-					"type": "string"
+					"type": "string",
+					"example": 2
 				},
 				"customerUsageType": {
 					"description": "The type of customer usage to which this rule applies.",
 					"maxLength": 25,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": ""
 				},
 				"taxTypeId": {
 					"description": "Indicates which tax types to which this rule applies.",
@@ -9450,7 +9643,8 @@
 					"Rental",
 					"SalesTax",
 					"UseTax"],
-					"type": "string"
+					"type": "string",
+					"example": 66
 				},
 				"rateTypeId": {
 					"description": "Indicates the rate type to which this rule applies.",
@@ -9476,37 +9670,44 @@
 					"ExemptEntityRule",
 					"ProductTaxabilityRule",
 					"NexusRule"],
-					"type": "string"
+					"type": "string",
+					"example": 4
 				},
 				"isAllJuris": {
 					"description": "Set this value to true if this tax rule applies in all jurisdictions.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				},
 				"value": {
 					"format": "double",
 					"description": "The corrected rate for this tax rule.",
-					"type": "number"
+					"type": "number",
+					"example": 0.0
 				},
 				"cap": {
 					"format": "double",
 					"description": "The maximum cap for the price of this item according to this rule.",
-					"type": "number"
+					"type": "number",
+					"example": 0.0
 				},
 				"threshold": {
 					"format": "double",
 					"description": "The per-unit threshold that must be met before this rule applies.",
-					"type": "number"
+					"type": "number",
+					"example": 0.0
 				},
 				"options": {
 					"description": "Custom option flags for this rule.",
 					"maxLength": 100,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": ""
 				},
 				"effectiveDate": {
 					"format": "date-time",
 					"description": "The first date at which this rule applies.  If null, this rule will apply to all dates prior to the end date.",
-					"type": "string"
+					"type": "string",
+					"example": "2016-09-26T00:00:00-07:00"
 				},
 				"endDate": {
 					"format": "date-time",
@@ -9517,29 +9718,34 @@
 					"description": "A friendly name for this tax rule.",
 					"maxLength": 255,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Freight"
 				},
 				"countyFIPS": {
 					"description": "For U.S. tax rules, this is the county's Federal Information Processing Standard (FIPS) code.",
 					"maxLength": 3,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "013"
 				},
 				"isSTPro": {
 					"description": "If true, indicates this rule is for Sales Tax Pro.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": false
 				},
 				"country": {
 					"description": "The two character ISO 3166 country code for the locations where this rule applies.",
 					"maxLength": 2,
 					"minLength": 2,
-					"type": "string"
+					"type": "string",
+					"example": "US"
 				},
 				"region": {
 					"description": "The state, region, or province name for the locations where this rule applies.",
 					"maxLength": 3,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "AZ"
 				},
 				"sourcing": {
 					"description": "The sourcing types to which this rule applies.",
@@ -9585,31 +9791,36 @@
 					"format": "int32",
 					"description": "The unique ID number for this UPC.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 123456789
 				},
 				"companyId": {
 					"format": "int32",
 					"description": "The unique ID number of the company to which this UPC belongs.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 1234567
 				},
 				"upc": {
 					"description": "The 12-14 character Universal Product Code, European Article Number, or Global Trade Identification Number.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "023032550992"
 				},
 				"legacyTaxCode": {
 					"description": "Legacy Tax Code applied to any product sold with this UPC.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "PS081282"
 				},
 				"description": {
 					"description": "Description of the product to which this UPC applies.",
 					"maxLength": 255,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Yarn"
 				},
 				"effectiveDate": {
 					"format": "date-time",
@@ -9624,12 +9835,14 @@
 				"usage": {
 					"format": "int32",
 					"description": "A usage identifier for this UPC code.",
-					"type": "integer"
+					"type": "integer",
+					"example": 0
 				},
 				"isSystem": {
 					"format": "int32",
 					"description": "A flag indicating whether this UPC code is attached to the AvaTax system or to a company.",
-					"type": "integer"
+					"type": "integer",
+					"example": 0
 				},
 				"createdDate": {
 					"format": "date-time",
@@ -9698,13 +9911,15 @@
 					"description": "Company Name",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Bob's Artisan Pottery"
 				},
 				"companyCode": {
 					"description": "Company Code - used to distinguish between companies within your accounting system",
 					"maxLength": 25,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "DEFAULT"
 				},
 				"vatRegistrationId": {
 					"description": "Vat Registration Id - leave blank if not known.",
@@ -9716,13 +9931,15 @@
 					"description": "United States Taxpayer ID number, usually your Employer Identification Number if you are a business or your Social Security Number if you are an individual.",
 					"maxLength": 11,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "12-3456789"
 				},
 				"line1": {
 					"description": "Address Line1",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "123 Main Street"
 				},
 				"line2": {
 					"description": "Line2",
@@ -9740,61 +9957,71 @@
 					"description": "City",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Irvine"
 				},
 				"region": {
 					"description": "Two character ISO 3166 Region code for this company's primary business location.",
 					"maxLength": 3,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "CA"
 				},
 				"postalCode": {
 					"description": "Postal Code",
 					"maxLength": 10,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "92615"
 				},
 				"country": {
 					"description": "Two character ISO 3166 Country code for this company's primary business location.",
 					"maxLength": 2,
 					"minLength": 2,
-					"type": "string"
+					"type": "string",
+					"example": "US"
 				},
 				"firstName": {
 					"description": "First Name",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Bob"
 				},
 				"lastName": {
 					"description": "Last Name",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Example"
 				},
 				"title": {
 					"description": "Title",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Owner"
 				},
 				"email": {
 					"description": "Email",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "bob@example.org"
 				},
 				"phoneNumber": {
 					"description": "Phone Number",
 					"maxLength": 25,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "714 555-2121"
 				},
 				"mobileNumber": {
 					"description": "Mobile Number",
 					"maxLength": 25,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "714 555-1212"
 				},
 				"faxNumber": {
 					"description": "Fax Number",
@@ -9879,6 +10106,14 @@
 					"type": "object",
 					"additionalProperties": {
 						"type": "string"
+					},
+					"example": {
+						"D": "Digital",
+						"F": "Freight",
+						"O": "Other",
+						"P": "Product",
+						"S": "Service",
+						"U": "Unknown"
 					}
 				}
 			}
@@ -9914,14 +10149,16 @@
 					"format": "int32",
 					"description": "The unique ID number of this subscription type.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 2
 				},
 				"description": {
 					"description": "The friendly name of the service this subscription type represents.",
 					"maxLength": 255,
 					"minLength": 0,
 					"type": "string",
-					"readOnly": true
+					"readOnly": true,
+					"example": "AvaTaxPro"
 				}
 			}
 		},
@@ -9977,12 +10214,14 @@
 					"format": "byte",
 					"description": "The unique ID number of this security role.",
 					"type": "string",
-					"readOnly": true
+					"readOnly": true,
+					"example": 3
 				},
 				"description": {
 					"description": "A description of this security role",
 					"type": "string",
-					"readOnly": true
+					"readOnly": true,
+					"example": "AccountAdmin"
 				}
 			}
 		},
@@ -10018,23 +10257,27 @@
 					"format": "int32",
 					"description": "The unique ID number of this tax authority.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 12345
 				},
 				"name": {
 					"description": "The friendly name of this tax authority.",
 					"maxLength": 128,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "COLORADO"
 				},
 				"taxAuthorityTypeId": {
 					"format": "int32",
 					"description": "The type of this tax authority.",
-					"type": "integer"
+					"type": "integer",
+					"example": 45
 				},
 				"jurisdictionId": {
 					"format": "int32",
 					"description": "The unique ID number of the jurisdiction for this tax authority.",
-					"type": "integer"
+					"type": "integer",
+					"example": 12345
 				}
 			}
 		},
@@ -10069,13 +10312,15 @@
 				"taxAuthorityId": {
 					"format": "int32",
 					"description": "The unique ID number of the tax authority.",
-					"type": "integer"
+					"type": "integer",
+					"example": 69
 				},
 				"formName": {
 					"description": "The form name of the form for this tax authority.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "CABOE401A2"
 				}
 			}
 		},
@@ -10133,13 +10378,15 @@
 					"description": "Old Password",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "MyOldPassword123!"
 				},
 				"newPassword": {
 					"description": "New Password",
 					"maxLength": 50,
 					"minLength": 8,
-					"type": "string"
+					"type": "string",
+					"example": "ANewPassword567:)"
 				}
 			}
 		},
@@ -10194,14 +10441,20 @@
 				"totalRate": {
 					"format": "double",
 					"description": "Total Rate",
-					"type": "number"
+					"type": "number",
+					"example": 0.0625
 				},
 				"rates": {
 					"description": "Rates",
 					"type": "array",
 					"items": {
 						"$ref": "#/definitions/RateModel"
-					}
+					},
+					"example": [{
+						"rate": 0.0625,
+						"name": "CALIFORNIA",
+						"type": "State"
+					}]
 				}
 			}
 		},
@@ -10212,11 +10465,13 @@
 				"rate": {
 					"format": "double",
 					"description": "Rate",
-					"type": "number"
+					"type": "number",
+					"example": 0.0625
 				},
 				"name": {
 					"description": "Name",
-					"type": "string"
+					"type": "string",
+					"example": "CALIFORNIA"
 				},
 				"type": {
 					"description": "Type",
@@ -10226,7 +10481,8 @@
 					"County",
 					"City",
 					"Special"],
-					"type": "string"
+					"type": "string",
+					"example": 1
 				}
 			}
 		},
@@ -10260,32 +10516,38 @@
 					"format": "int64",
 					"description": "The unique ID number of this transaction.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 123456789
 				},
 				"code": {
 					"description": "A unique customer-provided code identifying this transaction.",
 					"type": "string",
-					"readOnly": true
+					"readOnly": true,
+					"example": "984cb1c2-0959-445b-81cb-bf209512095c"
 				},
 				"companyId": {
 					"format": "int32",
 					"description": "The unique ID number of the company that recorded this transaction.",
-					"type": "integer"
+					"type": "integer",
+					"example": 12345
 				},
 				"date": {
 					"format": "date-time",
 					"description": "The date on which this transaction occurred.",
-					"type": "string"
+					"type": "string",
+					"example": "2016-09-26T00:00:00-07:00"
 				},
 				"taxDate": {
 					"format": "date-time",
 					"description": "The date that was used when calculating tax for this transaction.\r\n            By default, this should be the same as the transaction date; however, when a consumer returns a product purchased in a previous month,\r\n            it may be necessary to specify the date of the original transaction in order to correctly return the exact amount of sales tax that was\r\n            charged of the consumer on the original date they purchased the product.",
-					"type": "string"
+					"type": "string",
+					"example": "2016-09-26T00:00:00-07:00"
 				},
 				"paymentDate": {
 					"format": "date-time",
 					"description": "The date when payment was made on this transaction.  By default, this should be the same as the date of the transaction.",
-					"type": "string"
+					"type": "string",
+					"example": "2016-09-26T00:00:00-07:00"
 				},
 				"status": {
 					"description": "The status of the transaction.",
@@ -10298,7 +10560,8 @@
 					"Queued",
 					"PendingApproval",
 					"Any"],
-					"type": "string"
+					"type": "string",
+					"example": 3
 				},
 				"type": {
 					"description": "The type of the transaction.  For Returns customers, a transaction type of \"Invoice\" will be reported to the tax authorities.\r\n            A sales transaction represents a sale from the company to a customer.  A purchase transaction represents a purchase made by the company.\r\n            A return transaction represents a customer who decided to request a refund after purchasing a product from the company.  An inventory \r\n            transfer transaction represents goods that were moved from one location of the company to another location without changing ownership.",
@@ -10313,7 +10576,8 @@
 					"ReverseChargeOrder",
 					"ReverseChargeInvoice",
 					"Any"],
-					"type": "string"
+					"type": "string",
+					"example": 1
 				},
 				"batchCode": {
 					"description": "If this transaction was created as part of a batch, this code indicates which batch.",
@@ -10321,27 +10585,33 @@
 				},
 				"currencyCode": {
 					"description": "The three-character ISO 4217 currency code that was used for payment for this transaction.",
-					"type": "string"
+					"type": "string",
+					"example": "USD"
 				},
 				"customerUsageType": {
 					"description": "The customer usage type for this transaction.  Customer usage types often affect exemption or taxability rules.",
-					"type": "string"
+					"type": "string",
+					"example": ""
 				},
 				"customerVendorCode": {
 					"description": "CustomerVendorCode",
-					"type": "string"
+					"type": "string",
+					"example": "ABC"
 				},
 				"exemptNo": {
 					"description": "If this transaction was exempt, this field will contain the word \"Exempt\".",
-					"type": "string"
+					"type": "string",
+					"example": ""
 				},
 				"reconciled": {
 					"description": "If this transaction has been reconciled against the company's ledger, this value is set to true.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				},
 				"locationCode": {
 					"description": "If this transaction was made from a specific reporting location, this is the code string of the location.\r\n            For customers using Returns, this indicates how tax will be reported according to different locations on the tax forms.",
-					"type": "string"
+					"type": "string",
+					"example": "DEFAULT"
 				},
 				"purchaseOrderNo": {
 					"description": "The customer-supplied purchase order number of this transaction.",
@@ -10353,7 +10623,8 @@
 				},
 				"salespersonCode": {
 					"description": "The salesperson who provided this transaction.  Not required.",
-					"type": "string"
+					"type": "string",
+					"example": "DEF"
 				},
 				"taxOverrideType": {
 					"description": "If a tax override was applied to this transaction, indicates what type of tax override was applied.",
@@ -10362,41 +10633,49 @@
 					"Exemption",
 					"TaxDate",
 					"AccruedTaxAmount"],
-					"type": "string"
+					"type": "string",
+					"example": 0
 				},
 				"taxOverrideAmount": {
 					"format": "double",
 					"description": "If a tax override was applied to this transaction, indicates the amount of tax that was requested by the customer.",
-					"type": "number"
+					"type": "number",
+					"example": 0.00
 				},
 				"taxOverrideReason": {
 					"description": "If a tax override was applied to this transaction, indicates the reason for the tax override.",
-					"type": "string"
+					"type": "string",
+					"example": ""
 				},
 				"totalAmount": {
 					"format": "double",
 					"description": "The total amount of this transaction.",
-					"type": "number"
+					"type": "number",
+					"example": 1000.0
 				},
 				"totalExempt": {
 					"format": "double",
 					"description": "The amount of this transaction that was exempt.",
-					"type": "number"
+					"type": "number",
+					"example": 0.0
 				},
 				"totalTax": {
 					"format": "double",
 					"description": "The total tax calculated for all lines in this transaction.",
-					"type": "number"
+					"type": "number",
+					"example": 62.50
 				},
 				"totalTaxable": {
 					"format": "double",
 					"description": "The portion of the total amount of this transaction that was taxable.",
-					"type": "number"
+					"type": "number",
+					"example": 1000.0
 				},
 				"totalTaxCalculated": {
 					"format": "double",
 					"description": "If a tax override was applied to this transaction, indicates the amount of tax Avalara calculated for the transaction.",
-					"type": "number"
+					"type": "number",
+					"example": 62.50
 				},
 				"adjustmentReason": {
 					"description": "If this transaction was adjusted, indicates the unique ID number of the reason why the transaction was adjusted.",
@@ -10410,30 +10689,36 @@
 					"BadDebt",
 					"Other",
 					"Offline"],
-					"type": "string"
+					"type": "string",
+					"example": 0
 				},
 				"adjustmentDescription": {
 					"description": "If this transaction was adjusted, indicates a description of the reason why the transaction was adjusted.",
-					"type": "string"
+					"type": "string",
+					"example": ""
 				},
 				"locked": {
 					"description": "If this transaction has been reported to a tax authority, this transaction is considered locked and may not be adjusted after reporting.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": false
 				},
 				"region": {
 					"description": "The two-or-three character ISO region code of the region for this transaction.",
-					"type": "string"
+					"type": "string",
+					"example": "CA"
 				},
 				"country": {
 					"description": "The two-character ISO 3166 code of the country for this transaction.",
 					"maxLength": 2,
 					"minLength": 2,
-					"type": "string"
+					"type": "string",
+					"example": "US"
 				},
 				"version": {
 					"format": "int32",
 					"description": "If this transaction was adjusted, this indicates the version number of this transaction.  Incremented each time the transaction\r\n            is adjusted.",
-					"type": "integer"
+					"type": "integer",
+					"example": 0
 				},
 				"softwareVersion": {
 					"description": "The software version used to calculate this transaction.",
@@ -10442,12 +10727,14 @@
 				"originAddressId": {
 					"format": "int64",
 					"description": "The unique ID number of the origin address for this transaction.",
-					"type": "integer"
+					"type": "integer",
+					"example": 123456789
 				},
 				"destinationAddressId": {
 					"format": "int64",
 					"description": "The unique ID number of the destination address for this transaction.",
-					"type": "integer"
+					"type": "integer",
+					"example": 123456789
 				},
 				"exchangeRateEffectiveDate": {
 					"format": "date-time",
@@ -10457,15 +10744,18 @@
 				"exchangeRate": {
 					"format": "double",
 					"description": "If this transaction included foreign currency exchange, this is the exchange rate that was used.",
-					"type": "number"
+					"type": "number",
+					"example": 0.0
 				},
 				"isSellerImporterOfRecord": {
 					"description": "If true, this seller was considered the importer of record of a product shipped internationally.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": false
 				},
 				"description": {
 					"description": "Description of this transaction.",
-					"type": "string"
+					"type": "string",
+					"example": "Yarn"
 				},
 				"email": {
 					"description": "Email address associated with this transaction.",
@@ -10488,14 +10778,95 @@
 					"type": "array",
 					"items": {
 						"$ref": "#/definitions/TransactionLineModel"
-					}
+					},
+					"example": [{
+						"id": 123456789,
+						"transactionId": 123456789,
+						"lineNumber": "1",
+						"boundaryOverrideId": 0,
+						"customerUsageType": "",
+						"description": "Yarn",
+						"destinationAddressId": 12345,
+						"originAddressId": 123456789,
+						"discountAmount": 100.0,
+						"discountTypeId": 0,
+						"exemptAmount": 0.0,
+						"exemptCertId": 0,
+						"exemptNo": "",
+						"isItemTaxable": true,
+						"isSSTP": false,
+						"itemCode": "116292",
+						"lineAmount": 1000.0,
+						"quantity": 1.00,
+						"ref1": "Note: Deliver to Bob",
+						"reportingDate": "2016-09-26T00:00:00-07:00",
+						"revAccount": "",
+						"sourcing": "Destination",
+						"tax": 62.50,
+						"taxableAmount": 1000.0,
+						"taxCalculated": 62.50,
+						"taxCode": "PS081282",
+						"taxCodeId": 0,
+						"taxDate": "2016-09-26T00:00:00-07:00",
+						"taxEngine": "",
+						"taxOverrideType": "None",
+						"taxOverrideAmount": 0.00,
+						"taxOverrideReason": "",
+						"taxIncluded": false,
+						"details": [{
+							"id": 123456789,
+							"transactionLineId": 123456789,
+							"transactionId": 123456789,
+							"addressId": 12345,
+							"country": "US",
+							"region": "CA",
+							"stateFIPS": "06",
+							"exemptAmount": 0.00,
+							"exemptReasonId": 4,
+							"inState": false,
+							"jurisCode": "06",
+							"jurisName": "CALIFORNIA",
+							"jurisdictionId": 5000531,
+							"signatureCode": "AGAM",
+							"stateAssignedNo": "",
+							"jurisType": "STA",
+							"nonTaxableAmount": 0.0,
+							"nonTaxableRuleId": 0,
+							"nonTaxableType": "BaseRule",
+							"rate": 0.0625,
+							"rateRuleId": 1321915,
+							"rateSourceId": 3,
+							"serCode": "",
+							"sourcing": "Destination",
+							"tax": 62.50,
+							"taxableAmount": 1000.0,
+							"taxType": "Sales",
+							"taxName": "CA STATE TAX",
+							"taxAuthorityTypeId": 45,
+							"taxRegionId": 2127184,
+							"taxCalculated": 62.50,
+							"taxOverride": 0.00,
+							"rateType": "General"
+						}]
+					}]
 				},
 				"addresses": {
 					"description": "Optional: A list of line items in this transaction.  To fetch this list, add the query string \"?$include=Addresses\" to your URL.",
 					"type": "array",
 					"items": {
 						"$ref": "#/definitions/TransactionAddressModel"
-					}
+					},
+					"example": [{
+						"id": 0,
+						"transactionId": 0,
+						"boundaryLevel": "Address",
+						"line1": "100 Ravine Lane Northeast #220",
+						"city": "Bainbridge Island",
+						"region": "WA",
+						"postalCode": "98110",
+						"country": "US",
+						"taxRegionId": 0
+					}]
 				},
 				"history": {
 					"description": "If this transaction has been adjusted, this list contains all the previous versions of the document.",
@@ -10520,89 +10891,108 @@
 				"id": {
 					"format": "int64",
 					"description": "The unique ID number of this transaction line item.",
-					"type": "integer"
+					"type": "integer",
+					"example": 123456789
 				},
 				"transactionId": {
 					"format": "int64",
 					"description": "The unique ID number of the transaction to which this line item belongs.",
-					"type": "integer"
+					"type": "integer",
+					"example": 123456789
 				},
 				"lineNumber": {
 					"description": "The line number or code indicating the line on this invoice or receipt or document.",
-					"type": "string"
+					"type": "string",
+					"example": "1"
 				},
 				"boundaryOverrideId": {
 					"format": "int32",
 					"description": "The unique ID number of the boundary override applied to this line item.",
-					"type": "integer"
+					"type": "integer",
+					"example": 0
 				},
 				"customerUsageType": {
 					"description": "The customer usage type for this line item.  Usage type often affects taxability rules.",
-					"type": "string"
+					"type": "string",
+					"example": ""
 				},
 				"description": {
 					"description": "A description of the item or service represented by this line.",
-					"type": "string"
+					"type": "string",
+					"example": "Yarn"
 				},
 				"destinationAddressId": {
 					"format": "int64",
 					"description": "The unique ID number of the destination address where this line was delivered or sold.\r\n            In the case of a point-of-sale transaction, the destination address and origin address will be the same.\r\n            In the case of a shipped transaction, they will be different.",
-					"type": "integer"
+					"type": "integer",
+					"example": 12345
 				},
 				"originAddressId": {
 					"format": "int64",
 					"description": "The unique ID number of the origin address where this line was delivered or sold.\r\n            In the case of a point-of-sale transaction, the origin address and destination address will be the same.\r\n            In the case of a shipped transaction, they will be different.",
-					"type": "integer"
+					"type": "integer",
+					"example": 123456789
 				},
 				"discountAmount": {
 					"format": "double",
 					"description": "The amount of discount that was applied to this line item.  This represents the difference between list price and sale price of the item.\r\n            In general, a discount represents money that did not change hands; tax is calculated on only the amount of money that changed hands.",
-					"type": "number"
+					"type": "number",
+					"example": 100.0
 				},
 				"discountTypeId": {
 					"format": "int32",
 					"description": "The type of discount, if any, that was applied to this line item.",
-					"type": "integer"
+					"type": "integer",
+					"example": 0
 				},
 				"exemptAmount": {
 					"format": "double",
 					"description": "The amount of this line item that was exempt.",
-					"type": "number"
+					"type": "number",
+					"example": 0.0
 				},
 				"exemptCertId": {
 					"format": "int32",
 					"description": "The unique ID number of the exemption certificate that applied to this line item.",
-					"type": "integer"
+					"type": "integer",
+					"example": 0
 				},
 				"exemptNo": {
 					"description": "If this line item was exempt, this string contains the word 'Exempt'.",
-					"type": "string"
+					"type": "string",
+					"example": ""
 				},
 				"isItemTaxable": {
 					"description": "True if this item is taxable.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				},
 				"isSSTP": {
 					"description": "True if this item is a Streamlined Sales Tax line item.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": false
 				},
 				"itemCode": {
 					"description": "The code string of the item represented by this line item.",
-					"type": "string"
+					"type": "string",
+					"example": "116292"
 				},
 				"lineAmount": {
 					"format": "double",
 					"description": "The total amount of the transaction, including both taxable and exempt.  This is the total price for all items.\r\n            To determine the individual item price, divide this by quantity.",
-					"type": "number"
+					"type": "number",
+					"example": 1000.0
 				},
 				"quantity": {
 					"format": "double",
 					"description": "The quantity of products sold on this line item.",
-					"type": "number"
+					"type": "number",
+					"example": 1.00
 				},
 				"ref1": {
 					"description": "A user-defined reference identifier for this transaction line item.",
-					"type": "string"
+					"type": "string",
+					"example": "Note: Deliver to Bob"
 				},
 				"ref2": {
 					"description": "A user-defined reference identifier for this transaction line item.",
@@ -10611,50 +11001,60 @@
 				"reportingDate": {
 					"format": "date-time",
 					"description": "The date when this transaction should be reported.  By default, all transactions are reported on the date when the actual transaction took place.\r\n            In some cases, line items may be reported later due to delayed shipments or other business reasons.",
-					"type": "string"
+					"type": "string",
+					"example": "2016-09-26T00:00:00-07:00"
 				},
 				"revAccount": {
 					"description": "The revenue account number for this line item.",
-					"type": "string"
+					"type": "string",
+					"example": ""
 				},
 				"sourcing": {
 					"description": "Indicates whether this line item was taxed according to the origin or destination.",
 					"enum": ["Destination",
 					"Origin"],
-					"type": "string"
+					"type": "string",
+					"example": 68
 				},
 				"tax": {
 					"format": "double",
 					"description": "The amount of tax generated for this line item.",
-					"type": "number"
+					"type": "number",
+					"example": 62.50
 				},
 				"taxableAmount": {
 					"format": "double",
 					"description": "The taxable amount of this line item.",
-					"type": "number"
+					"type": "number",
+					"example": 1000.0
 				},
 				"taxCalculated": {
 					"format": "double",
 					"description": "The tax calculated for this line by Avalara.  If the transaction was calculated with a tax override, this amount will be different from the \"tax\" value.",
-					"type": "number"
+					"type": "number",
+					"example": 62.50
 				},
 				"taxCode": {
 					"description": "The code string for the tax code that was used to calculate this line item.",
-					"type": "string"
+					"type": "string",
+					"example": "PS081282"
 				},
 				"taxCodeId": {
 					"format": "int32",
 					"description": "The unique ID number for the tax code that was used to calculate this line item.",
-					"type": "integer"
+					"type": "integer",
+					"example": 0
 				},
 				"taxDate": {
 					"format": "date-time",
 					"description": "The date that was used for calculating tax amounts for this line item.  By default, this date should be the same as the document date.\r\n            In some cases, for example when a consumer returns a product purchased previously, line items may be calculated using a tax date in the past\r\n            so that the consumer can receive a refund for the correct tax amount that was charged when the item was originally purchased.",
-					"type": "string"
+					"type": "string",
+					"example": "2016-09-26T00:00:00-07:00"
 				},
 				"taxEngine": {
 					"description": "The tax engine identifier that was used to calculate this line item.",
-					"type": "string"
+					"type": "string",
+					"example": ""
 				},
 				"taxOverrideType": {
 					"description": "If a tax override was specified, this indicates the type of tax override.",
@@ -10663,27 +11063,66 @@
 					"Exemption",
 					"TaxDate",
 					"AccruedTaxAmount"],
-					"type": "string"
+					"type": "string",
+					"example": 0
 				},
 				"taxOverrideAmount": {
 					"format": "double",
 					"description": "If a tax override was specified, this indicates the amount of tax that was requested.",
-					"type": "number"
+					"type": "number",
+					"example": 0.00
 				},
 				"taxOverrideReason": {
 					"description": "If a tax override was specified, represents the reason for the tax override.",
-					"type": "string"
+					"type": "string",
+					"example": ""
 				},
 				"taxIncluded": {
 					"description": "True if tax was included in the purchase price of the item.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": false
 				},
 				"details": {
 					"description": "Optional: A list of tax details for this line item.  To fetch this list, add the query string \"?$include=Details\" to your URL.",
 					"type": "array",
 					"items": {
 						"$ref": "#/definitions/TransactionLineDetailModel"
-					}
+					},
+					"example": [{
+						"id": 123456789,
+						"transactionLineId": 123456789,
+						"transactionId": 123456789,
+						"addressId": 12345,
+						"country": "US",
+						"region": "CA",
+						"stateFIPS": "06",
+						"exemptAmount": 0.00,
+						"exemptReasonId": 4,
+						"inState": false,
+						"jurisCode": "06",
+						"jurisName": "CALIFORNIA",
+						"jurisdictionId": 5000531,
+						"signatureCode": "AGAM",
+						"stateAssignedNo": "",
+						"jurisType": "STA",
+						"nonTaxableAmount": 0.0,
+						"nonTaxableRuleId": 0,
+						"nonTaxableType": "BaseRule",
+						"rate": 0.0625,
+						"rateRuleId": 1321915,
+						"rateSourceId": 3,
+						"serCode": "",
+						"sourcing": "Destination",
+						"tax": 62.50,
+						"taxableAmount": 1000.0,
+						"taxType": "Sales",
+						"taxName": "CA STATE TAX",
+						"taxAuthorityTypeId": 45,
+						"taxRegionId": 2127184,
+						"taxCalculated": 62.50,
+						"taxOverride": 0.00,
+						"rateType": "General"
+					}]
 				}
 			}
 		},
@@ -10695,13 +11134,15 @@
 					"format": "int64",
 					"description": "The unique ID number of this address.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 0
 				},
 				"transactionId": {
 					"format": "int64",
 					"description": "The unique ID number of the document to which this address belongs.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 0
 				},
 				"boundaryLevel": {
 					"description": "The boundary level at which this address was validated.",
@@ -10709,11 +11150,13 @@
 					"Zip9",
 					"Zip5"],
 					"type": "string",
-					"readOnly": true
+					"readOnly": true,
+					"example": 0
 				},
 				"line1": {
 					"description": "The first line of the address.",
-					"type": "string"
+					"type": "string",
+					"example": "100 Ravine Lane Northeast #220"
 				},
 				"line2": {
 					"description": "The second line of the address.",
@@ -10725,24 +11168,29 @@
 				},
 				"city": {
 					"description": "The city for the address.",
-					"type": "string"
+					"type": "string",
+					"example": "Bainbridge Island"
 				},
 				"region": {
 					"description": "The region, state, or province for the address.",
-					"type": "string"
+					"type": "string",
+					"example": "WA"
 				},
 				"postalCode": {
 					"description": "The postal code or zip code for the address.",
-					"type": "string"
+					"type": "string",
+					"example": "98110"
 				},
 				"country": {
 					"description": "The country for the address.",
-					"type": "string"
+					"type": "string",
+					"example": "US"
 				},
 				"taxRegionId": {
 					"format": "int32",
 					"description": "The unique ID number of the tax region for this address.",
-					"type": "integer"
+					"type": "integer",
+					"example": 0
 				}
 			}
 		},
@@ -10862,34 +11310,40 @@
 					"format": "int64",
 					"description": "The unique ID number of this tax detail.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 123456789
 				},
 				"transactionLineId": {
 					"format": "int64",
 					"description": "The unique ID number of the line within this transaction.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 123456789
 				},
 				"transactionId": {
 					"format": "int64",
 					"description": "The unique ID number of this transaction.",
 					"type": "integer",
-					"readOnly": true
+					"readOnly": true,
+					"example": 123456789
 				},
 				"addressId": {
 					"format": "int64",
 					"description": "The unique ID number of the address used for this tax detail.",
-					"type": "integer"
+					"type": "integer",
+					"example": 12345
 				},
 				"country": {
 					"description": "The two character ISO 3166 country code of the country where this tax detail is assigned.",
 					"maxLength": 2,
 					"minLength": 2,
-					"type": "string"
+					"type": "string",
+					"example": "US"
 				},
 				"region": {
 					"description": "The two-or-three character ISO region code for the region where this tax detail is assigned.",
-					"type": "string"
+					"type": "string",
+					"example": "CA"
 				},
 				"countyFIPS": {
 					"description": "For U.S. transactions, the Federal Information Processing Standard (FIPS) code for the county where this tax detail is assigned.",
@@ -10897,42 +11351,51 @@
 				},
 				"stateFIPS": {
 					"description": "For U.S. transactions, the Federal Information Processing Standard (FIPS) code for the state where this tax detail is assigned.",
-					"type": "string"
+					"type": "string",
+					"example": "06"
 				},
 				"exemptAmount": {
 					"format": "double",
 					"description": "The amount of this line that was considered exempt in this tax detail.",
-					"type": "number"
+					"type": "number",
+					"example": 0.00
 				},
 				"exemptReasonId": {
 					"format": "int32",
 					"description": "The unique ID number of the exemption reason for this tax detail.",
-					"type": "integer"
+					"type": "integer",
+					"example": 4
 				},
 				"inState": {
 					"description": "True if this detail element represented an in-state transaction.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": false
 				},
 				"jurisCode": {
 					"description": "The code of the jurisdiction to which this tax detail applies.",
-					"type": "string"
+					"type": "string",
+					"example": "06"
 				},
 				"jurisName": {
 					"description": "The name of the jurisdiction to which this tax detail applies.",
-					"type": "string"
+					"type": "string",
+					"example": "CALIFORNIA"
 				},
 				"jurisdictionId": {
 					"format": "int32",
 					"description": "The unique ID number of the jurisdiction to which this tax detail applies.",
-					"type": "integer"
+					"type": "integer",
+					"example": 5000531
 				},
 				"signatureCode": {
 					"description": "The Avalara-specified signature code of the jurisdiction to which this tax detail applies.",
-					"type": "string"
+					"type": "string",
+					"example": "AGAM"
 				},
 				"stateAssignedNo": {
 					"description": "The state assigned number of the jurisdiction to which this tax detail applies.",
-					"type": "string"
+					"type": "string",
+					"example": ""
 				},
 				"jurisType": {
 					"description": "The type of the jurisdiction to which this tax detail applies.",
@@ -10941,17 +11404,20 @@
 					"CIT",
 					"STJ",
 					"CNT"],
-					"type": "string"
+					"type": "string",
+					"example": 1
 				},
 				"nonTaxableAmount": {
 					"format": "double",
 					"description": "The amount of this line item that was considered nontaxable in this tax detail.",
-					"type": "number"
+					"type": "number",
+					"example": 0.0
 				},
 				"nonTaxableRuleId": {
 					"format": "int32",
 					"description": "The rule according to which portion of this detail was considered nontaxable.",
-					"type": "integer"
+					"type": "integer",
+					"example": 0
 				},
 				"nonTaxableType": {
 					"description": "The type of nontaxability that was applied to this tax detail.",
@@ -10961,42 +11427,50 @@
 					"ExemptEntityRule",
 					"ProductTaxabilityRule",
 					"NexusRule"],
-					"type": "string"
+					"type": "string",
+					"example": 2
 				},
 				"rate": {
 					"format": "double",
 					"description": "The rate at which this tax detail was calculated.",
-					"type": "number"
+					"type": "number",
+					"example": 0.0625
 				},
 				"rateRuleId": {
 					"format": "int32",
 					"description": "The unique ID number of the rule according to which this tax detail was calculated.",
-					"type": "integer"
+					"type": "integer",
+					"example": 1321915
 				},
 				"rateSourceId": {
 					"format": "int32",
 					"description": "The unique ID number of the source of the rate according to which this tax detail was calculated.",
-					"type": "integer"
+					"type": "integer",
+					"example": 3
 				},
 				"serCode": {
 					"description": "For Streamlined Sales Tax customers, the SST Electronic Return code under which this tax detail should be applied.",
-					"type": "string"
+					"type": "string",
+					"example": ""
 				},
 				"sourcing": {
 					"description": "Indicates whether this tax detail applies to the origin or destination of the transaction.",
 					"enum": ["Destination",
 					"Origin"],
-					"type": "string"
+					"type": "string",
+					"example": 68
 				},
 				"tax": {
 					"format": "double",
 					"description": "The amount of tax for this tax detail.",
-					"type": "number"
+					"type": "number",
+					"example": 62.50
 				},
 				"taxableAmount": {
 					"format": "double",
 					"description": "The taxable amount of this tax detail.",
-					"type": "number"
+					"type": "number",
+					"example": 1000.0
 				},
 				"taxType": {
 					"description": "The type of tax that was calculated.  Depends on the company's nexus settings as well as the jurisdiction's tax laws.",
@@ -11009,31 +11483,37 @@
 					"Rental",
 					"Sales",
 					"Use"],
-					"type": "string"
+					"type": "string",
+					"example": 83
 				},
 				"taxName": {
 					"description": "The name of the tax against which this tax amount was calculated.",
-					"type": "string"
+					"type": "string",
+					"example": "CA STATE TAX"
 				},
 				"taxAuthorityTypeId": {
 					"format": "int32",
 					"description": "The type of the tax authority to which this tax will be remitted.",
-					"type": "integer"
+					"type": "integer",
+					"example": 45
 				},
 				"taxRegionId": {
 					"format": "int32",
 					"description": "The unique ID number of the tax region.",
-					"type": "integer"
+					"type": "integer",
+					"example": 2127184
 				},
 				"taxCalculated": {
 					"format": "double",
 					"description": "The amount of tax that was calculated.  This amount may be different if a tax override was used.\r\n            If the customer specified a tax override, this calculated tax value represents the amount of tax that would\r\n            have been charged if Avalara had calculated the tax for the rule.",
-					"type": "number"
+					"type": "number",
+					"example": 62.50
 				},
 				"taxOverride": {
 					"format": "double",
 					"description": "The amount of tax override that was specified for this tax line.",
-					"type": "number"
+					"type": "number",
+					"example": 0.00
 				},
 				"rateType": {
 					"description": "The rate type for this tax detail.",
@@ -11049,7 +11529,8 @@
 					"ReducedR",
 					"Standard",
 					"Zero"],
-					"type": "string"
+					"type": "string",
+					"example": 71
 				}
 			}
 		},
@@ -11091,15 +11572,45 @@
 					"BadDebt",
 					"Other",
 					"Offline"],
-					"type": "string"
+					"type": "string",
+					"example": 4
 				},
 				"adjustmentDescription": {
 					"description": "If the AdjustmentReason is \"Other\", specify the reason here",
-					"type": "string"
+					"type": "string",
+					"example": "Price drop before shipping"
 				},
 				"newTransaction": {
 					"$ref": "#/definitions/CreateTransactionModel",
-					"description": "Replace the current transaction with tax data calculated for this new transaction"
+					"description": "Replace the current transaction with tax data calculated for this new transaction",
+					"example": {
+						"type": "SalesInvoice",
+						"code": "28926e74-9231-4097-a339-1a358a2bc5de",
+						"date": "2016-09-26T00:00:00-07:00",
+						"customerCode": "ABC",
+						"purchaseOrderNo": "2016-09-26-001",
+						"addresses": {
+							"SingleLocation": {
+								"line1": "123 Main Street",
+								"city": "Irvine",
+								"region": "CA",
+								"country": "US",
+								"postalCode": "92615"
+							}
+						},
+						"lines": [{
+							"number": "1",
+							"quantity": 1.0,
+							"amount": 100.0,
+							"taxCode": "PS081282",
+							"itemCode": "Y0001",
+							"description": "Yarn"
+						}],
+						"commit": true,
+						"taxDate": "2016-09-26T00:00:00-07:00",
+						"currencyCode": "USD",
+						"description": "Yarn"
+					}
 				}
 			}
 		},
@@ -11123,18 +11634,21 @@
 					"ReverseChargeOrder",
 					"ReverseChargeInvoice",
 					"Any"],
-					"type": "string"
+					"type": "string",
+					"example": 1
 				},
 				"code": {
 					"description": "Transaction Code - the internal reference code used by the client application.  This is used for operations such as\r\n                Get, Adjust, Settle, and Void.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "05ccf948-36fb-4e07-a693-7bba61a4f349"
 				},
 				"date": {
 					"format": "date-time",
 					"description": "Transaction Date - The date on the invoice, purchase order, etc.",
-					"type": "string"
+					"type": "string",
+					"example": "2016-09-26T00:00:00-07:00"
 				},
 				"salespersonCode": {
 					"description": "Salesperson Code - The client application salesperson reference code.",
@@ -11146,7 +11660,8 @@
 					"description": "Customer Code - The client application customer reference code.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "ABC"
 				},
 				"customerUsageType": {
 					"description": "Customer Usage Type - The client application customer or usage type.",
@@ -11163,7 +11678,8 @@
 					"description": "Purchase Order Number for this document",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "2016-09-26-001"
 				},
 				"exemptionNo": {
 					"description": "Exemption Number for this document",
@@ -11190,6 +11706,15 @@
 						"SingleLocation": {
 							"$ref": "#/definitions/AddressInfo"
 						}
+					},
+					"example": {
+						"SingleLocation": {
+							"line1": "123 Main Street",
+							"city": "Irvine",
+							"region": "CA",
+							"country": "US",
+							"postalCode": "92615"
+						}
 					}
 				},
 				"lines": {
@@ -11197,7 +11722,15 @@
 					"type": "array",
 					"items": {
 						"$ref": "#/definitions/LineItemModel"
-					}
+					},
+					"example": [{
+						"number": "1",
+						"quantity": 1.0,
+						"amount": 100.0,
+						"taxCode": "PS081282",
+						"itemCode": "Y0001",
+						"description": "Yarn"
+					}]
 				},
 				"referenceCode": {
 					"description": "Reference Code used to reference the original document for a return invoice",
@@ -11213,7 +11746,8 @@
 				},
 				"commit": {
 					"description": "Causes the document to be committed if true.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				},
 				"batchCode": {
 					"description": "BatchCode for batch operations.",
@@ -11228,13 +11762,15 @@
 				"taxDate": {
 					"format": "date-time",
 					"description": "Indicates the tax effectivity override date for the entire document.",
-					"type": "string"
+					"type": "string",
+					"example": "2016-09-26T00:00:00-07:00"
 				},
 				"currencyCode": {
 					"description": "3 character ISO 4217 currency code.",
 					"maxLength": 3,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "USD"
 				},
 				"serviceMode": {
 					"description": "Specifies whether the tax calculation is handled Local, Remote, or Automatic (default)",
@@ -11273,7 +11809,8 @@
 					"description": "Description",
 					"maxLength": 2048,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Yarn"
 				},
 				"email": {
 					"description": "Email",
@@ -11293,17 +11830,20 @@
 					"description": "Line number within this document",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "1"
 				},
 				"quantity": {
 					"format": "double",
 					"description": "Quantity of items in this line",
-					"type": "number"
+					"type": "number",
+					"example": 1.0
 				},
 				"amount": {
 					"format": "double",
 					"description": "Total amount for this line",
-					"type": "number"
+					"type": "number",
+					"example": 100.0
 				},
 				"addresses": {
 					"description": "Specify any differences for addresses between this line and the rest of the document",
@@ -11330,7 +11870,8 @@
 					"description": "Tax Code - System or Custom Tax Code.",
 					"maxLength": 25,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "PS081282"
 				},
 				"customerUsageType": {
 					"description": "Customer Usage Type - The client application customer or usage type.",
@@ -11342,7 +11883,8 @@
 					"description": "Item Code (SKU)",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Y0001"
 				},
 				"exemptionCode": {
 					"description": "Exemption number for this line",
@@ -11378,7 +11920,8 @@
 					"description": "Item description.  This is required for SST transactions if an unmapped ItemCode is used.",
 					"maxLength": 2096,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "Yarn"
 				},
 				"businessIdentificationNo": {
 					"description": "BusinessIdentificationNo",
@@ -11404,21 +11947,25 @@
 					"TaxDate",
 					"AccruedTaxAmount",
 					"DeriveTaxable"],
-					"type": "string"
+					"type": "string",
+					"example": 1
 				},
 				"taxAmount": {
 					"format": "double",
 					"description": "Indicates a total override of the calculated tax on the document.  AvaTax will distribute\r\n                the override across all the lines.",
-					"type": "number"
+					"type": "number",
+					"example": 6.25
 				},
 				"taxDate": {
 					"format": "date-time",
 					"description": "The override tax date to use",
-					"type": "string"
+					"type": "string",
+					"example": "2016-09-26T00:00:00-07:00"
 				},
 				"reason": {
 					"description": "This provides the reason for a tax override for audit purposes.  It is required for types 2-4.",
-					"type": "string"
+					"type": "string",
+					"example": "Precalculated Tax"
 				}
 			}
 		},
@@ -11433,7 +11980,8 @@
 					"DocDeleted",
 					"DocVoided",
 					"AdjustmentCancelled"],
-					"type": "string"
+					"type": "string",
+					"example": 3
 				}
 			}
 		},
@@ -11443,15 +11991,26 @@
 			"properties": {
 				"verify": {
 					"$ref": "#/definitions/VerifyTransactionModel",
-					"description": "To use the \"Settle\" endpoint to verify a transaction, fill out this value."
+					"description": "To use the \"Settle\" endpoint to verify a transaction, fill out this value.",
+					"example": {
+						"verifyTransactionDate": "2016-09-26T00:00:00-07:00",
+						"verifyTotalAmount": 100.0,
+						"verifyTotalTax": 6.25
+					}
 				},
 				"changeCode": {
 					"$ref": "#/definitions/ChangeTransactionCodeModel",
-					"description": "To use the \"Settle\" endpoint to change a transaction's code, fill out this value."
+					"description": "To use the \"Settle\" endpoint to change a transaction's code, fill out this value.",
+					"example": {
+						"newCode": "324e6313-94d7-46c1-a08e-a4c103bc5ca1"
+					}
 				},
 				"commit": {
 					"$ref": "#/definitions/CommitTransactionModel",
-					"description": "To use the \"Settle\" endpoint to commit a transaction for reporting purposes, fill out this value.\r\n                If you use Avalara Returns, committing a transaction will cause that transaction to be filed."
+					"description": "To use the \"Settle\" endpoint to commit a transaction for reporting purposes, fill out this value.\r\n                If you use Avalara Returns, committing a transaction will cause that transaction to be filed.",
+					"example": {
+						"commit": true
+					}
 				}
 			}
 		},
@@ -11462,17 +12021,20 @@
 				"verifyTransactionDate": {
 					"format": "date-time",
 					"description": "Transaction Date - The date on the invoice, purchase order, etc.",
-					"type": "string"
+					"type": "string",
+					"example": "2016-09-26T00:00:00-07:00"
 				},
 				"verifyTotalAmount": {
 					"format": "double",
 					"description": "Total Amount - The total amount (not including tax) for the document.",
-					"type": "number"
+					"type": "number",
+					"example": 100.0
 				},
 				"verifyTotalTax": {
 					"format": "double",
 					"description": "Total Tax - The total tax for the document.",
-					"type": "number"
+					"type": "number",
+					"example": 6.25
 				}
 			}
 		},
@@ -11485,7 +12047,8 @@
 					"description": "To change the transaction code for this transaction, specify the new transaction code here.",
 					"maxLength": 50,
 					"minLength": 0,
-					"type": "string"
+					"type": "string",
+					"example": "9a634661-c648-486b-9c14-aa9d705a6a5e"
 				}
 			}
 		},
@@ -11495,7 +12058,8 @@
 			"properties": {
 				"commit": {
 					"description": "Set this value to be true to commit this transaction.\r\n            Committing a transaction allows it to be reported on a tax return.  Uncommitted transactions will not be reported.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				}
 			}
 		},
@@ -11552,7 +12116,11 @@
 					"type": "array",
 					"items": {
 						"type": "string"
-					}
+					},
+					"example": ["CompanyFetch",
+					"CompanySave",
+					"NexusFetch",
+					"NexusSave"]
 				},
 				"accessLevel": {
 					"description": "What access privileges does the current user have to see companies?",
@@ -11560,7 +12128,8 @@
 					"SingleCompany",
 					"SingleAccount",
 					"AllCompanies"],
-					"type": "string"
+					"type": "string",
+					"example": 2
 				},
 				"companies": {
 					"description": "The identities of all companies this user is permitted to access",
@@ -11568,7 +12137,10 @@
 					"items": {
 						"format": "int32",
 						"type": "integer"
-					}
+					},
+					"example": [123,
+					456,
+					789]
 				}
 			}
 		},
@@ -11578,11 +12150,13 @@
 			"properties": {
 				"version": {
 					"description": "Version number",
-					"type": "string"
+					"type": "string",
+					"example": "1.0.0.0"
 				},
 				"authenticated": {
 					"description": "Returns true if you provided authentication for this API call; false if you did not.",
-					"type": "boolean"
+					"type": "boolean",
+					"example": true
 				},
 				"authenticationType": {
 					"description": "Returns the type of authentication you provided, if authenticated",
@@ -11590,11 +12164,13 @@
 					"UsernamePassword",
 					"AccountIdLicenseKey",
 					"OpenIdBearerToken"],
-					"type": "string"
+					"type": "string",
+					"example": 1
 				},
 				"authenticatedUserName": {
 					"description": "The username of the currently authenticated user, if any.",
-					"type": "string"
+					"type": "string",
+					"example": "TestUser"
 				}
 			}
 		}
