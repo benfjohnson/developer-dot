@@ -18,7 +18,7 @@ You attempted to create a nexus in a tax authority that is underneath a parent t
       "details": [
         {
           "code": "ParentNexusNotFound",
-          "number": 0,
+          "number": 146,
           "message": "To declare nexus here, you must also declare nexus for -0-.",
           "description": "Nexus without parent: Country: -1-, Region: -2-, JurisTypeId: -3-",
           "faultCode": "Client",

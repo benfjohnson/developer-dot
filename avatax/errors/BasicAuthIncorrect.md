@@ -18,7 +18,7 @@ Your Basic authorization header was not encoded correctly.
       "details": [
         {
           "code": "BasicAuthIncorrect",
-          "number": 0,
+          "number": 35,
           "message": "The Basic header must be in the format 'Basic (Base64Encoded(value))' where Value is either 'username' + ':' + 'password' or 'accountid' + ':' + 'licensekey'.",
           "description": "-0-",
           "faultCode": "Client",

@@ -18,7 +18,7 @@ This message represents information provided about an object that was deleted.
       "details": [
         {
           "code": "DeleteInformation",
-          "number": 0,
+          "number": 100,
           "message": "-0- -2- was deleted.",
           "description": "The -0- -2- (#-1-) had an active flag of -3- before deletion.",
           "faultCode": "Client",

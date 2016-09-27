@@ -18,9 +18,8 @@ One of the fields designated in your object model was null, but a string value i
       "details": [
         {
           "code": "StringValueRequiredError",
-          "number": 0,
+          "number": 14,
           "message": "Field -0- is required.",
-          "description": "",
           "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/StringValueRequiredError",
           "severity": "Error"

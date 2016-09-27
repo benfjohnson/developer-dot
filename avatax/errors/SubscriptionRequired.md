@@ -18,7 +18,7 @@ This Avalara API call requires an active subscription to a specific service.
       "details": [
         {
           "code": "SubscriptionRequired",
-          "number": 0,
+          "number": 600,
           "message": "This API requires a subscription to '-0-'.",
           "description": "Your subscription may not be in effect or it may have expired.",
           "faultCode": "Client",

@@ -18,9 +18,8 @@ Compressed files uploaded to the Batch service must contain exactly one file.
       "details": [
         {
           "code": "BatchZipMustContainOneFileError",
-          "number": 0,
+          "number": 201,
           "message": "The zip file -0- did not contain exactly one file.",
-          "description": "",
           "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/BatchZipMustContainOneFileError",
           "severity": "Error"

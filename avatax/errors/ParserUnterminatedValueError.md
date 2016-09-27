@@ -18,7 +18,7 @@ You attempted to retrieve data with a "$filter" parameter that contained syntax 
       "details": [
         {
           "code": "ParserUnterminatedValueError",
-          "number": 0,
+          "number": 21,
           "message": "The filter contained a string value that was not properly terminated.",
           "description": "-0-",
           "faultCode": "Client",

@@ -18,9 +18,8 @@ Your UPC code contains invalid characters.
       "details": [
         {
           "code": "UPCCodeInvalidChars",
-          "number": 0,
+          "number": 137,
           "message": "A UPC, EAN or GTIN code may only contain the digits 0 through 9.",
-          "description": "",
           "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/UPCCodeInvalidChars",
           "severity": "Error"

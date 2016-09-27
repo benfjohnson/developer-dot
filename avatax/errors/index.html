@@ -3,86 +3,399 @@ layout: page
 title: AvaTax REST v2 Error Codes
 ---
 
-<h2>AvaTax REST Error Codes</h2>
-<ul>
-    <li><a href="/avatax/errors/ServerConfiguration">1 - ServerConfiguration</a></li>
-    <li><a href="/avatax/errors/EntityNotFoundError">4 - EntityNotFoundError</a></li>
-    <li><a href="/avatax/errors/ValueRequiredError">5 - ValueRequiredError</a></li>
-    <li><a href="/avatax/errors/RangeError">6 - RangeError</a></li>
-    <li><a href="/avatax/errors/RangeCompareError">7 - RangeCompareError</a></li>
-    <li><a href="/avatax/errors/RangeSetError">8 - RangeSetError</a></li>
-    <li><a href="/avatax/errors/PasswordError">10 - PasswordError</a></li>
-    <li><a href="/avatax/errors/PasswordMinLengthError">11 - PasswordMinLengthError</a></li>
-    <li><a href="/avatax/errors/PasswordMinComplexityError">12 - PasswordMinComplexityError</a></li>
-    <li><a href="/avatax/errors/StringLengthError">13 - StringLengthError</a></li>
-    <li><a href="/avatax/errors/StringValueRequiredError">14 - StringValueRequiredError</a></li>
-    <li><a href="/avatax/errors/EmailValidationError">15 - EmailValidationError</a></li>
-    <li><a href="/avatax/errors/EmailMissingError">16 - EmailMissingError</a></li>
-    <li><a href="/avatax/errors/ParserFieldNameError">17 - ParserFieldNameError</a></li>
-    <li><a href="/avatax/errors/ParserFieldValueError">18 - ParserFieldValueError</a></li>
-    <li><a href="/avatax/errors/ParserSyntaxError">19 - ParserSyntaxError</a></li>
-    <li><a href="/avatax/errors/ParserTooManyParametersError">20 - ParserTooManyParametersError</a></li>
-    <li><a href="/avatax/errors/ParserUnterminatedValueError">21 - ParserUnterminatedValueError</a></li>
-    <li><a href="/avatax/errors/DeleteUserSelfError">22 - DeleteUserSelfError</a></li>
-    <li><a href="/avatax/errors/OldPasswordInvalid">23 - OldPasswordInvalid</a></li>
-    <li><a href="/avatax/errors/CannotChangePassword">24 - CannotChangePassword</a></li>
-    <li><a href="/avatax/errors/CannotChangeCompanyCode">25 - CannotChangeCompanyCode</a></li>
-    <li><a href="/avatax/errors/CannotChangeEntityNo">26 - CannotChangeEntityNo</a></li>
-    <li><a href="/avatax/errors/AuthenticationException">30 - AuthenticationException</a></li>
-    <li><a href="/avatax/errors/AuthorizationException">31 - AuthorizationException</a></li>
-    <li><a href="/avatax/errors/ValidationException">32 - ValidationException</a></li>
-    <li><a href="/avatax/errors/InactiveUserError">33 - InactiveUserError</a></li>
-    <li><a href="/avatax/errors/AuthenticationIncomplete">34 - AuthenticationIncomplete</a></li>
-    <li><a href="/avatax/errors/BasicAuthIncorrect">35 - BasicAuthIncorrect</a></li>
-    <li><a href="/avatax/errors/IdentityServerError">36 - IdentityServerError</a></li>
-    <li><a href="/avatax/errors/BearerTokenInvalid">37 - BearerTokenInvalid</a></li>
-    <li><a href="/avatax/errors/ModelRequiredException">38 - ModelRequiredException</a></li>
-    <li><a href="/avatax/errors/AccountExpiredException">39 - AccountExpiredException</a></li>
-    <li><a href="/avatax/errors/VisibilityError">40 - VisibilityError</a></li>
-    <li><a href="/avatax/errors/UnhandledException">50 - UnhandledException</a></li>
-    <li><a href="/avatax/errors/ReportingCompanyMustHaveContactsError">60 - ReportingCompanyMustHaveContactsError</a></li>
-    <li><a href="/avatax/errors/CompanyProfileNotSet">61 - CompanyProfileNotSet</a></li>
-    <li><a href="/avatax/errors/ModelStateInvalid">70 - ModelStateInvalid</a></li>
-    <li><a href="/avatax/errors/DateRangeError">80 - DateRangeError</a></li>
-    <li><a href="/avatax/errors/InvalidDateRangeError">81 - InvalidDateRangeError</a></li>
-    <li><a href="/avatax/errors/DeleteInformation">100 - DeleteInformation</a></li>
-    <li><a href="/avatax/errors/DeletedObjectsCannotBeChangedError">110 - DeletedObjectsCannotBeChangedError</a></li>
-    <li><a href="/avatax/errors/CannotCreateDeletedObjects">120 - CannotCreateDeletedObjects</a></li>
-    <li><a href="/avatax/errors/CannotModifyDeletedObjects">121 - CannotModifyDeletedObjects</a></li>
-    <li><a href="/avatax/errors/ReturnNameNotFound">122 - ReturnNameNotFound</a></li>
-    <li><a href="/avatax/errors/InvalidAddressTypeAndCategory">123 - InvalidAddressTypeAndCategory</a></li>
-    <li><a href="/avatax/errors/DefaultCompanyLocation">124 - DefaultCompanyLocation</a></li>
-    <li><a href="/avatax/errors/InvalidCountry">125 - InvalidCountry</a></li>
-    <li><a href="/avatax/errors/InvalidCountryRegion">126 - InvalidCountryRegion</a></li>
-    <li><a href="/avatax/errors/BrazilValidationError">127 - BrazilValidationError</a></li>
-    <li><a href="/avatax/errors/BrazilExemptValidationError">128 - BrazilExemptValidationError</a></li>
-    <li><a href="/avatax/errors/BrazilPisCofinsError">129 - BrazilPisCofinsError</a></li>
-    <li><a href="/avatax/errors/JurisdictionNotFoundError">130 - JurisdictionNotFoundError</a></li>
-    <li><a href="/avatax/errors/MedicalExciseError">131 - MedicalExciseError</a></li>
-    <li><a href="/avatax/errors/RateDependsTaxabilityError">132 - RateDependsTaxabilityError</a></li>
-    <li><a href="/avatax/errors/RateDependsEuropeError">133 - RateDependsEuropeError</a></li>
-    <li><a href="/avatax/errors/RateTypeNotSupported">135 - RateTypeNotSupported</a></li>
-    <li><a href="/avatax/errors/CannotUpdateNestedObjects">136 - CannotUpdateNestedObjects</a></li>
-    <li><a href="/avatax/errors/UPCCodeInvalidChars">137 - UPCCodeInvalidChars</a></li>
-    <li><a href="/avatax/errors/UPCCodeInvalidLength">138 - UPCCodeInvalidLength</a></li>
-    <li><a href="/avatax/errors/IncorrectPathError">139 - IncorrectPathError</a></li>
-    <li><a href="/avatax/errors/InvalidJurisdictionType">140 - InvalidJurisdictionType</a></li>
-    <li><a href="/avatax/errors/MustConfirmResetLicenseKey">141 - MustConfirmResetLicenseKey</a></li>
-    <li><a href="/avatax/errors/DuplicateCompanyCode">142 - DuplicateCompanyCode</a></li>
-    <li><a href="/avatax/errors/TINFormatError">143 - TINFormatError</a></li>
-    <li><a href="/avatax/errors/DuplicateNexusError">144 - DuplicateNexusError</a></li>
-    <li><a href="/avatax/errors/UnknownNexusError">145 - UnknownNexusError</a></li>
-    <li><a href="/avatax/errors/ParentNexusNotFound">146 - ParentNexusNotFound</a></li>
-    <li><a href="/avatax/errors/InvalidTaxCodeType">147 - InvalidTaxCodeType</a></li>
-    <li><a href="/avatax/errors/BatchSalesAuditMustBeZippedError">200 - BatchSalesAuditMustBeZippedError</a></li>
-    <li><a href="/avatax/errors/BatchZipMustContainOneFileError">201 - BatchZipMustContainOneFileError</a></li>
-    <li><a href="/avatax/errors/BatchInvalidFileTypeError">202 - BatchInvalidFileTypeError</a></li>
-    <li><a href="/avatax/errors/GetTaxError">300 - GetTaxError</a></li>
-    <li><a href="/avatax/errors/AddressConflictException">301 - AddressConflictException</a></li>
-    <li><a href="/avatax/errors/DocumentCodeConflict">303 - DocumentCodeConflict</a></li>
-    <li><a href="/avatax/errors/MissingAddress">304 - MissingAddress</a></li>
-    <li><a href="/avatax/errors/BadDocumentFetch">400 - BadDocumentFetch</a></li>
-    <li><a href="/avatax/errors/DocumentSaveNotAllowed">401 - DocumentSaveNotAllowed</a></li>
-    <li><a href="/avatax/errors/ServerUnreachable">500 - ServerUnreachable</a></li>
-    <li><a href="/avatax/errors/SubscriptionRequired">600 - SubscriptionRequired</a></li>
-</ul>
+<h2>AvaTax REST v2 Error Codes</h2>
+<table class="styled-table">
+	<thead>
+		<tr>
+			<th valign = "top" width="75">Number</th>
+			<th valign = "top" width="168">Message</th>
+			<th valign = "top" width="245">Summary</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+        <tr>
+			<td>1</td>
+			<td><a href="ServerConfiguration">ServerConfiguration</a></td>
+			<td>Indicates that there is a server configuration problem with one of the servers in Avalara's AvaTax cluster.</td>
+		</tr>		
+        <tr>
+			<td>4</td>
+			<td><a href="EntityNotFoundError">EntityNotFoundError</a></td>
+			<td>You attempted to act on, retrieve, update, or delete an object that does not exist.</td>
+		</tr>		
+        <tr>
+			<td>5</td>
+			<td><a href="ValueRequiredError">ValueRequiredError</a></td>
+			<td>You submitted a request and did not provide a value in a required field.</td>
+		</tr>		
+        <tr>
+			<td>6</td>
+			<td><a href="RangeError">RangeError</a></td>
+			<td>You attempted to set a value that must be within a range, but your value was outside of the range.</td>
+		</tr>		
+        <tr>
+			<td>7</td>
+			<td><a href="RangeCompareError">RangeCompareError</a></td>
+			<td>You specified an out-of-bounds field value.</td>
+		</tr>		
+        <tr>
+			<td>8</td>
+			<td><a href="RangeSetError">RangeSetError</a></td>
+			<td>You attempted to set a value that was not permitted.</td>
+		</tr>		
+        <tr>
+			<td>12</td>
+			<td><a href="PasswordMinComplexityError">PasswordMinComplexityError</a></td>
+			<td>This password does not meet the complexity requirements set by AvaTax.</td>
+		</tr>		
+        <tr>
+			<td>13</td>
+			<td><a href="StringLengthError">StringLengthError</a></td>
+			<td>One of the strings you uploaded to the server is too long and cannot be saved.</td>
+		</tr>		
+        <tr>
+			<td>14</td>
+			<td><a href="StringValueRequiredError">StringValueRequiredError</a></td>
+			<td>One of the fields designated in your object model was null, but a string value is required.</td>
+		</tr>		
+        <tr>
+			<td>15</td>
+			<td><a href="EmailValidationError">EmailValidationError</a></td>
+			<td>You attempted to provide an email address that does not conform to email address standards.</td>
+		</tr>		
+        <tr>
+			<td>16</td>
+			<td><a href="EmailMissingError">EmailMissingError</a></td>
+			<td>You must provide an email address with this request.</td>
+		</tr>		
+        <tr>
+			<td>17</td>
+			<td><a href="ParserFieldNameError">ParserFieldNameError</a></td>
+			<td>You attempted to search on a field that does not exist or cannot be searched.</td>
+		</tr>		
+        <tr>
+			<td>18</td>
+			<td><a href="ParserFieldValueError">ParserFieldValueError</a></td>
+			<td>You attempted to search for a value that is not a correct value type.</td>
+		</tr>		
+        <tr>
+			<td>19</td>
+			<td><a href="ParserSyntaxError">ParserSyntaxError</a></td>
+			<td>You provided an unrecognized string or token in the "$filter" parameter of your fetch request.</td>
+		</tr>		
+        <tr>
+			<td>20</td>
+			<td><a href="ParserTooManyParametersError">ParserTooManyParametersError</a></td>
+			<td>You attempted a fetch call that included too many parameters.</td>
+		</tr>		
+        <tr>
+			<td>21</td>
+			<td><a href="ParserUnterminatedValueError">ParserUnterminatedValueError</a></td>
+			<td>You attempted to retrieve data with a "$filter" parameter that contained syntax errors.</td>
+		</tr>		
+        <tr>
+			<td>22</td>
+			<td><a href="DeleteUserSelfError">DeleteUserSelfError</a></td>
+			<td>A user account may not call DELETE on the user itself.</td>
+		</tr>		
+        <tr>
+			<td>23</td>
+			<td><a href="OldPasswordInvalid">OldPasswordInvalid</a></td>
+			<td>You attempted to reset a password but you did not provide a correct old password value.</td>
+		</tr>		
+        <tr>
+			<td>24</td>
+			<td><a href="CannotChangePassword">CannotChangePassword</a></td>
+			<td>You attempted to change passwords for a user who is not permitted to change their password.</td>
+		</tr>		
+        <tr>
+			<td>25</td>
+			<td><a href="CannotChangeCompanyCode">CannotChangeCompanyCode</a></td>
+			<td>The company code for a company is set when the company is created and may not be changed.</td>
+		</tr>		
+        <tr>
+			<td>30</td>
+			<td><a href="AuthenticationException">AuthenticationException</a></td>
+			<td>The credentials you provided to AvaTax could not be validated.</td>
+		</tr>		
+        <tr>
+			<td>31</td>
+			<td><a href="AuthorizationException">AuthorizationException</a></td>
+			<td>Your account is not authorized to call this API.</td>
+		</tr>		
+        <tr>
+			<td>32</td>
+			<td><a href="ValidationException">ValidationException</a></td>
+			<td>Your API call contained an incorrectly structured object.</td>
+		</tr>		
+        <tr>
+			<td>33</td>
+			<td><a href="InactiveUserError">InactiveUserError</a></td>
+			<td>This user account is currently inactive.</td>
+		</tr>		
+        <tr>
+			<td>34</td>
+			<td><a href="AuthenticationIncomplete">AuthenticationIncomplete</a></td>
+			<td>Your API call did not contain authentication information.</td>
+		</tr>		
+        <tr>
+			<td>35</td>
+			<td><a href="BasicAuthIncorrect">BasicAuthIncorrect</a></td>
+			<td>Your Basic authorization header was not encoded correctly.</td>
+		</tr>		
+        <tr>
+			<td>36</td>
+			<td><a href="IdentityServerError">IdentityServerError</a></td>
+			<td>A problem was detected with Avalara Identity.</td>
+		</tr>		
+        <tr>
+			<td>37</td>
+			<td><a href="BearerTokenInvalid">BearerTokenInvalid</a></td>
+			<td>The Bearer Token that you used for authentication was not valid.</td>
+		</tr>		
+        <tr>
+			<td>38</td>
+			<td><a href="ModelRequiredException">ModelRequiredException</a></td>
+			<td>You called an API that requires an object, but you did not provide an object.</td>
+		</tr>		
+        <tr>
+			<td>39</td>
+			<td><a href="AccountExpiredException">AccountExpiredException</a></td>
+			<td>Your AvaTax account has expired, or is not yet enabled.  You may need to contact your customer account manager for assistance.</td>
+		</tr>		
+        <tr>
+			<td>40</td>
+			<td><a href="VisibilityError">VisibilityError</a></td>
+			<td>You attempted to request an object from AvaTax that you are not permitted to see.</td>
+		</tr>		
+        <tr>
+			<td>50</td>
+			<td><a href="UnhandledException">UnhandledException</a></td>
+			<td>The API you attempted to call resulted in an unhandled exception within Avalara AvaTax.</td>
+		</tr>		
+        <tr>
+			<td>60</td>
+			<td><a href="ReportingCompanyMustHaveContactsError">ReportingCompanyMustHaveContactsError</a></td>
+			<td>A company that is designated to report taxes must have at least one designated contact person.</td>
+		</tr>		
+        <tr>
+			<td>61</td>
+			<td><a href="CompanyProfileNotSet">CompanyProfileNotSet</a></td>
+			<td>This error occurs when you try to modify the tax profile of a company that inherits its tax profile from its parent.</td>
+		</tr>		
+        <tr>
+			<td>70</td>
+			<td><a href="ModelStateInvalid">ModelStateInvalid</a></td>
+			<td>You provided an incorrectly structured object to AvaTax.</td>
+		</tr>		
+        <tr>
+			<td>80</td>
+			<td><a href="DateRangeError">DateRangeError</a></td>
+			<td>This error occurs when you create an object whose end date is before its effective date.</td>
+		</tr>		
+        <tr>
+			<td>81</td>
+			<td><a href="InvalidDateRangeError">InvalidDateRangeError</a></td>
+			<td>You specified a date outside of the allowable range.</td>
+		</tr>		
+        <tr>
+			<td>100</td>
+			<td><a href="DeleteInformation">DeleteInformation</a></td>
+			<td>This message represents information provided about an object that was deleted.</td>
+		</tr>		
+        <tr>
+			<td>120</td>
+			<td><a href="CannotCreateDeletedObjects">CannotCreateDeletedObjects</a></td>
+			<td>You may not create an object with a "Deleted" flag.</td>
+		</tr>		
+        <tr>
+			<td>121</td>
+			<td><a href="CannotModifyDeletedObjects">CannotModifyDeletedObjects</a></td>
+			<td>If an object has been deleted, you may not modify it further after its deletion.</td>
+		</tr>		
+        <tr>
+			<td>122</td>
+			<td><a href="ReturnNameNotFound">ReturnNameNotFound</a></td>
+			<td>You attempted to create a filing calendar for a return that is not recognized by AvaTax.</td>
+		</tr>		
+        <tr>
+			<td>123</td>
+			<td><a href="InvalidAddressTypeAndCategory">InvalidAddressTypeAndCategory</a></td>
+			<td>When creating a location, you must specify a compatible AddressType and AddressCategory value.</td>
+		</tr>		
+        <tr>
+			<td>124</td>
+			<td><a href="DefaultCompanyLocation">DefaultCompanyLocation</a></td>
+			<td>The default location for a company must be a physical-type location rather than a salesperson-type location.</td>
+		</tr>		
+        <tr>
+			<td>125</td>
+			<td><a href="InvalidCountry">InvalidCountry</a></td>
+			<td>The country code you provided is not recognized as a valid ISO 3166 country code.</td>
+		</tr>		
+        <tr>
+			<td>126</td>
+			<td><a href="InvalidCountryRegion">InvalidCountryRegion</a></td>
+			<td>You specified a country/region that was not recognized by the ISO 3166 country/region code system.</td>
+		</tr>		
+        <tr>
+			<td>127</td>
+			<td><a href="BrazilValidationError">BrazilValidationError</a></td>
+			<td>Reserved for future use.</td>
+		</tr>		
+        <tr>
+			<td>128</td>
+			<td><a href="BrazilExemptValidationError">BrazilExemptValidationError</a></td>
+			<td>Reserved for future use.</td>
+		</tr>		
+        <tr>
+			<td>129</td>
+			<td><a href="BrazilPisCofinsError">BrazilPisCofinsError</a></td>
+			<td>Reserved for future use.</td>
+		</tr>		
+        <tr>
+			<td>130</td>
+			<td><a href="JurisdictionNotFoundError">JurisdictionNotFoundError</a></td>
+			<td>The specified jurisdiction could not be found.</td>
+		</tr>		
+        <tr>
+			<td>131</td>
+			<td><a href="MedicalExciseError">MedicalExciseError</a></td>
+			<td>You attempted to create a tax rule that designated a device as medical excise tax for an incorrect jurisdiction.</td>
+		</tr>		
+        <tr>
+			<td>132</td>
+			<td><a href="RateDependsTaxabilityError">RateDependsTaxabilityError</a></td>
+			<td>You created a tax rule with a RateDepends option, but that rule is not a TaxabilityRule.</td>
+		</tr>		
+        <tr>
+			<td>133</td>
+			<td><a href="RateDependsEuropeError">RateDependsEuropeError</a></td>
+			<td>The RateDepends option is only valid for countries in the European Union.</td>
+		</tr>		
+        <tr>
+			<td>135</td>
+			<td><a href="RateTypeNotSupported">RateTypeNotSupported</a></td>
+			<td>You attempted to choose a rate type that is not supported for the country you selected.</td>
+		</tr>		
+        <tr>
+			<td>136</td>
+			<td><a href="CannotUpdateNestedObjects">CannotUpdateNestedObjects</a></td>
+			<td>In AvaTax REST, you can create objects with nested children, but you cannot update objects with nested children.</td>
+		</tr>		
+        <tr>
+			<td>137</td>
+			<td><a href="UPCCodeInvalidChars">UPCCodeInvalidChars</a></td>
+			<td>Your UPC code contains invalid characters.</td>
+		</tr>		
+        <tr>
+			<td>138</td>
+			<td><a href="UPCCodeInvalidLength">UPCCodeInvalidLength</a></td>
+			<td>Your UPC code was too long to fit into the standard UPC object field.</td>
+		</tr>		
+        <tr>
+			<td>139</td>
+			<td><a href="IncorrectPathError">IncorrectPathError</a></td>
+			<td>You attempted to modify an object but you provided an object that matches a different URL.</td>
+		</tr>		
+        <tr>
+			<td>140</td>
+			<td><a href="InvalidJurisdictionType">InvalidJurisdictionType</a></td>
+			<td>You specified a jurisdiction type that is not recognized.</td>
+		</tr>		
+        <tr>
+			<td>141</td>
+			<td><a href="MustConfirmResetLicenseKey">MustConfirmResetLicenseKey</a></td>
+			<td>When resetting a license key for your account, you must provide a flag that indicates that you really want to reset your license key.</td>
+		</tr>		
+        <tr>
+			<td>142</td>
+			<td><a href="DuplicateCompanyCode">DuplicateCompanyCode</a></td>
+			<td>You cannot create two companies with the same company code.</td>
+		</tr>		
+        <tr>
+			<td>143</td>
+			<td><a href="TINFormatError">TINFormatError</a></td>
+			<td>The U.S. Taxpayer Identification Number you provided is not in a recognized format.</td>
+		</tr>		
+        <tr>
+			<td>144</td>
+			<td><a href="DuplicateNexusError">DuplicateNexusError</a></td>
+			<td>Nexus is a concept used to declare that your business is subject to taxation by a particular jurisdiction; you may not declare any one jurisdiction more than once.</td>
+		</tr>		
+        <tr>
+			<td>145</td>
+			<td><a href="UnknownNexusError">UnknownNexusError</a></td>
+			<td>You attempted to declare nexus in a jurisdiction that is not recognized by AvaTax.</td>
+		</tr>		
+        <tr>
+			<td>146</td>
+			<td><a href="ParentNexusNotFound">ParentNexusNotFound</a></td>
+			<td>You attempted to create a nexus in a tax authority that is underneath a parent tax authority, but you have not yet declared nexus with the parent tax authority.</td>
+		</tr>		
+        <tr>
+			<td>147</td>
+			<td><a href="InvalidTaxCodeType">InvalidTaxCodeType</a></td>
+			<td>You specified a tax code type that is not recognized by Avalara.</td>
+		</tr>		
+        <tr>
+			<td>200</td>
+			<td><a href="BatchSalesAuditMustBeZippedError">BatchSalesAuditMustBeZippedError</a></td>
+			<td>Sales audit files must be uploaded in ZIP or RAR formats.</td>
+		</tr>		
+        <tr>
+			<td>201</td>
+			<td><a href="BatchZipMustContainOneFileError">BatchZipMustContainOneFileError</a></td>
+			<td>Compressed files uploaded to the Batch service must contain exactly one file.</td>
+		</tr>		
+        <tr>
+			<td>202</td>
+			<td><a href="BatchInvalidFileTypeError">BatchInvalidFileTypeError</a></td>
+			<td>You uploaded a batch file with an incorrect file type.</td>
+		</tr>		
+        <tr>
+			<td>300</td>
+			<td><a href="GetTaxError">GetTaxError</a></td>
+			<td>A problem occurred when you attempted to create a transaction through AvaTax.</td>
+		</tr>		
+        <tr>
+			<td>301</td>
+			<td><a href="AddressConflictException">AddressConflictException</a></td>
+			<td>You attempted to add multiple addresses to a transaction that was flagged as a single-address transaction.</td>
+		</tr>		
+        <tr>
+			<td>303</td>
+			<td><a href="DocumentCodeConflict">DocumentCodeConflict</a></td>
+			<td>You attempted to create a document with a code that matches an existing transaction.</td>
+		</tr>		
+        <tr>
+			<td>304</td>
+			<td><a href="MissingAddress">MissingAddress</a></td>
+			<td>When creating transactions, you must at a minimum provide an origin and destination address.</td>
+		</tr>		
+        <tr>
+			<td>305</td>
+			<td><a href="InvalidParameter">InvalidParameter</a></td>
+			<td>When adding parameters to your CreateTransactionModel, you must use a valid parameter name.</td>
+		</tr>		
+        <tr>
+			<td>306</td>
+			<td><a href="InvalidParameterValue">InvalidParameterValue</a></td>
+			<td>When adding parameters to your CreateTransactionModel, you must specify a parameter of the correct type.</td>
+		</tr>		
+        <tr>
+			<td>400</td>
+			<td><a href="BadDocumentFetch">BadDocumentFetch</a></td>
+			<td>This error indicates that you have provided an incorrect "$include" value to the GET /api/v2/companies/{0}/transactions endpoint.</td>
+		</tr>		
+        <tr>
+			<td>500</td>
+			<td><a href="ServerUnreachable">ServerUnreachable</a></td>
+			<td>One of the servers in the Avalara AvaTax API cluster is unreachable and your API call could not be completed.</td>
+		</tr>		
+        <tr>
+			<td>600</td>
+			<td><a href="SubscriptionRequired">SubscriptionRequired</a></td>
+			<td>This Avalara API call requires an active subscription to a specific service.</td>
+		</tr></tbody></table>

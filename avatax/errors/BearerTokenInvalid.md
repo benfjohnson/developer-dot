@@ -18,7 +18,7 @@ The Bearer Token that you used for authentication was not valid.
       "details": [
         {
           "code": "BearerTokenInvalid",
-          "number": 0,
+          "number": 37,
           "message": "The Bearer token you provided was not recognized by Avalara Identity.",
           "description": "If you have received a bearer token from Avalara Identity, this token may have expired.  Please contact Avalara Identity and request a refreshed token.",
           "faultCode": "Client",

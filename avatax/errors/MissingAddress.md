@@ -18,7 +18,7 @@ When creating transactions, you must at a minimum provide an origin and destinat
       "details": [
         {
           "code": "MissingAddress",
-          "number": 0,
+          "number": 304,
           "message": "Transactions must have both an origin and destination address.",
           "description": "Each line on a transaction must have both an origin and destination address.  You must either assign a 'SingleLocation' address or both a 'ShipFrom' and a 'ShipTo' address.",
           "faultCode": "Client",

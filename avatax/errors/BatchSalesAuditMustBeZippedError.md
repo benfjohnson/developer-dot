@@ -18,9 +18,8 @@ Sales audit files must be uploaded in ZIP or RAR formats.
       "details": [
         {
           "code": "BatchSalesAuditMustBeZippedError",
-          "number": 0,
+          "number": 200,
           "message": "SalesAuditExport needs a zipped file with an extension of '.ZIP' or '.RAR'.  Your file had the extension '-0-'.",
-          "description": "",
           "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/BatchSalesAuditMustBeZippedError",
           "severity": "Error"

@@ -18,7 +18,7 @@ Your API call did not contain authentication information.
       "details": [
         {
           "code": "AuthenticationIncomplete",
-          "number": 0,
+          "number": 34,
           "message": "You must provide an Authorization header of the type Basic or Bearer to authenticate correctly.",
           "description": "-0-",
           "faultCode": "Client",

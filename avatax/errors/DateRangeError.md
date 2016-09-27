@@ -18,7 +18,7 @@ This error occurs when you create an object whose end date is before its effecti
       "details": [
         {
           "code": "DateRangeError",
-          "number": 0,
+          "number": 80,
           "message": "An invalid date range was provided.",
           "description": "The effective date, -0-, is later than the end date, -1-.",
           "faultCode": "Client",

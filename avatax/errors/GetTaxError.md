@@ -19,8 +19,7 @@ A problem occurred when you attempted to create a transaction through AvaTax.
         {
           "code": "GetTaxError",
           "number": 300,
-          "message": "",
-          "description": "-0-, -1-, -2-, -3-, -4-, -5-, -6-, -7-, -8-, -9-",
+          "faultCode": "Server",
           "helpLink": "http://developer.avalara.com/avatax/errors/GetTaxError",
           "severity": "Error"
         }
