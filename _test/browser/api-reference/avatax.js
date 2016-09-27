@@ -24,125 +24,12 @@ module.exports = {
             .end();
     },
     'API Reference: AvaTax: REST v1 (getTax fill sample data)': function(browser) {
-        const expectedRequest = {
-            Commit: 'false',
-            Client: 'AvaTaxSample',
-            CompanyCode: 'APITrialCompany',
-            CustomerCode: 'ABC4335',
-            DocCode: 'INV001',
-            DocType: 'SalesOrder',
-            DocDate: '2014-01-01',
-            Addresses: [
-                {
-                    AddressCode: '01',
-                    Line1: '45 Fremont Street',
-                    Line2: 'Suite 100',
-                    Line3: 'ATTN Accounts Payable',
-                    City: 'Chicago',
-                    Region: 'IL',
-                    Country: 'US',
-                    PostalCode: '60602'
-                }
-            ],
-            Lines: [
-                {
-                    LineNo: '1',
-                    DestinationCode: '01',
-                    OriginCode: '02',
-                    ItemCode: 'N543',
-                    TaxCode: 'NT',
-                    Description: 'Red Size 7 Widget',
-                    Qty: '1',
-                    Amount: '10'
-                }
-            ]
-        };
-        const expectedResponse = {
-            ResultCode: 'Success',
-            DocCode: 'INV001',
-            DocDate: '2014-01-01',
-            TotalAmount: '10',
-            TotalDiscount: '0',
-            TotalExemption: '10',
-            TotalTaxable: '0',
-            TotalTax: '0',
-            TotalTaxCalculated: '0',
-            TaxLines: [
-                {
-                    LineNo: '1',
-                    TaxCode: 'NT',
-                    Taxability: 'false',
-                    BoundaryLevel: 'Zip5',
-                    Exemption: '10',
-                    Discount: '0',
-                    Taxable: '0',
-                    Rate: '0.092500',
-                    Tax: '0',
-                    TaxCalculated: '0',
-                    TaxDetails: [
-                        {
-                            Country: 'US',
-                            Region: 'IL',
-                            JurisType: 'State',
-                            JurisCode: '17',
-                            Taxable: '0',
-                            Rate: '0.062500',
-                            Tax: '0',
-                            JurisName: 'ILLINOIS',
-                            TaxName: 'IL STATE TAX'
-                        },
-                        {
-                            Country: 'US',
-                            Region: 'IL',
-                            JurisType: 'County',
-                            JurisCode: '031',
-                            Taxable: '0',
-                            Rate: '0.007500',
-                            Tax: '0',
-                            JurisName: 'COOK',
-                            TaxName: 'IL COUNTY TAX'
-                        },
-                        {
-                            Country: 'US',
-                            Region: 'IL',
-                            JurisType: 'City',
-                            JurisCode: '14000',
-                            Taxable: '0',
-                            Rate: '0.012500',
-                            Tax: '0',
-                            JurisName: 'CHICAGO',
-                            TaxName: 'IL CITY TAX'
-                        },
-                        {
-                            Country: 'US',
-                            Region: 'IL',
-                            JurisType: 'Special',
-                            JurisCode: 'AQOF',
-                            Taxable: '0',
-                            Rate: '0.010000',
-                            Tax: '0',
-                            JurisName: 'REGIONAL TRANSPORT. AUTHORITY (RTA)',
-                            TaxName: 'IL SPECIAL TAX'
-                        }
-                    ]
-                }
-            ],
-            TaxAddresses: [
-                {
-                    Address: '45 Fremont Street',
-                    AddressCode: '01',
-                    City: 'Chicago',
-                    Country: 'US',
-                    PostalCode: '60602',
-                    Region: 'IL',
-                    TaxRegionId: '2062953',
-                    JurisCode: '1703114000',
-                    Latitude: '41.882906',
-                    Longitude: '-87.629373'
-                }
-            ],
-            TaxDate: '2014-01-01'
-        };
+        /* eslint-disable quotes */
+        /* eslint-disable quote-props */
+        const expectedRequest = {"Commit": "false", "Client": "AvaTaxSample", "CompanyCode": "CINC", "CustomerCode": "ABC4335", "DocCode": "INV001", "DocType": "SalesOrder", "DocDate": "2014-01-01", "Addresses": [{"AddressCode": "01", "Line1": "45 Fremont Street", "Line2": "Suite 100", "Line3": "ATTN Accounts Payable", "City": "Chicago", "Region": "IL", "Country": "US", "PostalCode": "60602"}], "Lines": [{"LineNo": "1", "DestinationCode": "01", "OriginCode": "02", "ItemCode": "N543", "TaxCode": "NT", "Description": "Red Size 7 Widget", "Qty": "1", "Amount": "10"}]};
+        const expectedResponse = {"DocCode": "INV001", "DocDate": "2014-01-01", "TotalAmount": "10", "TotalDiscount": "0", "TotalExemption": "10", "TotalTaxable": "0", "TotalTax": "0", "TotalTaxCalculated": "0", "TaxDate": "2014-01-01", "TaxLines": [{"LineNo": "1", "TaxCode": "NT", "Taxability": "true", "BoundaryLevel": "Zip5", "Taxable": "0", "Rate": "0", "Tax": "0", "Discount": "0", "TaxCalculated": "0", "Exemption": "10", "TaxDetails": [{"Taxable": "0", "Rate": "0", "Tax": "0", "Region": "IL", "Country": "US", "JurisType": "State", "JurisName": "ILLINOIS", "JurisCode": "17", "TaxName": "IL STATE TAX"}]}], "TaxAddresses": [{"Address": "45 Fremont Street", "AddressCode": "01", "City": "Chicago", "Country": "US", "PostalCode": "60602", "Region": "IL", "TaxRegionId": "2062953", "JurisCode": "1703114000", "Latitude": "41.882906", "Longitude": "-87.629373"}], "ResultCode": "Success"};
+        /* eslint-enable quotes */
+        /* eslint-enable quote-props */
 
         browser
             .maximizeWindow()
@@ -159,7 +46,7 @@ module.exports = {
                 /* eslint-disable no-invalid-this */
                 const request = JSON.parse(req.value);
 
-                this.assert.equal(JSON.stringify(request), JSON.stringify(expectedRequest));
+                this.verify.equal(JSON.stringify(request), JSON.stringify(expectedRequest));
                 /* eslint-enable no-invalid-this */
             })
 
@@ -170,7 +57,7 @@ module.exports = {
                 const response = JSON.parse(res.value);
 
                 response.Timestamp = undefined;
-                this.assert.equal(JSON.stringify(response), JSON.stringify(expectedResponse));
+                this.verify.equal(JSON.stringify(response), JSON.stringify(expectedResponse));
                 /* eslint-enable no-invalid-this */
             })
             .end();
@@ -186,7 +73,7 @@ module.exports = {
 
             .elements('css selector', '.endpoint-summary', function(result) {
                 /* eslint-disable no-invalid-this */
-                this.assert.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
+                this.verify.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
                 /* eslint-enable no-invalid-this */
             })
             .end();
@@ -201,7 +88,7 @@ module.exports = {
 
             .elements('css selector', '.endpoint-summary', function(result) {
                 /* eslint-disable no-invalid-this */
-                this.assert.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
+                this.verify.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
                 /* eslint-enable no-invalid-this */
             })
             .end();
@@ -216,7 +103,7 @@ module.exports = {
 
             .elements('css selector', '.endpoint-summary', function(result) {
                 /* eslint-disable no-invalid-this */
-                this.assert.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
+                this.verify.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
                 /* eslint-enable no-invalid-this */
             })
             .end();
@@ -231,7 +118,7 @@ module.exports = {
 
             .elements('css selector', '.endpoint-summary', function(result) {
                 /* eslint-disable no-invalid-this */
-                this.assert.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
+                this.verify.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
                 /* eslint-enable no-invalid-this */
             })
             .end();
@@ -246,7 +133,7 @@ module.exports = {
 
             .elements('css selector', '.endpoint-summary', function(result) {
                 /* eslint-disable no-invalid-this */
-                this.assert.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
+                this.verify.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
                 /* eslint-enable no-invalid-this */
             })
             .end();
