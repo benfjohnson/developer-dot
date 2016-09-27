@@ -18,7 +18,7 @@ A company that is designated to report taxes must have at least one designated c
       "details": [
         {
           "code": "ReportingCompanyMustHaveContactsError",
-          "number": 0,
+          "number": 60,
           "message": "A reporting company must have at least one contact when it is moved out of InProgress status.",
           "description": "-0-",
           "faultCode": "Client",

@@ -18,7 +18,7 @@ This error occurs when you try to modify the tax profile of a company that inher
       "details": [
         {
           "code": "CompanyProfileNotSet",
-          "number": 0,
+          "number": 61,
           "message": "You attempted to add tax configuration to a company that does not have its own tax profile.",
           "description": "The company -0- (ID #-1-) has the HasProfile flag set to false. To add -2- to this company, set its HasProfile flag to true.",
           "faultCode": "Client",

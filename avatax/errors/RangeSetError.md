@@ -18,7 +18,7 @@ You attempted to set a value that was not permitted.
       "details": [
         {
           "code": "RangeSetError",
-          "number": 0,
+          "number": 8,
           "message": "-1- must be one of the following: -2-.",
           "description": "-0-",
           "faultCode": "Client",

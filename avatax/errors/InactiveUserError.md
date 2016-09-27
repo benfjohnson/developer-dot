@@ -18,9 +18,8 @@ This user account is currently inactive.
       "details": [
         {
           "code": "InactiveUserError",
-          "number": 0,
+          "number": 33,
           "message": "The user '-0-' is not currently active.  Please contact your customer account manager to reactivate this user.",
-          "description": "",
           "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/InactiveUserError",
           "severity": "Exception"

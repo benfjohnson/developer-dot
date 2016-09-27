@@ -18,9 +18,8 @@ You submitted a request and did not provide a value in a required field.
       "details": [
         {
           "code": "ValueRequiredError",
-          "number": 0,
+          "number": 5,
           "message": "Value required: -0-",
-          "description": "",
           "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/ValueRequiredError",
           "severity": "Error"

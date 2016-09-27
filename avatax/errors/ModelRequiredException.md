@@ -18,7 +18,7 @@ You called an API that requires an object, but you did not provide an object.
       "details": [
         {
           "code": "ModelRequiredException",
-          "number": 0,
+          "number": 38,
           "message": "A required Model was not provided.",
           "description": "-0-",
           "faultCode": "Client",

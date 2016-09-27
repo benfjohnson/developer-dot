@@ -18,7 +18,7 @@ You specified a tax code type that is not recognized by Avalara.
       "details": [
         {
           "code": "InvalidTaxCodeType",
-          "number": 0,
+          "number": 147,
           "message": "The TaxCodeType -0- is not valid.",
           "description": "Please call /api/v2/definitions/taxcodetypes for a list of valid taxcodetypes.",
           "faultCode": "Client",

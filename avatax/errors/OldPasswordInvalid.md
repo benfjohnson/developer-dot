@@ -18,7 +18,7 @@ You attempted to reset a password but you did not provide a correct old password
       "details": [
         {
           "code": "OldPasswordInvalid",
-          "number": 0,
+          "number": 23,
           "message": "Existing password is invalid.",
           "description": "-0-",
           "faultCode": "Client",

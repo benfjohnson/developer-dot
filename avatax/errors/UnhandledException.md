@@ -18,7 +18,7 @@ The API you attempted to call resulted in an unhandled exception within Avalara 
       "details": [
         {
           "code": "UnhandledException",
-          "number": 0,
+          "number": 50,
           "message": "Unhandled exception was hit during this operation.",
           "description": "-0-",
           "faultCode": "Client",

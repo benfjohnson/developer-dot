@@ -18,7 +18,7 @@ The specified jurisdiction could not be found.
       "details": [
         {
           "code": "JurisdictionNotFoundError",
-          "number": 0,
+          "number": 130,
           "message": "Unable to determine the taxing jurisdictions.",
           "description": "-0- -1- -2- -3-",
           "faultCode": "Client",

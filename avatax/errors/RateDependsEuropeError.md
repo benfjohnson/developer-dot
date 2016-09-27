@@ -18,7 +18,7 @@ The RateDepends option is only valid for countries in the European Union.
       "details": [
         {
           "code": "RateDependsEuropeError",
-          "number": 0,
+          "number": 133,
           "message": "RateDepends option only valid for countries in the European Union.",
           "description": "-0-",
           "faultCode": "Client",

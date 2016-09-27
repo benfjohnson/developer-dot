@@ -18,7 +18,7 @@ You provided an incorrectly structured object to AvaTax.
       "details": [
         {
           "code": "ModelStateInvalid",
-          "number": 0,
+          "number": 70,
           "message": "The request body does not represent a valid JSON object.",
           "description": "Unable to parse the following fields in your request: -0-",
           "faultCode": "Client",
