@@ -13,6 +13,7 @@
 			"url": "https://www.avalara.com/terms-of-use/"
 		}
 	},
+	"host": "rest-sbx.preview.avalara.net",
 	"basePath": "/",
 	"paths": {
 		"/api/v2/accounts/{id}": {
