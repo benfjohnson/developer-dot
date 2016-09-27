@@ -8,6 +8,65 @@
     <generator>Jekyll v3.2.1</generator>
     
       <item>
+        <title>GetTax For Excel? Really?</title>
+        <description>&lt;h1 id=&quot;just-because-you-can-doesnt-mean-you-should&quot;&gt;Just because you can, doesn’t mean you should.&lt;/h1&gt;
+
+&lt;p&gt;At least, that’s what I first thought when I had heard that it was possible to make web requests in VBA. Then I thought about how many people use Excel for nearly all of their business needs. So of course, that lead me to a “What If” moment:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;What if Excel had a &lt;code class=&quot;highlighter-rouge&quot;&gt;=GetTax()&lt;/code&gt; function?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Of course, I hadn’t used (or &lt;em&gt;debugged&lt;/em&gt;) VBA in years. I had completely forgotten there were more leisurely activities, like eating a box of wood screws. Nevertheless, my stubborness to finish what I started lead to this invoice template:&lt;/p&gt;
+
+&lt;center&gt;&lt;a href=&quot;/public/misc/AvaTaxForExcel.xlsm&quot;&gt;&lt;img src=&quot;/public/images/avataxforexcel.png&quot; alt=&quot;AvaTax for Excel&quot; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;em&gt;Click me! I've Got Macros!&lt;/em&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/center&gt;
+
+&lt;p&gt;Naturally, you may want to do more than just make invoices, so we’ll take a quick look at the underlying VBA code to get you started.&lt;/p&gt;
+
+&lt;h2 id=&quot;eat-your-vegetables-look-both-ways-when-crossing-your-gotos-and-dont-talk-to-on-error-resume-nexts&quot;&gt;Eat Your Vegetables, Look Both Ways When Crossing Your GoTos, And Don’t Talk to On Error Resume Nexts.&lt;/h2&gt;
+
+&lt;p&gt;In our AvaTaxForExcel module, a sample subroutine and function is provided that gets invoked by the “Calculate Tax and Total” button on the spreadsheet. This subroutine invokes our GetTax function like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Public Sub CalculateTax()
+
+    Range(&quot;J38:J38&quot;).Value = GetTax(Range(&quot;J3&quot;).Value, Range(&quot;J4&quot;).Value, Range(&quot;A5&quot;).Value, Range(&quot;A6&quot;).Value, Range(&quot;A7&quot;).Value, Range(&quot;A8&quot;).Value, Range(&quot;C8&quot;).Value, Range(&quot;A9&quot;).Value, _
+                                Range(&quot;D8&quot;).Value, Range(&quot;G12&quot;).Value, Range(&quot;G13&quot;).Value, Range(&quot;G14&quot;).Value, Range(&quot;G15&quot;).Value, Range(&quot;I15&quot;).Value, _
+                                Range(&quot;G16&quot;).Value, Range(&quot;J15&quot;).Value, Range(&quot;A18:J18&quot;), Range(&quot;A19:J36&quot;))
+
+End Sub
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The function signature of GetTax is as follows:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Function GetTax(docDate As Date, customerCode As String, shipFromLine1 As String, shipFromLine2 As String, shipFromLine3 As String, shipFromCity As String, shipFromRegion As String, shipFromCountry As String, shipFromPostalCode As String, _
+    shipToLine1 As String, shipToLine2 As String, shipToLine3 As String, shipToCity As String, shipToRegion As String, shipToCountry As String, shipToPostalCode As String, _
+    lineHeaders As Range, lineItems As Range) As String
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The GetTax call, when invoked, performs the web request against our new REST v2 APIs (in beta as of this writing, check it out! - http://developer.avalara.com/avatax/api-reference/tax/v2/), resulting in your calculated invoice appearing on your AvaTax console:&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/public/images/adminconsole.png&quot; alt=&quot;Admin Console Screenshot&quot; style=&quot;width: 100%;&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/center&gt;
+
+&lt;p&gt;As well as your spreadsheet:&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;/public/images/spreadsheet.png&quot; alt=&quot;Invoice Total With Tax&quot; /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/center&gt;
+
+&lt;p&gt;The GetTax method is provided for your convenience, and traps and displays errors it encounters via a message box. You may want to handle these errors differently. All the magic actually occurs via the TransactionRequest class’ ToJson method, which uses the excellent VBA-JSON library to translate the class into a JSON object, which is fed into the web request.&lt;/p&gt;
+
+&lt;p&gt;As a final note, please keep in mind that the REST v2 API is still in public beta, so you may see some quirks. If you do, let us know!&lt;/p&gt;
+</description>
+        <pubDate>2016-09-21</pubDate>
+        <link>/blog/2016/09/21/gettax-for-excel/</link>
+        <guid isPermaLink="true">/blog/2016/09/21/gettax-for-excel/</guid>
+        
+        
+        <category>Sales Tax APIs</category>
+        
+      </item>
+    
+      <item>
         <title>New Site!</title>
         <description>&lt;p&gt;Frequent visitors to the site may have noticed some big changes this week! With the resources of Avalara’s Incubator team, we’ve launched a brand new site that offers a number of great improvements.&lt;/p&gt;
 
@@ -325,28 +384,6 @@ Avalara AvaTax&lt;/p&gt;
         <pubDate>2015-10-19</pubDate>
         <link>/blog/2015/10/19/findevr-integrate-2015-presentations/</link>
         <guid isPermaLink="true">/blog/2015/10/19/findevr-integrate-2015-presentations/</guid>
-        
-        
-        <category>Sales Tax APIs</category>
-        
-      </item>
-    
-      <item>
-        <title>Superset WSDL for Brazilian Calculation!</title>
-        <description>&lt;div class=&quot;caption&quot;&gt;
-    &lt;img src=&quot;/public/images/blog/5064720453_1f3995a5d1_z-300x274.jpg&quot; width=&quot;300&quot; alt=&quot;More SOAP!&quot; /&gt;
-    More SOAP!
-&lt;/div&gt;
-
-&lt;p&gt;As we’ve moved to providing better and more precise&lt;a href=&quot;http://www.avalara.com/blog/2015/03/10/avalara-adds-brazil-to-global-tax-compliance-cloud-platform/&quot;&gt; international calculation&lt;/a&gt;, Avalara has found that our current API doesn’t capture everything we might need. We want to provide more precise calculations, but we also want our existing integrations to continue to seamlessly calculate. As such, we have launched a second version of the AvaTax WSDL. This version will play host to all of our Global functionality to prevent introducing breaking changes for customers who aren’t going to take advantage of that functionality. The v2 WSDL is available here: https://development.avalara.net/tax/taxsvcv2.wsdl&lt;/p&gt;
-
-&lt;p&gt;The v2 WSDL is a superset of functionality in the v1, with the addition of items such as VAT number and fields needed for Brazil. If you’re calculating against our current WSDL (or the current REST API), and/or if you don’t need more complex international calculations (e.g. for Brazil), no need to switch! This alternate WSDL is intended only to accommodate those more complex global use cases for customers and partners that need them.&lt;/p&gt;
-
-&lt;p&gt;Our documentation and client libraries will continue to focus on the standard (v1) WSDL, but you can consume the v2 WSDL directly for all of your complex SOAP calculation needs!&lt;/p&gt;
-</description>
-        <pubDate>2015-10-15</pubDate>
-        <link>/blog/2015/10/15/superset-wsdl-brazilian-calculation-2/</link>
-        <guid isPermaLink="true">/blog/2015/10/15/superset-wsdl-brazilian-calculation-2/</guid>
         
         
         <category>Sales Tax APIs</category>

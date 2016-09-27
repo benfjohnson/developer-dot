@@ -218,7 +218,7 @@ definitions:
         maxLength: 25
         type: string
         description: Client application company reference code. Not required if the document is identified by DocId.
-        example: APITrialCompany
+        example: CINC
       DocCode:
         maxLength: 50
         type: string
@@ -266,7 +266,7 @@ definitions:
       CompanyCode:
         maxLength: 25
         type: string
-        example: APITrialCompany
+        example: CINC
         description: 'The case-sensitive code that identifies the company in the AvaTax account in which the document should be posted. This code is declared during the company setup in the AvaTax Admin Console. If no value is passed, the document will be assigned to the default company. If a value is passed that does not match any company on on the account, an error is returned.'
       CustomerCode:
         maxLength: 50
@@ -601,7 +601,7 @@ definitions:
       Details:
         maxLength: 255
         type: string
-        example: APITrialCompany
+        example: CINC
         description: Description of the error or warning.
       RefersTo:
         maxLength: 255

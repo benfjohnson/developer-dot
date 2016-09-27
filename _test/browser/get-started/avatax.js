@@ -18,7 +18,7 @@ module.exports = {
 
             .elements('css selector', '[role=tab]', function(result) {
                 /* eslint-disable no-invalid-this */
-                this.assert.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
+                this.verify.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
                 /* eslint-enable no-invalid-this */
             })
             .end();
@@ -89,12 +89,14 @@ module.exports = {
                 /* eslint-disable no-invalid-this */
                 const response = JSON.parse(res.value);
 
-                this.assert.equal(JSON.stringify(response), JSON.stringify(expectedResponseValidateAnAddress));
+                this.verify.equal(JSON.stringify(response), JSON.stringify(expectedResponseValidateAnAddress));
                 /* eslint-enable no-invalid-this */
             })
             .end();
     },
     'Get Started: AvaTax (CalculateTax, fill sample data)': function(browser) {
+        /* eslint-disable quotes */
+        /* eslint-disable quote-props */
         const expectedRequestCalcTax = {
             CustomerCode: 'ABC4335',
             Addresses: [
@@ -117,88 +119,9 @@ module.exports = {
                 }
             ]
         };
-        const expectedResponseCalcTax = {
-            ResultCode: 'Success',
-            TotalAmount: '10',
-            TotalDiscount: '0',
-            TotalExemption: '0',
-            TotalTaxable: '10',
-            TotalTax: '1.04',
-            TotalTaxCalculated: '1.04',
-            TaxLines: [
-                {
-                    LineNo: '1',
-                    TaxCode: 'P0000000',
-                    Taxability: 'true',
-                    BoundaryLevel: 'Zip5',
-                    Exemption: '0',
-                    Discount: '0',
-                    Taxable: '10',
-                    Rate: '0.102500',
-                    Tax: '1.04',
-                    TaxCalculated: '1.04',
-                    TaxDetails: [
-                        {
-                            Country: 'US',
-                            Region: 'IL',
-                            JurisType: 'State',
-                            JurisCode: '17',
-                            Taxable: '10',
-                            Rate: '0.062500',
-                            Tax: '0.63',
-                            JurisName: 'ILLINOIS',
-                            TaxName: 'IL STATE TAX'
-                        },
-                        {
-                            Country: 'US',
-                            Region: 'IL',
-                            JurisType: 'County',
-                            JurisCode: '031',
-                            Taxable: '10',
-                            Rate: '0.017500',
-                            Tax: '0.18',
-                            JurisName: 'COOK',
-                            TaxName: 'IL COUNTY TAX'
-                        },
-                        {
-                            Country: 'US',
-                            Region: 'IL',
-                            JurisType: 'City',
-                            JurisCode: '14000',
-                            Taxable: '10',
-                            Rate: '0.012500',
-                            Tax: '0.13',
-                            JurisName: 'CHICAGO',
-                            TaxName: 'IL CITY TAX'
-                        },
-                        {
-                            Country: 'US',
-                            Region: 'IL',
-                            JurisType: 'Special',
-                            JurisCode: 'AQOF',
-                            Taxable: '10',
-                            Rate: '0.010000',
-                            Tax: '0.1',
-                            JurisName: 'REGIONAL TRANSPORT. AUTHORITY (RTA)',
-                            TaxName: 'IL SPECIAL TAX'
-                        }
-                    ]
-                }
-            ],
-            TaxAddresses: [
-                {
-                    Address: '45 Fremont Street',
-                    AddressCode: '01',
-                    City: 'Chicago',
-                    Country: 'US',
-                    PostalCode: '60602',
-                    Region: 'IL',
-                    TaxRegionId: '2126535',
-                    JurisCode: '1703114000'
-                }
-            ],
-            TaxDate: '2016-08-30'
-        };
+        const expectedResponseCalcTax = {"ResultCode":"Success","TotalAmount":"10","TotalDiscount":"0","TotalExemption":"10","TotalTaxable":"0","TotalTax":"0","TotalTaxCalculated":"0","TaxLines":[{"LineNo":"1","TaxCode":"P0000000","Taxability":"true","BoundaryLevel":"Zip5","Exemption":"10","Discount":"0","Taxable":"0","Rate":"0","Tax":"0","TaxCalculated":"0","TaxDetails":[{"Country":"US","Region":"IL","JurisType":"State","JurisCode":"17","Taxable":"0","Rate":"0","Tax":"0","JurisName":"ILLINOIS","TaxName":"IL STATE TAX"}]}],"TaxAddresses":[{"Address":"45 Fremont Street","AddressCode":"01","City":"Chicago","Country":"US","PostalCode":"60602","Region":"IL","TaxRegionId":"2126535","JurisCode":"1703114000"}]};
+        /* eslint-enable quotes */
+        /* eslint-enable quote-props */
 
         browser
             .maximizeWindow()
@@ -218,7 +141,7 @@ module.exports = {
                 /* eslint-disable no-invalid-this */
                 const request = JSON.parse(req.value);
 
-                this.assert.equal(JSON.stringify(request), JSON.stringify(expectedRequestCalcTax));
+                this.verify.equal(JSON.stringify(request), JSON.stringify(expectedRequestCalcTax));
                 /* eslint-enable no-invalid-this */
             })
 
@@ -233,7 +156,7 @@ module.exports = {
                 response.Timestamp = undefined;
                 response.TaxDate = undefined;
                 expectedResponseCalcTax.TaxDate = undefined;
-                this.assert.equal(JSON.stringify(response), JSON.stringify(expectedResponseCalcTax));
+                this.verify.equal(JSON.stringify(response), JSON.stringify(expectedResponseCalcTax));
                 /* eslint-enable no-invalid-this */
             })
             .end();
