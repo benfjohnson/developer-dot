@@ -18,7 +18,7 @@ The company code for a company is set when the company is created and may not be
       "details": [
         {
           "code": "CannotChangeCompanyCode",
-          "number": 0,
+          "number": 25,
           "message": "Company Code cannot be changed.",
           "description": "The company code for company -0- (-1-) is '-2-', but you provided '-3-'",
           "faultCode": "Client",

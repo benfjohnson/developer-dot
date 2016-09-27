@@ -18,7 +18,7 @@ You cannot create two companies with the same company code.
       "details": [
         {
           "code": "DuplicateCompanyCode",
-          "number": 0,
+          "number": 142,
           "message": "The company code '-0-' has already been defined.",
           "description": "Please select a different company code.",
           "faultCode": "Client",

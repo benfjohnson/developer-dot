@@ -18,7 +18,7 @@ You attempted to provide an email address that does not conform to email address
       "details": [
         {
           "code": "EmailValidationError",
-          "number": 0,
+          "number": 15,
           "message": "The specified email address was not valid.",
           "description": "-0-",
           "faultCode": "Client",

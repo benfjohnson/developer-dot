@@ -18,7 +18,7 @@ The default location for a company must be a physical-type location rather than 
       "details": [
         {
           "code": "DefaultCompanyLocation",
-          "number": 0,
+          "number": 124,
           "message": "Default outlet/location must be a Location Type (not a Salesperson Type).",
           "description": "-0- -1-",
           "faultCode": "Client",

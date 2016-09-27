@@ -18,7 +18,7 @@ You specified an out-of-bounds field value.
       "details": [
         {
           "code": "RangeCompareError",
-          "number": 0,
+          "number": 7,
           "message": "-1- is expected to be -2- -3-.",
           "description": "-0-",
           "faultCode": "Client",

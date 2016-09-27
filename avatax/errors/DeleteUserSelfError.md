@@ -18,7 +18,7 @@ A user account may not call DELETE on the user itself.
       "details": [
         {
           "code": "DeleteUserSelfError",
-          "number": 0,
+          "number": 22,
           "message": "User is trying to delete self.",
           "description": "-0-",
           "faultCode": "Client",

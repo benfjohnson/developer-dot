@@ -18,9 +18,8 @@ Indicates that there is a server configuration problem with one of the servers i
       "details": [
         {
           "code": "ServerConfiguration",
-          "number": 0,
+          "number": 1,
           "message": "The AvaTax API Server has a configuration error.",
-          "description": "",
           "faultCode": "Server",
           "helpLink": "http://developer.avalara.com/avatax/errors/ServerConfiguration",
           "severity": "Error"
