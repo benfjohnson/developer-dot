@@ -108,6 +108,7 @@ paths:
         '200':
           description: OK
           schema:
+            description: PCode for specified ZipAddress, FipsCode or NPANXX.
             format: int32
             type: integer
       deprecated: false
@@ -194,6 +195,7 @@ paths:
         '200':
           description: OK
           schema:
+             description: FIPS code for jurisdiction.
             type: string
       deprecated: false
   "/api/v1/Location/Address/{pCode}":
@@ -238,7 +240,7 @@ paths:
       parameters:
       - name: taxType
         in: path
-        description: Tax type ID.
+        description: Tax type ID to get the category description for.
         required: true
         type: integer
         format: int32
@@ -246,6 +248,7 @@ paths:
         '200':
           description: OK
           schema:
+            description: Tax category description for the specified tax type ID.
             type: string
       deprecated: false
   "/api/v1/TaxLookup/Description/{taxType}":
@@ -264,7 +267,7 @@ paths:
       parameters:
       - name: taxType
         in: path
-        description: Tax type.
+        description: Tax type ID to get the description for.
         required: true
         type: integer
         format: int32
@@ -272,6 +275,7 @@ paths:
         '200':
           description: OK
           schema:
+            description: Description for specified tax type ID.
             type: string
       deprecated: false
   "/api/v1/TaxLookup/TaxRates/{pCode}":
@@ -318,6 +322,7 @@ paths:
         '200':
           description: OK
           schema:
+            description: Version of the REST APIs.
             type: string
       deprecated: false
   "/api/v1/Application/AFCEngineVersion":
@@ -336,6 +341,7 @@ paths:
         '200':
           description: OK
           schema:
+            description: Version of the AFC tax engine.
             type: string
       deprecated: false
   "/api/v1/Application/AFCDatabaseEngineVersion":
@@ -354,6 +360,7 @@ paths:
         '200':
           description: OK
           schema:
+            description: AFC tax engine database version.
             type: string
       deprecated: false
   "/api/v1/Application/ServerTime":
@@ -518,6 +525,7 @@ paths:
         '200':
           description: OK
           schema:
+            description: Unique identifier for the customer batch.
             format: int64
             type: integer
       deprecated: false
@@ -550,6 +558,7 @@ paths:
         '200':
           description: OK
           schema:
+            description: Boolean indicating success or failure.
             type: boolean
       deprecated: false
   "/api/v1/CustMode/CalcAdjustments":
@@ -581,6 +590,7 @@ paths:
         '200':
           description: OK
           schema:
+            description: Boolean indicating success or failure.
             type: boolean
       deprecated: false
   "/api/v1/CustMode/ProcessBatch":
@@ -733,6 +743,7 @@ paths:
         '200':
           description: OK
           schema:
+            description: PCode for taxing jurisdiction.
             format: int32
             type: integer
       deprecated: false
@@ -1491,9 +1502,9 @@ definitions:
       Debit:
         description: Determines if this is a prepaid debit card transaction.
         type: boolean
-      DiscountType:
+      AdjustmentDiscount:
         format: int32
-        description: Discount type. See the CommsPlatform.API.WrapperClasses User's
+        description: Adjustment discount type. See the CommsPlatform.API.WrapperClasses User's
           Manual for a list of valid discount types.
         type: integer
       FacilitiesBased:
