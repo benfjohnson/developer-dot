@@ -17,9 +17,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
 var buildSchema = function buildSchema(schema) {
-    var required = arguments.length <= 1 || arguments[1] === undefined ? [] : arguments[1];
-    var excludedProperties = arguments.length <= 2 || arguments[2] === undefined ? [] : arguments[2];
-    var propName = arguments.length <= 3 || arguments[3] === undefined ? null : arguments[3];
+    var required = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+    var excludedProperties = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+    var propName = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
     if (schema.hasOwnProperty('x-visibility') && schema['x-visibility'] === 'hidden') {
         return undefined;
@@ -550,7 +550,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _apiConsoleReducer = require('../../shared/reducers/apiConsoleReducer');
 
@@ -969,7 +969,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /* Component to render a simple API description, request, and response
                                                                                                                                                                                                                                                                    * Features dark color scheme and JSON syntax highlighting
@@ -1297,7 +1297,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -1724,7 +1724,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 // Returns a bool if no example data exists at any point in the schema of the Post Body, Query String or Path Param
 var hasExampleData = function hasExampleData(type) {
-    var paramObj = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
+    var paramObj = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
     if (type !== 'QUERY_STRING' && type !== 'POST_BODY' && type !== 'PATH_PARAM') {
         throw new Error('helpers.hasExampleData error: Did not recognize `type` ' + type);
@@ -1783,7 +1783,7 @@ var hasExcludedProperties = function hasExcludedProperties(postBodySchema) {
 // to Map<string, string>. Recipes only store key-value string pairs for their path params and query strings
 // so use this when dealing with Get Started or Api Reference apps to reduce to that
 var reduceParamsToKeyValuePair = function reduceParamsToKeyValuePair() {
-    var params = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     return Object.keys(params).reduce(function (accum, k) {
         return _extends({}, accum, _defineProperty({}, k, params[k].value));
     }, {});
@@ -1804,7 +1804,7 @@ var replaceStringPlaceholders = function replaceStringPlaceholders(path, map) {
  * Returns an empty string if invalid map provided
  */
 var buildQueryString = function buildQueryString() {
-    var map = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var map = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
     var queryString = Object.keys(map).map(function (key) {
         return map[key] ? key + '=' + map[key] : '';
@@ -1890,7 +1890,7 @@ var buildInitialPostBodyData = function buildInitialPostBodyData(body, showExclu
     return objBody;
 };
 var fillOrRemoveSampleData = function fillOrRemoveSampleData(endpointState) {
-    var remove = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
+    var remove = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
     if (endpointState.queryString) {
         endpointState.queryString = fillOrRemoveRequestParamSampleData(endpointState.queryString, remove);
@@ -1952,7 +1952,7 @@ var submitProxiedRequest = function submitProxiedRequest(endpoint) {
  * The correct key is requested if so, and returns a promise which will yield the API request results
  */
 var submitApiRequest = function submitApiRequest(url, action) {
-    var postBody = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
+    var postBody = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
 
     var req = {
         method: action,
@@ -2190,14 +2190,10 @@ require("regenerator-runtime/runtime");
 
 require("core-js/fn/regexp/escape");
 
-/* eslint max-len: 0 */
-
 if (global._babelPolyfill) {
   throw new Error("only one instance of babel-polyfill is allowed");
 }
 global._babelPolyfill = true;
-
-// Should be removed in the next major release:
 
 var DEFINE_PROPERTY = "defineProperty";
 function define(O, key, value) {
@@ -14142,7 +14138,8 @@ function is(x, y) {
   if (x === y) {
     // Steps 1-5, 7-10
     // Steps 6.b-6.e: +0 != -0
-    return x !== 0 || 1 / x === 1 / y;
+    // Added the nonzero y check to make Flow happy, but it is redundant
+    return x !== 0 || y !== 0 || 1 / x === 1 / y;
   } else {
     // Step 6.a: NaN == NaN
     return x !== x && y !== y;
