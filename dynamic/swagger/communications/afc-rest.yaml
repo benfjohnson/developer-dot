@@ -196,7 +196,7 @@ paths:
           description: OK
           schema:
              description: FIPS code for jurisdiction.
-            type: string
+             type: string
       deprecated: false
   "/api/v1/Location/Address/{pCode}":
     get:
@@ -1025,13 +1025,13 @@ definitions:
           if ParticipantPCode or ParticipantNpaNxx are specified."
       ParticipantPCode:
         format: int32
-        description: "PCode forpParticipant – all participants must use PCode values
+        description: "PCode forpParticipant ï¿½ all participants must use PCode values
           if any participant uses PCode. Not required if ParticipantAddress
           or ParticipantNpaNxx are specified."
         type: integer
       ParticipantNpaNxx:
         format: int32
-        description: "NpaNxx for participant – all participants must use NPANXX values
+        description: "NpaNxx for participant ï¿½ all participants must use NPANXX values
           if any participant uses NPANXX. Not required if ParticipantAddress
           or ParticipantPCode are specified."
         type: integer
