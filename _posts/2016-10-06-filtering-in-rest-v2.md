@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Filtering in AvaTax REST v2
-date: 2016-09-28 17:00
+date: 2016-10-06 10:00
 author: Ted Spence
 comments: true
 categories: [Sales Tax APIs]
@@ -14,10 +14,26 @@ disqus: 1
 
 The REST API pattern is designed to make it easy to store and retrieve data.  Every piece of data in REST is assigned a single unique URL - and you can always fetch that item back by retrieving its URL.  It works a bit like this:
 
-| Note | HTTP Action | Payload | Result |
-|---|---|---|---|
-|Store data by **POST**ing to a URL.|`POST /api/v2/companies`|`{ "name": "Bob's Artisan Pottery" }`|In the HTTP headers: `Location: /api/v2/companies/123`|
-|Fetch data by **GET**ting from that URL.|`GET /api/v2/companies/123`| | In the body of the HTTP response: `{ "name": "Bob's Artisan Pottery" }`|
+<table class="styled-table">
+    <tr>
+        <th>Note</th>
+        <th>HTTP Action</th>
+        <th>Request</th>
+        <th>Result</th>
+    </tr>
+    <tr>
+        <td>Store data by **POST**ing to a URL.</td>
+        <td>`POST /api/v2/companies`</td>
+        <td>In the request body: `{ "name": "Bob's Artisan Pottery" }`</td>
+        <td>In the HTTP headers: `Location: /api/v2/companies/123`</td>
+    </tr>
+    <tr>
+        <td>Fetch data by **GET**ting from that URL.</td>
+        <td>`GET /api/v2/companies/123`</td>
+        <td></td>
+        <td>In the response body: `{ "name": "Bob's Artisan Pottery" }`</td>
+    </tr>
+</table>
 
 This works great as long as you know the URL of the thing.  How do you find something if you don't know what it is?
 

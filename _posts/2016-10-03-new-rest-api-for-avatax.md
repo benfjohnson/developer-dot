@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A New REST API For AvaTax
-date: 2016-09-28 17:00
+date: 2016-10-03 17:00
 author: Ted Spence
 comments: true
 categories: [Sales Tax APIs]
