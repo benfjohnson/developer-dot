@@ -16,8 +16,21 @@ The REST API pattern is designed to make it easy to store and retrieve data.  Ev
 
 | Note | HTTP Verb | HTTP URL | Payload | Result |
 |---|---|---|---|---|
-|First, you **POST** to a URL store your data.|POST|`/api/v2/companies`|```javascript { "name": "Bob's Artisan Pottery" }```|```javascript { "@link": "/api/v2/companies/123" }```|
-|Next you **GET** that URL back.|GET|`/api/v2/companies/123`| | ```javascript { "name": "Bob's Artisan Pottery" }```|
+|First, you **POST** to a URL store your data.|POST|`/api/v2/companies`|
+```javascript 
+{ 
+    "name": "Bob's Artisan Pottery" 
+}
+```|```javascript 
+{ 
+    "@link": "/api/v2/companies/123" 
+}
+```|
+|Next you **GET** that URL back.|GET|`/api/v2/companies/123`| | ```javascript 
+{ 
+    "name": "Bob's Artisan Pottery" 
+}
+```|
 
 This works great as long as you know the URL of the thing.  How do you find something if you don't know what it is?
 
@@ -49,7 +62,7 @@ Sooner or later it will be a nuisance to fetch everything.  To reduce the number
 In the <a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#97-filtering">Microsoft REST API Guidelines</a>, Microsoft established a nice and friendly standard for finding objects.  You can use a simplified search syntax to find something you want.  Let's say you want to search for the company whose names start with 'A':
 
 * Request
-** ```GET /api/v2/companies?$filter=name ge A and name lt B```
+** `GET /api/v2/companies?$filter=name ge A and name lt B`
 * Result
 ** All companies with names between A and B are returned!
 

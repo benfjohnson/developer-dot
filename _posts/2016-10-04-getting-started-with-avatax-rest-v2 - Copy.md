@@ -18,8 +18,7 @@ For today, we'll set up the company "Bob's Artisan Pottery", an online store tha
 
 # Create an AvaTax Account
 
-The first step for Mr. McExample is to create an AvaTax account.  Let's get started right now by visiting http://developer.avalara.com/avatax/signup/ and signing up for a new account.  
-Here's the information we need to put in - just a few fields including your email address and a phone number:
+The first step for Mr. McExample is to create an AvaTax account.  Let's get started right now by visiting http://developer.avalara.com/avatax/signup/ and signing up for a new account.  Here's the information we need to put in - just a few fields including your email address and a phone number:
 
 Go ahead and click the **Get Started** button.  Your account will be provisioned in just a few moments - now is a good time to get a pen and paper handy so you can write down your credentials.  You'll need to keep track of, at a minimum, these things:
 
@@ -38,9 +37,7 @@ So in a moment or two, you should receive an email from support@avalara.com with
 
 # Listing All My Companies
 
-As Bob's Artisan Pottery store, we will need to begin by adding a "Company" record to keep track of our sales.  Since Avalara works for all companies both small and large, you can use the AvaTax API whether you have a single corporate entity or whether you manage lots of different registered businesses.  Let's start by listing all the companies defined in this account.
-In AvaTax, we list companies by calling https://rest-sbx-preview.avalara.net/api/v2/companies - but we need to authenticate against the API.  In order to do this, we need to add a basic authentication header to our web request.
-Let's start by creating our basic authentication header.  If you're writing code, your programming language likely supports Base64 encoding directly.  Here's how to construct the basic authentication header in C# - most other programming languages work the same way:
+As Bob's Artisan Pottery store, we will need to begin by adding a "Company" record to keep track of our sales.  Since Avalara works for all companies both small and large, you can use the AvaTax API whether you have a single corporate entity or whether you manage lots of different registered businesses.  Let's start by listing all the companies defined in this account.In AvaTax, we list companies by calling https://rest-sbx-preview.avalara.net/api/v2/companies - but we need to authenticate against the API.  In order to do this, we need to add a basic authentication header to our web request.  Let's start by creating our basic authentication header.  If you're writing code, your programming language likely supports Base64 encoding directly.  Here's how to construct the basic authentication header in C# - most other programming languages work the same way:
 
 ```csharp
 	string combined = String.Format("{0}:{1}", username, password);
@@ -58,8 +55,7 @@ If you'd like to type along with me without using a programming language, we can
 |Replace "username" with your username, and "password" with your password.|`Basic bob@example.org:bobspasswordgoeshere`|
 |Now visit https://www.base64encode.org and paste in the right hand side of the string.|`Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl`|
 
-Of course, to make this work, you'll have to use your username and password instead of Bob McExample's information.
-Once you've completed your basic authentication header, let's make an API call to list companies:
+Of course, to make this work, you'll have to use your username and password instead of Bob McExample's information.  Once you've completed your basic authentication header, let's make an API call to list companies:
 * Launch the **List Companies** API by clicking this URL: https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Companies/ApiV2CompaniesGet
 * In the **Authorization** field, type in your basic authentication header from above.
 * Finally, click the **Try It** button on the page.  Here's the result you should get:
@@ -76,9 +72,11 @@ So, it looks like our account is pretty much empty.  Let's move on to our first 
 # Add a Company 
 
 In order to begin charging taxes, we need to tell AvaTax about our company.  We begin by using the Company Initialization API, which will create the company's tax profile, register the key contact person for that company, and create a physical location.  All of these things affect the way we calculate tax for this company.  If you represent a more complex company with multiple subsidiaries, you may need to set each one up separately; please contact your customer account manager for more customized help!
-What do we need to know to proceed?
-* Select a company name and a company code.  The Company Name is not critical; but the Company Code should be unique within your account.
-* For US companies, provide your U.S. Taxpayer ID Number, which is either your company's TIN for corporations or a social security number for individuals.
+
+Here's what we need to get started:
+* Our company name - this can be different from your legal name, which is only required when filing tax returns.
+* We must select a unique company code.  If our account will have more than one company, each company must have a unique code.
+* For US companies, we will need our U.S. Taxpayer ID Number, which is either your company's TIN for corporations or a social security number for individuals.
 * For European companies, you may need to provide a VAT registration ID.
 * The name, title, and email address of a contact person for this company.
 * A phone number, and optionally mobile / fax numbers.
@@ -111,7 +109,7 @@ Once you've gathered this information, we create a request that looks like this:
 
 Our next step is to create this company object using the REST API.  Here's how:
 
-* Launch the Company Initialization API by clicking this link: https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Companies/ApiV2CompaniesInitializePost
+* Launch the Company Initialization API by clicking this link: <a href="https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Companies/ApiV2CompaniesInitializePost">Company Initialization</a>
 * In the **Authorization** field, fill in the same credentials you typed in earlier.
 * In the **Model** text box, copy and paste the information about the company above.
 * Click **Try It**
@@ -121,6 +119,7 @@ The server will respond with information about the company that you just created
 # Processing Transactions
 
 For our first sale, let's begin by selling a mug and a vase.  All transactions need a few things:
+
 * A Transaction Code, which is a unique code referring to this transaction.  You can make this a GUID, for example; or you could number transactions by today's date.  Whatever works for you - they just need to be unique.
 * The Company Code you created earlier.
 * A Customer Code that tells us what type of customer bought the mug.  This will become important later when we learn that some customers are exempt from sales tax!  For the moment, you can provide any customer code you like, and you'll be able to set up a customer as exempt later.
@@ -173,7 +172,7 @@ If we sold two separate mugs and a vase in a single order, the transaction might
 
 Alright, we've defined our transaction - let's go ahead and calculate the tax!
 
-* Launch the online Create Transaction API by clicking this link: https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Transactions/ApiV2TransactionsCreatePost
+* Launch the online Create Transaction API by clicking this link: <a href="https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Transactions/ApiV2TransactionsCreatePost">Create Transaction</a>
 * Tax transactions must be calculated using your account's license key.  In the **Authorization** field, we'll need to type in credentials using your AccountId as the username and your license key as the password.  You can build this authorization string on https://www.base64encode.org/ just as we did earlier; then paste the result into the Authorization field.  It should look like this: `Basic MTIzNDU2Nzg5OkxJQ0VOU0VLRVk=`
 * In the **Model** text box, copy and paste the transaction we built above.
 * Click **Try It**
