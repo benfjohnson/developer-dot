@@ -14,10 +14,10 @@ disqus: 1
 
 The REST API pattern is designed to make it easy to store and retrieve data.  Every piece of data in REST is assigned a single unique URL - and you can always fetch that item back by retrieving its URL.  It works a bit like this:
 
-| Note | HTTP Verb | HTTP URL | Payload | Result |
-|---|---|---|---|---|
-|First, you **POST** to a URL store your data.|POST|`/api/v2/companies`|`{ "name": "Bob's Artisan Pottery" }`|`{ "@link": "/api/v2/companies/123" }`|
-|Next you **GET** that URL back.|GET|`/api/v2/companies/123`| | `javascript { "name": "Bob's Artisan Pottery" }`|
+| Note | HTTP Action | Payload | Result |
+|---|---|---|---|
+|Create by **POST**ing to a URL to store your data.|`POST /api/v2/companies`|`{ "name": "Bob's Artisan Pottery" }`|`{ "@link": "/api/v2/companies/123" }`|
+|Fetch data by **GET**ting that URL back.|`GET /api/v2/companies/123`| | `javascript { "name": "Bob's Artisan Pottery" }`|
 
 This works great as long as you know the URL of the thing.  How do you find something if you don't know what it is?
 
