@@ -29,11 +29,11 @@ Let's say you have three companies, and these are their URLs:
 * `/api/v2/companies/789`
 
 You can fetch all of them back as follows:
-* Request
+### Request
 ```
 GET /api/v2/companies
 ```
-* Result
+### Result
 ```javascript
 [ 
     { "id": 123, ... }, 
@@ -50,11 +50,11 @@ Sooner or later it will be a nuisance to fetch everything.  To reduce the number
 
 In the <a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#97-filtering">Microsoft REST API Guidelines</a>, Microsoft established a nice and friendly standard for finding objects.  You can use a simplified search syntax to find something you want.  Let's say you want to search for the company whose names start with 'A':
 
-* Request
+### Request
 ```
 GET /api/v2/companies?$filter=name ge A and name lt B
 ```
-* Result
+### Result
 ```javascript
 [ 
     { "name": "Aardvark" ... }, 
