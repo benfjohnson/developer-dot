@@ -25,10 +25,12 @@ In choosing to adopt REST and JSON, Avalara has also decided to adopt a publishe
 
 These standards include a few key features that we find very useful:
 
-* A standard set of verbs for all objects
-* A consistent set of parameters used across all APIs
-* Structured error messages designed to make implementing your applications easy
-* A powerful filtering language for searching objects
+<ul>
+<li>A standard set of verbs for all objects</li>
+<li>A consistent set of parameters used across all APIs</li>
+<li>Structured error messages designed to make implementing your applications easy</li>
+<li>A powerful filtering language for searching objects</li>
+</ul>
 
 These features, along with some Avalara-specific extensions, are included in the new REST API.  Additionally, Avalara will gradually be implementing more functionality from all of our diverse businesses into this new API.  Our goal is to provide you with consistent behavior and functionality across all products and services, all in a single service.  We believe this level of consistency will help you to build the next generation of fantastic products on the AvaTax platform.
 

@@ -18,22 +18,26 @@ For today, we'll set up the company "Bob's Artisan Pottery", an online store tha
 
 # Create an AvaTax Account
 
-The first step for Mr. McExample is to create an AvaTax account.  Let's get started right now by visiting http://developer.avalara.com/avatax/signup/ and signing up for a new account.  Here's the information we need to put in - just a few fields including your email address and a phone number:
+The first step for Mr. McExample is to create an AvaTax account.  Let's get started right now by visiting <a href="http://developer.avalara.com/avatax/signup/">http://developer.avalara.com/avatax/signup/</a> and signing up for a new account.  Here's the information we need to put in - just a few fields including your email address and a phone number:
 
 Go ahead and click the **Get Started** button.  Your account will be provisioned in just a few moments - now is a good time to get a pen and paper handy so you can write down your credentials.  You'll need to keep track of, at a minimum, these things:
 
-* An Account ID;
-* An API license key;
-* A username (which will be the same as your email address); and
-* A password.
+<ul>
+<li>An Account ID;</li>
+<li>An API license key;</li>
+<li>A username (which will be the same as your email address); and</li>
+<li>A password.</li>
+</ul>
 
 So in a moment or two, you should receive an email from support@avalara.com with the subject Your AvaTax Development Username, Password & Set Up Instructions.  This email contains your username and a temporary password; let's finish the setup process quickly:
 
-* Log on to the Avalara admin site here using your temporary password: https://admin-development.avalara.net
-* You'll be prompted to retype the temporary password, and create a new one.  Click **Next**.
-* You'll be asked to confirm a few license details - click **Next**.
-* Finally, you'll see a screen listing your account ID and license key.  
-* Once you've written down this information, let's proceed!
+<ul>
+<li>Log on to the Avalara admin site here using your temporary password: <a href="https://admin-development.avalara.net">https://admin-development.avalara.net</a></li>
+<li>You'll be prompted to retype the temporary password, and create a new one.  Click **Next**.</li>
+<li>You'll be asked to confirm a few license details - click **Next**.</li>
+<li>Finally, you'll see a screen listing your account ID and license key.  </li>
+<li>Once you've written down this information, let's proceed!</li>
+</ul>
 
 # Listing All My Companies
 
@@ -49,16 +53,32 @@ As Bob's Artisan Pottery store, we will need to begin by adding a "Company" reco
 
 If you'd like to type along with me without using a programming language, we can create an authentication header by hand.  Here's how you do it:
 
-|Task|Result|
-|---|---|
-|Start with the word "Basic" followed by your username and password.|`Basic username:password`|
-|Replace "username" with your username, and "password" with your password.|`Basic bob@example.org:bobspasswordgoeshere`|
-|Now visit https://www.base64encode.org and paste in the right hand side of the string.|`Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl`|
+<table class="styled-table">
+    <tr>
+        <th>Task</th>
+        <th>Result</th>
+    </tr>
+	<tr>
+		<td>Start with the word "Basic" followed by your username and password.</td>
+		<td><pre>Basic username:password</pre></td>
+	</tr>
+	<tr>
+		<td>Replace "username" with your username, and "password" with your password.</td>
+		<td><pre>Basic bob@example.org:bobspasswordgoeshere</pre></td>
+	</tr>
+	<tr>
+		<td>Now visit https://www.base64encode.org and paste in the right hand side of the string.</td>
+		<td><pre>Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl</pre></td>
+	</tr>
+</table>
 
 Of course, to make this work, you'll have to use your username and password instead of Bob McExample's information.  Once you've completed your basic authentication header, let's make an API call to list companies:
-* Launch the **List Companies** API by clicking this URL: https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Companies/ApiV2CompaniesGet
-* In the **Authorization** field, type in your basic authentication header from above.
-* Finally, click the **Try It** button on the page.  Here's the result you should get:
+
+<ul>
+<li>Launch the **List Companies** API by clicking this URL: <a href="https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Companies/ApiV2CompaniesGet">https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Companies/ApiV2CompaniesGet</a></li>
+<li>In the **Authorization** field, type in your basic authentication header from above.</li>
+<li>Finally, click the **Try It** button on the page.  Here's the result you should get:</li>
+</ul>
 	
 ```javascript
 {
@@ -74,13 +94,15 @@ So, it looks like our account is pretty much empty.  Let's move on to our first 
 In order to begin charging taxes, we need to tell AvaTax about our company.  We begin by using the Company Initialization API, which will create the company's tax profile, register the key contact person for that company, and create a physical location.  All of these things affect the way we calculate tax for this company.  If you represent a more complex company with multiple subsidiaries, you may need to set each one up separately; please contact your customer account manager for more customized help!
 
 Here's what we need to get started:
-* Our company name - this can be different from your legal name, which is only required when filing tax returns.
-* We must select a unique company code.  If our account will have more than one company, each company must have a unique code.
-* For US companies, we will need our U.S. Taxpayer ID Number, which is either your company's TIN for corporations or a social security number for individuals.
-* For European companies, you may need to provide a VAT registration ID.
-* The name, title, and email address of a contact person for this company.
-* A phone number, and optionally mobile / fax numbers.
-* And, finally, the address of your company.  The address is important - it establishes the location where tax must be collected when you sell a mug.  That's a feature called Nexus - you can learn more about it on Avalara's Helping Customers Determine Nexus page.  For the moment, let's set up as a business with a single location.  This company initialization API is for companies with only a single location; if you have a more complex company profile, we'll have to set up each company, location, and nexus in a more customized fashion.
+<ul>
+<li>Our company name - this can be different from your legal name, which is only required when filing tax returns.</li>
+<li>We must select a unique company code.  If our account will have more than one company, each company must have a unique code.</li>
+<li>For US companies, we will need our U.S. Taxpayer ID Number, which is either your company's TIN for corporations or a social security number for individuals.</li>
+<li>For European companies, you may need to provide a VAT registration ID.</li>
+<li>The name, title, and email address of a contact person for this company.</li>
+<li>A phone number, and optionally mobile / fax numbers.</li>
+<li>And, finally, the address of your company.  The address is important - it establishes the location where tax must be collected when you sell a mug.  That's a feature called Nexus - you can learn more about it on Avalara's Helping Customers Determine Nexus page.  For the moment, let's set up as a business with a single location.  This company initialization API is for companies with only a single location; if you have a more complex company profile, we'll have to set up each company, location, and nexus in a more customized fashion.</li>
+</ul>
 
 Once you've gathered this information, we create a request that looks like this:
 
@@ -109,10 +131,12 @@ Once you've gathered this information, we create a request that looks like this:
 
 Our next step is to create this company object using the REST API.  Here's how:
 
-* Launch the Company Initialization API by clicking this link: <a href="https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Companies/ApiV2CompaniesInitializePost">Company Initialization</a>
-* In the **Authorization** field, fill in the same credentials you typed in earlier.
-* In the **Model** text box, copy and paste the information about the company above.
-* Click **Try It**
+<ul>
+<li>Launch the Company Initialization API by clicking this link: <a href="https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Companies/ApiV2CompaniesInitializePost">Company Initialization</a></li>
+<li>In the **Authorization** field, fill in the same credentials you typed in earlier.</li>
+<li>In the **Model** text box, copy and paste the information about the company above.</li>
+<li>Click **Try It**</li>
+</ul>
 
 The server will respond with information about the company that you just created.  Alright!  Now let's start selling products!
 
@@ -120,11 +144,13 @@ The server will respond with information about the company that you just created
 
 For our first sale, let's begin by selling a mug and a vase.  All transactions need a few things:
 
-* A Transaction Code, which is a unique code referring to this transaction.  You can make this a GUID, for example; or you could number transactions by today's date.  Whatever works for you - they just need to be unique.
-* The Company Code you created earlier.
-* A Customer Code that tells us what type of customer bought the mug.  This will become important later when we learn that some customers are exempt from sales tax!  For the moment, you can provide any customer code you like, and you'll be able to set up a customer as exempt later.
-* The address of the transaction.  You can provide both a ShipFrom and a ShipTo address, or you can specify a SingleLocation transaction.  For today's demo, we'll show you a mug mailed from the studio to a customer in San Francisco.
-* A list of items sold on the invoice.  
+<ul>
+<li>A Transaction Code, which is a unique code referring to this transaction.  You can make this a GUID, for example; or you could number transactions by today's date.  Whatever works for you - they just need to be unique.</li>
+<li>The Company Code you created earlier.</li>
+<li>A Customer Code that tells us what type of customer bought the mug.  This will become important later when we learn that some customers are exempt from sales tax!  For the moment, you can provide any customer code you like, and you'll be able to set up a customer as exempt later.</li>
+<li>The address of the transaction.  You can provide both a ShipFrom and a ShipTo address, or you can specify a SingleLocation transaction.  For today's demo, we'll show you a mug mailed from the studio to a customer in San Francisco.</li>
+<li>A list of items sold on the invoice.  </li>
+</ul>
 
 If we sold two separate mugs and a vase in a single order, the transaction might look like this:
 
@@ -172,10 +198,12 @@ If we sold two separate mugs and a vase in a single order, the transaction might
 
 Alright, we've defined our transaction - let's go ahead and calculate the tax!
 
-* Launch the online Create Transaction API by clicking this link: <a href="https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Transactions/ApiV2TransactionsCreatePost">Create Transaction</a>
-* Tax transactions must be calculated using your account's license key.  In the **Authorization** field, we'll need to type in credentials using your AccountId as the username and your license key as the password.  You can build this authorization string on https://www.base64encode.org/ just as we did earlier; then paste the result into the Authorization field.  It should look like this: `Basic MTIzNDU2Nzg5OkxJQ0VOU0VLRVk=`
-* In the **Model** text box, copy and paste the transaction we built above.
-* Click **Try It**
+<ul>
+<li>Launch the online Create Transaction API by clicking this link: <a href="https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Transactions/ApiV2TransactionsCreatePost">Create Transaction</a></li>
+<li>Tax transactions must be calculated using your account's license key.  In the **Authorization** field, we'll need to type in credentials using your AccountId as the username and your license key as the password.  You can build this authorization string on https://www.base64encode.org/ just as we did earlier; then paste the result into the Authorization field.  It should look like this: `Basic MTIzNDU2Nzg5OkxJQ0VOU0VLRVk=`</li>
+<li>In the **Model** text box, copy and paste the transaction we built above.</li>
+<li>Click **Try It**</li>
+</ul>
 
 The information you'll get back is rather large.  You'll receive back a full comprehensive list of details about everything in this transaction, including the list of all jurisdictions that applied tax to this transaction and how much.  But for the moment - the important thing is that you've got all the data you need to charge the customer the correct amount, and help collect and remit the right amount of tax!
 

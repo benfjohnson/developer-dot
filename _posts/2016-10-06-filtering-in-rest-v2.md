@@ -40,9 +40,11 @@ This works great as long as you know the URL of the thing.  How do you find some
 # Listing All Objects
 
 Let's say you have three companies, and these are their URLs:
-* `/api/v2/companies/123`
-* `/api/v2/companies/456`
-* `/api/v2/companies/789`
+<ul>
+<li>`/api/v2/companies/123`</li>
+<li>`/api/v2/companies/456`</li>
+<li>`/api/v2/companies/789`</li>
+</ul>
 
 You can fetch all of them back as follows:
 ### Request
@@ -81,9 +83,11 @@ GET /api/v2/companies?$filter=name ge A and name lt B
 
 You can use these same types of filters in lots of different ways - here are a few samples:
 
-* `GET /api/v2/companies?$filter=name eq 'Bob''s Artisan Pottery'`
-* `GET /api/v2/companies?$filter=id gt 100000`
-* `GET /api/v2/companies?$filter=isTest eq true and isActive eq true`
+<ul>
+<li>`GET /api/v2/companies?$filter=name eq 'Bob''s Artisan Pottery'`</li>
+<li>`GET /api/v2/companies?$filter=id gt 100000`</li>
+<li>`GET /api/v2/companies?$filter=isTest eq true and isActive eq true`</li>
+</ul>
 
 # What filtering options are available?
 
