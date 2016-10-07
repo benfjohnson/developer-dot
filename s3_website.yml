@@ -2,6 +2,8 @@ s3_id: <%= ENV['access_key'] %>
 s3_secret: <%= ENV['secret_key'] %>
 s3_bucket: developer.avalara.com
 
+cloudfront_distribution_id: E14INHTPGUUPMC
+
 exclude_from_upload:
   - node_modules
 
