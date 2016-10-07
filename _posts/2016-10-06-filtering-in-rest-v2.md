@@ -30,9 +30,11 @@ Let's say you have three companies, and these are their URLs:
 
 You can fetch all of them back as follows:
 * Request
-..* `GET /api/v2/companies`
+```
+GET /api/v2/companies
+```
 * Result
-..* ```javascript
+```javascript
 [ 
     { "id": 123, ... }, 
     { "id": 456, ... }, 
@@ -49,9 +51,17 @@ Sooner or later it will be a nuisance to fetch everything.  To reduce the number
 In the <a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#97-filtering">Microsoft REST API Guidelines</a>, Microsoft established a nice and friendly standard for finding objects.  You can use a simplified search syntax to find something you want.  Let's say you want to search for the company whose names start with 'A':
 
 * Request
-** `GET /api/v2/companies?$filter=name ge A and name lt B`
+```
+GET /api/v2/companies?$filter=name ge A and name lt B
+```
 * Result
-** All companies with names between A and B are returned!
+```javascript
+[ 
+    { "name": "Aardvark" ... }, 
+    { "name": "Aaron's Antiques" }, 
+    { "name": "Andes Climbing Supply" }
+]
+```
 
 You can use these same types of filters in lots of different ways - here are a few samples:
 
