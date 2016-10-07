@@ -18,7 +18,7 @@ At least, that's what I first thought when I had heard that it was possible to m
 
 Of course, I hadn't used (or _debugged_) VBA in years. I had completely forgotten there were more leisurely activities, like eating a box of wood screws. Nevertheless, my stubborness to finish what I started lead to this invoice template:
 
-<center><a href="/public/misc/AvaTaxForExcel.xlsm"><img src="/public/images/avataxforexcel.png" title="AvaTax for Excel" /></a><br/><em>Click me! I've Got Macros!</em><br/><br/><br/></center>
+<center><a href="/public/misc/AvaTaxForExcel.xlsm"><img src="/public/images/avataxforexcel.png" alt="AvaTax for Excel" /></a><br/><em>Click me! I've Got Macros!</em><br/><br/><br/></center>
 
 Naturally, you may want to do more than just make invoices, so we'll take a quick look at the underlying VBA code to get you started. 
 
@@ -42,11 +42,11 @@ The function signature of GetTax is as follows:
 
 The GetTax call, when invoked, performs the web request against our new REST v2 APIs (in beta as of this writing, check it out! - http://developer.avalara.com/avatax/api-reference/tax/v2/), resulting in your calculated invoice appearing on your AvaTax console:
 
-<center><img src="/public/images/adminconsole.png" title="Admin Console Screenshot" style="width: 100%;"/><br/><br/><br/></center>
+<center><img src="/public/images/adminconsole.png" alt="Admin Console Screenshot" style="width: 100%;"/><br/><br/><br/></center>
 
 As well as your spreadsheet:
 
-<center><img src="/public/images/spreadsheet.png" title="Invoice Total With Tax" /><br/><br/><br/></center>
+<center><img src="/public/images/spreadsheet.png" alt="Invoice Total With Tax" /><br/><br/><br/></center>
 
 The GetTax method is provided for your convenience, and traps and displays errors it encounters via a message box. You may want to handle these errors differently. All the magic actually occurs via the TransactionRequest class' ToJson method, which uses the excellent VBA-JSON library to translate the class into a JSON object, which is fed into the web request.
 
