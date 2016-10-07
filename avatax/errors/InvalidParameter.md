@@ -8,7 +8,7 @@ disqus: 0
 
 ## Summary
 
-You provided a parameter with your transaction that was not recognized by Avalara.
+When adding parameters to your CreateTransactionModel, you must use a valid parameter name.
 
 ## Example
 
@@ -30,8 +30,8 @@ You provided a parameter with your transaction that was not recognized by Avalar
 
 ## Explanation
 
-For a full list of parameters you can use with your AvaTax calls, please use the {{/api/v2/definitions/parameters}} endpoint.  Please check this list 
-prior to sending parameters with a {{/api/v2/transactions/create}} call.
+Parameters must be one of a list of recognized values.  Specifying a parameter with a misspelled name will result in this error.
 
-This error occurs when you have sent a parameter that does not match one of the list of expected parameters.  Please check the spelling of your parameters in 
-the transaction call.
+To see the full list of valid parameter names, please use the /api/v2/definitions/parameters endpoint.
+
+Please check the parameter list on your CreateTransactionModel and on all lines to make sure all parameter names match this list.

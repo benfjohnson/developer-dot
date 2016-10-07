@@ -8,7 +8,7 @@ disqus: 0
 
 ## Summary
 
-When specifying parameters, you must make sure that the parameters you provide are of the correct type.
+When adding parameters to your CreateTransactionModel, you must specify a parameter of the correct type.
 
 ## Example
 
@@ -30,13 +30,11 @@ When specifying parameters, you must make sure that the parameters you provide a
 
 ## Explanation
 
-This error occurs if AvaTax cannot understand one of the parameters you have provided with your transaction call.
+You passed a parameter value that was not the correct type.
 
-Some example parameter types:
-* Decimal - Must be a numeric value.
-* Boolean - Must be either "True" or "False".
-* String - Must be a textual string.
+Parameter types are one of the following:
+* Boolean - The only acceptable values are "true" and "false".
+* Numeric - Only numeric values may be provided.
+* String - Any text value may be provided.
 
-Each parameter type has a restriction for what data can be provided.  Please consult the {{/api/v2/definitions/paramters}} endpoint for a full list of parameters
-and information about their types.
-
+Please check the parameters in your CreateTransactionModel and ensure that each one has a value of the correct data type.
