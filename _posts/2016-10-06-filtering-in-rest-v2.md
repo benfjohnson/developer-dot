@@ -16,8 +16,10 @@ The REST API pattern is designed to make it easy to store and retrieve data.  Ev
 
 | Note | HTTP Action | Payload | Result |
 |---|---|---|---|
-|Create by **POST**ing to a URL to store your data.|`POST /api/v2/companies`|`{ "name": "Bob's Artisan Pottery" }`|`{ "@link": "/api/v2/companies/123" }`|
-|Fetch data by **GET**ting that URL back.|`GET /api/v2/companies/123`| | `javascript { "name": "Bob's Artisan Pottery" }`|
+|Store data by **POST**ing to a URL.|`POST /api/v2/companies`|`{ "name": "Bob's Artisan Pottery" }`|In the HTTP headers:
+`Location: /api/v2/companies/123`|
+|Fetch data by **GET**ting from that URL.|`GET /api/v2/companies/123`| | In the body of the HTTP response:
+`{ "name": "Bob's Artisan Pottery" }`|
 
 This works great as long as you know the URL of the thing.  How do you find something if you don't know what it is?
 
