@@ -21,33 +21,33 @@ Avalara supports the following filtering operations defined in the <a href="http
     </tr>
     <tr>
         <td>Equals</td>
-        <td>`field eq value` or `field = value`</td>
-        <td>`isActive eq true`</td>
+        <td><pre>field eq value</pre> or <pre>field = value</pre></td>
+        <td><pre>isActive eq true</pre></td>
     </tr>
     <tr>
         <td>Greater Than</td>
-        <td>`field gt value` or `field > value`</td>
-        <td>`taxDate gt '2016-01-01'`</td>
+        <td><pre>field gt value</pre> or <pre>field &gt; value</pre></td>
+        <td><pre>taxDate gt '2016-01-01'</pre></td>
     </tr>
     <tr>
         <td>Greater Than Or Equal</td>
-        <td>`field ge value` or `field >= value`</td>
-        <td>`id ge 123`</td>
+        <td><pre>field ge value</pre> or <pre>field &gt;= value</pre></td>
+        <td><pre>id ge 123</pre></td>
     </tr>
     <tr>
         <td>Not Equal</td>
-        <td>`field ne value` or `field <> value` or `field != value`</td>
-        <td>`id ne 123`</td>
+        <td><pre>field ne value</pre> or <pre>field &lt;&gt; value</pre> or <pre>field != value</pre></td>
+        <td><pre>id ne 123</pre></td>
     </tr>
     <tr>
         <td>Less Than</td>
-        <td>`field lt value` or `field < value`</td>
-        <td>`id lt 123`</td>
+        <td><pre>field lt value</pre> or <pre>field &lt; value</pre></td>
+        <td><pre>id lt 123</pre></td>
     </tr>
     <tr>
         <td>Less Than Or Equal</td>
-        <td>`field le value` or `field <= value`</td>
-        <td>`id le 123`</td>
+        <td><pre>field le value</pre> or <pre>field &lt;= value</pre></td>
+        <td><pre>id le 123</pre></td>
     </tr>
 <table>
 
@@ -64,26 +64,26 @@ Avalara supports a few additional complex operations not specified in the Micros
     </tr>
     <tr>
         <td>Between</td>
-        <td>`field between value1 and value2`</td>
-        <td>`taxableAmount between 100.00 and 200.00`</td>
+        <td><pre>field between value1 and value2</pre></td>
+        <td><pre>taxableAmount between 100.00 and 200.00</pre></td>
         <td>Matches all records greater than or equal to the first value, plus all records less than the second value.</td>
     </tr>
     <tr>
         <td>In</td>
-        <td>`field in (item1, item2, item3...)`</td>
-        <td>`id in (123, 456, 789)`</td>
+        <td><pre>field in (item1, item2, item3...)</pre></td>
+        <td><pre>id in (123, 456, 789)</pre></td>
         <td>Matches all records whose value is the same as one of the items in the list.</td>
     </tr>
     <tr>
         <td>Like</td>
-        <td>`field like 'value%'`</td>
-        <td>`name like '%Bob%'`</td>
+        <td><pre>field like 'value%'</pre></td>
+        <td><pre>name like '%Bob%'</pre></td>
         <td>Performsn string matching similarly to an SQL 'LIKE' statement.  Can only be used on string value fields.</td>
     </tr>
     <tr>
         <td>Is Null / Is Not Null</td>
-        <td>`field is null` or `field is not null`</td>
-        <td>`ref1 is null`</td>
+        <td><pre>field is null</pre> or <pre>field is not null</pre></td>
+        <td><pre>ref1 is null</pre></td>
         <td>Matches all records where the field's null flag is a specific value.</td>
     </tr>
 <table>
@@ -101,14 +101,14 @@ On occasion you may need to retrieve objects that have a combination of values. 
     </tr>
     <tr>
         <td>AND</td>
-        <td>`field1 operation value1 AND field2 operation value2`</td>
-        <td>`isActive eq true AND hasProfile eq true`</td>
+        <td><pre>field1 operation value1 AND field2 operation value2</pre></td>
+        <td><pre>isActive eq true AND hasProfile eq true</pre></td>
         <td>Matches only records where both tests are successful.</td>
     </tr>
     <tr>
         <td>OR</td>
-        <td>`field1 operation value1 OR field2 operation value2`</td>
-        <td>`taxDate eq '2016-01-01' or taxDate eq '2016-01-02'`</td>
+        <td><pre>field1 operation value1 OR field2 operation value2</pre></td>
+        <td><pre>taxDate eq '2016-01-01' or taxDate eq '2016-01-02'</pre></td>
         <td>Matches records where either the left or right side is true.</td>
     </tr>
 <table>
@@ -123,15 +123,15 @@ Now let's put it all together, shall we?
         <th>Notes</th>
     </tr>
     <tr>
-        <td>`name like 'Bob%' and (isActive eq true or hasProfile eq true)`</td>
+        <td><pre>name like 'Bob%' and (isActive eq true or hasProfile eq true)</pre></td>
         <td>Matches all records where the name begins with the letters 'Bob' and where the isActive flag is true or the hasProfile flag is true.</td>
     </tr>
     <tr>
-        <td>`taxDate between '2016-01-01' and '2016-02-01' and status eq committed`</td>
+        <td><pre>taxDate between '2016-01-01' and '2016-02-01' and status eq committed</pre></td>
         <td>Matches all records where the taxDate is in the month of January and the record's status is 'committed'.</td>
     </tr>
     <tr>
-        <td>`(country eq 'US' and region eq 'CA') or (country eq 'CA')`</td>
+        <td><pre>(country eq 'US' and region eq 'CA') or (country eq 'CA')</pre></td>
         <td>Matches all records in Canada or in California</td>
     </tr>
 </table>
