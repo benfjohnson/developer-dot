@@ -21,7 +21,7 @@ For today, we'll set up the company "Bob's Artisan Pottery", an online store tha
 The first step for Mr. McExample is to create an AvaTax account.  Let's get started right now by visiting http://developer.avalara.com/avatax/signup/ and signing up for a new account.  
 Here's the information we need to put in - just a few fields including your email address and a phone number:
 
-Go ahead and click the "Get Started" button.  Your account will be provisioned in just a few moments - now is a good time to get a pen and paper handy so you can write down your credentials.  You'll need to keep track of, at a minimum, these things:
+Go ahead and click the **Get Started** button.  Your account will be provisioned in just a few moments - now is a good time to get a pen and paper handy so you can write down your credentials.  You'll need to keep track of, at a minimum, these things:
 
 * An Account ID;
 * An API license key;
@@ -31,8 +31,8 @@ Go ahead and click the "Get Started" button.  Your account will be provisioned i
 So in a moment or two, you should receive an email from support@avalara.com with the subject Your AvaTax Development Username, Password & Set Up Instructions.  This email contains your username and a temporary password; let's finish the setup process quickly:
 
 * Log on to the Avalara admin site here using your temporary password: https://admin-development.avalara.net
-* You'll be prompted to retype the temporary password, and create a new one.  Click "Next".
-* You'll be asked to confirm a few license details - click "Next".
+* You'll be prompted to retype the temporary password, and create a new one.  Click **Next**.
+* You'll be asked to confirm a few license details - click **Next**.
 * Finally, you'll see a screen listing your account ID and license key.  
 * Once you've written down this information, let's proceed!
 
@@ -42,11 +42,13 @@ As Bob's Artisan Pottery store, we will need to begin by adding a "Company" reco
 In AvaTax, we list companies by calling https://rest-sbx-preview.avalara.net/api/v2/companies - but we need to authenticate against the API.  In order to do this, we need to add a basic authentication header to our web request.
 Let's start by creating our basic authentication header.  If you're writing code, your programming language likely supports Base64 encoding directly.  Here's how to construct the basic authentication header in C# - most other programming languages work the same way:
 
+```csharp
 	string combined = String.Format("{0}:{1}", username, password);
 	byte[] bytes = Encoding.UTF8.GetBytes(combined);
 	string base64 = System.Convert.ToBase64String(bytes);
 	HttpClient client = new HttpClient();
 	client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", base64 );
+```
 
 If you'd like to type along with me without using a programming language, we can create an authentication header by hand.  Here's how you do it:
 
@@ -58,14 +60,16 @@ If you'd like to type along with me without using a programming language, we can
 
 Of course, to make this work, you'll have to use your username and password instead of Bob McExample's information.
 Once you've completed your basic authentication header, let's make an API call to list companies:
-* Launch the "List Companies" API by clicking this URL: https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Companies/ApiV2CompaniesGet
-* In the "Authorization" field, type in your basic authentication header from above.
-* Finally, click the Try It button on the page.  Here's the result you should get:
+* Launch the **List Companies** API by clicking this URL: https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Companies/ApiV2CompaniesGet
+* In the **Authorization** field, type in your basic authentication header from above.
+* Finally, click the **Try It** button on the page.  Here's the result you should get:
 	
-	{
-	  "@recordsetCount": 0,
-	  "value": []
-	}
+```javascript
+{
+  "@recordsetCount": 0,
+  "value": []
+}
+```
 
 So, it looks like our account is pretty much empty.  Let's move on to our first action - initializing our company!
 
@@ -108,9 +112,9 @@ Once you've gathered this information, we create a request that looks like this:
 Our next step is to create this company object using the REST API.  Here's how:
 
 * Launch the Company Initialization API by clicking this link: https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Companies/ApiV2CompaniesInitializePost
-* In the "Authorization" field, fill in the same credentials you typed in earlier.
-* In the "Model" text box, copy and paste the information about the company above.
-* Click "Try It!"
+* In the **Authorization** field, fill in the same credentials you typed in earlier.
+* In the **Model** text box, copy and paste the information about the company above.
+* Click **Try It**
 
 The server will respond with information about the company that you just created.  Alright!  Now let's start selling products!
 
@@ -170,9 +174,9 @@ If we sold two separate mugs and a vase in a single order, the transaction might
 Alright, we've defined our transaction - let's go ahead and calculate the tax!
 
 * Launch the online Create Transaction API by clicking this link: https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Transactions/ApiV2TransactionsCreatePost
-* Tax transactions must be calculated using your account's license key.  In the "Authorization" field, we'll need to type in credentials using your AccountId as the username and your license key as the password.  You can build this authorization string on https://www.base64encode.org/ just as we did earlier; then paste the result into the Authorization field.  It should look like this: `Basic MTIzNDU2Nzg5OkxJQ0VOU0VLRVk=`
-* In the "Model" text box, copy and paste the transaction we built above.
-* Click "Try It!"
+* Tax transactions must be calculated using your account's license key.  In the **Authorization** field, we'll need to type in credentials using your AccountId as the username and your license key as the password.  You can build this authorization string on https://www.base64encode.org/ just as we did earlier; then paste the result into the Authorization field.  It should look like this: `Basic MTIzNDU2Nzg5OkxJQ0VOU0VLRVk=`
+* In the **Model** text box, copy and paste the transaction we built above.
+* Click **Try It**
 
 The information you'll get back is rather large.  You'll receive back a full comprehensive list of details about everything in this transaction, including the list of all jurisdictions that applied tax to this transaction and how much.  But for the moment - the important thing is that you've got all the data you need to charge the customer the correct amount, and help collect and remit the right amount of tax!
 
@@ -181,5 +185,4 @@ The information you'll get back is rather large.  You'll receive back a full com
 There's a lot more you can do with AvaTax.  You can integrate accounting systems; you can keep track of sales orders and convert them to invoices later; you can set up some customers as exempt, and you can set up nexus in more than one location at a time.  AvaTax is ready to support all the functionality you need for a fully featured tax platform - want to know more?  Contact your account representative today! 
 
 
---Ted Spence
-Director, AvaTax Core Engine
+--Ted Spence, Director, AvaTax Core Engine

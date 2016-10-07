@@ -46,5 +46,4 @@ We believe that this new REST API will be the future, and we think over time you
 
 Thanks for reading - we're looking forward to share more with you as this rollout continues!
 
---Ted Spence
-Director, AvaTax Core Engine
+--Ted Spence, Director, AvaTax Core Engine

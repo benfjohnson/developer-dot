@@ -16,23 +16,29 @@ The REST API pattern is designed to make it easy to store and retrieve data.  Ev
 
 | Note | HTTP Verb | HTTP URL | Payload | Result |
 |---|---|---|---|---|
-|First, you "POST" to a URL store your data.|POST|/api/v2/companies|```{ "name": "Bob's Artisan Pottery" }```|```{ "@link": "/api/v2/companies/123" }```|
-|Next you "GET" that URL back.|GET|/api/v2/companies/123| | ```{ "name": "Bob's Artisan Pottery" }```|
+|First, you **POST** to a URL store your data.|POST|`/api/v2/companies`|```javascript { "name": "Bob's Artisan Pottery" }```|```javascript { "@link": "/api/v2/companies/123" }```|
+|Next you **GET** that URL back.|GET|`/api/v2/companies/123`| | ```javascript { "name": "Bob's Artisan Pottery" }```|
 
 This works great as long as you know the URL of the thing.  How do you find something if you don't know what it is?
 
 # Listing All Objects
 
 Let's say you have three companies, and these are their URLs:
-* ```/api/v2/companies/123```
-* ```/api/v2/companies/456```
-* ```/api/v2/companies/789```
+* `/api/v2/companies/123`
+* `/api/v2/companies/456`
+* `/api/v2/companies/789`
 
 You can fetch all of them back as follows:
 * Request
-** ```GET /api/v2/companies```
+** `GET /api/v2/companies`
 * Result
-** ```[ { company 1 }, { company 2 }, { company 3 }]```
+** ```javascript
+[ 
+    { "id": 123, ... }, 
+    { "id": 456, ... }, 
+    { "id": 789, ... }
+]
+```
 
 Voila! In AvaTax, your credentials will automatically allow you to access all companies within your account with no extra hassle.  The query to ```GET /api/v2/companies``` will return all three objects.  If you only have three objects this is the easiest way to find what you want.
 
@@ -49,9 +55,9 @@ In the <a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelin
 
 You can use these same types of filters in lots of different ways - here are a few samples:
 
-* ```GET /api/v2/companies?$filter=name eq 'Bob''s Artisan Pottery'```
-* ```GET /api/v2/companies?$filter=id gt 100000```
-* ```GET /api/v2/companies?$filter=isTest eq true and isActive eq true```
+* `GET /api/v2/companies?$filter=name eq 'Bob''s Artisan Pottery'`
+* `GET /api/v2/companies?$filter=id gt 100000`
+* `GET /api/v2/companies?$filter=isTest eq true and isActive eq true`
 
 # What filtering options are available?
 
@@ -61,5 +67,4 @@ The full list of <a href="/avatax/filtering-in-rest">available filtering options
 
 Happy Filtering!
 
---Ted Spence
-Director, AvaTax Core Engine
+--Ted Spence, Director, AvaTax Core Engine
