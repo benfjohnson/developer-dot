@@ -18,7 +18,7 @@ You attempted to change passwords for a user who is not permitted to change thei
       "details": [
         {
           "code": "CannotChangePassword",
-          "number": 0,
+          "number": 24,
           "message": "User is not allowed to change password.",
           "description": "-0-",
           "faultCode": "Client",

@@ -18,9 +18,8 @@ Reserved for future use.
       "details": [
         {
           "code": "BrazilValidationError",
-          "number": 0,
+          "number": 127,
           "message": "The value '-0-' must be one of the following values for Brazil: -1-.",
-          "description": "",
           "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/BrazilValidationError",
           "severity": "Error"

@@ -18,7 +18,7 @@ Your API call contained an incorrectly structured object.
       "details": [
         {
           "code": "ValidationException",
-          "number": 0,
+          "number": 32,
           "message": "The data you supplied in the '-0-' could not be successfully parsed.",
           "description": "This error code is a summary of many other exception codes.",
           "faultCode": "Client",

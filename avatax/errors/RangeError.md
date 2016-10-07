@@ -18,7 +18,7 @@ You attempted to set a value that must be within a range, but your value was out
       "details": [
         {
           "code": "RangeError",
-          "number": 0,
+          "number": 6,
           "message": "-1- is expected to be between -2- and -3-.",
           "description": "-0-",
           "faultCode": "Client",

@@ -18,7 +18,7 @@ You provided an unrecognized string or token in the "$filter" parameter of your 
       "details": [
         {
           "code": "ParserSyntaxError",
-          "number": 0,
+          "number": 19,
           "message": "Unexpected token '-0-' in the filter.  Expected '-1-'",
           "description": "-2-",
           "faultCode": "Client",

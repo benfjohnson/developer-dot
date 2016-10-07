@@ -18,9 +18,8 @@ Reserved for future use.
       "details": [
         {
           "code": "BrazilExemptValidationError",
-          "number": 0,
+          "number": 128,
           "message": "The value '-0-' must be one of the following values for Brazil when the rate is zero: -1-.",
-          "description": "",
           "faultCode": "Client",
           "helpLink": "http://developer.avalara.com/avatax/errors/BrazilExemptValidationError",
           "severity": "Error"

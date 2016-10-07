@@ -18,7 +18,7 @@ When creating a location, you must specify a compatible AddressType and AddressC
       "details": [
         {
           "code": "InvalidAddressTypeAndCategory",
-          "number": 0,
+          "number": 123,
           "message": "Invalid AddressType and AddressCategory combination.",
           "description": "-0- -1-",
           "faultCode": "Client",
