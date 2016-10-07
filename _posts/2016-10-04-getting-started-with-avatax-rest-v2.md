@@ -41,7 +41,7 @@ So in a moment or two, you should receive an email from support@avalara.com with
 
 # Listing All My Companies
 
-As Bob's Artisan Pottery store, we will need to begin by adding a "Company" record to keep track of our sales.  Since Avalara works for all companies both small and large, you can use the AvaTax API whether you have a single corporate entity or whether you manage lots of different registered businesses.  Let's start by listing all the companies defined in this account.In AvaTax, we list companies by calling https://rest-sbx-preview.avalara.net/api/v2/companies - but we need to authenticate against the API.  In order to do this, we need to add a basic authentication header to our web request.  Let's start by creating our basic authentication header.  If you're writing code, your programming language likely supports Base64 encoding directly.  Here's how to construct the basic authentication header in C# - most other programming languages work the same way:
+As Bob's Artisan Pottery store, we will need to begin by adding a "Company" record to keep track of our sales.  Since Avalara works for all companies both small and large, you can use the AvaTax API whether you have a single corporate entity or whether you manage lots of different registered businesses.  Let's start by listing all the companies defined in this account.In AvaTax, we list companies by calling <a href="https://rest-sbx-preview.avalara.net/api/v2/companies">https://rest-sbx-preview.avalara.net/api/v2/companies</a> - but we need to authenticate against the API.  In order to do this, we need to add a basic authentication header to our web request.  Let's start by creating our basic authentication header.  If you're writing code, your programming language likely supports Base64 encoding directly.  Here's how to construct the basic authentication header in C# - most other programming languages work the same way:
 
 ```csharp
 	string combined = String.Format("{0}:{1}", username, password);
@@ -67,7 +67,7 @@ If you'd like to type along with me without using a programming language, we can
 		<td><pre>Basic bob@example.org:bobspasswordgoeshere</pre></td>
 	</tr>
 	<tr>
-		<td>Now visit https://www.base64encode.org and paste in the right hand side of the string.</td>
+		<td>Now visit <a href="https://www.base64encode.org">https://www.base64encode.org</a> and paste in the right hand side of the string.</td>
 		<td><pre>Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl</pre></td>
 	</tr>
 </table>
@@ -200,7 +200,7 @@ Alright, we've defined our transaction - let's go ahead and calculate the tax!
 
 <ul>
 <li>Launch the online Create Transaction API by clicking this link: <a href="https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Transactions/ApiV2TransactionsCreatePost">Create Transaction</a></li>
-<li>Tax transactions must be calculated using your account's license key.  In the **Authorization** field, we'll need to type in credentials using your AccountId as the username and your license key as the password.  You can build this authorization string on https://www.base64encode.org/ just as we did earlier; then paste the result into the Authorization field.  It should look like this: `Basic MTIzNDU2Nzg5OkxJQ0VOU0VLRVk=`</li>
+<li>Tax transactions must be calculated using your account's license key.  In the **Authorization** field, we'll need to type in credentials using your AccountId as the username and your license key as the password.  You can build this authorization string on <a href="https://www.base64encode.org/">https://www.base64encode.org/</a> just as we did earlier; then paste the result into the Authorization field.  It should look like this: `Basic MTIzNDU2Nzg5OkxJQ0VOU0VLRVk=`</li>
 <li>In the **Model** text box, copy and paste the transaction we built above.</li>
 <li>Click **Try It**</li>
 </ul>
