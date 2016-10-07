@@ -48,12 +48,6 @@ Now let's put it all together, shall we?
 
 |Example|Notes|
 |---|---|
-|```
-name like 'Bob%' and (isActive eq true or hasProfile eq true)
-```|Matches all records where the name begins with the letters 'Bob' and where the isActive flag is true or the hasProfile flag is true.|
-|```
-taxDate between '2016-01-01' and '2016-02-01' and status eq committed
-```|Matches all records where the taxDate is in the month of January and the record's status is 'committed'.|
-|```
-(country eq 'US' and region eq 'CA') or (country eq 'CA')
-```|Matches all records in Canada or in California|
+|`name like 'Bob%' and (isActive eq true or hasProfile eq true)`|Matches all records where the name begins with the letters 'Bob' and where the isActive flag is true or the hasProfile flag is true.|
+|`taxDate between '2016-01-01' and '2016-02-01' and status eq committed`|Matches all records where the taxDate is in the month of January and the record's status is 'committed'.|
+|`(country eq 'US' and region eq 'CA') or (country eq 'CA')`|Matches all records in Canada or in California|

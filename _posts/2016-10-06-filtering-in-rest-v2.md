@@ -16,21 +16,8 @@ The REST API pattern is designed to make it easy to store and retrieve data.  Ev
 
 | Note | HTTP Verb | HTTP URL | Payload | Result |
 |---|---|---|---|---|
-|First, you **POST** to a URL store your data.|POST|`/api/v2/companies`|
-```javascript 
-{ 
-    "name": "Bob's Artisan Pottery" 
-}
-```|```javascript 
-{ 
-    "@link": "/api/v2/companies/123" 
-}
-```|
-|Next you **GET** that URL back.|GET|`/api/v2/companies/123`| | ```javascript 
-{ 
-    "name": "Bob's Artisan Pottery" 
-}
-```|
+|First, you **POST** to a URL store your data.|POST|`/api/v2/companies`|`{ "name": "Bob's Artisan Pottery" }`|`{ "@link": "/api/v2/companies/123" }`|
+|Next you **GET** that URL back.|GET|`/api/v2/companies/123`| | `javascript { "name": "Bob's Artisan Pottery" }`|
 
 This works great as long as you know the URL of the thing.  How do you find something if you don't know what it is?
 
@@ -43,9 +30,9 @@ Let's say you have three companies, and these are their URLs:
 
 You can fetch all of them back as follows:
 * Request
-** `GET /api/v2/companies`
+..* `GET /api/v2/companies`
 * Result
-** ```javascript
+..* ```javascript
 [ 
     { "id": 123, ... }, 
     { "id": 456, ... }, 
