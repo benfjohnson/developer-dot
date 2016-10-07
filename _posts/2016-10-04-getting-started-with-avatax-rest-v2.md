@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A New REST API For AvaTax
+title: Getting Started with AvaTax REST v2
 date: 2016-10-04 09:00
 author: Ted Spence
 comments: true
