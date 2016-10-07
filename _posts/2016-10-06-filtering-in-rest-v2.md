@@ -23,15 +23,15 @@ The REST API pattern is designed to make it easy to store and retrieve data.  Ev
     </tr>
     <tr>
         <td>Store data by **POST**ing to a URL.</td>
-        <td>`POST /api/v2/companies`</td>
-        <td>In the request body: `{ "name": "Bob's Artisan Pottery" }`</td>
-        <td>In the HTTP headers: `Location: /api/v2/companies/123`</td>
+        <td><pre>POST /api/v2/companies</pre></td>
+        <td>In the request body: <pre>{ "name": "Bob's Artisan Pottery" }</pre></td>
+        <td>In the HTTP headers: <pre>Location: /api/v2/companies/123</pre></td>
     </tr>
     <tr>
         <td>Fetch data by **GET**ting from that URL.</td>
-        <td>`GET /api/v2/companies/123`</td>
+        <td><pre>GET /api/v2/companies/123</pre></td>
         <td></td>
-        <td>In the response body: `{ "name": "Bob's Artisan Pottery" }`</td>
+        <td>In the response body: <pre>{ "name": "Bob's Artisan Pottery" }</pre></td>
     </tr>
 </table>
 
@@ -40,10 +40,10 @@ This works great as long as you know the URL of the thing.  How do you find some
 # Listing All Objects
 
 Let's say you have three companies, and these are their URLs:
-<ul>
-<li>`/api/v2/companies/123`</li>
-<li>`/api/v2/companies/456`</li>
-<li>`/api/v2/companies/789`</li>
+<ul class="normal">
+<li><pre>/api/v2/companies/123</pre></li>
+<li><pre>/api/v2/companies/456</pre></li>
+<li><pre>/api/v2/companies/789</pre></li>
 </ul>
 
 You can fetch all of them back as follows:
@@ -60,7 +60,7 @@ GET /api/v2/companies
 ]
 ```
 
-Voila! In AvaTax, your credentials will automatically allow you to access all companies within your account with no extra hassle.  The query to ```GET /api/v2/companies``` will return all three objects.  If you only have three objects this is the easiest way to find what you want.
+Voila! In AvaTax, your credentials will automatically allow you to access all companies within your account with no extra hassle.  The query to <pre>GET /api/v2/companies</pre> will return all three objects.  If you only have three objects this is the easiest way to find what you want.
 
 # What if I have more than three objects?
 
@@ -83,10 +83,10 @@ GET /api/v2/companies?$filter=name ge A and name lt B
 
 You can use these same types of filters in lots of different ways - here are a few samples:
 
-<ul>
-<li>`GET /api/v2/companies?$filter=name eq 'Bob''s Artisan Pottery'`</li>
-<li>`GET /api/v2/companies?$filter=id gt 100000`</li>
-<li>`GET /api/v2/companies?$filter=isTest eq true and isActive eq true`</li>
+<ul class="normal">
+<li><pre>GET /api/v2/companies?$filter=name eq 'Bob''s Artisan Pottery'</pre></li>
+<li><pre>GET /api/v2/companies?$filter=id gt 100000</pre></li>
+<li><pre>GET /api/v2/companies?$filter=isTest eq true and isActive eq true</pre></li>
 </ul>
 
 # What filtering options are available?

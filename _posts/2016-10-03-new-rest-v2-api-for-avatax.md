@@ -25,7 +25,7 @@ In choosing to adopt REST and JSON, Avalara has also decided to adopt a publishe
 
 These standards include a few key features that we find very useful:
 
-<ul>
+<ul class="normal">
 <li>A standard set of verbs for all objects</li>
 <li>A consistent set of parameters used across all APIs</li>
 <li>Structured error messages designed to make implementing your applications easy</li>
