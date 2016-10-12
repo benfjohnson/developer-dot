@@ -30,8 +30,8 @@ The company code in the URL of your API call did not match the company code of t
 
 ## Explanation
 
-In AvaTax, you can create a transaction using one of two endpoints: the universal transaction endpoint, {{/api/v2/transactions/create}}, or the company-specific
-endpoint {{/api/v2/transactions/(companyCode)/create}}.  If you create a transaction with the universal transaction endpoint, you must provide the company code
+In AvaTax, you can create a transaction using one of two endpoints: the universal transaction endpoint, `/api/v2/transactions/create`, or the company-specific
+endpoint `/api/v2/transactions/(companyCode)/create`.  If you create a transaction with the universal transaction endpoint, you must provide the company code
 for your transaction with the data you upload.  If you create a transaction with the company-specific endpoint, the company code in the URL must provide the company
 code for the model.
 

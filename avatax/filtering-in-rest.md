@@ -51,7 +51,7 @@ Avalara supports the following filtering operations defined in the <a href="http
     </tr>
 <table>
 
-# Complex Filter Operations
+<h2>Complex Filter Operations</h2>
 
 Avalara supports a few additional complex operations not specified in the Microsoft standard:
 
@@ -88,7 +88,7 @@ Avalara supports a few additional complex operations not specified in the Micros
     </tr>
 <table>
 
-# Conjunctions
+<h2>Conjunctions</h2>
 
 On occasion you may need to retrieve objects that have a combination of values.  To do this, you may need to search for objects that match a number of statements at once.  To do this, you can use conjunctions to chain together multiple statements, and you can use parenthesis symbols to define the order of operations.
 
@@ -113,7 +113,7 @@ On occasion you may need to retrieve objects that have a combination of values. 
     </tr>
 <table>
 
-# Complex Examples
+<h2>Complex Examples</h2>
 
 Now let's put it all together, shall we?
 
