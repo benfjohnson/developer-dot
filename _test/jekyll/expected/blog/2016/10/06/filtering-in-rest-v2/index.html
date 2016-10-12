@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="robots" content="index,follow"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer  : Posts</title>
+    <title>Developer  : Filtering in AvaTax REST v2</title>
     <meta name="description" content="">
 
     <meta property="og:title" content="Home"/>
@@ -37,14 +37,14 @@
 </head>
 
 
-<body id="top" data-spy="scroll" data-target="#bootstrap-scrollspy" data-product=>
+<body id="top" data-spy="scroll" data-target="#bootstrap-scrollspy" data-product=blog>
 <header>
     <div class="pageTitle">
         <a href="/">
             <img src="/public/images/Avalara_logo.svg" alt="Avalara Developer Network">
             <span>Developer</span>
         </a>
-        
+        <span class="slash">/&nbsp;</span><a href="/blog">blog</a>
     </div>
     <nav class="navbar navbar-default navbar-static">
         <div class="navbar-header">
@@ -167,14 +167,15 @@
                 <form class="hdr-search-form horizontal hidden-xs hidden">
                     <div class="row">
                         
-                        <div class="col-md-12">
+                        <div class="col-md-9"><label><input type="checkbox" id="filterSite"> Search entire site</label></div>
+                        <div class="col-md-3">
                             <button type="button" class="close" aria-label="Close"><span>&times;</span></button>
                         </div>
                         
                     </div>
                     <div class="row">
                         <div class="form-group col-md-9">
-                            <input class="form-control" type="search" placeholder="Search" >
+                            <input class="form-control" type="search" placeholder="Search Developer / Blog" >
                             <span class="form-control-feedback">!</span>
                         </div>
                         <div class="form-group col-md-3">
@@ -186,7 +187,7 @@
         </div>
     </nav>
 </header>
-<div class="container-fluid ">
+<div class="container-fluid blog">
     
     
     <section class="row padding-sides">
@@ -197,127 +198,128 @@
             <li class="text-uppercase">Resources</li>
             <li class="text-uppercase"><a href="/blog">Developer Blog</a></li>
             
+            <li class="text-uppercase">Filtering in AvaTax REST v2</li>
+            
         </ul>
     </div>
 </div>
 
 
 
-<h1>Posts
-    
-</h1>
+<div class="half">
+    <h1>Filtering in AvaTax REST v2</h1>
+    <p class="byline">By Ted Spence | October 06, 2016</p>
+    <p class="blog-content"><h1 id="im-sure-i-left-this-somewhere">I’m sure I left this somewhere…</h1>
 
-<div class="row">
-    
-    <div class="col-md-4">
-        <div class="blog-preview">
-            <div class="gradient"></div>
-            <h4><a href="/blog/2012/12/12/ember-js-event-at-pier-55/">Ember.js event at Pier 55</a></h4>
-            <h5></h5>
-            <p class="byline">By ben.macfarlane | December 12, 2012</p>
-            
-            <p class="blog-excerpt">Avalara has been using Ember.js for six months now so we were proud to host the inaugural Seattle Ember.js Meetup last Thursday. In a meeting that tested the capacity of our new space on the water at Pier 55 in downtown Seattle we were honored to host Yehuda Katz and Tom Dale from the core Ember.js team in a presentation that lasted two hours. In Avalara tradition we rolled out the margarita machine for the participants and the conversations with the presenters lasted well into the night. Yehuda and Tom delivered a wealth of information about the upcoming functionality in Ember...</p>
-            <div class="readMore">
-                <a href="/blog/2012/12/12/ember-js-event-at-pier-55/" class="btn btn-blog">Read More</a>
-            </div>
-        </div>
-    </div>
+<p>The REST API pattern is designed to make it easy to store and retrieve data.  Every piece of data in REST is assigned a single unique URL - and you can always fetch that item back by retrieving its URL.  It works a bit like this:</p>
 
-    <div class="col-md-4">
-        <div class="blog-preview">
-            <div class="gradient"></div>
-            <h4><a href="/blog/2012/07/16/demo-of-avatax-api/">Avalara AvaTax API Demo</a></h4>
-            <h5></h5>
-            <p class="byline">By avalara | July 16, 2012</p>
-            <p><img src="/public/images/blog/avatax-api-demo-video-550x304.png" class="blog-preview-image" alt="blog preview image"/></p>
-            <p class="blog-excerpt">
-    
-    Anya Stettler, Avalara AvaTax API Support Specialist
+<table class="styled-table">
+    <tr>
+        <th>Note</th>
+        <th>HTTP Action</th>
+        <th>Request</th>
+        <th>Result</th>
+    </tr>
+    <tr>
+        <td>Store data by **POST**ing to a URL.</td>
+        <td><pre>POST /api/v2/companies</pre></td>
+        <td>In the request body: <pre>{ "name": "Bob's Artisan Pottery" }</pre></td>
+        <td>In the HTTP headers: <pre>Location: /api/v2/companies/123</pre></td>
+    </tr>
+    <tr>
+        <td>Fetch data by **GET**ting from that URL.</td>
+        <td><pre>GET /api/v2/companies/123</pre></td>
+        <td></td>
+        <td>In the response body: <pre>{ "name": "Bob's Artisan Pottery" }</pre></td>
+    </tr>
+</table>
 
+<p>This works great as long as you know the URL of the thing.  How do you find something if you don’t know what it is?</p>
 
-Watch API support specialist Anya Stettler show how to use our REST API to make a successful tax call to the Avalara service.
+<h1 id="listing-all-objects">Listing All Objects</h1>
 
-</p>
-            <div class="readMore">
-                <a href="/blog/2012/07/16/demo-of-avatax-api/" class="btn btn-blog">Read More</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="blog-preview">
-            <div class="gradient"></div>
-            <h4><a href="/blog/2012/03/20/developing-with-sales-tax-should-i-tax-it/">Developing With Sales Tax: Should I Tax It?</a></h4>
-            <h5></h5>
-            <p class="byline">By steven.dunston | March 20, 2012</p>
-            <p><img src="/public/images/blog/sales-tax-logic1.png" class="blog-preview-image" alt="blog preview image"/></p>
-            <p class="blog-excerpt">This is the second of three posts aimed at giving developers a basic understanding of the complexities of sales tax. Developing With Sales Tax: What’s The Rate? Should I Tax It? I Taxed It: Now What? Before you apply a sales tax rate, you need to know the status of the seller, the product and the buyer. In the previous post, we learned why you want to use geolocation to get an accurate tax rate. But getting the right tax rate doesn’t help you if you don’t know whether or not the rate applies to the transaction. There are three...</p>
-            <div class="readMore">
-                <a href="/blog/2012/03/20/developing-with-sales-tax-should-i-tax-it/" class="btn btn-blog">Read More</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="blog-preview">
-            <div class="gradient"></div>
-            <h4><a href="/blog/2012/03/09/rest-api-makes-avatax-integration-easy/">REST API Makes AvaTax Integration Easy</a></h4>
-            <h5></h5>
-            <p class="byline">By will.frei | March 09, 2012</p>
-            
-            <p class="blog-excerpt">With any third party integration two things are absolutely essential – an easy and reliable API platform, and knowledgeable, responsive tech staff to help with the integration.  I’m glad to say, Avalara’s AvaTax REST system provides both! -Early integrator AvaTax gives you fast and up-to-date sales tax calculation based on geo-location (which kicks ZIP code calculation’s ass). So you get the most accurate sales tax calculation possible anywhere in the 11,000+ North American tax jurisdictions. Our REST API provides the power of Avalara’s calculation engine to your application. Three advantages of using our REST API, which supports both JSON and...</p>
-            <div class="readMore">
-                <a href="/blog/2012/03/09/rest-api-makes-avatax-integration-easy/" class="btn btn-blog">Read More</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="blog-preview">
-            <div class="gradient"></div>
-            <h4><a href="/blog/2012/03/06/developing-with-sales-tax-whats-the-rate/">Developing With Sales Tax: What's the Rate?</a></h4>
-            <h5></h5>
-            <p class="byline">By steven.dunston | March 06, 2012</p>
-            
-            <p class="blog-excerpt">This is the first of three posts aimed at giving developers a basic understanding of options for implementing a sales tax solution. Developing With Sales Tax: What's The Rate? Should I Tax It? I Taxed It: Now What? If you’re building or installing an application to process U.S. transactions, odds are that you’ll need to account for a sales tax rate. At the minimum you’ll need to identify a target tax location, and then look up a rate for that location. Looking up rates is fairly simple. The tricky part can be finding the location. Here are the five ways...</p>
-            <div class="readMore">
-                <a href="/blog/2012/03/06/developing-with-sales-tax-whats-the-rate/" class="btn btn-blog">Read More</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="blog-preview">
-            <div class="gradient"></div>
-            <h4><a href="/blog/2011/03/14/welcome-to-avalaras-developer-network/">Welcome to Avalara's Developer Network</a></h4>
-            <h5></h5>
-            <p class="byline">By avalara | March 14, 2011</p>
-            
-            <p class="blog-excerpt">Hi there. Welcome to Avalara’s new developer network. You’ll find API documentation, and the seeds of a developer community that will include video, forums and lots more to come.
-</p>
-            <div class="readMore">
-                <a href="/blog/2011/03/14/welcome-to-avalaras-developer-network/" class="btn btn-blog">Read More</a>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<ul class="blog-pagination">
-    
-    <li><a href="/blog/page5/" class="previous">Newer</a></li>
-    
-    <li class="page_number">Page 6 of 6</li>
-    
-    <li class="next">Older</li>
-    
+<p>Let’s say you have three companies, and these are their URLs:</p>
+<ul class="normal">
+<li><pre>/api/v2/companies/123</pre></li>
+<li><pre>/api/v2/companies/456</pre></li>
+<li><pre>/api/v2/companies/789</pre></li>
 </ul>
 
+<p>You can fetch all of them back as follows:</p>
+<h3 id="request">Request</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /api/v2/companies
+</code></pre>
+</div>
+<h3 id="result">Result</h3>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">[</span> 
+    <span class="p">{</span> <span class="s2">"id"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="p">...</span> <span class="p">},</span> 
+    <span class="p">{</span> <span class="s2">"id"</span><span class="p">:</span> <span class="mi">456</span><span class="p">,</span> <span class="p">...</span> <span class="p">},</span> 
+    <span class="p">{</span> <span class="s2">"id"</span><span class="p">:</span> <span class="mi">789</span><span class="p">,</span> <span class="p">...</span> <span class="p">}</span>
+<span class="p">]</span>
+</code></pre>
+</div>
 
+<p>Voila! In AvaTax, your credentials will automatically allow you to access all companies within your account with no extra hassle.  The query to &lt;pre&gt;GET /api/v2/companies&lt;/pre&gt; will return all three objects.  If you only have three objects this is the easiest way to find what you want.</p>
 
+<h1 id="what-if-i-have-more-than-three-objects">What if I have more than three objects?</h1>
+
+<p>Sooner or later it will be a nuisance to fetch everything.  To reduce the number of records you get, you’ll have to start filtering.</p>
+
+<p>In the <a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#97-filtering">Microsoft REST API Guidelines</a>, Microsoft established a nice and friendly standard for finding objects.  You can use a simplified search syntax to find something you want.  Let’s say you want to search for the company whose names start with ‘A’:</p>
+
+<h3 id="request-1">Request</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /api/v2/companies?$filter=name ge A and name lt B
+</code></pre>
+</div>
+<h3 id="result-1">Result</h3>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">[</span> 
+    <span class="p">{</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Aardvark"</span> <span class="p">...</span> <span class="p">},</span> 
+    <span class="p">{</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Aaron's Antiques"</span> <span class="p">},</span> 
+    <span class="p">{</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Andes Climbing Supply"</span> <span class="p">}</span>
+<span class="p">]</span>
+</code></pre>
+</div>
+
+<p>You can use these same types of filters in lots of different ways - here are a few samples:</p>
+
+<ul class="normal">
+<li><pre>GET /api/v2/companies?$filter=name eq 'Bob''s Artisan Pottery'</pre></li>
+<li><pre>GET /api/v2/companies?$filter=id gt 100000</pre></li>
+<li><pre>GET /api/v2/companies?$filter=isTest eq true and isActive eq true</pre></li>
+</ul>
+
+<h1 id="what-filtering-options-are-available">What filtering options are available?</h1>
+
+<p>Avalara supports all filtering language options specified by Microsoft in its standard, plus a few extra items.  We support some useful features like the ability to nest filter statements - you can use AND and OR clauses to construct more complex searches.  You can retrieve a large number of items in a list.</p>
+
+<p>The full list of <a href="/avatax/filtering-in-rest">available filtering options is here</a>.  Please let us know what you think!</p>
+
+<p>Happy Filtering!</p>
+
+<p>–Ted Spence, Director, AvaTax Core Engine</p>
+</p>
+    <p class="btn-callout"><a href="/blog" role="button">Back to posts</a></p>
+</div>
 </main>
     </section>
     
+    
+    <section class="row padding-sides">
+        <main class="col-md-12"><div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'developeravalaracom'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</main>
+    </section>
     
 </div>
 <footer class="navbar navbar-default">
@@ -328,6 +330,10 @@ Watch API support specialist Anya Stettler show how to use our REST API to make 
         <li class="youtube"><a href="https://www.youtube.com/user/Avalara1">Youtube</a></li>
     </ul>
     
+    
+    <ul class="github">
+        <li><a href="https://github.com/Avalara/developer-dot/edit/master/_posts/2016-10-06-filtering-in-rest-v2.md">Edit this page on GitHub</a></li>
+    </ul>
     
     <ul class="global">
         <li><a href="https://www.avalara.com/"><span class="icon-sphere"></span>Avalara.com</a></li>
