@@ -2,6 +2,9 @@ s3_id: <%= ENV['access_key'] %>
 s3_secret: <%= ENV['secret_key'] %>
 s3_bucket: developer.avalara.com
 
+cloudfront_distribution_id: E14INHTPGUUPMC
+cloudfront_wildcard_invalidation: true
+
 exclude_from_upload:
   - node_modules
 
@@ -128,6 +131,7 @@ redirects:
   api-docs/best-practices/going-live:  /avatax/going-live
   resources/frequently-asked-questions:  /avatax
   api-docs/soap/soap-or-rest:  /avatax/soap-or-rest
+  api-docs/designing-your-integration/soap-or-rest:  /avatax/soap-or-rest
   getting-started/:  /avatax/get-started
   free-trial/:  /avatax/get-started
   api-docs/best-practices/messages-results-and-errors/common-errors:  /avatax/common-errors
