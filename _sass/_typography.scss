@@ -16,6 +16,10 @@ a:link:active, a:visited:active {
 ul {
     padding-left:0;
     list-style-type: none;
+    &.normal {
+        padding-left: 40px;
+        list-style-type: disc;
+    }
 }
 
 .font-normal {
