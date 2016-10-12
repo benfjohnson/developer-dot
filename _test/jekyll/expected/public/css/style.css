@@ -5816,6 +5816,9 @@ a:link:active, a:visited:active {
 ul {
   padding-left: 0;
   list-style-type: none; }
+  ul.normal {
+    padding-left: 40px;
+    list-style-type: disc; }
 
 .font-normal, h1, .h1p, .h1pp, h2, h3, h4, .pageTitle span, h5, .s5, .t1, .t2, .t3, .t4, .t5 {
   font-weight: normal;
