@@ -60,15 +60,15 @@ If you'd like to type along with me without using a programming language, we can
     </tr>
 	<tr>
 		<td>Start with the word "Basic" followed by your username and password.</td>
-		<td><pre>Basic username:password</pre></td>
+		<td>`Basic username:password`</td>
 	</tr>
 	<tr>
 		<td>Replace "username" with your username, and "password" with your password.</td>
-		<td><pre>Basic bob@example.org:bobspasswordgoeshere</pre></td>
+		<td>`Basic bob@example.org:bobspasswordgoeshere`</td>
 	</tr>
 	<tr>
 		<td>Now visit <a href="https://www.base64encode.org">https://www.base64encode.org</a> and paste in the right hand side of the string.</td>
-		<td><pre>Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl</pre></td>
+		<td>`Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl`</td>
 	</tr>
 </table>
 

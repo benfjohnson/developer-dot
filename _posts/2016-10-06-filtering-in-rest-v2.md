@@ -38,9 +38,9 @@ This works great as long as you know the URL you want - but how do you find some
 Let's say you have three companies, and these are their URLs:
 
 <ul class="normal">
-<li><pre>/api/v2/companies/123</pre></li>
-<li><pre>/api/v2/companies/456</pre></li>
-<li><pre>/api/v2/companies/789</pre></li>
+<li>`/api/v2/companies/123`</li>
+<li>`/api/v2/companies/456`</li>
+<li>`/api/v2/companies/789`</li>
 </ul>
 
 You can fetch all of them back as follows:
@@ -61,7 +61,7 @@ GET /api/v2/companies
 ]
 ```
 
-Voila! In AvaTax, your credentials will automatically allow you to access all companies within your account with no extra hassle.  The query to <pre>GET /api/v2/companies</pre> will return all three objects.  If you only have three objects this is the easiest way to find what you want.
+Voila! In AvaTax, your credentials will automatically allow you to access all companies within your account with no extra hassle.  The query to `GET /api/v2/companies` will return all three objects.  If you only have three objects this is the easiest way to find what you want.
 
 <h2>What if I have more than three objects?</h2>
 
@@ -88,9 +88,9 @@ GET /api/v2/companies?$filter=name ge A and name lt B
 You can use these same types of filters in lots of different ways - here are a few samples:
 
 <ul class="normal">
-<li><pre>GET /api/v2/companies?$filter=name eq 'Bob''s Artisan Pottery'</pre></li>
-<li><pre>GET /api/v2/companies?$filter=id gt 100000</pre></li>
-<li><pre>GET /api/v2/companies?$filter=isTest eq true and isActive eq true</pre></li>
+<li>`GET /api/v2/companies?$filter=name eq 'Bob''s Artisan Pottery'`</li>
+<li>`GET /api/v2/companies?$filter=id gt 100000`</li>
+<li>`GET /api/v2/companies?$filter=isTest eq true and isActive eq true`</li>
 </ul>
 
 <h2>What filtering options are available?</h2>

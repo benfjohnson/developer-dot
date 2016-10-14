@@ -20,7 +20,7 @@ Once you've begun using AvaTax REST v2, you'll have to make a few minor changes 
 
 For every product in your taxable transaction, you need to identify the Harmonized Tariff Schedule code (HTS code) for that item.  These tariff codes are published by the customs authorities in each destination country and you'll need to assign the appropriate code to your items.  You can search for a code online using Avalara's HTS code lookup page: <a href="https://www.avalara.com/hs-codes/">https://www.avalara.com/hs-codes/</a>
 
-To identify this code for your item, you will add a "Parameter" for each line in your transaction.  That parameter is called the <pre>AvaTax.LandedCost.HTSCode</pre>.  For today's example, we'll use the code <pre>6403519030</pre>, which refers to "Other Footwear With Outer Soles Of Leather".  The exact details of these HTS codes are quite complex; but if you have a question you should certainly contact a customs office to verify that your code is correct!
+To identify this code for your item, you will add a "Parameter" for each line in your transaction.  That parameter is called the `AvaTax.LandedCost.HTSCode`.  For today's example, we'll use the code `6403519030`, which refers to "Other Footwear With Outer Soles Of Leather".  The exact details of these HTS codes are quite complex; but if you have a question you should certainly contact a customs office to verify that your code is correct!
 
 Interesting item of note: most countries have a "de minimis" threshold - this is each country's threshold under which customs duty and tax does not apply.  This example shipment will ship from Canada to the United States.  In the United States, the value of a shipment must be greater than $800 USD for it to be subject to customs duty.  For this example, this shipment will have a value of $1000.00 USD, which surpasses the de minimis threshold amount and triggers a customs duty to apply.
 
@@ -28,16 +28,16 @@ Interesting item of note: most countries have a "de minimis" threshold - this is
 
 The next thing we need to know about your transaction is who is responsible for paying the your customs duty.  The LandedCost calculator supports two options:
 
-<ul>
+<ul class="normal">
 <li>DAP = Stands for Delivered at Place. Means the Selling Party bears the risk &amp; responsibility of coordinating the export clearance and transportation from their ship-from facility &amp; country to the Buyer's door. The Buyer is responsible for declaring the shipment to the customs authorities in the destination country and remitting any/all customs duty &amp; import tax (including VAT).</li>
 <li>DDP = Stands for Delivered Duty Paid. Means the Selling Party (or their 3rd party) bears the risk &amp; responsibility of coordinating the export clearance, transportation and declaring the shipment to the customs authority in the destination country and remitting any/all customs duty &amp; import tax (including VAT).</li>
 </ul>
 
-For this example, we'll say that the customer, the Buyer, is responsible.  That means we'll use the code "DAP".  This parameter is attached to the main body of the transaction, and it's called <pre>AvaTax.LandedCost.Incoterms</pre>.
+For this example, we'll say that the customer, the Buyer, is responsible.  That means we'll use the code "DAP".  This parameter is attached to the main body of the transaction, and it's called `AvaTax.LandedCost.Incoterms`.
 
 <h2>Shipping and Insurance</h2>
 
-Calculating the landed cost for cross-border transactions requires knowing how much is paid for shipping and insurance.  To provide these data elements, we'll add a line item into our transaction for TaxCode <pre>FR010000</pre>, which is the tax code for freight charges, and a line item for TaxCode <pre>FR070100</pre>, which is insurance.  If you forget what tax codes you want to use, you can always call the API at <pre>/api/v2/definitions/taxcodes</pre> - this will give a full list of all Avalara defined tax codes you can use for your transactions.
+Calculating the landed cost for cross-border transactions requires knowing how much is paid for shipping and insurance.  To provide these data elements, we'll add a line item into our transaction for TaxCode `FR010000`, which is the tax code for freight charges, and a line item for TaxCode `FR070100`, which is insurance.  If you forget what tax codes you want to use, you can always call the API at `/api/v2/definitions/taxcodes` - this will give a full list of all Avalara defined tax codes you can use for your transactions.
 
 <h2>What does our transaction look like now?</h2>
 
@@ -45,7 +45,7 @@ Let's plan to ship these shoes from Prince Edward Island in Canada to Bainbridge
 
 <h3>Request</h3>
 
-```
+```javascript
 {
   "type": "SalesInvoice",
   "companyCode": "DEFAULT",
@@ -120,7 +120,7 @@ As you can see, the import duty calculations made on this amount estimated that 
 
 <h2>How do I find what other parameters are available?</h2>
 
-In the REST v2 API, you can find a list of all other parameters via the <pre>/api/v2/definitions/parameters</pre> endpoint.  When you call this API, it will list all the parameters that are available, and provide a quick description of each one.  For further reading on parameters, check out the developer website.
+In the REST v2 API, you can find a list of all other parameters via the `/api/v2/definitions/parameters` endpoint.  When you call this API, it will list all the parameters that are available, and provide a quick description of each one.  For further reading on parameters, check out the developer website.
 
 May all of your shipments be speedy!
 
