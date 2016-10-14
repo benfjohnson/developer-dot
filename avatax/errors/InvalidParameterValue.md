@@ -33,8 +33,11 @@ When adding parameters to your CreateTransactionModel, you must specify a parame
 You passed a parameter value that was not the correct type.
 
 Parameter types are one of the following:
-* Boolean - The only acceptable values are "true" and "false".
-* Numeric - Only numeric values may be provided.
-* String - Any text value may be provided.
+
+<ul class="normal">
+<li>Boolean - The only acceptable values are "true" and "false".</li>
+<li>Numeric - Only numeric values may be provided.</li>
+<li>String - Any text value may be provided.</li>
+</ul>
 
 Please check the parameters in your CreateTransactionModel and ensure that each one has a value of the correct data type.

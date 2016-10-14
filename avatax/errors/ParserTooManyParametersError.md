@@ -30,3 +30,5 @@ You attempted a fetch call that included too many parameters.
 ## Explanation
 
 AvaTax restricts your fetch request to no more than 1,000 parameters.  Please consider restructuring your query so that it is less complex.
+
+For more information on filtering, please read <a href="http://developer.avalara.com/avatax/filtering-in-rest/">Filtering In REST</a>

@@ -30,4 +30,4 @@ You created a tax rule with a RateDepends option, but that rule is not a Taxabil
 
 ## Explanation
 
-The "RateDepends" option is only valid for Tax Rules of type 4 - TaxabilityRule.  Please create this rule as a taxability rule or remove the RateDepends option.
+The "RateDepends" option is only valid for Tax Rules of type `4 - TaxabilityRule`.  Please create this rule as a taxability rule or remove the RateDepends option.

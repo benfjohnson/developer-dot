@@ -30,4 +30,4 @@ You specified a tax code type that is not recognized by Avalara.
 
 ## Explanation
 
-Please use the API endpoint GET "/api/v2/definitions/taxcodetypes" to get a list of defined tax code types.
+Please use the API endpoint `GET /api/v2/definitions/taxcodetypes` to get a list of defined tax code types.

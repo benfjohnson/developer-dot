@@ -30,10 +30,6 @@ You attempted to provide an email address that does not conform to email address
 
 ## Explanation
 
-An email address is in the format:
-
-    user@domain.org
-
-Where domain.org refers to an existing DNS record.
+An email address is in the format `user@domain.org`, where domain.org refers to an existing DNS record.
 
 Please check your email address and try again.

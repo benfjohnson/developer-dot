@@ -32,4 +32,4 @@ You attempted to declare nexus in a jurisdiction that is not recognized by AvaTa
 
 AvaTax allows you to declare nexus in any jurisdiction recognized by our database of taxing authorities.  
 
-For a full list of recognized jurisdictions, please call the endpoint GET "/api/v2/definitions/nexus".
+For a full list of recognized jurisdictions, please call the endpoint `GET /api/v2/definitions/nexus`.

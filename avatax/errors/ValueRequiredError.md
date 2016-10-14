@@ -29,4 +29,4 @@ You submitted a request and did not provide a value in a required field.
 
 ## Explanation
 
-The field designated by -0- in your error message is required.  Your request cannot be processed until you resubmit it with a value in that field.
+The field designated by `-0-` in your error message is required.  Your request cannot be processed until you resubmit it with a value in that field.

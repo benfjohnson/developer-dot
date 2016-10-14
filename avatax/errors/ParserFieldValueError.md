@@ -29,8 +29,8 @@ You attempted to search for a value that is not a correct value type.
 
 ## Explanation
 
-This error occurs if you attempt to search for a decimal value, but you provide a string as the comparator.  For example:
-
-    $filter=TotalAmount gt 'ABC'
+This error occurs if you attempt to search for a decimal value, but you provide a string as the comparator.  For example, `$filter=TotalAmount gt 'ABC'`
     
 In this case, TotalAmount is expected to be a decimal field, but you provided a string.  Because this string cannot be converted to a decimal field, AvaTax throws this error.
+
+For more information on filtering, please read <a href="http://developer.avalara.com/avatax/filtering-in-rest/">Filtering In REST</a>

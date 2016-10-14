@@ -30,4 +30,4 @@ When creating a location, you must specify a compatible AddressType and AddressC
 
 ## Explanation
 
-Locations can be either physical locations or mobile person locations.  Please make sure that your AddressType and AddressCategory are both referring to the same type of location.
+Locations can be either physical locations or mobile person locations.  Please make sure that your `AddressType` and `AddressCategory` values are both referring to the same type of location.

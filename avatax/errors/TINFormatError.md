@@ -33,9 +33,12 @@ The U.S. Taxpayer Identification Number you provided is not in a recognized form
 In the United States, a Taxpayer Identification Number is a nine digit number that is either an Employer Identification Number (in the case of a company) or a Social Security Number (in the case of an individual).
 
 Recognized TIN/EIN/SSN numbers are in the format:
-* 12-3456789 (generally an Employer ID number)
-* 123-45-6789 or 123-456-789 (generally a Social Security Number)
+
+<ul class="normal">
+<li>12-3456789 (generally an Employer ID number)</li>
+<li>123-45-6789 or 123-456-789 (generally a Social Security Number)</li>
+</ul>
 
 You may also provide a number with no dashes if desired.
 
-If you do not have an employer identification number, you may request one from the IRS online: https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online
+If you do not have an employer identification number, you may request one from the IRS online: <a href="https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online">https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online</a>

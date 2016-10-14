@@ -30,4 +30,4 @@ You specified a date outside of the allowable range.
 
 ## Explanation
 
-Please check your API call and specify a valid date within the defined range.
+Please check your API call and specify a valid date within the defined range.  You may have inadvertently switched the "begin" date with the "end" date.

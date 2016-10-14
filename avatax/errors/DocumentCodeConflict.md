@@ -33,6 +33,6 @@ In AvaTax, a committed transaction is considered "finalized," and its transactio
 
 If a transaction is not yet committed, you may continue to update it by re-creating a document with the same code as many times as required.
 
-Once a transaction has been committed, you may either adjust it by calling the POST "/api/v2/companies/(code)/transaction/(code)/adjust" endpoint or you may void it by calling the POST "/api/v2/companies/(code)/transaction/(code)/void" endpoint.
+Once a transaction has been committed, you may either adjust it by calling the `POST /api/v2/companies/(code)/transaction/(code)/adjust` endpoint or you may void it by calling the `POST /api/v2/companies/(code)/transaction/(code)/void` endpoint.
 
 Transactions that have been reported to a tax authority may not be adjusted, voided, or altered in any way.  To modify a transaction that has been reported to a tax authority, create a reverse transaction with amounts opposite the original transaction.

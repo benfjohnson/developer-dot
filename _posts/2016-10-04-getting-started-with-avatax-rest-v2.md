@@ -80,7 +80,7 @@ Of course, to make this work, you'll have to use your username and password inst
 <li>Finally, click the <b>Try It</b> button on the page.  Here's the result you should get:</li>
 </ul>
 	
-```javascript
+```json
 {
   "@recordsetCount": 0,
   "value": []
@@ -106,7 +106,7 @@ Here's what we need to get started:
 
 Once you've gathered this information, we create a request that looks like this:
 
-```javascript
+```json
 	{
 	  "name": "Bob's Artisan Pottery",
 	  "companyCode": "DEFAULT",
@@ -154,7 +154,7 @@ For our first sale, let's begin by selling a mug and a vase.  All transactions n
 
 If we sold two separate mugs and a vase in a single order, the transaction might look like this:
 
-```javascript
+```json
   {
     "companyCode": "DEFAULT",
     "type": "SalesInvoice",

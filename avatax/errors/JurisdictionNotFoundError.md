@@ -32,4 +32,4 @@ The specified jurisdiction could not be found.
 
 You attempted to create a jurisdiction that could not be found.
 
-Please use the GET "/api/v2/definitions/nexus" to list available jurisdictions.
+Please use the `GET /api/v2/definitions/nexus` to list available jurisdictions.

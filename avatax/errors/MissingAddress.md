@@ -31,7 +31,10 @@ When creating transactions, you must at a minimum provide an origin and destinat
 ## Explanation
 
 To provide origin and destination addresses for a transaction, you must provide one of the following:
-* ShipFrom/ShipTo addresses
-* SingleLocation address
+
+<ul class="normal">
+<li>Both a ShipFrom and a ShipTo address; or</li>
+<li>A SingleLocation address.</li>
+</ul>
 
 Your API call did not include one or the other of those options.

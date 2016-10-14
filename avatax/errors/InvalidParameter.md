@@ -32,6 +32,6 @@ When adding parameters to your CreateTransactionModel, you must use a valid para
 
 Parameters must be one of a list of recognized values.  Specifying a parameter with a misspelled name will result in this error.
 
-To see the full list of valid parameter names, please use the /api/v2/definitions/parameters endpoint.
+To see the full list of valid parameter names, please use the `GET /api/v2/definitions/parameters` endpoint.
 
 Please check the parameter list on your CreateTransactionModel and on all lines to make sure all parameter names match this list.

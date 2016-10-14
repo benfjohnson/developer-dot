@@ -29,6 +29,6 @@ One of the fields designated in your object model was null, but a string value i
 
 ## Explanation
 
-This error occurs when you upload an object that has a "null" value where AvaTax requires a non-null string.
+This error occurs when you upload an object that has a `null` value where AvaTax requires a non-null string.
 
 Please check your object and provide a value in that field.

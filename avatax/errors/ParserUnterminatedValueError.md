@@ -30,6 +30,8 @@ You attempted to retrieve data with a "$filter" parameter that contained syntax 
 
 ## Explanation
 
-In your "$filter" parameter, you specified a condition that included a string that was not terminated with an apostrophe.  
+In your `$filter` parameter, you specified a condition that included a string that was not terminated with an apostrophe.  
 
-Please review your fetch request and check your "$filter" parameter carefully.
+Please review your fetch request and check your `$filter` parameter carefully.
+
+For more information on filtering, please read <a href="http://developer.avalara.com/avatax/filtering-in-rest/">Filtering In REST</a>

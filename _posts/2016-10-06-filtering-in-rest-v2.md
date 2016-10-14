@@ -25,7 +25,7 @@ POST /api/v2/companies
 <h3>Result</h3>
 In the result headers, you'll get back this response that tells you the URL of your newly created object:
 
-```javascript
+```json
 Location: /api/v2/companies/123
 ```
 
@@ -53,7 +53,7 @@ GET /api/v2/companies
 
 <h3>Result</h3>
 
-```javascript
+```json
 [ 
     { "id": 123, ... }, 
     { "id": 456, ... }, 
@@ -77,7 +77,7 @@ GET /api/v2/companies?$filter=name ge A and name lt B
 
 <h3>Result</h3>
 
-```javascript
+```json
 [ 
     { "name": "Aardvark" ... }, 
     { "name": "Aaron's Antiques" }, 

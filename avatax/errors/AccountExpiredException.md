@@ -34,5 +34,7 @@ Your AvaTax account is not currently enabled.
 
 Possible troubleshooting steps:
 
-* Are you using outdated credentials?
-* Are you connecting to the sandbox server when you intend to contact the production server, or vice versa?
+<ul class="normal">
+<li>Are you using outdated credentials?</li>
+<li>Are you connecting to the sandbox server when you intend to contact the production server, or vice versa?</li>
+</ul>

@@ -31,7 +31,9 @@ This error indicates that you have provided an incorrect "$include" value to the
 
 By default, if you fetch a document, you will only retrieve a summary of its data.  You can optionally specify the following values in the "$include" query string parameter:
 
-* Addresses - Retrieves all addresses used for this transaction.
-* Summary - Produces a summary of tax for the transaction as a whole.
-* Lines - Lists all line items on this transaction.
-* Details - Retrieves all tax details calculated for all lines for this transaction.
+<ul class="normal">
+<li>Addresses - Retrieves all addresses used for this transaction.</li>
+<li>Summary - Produces a summary of tax for the transaction as a whole.</li>
+<li>Lines - Lists all line items on this transaction.</li>
+<li>Details - Retrieves all tax details calculated for all lines for this transaction.</li>
+</ul>

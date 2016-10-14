@@ -37,6 +37,10 @@ However, in some circumstances, a corporate entity is structured such that diffe
 This error occurs when you attempt to set a tax profile for a company that is inheriting its tax profile from its parent.
 
 Common troubleshooting:
-* Check the company ID of the company you are modifying.  Is it the right company?
-* Check all the companies within your account and verify that they match with the tax structure of your business.
-* Set the "HasProfile" flag on the company to "true" and you can declare tax profile for that company.
+
+<ul class="normal">
+<li>Check the company ID of the company you are modifying.  Is it the right company?</li>
+<li>Check all the companies within your account and verify that they match with the tax structure of your business.</li>
+<li>Set the "HasProfile" flag on the company to "true" and you can declare tax profile for that company.</li>
+</ul>
+

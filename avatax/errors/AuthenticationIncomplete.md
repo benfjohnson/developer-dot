@@ -32,9 +32,11 @@ Your API call did not contain authentication information.
 
 AvaTax provides multiple modes by which you can authenticate your API call.  You may provide one of the following:
 
+```
 	Basic username:password
 	Basic accountid:licensekey
 	Bearer token
+```
 
 Avalara looks for these values in the HTTP "Authorization" header.  The Basic values are expected to be Base64 encoded as specified by the HTTP standard.
 

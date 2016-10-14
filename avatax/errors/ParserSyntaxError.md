@@ -30,4 +30,6 @@ You provided an unrecognized string or token in the "$filter" parameter of your 
 
 ## Explanation
 
-Avalara only permits certain values and operations in the "$filter" parameter.  You provided a token that is not one of the recognized tokens.
+Avalara only permits certain values and operations in the `$filter` parameter.  You provided a token that is not one of the recognized tokens.
+
+For more information on filtering, please read <a href="http://developer.avalara.com/avatax/filtering-in-rest/">Filtering In REST</a>

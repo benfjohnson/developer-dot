@@ -29,4 +29,12 @@ You specified a jurisdiction type that is not recognized.
 
 ## Explanation
 
-For a list of recognized jurisdiction types, please see the Swagger documentation.
+The jurisdiction type value is an enumerated value that can only be one of the following values:
+
+<ul class="normal">
+    <li>Country (sometimes abbreviated CNT) - This represents a country that is recognized by ISO 3166 as having its own country code.</li>
+    <li>State (also known as Region, Province, or sometimes abbreviated STA) - This represents an administrative jurisdiction within the country.</li>
+    <li>County (sometimes abbreviated CTY) - A smaller administrative jurisdiction than a state/region/province, but typically larger than a city.  Not all countries have county jurisdictions.</li>
+    <li>City (sometimes abbreviated CIT) - An administrative jurisdiction representing a single city.</li>
+    <li>Special (sometimes abbreviated STJ for Special Tax Jurisdiction) - An administrative jurisdiction created for the purpose of taxing transactions within a boundary.</li>
+</ul>

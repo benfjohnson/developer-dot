@@ -31,4 +31,4 @@ You attempted to create a filing calendar for a return that is not recognized by
 
 This error occurs if you attempt to create a filing calendar for a tax return whose name is not recognized.
 
-For a full list of recognized forms, please use the GET "/api/v2/definitions/taxforms" endpoint.
+For a full list of recognized forms, please use the `GET /api/v2/definitions/taxforms` endpoint.
