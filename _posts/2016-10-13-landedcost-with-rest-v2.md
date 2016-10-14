@@ -35,11 +35,9 @@ The next thing we need to know about your transaction is who is responsible for 
 
 For this example, we'll say that the customer, the Buyer, is responsible.  That means we'll use the code "DAP".  This parameter is attached to the main body of the transaction, and it's called <pre>AvaTax.LandedCost.Incoterms</pre>.
 
-<h2>Shipping and Insurance, Units and Amounts</h2>
+<h2>Shipping and Insurance</h2>
 
 Calculating the landed cost for cross-border transactions requires knowing how much is paid for shipping and insurance.  To provide these data elements, we'll add a line item into our transaction for TaxCode <pre>FR010000</pre>, which is the tax code for freight charges, and a line item for TaxCode <pre>FR070100</pre>, which is insurance.  If you forget what tax codes you want to use, you can always call the API at <pre>/api/v2/definitions/taxcodes</pre> - this will give a full list of all Avalara defined tax codes you can use for your transactions.
-
-Next, we'll need to identify how we count our product.  In the case of footwear, we need to specify our amounts via weight, which means we need to indicate that our shipment is weighed in kilograms and specify the amount.  We do this by adding two new parameters to the line item for the footwear - <pre>AvaTax.LandedCost.UnitName</pre> (which will be "kg") and <pre>AvaTax.LandedCost.UnitAmount</pre>, which will be "10".  These parameters are only attached to the line item and they help identify the shipment.
 
 <h2>What does our transaction look like now?</h2>
 
@@ -75,9 +73,7 @@ Let's plan to ship these shoes from Prince Edward Island in Canada to Bainbridge
       "description": "Footwear",
       "taxCode": "P0000000",
       "parameters": {
-        "AvaTax.LandedCost.HTSCode": "6403519030",
-        "AvaTax.LandedCost.UnitName": "kg",
-        "AvaTax.LandedCost.UnitAmount": "10"
+        "AvaTax.LandedCost.HTSCode": "6403519030"
       }
     },
     {
