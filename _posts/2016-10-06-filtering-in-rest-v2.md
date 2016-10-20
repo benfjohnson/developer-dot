@@ -37,11 +37,11 @@ This works great as long as you know the URL you want - but how do you find some
 
 Let's say you have three companies, and these are their URLs:
 
-<ul class="normal">
-<li>`/api/v2/companies/123`</li>
-<li>`/api/v2/companies/456`</li>
-<li>`/api/v2/companies/789`</li>
-</ul>
+```json
+    /api/v2/companies/123
+    /api/v2/companies/456
+    /api/v2/companies/789
+```
 
 You can fetch all of them back as follows:
 
@@ -87,11 +87,11 @@ GET /api/v2/companies?$filter=name ge A and name lt B
 
 You can use these same types of filters in lots of different ways - here are a few samples:
 
-<ul class="normal">
-<li>`GET /api/v2/companies?$filter=name eq 'Bob''s Artisan Pottery'`</li>
-<li>`GET /api/v2/companies?$filter=id gt 100000`</li>
-<li>`GET /api/v2/companies?$filter=isTest eq true and isActive eq true`</li>
-</ul>
+```
+GET /api/v2/companies?$filter=name eq 'Bob''s Artisan Pottery'
+GET /api/v2/companies?$filter=id gt 100000
+GET /api/v2/companies?$filter=isTest eq true and isActive eq true
+```
 
 <h2>What filtering options are available?</h2>
 

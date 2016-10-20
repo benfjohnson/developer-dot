@@ -1,6 +1,6 @@
 ---
 layout: post
-title: REST v2 Preview Program Ending
+title: REST v2.3.1 Patch Notes
 date: 2016-10-20 11:00
 author: Ted Spence
 comments: true
@@ -10,7 +10,7 @@ doctype: blog
 disqus: 1
 ---
 
-<h2>REST v2 Preview Program Ending</h2>
+<h2>REST v2.3.1 Patch Notes</h2>
 
 For those of you who participated in the AvaTax REST v2 Preview program, I'd like to take this opportunity to thank you for your time and effort helping us debug a huge software release.  We've now implemented a clean, modern, consistent REST API that covers tax functionality from top to bottom - and we've established a great platform for continuing improvements.
 
@@ -34,7 +34,7 @@ If any of your existing programs were creating multiple transactions with a sing
 
 <ul>
 <li>Modify them to use one API call per each transaction, or</li>
-<li>Modify them to use the `/api/v2/companies/123/batches/create`  endpoint instead.</li>
+<li>Modify them to use the <pre>/api/v2/companies/123/batches/create</pre>  endpoint instead.</li>
 </ul>
 
 <h3>Posting and Committing Transactions</h3>
@@ -43,16 +43,16 @@ To avoid confusion between the action "POST" and the HTTP verb "POST", we have r
 Some users were also confused about the difference between a call to /api/v2/transactions/123/post vs a call to `/api/v2/transactions/123/commit`.  To reduce this confusion, we have split these API calls into individual functions:
 
 <ul>
-<li>`/api/v2/companies/ABC/transactions/DEF/verify` - Ensures that a transaction's amounts match an expected value, and returns an error if they do not match.</li>
-<li>`/api/v2/companies/ABC/transactions/DEF/changecode` Changes the transaction code of a specified transaction.</li>
-<li>`/api/v2/companies/ABC/transactions/DEF/commit` - Commits a transaction so that it can be reported in a tax return.</li>
+<li><pre>/api/v2/companies/ABC/transactions/DEF/verify</pre> - Ensures that a transaction's amounts match an expected value, and returns an error if they do not match.</li>
+<li><pre>/api/v2/companies/ABC/transactions/DEF/changecode</pre> Changes the transaction code of a specified transaction.</li>
+<li><pre>/api/v2/companies/ABC/transactions/DEF/commit</pre> - Commits a transaction so that it can be reported in a tax return.</li>
 </ul>
 
 Each of these three APIs is separate and does not depend on the others.  Once you have created a transaction, you can call any of these three APIs to execute any one of these three functions separately.
 If you'd still like to call all three of these API calls at once, you can use "settle":
 
 <ul>
-<li>`/api/v2/companies/ABC/transactions/DEF/settle` - This endpoint allows you to execute all three actions, verify, changecode, and commit, in a single API call.</li>
+<li><pre>/api/v2/companies/ABC/transactions/DEF/settle</pre> - This endpoint allows you to execute all three actions, verify, changecode, and commit, in a single API call.</li>
 </ul>
 
 <h3>Single Object Creation</h3>
