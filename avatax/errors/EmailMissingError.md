@@ -20,8 +20,8 @@ You must provide an email address with this request.
     {
       "code": "EmailMissingError",
       "number": 16,
-      "message": "A required email address was not provided.",
-      "description": "-0-",
+      "message": "Missing email address.",
+      "description": "A required email address was not provided.  -0-",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/EmailMissingError",
       "severity": "Error"

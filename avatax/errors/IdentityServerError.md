@@ -20,9 +20,9 @@ A problem was detected with Avalara Identity.
     {
       "code": "IdentityServerError",
       "number": 36,
-      "message": "The Avalara Identity Server was not available to authenticate your request.",
-      "description": "-0-",
-      "faultCode": "Client",
+      "message": "The Avalara Identity Server failed to authenticate your request.",
+      "description": "Revalidate your request and try again.  -0-",
+      "faultCode": "Server",
       "helpLink": "http://developer.avalara.com/avatax/errors/IdentityServerError",
       "severity": "Exception"
     }

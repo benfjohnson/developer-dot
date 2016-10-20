@@ -20,7 +20,7 @@ You attempted to choose a rate type that is not supported for the country you se
     {
       "code": "RateTypeNotSupported",
       "number": 135,
-      "message": "RateTypeId -1- not supported for country '-0-'.",
+      "message": "The RateTypeId -1- is not supported for country '-0-'.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/RateTypeNotSupported",
       "severity": "Error"

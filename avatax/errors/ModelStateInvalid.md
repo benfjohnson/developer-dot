@@ -20,8 +20,8 @@ You provided an incorrectly structured object to AvaTax.
     {
       "code": "ModelStateInvalid",
       "number": 70,
-      "message": "One or more parameters in your request were incorrect.",
-      "description": "The value '-1-' is not a valid '-0-'.",
+      "message": "Invalid JSON object.",
+      "description": "The request body does not represent a valid JSON object.  The value '-1-' is not a valid '-0-'.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/ModelStateInvalid",
       "severity": "Error"

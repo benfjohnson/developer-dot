@@ -20,7 +20,7 @@ The specified jurisdiction could not be found.
     {
       "code": "JurisdictionNotFoundError",
       "number": 130,
-      "message": "Unable to determine the taxing jurisdictions.",
+      "message": "Tax jurisdiction not found.",
       "description": "-0- -1- -2- -3-",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/JurisdictionNotFoundError",

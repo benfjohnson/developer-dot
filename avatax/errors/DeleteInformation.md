@@ -20,7 +20,7 @@ This message represents information provided about an object that was deleted.
     {
       "code": "DeleteInformation",
       "number": 100,
-      "message": "-0- -2- was deleted.",
+      "message": "-0- -2- was deleted successfully.",
       "description": "The -0- -2- (#-1-) had an active flag of -3- before deletion.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/DeleteInformation",

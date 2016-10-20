@@ -21,6 +21,7 @@ This password does not meet the complexity requirements set by AvaTax.
       "code": "PasswordMinComplexityError",
       "number": 12,
       "message": "Passwords must be a combination of upper/lower case, numbers, and non-alphanumeric characters.",
+      "description": "An invalid password was specified.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/PasswordMinComplexityError",
       "severity": "Error"

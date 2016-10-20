@@ -20,8 +20,8 @@ You provided an unrecognized string or token in the "$filter" parameter of your 
     {
       "code": "ParserSyntaxError",
       "number": 19,
-      "message": "Unexpected token '-0-' in the filter.  Expected '-1-'",
-      "description": "-2-",
+      "message": "Error parsing $filter parameter.",
+      "description": "Unexpected token '-0-' in the filter.  Expected '-1-'. -2-",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/ParserSyntaxError",
       "severity": "Error"

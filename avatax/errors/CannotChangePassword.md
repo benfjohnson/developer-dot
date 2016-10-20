@@ -20,7 +20,7 @@ You attempted to change passwords for a user who is not permitted to change thei
     {
       "code": "CannotChangePassword",
       "number": 24,
-      "message": "User is not allowed to change password.",
+      "message": "The password of this user cannot change.",
       "description": "-0-",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/CannotChangePassword",

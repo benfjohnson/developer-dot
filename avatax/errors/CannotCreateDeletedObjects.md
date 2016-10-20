@@ -20,7 +20,8 @@ You may not create an object with a "Deleted" flag.
     {
       "code": "CannotCreateDeletedObjects",
       "number": 120,
-      "message": "You cannot create a deleted object with an inactive / deleted flag.  To delete an object, call DELETE",
+      "message": "Object creation failed.",
+      "description": "You cannot create a deleted object with an inactive / deleted flag.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/CannotCreateDeletedObjects",
       "severity": "Error"
