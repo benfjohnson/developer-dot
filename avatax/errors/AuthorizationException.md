@@ -12,21 +12,23 @@ Your account is not authorized to call this API.
 
 ## Example
 
+```json
+{
+  "code": "AuthorizationException",
+  "target": "Unknown",
+  "details": [
     {
       "code": "AuthorizationException",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "AuthorizationException",
-          "number": 31,
-          "message": "This service or operation is not authorized for this account or user.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/AuthorizationException",
-          "severity": "Exception"
-        }
-      ]
+      "number": 31,
+      "message": "This service or operation is not authorized for this account or user.",
+      "description": "-0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/AuthorizationException",
+      "severity": "Exception"
     }
+  ]
+}
+```
 
 ## Explanation
 

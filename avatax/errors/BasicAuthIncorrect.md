@@ -12,21 +12,23 @@ Your Basic authorization header was not encoded correctly.
 
 ## Example
 
+```json
+{
+  "code": "BasicAuthIncorrect",
+  "target": "Unknown",
+  "details": [
     {
       "code": "BasicAuthIncorrect",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "BasicAuthIncorrect",
-          "number": 35,
-          "message": "The Basic header must be in the format 'Basic (Base64Encoded(value))' where Value is either 'username' + ':' + 'password' or 'accountid' + ':' + 'licensekey'.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/BasicAuthIncorrect",
-          "severity": "Exception"
-        }
-      ]
+      "number": 35,
+      "message": "The Basic header must be in the format 'Basic (Base64Encoded(value))' where Value is either 'username' + ':' + 'password' or 'accountid' + ':' + 'licensekey'.",
+      "description": "-0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/BasicAuthIncorrect",
+      "severity": "Exception"
     }
+  ]
+}
+```
 
 ## Explanation
 
@@ -51,4 +53,3 @@ In the HTTP request you provided to AvaTax, your information was not correctly e
 <li>Did you accidentally Base64 encode the word "Basic"?</li>
 <li>Are you using a library that automatically handles this encoding for you, and you accidentally encoded the value twice?</li>
 </ul>
-

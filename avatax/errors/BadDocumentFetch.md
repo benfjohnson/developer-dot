@@ -12,20 +12,22 @@ This error indicates that you have provided an incorrect "$include" value to the
 
 ## Example
 
+```json
+{
+  "code": "BadDocumentFetch",
+  "target": "Unknown",
+  "details": [
     {
       "code": "BadDocumentFetch",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "BadDocumentFetch",
-          "number": 400,
-          "message": "The document fetch command was incorrect.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/BadDocumentFetch",
-          "severity": "Error"
-        }
-      ]
+      "number": 400,
+      "message": "The document fetch command was incorrect.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/BadDocumentFetch",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

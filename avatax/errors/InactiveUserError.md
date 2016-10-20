@@ -12,20 +12,22 @@ This user account is currently inactive.
 
 ## Example
 
+```json
+{
+  "code": "InactiveUserError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "InactiveUserError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "InactiveUserError",
-          "number": 33,
-          "message": "The user '-0-' is not currently active.  Please contact your customer account manager to reactivate this user.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/InactiveUserError",
-          "severity": "Exception"
-        }
-      ]
+      "number": 33,
+      "message": "The user '-0-' is not currently active.  Please contact your customer account manager to reactivate this user.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/InactiveUserError",
+      "severity": "Exception"
     }
+  ]
+}
+```
 
 ## Explanation
 

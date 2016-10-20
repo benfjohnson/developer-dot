@@ -12,21 +12,23 @@ This Avalara API call requires an active subscription to a specific service.
 
 ## Example
 
+```json
+{
+  "code": "SubscriptionRequired",
+  "target": "Unknown",
+  "details": [
     {
       "code": "SubscriptionRequired",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "SubscriptionRequired",
-          "number": 600,
-          "message": "This API requires a subscription to '-0-'.",
-          "description": "Your subscription may not be in effect or it may have expired.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/SubscriptionRequired",
-          "severity": "Error"
-        }
-      ]
+      "number": 600,
+      "message": "This API requires a subscription to '-0-'.",
+      "description": "Your subscription may not be in effect or it may have expired.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/SubscriptionRequired",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

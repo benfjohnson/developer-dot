@@ -12,21 +12,23 @@ A problem was detected with Avalara Identity.
 
 ## Example
 
+```json
+{
+  "code": "IdentityServerError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "IdentityServerError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "IdentityServerError",
-          "number": 36,
-          "message": "The Avalara Identity Server was not available to authenticate your request.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/IdentityServerError",
-          "severity": "Exception"
-        }
-      ]
+      "number": 36,
+      "message": "The Avalara Identity Server was not available to authenticate your request.",
+      "description": "-0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/IdentityServerError",
+      "severity": "Exception"
     }
+  ]
+}
+```
 
 ## Explanation
 

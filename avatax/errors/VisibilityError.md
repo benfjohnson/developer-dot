@@ -12,21 +12,23 @@ You attempted to request an object from AvaTax that you are not permitted to see
 
 ## Example
 
+```json
+{
+  "code": "VisibilityError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "VisibilityError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "VisibilityError",
-          "number": 40,
-          "message": "An object visibility exception occurred.",
-          "description": "The following object URL was flagged as not visible: -0-",
-          "faultCode": "Server",
-          "helpLink": "http://developer.avalara.com/avatax/errors/VisibilityError",
-          "severity": "Exception"
-        }
-      ]
+      "number": 40,
+      "message": "An object visibility exception occurred.",
+      "description": "The following object URL was flagged as not visible: -0-",
+      "faultCode": "Server",
+      "helpLink": "http://developer.avalara.com/avatax/errors/VisibilityError",
+      "severity": "Exception"
     }
+  ]
+}
+```
 
 ## Explanation
 

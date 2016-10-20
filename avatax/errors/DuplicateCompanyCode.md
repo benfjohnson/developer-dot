@@ -12,21 +12,23 @@ You cannot create two companies with the same company code.
 
 ## Example
 
+```json
+{
+  "code": "DuplicateCompanyCode",
+  "target": "Unknown",
+  "details": [
     {
       "code": "DuplicateCompanyCode",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "DuplicateCompanyCode",
-          "number": 142,
-          "message": "The company code '-0-' has already been defined.",
-          "description": "Please select a different company code.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
-          "severity": "Error"
-        }
-      ]
+      "number": 142,
+      "message": "The company code '-0-' has already been defined.",
+      "description": "Please select a different company code.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

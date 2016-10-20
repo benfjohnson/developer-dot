@@ -12,21 +12,23 @@ You attempted to set a value that was not permitted.
 
 ## Example
 
+```json
+{
+  "code": "RangeSetError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "RangeSetError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "RangeSetError",
-          "number": 8,
-          "message": "-1- must be one of the following: -2-.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/RangeSetError",
-          "severity": "Error"
-        }
-      ]
+      "number": 8,
+      "message": "-1- must be one of the following: -2-.",
+      "description": "-0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/RangeSetError",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

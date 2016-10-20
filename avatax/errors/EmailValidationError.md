@@ -12,21 +12,23 @@ You attempted to provide an email address that does not conform to email address
 
 ## Example
 
+```json
+{
+  "code": "EmailValidationError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "EmailValidationError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "EmailValidationError",
-          "number": 15,
-          "message": "The specified email address was not valid.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/EmailValidationError",
-          "severity": "Error"
-        }
-      ]
+      "number": 15,
+      "message": "The specified email address was not valid.",
+      "description": "-0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/EmailValidationError",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

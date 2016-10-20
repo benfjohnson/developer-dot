@@ -12,20 +12,22 @@ You attempted a fetch call that included too many parameters.
 
 ## Example
 
+```json
+{
+  "code": "ParserTooManyParametersError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "ParserTooManyParametersError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "ParserTooManyParametersError",
-          "number": 20,
-          "message": "Your filter was too large to parse.  Please create a filter with fewer values.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/ParserTooManyParametersError",
-          "severity": "Error"
-        }
-      ]
+      "number": 20,
+      "message": "Your filter was too large to parse.  Please create a filter with fewer values.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/ParserTooManyParametersError",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

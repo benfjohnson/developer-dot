@@ -12,21 +12,23 @@ You called an API that requires an object, but you did not provide an object.
 
 ## Example
 
+```json
+{
+  "code": "ModelRequiredException",
+  "target": "Unknown",
+  "details": [
     {
       "code": "ModelRequiredException",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "ModelRequiredException",
-          "number": 38,
-          "message": "A required Model was not provided.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/ModelRequiredException",
-          "severity": "Exception"
-        }
-      ]
+      "number": 38,
+      "message": "A required Model was not provided.",
+      "description": "-0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/ModelRequiredException",
+      "severity": "Exception"
     }
+  ]
+}
+```
 
 ## Explanation
 

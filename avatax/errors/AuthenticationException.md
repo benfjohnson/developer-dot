@@ -12,21 +12,23 @@ The credentials you provided to AvaTax could not be validated.
 
 ## Example
 
+```json
+{
+  "code": "AuthenticationException",
+  "target": "Unknown",
+  "details": [
     {
       "code": "AuthenticationException",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "AuthenticationException",
-          "number": 30,
-          "message": "The user or account could not be authenticated.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/AuthenticationException",
-          "severity": "Exception"
-        }
-      ]
+      "number": 30,
+      "message": "The user or account could not be authenticated.",
+      "description": "-0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/AuthenticationException",
+      "severity": "Exception"
     }
+  ]
+}
+```
 
 ## Explanation
 

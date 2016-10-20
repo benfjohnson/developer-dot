@@ -12,20 +12,22 @@ You attempted to search on a field that does not exist or cannot be searched.
 
 ## Example
 
+```json
+{
+  "code": "ParserFieldNameError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "ParserFieldNameError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "ParserFieldNameError",
-          "number": 17,
-          "message": "The field named '-0-' could not be found.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/ParserFieldNameError",
-          "severity": "Error"
-        }
-      ]
+      "number": 17,
+      "message": "The field named '-0-' could not be found.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/ParserFieldNameError",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

@@ -12,19 +12,21 @@ A problem occurred when you attempted to create a transaction through AvaTax.
 
 ## Example
 
+```json
+{
+  "code": "GetTaxError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "GetTaxError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "GetTaxError",
-          "number": 300,
-          "faultCode": "Server",
-          "helpLink": "http://developer.avalara.com/avatax/errors/GetTaxError",
-          "severity": "Error"
-        }
-      ]
+      "number": 300,
+      "faultCode": "Server",
+      "helpLink": "http://developer.avalara.com/avatax/errors/GetTaxError",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

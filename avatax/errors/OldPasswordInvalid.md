@@ -12,21 +12,23 @@ You attempted to reset a password but you did not provide a correct old password
 
 ## Example
 
+```json
+{
+  "code": "OldPasswordInvalid",
+  "target": "Unknown",
+  "details": [
     {
       "code": "OldPasswordInvalid",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "OldPasswordInvalid",
-          "number": 23,
-          "message": "Existing password is invalid.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/OldPasswordInvalid",
-          "severity": "Error"
-        }
-      ]
+      "number": 23,
+      "message": "Existing password is invalid.",
+      "description": "-0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/OldPasswordInvalid",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

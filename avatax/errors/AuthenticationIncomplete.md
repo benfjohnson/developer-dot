@@ -12,21 +12,23 @@ Your API call did not contain authentication information.
 
 ## Example
 
+```json
+{
+  "code": "AuthenticationIncomplete",
+  "target": "Unknown",
+  "details": [
     {
       "code": "AuthenticationIncomplete",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "AuthenticationIncomplete",
-          "number": 34,
-          "message": "You must provide an Authorization header of the type Basic or Bearer to authenticate correctly.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/AuthenticationIncomplete",
-          "severity": "Exception"
-        }
-      ]
+      "number": 34,
+      "message": "You must provide an Authorization header of the type Basic or Bearer to authenticate correctly.",
+      "description": "-0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/AuthenticationIncomplete",
+      "severity": "Exception"
     }
+  ]
+}
+```
 
 ## Explanation
 

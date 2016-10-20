@@ -12,21 +12,23 @@ When adding parameters to your CreateTransactionModel, you must use a valid para
 
 ## Example
 
+```json
+{
+  "code": "InvalidParameter",
+  "target": "Unknown",
+  "details": [
     {
       "code": "InvalidParameter",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "InvalidParameter",
-          "number": 305,
-          "message": "The parameter '-0-' is not a valid parameter.",
-          "description": "For a full list of valid parameters, please use the /api/v2/definitions/parameters endpoint.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/InvalidParameter",
-          "severity": "Error"
-        }
-      ]
+      "number": 305,
+      "message": "The parameter '-0-' is not a valid parameter.",
+      "description": "For a full list of valid parameters, please use the /api/v2/definitions/parameters endpoint.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/InvalidParameter",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

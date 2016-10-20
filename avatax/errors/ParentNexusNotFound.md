@@ -12,21 +12,23 @@ You attempted to create a nexus in a tax authority that is underneath a parent t
 
 ## Example
 
+```json
+{
+  "code": "ParentNexusNotFound",
+  "target": "Unknown",
+  "details": [
     {
       "code": "ParentNexusNotFound",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "ParentNexusNotFound",
-          "number": 146,
-          "message": "To declare nexus here, you must also declare nexus for -0-.",
-          "description": "Nexus without parent: Country: -1-, Region: -2-, JurisTypeId: -3-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/ParentNexusNotFound",
-          "severity": "Error"
-        }
-      ]
+      "number": 146,
+      "message": "To declare nexus here, you must also declare nexus for -0-.",
+      "description": "Nexus without parent: Country: -1-, Region: -2-, JurisTypeId: -3-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/ParentNexusNotFound",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

@@ -12,21 +12,23 @@ You attempted to retrieve data with a "$filter" parameter that contained syntax 
 
 ## Example
 
+```json
+{
+  "code": "ParserUnterminatedValueError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "ParserUnterminatedValueError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "ParserUnterminatedValueError",
-          "number": 21,
-          "message": "The filter contained a string value that was not properly terminated.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/ParserUnterminatedValueError",
-          "severity": "Error"
-        }
-      ]
+      "number": 21,
+      "message": "The filter contained a string value that was not properly terminated.",
+      "description": "-0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/ParserUnterminatedValueError",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

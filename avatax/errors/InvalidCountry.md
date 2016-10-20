@@ -12,20 +12,22 @@ The country code you provided is not recognized as a valid ISO 3166 country code
 
 ## Example
 
+```json
+{
+  "code": "InvalidCountry",
+  "target": "Unknown",
+  "details": [
     {
       "code": "InvalidCountry",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "InvalidCountry",
-          "number": 125,
-          "message": "The country '-0-' is not a recognized country code.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/InvalidCountry",
-          "severity": "Error"
-        }
-      ]
+      "number": 125,
+      "message": "The country '-0-' is not a recognized country code.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/InvalidCountry",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

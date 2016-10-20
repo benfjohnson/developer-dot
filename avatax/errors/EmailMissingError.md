@@ -12,21 +12,23 @@ You must provide an email address with this request.
 
 ## Example
 
+```json
+{
+  "code": "EmailMissingError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "EmailMissingError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "EmailMissingError",
-          "number": 16,
-          "message": "A required email address was not provided.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/EmailMissingError",
-          "severity": "Error"
-        }
-      ]
+      "number": 16,
+      "message": "A required email address was not provided.",
+      "description": "-0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/EmailMissingError",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

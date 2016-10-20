@@ -12,20 +12,22 @@ One of the strings you uploaded to the server is too long and cannot be saved.
 
 ## Example
 
+```json
+{
+  "code": "StringLengthError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "StringLengthError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "StringLengthError",
-          "number": 13,
-          "message": "Field -0- must be between -1- and -2- characters in length.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/StringLengthError",
-          "severity": "Error"
-        }
-      ]
+      "number": 13,
+      "message": "Field -0- must be between -1- and -2- characters in length.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/StringLengthError",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

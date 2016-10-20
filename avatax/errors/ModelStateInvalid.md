@@ -12,21 +12,23 @@ You provided an incorrectly structured object to AvaTax.
 
 ## Example
 
+```json
+{
+  "code": "ModelStateInvalid",
+  "target": "Unknown",
+  "details": [
     {
       "code": "ModelStateInvalid",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "ModelStateInvalid",
-          "number": 70,
-          "message": "One or more parameters in your request were incorrect.",
-          "description": "The value '-1-' is not a valid '-0-'.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/ModelStateInvalid",
-          "severity": "Error"
-        }
-      ]
+      "number": 70,
+      "message": "One or more parameters in your request were incorrect.",
+      "description": "The value '-1-' is not a valid '-0-'.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/ModelStateInvalid",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

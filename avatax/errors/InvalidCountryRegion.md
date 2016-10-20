@@ -12,20 +12,22 @@ You specified a country/region that was not recognized by the ISO 3166 country/r
 
 ## Example
 
+```json
+{
+  "code": "InvalidCountryRegion",
+  "target": "Unknown",
+  "details": [
     {
       "code": "InvalidCountryRegion",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "InvalidCountryRegion",
-          "number": 126,
-          "message": "The region '-1-' is not a recognized region within country '-0-'.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/InvalidCountryRegion",
-          "severity": "Error"
-        }
-      ]
+      "number": 126,
+      "message": "The region '-1-' is not a recognized region within country '-0-'.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/InvalidCountryRegion",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

@@ -12,20 +12,22 @@ You specified a jurisdiction type that is not recognized.
 
 ## Example
 
+```json
+{
+  "code": "InvalidJurisdictionType",
+  "target": "Unknown",
+  "details": [
     {
       "code": "InvalidJurisdictionType",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "InvalidJurisdictionType",
-          "number": 140,
-          "message": "The value '-0-' is not a valid Avalara-recognized jurisdiction type.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/InvalidJurisdictionType",
-          "severity": "Error"
-        }
-      ]
+      "number": 140,
+      "message": "The value '-0-' is not a valid Avalara-recognized jurisdiction type.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/InvalidJurisdictionType",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

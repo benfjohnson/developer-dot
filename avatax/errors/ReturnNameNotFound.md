@@ -12,20 +12,22 @@ You attempted to create a filing calendar for a return that is not recognized by
 
 ## Example
 
+```json
+{
+  "code": "ReturnNameNotFound",
+  "target": "Unknown",
+  "details": [
     {
       "code": "ReturnNameNotFound",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "ReturnNameNotFound",
-          "number": 122,
-          "message": "The form named '-0-' cannot be found.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/ReturnNameNotFound",
-          "severity": "Error"
-        }
-      ]
+      "number": 122,
+      "message": "The form named '-0-' cannot be found.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/ReturnNameNotFound",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

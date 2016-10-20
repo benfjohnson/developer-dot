@@ -12,20 +12,22 @@ You attempted to act on, retrieve, update, or delete an object that does not exi
 
 ## Example
 
+```json
+{
+  "code": "EntityNotFoundError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "EntityNotFoundError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "EntityNotFoundError",
-          "number": 4,
-          "message": "-0- with ID '-1-' not found.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/EntityNotFoundError",
-          "severity": "Error"
-        }
-      ]
+      "number": 4,
+      "message": "-0- with ID '-1-' not found.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/EntityNotFoundError",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 
