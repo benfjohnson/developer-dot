@@ -20,34 +20,34 @@ Avalara's world-class AvaTax API has been around for twelve years, and we've imp
     </thead>
     <tbody>
 		<tr>
-			<th>Robustness</th>
-			<th>World-leading API for tax services; used everywhere in the world for twelve years.</th>
-			<th>Released in preview form in August 2016, this API is being gradually rolled out worldwide.</th>
+			<td>Robustness</td>
+			<td>World-leading API for tax services; used everywhere in the world for twelve years.</td>
+			<td>Released in preview form in August 2016, this API is being gradually rolled out worldwide.</td>
 		</tr>
 		<tr>
-			<th>Data Formatting</th>
-			<th><a href="https://en.wikipedia.org/wiki/XML">XML</a> conforming to a <a href="https://en.wikipedia.org/wiki/Web_Services_Description_Language">WSDL</a> specification</th>
-			<th><a href="https://en.wikipedia.org/wiki/JSON">JSON</a></th>
+			<td>Data Formatting</td>
+			<td><a href="https://en.wikipedia.org/wiki/XML">XML</a> conforming to a <a href="https://en.wikipedia.org/wiki/Web_Services_Description_Language">WSDL</a> specification</td>
+			<td><a href="https://en.wikipedia.org/wiki/JSON">JSON</a></td>
 		</tr>
         <tr>
-			<th>Language Support</th>
-			<th>Many languages including C# and Java.  You may need to find a third-party library that supports SOAP API calls.</th>
-			<th>Virtually all modern languages include support for parsing JSON objects natively, or through open source libraries.</th>
+			<td>Language Support</td>
+			<td>Many languages including C# and Java.  You may need to find a third-party library that supports SOAP API calls.</td>
+			<td>Virtually all modern languages include support for parsing JSON objects natively, or through open source libraries.</td>
 		</tr>
         <tr>
-			<th>Documentation</th>
-			<th>Hand-written documentation in Avalara developer website.</th>
-			<th><a href="https://sandbox-rest.avatax.com/swagger/ui/index.html">Online documentation</a> in <a href="http://editor.swagger.io/#/">Swagger YAML</a> for all APIs </th>
+			<td>Documentation</td>
+			<td>Hand-written documentation in Avalara developer website.</td>
+			<td><a href="https://sandbox-rest.avatax.com/swagger/ui/index.html">Online documentation</a> in <a href="http://editor.swagger.io/#/">Swagger YAML</a> for all APIs </td>
 		</tr>
         <tr>
-			<th>Proxy Class Support</th>
-			<th>Avalara publishes dozens of proxy classes for major languages and frameworks.</th>
-			<th>Proxy classes are in development for the use of REST v2; you can also use the online Swagger documentation to generate your own proxy classes.</th>
+			<td>Proxy Class Support</td>
+			<td>Avalara publishes dozens of proxy classes for major languages and frameworks.</td>
+			<td>Proxy classes are in development for the use of REST v2; you can also use the online Swagger documentation to generate your own proxy classes.</td>
 		</tr>
         <tr>
-			<th>Endpoints</th>
-			<th>Many different endpoints such as TaxSvc, AddressSvc, AccountSvc, BatchSvc, and others.</th>
-			<th>A single URL, <a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a>, for all API functionality in one place</th>
+			<td>Endpoints</td>
+			<td>Many different endpoints such as TaxSvc, AddressSvc, AccountSvc, BatchSvc, and others.</td>
+			<td>A single URL, <a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a>, for all API functionality in one place</td>
 		</tr>
     </tbody>
 </table>
@@ -68,8 +68,7 @@ Here's a quick look at a few critical features and how they compare between REST
 	</thead>
 	<tbody>
 		<tr>
-			<td>Address Validation</td>
-			<td><a href="/avatax/address-validation">Address Validation</a></td>
+			<td><a href="/avatax/address-validation">Address validation</a></td>
 			<td><a href="/avatax/api-reference/tax/soap/#validateAddress">ValidateAddress</a> request</td>
             <td><a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Addresses/ApiV2AddressesResolvePost">POST /api/v2/addresses/resolve</a></td>
 		</tr>
@@ -108,3 +107,4 @@ Not all functions available in SOAP are yet available in REST; we are continuing
 <h2>What to Choose?</h2>
 
 We hope this information helps you decide which API is right for you.  If you have feedback or comments, please reach out to us at <a href="https://community.avalara.com/avalara">https://community.avalara.com/avalara</a>
+

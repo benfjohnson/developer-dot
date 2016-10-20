@@ -126,3 +126,5 @@ Matches all records where the taxDate is in the month of January and the record'
 <pre>GET /api/v2/locations$filter=(country eq 'US' and region eq 'CA') or (country eq 'CA')</pre>
 
 Matches all locations for all companies where the location is either in the country of Canada or in California in the United States.  This filter carefully ensures that even if a different country has a region whose code is "CA", this filter will still only return those locations in the United States.
+
+
