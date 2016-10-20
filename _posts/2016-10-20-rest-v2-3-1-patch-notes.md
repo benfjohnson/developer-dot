@@ -21,7 +21,7 @@ Now that the program is winding down, please take note of a few differences betw
 The existing URL, <a href="https://rest-sbx-preview.avalara.net">https://rest-sbx-preview.avalara.net</a>, will be retired and no longer available after October 25th, 2016.
 
 If you have any applications or services using this URL, please update them to point to the new URLs:
-<ul>
+<ul class="normal">
 <li><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a> (for users of the "Sandbox" test development environment, available now)</li>
 <li><a href="https://rest.avatax.com">https://rest.avatax.com</a> (for Production accounts, available October 25th 2016)</li>
 </ul>
@@ -32,7 +32,7 @@ The `/api/v2/transactions/create` endpoint now only allows creation of one trans
 
 If any of your existing programs were creating multiple transactions with a single API call, you will need to:
 
-<ul>
+<ul class="normal">
 <li>Modify them to use one API call per each transaction, or</li>
 <li>Modify them to use the <pre>/api/v2/companies/123/batches/create</pre>  endpoint instead.</li>
 </ul>
@@ -42,18 +42,23 @@ If any of your existing programs were creating multiple transactions with a sing
 To avoid confusion between the action "POST" and the HTTP verb "POST", we have renamed and simplified the `/api/v2/transactions/123/post` API call to "settle".
 Some users were also confused about the difference between a call to /api/v2/transactions/123/post vs a call to `/api/v2/transactions/123/commit`.  To reduce this confusion, we have split these API calls into individual functions:
 
-<ul>
-<li><pre>/api/v2/companies/ABC/transactions/DEF/verify</pre> - Ensures that a transaction's amounts match an expected value, and returns an error if they do not match.</li>
-<li><pre>/api/v2/companies/ABC/transactions/DEF/changecode</pre> Changes the transaction code of a specified transaction.</li>
-<li><pre>/api/v2/companies/ABC/transactions/DEF/commit</pre> - Commits a transaction so that it can be reported in a tax return.</li>
-</ul>
+<pre>/api/v2/companies/ABC/transactions/DEF/verify</pre>
 
-Each of these three APIs is separate and does not depend on the others.  Once you have created a transaction, you can call any of these three APIs to execute any one of these three functions separately.
-If you'd still like to call all three of these API calls at once, you can use "settle":
+Ensures that a transaction's amounts match an expected value, and returns an error if they do not match.
 
-<ul>
-<li><pre>/api/v2/companies/ABC/transactions/DEF/settle</pre> - This endpoint allows you to execute all three actions, verify, changecode, and commit, in a single API call.</li>
-</ul>
+<pre>/api/v2/companies/ABC/transactions/DEF/changecode</pre> 
+
+Changes the transaction code of a specified transaction.
+
+<pre>/api/v2/companies/ABC/transactions/DEF/commit</pre>
+
+Commits a transaction so that it can be reported in a tax return.
+
+Each of these three APIs is separate and does not depend on the others.  Once you have created a transaction, you can call any of these three APIs to execute any one of these three functions separately.  If you'd still like to call all three of these API calls at once, you can use "settle":
+
+<pre>/api/v2/companies/ABC/transactions/DEF/settle</pre> 
+
+This endpoint allows you to execute all three actions, verify, changecode, and commit, in a single API call.
 
 <h3>Single Object Creation</h3>
 If you call an API that allows multiple object creation, but you forget to send an array, our API will now accept a single object and continue to work rather than reporting an error.

@@ -17,9 +17,7 @@ Avalara supports the following filtering operations defined in the <a href="http
 
 Filters are present all throughout the AvaTax REST v2 API.  You can use filters in most every place as a way to search for objects matching specific criteria.  For example, let's say you want to search for all companies with an address in California.  You might do the following:
 
-```
-GET /api/v2/companies?$filter=region eq 'CA'
-```
+<pre>GET /api/v2/companies?$filter=region eq 'CA'</pre>
 
 In this example, calling `GET /api/v2/companies` is an API call that returns all companies in your account.  However, the `$filter=region eq 'CA'` adds a test: the API call will only return those companies who have a field `region` with value `CA`.
 
@@ -107,30 +105,24 @@ On occasion you may need to retrieve objects that have a combination of values. 
 
 When using parenthesis, remember that all elements within the parenthesis are resolved first before any elements outside of the parenthesis.  If you have multiple clauses enclosed in parenthesis, they may be resolved in any order.  The following are examples of valid conjunctions:
 
-```
+<pre>
 isActive eq true AND hasProfile eq true
 taxDate eq '2016-01-01' or taxDate eq '2016-01-02'
 (firstName = 'bob' or firstName = 'alice') and lastName = 'smith'
-```
+</pre>
 
 <h2>Complex Examples</h2>
 
 Now let's put it all together, shall we?
 
-```
-GET /api/v2/companies/$filter=name like 'Bob%' and (isActive eq true or hasProfile eq true)
-```
+<pre>GET /api/v2/companies/$filter=name like 'Bob%' and (isActive eq true or hasProfile eq true)</pre>
 
 This example retrieves all companies with a name begins with the letters 'Bob' and where either the isActive flag is true or the hasProfile flag is true.
 
-```
-GET /api/v2/companies/123/transactions?$filter=taxDate between '2016-01-01' and '2016-02-01' and status eq committed
-```
+<pre>GET /api/v2/companies/123/transactions?$filter=taxDate between '2016-01-01' and '2016-02-01' and status eq committed</pre>
 
 Matches all records where the taxDate is in the month of January and the record's status is 'committed'.</td>
 
-```
-GET /api/v2/locations$filter=(country eq 'US' and region eq 'CA') or (country eq 'CA')
-```
+<pre>GET /api/v2/locations$filter=(country eq 'US' and region eq 'CA') or (country eq 'CA')</pre>
 
 Matches all locations for all companies where the location is either in the country of Canada or in California in the United States.  This filter carefully ensures that even if a different country has a region whose code is "CA", this filter will still only return those locations in the United States.
