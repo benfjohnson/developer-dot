@@ -12,21 +12,23 @@ This error occurs when you try to modify the tax profile of a company that inher
 
 ## Example
 
+```json
+{
+  "code": "CompanyProfileNotSet",
+  "target": "Unknown",
+  "details": [
     {
       "code": "CompanyProfileNotSet",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "CompanyProfileNotSet",
-          "number": 61,
-          "message": "You attempted to add tax configuration to a company that does not have its own tax profile.",
-          "description": "The company -0- (ID #-1-) has the HasProfile flag set to false. To add -2- to this company, set its HasProfile flag to true.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/CompanyProfileNotSet",
-          "severity": "Error"
-        }
-      ]
+      "number": 61,
+      "message": "You attempted to add tax configuration to a company that does not have its own tax profile.",
+      "description": "The company -0- (ID #-1-) has the HasProfile flag set to false. To add -2- to this company, set its HasProfile flag to true.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/CompanyProfileNotSet",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 
@@ -37,6 +39,9 @@ However, in some circumstances, a corporate entity is structured such that diffe
 This error occurs when you attempt to set a tax profile for a company that is inheriting its tax profile from its parent.
 
 Common troubleshooting:
-* Check the company ID of the company you are modifying.  Is it the right company?
-* Check all the companies within your account and verify that they match with the tax structure of your business.
-* Set the "HasProfile" flag on the company to "true" and you can declare tax profile for that company.
+
+<ul class="normal">
+<li>Check the company ID of the company you are modifying.  Is it the right company?</li>
+<li>Check all the companies within your account and verify that they match with the tax structure of your business.</li>
+<li>Set the "HasProfile" flag on the company to "true" and you can declare tax profile for that company.</li>
+</ul>

@@ -59,16 +59,16 @@ If you'd like to type along with me without using a programming language, we can
         <th>Result</th>
     </tr>
 	<tr>
-		<td>Start with the word "Basic" followed by your username and password.</td>
-		<td>`Basic username:password`</td>
+		<td>Start with the word "Basic" followed by username and password.</td>
+		<td><pre>Basic username:password</pre></td>
 	</tr>
 	<tr>
 		<td>Replace "username" with your username, and "password" with your password.</td>
-		<td>`Basic bob@example.org:bobspasswordgoeshere`</td>
+		<td><pre>Basic bob@example.org:bobspasswordgoeshere</pre></td>
 	</tr>
 	<tr>
 		<td>Now visit <a href="https://www.base64encode.org">https://www.base64encode.org</a> and paste in the right hand side of the string.</td>
-		<td>`Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl`</td>
+		<td><pre>Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl</pre></td>
 	</tr>
 </table>
 
@@ -80,7 +80,7 @@ Of course, to make this work, you'll have to use your username and password inst
 <li>Finally, click the <b>Try It</b> button on the page.  Here's the result you should get:</li>
 </ul>
 	
-```javascript
+```json
 {
   "@recordsetCount": 0,
   "value": []
@@ -106,7 +106,7 @@ Here's what we need to get started:
 
 Once you've gathered this information, we create a request that looks like this:
 
-```javascript
+```json
 	{
 	  "name": "Bob's Artisan Pottery",
 	  "companyCode": "DEFAULT",
@@ -154,7 +154,7 @@ For our first sale, let's begin by selling a mug and a vase.  All transactions n
 
 If we sold two separate mugs and a vase in a single order, the transaction might look like this:
 
-```javascript
+```json
   {
     "companyCode": "DEFAULT",
     "type": "SalesInvoice",
@@ -198,7 +198,7 @@ Alright, we've defined our transaction - let's go ahead and calculate the tax!
 
 <ul class="normal">
 <li>Launch the online Create Transaction API by clicking this link: <a href="https://rest-sbx-preview.avalara.net/swagger/ui/index.html#!/Transactions/ApiV2TransactionsCreatePost">Create Transaction</a></li>
-<li>Tax transactions must be calculated using your account's license key.  In the <b>Authorization</b> field, we'll need to type in credentials using your AccountId as the username and your license key as the password.  You can build this authorization string on <a href="https://www.base64encode.org/">https://www.base64encode.org/</a> just as we did earlier; then paste the result into the Authorization field.  It should look like this: `Basic MTIzNDU2Nzg5OkxJQ0VOU0VLRVk=`</li>
+<li>Tax transactions must be calculated using your account's license key.  In the <b>Authorization</b> field, we'll need to type in credentials using your AccountId as the username and your license key as the password.  You can build this authorization string on <a href="https://www.base64encode.org/">https://www.base64encode.org/</a> just as we did earlier; then paste the result into the Authorization field.  It should look like this: <pre>Basic MTIzNDU2Nzg5OkxJQ0VOU0VLRVk=</pre></li>
 <li>In the <b>Model</b> text box, copy and paste the transaction we built above.</li>
 <li>Click <b>Try It</b></li>
 </ul>

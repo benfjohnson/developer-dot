@@ -12,21 +12,23 @@ The company code in the URL of your API call did not match the company code of t
 
 ## Example
 
+```json
+{
+  "code": "CompanyCodeConflict",
+  "target": "Unknown",
+  "details": [
     {
       "code": "CompanyCodeConflict",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "CompanyCodeConflict",
-          "number": 307,
-          "message": "You attempted to create a transaction at the wrong URL.",
-          "description": "You attempted to create a transaction for company '-1-' using the URL for company '-0-'.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/CompanyCodeConflict",
-          "severity": "Error"
-        }
-      ]
+      "number": 307,
+      "message": "You attempted to create a transaction at the wrong URL.",
+      "description": "You attempted to create a transaction for company '-1-' using the URL for company '-0-'.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/CompanyCodeConflict",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

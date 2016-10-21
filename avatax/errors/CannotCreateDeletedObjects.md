@@ -12,20 +12,23 @@ You may not create an object with a "Deleted" flag.
 
 ## Example
 
+```json
+{
+  "code": "CannotCreateDeletedObjects",
+  "target": "Unknown",
+  "details": [
     {
       "code": "CannotCreateDeletedObjects",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "CannotCreateDeletedObjects",
-          "number": 120,
-          "message": "You cannot create a deleted object with an inactive / deleted flag.  To delete an object, call DELETE",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/CannotCreateDeletedObjects",
-          "severity": "Error"
-        }
-      ]
+      "number": 120,
+      "message": "Object creation failed.",
+      "description": "You cannot create a deleted object with an inactive / deleted flag.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/CannotCreateDeletedObjects",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

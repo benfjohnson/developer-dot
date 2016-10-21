@@ -12,21 +12,23 @@ You attempted to set a value that must be within a range, but your value was out
 
 ## Example
 
+```json
+{
+  "code": "RangeError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "RangeError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "RangeError",
-          "number": 6,
-          "message": "-1- is expected to be between -2- and -3-.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/RangeError",
-          "severity": "Error"
-        }
-      ]
+      "number": 6,
+      "message": "-1- is expected to be between -2- and -3-.",
+      "description": "-0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/RangeError",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

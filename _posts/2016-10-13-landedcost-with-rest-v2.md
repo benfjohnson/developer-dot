@@ -45,7 +45,7 @@ Let's plan to ship these shoes from Prince Edward Island in Canada to Bainbridge
 
 <h3>Request</h3>
 
-```javascript
+```json
 {
   "type": "SalesInvoice",
   "companyCode": "DEFAULT",
@@ -104,7 +104,7 @@ Let's plan to ship these shoes from Prince Edward Island in Canada to Bainbridge
 
 The result object is huge.  It has information about all the line items, all the jurisdictions, and all the tax codes applied.  For the moment, let's focus on the real results:
 
-```javascript
+```json
 {
   "id": 74898652,
   "code": "c12fd57d-b01b-4785-b6ad-0f532f852e9d",
