@@ -34,29 +34,29 @@ If any of your existing programs were creating multiple transactions with a sing
 
 <ul class="normal">
 <li>Modify them to use one API call per each transaction, or</li>
-<li>Modify them to use the <pre>/api/v2/companies/123/batches/create</pre>  endpoint instead.</li>
+<li>Modify them to use the <code class="highlighter-rouge">/api/v2/companies/123/batches/create</code>  endpoint instead.</li>
 </ul>
 
 <h3>Posting and Committing Transactions</h3>
 
 To avoid confusion between the action "POST" and the HTTP verb "POST", we have renamed and simplified the `/api/v2/transactions/123/post` API call to "settle".
-Some users were also confused about the difference between a call to /api/v2/transactions/123/post vs a call to `/api/v2/transactions/123/commit`.  To reduce this confusion, we have split these API calls into individual functions:
+Some users were also confused about the difference between a call to `/api/v2/transactions/123/post` vs a call to `/api/v2/transactions/123/commit`.  To reduce this confusion, we have split these API calls into individual functions:
 
-<pre>/api/v2/companies/ABC/transactions/DEF/verify</pre>
+<pre>POST /api/v2/companies/ABC/transactions/DEF/verify</pre>
 
 Ensures that a transaction's amounts match an expected value, and returns an error if they do not match.
 
-<pre>/api/v2/companies/ABC/transactions/DEF/changecode</pre> 
+<pre>POST /api/v2/companies/ABC/transactions/DEF/changecode</pre> 
 
 Changes the transaction code of a specified transaction.
 
-<pre>/api/v2/companies/ABC/transactions/DEF/commit</pre>
+<pre>POST /api/v2/companies/ABC/transactions/DEF/commit</pre>
 
 Commits a transaction so that it can be reported in a tax return.
 
 Each of these three APIs is separate and does not depend on the others.  Once you have created a transaction, you can call any of these three APIs to execute any one of these three functions separately.  If you'd still like to call all three of these API calls at once, you can use "settle":
 
-<pre>/api/v2/companies/ABC/transactions/DEF/settle</pre> 
+<pre>POST /api/v2/companies/ABC/transactions/DEF/settle</pre> 
 
 This endpoint allows you to execute all three actions, verify, changecode, and commit, in a single API call.
 
