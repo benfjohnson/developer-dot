@@ -18,82 +18,62 @@ Today, let's walk through the process of creating a batch and submitting it via 
 
 <h2>Creating Your Batch File</h2>
 
-A batch file is a collection of transactions.  You've already seen how to <a href="http://developer.avalara.com/blog/2016/10/04/getting-started-with-avatax-rest-v2/">calculate tax for one transaction at a time</a> - the main difference here is that we'll be uploading a file with tons of individual transactions in it.  To create this file, let's start off with a small subset of fields:
+A batch file is a collection of transactions.  You've already seen how to <a href="http://developer.avalara.com/blog/2016/10/04/getting-started-with-avatax-rest-v2/">calculate tax for one transaction at a time</a> - the main difference here is that we'll be uploading a file with tons of individual transactions in it.  Remember, batch files are optional and they are best used if you really want to upload a large historical document set at once.
 
-<table>
-<tr>
-    <th>ProcessCode</th>
-    <th>DocCode</th>
-    <th>DocType</th>
-    <th>DocDate</th>
-    <th>CompanyCode</th>
-    <th>CustomerCode</th>
-    <th>LineNo</th>
-    <th>Amount</th>
-    <th>DestAddress</th>
-    <th>DestCity</th>
-    <th>DestRegion</th>
-    <th>DestPostalCode</th>
-    <th>DestCountry</th>
-    <th>OrigAddress</th>
-    <th>OrigCity</th>
-    <th>OrigRegion</th>
-    <th>OrigPostalCode</th>
-    <th>OrigCountry</th>
-</tr>
-<tr>
-    <td>3</td>
-    <td>1234sdfw2</td>
-    <td>1</td>
-    <td>6/6/2016</td>
-    <td>DEFAULT</td>
-    <td>ABC Customer</td>
-    <td>1</td>
-    <td>100</td>
-    <td>123 Main Street</td>
-    <td>Irvine</td>
-    <td>CA</td>
-    <td>92615</td>
-    <td>US</td>
-    <td>100 Ravine Lane NE</td>
-    <td>Bainbridge Island</td>
-    <td>WA</td>
-    <td>98110</td>
-    <td>US</td>
-</tr></table>
+To begin, let's take a look at the template for a batch file.  It's easiest to create a batch file in a spreadsheet program like Microsoft Excel or to use a CSV export template.  Here's the list of headers in the file, as it would look in Comma Separated Values (CSV) format:
 
-Although most of these values may be obvious to you, let's look closer at a few of them.
+<pre>
+ProcessCode,DocCode,DocType,DocDate,CompanyCode,CustomerCode,EntityUseCode,LineNo,TaxCode,TaxDate,ItemCode,Description,Qty,Amount,Discount,Ref1,Ref2,ExemptionNo,RevAcct,DestAddress,DestCity,DestRegion,DestPostalCode,DestCountry,OrigAddress,OrigCity,OrigRegion,OrigPostalCode,OrigCountry,LocationCode,SalesPersonCode,PurchaseOrderNo,CurrencyCode,ExchangeRate,ExchangeRateEffDate,PaymentDate,TaxIncluded,DestTaxRegion,OrigTaxRegion,Taxable,TaxType,TotalTax,CountryName,CountryCode,CountryRate,CountryTax,StateName,StateCode,StateRate,StateTax,CountyName,CountyCode,CountyRate,CountyTax,CityName,CityCode,CityRate,CityTax,Other1Name,Other1Code,Other1Rate,Other1Tax,Other2Name,Other2Code,Other2Rate,Other2Tax,Other3Name,Other3Code,Other3Rate,Other3Tax,Other4Name,Other4Code,Other4Rate,Other4Tax,ReferenceCode,BuyersVATNo,IsSellerImporterOfRecord,BRBuyerType,BRBuyer_IsExemptOrCannotWH_IRRF,BRBuyer_IsExemptOrCannotWH_PISRF,BRBuyer_IsExemptOrCannotWH_COFINSRF,BRBuyer_IsExemptOrCannotWH_CSLLRF,BRBuyer_IsExempt_PIS,BRBuyer_IsExempt_COFINS,BRBuyer_IsExempt_CSLL,Header_Description,Email
+</pre>
+
+Wow!  That's a lot of headers!  Don't be discouraged, though: only a handful of these fields are actually required.  Here's what you will need to process a file:
 
 <ul class="normal">
-    <li>ProcessCode - This is a code that indicates whether you are creating a new transaction or adjusting a previous transaction.  Choose 3 to indicate this transaction is new.</li>
+    <li>ProcessCode - This indicates what type of transaction we want to submit.  In most cases, we want to submit code "3", which indicates a new transaction.</li>
+    <li>DocCode - Also known as the "Transaction Code", this is a unique identifier for this transaction.  If you don't have your own unique ID, just put a unique GUID in this field.</li>
+    <li>DocType - Use "1" to indicate a sales invoice.</li>
+    <li>DocDate - The date when the transaction occurred.  Please use ISO 8601 yyyy-mm-dd format for the date; this prevents globalization issues.</li>
+    <li>CompanyCode - This is where you put the company code of the company this transaction is for.</li>
+    <li>CustomerCode - The unique code for the customer who participated in this transaction.</li>
+    <li>LineNo - The line number of the line in this transaction.  Just default this to "1".</li>
+    <li>Amount - The total value in the local currency of this transaction, for example, "100.0".</li>
+    <li>OrigAddress / OrigCity / OrigRegion / OrigPostalCode / OrigCountry - The address of the origin of this transaction, for shipments.</li>
+    <li>DestAddress / DestCity / DestRegion / DestPostalCode / DestCountry - The address of the destination of this transaction, for shipments.  If this transaction was not shipped, these fields should be the same as the origin address fields.</li>
 </ul>
 
-For information about other fields, please consult the <a href="http://developer.avalara.com/avatax/batch-file-reference/">Batch File Reference</a> page.
+Everything other than these fields is optional!  So, let's put together a very simple transaction import file.
 
-AvaTax limits batch files to 100,000 transactions at a time - that should be more than enough to process large locations with only a few batch uploads.
+<pre>
+ProcessCode,DocCode,DocType,DocDate,CompanyCode,CustomerCode,EntityUseCode,LineNo,TaxCode,TaxDate,ItemCode,Description,Qty,Amount,Discount,Ref1,Ref2,ExemptionNo,RevAcct,DestAddress,DestCity,DestRegion,DestPostalCode,DestCountry,OrigAddress,OrigCity,OrigRegion,OrigPostalCode,OrigCountry,LocationCode,SalesPersonCode,PurchaseOrderNo,CurrencyCode,ExchangeRate,ExchangeRateEffDate,PaymentDate,TaxIncluded,DestTaxRegion,OrigTaxRegion,Taxable,TaxType,TotalTax,CountryName,CountryCode,CountryRate,CountryTax,StateName,StateCode,StateRate,StateTax,CountyName,CountyCode,CountyRate,CountyTax,CityName,CityCode,CityRate,CityTax,Other1Name,Other1Code,Other1Rate,Other1Tax,Other2Name,Other2Code,Other2Rate,Other2Tax,Other3Name,Other3Code,Other3Rate,Other3Tax,Other4Name,Other4Code,Other4Rate,Other4Tax,ReferenceCode,BuyersVATNo,IsSellerImporterOfRecord,BRBuyerType,BRBuyer_IsExemptOrCannotWH_IRRF,BRBuyer_IsExemptOrCannotWH_PISRF,BRBuyer_IsExemptOrCannotWH_COFINSRF,BRBuyer_IsExemptOrCannotWH_CSLLRF,BRBuyer_IsExempt_PIS,BRBuyer_IsExempt_COFINS,BRBuyer_IsExempt_CSLL,Header_Description,Email
+3,9ac280c3-3a55-4a35-bed2-a83db53b051e,1,1/1/2014,DEFAULT,Cust1,,1,,,,,,1000,,,,,,235 E 42nd St ,New York,NY,10017-5703  ,US,900 Winslow Way,Bainbridge Island,WA,98110,US,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+</pre>
 
-<h2>Match the Batch to a Company</h2>
+As you can see, this represents a transaction of value $1,000, shipped from Bainbridge Island to New York, on January 1st 2014.  Despite how many headers you see, the file is actually pretty simple.
 
-<h2>Our Batch File Creation Request</h2>
+For our next step, we need to convert this into a JSON request.
 
-Now that we've got our request, let's visit the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Batches/ApiV2CompaniesByCompanyIdBatchesPost">online API tool for batch creation.</a>  Here's what we're going to submit:
+<h2>Building our JSON Request</h2>
+
+In order to upload a batch, you need to know two things: First, the AccountID of your account, and second, the CompanyID of the company you want to upload this transaction for.  The easiest way to do this is to <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Companies/ApiV2CompaniesGet">list all companies in your account</a>, and copy those values off that result.  Here's how you do it:
+
+```
+GET /api/v2/companies
+```
+
+The results you'll get will include all the companies in your account.  Each one will have an ID number, which is the Company ID; and an Account ID number, which is the account ID.  Next, we'll put them into a JSON request as follows:
 
 ```json
 [
   {
-    "id": 0,
     "name": "TestBatch",
-    "accountId": 1987654354,
-    "companyId": 238146,
-    "type": "DocumentImport",
+    "accountId": 123456789,
+    "companyId": 987654321,
+    "type": "TransactionImport",
     "batchAgent": "manual",
     "files": [
       {
-        "id": 0,
-        "batchId": 0,
         "name": "samplebatch.csv",
-        "content": "UHJvY2Vzc0NvZGUJRG9jQ29kZQlEb2NUeXBlCURvY0RhdGUJQ29tcGFueUNvZGUJQ3VzdG9tZXJDb2RlCUxpbmVObwlBbW91bnQJRGVzdEFkZHJlc3MJRGVzdENpdHkJRGVzdFJlZ2lvbglEZXN0UG9zdGFsQ29kZQlEZXN0Q291bnRyeQlPcmlnQWRkcmVzcwlPcmlnQ2l0eQlPcmlnUmVnaW9uCU9yaWdQb3N0YWxDb2RlCU9yaWdDb3VudHJ5DQpDb21taXR0ZWQJMTIzNHNkZncyCVNhbGVzSW52b2ljZQk2LzYvMjAxNglERUZBVUxUCUFCQyBDdXN0b21lcgkxCTEwMAkxMjMgTWFpbiBTdHJlZXQJSXJ2aW5lCUNBCTkyNjE1CVVTCTEwMCBSYXZpbmUgTGFuZSBORQlCYWluYnJpZGdlIElzbGFuZAlXQQk5ODExMAlVUw0K",
-        "contentLength": 0,
+        "content": "",
         "contentType": "text/csv",
         "fileExtension": ".csv"
       }
@@ -102,6 +82,112 @@ Now that we've got our request, let's visit the <a href="https://sandbox-rest.av
 ]
 ```
 
-<h2>More Complex Batch Files</h2>
+First things first, what do we see here?  There are a few things worth mentioning:
+
+<ul class="normal">
+    <li>You can create multiple objects at a time in REST v2.  To create multiple batches at once, you can put lots of different batches.</li>
+    <li>Each transaction upload batch should have one (only one) file in it.  To upload multiple transaction import files, upload multiple separate batches.</li>
+    <li>The result object you get back will have more fields, but in this case you only need to provide a handful of these fields.</li>
+</ul>
+
+But the biggest thing you'll notice is that I've left the content field blank.  Why is that?
+
+<h2>Byte Arrays in JSON</h2>
+
+The AvaTax batch service allows the upload of both binary and text files.  In JSON, the method for uploading a binary file is to treat it as a Base64 text encoded string - so we'll need to take our CSV file from above and pass it through a Base64 encoder.  Here's how to do it:
+
+<ul class="normal">
+    <li>Launch <a href="https://www.base64encode.org/">https://www.base64encode.org/</a></li>
+    <li>Copy and paste the CSV file from above into the <b>Type (or paste) here</b> box</li>
+    <li>Click <b>Encode</b></li>
+    <li>Copy and paste the results into your JSON text</li>
+</ul>
+
+The end result should now look like this:
+
+```json
+[
+  {
+    "name": "TestBatch",
+    "accountId": 123456789,
+    "companyId": 987654321,
+    "type": "TransactionImport",
+    "batchAgent": "manual",
+    "files": [
+      {
+        "name": "samplebatch.csv",
+        "content": "UHJvY2Vzc0NvZGUsRG9jQ29kZSxEb2NUeXBlLERvY0RhdGUsQ29tcGFueUNvZGUsQ3VzdG9tZXJDb2RlLEVudGl0eVVzZUNvZGUsTGluZU5vLFRheENvZGUsVGF4RGF0ZSxJdGVtQ29kZSxEZXNjcmlwdGlvbixRdHksQW1vdW50LERpc2NvdW50LFJlZjEsUmVmMixFeGVtcHRpb25ObyxSZXZBY2N0LERlc3RBZGRyZXNzLERlc3RDaXR5LERlc3RSZWdpb24sRGVzdFBvc3RhbENvZGUsRGVzdENvdW50cnksT3JpZ0FkZHJlc3MsT3JpZ0NpdHksT3JpZ1JlZ2lvbixPcmlnUG9zdGFsQ29kZSxPcmlnQ291bnRyeSxMb2NhdGlvbkNvZGUsU2FsZXNQZXJzb25Db2RlLFB1cmNoYXNlT3JkZXJObyxDdXJyZW5jeUNvZGUsRXhjaGFuZ2VSYXRlLEV4Y2hhbmdlUmF0ZUVmZkRhdGUsUGF5bWVudERhdGUsVGF4SW5jbHVkZWQsRGVzdFRheFJlZ2lvbixPcmlnVGF4UmVnaW9uLFRheGFibGUsVGF4VHlwZSxUb3RhbFRheCxDb3VudHJ5TmFtZSxDb3VudHJ5Q29kZSxDb3VudHJ5UmF0ZSxDb3VudHJ5VGF4LFN0YXRlTmFtZSxTdGF0ZUNvZGUsU3RhdGVSYXRlLFN0YXRlVGF4LENvdW50eU5hbWUsQ291bnR5Q29kZSxDb3VudHlSYXRlLENvdW50eVRheCxDaXR5TmFtZSxDaXR5Q29kZSxDaXR5UmF0ZSxDaXR5VGF4LE90aGVyMU5hbWUsT3RoZXIxQ29kZSxPdGhlcjFSYXRlLE90aGVyMVRheCxPdGhlcjJOYW1lLE90aGVyMkNvZGUsT3RoZXIyUmF0ZSxPdGhlcjJUYXgsT3RoZXIzTmFtZSxPdGhlcjNDb2RlLE90aGVyM1JhdGUsT3RoZXIzVGF4LE90aGVyNE5hbWUsT3RoZXI0Q29kZSxPdGhlcjRSYXRlLE90aGVyNFRheCxSZWZlcmVuY2VDb2RlLEJ1eWVyc1ZBVE5vLElzU2VsbGVySW1wb3J0ZXJPZlJlY29yZCxCUkJ1eWVyVHlwZSxCUkJ1eWVyX0lzRXhlbXB0T3JDYW5ub3RXSF9JUlJGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX1BJU1JGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX0NPRklOU1JGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX0NTTExSRixCUkJ1eWVyX0lzRXhlbXB0X1BJUyxCUkJ1eWVyX0lzRXhlbXB0X0NPRklOUyxCUkJ1eWVyX0lzRXhlbXB0X0NTTEwsSGVhZGVyX0Rlc2NyaXB0aW9uLEVtYWlsDQozLDlhYzI4MGMzLTNhNTUtNGEzNS1iZWQyLWE4M2RiNTNiMDUxZSwxLDEvMS8yMDE0LERFRkFVTFQsQ3VzdDEsLDEsLCwsLCwxMDAwLCwsLCwsMjM1IEUgNDJuZCBTdCAsTmV3IFlvcmssTlksMTAwMTctNTcwMyAgLFVTLDkwMCBXaW5zbG93IFdheSxCYWluYnJpZGdlIElzbGFuZCxXQSw5ODExMCxVUywsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwNCg==",
+        "contentType": "text/csv",
+        "fileExtension": ".csv"
+      }
+    ]
+  }
+]
+```
+
+Now, our next step is to create this batch file in AvaTax REST v2.  Here's how we do that:
+
+<ul class="normal">
+    <li>Launch the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Batches/ApiV2CompaniesByCompanyIdBatchesPost">Batch Creation API</a> in REST v2</li>
+    <li>In the <b>models</b> box, paste your JSON snippet from above.</li>
+    <li>In the <b>companyId</b> box, type the company ID you selected above.</li>
+    <li>In the <b>Authorization</b> box, type in your AvaTax API credentials.</li>
+    <li>Click the <b>Try it now!</b> button.</li>
+</ul>
+
+The result you get back should look like this:
+
+```json
+[
+  {
+    "id": 12345,
+    "name": "TestBatch",
+    "accountId": 123456789,
+    "companyId": 987654321,
+    "type": "TransactionImport",
+    "status": "Waiting",
+    "options": "",
+    "batchAgent": "manual",
+    "recordCount": 0,
+    "currentRecord": 0,
+    "createdDate": "2016-10-25T17:17:33.413793Z",
+    "createdUserId": 7097,
+    "modifiedDate": "2016-10-25T17:17:33.413793Z",
+    "modifiedUserId": 7097,
+    "files": [
+        ...
+    ]
+  }
+]
+```
+
+First, note that the batch you just created is in status "Waiting".  That means that you've created the batch, but AvaTax has not yet begun processing it.  AvaTax is continually processing batches, and your batch may be processed quickly if there are few other batches waiting in the queue, or it may take a few minutes if there are lots of other batches waiting.  There's no way to know in advance how busy AvaTax Batch Processor is, so let's check to see how we're doing!
+
+<h2>Checking on the Status of your Batch</h2>
+
+We'll continue by fetching our batch back from the server.  Launch the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Batches/ApiV2CompaniesByCompanyIdBatchesByIdGet">Batch GET API</a> and type in your company ID and the batch ID you got back from your Batch Create API call.  The result you'll get back will either still say <code class="highlight-rouge">"status": "Waiting"</code>, or it will say <code class="highlight-rouge">"Completed"</code> or <code class="highlight-rouge">"Errors"</code>.  If the batch is still <code class="highlight-rouge">"Waiting"</a>, you'll just want to keep checking back periodically to see when it has finished.
+
+If you received back a result - whether that result is success or whether errors occurred - you will also see something new in the result: a "Batch Results" file, which will have the resulting tax amounts.  
+
+<h2>How do I process my results?</h2>
+
+When your batch has completed or errored out, you'll get a result file like this:
+
+```json
+    {
+      "id": 123456789,
+      "batchId": 12345,
+      "name": "Error",
+      "content": "UHJvY2Vzc0NvZGUsRG9jQ29kZSxEb2NUeXBlLERvY0RhdGUsQ29tcGFueUNvZGUsQ3VzdG9tZXJDb2RlLEVudGl0eVVzZUNvZGUsTGluZU5vLFRheENvZGUsVGF4RGF0ZSxJdGVtQ29kZSxEZXNjcmlwdGlvbixRdHksQW1vdW50LERpc2NvdW50LFJlZjEsUmVmMixFeGVtcHRpb25ObyxSZXZBY2N0LERlc3RBZGRyZXNzLERlc3RDaXR5LERlc3RSZWdpb24sRGVzdFBvc3RhbENvZGUsRGVzdENvdW50cnksT3JpZ0FkZHJlc3MsT3JpZ0NpdHksT3JpZ1JlZ2lvbixPcmlnUG9zdGFsQ29kZSxPcmlnQ291bnRyeSxMb2NhdGlvbkNvZGUsU2FsZXNQZXJzb25Db2RlLFB1cmNoYXNlT3JkZXJObyxDdXJyZW5jeUNvZGUsRXhjaGFuZ2VSYXRlLEV4Y2hhbmdlUmF0ZUVmZkRhdGUsUGF5bWVudERhdGUsVGF4SW5jbHVkZWQsRGVzdFRheFJlZ2lvbixPcmlnVGF4UmVnaW9uLFRheGFibGUsVGF4VHlwZSxUb3RhbFRheCxDb3VudHJ5TmFtZSxDb3VudHJ5Q29kZSxDb3VudHJ5UmF0ZSxDb3VudHJ5VGF4LFN0YXRlTmFtZSxTdGF0ZUNvZGUsU3RhdGVSYXRlLFN0YXRlVGF4LENvdW50eU5hbWUsQ291bnR5Q29kZSxDb3VudHlSYXRlLENvdW50eVRheCxDaXR5TmFtZSxDaXR5Q29kZSxDaXR5UmF0ZSxDaXR5VGF4LE90aGVyMU5hbWUsT3RoZXIxQ29kZSxPdGhlcjFSYXRlLE90aGVyMVRheCxPdGhlcjJOYW1lLE90aGVyMkNvZGUsT3RoZXIyUmF0ZSxPdGhlcjJUYXgsT3RoZXIzTmFtZSxPdGhlcjNDb2RlLE90aGVyM1JhdGUsT3RoZXIzVGF4LE90aGVyNE5hbWUsT3RoZXI0Q29kZSxPdGhlcjRSYXRlLE90aGVyNFRheCxSZWZlcmVuY2VDb2RlLEJ1eWVyc1ZBVE5vLElzU2VsbGVySW1wb3J0ZXJPZlJlY29yZCxCUkJ1eWVyVHlwZSxCUkJ1eWVyX0lzRXhlbXB0T3JDYW5ub3RXSF9JUlJGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX1BJU1JGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX0NPRklOU1JGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX0NTTExSRixCUkJ1eWVyX0lzRXhlbXB0X1BJUyxCUkJ1eWVyX0lzRXhlbXB0X0NPRklOUyxCUkJ1eWVyX0lzRXhlbXB0X0NTTEwsSGVhZGVyX0Rlc2NyaXB0aW9uLEVtYWlsLE90aGVyNU5hbWUsT3RoZXI1Q29kZSxPdGhlcjVSYXRlLE90aGVyNVRheCxPdGhlcjZOYW1lLE90aGVyNkNvZGUsT3RoZXI2UmF0ZSxPdGhlcjZUYXgsT3RoZXI3TmFtZSxPdGhlcjdDb2RlLE90aGVyN1JhdGUsT3RoZXI3VGF4LEVycm9ycw0KMyw5YWMyODBjMy0zYTU1LTRhMzUtYmVkMi1hODNkYjUzYjA1MWUsMSwxLzEvMjAxNCAxMjowMDowMCBBTSxERUZBVUxULEN1c3QxLCwxLCwsLCwxLDEwMDAsMCwsLCwsMjM1IEUgNDJuZCBTdCxOZXcgWW9yayxOWSwxMDAxNy01NzAzLFVTLDkwMCBXaW5zbG93IFdheSxCYWluYnJpZGdlIElzbGFuZCxXQSw5ODExMCxVUywsLCwsLCwsMCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwwLElORCwwLDAsMCwwLDAsMCwwLCwsLCwsLCwsLCwsLCwsRG9jU3RhdHVzIGlzIGludmFsaWQgZm9yIHRoaXMgb3BlcmF0aW9uLiBFeHBlY3RlZCBTYXZlZHxQb3N0ZWQNCg==",
+      "contentLength": 1546,
+      "contentType": "text/csv",
+      "fileExtension": "CSV",
+      "errorCount": 1
+    }
+```
+
+If you decode this result with your <a href="https://www.base64decode.org/">Base64 decoder</a>, you'll see that AvaTax has added an error message to the end of your file that says <code class="highlight-rouge">DocStatus is invalid for this operation. Expected Saved|Posted</code>.  That error message means that AvaTax attempted to create the document you specified, but it found an already existing document with that same code that was in "Committed" status - so you will have to either void that existing transaction, or upload a new transaction.
+
+With this, you now know enough to submit batches via AvaTax.  Good luck with your month-end data processing!
 
 --Ted Spence, Director, AvaTax Core Engine

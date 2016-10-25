@@ -32,9 +32,9 @@ To get started quickly, just download a sample file and start editing it yoursel
     <li>Click <b>Download</b> to receive a sample transaction file</li>
 </ul>
 
-<h3>List of Fields</h3>
+<h3>List of Required Fields</h3>
 
-The following fields correspond to the same fields in the CreateTransactionModel and are supported in batch files:
+The following fields correspond to the same fields in the CreateTransactionModel and are supported in batch files.  You must fill in, at a minimum, these fields:
 
 <table class="styled-table">
     <tr>
@@ -85,18 +85,90 @@ The following fields correspond to the same fields in the CreateTransactionModel
         <td><pre>2016-10-24</pre></td>
     </tr>
     <tr>
-        <td>CompanyCode</td>
-        <td>Text, up to 25 characters</td>
-        <td>The code used by Avalara AvaTax. To find out more, visit:
-        https://help.avalara.com/004_AvaTax_Integrations/002_All_About_Company_Codes</td>
-        <td><pre>DEFAULT</pre></td>
-    </tr>
-    <tr>
         <td>CustomerCode</td>
         <td>You must put something in this column, and it must be in this format:
         Alphanumeric, up to 50 characters</td>
         <td>This is the code that your accounting, ERP, e-commerce, m-commerce, or point-of-sale application uses to identify a customer; for example, the customer ID or customer number</td>
         <td><pre>ABC</pre></td>
+    </tr>
+    <tr>
+        <td>LineNo</td>
+        <td>Text, up to 10 characters</td>
+        <td>The line number of the transaction. LineNo for a transaction must uniquely identify each line on the document. We recommend sequential numbering: 1, 2, 3, 4, etc.</td>
+        <td><pre>1</pre></td>
+    </tr>
+    <tr>
+        <td>Amount</td>
+        <td>Number with up to 2 decimal places</td>
+        <td>The total sale amount (extended amount) for the document line item (Quantity * Unit Price).
+        Note:
+        For return invoices (DocType 5, column C), enter the amount as a negative value.</td>
+        <td><pre>100.00</pre></td>
+    </tr>
+    <tr>
+        <td>DestRegion</td>
+        <td>Text, 2 characters</td>
+        <td>The two-character abbreviation for the destination or ship-to state or province. If you enter something in LocationCode (column AD), leave DestRegion blank. </td>
+        <td><pre>CA</pre></td>
+    </tr>
+    <tr>
+        <td>DestPostalCode</td>
+        <td>Alphanumeric text, up to 10 characters</td>
+        <td>The destination or ship-to postal code in one of these formats:
+             12345  (United States ZIP Code)
+             12345-6789  (United States ZIP+4 Code)
+             A1B 2C3  (Canadian postal code)
+        If you enter something in LocationCode (column AD), leave DestPostalCode blank. </td>
+        <td><pre>92615</pre></td>
+    </tr>
+    <tr>
+        <td>OrigRegion</td>
+        <td>Text, 2 characters</td>
+        <td>The two-character abbreviation for the origin or ship-from state or province. If you enter something in LocationCode (column AD), leave OrigRegion blank.</td>
+        <td><pre>WA</pre></td>
+    </tr>
+    <tr>
+        <td>OrigPostalCode</td>
+        <td>Alphanumeric text, up to 10 characters</td>
+        <td>The origin or ship-from postal code in the following format:
+           12345 (United States ZIP Code)
+           12345-6789 (United States ZIP+4 Code)
+           A1B 2C3 (Canadian postal code)
+        If you enter something in LocationCode (column AD), leave OrigPostalCode blank. </td>
+        <td><pre>92615</pre></td>
+    </tr>
+    <tr>
+        <td>IsSellerImporterOfRecord</td>
+        <td>Boolean</td>
+        <td>Transaction for physical good are taxed differently when seller is importer or record or not.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Header_Description</td>
+        <td>Text</td>
+        <td>This is the sale description that will be displayed in the Service Invoice. (Discriminação do Serviço)</td>
+        <td></td>
+    </tr>
+<table>
+
+<h3>List of Optional Fields</h3>
+
+The following fields correspond to the same fields in the CreateTransactionModel and are supported in batch files:
+
+<table class="styled-table">
+    <tr>
+        <th>Field</th>
+        <th>Data Type</th>
+        <th>Definition</th>
+        <th>Sample Values</th>
+    </tr>
+    <tr>
+        <td>CompanyCode</td>
+        <td>Text, up to 25 characters</td>
+        <td>The code used by Avalara AvaTax. To find out more, visit:
+        https://help.avalara.com/004_AvaTax_Integrations/002_All_About_Company_Codes
+        If you leave this company code blank, the transaction will be added to your default company.</td>
+        <td><pre>DEFAULT</pre></td>
     </tr>
     <tr>
         <td>EntityUseCode</td>
@@ -121,12 +193,6 @@ The following fields correspond to the same fields in the CreateTransactionModel
         MED1=US MDET with exempt sales tax
         MED2=US MDET with taxable sales tax</td>
         <td><pre>G</pre></td>
-    </tr>
-    <tr>
-        <td>LineNo</td>
-        <td>Text, up to 10 characters</td>
-        <td>The line number of the transaction. LineNo for a transaction must uniquely identify each line on the document. We recommend sequential numbering: 1, 2, 3, 4, etc.</td>
-        <td><pre>1</pre></td>
     </tr>
     <tr>
         <td>TaxCode</td>
@@ -162,14 +228,6 @@ The following fields correspond to the same fields in the CreateTransactionModel
         Note:
         Qty does not multiply the amount field. AvaTax uses Qty to calculate the per-item sales amount (unit price) for sales tax caps and thresholds.</td>
         <td><pre>1</pre></td>
-    </tr>
-    <tr>
-        <td>Amount</td>
-        <td>Number with up to 2 decimal places</td>
-        <td>The total sale amount (extended amount) for the document line item (Quantity * Unit Price).
-        Note:
-        For return invoices (DocType 5, column C), enter the amount as a negative value.</td>
-        <td><pre>100.00</pre></td>
     </tr>
     <tr>
         <td>Discount</td>
@@ -219,22 +277,6 @@ The following fields correspond to the same fields in the CreateTransactionModel
         <td><pre>Irvine</pre></td>
     </tr>
     <tr>
-        <td>DestRegion</td>
-        <td>Text, 2 characters</td>
-        <td>The two-character abbreviation for the destination or ship-to state or province. If you enter something in LocationCode (column AD), leave DestRegion blank. </td>
-        <td><pre>CA</pre></td>
-    </tr>
-    <tr>
-        <td>DestPostalCode</td>
-        <td>Alphanumeric text, up to 10 characters</td>
-        <td>The destination or ship-to postal code in one of these formats:
-             12345  (United States ZIP Code)
-             12345-6789  (United States ZIP+4 Code)
-             A1B 2C3  (Canadian postal code)
-        If you enter something in LocationCode (column AD), leave DestPostalCode blank. </td>
-        <td><pre>92615</pre></td>
-    </tr>
-    <tr>
         <td>DestCountry</td>
         <td>Text, 2 characters</td>
         <td>The destination or ship-to country. If you enter something in LocationCode (column AD), leave DestCountry blank. If you don't enter something in LocationCode, fill in this field to ensure the most accurrate tax calculations.</td>
@@ -251,22 +293,6 @@ The following fields correspond to the same fields in the CreateTransactionModel
         <td>Text, up to 50 characters</td>
         <td>The origin or ship-from city. If you enter something in LocationCode (column AD), leave OrigCity blank. If you don't enter something in LocationCode, fill in this field to ensure the most accurrate tax calculations.</td>
         <td><pre>Bainbridge Island</pre></td>
-    </tr>
-    <tr>
-        <td>OrigRegion</td>
-        <td>Text, 2 characters</td>
-        <td>The two-character abbreviation for the origin or ship-from state or province. If you enter something in LocationCode (column AD), leave OrigRegion blank.</td>
-        <td><pre>WA</pre></td>
-    </tr>
-    <tr>
-        <td>OrigPostalCode</td>
-        <td>Alphanumeric text, up to 10 characters</td>
-        <td>The origin or ship-from postal code in the following format:
-           12345 (United States ZIP Code)
-           12345-6789 (United States ZIP+4 Code)
-           A1B 2C3 (Canadian postal code)
-        If you enter something in LocationCode (column AD), leave OrigPostalCode blank. </td>
-        <td><pre>92615</pre></td>
     </tr>
     <tr>
         <td>OrigCountry</td>
@@ -330,18 +356,6 @@ The following fields correspond to the same fields in the CreateTransactionModel
         <td>BuyersVATNo</td>
         <td>Text, up to 25 characters</td>
         <td>The buyer's VAT registration number</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>IsSellerImporterOfRecord</td>
-        <td>Boolean</td>
-        <td>Transaction for physical good are taxed differently when seller is importer or record or not.</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Header_Description</td>
-        <td>Text</td>
-        <td>This is the sale description that will be displayed in the Service Invoice. (Discriminação do Serviço)</td>
         <td></td>
     </tr>
     <tr>
