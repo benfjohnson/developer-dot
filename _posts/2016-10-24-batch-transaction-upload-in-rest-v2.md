@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Batched Transactions in REST v2
-date: 2016-10-20 11:00
+date: 2016-10-24 11:00
 author: Ted Spence
 comments: true
 categories: [Sales Tax APIs]
