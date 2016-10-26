@@ -127,6 +127,10 @@ Avalara also supports "OAuth 2.0 Bearer Token" authentication.  However, Bearer 
 
 If you are interested in building an active web integration, please contact Avalara's business development department.
 
+<h3>I got an error message - what does it mean?</h3>
+
+If you are working on authentication and you received an error message, here's a breakdown of <a href="http://developer.avalara.com/avatax/errors/">all REST v2 error codes and how to interpret them</a>.
+
 <h3>Recommendations</h3>
 
 Overall, Avalara recommends:
