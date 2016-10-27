@@ -53,3 +53,5 @@ In the HTTP request you provided to AvaTax, your information was not correctly e
 <li>Did you accidentally Base64 encode the word "Basic"?</li>
 <li>Are you using a library that automatically handles this encoding for you, and you accidentally encoded the value twice?</li>
 </ul>
+
+For more information on authentication, please read <a href="/avatax/authentication-in-rest/">Authentication in REST v2</a>.

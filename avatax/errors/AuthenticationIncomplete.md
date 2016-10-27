@@ -43,3 +43,5 @@ AvaTax provides multiple modes by which you can authenticate your API call.  You
 Avalara looks for these values in the HTTP "Authorization" header.  The Basic values are expected to be Base64 encoded as specified by the HTTP standard.
 
 You must provide an HTTP header that matches one of these three patterns in order to authenticate correctly.  Please check your HTTP request headers and verify that you are providing the correct values.
+
+For more information on authentication, please read <a href="/avatax/authentication-in-rest/">Authentication in REST v2</a>.

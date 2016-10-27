@@ -67,7 +67,7 @@ If you'd like to type along with me without using a programming language, we can
 		<td><pre>Basic bob@example.org:bobspasswordgoeshere</pre></td>
 	</tr>
 	<tr>
-		<td>Now visit <a href="https://www.base64encode.org">https://www.base64encode.org</a> and paste in the right hand side of the string.</td>
+		<td>Now use your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> to encode the right hand side of the string.</td>
 		<td><pre>Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl</pre></td>
 	</tr>
 </table>
@@ -198,7 +198,7 @@ Alright, we've defined our transaction - let's go ahead and calculate the tax!
 
 <ul class="normal">
 <li>Launch the online Create Transaction API by clicking this link: <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Transactions/ApiV2TransactionsCreatePost">Create Transaction</a></li>
-<li>Tax transactions must be calculated using your account's license key.  In the <b>Authorization</b> field, we'll need to type in credentials using your AccountId as the username and your license key as the password.  You can build this authorization string on <a href="https://www.base64encode.org/">https://www.base64encode.org/</a> just as we did earlier; then paste the result into the Authorization field.  It should look like this: <pre>Basic MTIzNDU2Nzg5OkxJQ0VOU0VLRVk=</pre></li>
+<li>Tax transactions must be calculated using your account's license key.  In the <b>Authorization</b> field, we'll need to type in credentials using your AccountId as the username and your license key as the password.  You can build this authorization string using your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> just as we did earlier; then paste the result into the Authorization field.  It should look like this: <pre>Basic MTIzNDU2Nzg5OkxJQ0VOU0VLRVk=</pre></li>
 <li>In the <b>Model</b> text box, copy and paste the transaction we built above.</li>
 <li>Click <b>Try It</b></li>
 </ul>

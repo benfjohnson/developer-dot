@@ -97,8 +97,8 @@ But the biggest thing you'll notice is that I've left the content field blank.  
 The AvaTax batch service allows the upload of both binary and text files.  In JSON, the method for uploading a binary file is to treat it as a Base64 text encoded string - so we'll need to take our CSV file from above and pass it through a Base64 encoder.  Here's how to do it:
 
 <ul class="normal">
-    <li>Launch <a href="https://www.base64encode.org/">https://www.base64encode.org/</a></li>
-    <li>Copy and paste the CSV file from above into the <b>Type (or paste) here</b> box</li>
+    <li>Launch your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a></li>
+    <li>Copy and paste the CSV file from above into the <b>Type (or paste) here</b> box, or into the program's UI, or use the command line</li>
     <li>Click <b>Encode</b></li>
     <li>Copy and paste the results into your JSON text</li>
 </ul>
@@ -186,7 +186,7 @@ When your batch has completed or errored out, you'll get a result file like this
     }
 ```
 
-If you decode this result with your <a href="https://www.base64decode.org/">Base64 decoder</a>, you'll see that AvaTax has added an error message to the end of your file that says <code class="highlight-rouge">DocStatus is invalid for this operation. Expected Saved|Posted</code>.  That error message means that AvaTax attempted to create the document you specified, but it found an already existing document with that same code that was in "Committed" status - so you will have to either void that existing transaction, or upload a new transaction.
+If you decode this result with your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a>, you'll see that AvaTax has added an error message to the end of your file that says <code class="highlight-rouge">DocStatus is invalid for this operation. Expected Saved|Posted</code>.  That error message means that AvaTax attempted to create the document you specified, but it found an already existing document with that same code that was in "Committed" status - so you will have to either void that existing transaction, or upload a new transaction.
 
 With this, you now know enough to submit batches via AvaTax.  Good luck with your month-end data processing!
 

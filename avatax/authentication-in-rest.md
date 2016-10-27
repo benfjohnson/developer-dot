@@ -38,7 +38,7 @@ That's it!  No magic.  Here's how to construct an authentication token for AvaTa
 		<td><pre>Basic bob@example.org:bobspasswordgoeshere</pre></td>
 	</tr>
 	<tr>
-		<td>Now visit <a href="https://www.base64encode.org">https://www.base64encode.org</a> and paste in the right hand side of the string.</td>
+		<td>Now use your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> to encode the right hand side of the string.</td>
 		<td><pre>Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl</pre></td>
 	</tr>
 </table>
@@ -95,7 +95,7 @@ To authenticate using a license key, here's how you construct your authorization
 		<td><pre>Basic 123456789:123456789ABCDEF123456789ABCDEF</pre></td>
 	</tr>
 	<tr>
-		<td>Now visit <a href="https://www.base64encode.org">https://www.base64encode.org</a> and paste in the right hand side of the string.</td>
+		<td>Now use your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> to encode the right hand side of the string.</td>
 		<td><pre>Basic MTIzNDU2Nzg5OjEyMzQ1Njc4OUFCQ0RFRjEyMzQ1Njc4OUFCQ0RFRg==</pre></td>
 	</tr>
 </table>
