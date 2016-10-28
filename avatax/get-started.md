@@ -34,7 +34,7 @@ We will make a POST request to URL:
 {% highlight text %}
 https://development.avalara.net/1.0/tax/get
 {% endhighlight %}
-Use an online <a href="http://decodebase64.com/">encoding tool</a> or perhaps one of the <a href="https://chrome.google.com/webstore/search/rest%20client?utm_source=chrome-ntp-icon">REST client apps</a> for Google Chrome to create a Basic Authorization Header from your username and password.
+Use your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> or perhaps one of the <a href="https://chrome.google.com/webstore/search/rest%20client?utm_source=chrome-ntp-icon">REST client apps</a> for Google Chrome to create a Basic Authorization Header from your username and password.
 
 It will look something like this:
 {% highlight text %}

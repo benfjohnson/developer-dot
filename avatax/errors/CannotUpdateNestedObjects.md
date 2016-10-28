@@ -12,20 +12,22 @@ In AvaTax REST, you can create objects with nested children, but you cannot upda
 
 ## Example
 
+```json
+{
+  "code": "CannotUpdateNestedObjects",
+  "target": "Unknown",
+  "details": [
     {
       "code": "CannotUpdateNestedObjects",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "CannotUpdateNestedObjects",
-          "number": 136,
-          "message": "Updating nested objects using the 'PUT' method is not supported.  You must update each object separately.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/CannotUpdateNestedObjects",
-          "severity": "Error"
-        }
-      ]
+      "number": 136,
+      "message": "Updating nested objects using the 'PUT' method is not supported.  You must update each object separately.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/CannotUpdateNestedObjects",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

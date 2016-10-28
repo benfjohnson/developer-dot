@@ -12,21 +12,23 @@ The API you attempted to call resulted in an unhandled exception within Avalara 
 
 ## Example
 
+```json
+{
+  "code": "UnhandledException",
+  "target": "Unknown",
+  "details": [
     {
       "code": "UnhandledException",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "UnhandledException",
-          "number": 50,
-          "message": "Unhandled exception was hit during this operation.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/UnhandledException",
-          "severity": "Exception"
-        }
-      ]
+      "number": 50,
+      "message": "An invalid exception handler routine has been detected.",
+      "description": "This error has been logged and reported to Avalara system administrators.  -0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/UnhandledException",
+      "severity": "Exception"
     }
+  ]
+}
+```
 
 ## Explanation
 

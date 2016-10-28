@@ -12,20 +12,22 @@ Reserved for future use.
 
 ## Example
 
+```json
+{
+  "code": "BrazilPisCofinsError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "BrazilPisCofinsError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "BrazilPisCofinsError",
-          "number": 129,
-          "message": "JurisCode must be PIS/COFINS for Cumulative and NonCumulative.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/BrazilPisCofinsError",
-          "severity": "Error"
-        }
-      ]
+      "number": 129,
+      "message": "JurisCode must be PIS/COFINS for Cumulative and NonCumulative.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/BrazilPisCofinsError",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

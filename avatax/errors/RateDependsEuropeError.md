@@ -12,21 +12,23 @@ The RateDepends option is only valid for countries in the European Union.
 
 ## Example
 
+```json
+{
+  "code": "RateDependsEuropeError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "RateDependsEuropeError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "RateDependsEuropeError",
-          "number": 133,
-          "message": "RateDepends option only valid for countries in the European Union.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/RateDependsEuropeError",
-          "severity": "Error"
-        }
-      ]
+      "number": 133,
+      "message": "RateDepends option is only valid for countries in European Union.",
+      "description": "-0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/RateDependsEuropeError",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

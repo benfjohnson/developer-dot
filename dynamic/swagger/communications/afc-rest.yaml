@@ -225,6 +225,36 @@ paths:
             items:
               "$ref": "#/definitions/AddressData"
       deprecated: false
+  "/api/v1/Location/ZipAddressLookup":
+    post:
+      tags:
+      - Location
+      summary: Lookup jurisdictions by location name and/or postal code
+      description: "Searches jurisdiction matches for the address provided. The results
+        may be an exact match or potential matches as specified by
+        the BestMatch attribute in the input parameter object."
+      operationId: ApiV1LocationZipAddressLookupPost
+      consumes:
+      - application/json
+      - text/json
+      - application/json-patch+json
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - name: request
+        in: body
+        description: Object containig location search criteria.
+        required: false
+        schema:
+          "$ref": "#/definitions/ZipLookupRequest"
+      responses:
+        '200':
+          description: OK
+          schema:
+            "$ref": "#/definitions/ZipLookupResult"
+      deprecated: false
   "/api/v1/TaxLookup/Category/{taxType}":
     get:
       tags:
@@ -379,6 +409,7 @@ paths:
         '200':
           description: OK
           schema:
+            summary: Date Time string
             description: Server time in UTC.
             format: date-time
             type: string
@@ -947,7 +978,7 @@ definitions:
       Minutes:
         format: double
         description: Number of minutes for call when appropriate.
-        type: number
+        type: double float 
       Debit:
         description: Determines if this is a prepaid debit card transaction.
         type: boolean
@@ -1276,15 +1307,11 @@ definitions:
         format: int32
         description: Number of lines used to calculate the tax (for per-line tax calculations).
         type: integer
-      Locations:
-        format: int32
-        description: "Number of locations from transaction input."
-        type: integer
       Minutes:
         format: double
         description: Number of minutes used to calculate the tax (for per-minute tax
           calculations).
-        type: number
+        type: double float
       OptionalFields:
         description: User-defined list of optional alphanumeric fields.
         type: array
@@ -1498,7 +1525,7 @@ definitions:
       Minutes:
         format: double
         description: Number of minutes for call when appropriate.
-        type: number
+        type: double float
       Debit:
         description: Determines if this is a prepaid debit card transaction.
         type: boolean
@@ -1775,15 +1802,11 @@ definitions:
         format: int32
         description: Number of lines used to calculate the tax (for per-line tax calculations).
         type: integer
-      Locations:
-        format: int32
-        description: Sum of locations from customer input.
-        type: integer
       Minutes:
         format: double
         description: Number of minutes used to calculate the tax (for per-minute tax
           calculations).
-        type: number
+        type: double float
   CalcTaxesInCustModeRequest:
     description: Parameter for CustMode/CalcTaxesInCustMode API.
     type: object
@@ -1895,6 +1918,74 @@ definitions:
         type: array
         items:
           "$ref": "#/definitions/TaxBracketInfo"
+  ZipLookupRequest:
+    description: Location data used as input for searching jurisdiction matches.
+    required:
+    - BestMatch
+    - JurisdictionDetails
+    type: object
+    properties:
+      CountryIso:
+        description: 3-character country ISO code.
+        type: string
+      State:
+        description: 2-character state abbreviation.
+        type: string
+      County:
+        description: County name.
+        type: string
+      City:
+        description: City name.
+        type: string
+      ZipCode:
+        description: 5-digit zip code (full zip code for Canadian addresses).
+        type: string
+      BestMatch:
+        description: Flag indicating whether to return the best matches (true) or
+          exact matches only (false).
+        type: boolean
+      JurisdictionDetails:
+        description: "Indicates if the full jurisdiction details (country ISO, state,
+          county, and city) should be returned in the results. Otherwise,
+          only the PCode will be included in the response."
+        type: boolean
+      LimitResults:
+        format: int32
+        description: Maximum number of results to return.
+        type: integer
+  ZipLookupResult:
+    description: Jurisdiction information returned when searching location matches.
+    type: object
+    properties:
+      LocationData:
+        description: List of location matches for the address being searched.
+        type: array
+        items:
+          "$ref": "#/definitions/LocationItem"
+      MatchType:
+        description: Indicates whether the matches returned are based on an "Exact"
+          match or "Best" match.
+        type: string
+  LocationItem:
+    description: Contains name and jurisdiction PCode information for a location.
+    type: object
+    properties:
+      CountryIso:
+        description: 3-character country ISO code.
+        type: string
+      State:
+        description: 2-character state abbreviation.
+        type: string
+      County:
+        description: County name.
+        type: string
+      Locality:
+        description: Locality name.
+        type: string
+      PCode:
+        format: int32
+        description: Jurisdiction PCode.
+        type: integer
 securityDefinitions:
   basic_auth:
     type: basic
