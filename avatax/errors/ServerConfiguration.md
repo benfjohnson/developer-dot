@@ -12,20 +12,22 @@ Indicates that there is a server configuration problem with one of the servers i
 
 ## Example
 
+```json
+{
+  "code": "ServerConfiguration",
+  "target": "Unknown",
+  "details": [
     {
       "code": "ServerConfiguration",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "ServerConfiguration",
-          "number": 1,
-          "message": "The AvaTax API Server has a configuration error.",
-          "faultCode": "Server",
-          "helpLink": "http://developer.avalara.com/avatax/errors/ServerConfiguration",
-          "severity": "Error"
-        }
-      ]
+      "number": 1,
+      "message": "The AvaTax API Server has a configuration error.",
+      "faultCode": "Server",
+      "helpLink": "http://developer.avalara.com/avatax/errors/ServerConfiguration",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

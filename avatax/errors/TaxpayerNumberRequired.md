@@ -12,21 +12,23 @@ Customers subscribing to Avalara Returns must identify each company by its Unite
 
 ## Example
 
+```json
+{
+  "code": "TaxpayerNumberRequired",
+  "target": "Unknown",
+  "details": [
     {
       "code": "TaxpayerNumberRequired",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "TaxpayerNumberRequired",
-          "number": 9,
-          "message": "taxpayerIdNumber is required for customers subscribing to Avalara Returns.",
-          "description": "Customers who have an active MRS or CSP service must provide taxpayerIdNumber for all company records.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/TaxpayerNumberRequired",
-          "severity": "Error"
-        }
-      ]
+      "number": 9,
+      "message": "taxpayerIdNumber is required for customers subscribing to Avalara Returns.",
+      "description": "Customers who have an active MRS or CSP service must provide taxpayerIdNumber for all company records.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/TaxpayerNumberRequired",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

@@ -47,6 +47,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -120,6 +128,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -182,6 +198,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -249,6 +273,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -325,6 +357,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -390,6 +430,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -479,6 +527,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -550,6 +606,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -634,6 +698,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -700,6 +772,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -768,6 +848,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -826,6 +914,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -914,6 +1010,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -977,6 +1081,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1042,6 +1154,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1109,6 +1229,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1185,6 +1313,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1250,6 +1386,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1339,6 +1483,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1410,6 +1562,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1494,6 +1654,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1545,6 +1713,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1602,6 +1778,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1667,6 +1851,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1718,6 +1910,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1769,6 +1969,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1820,6 +2028,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1871,6 +2087,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1922,6 +2146,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -1973,6 +2205,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -2024,6 +2264,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -2033,6 +2281,189 @@
 						"description": "OK",
 						"schema": {
 							"$ref": "#/definitions/FetchResult[TaxAuthorityFormModel]"
+						}
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
+			}
+		},
+		"/api/v2/definitions/parameters": {
+			"get": {
+				"tags": ["Definitions"],
+				"summary": "Retrieve the full list of Avalara-supported extra parameters for creating transactions.",
+				"operationId": "ApiV2DefinitionsParametersGet",
+				"consumes": [],
+				"produces": [],
+				"parameters": [{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/FetchResult[ParameterModel]"
+						}
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
+			}
+		},
+		"/api/v2/definitions/locationquestions": {
+			"get": {
+				"tags": ["Definitions"],
+				"summary": "Retrieve the list of questions that are required for a tax location",
+				"operationId": "ApiV2DefinitionsLocationquestionsGet",
+				"consumes": [],
+				"produces": [],
+				"parameters": [{
+					"name": "line1",
+					"in": "query",
+					"description": "The first line of this location's address.",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "line2",
+					"in": "query",
+					"description": "The second line of this location's address.",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "line3",
+					"in": "query",
+					"description": "The third line of this location's address.",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "city",
+					"in": "query",
+					"description": "The city part of this location's address.",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "region",
+					"in": "query",
+					"description": "The region, state, or province part of this location's address.",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "postalCode",
+					"in": "query",
+					"description": "The postal code of this location's address.",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "country",
+					"in": "query",
+					"description": "The country part of this location's address.",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "latitude",
+					"in": "query",
+					"description": "Optionally identify the location via latitude/longitude instead of via address.",
+					"required": false,
+					"type": "number",
+					"format": "double"
+				},
+				{
+					"name": "longitude",
+					"in": "query",
+					"description": "Optionally identify the location via latitude/longitude instead of via address.",
+					"required": false,
+					"type": "number",
+					"format": "double"
+				},
+				{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/FetchResult[LocationQuestionModel]"
 						}
 					},
 					"404": {
@@ -2091,6 +2522,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -2167,6 +2606,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -2232,6 +2679,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -2321,6 +2776,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -2392,6 +2855,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -2476,6 +2947,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -2543,6 +3022,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -2619,6 +3106,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -2684,6 +3179,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -2773,6 +3276,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -2844,6 +3355,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -2928,6 +3447,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -2937,6 +3464,81 @@
 						"description": "OK",
 						"schema": {
 							"$ref": "#/definitions/FetchResult[LocationModel]"
+						}
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
+			}
+		},
+		"/api/v2/companies/{companyId}/locations/{id}/validate": {
+			"get": {
+				"tags": ["Locations"],
+				"summary": "Validate the location against local requirements",
+				"operationId": "ApiV2CompaniesByCompanyIdLocationsByIdValidateGet",
+				"consumes": [],
+				"produces": [],
+				"parameters": [{
+					"name": "companyId",
+					"in": "path",
+					"description": "The ID of the company that owns this location",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "id",
+					"in": "path",
+					"description": "The primary key of this location",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/LocationValidationModel"
 						}
 					},
 					"404": {
@@ -2995,6 +3597,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -3071,6 +3681,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -3136,6 +3754,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -3225,6 +3851,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -3296,6 +3930,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -3380,6 +4022,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -3421,6 +4071,9 @@
 		"/api/v2/passwords": {
 			
 		},
+		"/api/v2/passwords/{userId}/reset": {
+			
+		},
 		"/api/v2/companies/{companyId}/settings/{id}": {
 			"get": {
 				"tags": ["Settings"],
@@ -3450,6 +4103,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -3526,6 +4187,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -3591,6 +4260,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -3680,6 +4357,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -3751,6 +4436,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -3835,6 +4528,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -3902,6 +4603,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -3991,6 +4700,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -4072,6 +4789,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -4139,6 +4864,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -4215,6 +4948,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -4280,6 +5021,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -4369,6 +5118,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -4440,6 +5197,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -4524,6 +5289,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -4624,6 +5397,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -4689,6 +5470,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -4756,6 +5545,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -4832,6 +5629,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -4897,6 +5702,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -4986,6 +5799,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -5057,6 +5878,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -5141,6 +5970,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -5182,7 +6019,7 @@
 		"/api/v2/companies/{companyCode}/transactions/{transactionCode}": {
 			"get": {
 				"tags": ["Transactions"],
-				"summary": "Retrieve a single transaction",
+				"summary": "Retrieve a single transaction by code",
 				"operationId": "ApiV2CompaniesByCompanyCodeTransactionsByTransactionCodeGet",
 				"consumes": [],
 				"produces": [],
@@ -5213,6 +6050,88 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/TransactionModel"
+						}
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
+			}
+		},
+		"/api/v2/transactions/{id}": {
+			"get": {
+				"tags": ["Transactions"],
+				"summary": "Retrieve a single transaction by ID",
+				"operationId": "ApiV2TransactionsByIdGet",
+				"consumes": [],
+				"produces": [],
+				"parameters": [{
+					"name": "id",
+					"in": "path",
+					"description": "The unique ID number of the transaction to retrieve",
+					"required": true,
+					"type": "integer",
+					"format": "int64"
+				},
+				{
+					"name": "$include",
+					"in": "query",
+					"description": "A comma separated list of child objects to return underneath the primary object.",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "Authorization",
+					"in": "header",
+					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -5308,6 +6227,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -5384,6 +6311,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -5460,6 +6395,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -5537,6 +6480,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -5613,6 +6564,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -5689,6 +6648,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -5765,6 +6732,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -5803,32 +6778,22 @@
 				}]
 			}
 		},
-		"/api/v2/companies/{companyCode}/transactions/create": {
+		"/api/v2/transactions/create": {
 			"post": {
 				"tags": ["Transactions"],
 				"summary": "Create a new transaction",
-				"operationId": "ApiV2CompaniesByCompanyCodeTransactionsCreatePost",
+				"operationId": "ApiV2TransactionsCreatePost",
 				"consumes": ["application/json",
 				"text/json",
 				"application/json-patch+json"],
 				"produces": [],
 				"parameters": [{
-					"name": "companyCode",
-					"in": "path",
-					"description": "The company code of the company that recorded these transactions",
-					"required": true,
-					"type": "string"
-				},
-				{
-					"name": "models",
+					"name": "model",
 					"in": "body",
-					"description": "The transaction or transactions you wish to create",
+					"description": "The transaction you wish to create",
 					"required": false,
 					"schema": {
-						"type": "array",
-						"items": {
-							"$ref": "#/definitions/CreateTransactionModel"
-						}
+						"$ref": "#/definitions/CreateTransactionModel"
 					}
 				},
 				{
@@ -5837,6 +6802,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -5845,10 +6818,7 @@
 					"200": {
 						"description": "OK",
 						"schema": {
-							"type": "array",
-							"items": {
-								"$ref": "#/definitions/TransactionModel"
-							}
+							"$ref": "#/definitions/TransactionModel"
 						}
 					},
 					"404": {
@@ -5907,6 +6877,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -5983,6 +6961,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -6048,6 +7034,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -6137,6 +7131,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -6208,6 +7210,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -6292,6 +7302,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -6366,6 +7384,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -6442,6 +7468,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -6538,6 +7572,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -6626,6 +7668,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -6693,6 +7743,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -6744,6 +7802,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -6795,6 +7861,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -6868,6 +7942,14 @@
 					"description": "Account Services v2 supports three types of authentication: OpenID bearer token (recommended), basic license key, and basic password:\r\n                    <ul>\r\n                        <li>Bearer [accessToken]</li>\r\n                        <li>Basic [accountId]:[licenseKey]</li>\r\n                        <li>Basic [userName]:[password]</li>\r\n                    </ul>\r\n                    Please note that for Basic methods, you must encode the right side of the string in Base64.",
 					"required": false,
 					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.3.0.193; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {
@@ -6932,7 +8014,7 @@
 					"format": "date-time",
 					"description": "The earliest date on which this account may be used.",
 					"type": "string",
-					"example": "2016-09-26T00:00:00-07:00"
+					"example": "2016-10-13T00:00:00-07:00"
 				},
 				"endDate": {
 					"format": "date-time",
@@ -6986,6 +8068,12 @@
 						"$ref": "#/definitions/UserModel"
 					}
 				}
+			},
+			"example": {
+				"id": 12345,
+				"name": "Test Account",
+				"effectiveDate": "2016-10-13T00:00:00-07:00",
+				"accountStatusId": "Test"
 			}
 		},
 		"SubscriptionModel": {
@@ -7056,6 +8144,13 @@
 					"type": "integer",
 					"readOnly": true
 				}
+			},
+			"example": {
+				"id": 12345,
+				"accountId": 123456789,
+				"subscriptionTypeId": 2,
+				"subscriptionDescription": "AvaTaxPro",
+				"effectiveDate": "2015-01-01T00:00:00"
 			}
 		},
 		"UserModel": {
@@ -7064,7 +8159,8 @@
 			"accountId",
 			"userName",
 			"email",
-			"postalCode"],
+			"postalCode",
+			"securityRoleId"],
 			"type": "object",
 			"properties": {
 				"id": {
@@ -7187,6 +8283,18 @@
 					"type": "integer",
 					"readOnly": true
 				}
+			},
+			"example": {
+				"id": 12345,
+				"accountId": 123456789,
+				"companyId": 123456,
+				"firstName": "Bob",
+				"lastName": "Example",
+				"email": "bob@example.org",
+				"postalCode": "98110",
+				"securityRoleId": "AccountUser",
+				"passwordStatus": "UserCanChange",
+				"isActive": true
 			}
 		},
 		"ErrorResult": {
@@ -7211,6 +8319,22 @@
 						}]
 					}
 				}
+			},
+			"example": {
+				"error": {
+					"code": "DuplicateCompanyCode",
+					"message": "The company code 'DEFAULT' has already been defined.  Please select a different company code.",
+					"target": "HttpRequest",
+					"details": [{
+						"code": "DuplicateCompanyCode",
+						"number": 142,
+						"message": "The company code 'DEFAULT' has already been defined.",
+						"description": "Please select a different company code.",
+						"faultCode": "Client",
+						"helpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
+						"severity": "Error"
+					}]
+				}
 			}
 		},
 		"ErrorInfo": {
@@ -7225,8 +8349,7 @@
 					"RangeError",
 					"RangeCompareError",
 					"RangeSetError",
-					"PasswordError",
-					"PasswordMinLengthError",
+					"TaxpayerNumberRequired",
 					"PasswordMinComplexityError",
 					"StringLengthError",
 					"StringValueRequiredError",
@@ -7241,7 +8364,6 @@
 					"OldPasswordInvalid",
 					"CannotChangePassword",
 					"CannotChangeCompanyCode",
-					"CannotChangeEntityNo",
 					"AuthenticationException",
 					"AuthorizationException",
 					"ValidationException",
@@ -7260,7 +8382,6 @@
 					"DateRangeError",
 					"InvalidDateRangeError",
 					"DeleteInformation",
-					"DeletedObjectsCannotBeChangedError",
 					"CannotCreateDeletedObjects",
 					"CannotModifyDeletedObjects",
 					"ReturnNameNotFound",
@@ -7295,8 +8416,10 @@
 					"AddressConflictException",
 					"DocumentCodeConflict",
 					"MissingAddress",
+					"InvalidParameter",
+					"InvalidParameterValue",
+					"CompanyCodeConflict",
 					"BadDocumentFetch",
-					"DocumentSaveNotAllowed",
 					"ServerUnreachable",
 					"SubscriptionRequired"],
 					"type": "string",
@@ -7335,6 +8458,20 @@
 						"severity": "Error"
 					}]
 				}
+			},
+			"example": {
+				"code": "DuplicateCompanyCode",
+				"message": "The company code 'DEFAULT' has already been defined.  Please select a different company code.",
+				"target": "HttpRequest",
+				"details": [{
+					"code": "DuplicateCompanyCode",
+					"number": 142,
+					"message": "The company code 'DEFAULT' has already been defined.",
+					"description": "Please select a different company code.",
+					"faultCode": "Client",
+					"helpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
+					"severity": "Error"
+				}]
 			}
 		},
 		"ErrorDetail": {
@@ -7349,8 +8486,7 @@
 					"RangeError",
 					"RangeCompareError",
 					"RangeSetError",
-					"PasswordError",
-					"PasswordMinLengthError",
+					"TaxpayerNumberRequired",
 					"PasswordMinComplexityError",
 					"StringLengthError",
 					"StringValueRequiredError",
@@ -7365,7 +8501,6 @@
 					"OldPasswordInvalid",
 					"CannotChangePassword",
 					"CannotChangeCompanyCode",
-					"CannotChangeEntityNo",
 					"AuthenticationException",
 					"AuthorizationException",
 					"ValidationException",
@@ -7384,7 +8519,6 @@
 					"DateRangeError",
 					"InvalidDateRangeError",
 					"DeleteInformation",
-					"DeletedObjectsCannotBeChangedError",
 					"CannotCreateDeletedObjects",
 					"CannotModifyDeletedObjects",
 					"ReturnNameNotFound",
@@ -7419,8 +8553,10 @@
 					"AddressConflictException",
 					"DocumentCodeConflict",
 					"MissingAddress",
+					"InvalidParameter",
+					"InvalidParameterValue",
+					"CompanyCodeConflict",
 					"BadDocumentFetch",
-					"DocumentSaveNotAllowed",
 					"ServerUnreachable",
 					"SubscriptionRequired"],
 					"type": "string",
@@ -7465,6 +8601,15 @@
 					"type": "string",
 					"example": 2
 				}
+			},
+			"example": {
+				"code": "DuplicateCompanyCode",
+				"number": 142,
+				"message": "The company code 'DEFAULT' has already been defined.",
+				"description": "Please select a different company code.",
+				"faultCode": "Client",
+				"helpLink": "http://developer.avalara.com/avatax/errors/DuplicateCompanyCode",
+				"severity": "Error"
 			}
 		},
 		"FetchResult[AccountModel]": {
@@ -7504,6 +8649,10 @@
 					"type": "boolean",
 					"example": true
 				}
+			},
+			"example": {
+				"accountId": 123456789,
+				"confirmResetLicenseKey": true
 			}
 		},
 		"LicenseKeyModel": {
@@ -7526,6 +8675,11 @@
 					"type": "string",
 					"example": "Basic MTIzNDU2Nzg5Ojc0MkEwMkFBNDYzQ0RFNzQxRTkzMkVDMzY1MzYwQ0EzQ0YzNzhCRDk="
 				}
+			},
+			"example": {
+				"accountId": 123456789,
+				"privateLicenseKey": "742A02AA463CDE741E932EC365360CA3CF378BD9",
+				"httpRequestHeader": "Basic MTIzNDU2Nzg5Ojc0MkEwMkFBNDYzQ0RFNzQxRTkzMkVDMzY1MzYwQ0EzQ0YzNzhCRDk="
 			}
 		},
 		"AddressInfo": {
@@ -7589,6 +8743,13 @@
 					"description": "Geospatial longitude measurement",
 					"type": "number"
 				}
+			},
+			"example": {
+				"line1": "123 Main Street",
+				"city": "Irvine",
+				"region": "CA",
+				"country": "US",
+				"postalCode": "92615"
 			}
 		},
 		"AddressResolutionModel": {
@@ -7644,6 +8805,26 @@
 						"signatureCode": "AGAM"
 					}]
 				}
+			},
+			"example": {
+				"address": {
+					"line1": "123 Main Street",
+					"city": "Irvine",
+					"region": "CA",
+					"country": "US",
+					"postalCode": "92615"
+				},
+				"coordinates": {
+					"latitude": 33.684884,
+					"longitude": -117.851321
+				},
+				"resolutionQuality": "Rooftop",
+				"taxAuthorities": [{
+					"avalaraId": "AGAM",
+					"jurisdictionName": "CALIFORNIA",
+					"jurisdictionType": "State",
+					"signatureCode": "AGAM"
+				}]
 			}
 		},
 		"CoordinateInfo": {
@@ -7662,6 +8843,10 @@
 					"type": "number",
 					"example": -117.851321
 				}
+			},
+			"example": {
+				"latitude": 33.684884,
+				"longitude": -117.851321
 			}
 		},
 		"TaxAuthorityInfo": {
@@ -7699,6 +8884,12 @@
 					"type": "string",
 					"example": "AGAM"
 				}
+			},
+			"example": {
+				"avalaraId": "AGAM",
+				"jurisdictionName": "CALIFORNIA",
+				"jurisdictionType": "State",
+				"signatureCode": "AGAM"
 			}
 		},
 		"BatchModel": {
@@ -7846,6 +9037,23 @@
 						"fileExtension": ".csv"
 					}]
 				}
+			},
+			"example": {
+				"id": 0,
+				"name": "TestBatch",
+				"accountId": 12345,
+				"companyId": 56789,
+				"type": "DocumentImport",
+				"batchAgent": "manual",
+				"files": [{
+					"id": 56789,
+					"batchId": 12345,
+					"name": "samplebatch.csv",
+					"content": "UHJvY2Vzc0NvZGUJRG9jQ29kZQlEb2NUeXBlCURvY0RhdGUJQ29tcGFueUNvZGUJQ3VzdG9tZXJDb2RlCUxpbmVObwlBbW91bnQJRGlzY291bnQJRGVzdFRheFJlZ2lvbglPcmlnVGF4UmVnaW9uDQozCTEyMzRzZGZ3MgkxCTYvNi8yMDE2CXdhcmVob3VzZQkxCTEJMTAwCTUJQkdVSAlBRk9a",
+					"contentLength": 0,
+					"contentType": "text/csv",
+					"fileExtension": ".csv"
+				}]
 			}
 		},
 		"BatchFileModel": {
@@ -7910,6 +9118,15 @@
 					"description": "Number of errors that occurred when processing this file.",
 					"type": "integer"
 				}
+			},
+			"example": {
+				"id": 56789,
+				"batchId": 12345,
+				"name": "samplebatch.csv",
+				"content": "UHJvY2Vzc0NvZGUJRG9jQ29kZQlEb2NUeXBlCURvY0RhdGUJQ29tcGFueUNvZGUJQ3VzdG9tZXJDb2RlCUxpbmVObwlBbW91bnQJRGlzY291bnQJRGVzdFRheFJlZ2lvbglPcmlnVGF4UmVnaW9uDQozCTEyMzRzZGZ3MgkxCTYvNi8yMDE2CXdhcmVob3VzZQkxCTEJMTAwCTUJQkdVSAlBRk9a",
+				"contentLength": 0,
+				"contentType": "text/csv",
+				"fileExtension": ".csv"
 			}
 		},
 		"FetchResult[BatchModel]": {
@@ -7939,8 +9156,7 @@
 			"required": ["id",
 			"accountId",
 			"companyCode",
-			"name",
-			"taxpayerIdNumber"],
+			"name"],
 			"type": "object",
 			"properties": {
 				"id": {
@@ -8148,6 +9364,21 @@
 						"$ref": "#/definitions/UPCModel"
 					}
 				}
+			},
+			"example": {
+				"id": 12345,
+				"accountId": 123456789,
+				"companyCode": "DEFAULT",
+				"name": "Default Company",
+				"isDefault": false,
+				"isActive": true,
+				"hasProfile": true,
+				"isReportingEntity": false,
+				"baseCurrencyCode": "USD",
+				"roundingLevelId": "Line",
+				"isTest": true,
+				"taxDependencyLevelId": 0,
+				"inProgress": false
 			}
 		},
 		"ContactModel": {
@@ -8302,6 +9533,21 @@
 					"type": "integer",
 					"readOnly": true
 				}
+			},
+			"example": {
+				"id": 56789,
+				"companyId": 12345,
+				"contactCode": "DEFAULT",
+				"firstName": "Bob",
+				"lastName": "McExample",
+				"title": "Owner",
+				"line1": "123 Main Street",
+				"city": "Irvine",
+				"region": "CA",
+				"postalCode": "92615",
+				"country": "US",
+				"email": "bob@example.org",
+				"phone": "714 555-1212"
 			}
 		},
 		"ItemModel": {
@@ -8376,6 +9622,13 @@
 					"type": "integer",
 					"readOnly": true
 				}
+			},
+			"example": {
+				"id": 56789,
+				"companyId": 12345,
+				"itemCode": "CERMUG",
+				"taxCode": "P0000000",
+				"description": "Ceramic Mug"
 			}
 		},
 		"LocationModel": {
@@ -8383,7 +9636,10 @@
 			"required": ["id",
 			"companyId",
 			"locationCode",
-			"line1"],
+			"addressTypeId",
+			"addressCategoryId",
+			"line1",
+			"postalCode"],
 			"type": "object",
 			"properties": {
 				"id": {
@@ -8554,7 +9810,33 @@
 					"description": "The user ID of the user who last modified this record.",
 					"type": "integer",
 					"readOnly": true
+				},
+				"settings": {
+					"description": "Extra information required by certain jurisdictions for filing.\r\n            For a list of settings recognized by Avalara, query the endpoint \"/api/v2/definitions/locationquestions\". \r\n            To determine the list of settings required for this location, query the endpoint \"/api/v2/companies/(id)/locations/(id)/validate\".",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/LocationSettingModel"
+					}
 				}
+			},
+			"example": {
+				"id": 56789,
+				"companyId": 12345,
+				"locationCode": "DEFAULT",
+				"description": "Bob's Artisan Pottery",
+				"addressTypeId": "Location",
+				"addressCategoryId": "MainOffice",
+				"line1": "123 Main Street",
+				"city": "Irvine",
+				"county": "Orange",
+				"region": "CA",
+				"postalCode": "92615",
+				"country": "US",
+				"isDefault": true,
+				"isRegistered": true,
+				"dbaName": "Bob's Artisan Pottery",
+				"outletName": "Main Office",
+				"registeredDate": "2015-01-01T00:00:00"
 			}
 		},
 		"NexusModel": {
@@ -8719,6 +10001,21 @@
 					"type": "integer",
 					"readOnly": true
 				}
+			},
+			"example": {
+				"id": 0,
+				"companyId": 12345,
+				"country": "US",
+				"region": "CA",
+				"jurisTypeId": "STA",
+				"jurisCode": "06",
+				"jurisName": "CALIFORNIA",
+				"effectiveDate": "2015-01-01T00:00:00",
+				"shortName": "CA",
+				"nexusTypeId": "SalesOrSellersUseTax",
+				"hasLocalNexus": true,
+				"localNexusTypeId": "All",
+				"hasPermanentEstablishment": true
 			}
 		},
 		"SettingModel": {
@@ -8764,6 +10061,13 @@
 					"type": "string",
 					"example": "Alamo"
 				}
+			},
+			"example": {
+				"id": 56789,
+				"companyId": 12345,
+				"set": "ItemsToRemember",
+				"name": "Texas",
+				"value": "Alamo"
 			}
 		},
 		"TaxCodeModel": {
@@ -8868,6 +10172,19 @@
 					"type": "integer",
 					"readOnly": true
 				}
+			},
+			"example": {
+				"id": 56789,
+				"companyId": 12345,
+				"taxCode": "PS081282",
+				"taxCodeTypeId": "P",
+				"description": "Yarn",
+				"parentTaxCode": "PS080100",
+				"isPhysical": true,
+				"goodsServiceCode": 0,
+				"entityUseCode": "",
+				"isActive": true,
+				"isSSTCertified": false
 			}
 		},
 		"TaxRuleModel": {
@@ -9020,7 +10337,7 @@
 					"format": "date-time",
 					"description": "The first date at which this rule applies.  If null, this rule will apply to all dates prior to the end date.",
 					"type": "string",
-					"example": "2016-09-26T00:00:00-07:00"
+					"example": "2016-10-13T00:00:00-07:00"
 				},
 				"endDate": {
 					"format": "date-time",
@@ -9090,6 +10407,29 @@
 					"type": "integer",
 					"readOnly": true
 				}
+			},
+			"example": {
+				"id": 56789,
+				"companyId": 12345,
+				"taxCode": "FR020800",
+				"stateFIPS": "04",
+				"jurisName": "MARICOPA",
+				"jurisCode": "013",
+				"jurisTypeId": "CTY",
+				"customerUsageType": "",
+				"taxTypeId": "BothSalesAndUseTax",
+				"taxRuleTypeId": "ProductTaxabilityRule",
+				"isAllJuris": true,
+				"value": 0.0,
+				"cap": 0.0,
+				"threshold": 0.0,
+				"options": "",
+				"effectiveDate": "2016-10-13T00:00:00-07:00",
+				"description": "Freight",
+				"countyFIPS": "013",
+				"isSTPro": false,
+				"country": "US",
+				"region": "AZ"
 			}
 		},
 		"UPCModel": {
@@ -9181,6 +10521,33 @@
 					"type": "integer",
 					"readOnly": true
 				}
+			},
+			"example": {
+				"id": 123456789,
+				"companyId": 1234567,
+				"upc": "023032550992",
+				"legacyTaxCode": "PS081282",
+				"description": "Yarn",
+				"usage": 0,
+				"isSystem": 0
+			}
+		},
+		"LocationSettingModel": {
+			"description": "Represents the answer to one local jurisdiction question for a location.",
+			"type": "object",
+			"properties": {
+				"questionId": {
+					"format": "int32",
+					"description": "The unique ID number of the location question answered.",
+					"type": "integer"
+				},
+				"value": {
+					"description": "The answer the user provided.",
+					"type": "string"
+				}
+			},
+			"example": {
+				
 			}
 		},
 		"FetchResult[CompanyModel]": {
@@ -9342,6 +10709,22 @@
 					"minLength": 0,
 					"type": "string"
 				}
+			},
+			"example": {
+				"name": "Bob's Artisan Pottery",
+				"companyCode": "DEFAULT",
+				"taxpayerIdNumber": "12-3456789",
+				"line1": "123 Main Street",
+				"city": "Irvine",
+				"region": "CA",
+				"postalCode": "92615",
+				"country": "US",
+				"firstName": "Bob",
+				"lastName": "Example",
+				"title": "Owner",
+				"email": "bob@example.org",
+				"phoneNumber": "714 555-2121",
+				"mobileNumber": "714 555-1212"
 			}
 		},
 		"FetchResult[ContactModel]": {
@@ -9429,6 +10812,16 @@
 						"U": "Unknown"
 					}
 				}
+			},
+			"example": {
+				"types": {
+					"D": "Digital",
+					"F": "Freight",
+					"O": "Other",
+					"P": "Product",
+					"S": "Service",
+					"U": "Unknown"
+				}
 			}
 		},
 		"FetchResult[SubscriptionTypeModel]": {
@@ -9473,6 +10866,10 @@
 					"readOnly": true,
 					"example": "AvaTaxPro"
 				}
+			},
+			"example": {
+				"id": 2,
+				"description": "AvaTaxPro"
 			}
 		},
 		"FetchResult[String]": {
@@ -9536,6 +10933,10 @@
 					"readOnly": true,
 					"example": "AccountAdmin"
 				}
+			},
+			"example": {
+				"id": 3,
+				"description": "AccountAdmin"
 			}
 		},
 		"FetchResult[TaxAuthorityModel]": {
@@ -9592,6 +10993,12 @@
 					"type": "integer",
 					"example": 12345
 				}
+			},
+			"example": {
+				"id": 12345,
+				"name": "COLORADO",
+				"taxAuthorityTypeId": 45,
+				"jurisdictionId": 12345
 			}
 		},
 		"FetchResult[TaxAuthorityFormModel]": {
@@ -9635,6 +11042,158 @@
 					"type": "string",
 					"example": "CABOE401A2"
 				}
+			},
+			"example": {
+				"taxAuthorityId": 69,
+				"formName": "CABOE401A2"
+			}
+		},
+		"FetchResult[ParameterModel]": {
+			"description": "Represents a fetch result",
+			"type": "object",
+			"properties": {
+				"@recordsetCount": {
+					"format": "int32",
+					"description": "The number of rows returned by your query, prior to pagination.",
+					"type": "integer"
+				},
+				"value": {
+					"description": "The paginated and filtered list of records matching the parameters you supplied.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ParameterModel"
+					}
+				},
+				"@nextLink": {
+					"description": "The link to the next page of results",
+					"type": "string"
+				}
+			}
+		},
+		"ParameterModel": {
+			"description": "An extra property that can change the behavior of tax transactions.",
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "int64",
+					"description": "The unique ID number of this property.",
+					"type": "integer",
+					"example": 12345
+				},
+				"category": {
+					"description": "The service category of this property.  Some properties may require that you subscribe to certain features of avatax before they can be used.",
+					"type": "string",
+					"example": "Lodging"
+				},
+				"name": {
+					"description": "The name of the property.  To use this property, add a field on the \"properties\" object of a /api/v2/companies/(code)/transactions/create call.",
+					"type": "string",
+					"example": "AvaTax.Lodging.NumberOfNights"
+				},
+				"dataType": {
+					"description": "The data type of the property.",
+					"enum": ["String",
+					"Boolean",
+					"Numeric"],
+					"type": "string",
+					"example": 2
+				},
+				"description": {
+					"description": "A full description of this property.",
+					"type": "string",
+					"example": "Lodging Number of Nights"
+				}
+			},
+			"example": {
+				"id": 12345,
+				"category": "Lodging",
+				"name": "AvaTax.Lodging.NumberOfNights",
+				"dataType": 2,
+				"description": "Lodging Number of Nights"
+			}
+		},
+		"FetchResult[LocationQuestionModel]": {
+			"description": "Represents a fetch result",
+			"type": "object",
+			"properties": {
+				"@recordsetCount": {
+					"format": "int32",
+					"description": "The number of rows returned by your query, prior to pagination.",
+					"type": "integer"
+				},
+				"value": {
+					"description": "The paginated and filtered list of records matching the parameters you supplied.",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/LocationQuestionModel"
+					}
+				},
+				"@nextLink": {
+					"description": "The link to the next page of results",
+					"type": "string"
+				}
+			}
+		},
+		"LocationQuestionModel": {
+			"description": "Information about questions that the local jurisdictions require for each location",
+			"required": ["id",
+			"question",
+			"description"],
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "int32",
+					"description": "The unique ID number of this location setting type",
+					"type": "integer",
+					"example": 1
+				},
+				"question": {
+					"description": "This is the prompt for this question",
+					"type": "string",
+					"example": "State Assigned Code"
+				},
+				"description": {
+					"description": "If additional information is available about the location setting, this contains descriptive text to help\r\n            you identify the correct value to provide in this setting.",
+					"type": "string",
+					"example": ""
+				},
+				"regularExpression": {
+					"description": "If available, this regular expression will verify that the input from the user is in the expected format.",
+					"type": "string"
+				},
+				"exampleValue": {
+					"description": "If available, this is an example value that you can demonstrate to the user to show what is expected.",
+					"type": "string"
+				},
+				"jurisdictionName": {
+					"description": "Indicates which jurisdiction requires this question",
+					"type": "string"
+				},
+				"jurisdictionType": {
+					"description": "Indicates which type of jurisdiction requires this question",
+					"enum": ["Country",
+					"Composite",
+					"State",
+					"County",
+					"City",
+					"Special"],
+					"type": "string",
+					"example": 0
+				},
+				"jurisdictionCountry": {
+					"description": "Indicates the country that this jurisdiction belongs to",
+					"type": "string"
+				},
+				"jurisdictionRegion": {
+					"description": "Indicates the state, region, or province that this jurisdiction belongs to",
+					"type": "string"
+				}
+			},
+			"example": {
+				"id": 1,
+				"question": "State Assigned Code",
+				"description": "",
+				"jurisdictionType": 0
 			}
 		},
 		"FetchResult[ItemModel]": {
@@ -9681,6 +11240,26 @@
 				}
 			}
 		},
+		"LocationValidationModel": {
+			"description": "Tells you whether this location object has been correctly set up to the local jurisdiction's standards",
+			"type": "object",
+			"properties": {
+				"settingsValidated": {
+					"description": "True if the location has a value for each jurisdiction-required setting.\r\n            The user is required to ensure that the values are correct according to the jurisdiction; this flag\r\n            does not indicate whether the taxing jurisdiction has accepted the data you have provided.",
+					"type": "boolean"
+				},
+				"requiredSettings": {
+					"description": "A list of settings that must be defined for this location",
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/LocationQuestionModel"
+					}
+				}
+			},
+			"example": {
+				
+			}
+		},
 		"PasswordChangeModel": {
 			"description": "Password Change Model",
 			"required": ["oldPassword",
@@ -9701,6 +11280,27 @@
 					"type": "string",
 					"example": "ANewPassword567:)"
 				}
+			},
+			"example": {
+				"oldPassword": "MyOldPassword123!",
+				"newPassword": "ANewPassword567:)"
+			}
+		},
+		"SetPasswordModel": {
+			"description": "Set Password Model",
+			"required": ["newPassword"],
+			"type": "object",
+			"properties": {
+				"newPassword": {
+					"description": "New Password",
+					"maxLength": 50,
+					"minLength": 8,
+					"type": "string",
+					"example": "NewPassword789~~!"
+				}
+			},
+			"example": {
+				"newPassword": "NewPassword789~~!"
 			}
 		},
 		"FetchResult[SettingModel]": {
@@ -9769,6 +11369,14 @@
 						"type": "State"
 					}]
 				}
+			},
+			"example": {
+				"totalRate": 0.0625,
+				"rates": [{
+					"rate": 0.0625,
+					"name": "CALIFORNIA",
+					"type": "State"
+				}]
 			}
 		},
 		"RateModel": {
@@ -9797,6 +11405,11 @@
 					"type": "string",
 					"example": 1
 				}
+			},
+			"example": {
+				"rate": 0.0625,
+				"name": "CALIFORNIA",
+				"type": "State"
 			}
 		},
 		"FetchResult[TaxRuleModel]": {
@@ -9836,7 +11449,7 @@
 					"description": "A unique customer-provided code identifying this transaction.",
 					"type": "string",
 					"readOnly": true,
-					"example": "9ff03c3b-6477-42a9-8d35-87edb4357b00"
+					"example": "7943b9f5-cbb3-4f9a-ad3b-94ce0c120de2"
 				},
 				"companyId": {
 					"format": "int32",
@@ -9848,19 +11461,19 @@
 					"format": "date-time",
 					"description": "The date on which this transaction occurred.",
 					"type": "string",
-					"example": "2016-09-26T00:00:00-07:00"
+					"example": "2016-10-13T00:00:00-07:00"
 				},
 				"taxDate": {
 					"format": "date-time",
 					"description": "The date that was used when calculating tax for this transaction.\r\n            By default, this should be the same as the transaction date; however, when a consumer returns a product purchased in a previous month,\r\n            it may be necessary to specify the date of the original transaction in order to correctly return the exact amount of sales tax that was\r\n            charged of the consumer on the original date they purchased the product.",
 					"type": "string",
-					"example": "2016-09-26T00:00:00-07:00"
+					"example": "2016-10-13T00:00:00-07:00"
 				},
 				"paymentDate": {
 					"format": "date-time",
 					"description": "The date when payment was made on this transaction.  By default, this should be the same as the date of the transaction.",
 					"type": "string",
-					"example": "2016-09-26T00:00:00-07:00"
+					"example": "2016-10-13T00:00:00-07:00"
 				},
 				"status": {
 					"description": "The status of the transaction.",
@@ -10057,8 +11670,7 @@
 				"exchangeRate": {
 					"format": "double",
 					"description": "If this transaction included foreign currency exchange, this is the exchange rate that was used.",
-					"type": "number",
-					"example": 0.0
+					"type": "number"
 				},
 				"isSellerImporterOfRecord": {
 					"description": "If true, this seller was considered the importer of record of a product shipped internationally.",
@@ -10112,15 +11724,14 @@
 						"lineAmount": 1000.0,
 						"quantity": 1.00,
 						"ref1": "Note: Deliver to Bob",
-						"reportingDate": "2016-09-26T00:00:00-07:00",
+						"reportingDate": "2016-10-13T00:00:00-07:00",
 						"revAccount": "",
 						"sourcing": "Destination",
 						"tax": 62.50,
 						"taxableAmount": 1000.0,
 						"taxCalculated": 62.50,
 						"taxCode": "PS081282",
-						"taxCodeId": 0,
-						"taxDate": "2016-09-26T00:00:00-07:00",
+						"taxDate": "2016-10-13T00:00:00-07:00",
 						"taxEngine": "",
 						"taxOverrideType": "None",
 						"taxOverrideAmount": 0.00,
@@ -10187,7 +11798,129 @@
 					"items": {
 						"$ref": "#/definitions/TransactionSummary"
 					}
+				},
+				"parameters": {
+					"description": "Contains a list of extra parameters that were set when the transaction was created.",
+					"type": "object",
+					"additionalProperties": {
+						"type": "string"
+					}
 				}
+			},
+			"example": {
+				"id": 123456789,
+				"code": "7943b9f5-cbb3-4f9a-ad3b-94ce0c120de2",
+				"companyId": 12345,
+				"date": "2016-10-13T00:00:00-07:00",
+				"taxDate": "2016-10-13T00:00:00-07:00",
+				"paymentDate": "2016-10-13T00:00:00-07:00",
+				"status": "Committed",
+				"type": "SalesInvoice",
+				"currencyCode": "USD",
+				"customerUsageType": "",
+				"customerVendorCode": "ABC",
+				"exemptNo": "",
+				"reconciled": true,
+				"locationCode": "DEFAULT",
+				"salespersonCode": "DEF",
+				"taxOverrideType": "None",
+				"taxOverrideAmount": 0.00,
+				"taxOverrideReason": "",
+				"totalAmount": 1000.0,
+				"totalExempt": 0.0,
+				"totalTax": 62.50,
+				"totalTaxable": 1000.0,
+				"totalTaxCalculated": 62.50,
+				"adjustmentReason": "NotAdjusted",
+				"adjustmentDescription": "",
+				"locked": false,
+				"region": "CA",
+				"country": "US",
+				"version": 0,
+				"originAddressId": 123456789,
+				"destinationAddressId": 123456789,
+				"isSellerImporterOfRecord": false,
+				"description": "Yarn",
+				"lines": [{
+					"id": 123456789,
+					"transactionId": 123456789,
+					"lineNumber": "1",
+					"boundaryOverrideId": 0,
+					"customerUsageType": "",
+					"description": "Yarn",
+					"destinationAddressId": 12345,
+					"originAddressId": 123456789,
+					"discountAmount": 100.0,
+					"discountTypeId": 0,
+					"exemptAmount": 0.0,
+					"exemptCertId": 0,
+					"exemptNo": "",
+					"isItemTaxable": true,
+					"isSSTP": false,
+					"itemCode": "116292",
+					"lineAmount": 1000.0,
+					"quantity": 1.00,
+					"ref1": "Note: Deliver to Bob",
+					"reportingDate": "2016-10-13T00:00:00-07:00",
+					"revAccount": "",
+					"sourcing": "Destination",
+					"tax": 62.50,
+					"taxableAmount": 1000.0,
+					"taxCalculated": 62.50,
+					"taxCode": "PS081282",
+					"taxDate": "2016-10-13T00:00:00-07:00",
+					"taxEngine": "",
+					"taxOverrideType": "None",
+					"taxOverrideAmount": 0.00,
+					"taxOverrideReason": "",
+					"taxIncluded": false,
+					"details": [{
+						"id": 123456789,
+						"transactionLineId": 123456789,
+						"transactionId": 123456789,
+						"addressId": 12345,
+						"country": "US",
+						"region": "CA",
+						"stateFIPS": "06",
+						"exemptAmount": 0.00,
+						"exemptReasonId": 4,
+						"inState": false,
+						"jurisCode": "06",
+						"jurisName": "CALIFORNIA",
+						"jurisdictionId": 5000531,
+						"signatureCode": "AGAM",
+						"stateAssignedNo": "",
+						"jurisType": "STA",
+						"nonTaxableAmount": 0.0,
+						"nonTaxableRuleId": 0,
+						"nonTaxableType": "BaseRule",
+						"rate": 0.0625,
+						"rateRuleId": 1321915,
+						"rateSourceId": 3,
+						"serCode": "",
+						"sourcing": "Destination",
+						"tax": 62.50,
+						"taxableAmount": 1000.0,
+						"taxType": "Sales",
+						"taxName": "CA STATE TAX",
+						"taxAuthorityTypeId": 45,
+						"taxRegionId": 2127184,
+						"taxCalculated": 62.50,
+						"taxOverride": 0.00,
+						"rateType": "General"
+					}]
+				}],
+				"addresses": [{
+					"id": 0,
+					"transactionId": 0,
+					"boundaryLevel": "Address",
+					"line1": "100 Ravine Lane Northeast #220",
+					"city": "Bainbridge Island",
+					"region": "WA",
+					"postalCode": "98110",
+					"country": "US",
+					"taxRegionId": 0
+				}]
 			}
 		},
 		"TransactionLineModel": {
@@ -10308,7 +12041,7 @@
 					"format": "date-time",
 					"description": "The date when this transaction should be reported.  By default, all transactions are reported on the date when the actual transaction took place.\r\n            In some cases, line items may be reported later due to delayed shipments or other business reasons.",
 					"type": "string",
-					"example": "2016-09-26T00:00:00-07:00"
+					"example": "2016-10-13T00:00:00-07:00"
 				},
 				"revAccount": {
 					"description": "The revenue account number for this line item.",
@@ -10348,14 +12081,13 @@
 				"taxCodeId": {
 					"format": "int32",
 					"description": "The unique ID number for the tax code that was used to calculate this line item.",
-					"type": "integer",
-					"example": 0
+					"type": "integer"
 				},
 				"taxDate": {
 					"format": "date-time",
 					"description": "The date that was used for calculating tax amounts for this line item.  By default, this date should be the same as the document date.\r\n            In some cases, for example when a consumer returns a product purchased previously, line items may be calculated using a tax date in the past\r\n            so that the consumer can receive a refund for the correct tax amount that was charged when the item was originally purchased.",
 					"type": "string",
-					"example": "2016-09-26T00:00:00-07:00"
+					"example": "2016-10-13T00:00:00-07:00"
 				},
 				"taxEngine": {
 					"description": "The tax engine identifier that was used to calculate this line item.",
@@ -10429,7 +12161,83 @@
 						"taxOverride": 0.00,
 						"rateType": "General"
 					}]
+				},
+				"parameters": {
+					"description": "Contains a list of extra parameters that were set when the transaction was created.",
+					"type": "object",
+					"additionalProperties": {
+						"type": "string"
+					}
 				}
+			},
+			"example": {
+				"id": 123456789,
+				"transactionId": 123456789,
+				"lineNumber": "1",
+				"boundaryOverrideId": 0,
+				"customerUsageType": "",
+				"description": "Yarn",
+				"destinationAddressId": 12345,
+				"originAddressId": 123456789,
+				"discountAmount": 100.0,
+				"discountTypeId": 0,
+				"exemptAmount": 0.0,
+				"exemptCertId": 0,
+				"exemptNo": "",
+				"isItemTaxable": true,
+				"isSSTP": false,
+				"itemCode": "116292",
+				"lineAmount": 1000.0,
+				"quantity": 1.00,
+				"ref1": "Note: Deliver to Bob",
+				"reportingDate": "2016-10-13T00:00:00-07:00",
+				"revAccount": "",
+				"sourcing": "Destination",
+				"tax": 62.50,
+				"taxableAmount": 1000.0,
+				"taxCalculated": 62.50,
+				"taxCode": "PS081282",
+				"taxDate": "2016-10-13T00:00:00-07:00",
+				"taxEngine": "",
+				"taxOverrideType": "None",
+				"taxOverrideAmount": 0.00,
+				"taxOverrideReason": "",
+				"taxIncluded": false,
+				"details": [{
+					"id": 123456789,
+					"transactionLineId": 123456789,
+					"transactionId": 123456789,
+					"addressId": 12345,
+					"country": "US",
+					"region": "CA",
+					"stateFIPS": "06",
+					"exemptAmount": 0.00,
+					"exemptReasonId": 4,
+					"inState": false,
+					"jurisCode": "06",
+					"jurisName": "CALIFORNIA",
+					"jurisdictionId": 5000531,
+					"signatureCode": "AGAM",
+					"stateAssignedNo": "",
+					"jurisType": "STA",
+					"nonTaxableAmount": 0.0,
+					"nonTaxableRuleId": 0,
+					"nonTaxableType": "BaseRule",
+					"rate": 0.0625,
+					"rateRuleId": 1321915,
+					"rateSourceId": 3,
+					"serCode": "",
+					"sourcing": "Destination",
+					"tax": 62.50,
+					"taxableAmount": 1000.0,
+					"taxType": "Sales",
+					"taxName": "CA STATE TAX",
+					"taxAuthorityTypeId": 45,
+					"taxRegionId": 2127184,
+					"taxCalculated": 62.50,
+					"taxOverride": 0.00,
+					"rateType": "General"
+				}]
 			}
 		},
 		"TransactionAddressModel": {
@@ -10498,6 +12306,17 @@
 					"type": "integer",
 					"example": 0
 				}
+			},
+			"example": {
+				"id": 0,
+				"transactionId": 0,
+				"boundaryLevel": "Address",
+				"line1": "100 Ravine Lane Northeast #220",
+				"city": "Bainbridge Island",
+				"region": "WA",
+				"postalCode": "98110",
+				"country": "US",
+				"taxRegionId": 0
 			}
 		},
 		"TransactionSummary": {
@@ -10606,6 +12425,9 @@
 					"description": "The amount of the transaction that was exempt.",
 					"type": "number"
 				}
+			},
+			"example": {
+				
 			}
 		},
 		"TransactionLineDetailModel": {
@@ -10838,6 +12660,41 @@
 					"type": "string",
 					"example": 71
 				}
+			},
+			"example": {
+				"id": 123456789,
+				"transactionLineId": 123456789,
+				"transactionId": 123456789,
+				"addressId": 12345,
+				"country": "US",
+				"region": "CA",
+				"stateFIPS": "06",
+				"exemptAmount": 0.00,
+				"exemptReasonId": 4,
+				"inState": false,
+				"jurisCode": "06",
+				"jurisName": "CALIFORNIA",
+				"jurisdictionId": 5000531,
+				"signatureCode": "AGAM",
+				"stateAssignedNo": "",
+				"jurisType": "STA",
+				"nonTaxableAmount": 0.0,
+				"nonTaxableRuleId": 0,
+				"nonTaxableType": "BaseRule",
+				"rate": 0.0625,
+				"rateRuleId": 1321915,
+				"rateSourceId": 3,
+				"serCode": "",
+				"sourcing": "Destination",
+				"tax": 62.50,
+				"taxableAmount": 1000.0,
+				"taxType": "Sales",
+				"taxName": "CA STATE TAX",
+				"taxAuthorityTypeId": 45,
+				"taxRegionId": 2127184,
+				"taxCalculated": 62.50,
+				"taxOverride": 0.00,
+				"rateType": "General"
 			}
 		},
 		"FetchResult[TransactionModel]": {
@@ -10891,10 +12748,11 @@
 					"description": "Replace the current transaction with tax data calculated for this new transaction",
 					"example": {
 						"type": "SalesInvoice",
-						"code": "73b80049-1a15-4cef-a3c6-79b36bb89d39",
-						"date": "2016-09-26T00:00:00-07:00",
+						"code": "ed56cfeb-4147-4a1b-a71b-082bcec86518",
+						"companyCode": "DEFAULT",
+						"date": "2016-10-13T00:00:00-07:00",
 						"customerCode": "ABC",
-						"purchaseOrderNo": "2016-09-26-001",
+						"purchaseOrderNo": "2016-10-13-001",
 						"addresses": {
 							"SingleLocation": {
 								"line1": "123 Main Street",
@@ -10910,19 +12768,64 @@
 							"amount": 100.0,
 							"taxCode": "PS081282",
 							"itemCode": "Y0001",
-							"description": "Yarn"
+							"description": "Yarn",
+							"parameters": {
+								"Avalara.TestProperty": "Avalara.TestValue"
+							}
 						}],
+						"parameters": {
+							"Avalara.TestProperty": "Avalara.TestValue"
+						},
 						"commit": true,
-						"taxDate": "2016-09-26T00:00:00-07:00",
+						"taxDate": "2016-10-13T00:00:00-07:00",
 						"currencyCode": "USD",
 						"description": "Yarn"
 					}
+				}
+			},
+			"example": {
+				"adjustmentReason": "PriceAdjusted",
+				"adjustmentDescription": "Price drop before shipping",
+				"newTransaction": {
+					"type": "SalesInvoice",
+					"code": "ed56cfeb-4147-4a1b-a71b-082bcec86518",
+					"companyCode": "DEFAULT",
+					"date": "2016-10-13T00:00:00-07:00",
+					"customerCode": "ABC",
+					"purchaseOrderNo": "2016-10-13-001",
+					"addresses": {
+						"SingleLocation": {
+							"line1": "123 Main Street",
+							"city": "Irvine",
+							"region": "CA",
+							"country": "US",
+							"postalCode": "92615"
+						}
+					},
+					"lines": [{
+						"number": "1",
+						"quantity": 1.0,
+						"amount": 100.0,
+						"taxCode": "PS081282",
+						"itemCode": "Y0001",
+						"description": "Yarn",
+						"parameters": {
+							"Avalara.TestProperty": "Avalara.TestValue"
+						}
+					}],
+					"parameters": {
+						"Avalara.TestProperty": "Avalara.TestValue"
+					},
+					"commit": true,
+					"taxDate": "2016-10-13T00:00:00-07:00",
+					"currencyCode": "USD",
+					"description": "Yarn"
 				}
 			}
 		},
 		"CreateTransactionModel": {
 			"description": "Create a transaction",
-			"required": ["code",
+			"required": ["companyCode",
 			"date",
 			"customerCode"],
 			"type": "object",
@@ -10944,17 +12847,24 @@
 					"example": 1
 				},
 				"code": {
-					"description": "Transaction Code - the internal reference code used by the client application.  This is used for operations such as\r\n                Get, Adjust, Settle, and Void.",
+					"description": "Transaction Code - the internal reference code used by the client application.  This is used for operations such as\r\n                Get, Adjust, Settle, and Void.  If you leave the transaction code blank, a GUID will be assigned to each transaction.",
 					"maxLength": 50,
 					"minLength": 0,
 					"type": "string",
-					"example": "d6fdf5cc-9e94-4a89-881a-398dfdfddfca"
+					"example": "2f623ed0-b490-47c3-b732-69e75562079e"
+				},
+				"companyCode": {
+					"description": "Company Code - If you are posting to /api/v2/transactions/create, you must specify the company code value here.\r\n                If you are posting to /api/v2/companies/(companyCode)/transactions/create, this value must be null.",
+					"maxLength": 50,
+					"minLength": 0,
+					"type": "string",
+					"example": "DEFAULT"
 				},
 				"date": {
 					"format": "date-time",
 					"description": "Transaction Date - The date on the invoice, purchase order, etc.",
 					"type": "string",
-					"example": "2016-09-26T00:00:00-07:00"
+					"example": "2016-10-13T00:00:00-07:00"
 				},
 				"salespersonCode": {
 					"description": "Salesperson Code - The client application salesperson reference code.",
@@ -10985,7 +12895,7 @@
 					"maxLength": 50,
 					"minLength": 0,
 					"type": "string",
-					"example": "2016-09-26-001"
+					"example": "2016-10-13-001"
 				},
 				"exemptionNo": {
 					"description": "Exemption Number for this document",
@@ -11035,8 +12945,24 @@
 						"amount": 100.0,
 						"taxCode": "PS081282",
 						"itemCode": "Y0001",
-						"description": "Yarn"
+						"description": "Yarn",
+						"parameters": {
+							"Avalara.TestProperty": "Avalara.TestValue"
+						}
 					}]
+				},
+				"parameters": {
+					"description": "Special parameters that apply to this line within this transaction.\r\n                To get a full list of available parameters, please use the /api/v2/definitions/parameters endpoint.",
+					"type": "object",
+					"properties": {
+						"Avatax.LandedCost.HTSCode": {
+							"type": "string",
+							"description": "Code to identify LC transaction"
+						}
+					},
+					"example": {
+						"Avalara.TestProperty": "Avalara.TestValue"
+					}
 				},
 				"referenceCode": {
 					"description": "Reference Code used to reference the original document for a return invoice",
@@ -11069,7 +12995,7 @@
 					"format": "date-time",
 					"description": "Indicates the tax effectivity override date for the entire document.",
 					"type": "string",
-					"example": "2016-09-26T00:00:00-07:00"
+					"example": "2016-10-13T00:00:00-07:00"
 				},
 				"currencyCode": {
 					"description": "3 character ISO 4217 currency code.",
@@ -11124,6 +13050,41 @@
 					"minLength": 0,
 					"type": "string"
 				}
+			},
+			"example": {
+				"type": "SalesInvoice",
+				"code": "2f623ed0-b490-47c3-b732-69e75562079e",
+				"companyCode": "DEFAULT",
+				"date": "2016-10-13T00:00:00-07:00",
+				"customerCode": "ABC",
+				"purchaseOrderNo": "2016-10-13-001",
+				"addresses": {
+					"SingleLocation": {
+						"line1": "123 Main Street",
+						"city": "Irvine",
+						"region": "CA",
+						"country": "US",
+						"postalCode": "92615"
+					}
+				},
+				"lines": [{
+					"number": "1",
+					"quantity": 1.0,
+					"amount": 100.0,
+					"taxCode": "PS081282",
+					"itemCode": "Y0001",
+					"description": "Yarn",
+					"parameters": {
+						"Avalara.TestProperty": "Avalara.TestValue"
+					}
+				}],
+				"parameters": {
+					"Avalara.TestProperty": "Avalara.TestValue"
+				},
+				"commit": true,
+				"taxDate": "2016-10-13T00:00:00-07:00",
+				"currencyCode": "USD",
+				"description": "Yarn"
 			}
 		},
 		"LineItemModel": {
@@ -11238,6 +13199,30 @@
 				"taxOverride": {
 					"$ref": "#/definitions/TaxOverrideModel",
 					"description": "Specifies a tax override for this line"
+				},
+				"parameters": {
+					"description": "Special parameters that apply to this line within this transaction.\r\n                To get a full list of available parameters, please use the /api/v2/definitions/parameters endpoint.",
+					"type": "object",
+					"properties": {
+						"Avatax.LandedCost.HTSCode": {
+							"type": "string",
+							"description": "Code to identify LC transaction"
+						}
+					},
+					"example": {
+						"Avalara.TestProperty": "Avalara.TestValue"
+					}
+				}
+			},
+			"example": {
+				"number": "1",
+				"quantity": 1.0,
+				"amount": 100.0,
+				"taxCode": "PS081282",
+				"itemCode": "Y0001",
+				"description": "Yarn",
+				"parameters": {
+					"Avalara.TestProperty": "Avalara.TestValue"
 				}
 			}
 		},
@@ -11266,13 +13251,19 @@
 					"format": "date-time",
 					"description": "The override tax date to use",
 					"type": "string",
-					"example": "2016-09-26T00:00:00-07:00"
+					"example": "2016-10-13T00:00:00-07:00"
 				},
 				"reason": {
 					"description": "This provides the reason for a tax override for audit purposes.  It is required for types 2-4.",
 					"type": "string",
 					"example": "Precalculated Tax"
 				}
+			},
+			"example": {
+				"type": "TaxAmount",
+				"taxAmount": 6.25,
+				"taxDate": "2016-10-13T00:00:00-07:00",
+				"reason": "Precalculated Tax"
 			}
 		},
 		"VoidTransactionModel": {
@@ -11289,6 +13280,9 @@
 					"type": "string",
 					"example": 3
 				}
+			},
+			"example": {
+				"code": "DocVoided"
 			}
 		},
 		"SettleTransactionModel": {
@@ -11299,7 +13293,7 @@
 					"$ref": "#/definitions/VerifyTransactionModel",
 					"description": "To use the \"Settle\" endpoint to verify a transaction, fill out this value.",
 					"example": {
-						"verifyTransactionDate": "2016-09-26T00:00:00-07:00",
+						"verifyTransactionDate": "2016-10-13T00:00:00-07:00",
 						"verifyTotalAmount": 100.0,
 						"verifyTotalTax": 6.25
 					}
@@ -11308,7 +13302,7 @@
 					"$ref": "#/definitions/ChangeTransactionCodeModel",
 					"description": "To use the \"Settle\" endpoint to change a transaction's code, fill out this value.",
 					"example": {
-						"newCode": "d19af929-95f0-450d-9be5-038e23fa0a97"
+						"newCode": "b4ad9c9d-4955-47e3-8d53-6f369374fa2d"
 					}
 				},
 				"commit": {
@@ -11317,6 +13311,19 @@
 					"example": {
 						"commit": true
 					}
+				}
+			},
+			"example": {
+				"verify": {
+					"verifyTransactionDate": "2016-10-13T00:00:00-07:00",
+					"verifyTotalAmount": 100.0,
+					"verifyTotalTax": 6.25
+				},
+				"changeCode": {
+					"newCode": "b4ad9c9d-4955-47e3-8d53-6f369374fa2d"
+				},
+				"commit": {
+					"commit": true
 				}
 			}
 		},
@@ -11328,7 +13335,7 @@
 					"format": "date-time",
 					"description": "Transaction Date - The date on the invoice, purchase order, etc.",
 					"type": "string",
-					"example": "2016-09-26T00:00:00-07:00"
+					"example": "2016-10-13T00:00:00-07:00"
 				},
 				"verifyTotalAmount": {
 					"format": "double",
@@ -11342,6 +13349,11 @@
 					"type": "number",
 					"example": 6.25
 				}
+			},
+			"example": {
+				"verifyTransactionDate": "2016-10-13T00:00:00-07:00",
+				"verifyTotalAmount": 100.0,
+				"verifyTotalTax": 6.25
 			}
 		},
 		"ChangeTransactionCodeModel": {
@@ -11354,8 +13366,11 @@
 					"maxLength": 50,
 					"minLength": 0,
 					"type": "string",
-					"example": "9763799d-e65a-490a-bd98-55ef04691724"
+					"example": "4abdc4c5-baa6-4da1-9dc6-6f3827d0a781"
 				}
+			},
+			"example": {
+				"newCode": "4abdc4c5-baa6-4da1-9dc6-6f3827d0a781"
 			}
 		},
 		"CommitTransactionModel": {
@@ -11367,6 +13382,9 @@
 					"type": "boolean",
 					"example": true
 				}
+			},
+			"example": {
+				"commit": true
 			}
 		},
 		"FetchResult[UPCModel]": {
@@ -11448,6 +13466,16 @@
 					456,
 					789]
 				}
+			},
+			"example": {
+				"permissions": ["CompanyFetch",
+				"CompanySave",
+				"NexusFetch",
+				"NexusSave"],
+				"accessLevel": "SingleAccount",
+				"companies": [123,
+				456,
+				789]
 			}
 		},
 		"PingResultModel": {
@@ -11478,6 +13506,12 @@
 					"type": "string",
 					"example": "TestUser"
 				}
+			},
+			"example": {
+				"version": "1.0.0.0",
+				"authenticated": true,
+				"authenticationType": "UsernamePassword",
+				"authenticatedUserName": "TestUser"
 			}
 		}
 	},

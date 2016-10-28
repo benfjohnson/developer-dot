@@ -12,23 +12,25 @@ One of the fields designated in your object model was null, but a string value i
 
 ## Example
 
+```json
+{
+  "code": "StringValueRequiredError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "StringValueRequiredError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "StringValueRequiredError",
-          "number": 14,
-          "message": "Field -0- is required.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/StringValueRequiredError",
-          "severity": "Error"
-        }
-      ]
+      "number": 14,
+      "message": "Field -0- is required.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/StringValueRequiredError",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 
-This error occurs when you upload an object that has a "null" value where AvaTax requires a non-null string.
+This error occurs when you upload an object that has a `null` value where AvaTax requires a non-null string.
 
 Please check your object and provide a value in that field.
