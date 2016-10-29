@@ -8,7 +8,7 @@ disqus: 0
 
 ## Summary
 
-You are calling an API that does not yet support Bearer Token authentication.
+Bearer Token authentication is not yet supported with this API.
 
 ## Example
 
@@ -32,6 +32,6 @@ You are calling an API that does not yet support Bearer Token authentication.
 
 ## Explanation
 
-Avalara is currently working to roll out bearer token authentication for all functionality.  Over time, all API calls will support the new Avalara Identity service which provides support for Bearer token authentication.  This support will gradually enable users to avoid using usernames and passwords for all AvaTax functionality.  
+The API you are calling has not yet been updated to work with Bearer Token authentication.
 
-The API you have called does not yet support bearer token, but will be updated to support bearer token authentication in the future.
+Avalara is currently working to implement Bearer Token authentication across all of its applications.  Please see <a href="http://developer.avalara.com/avatax/authentication-in-rest/">Authentication In REST</a> for more information about authentication.

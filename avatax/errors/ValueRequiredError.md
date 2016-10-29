@@ -20,7 +20,7 @@ You submitted a request and did not provide a value in a required field.
     {
       "code": "ValueRequiredError",
       "number": 5,
-      "message": "Value required: -0-",
+      "message": "Field -0- is required.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/ValueRequiredError",
       "severity": "Error"
