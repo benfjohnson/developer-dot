@@ -14,7 +14,7 @@ disqus: 1
 
 AvaTax REST v2.16.11 has now adopted the naming system used by AvaTax SOAP (API version/year/month).
 
-<table>
+<table class="styled-table">
 	<tr>
 		<th>Sandbox Release Date</th>
 		<td>2016-11-02</td>
@@ -36,7 +36,7 @@ New fields have been added to the API.  These fields are optional and do not req
 Added new fields on the create transaction model:
 
 <ul class="normal">
-	<li>debugLevel (string, optional): If the user wishes to request additional debug information from this transaction, specify a level higher than 'normal'.  Enum, possible values = ['Normal', 'Diagnostic']<li>
+	<li>debugLevel (string, optional): If the user wishes to request additional debug information from this transaction, specify a level higher than 'normal'.  Enum, possible values = ['Normal', 'Diagnostic']</li>
 </ul>
 
 Added new fields on the result transaction model:
@@ -48,7 +48,7 @@ Added new fields on the result transaction model:
 Added new fields on the result detail model:
 
 <ul class="normal">
-	<li>UnitOfBasis (number, optional) - Indicates the type of unit that was used for calculating the tax.<li>
+	<li>UnitOfBasis (number, optional) - Indicates the type of unit that was used for calculating the tax.</li>
 	<li>TaxableUnits (number, optional) - The number of units that were taxable according to this tax detail.</li>
 	<li>NontaxableUnits (number, optional) - The number of units that were nontaxable according to this tax detail.</li>
 	<li>ExemptUnits (number, optional) - The number of units that were exempt according to this tax detail.</li>
