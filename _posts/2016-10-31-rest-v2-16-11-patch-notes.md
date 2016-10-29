@@ -16,16 +16,20 @@ AvaTax REST v2.16.11 has now adopted the naming system used by AvaTax SOAP (API 
 
 <table class="styled-table">
 	<tr>
-		<th>Sandbox Release Date</th>
+		<th>Environment</th>
+		<th>Release Date</th>
+	</tr>
+	<tr>
+		<td>Sandbox</td>
 		<td>2016-11-02</td>
 	</tr>
 	<tr>
-		<th>Production Release Date</th>
+		<td>Production</td>
 		<td>2016-11-09</td>
 	</tr>
 </table>
 
-<h3>/api/v2/taxrates</h3>
+<h3>POST /api/v2/taxrates</h3>
 
 Corrected a bug that caused the TaxRates API to show duplicate rates.
 
