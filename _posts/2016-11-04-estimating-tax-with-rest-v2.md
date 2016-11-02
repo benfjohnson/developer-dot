@@ -10,13 +10,15 @@ doctype: blog
 disqus: 1
 ---
 
-It's time to make a sale, and the last thing your customer wants before signing the deal is a final total amount.  What's the best way to get a tax estimate for your customer?
+The AvaTax REST API provides lots of different levels of estimated tax values, and sometimes it may be hard to know the right way to estimate tax for your customers.  For today's blog article, I will be walking you through the different types of estimates that are available in AvaTax REST v2 and how they can help you.
 
-AvaTax is of course built on correctly identifying the exact tax amounts for an invoice; and to do this, we incorporate dozens of factors including the origin and destination address, dollar amounts, taxability rules,  nexus declarations, registration rules, customer exemption certificates, and more.  You can check these out anytime on your <a href="https://admin-avatax.avalara.net">AvaTax Administration Console</a>.  Now let's set how to incorporate estimates into your application using the REST v2 API!
+AvaTax is of course built on correctly identifying the exact tax amounts for an invoice; and to do this, we incorporate dozens of factors including the origin and destination address, dollar amounts, taxability rules,  nexus declarations, registration rules, customer exemption certificates, and more.  Remember, transactional taxes are a custom process - to get the right answer, you need to gather all the right information for your company!  You can check out your company's tax configuration and make changes anytime using the <a href="https://admin-avatax.avalara.net">AvaTax Administration Console</a>.
+
+Once you've ensured that your nexus declarations, item catalog, and customer exemption certificates are correct, let's proceed to estimating taxes!
 
 <h3>Preparation is the Best Medicine</h3>
 
-If you're wondering where you should set up your next sales office or warehouse, or if you want a rough guess you can carry around in your pocket, you might want to consider the basic tax rates for each potential location.  Avalara provides a limited-feature "TaxRates" that you can use to provide an estimate and help decide where to make your sale.  Let's begin by showing you a bit of detail and then explain how it works.
+If you're wondering where you should set up your next sales office or warehouse, or if you want a rough guess you can carry around in your pocket, you might want to consider the basic tax rates for each potential location.  Avalara provides a simplified TaxRates API that you can use to provide an estimate and help decide where to make your sale.  Let's begin by showing you a bit of detail and then explain how it works.
 
 This is how you call the TaxRates API:
 
