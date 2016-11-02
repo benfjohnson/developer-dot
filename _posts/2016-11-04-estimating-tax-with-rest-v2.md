@@ -12,11 +12,11 @@ disqus: 1
 
 It's time to make a sale, and the last thing your customer wants before signing the deal is a final total amount.  What's the best way to get a tax estimate for your customer?
 
-AvaTax is of course built on correctly identifying the exact tax amounts for an invoice; and to do this, we incorporate dozens of factors including the origin and destination address, dollar amounts, taxability rules,  nexus declarations, registration rules, customer exemption certificates, and more.  Your Avalara onboarding process will help you gather all this information and set up your account correctly; but for today's blog post let's explain how to use the code.
+AvaTax is of course built on correctly identifying the exact tax amounts for an invoice; and to do this, we incorporate dozens of factors including the origin and destination address, dollar amounts, taxability rules,  nexus declarations, registration rules, customer exemption certificates, and more.  You can check these out anytime on your <a href="https://admin-avatax.avalara.net">AvaTax Administration Console</a>.  Now let's set how to incorporate estimates into your application using the REST v2 API!
 
 <h3>Preparation is the Best Medicine</h3>
 
-If you're wondering where you should set up your next sales office or warehouse, you might want to consider the basic tax rates for each potential location.  Avalara provides a limited-feature "TaxRates" that you can use to provide an estimate and help come to a decision.   - so let's begin by showing you a bit of detail and then explain how it works.
+If you're wondering where you should set up your next sales office or warehouse, or if you want a rough guess you can carry around in your pocket, you might want to consider the basic tax rates for each potential location.  Avalara provides a limited-feature "TaxRates" that you can use to provide an estimate and help decide where to make your sale.  Let's begin by showing you a bit of detail and then explain how it works.
 
 This is how you call the TaxRates API:
 
@@ -24,7 +24,7 @@ This is how you call the TaxRates API:
 GET https://sandbox-rest.avatax.com/api/v2/taxrates/byaddress?line1=123%20Main%20Street&city=Irvine&region=CA&postalCode=92615&country=US
 ```
 
-You can call this API pretty quickly and easily and it gives you a good rough guess of tax rates for each location you're considering for your sales.  What you get back is a simple data object that lists the most basic tax information available.  It's worth mentioning here that the TaxRates API doesn't handle a lot of critical functionality for a correct tax processing system; it doesn't look at product taxability rules, shipping rules, product use codes, sales tax holidays, resales certificates, charitable sales exemptions, nexus declarations, or anything else.  Here's the answer you get back:
+Because this API is so simple, it's easy to incorporate this API call anywhere in your code that you might need a rough guess - but it's very limited.  It's worth mentioning here that the TaxRates API doesn't handle a lot of critical functionality for a correct tax processing system; it doesn't look at product taxability rules, shipping rules, product use codes, sales tax holidays, resales certificates, charitable sales exemptions, nexus declarations, or anything else.  Here's the answer you get back:
 
 ```json
 {
@@ -54,13 +54,15 @@ You can call this API pretty quickly and easily and it gives you a good rough gu
 }
 ```
 
-This information is enough to answer the question, "What is the general sales tax rate for this address today?"  That's useful for helping us pick an office, but to give your customer a solid estimate, you'll need to move onwards to a Sales Order. 
+This information is enough to answer the question, "What is the general sales tax rate for this address today?"  That's useful for helping us evaluate or make a rough guess, but your customers deserve the best!  Let's move onwards to a Sales Order. 
 
 <h3>Sales Orders vs Sales Invoices</h3>
 
-In AvaTax, a "Sales Order" is a temporary transaction that gives a quick answer, whereas a "Sales Invoice" is a permanent transaction that can be verified and audited.  This means that a "Sales Order" is a very useful way to estimate the final tax before you close a sale.  If the customer declines to make a sale, no further action is needed - the sales order won't show up in your end of month reports.  And when you close a deal, you can simply convert the transaction to a Sales Invoice by changing one field in your API call!
+In AvaTax, a "Sales Order" is a temporary transaction that gives a quick answer, whereas a "Sales Invoice" is a permanent transaction that can be verified and audited.  This means that a "Sales Order" is a very useful way to estimate the final tax before you close a sale.  You can submit as many sales orders as you like while you're finalizing the details of your sale; until you finalize the transaction, nothing will show up in your end-of-month reports.  If the customer declines to make a sale, no further action is needed.  And when you close a deal, you can simply convert the transaction to a Sales Invoice by changing one field in your API call!
 
-That said, here's how to construct a Sales Order for $100 sold at an address in Irvine, California:
+Sales orders are an ideal way to represent a "shopping cart" in an online storefront.  When a customer is building their shopping cart, you can submit a sales order every time they change their cart, and use that to update the estimated tax amounts.
+
+Here's how to construct a Sales Order for $100 sold at an address in Irvine, California:
 
 ```json
 POST /api/v2/transactions/create
@@ -145,6 +147,8 @@ POST /api/v2/transactions/create
 }
 ```
 
-Voila!  The now-finalized transaction is recorded in your AvaTax account and you can retrieve it back anytime.
+It's important to remember to finalize your transaction using this Sales Invoice API call.  Storing a transaction as a Sales Invoice means that it can be audited and reported.  We'll talk more about reporting transactions in a future blog post - but for the moment, just remember that tax rates may have changed between when your customer originally asked for an estimate and when they finalized their transaction, or your company configuration may have changed, so it's better to get a final tax invoice rather than rely on a previously generated estimate.
+
+Happy Estimating!
 
 --Ted Spence, Director, AvaTax Core Engine
