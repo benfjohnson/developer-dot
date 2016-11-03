@@ -1758,6 +1758,9 @@ definitions:
   Nexus:
     description: "Please see 'TM_00116_AFC SaaS Pro Telecom Developer Manual.pdf' or 'TM_00117_AFC SaaS Pro Sales and Use Developer Manual.pdf' for details."
     type: object
+    properties:
+      description:
+        type: string
 # === Optional Field ===
   OptionalField:
     description: Data structure used to provide optional alphanumeric data for transactions.
@@ -4495,7 +4498,7 @@ definitions:
     properties:
         BaseReport:
           type: string
-          description: 'When generating a “customlog” report, indicates'
+          description: 'When generating a ï¿½customlogï¿½ report, indicates'
           xml:
             prefix: ezt
         CreateNbaFile:
@@ -4574,7 +4577,7 @@ definitions:
       $ref: '#/definitions/CustomLogFieldList'
 
   CustomLogFieldList:
-    description: 'List of columns to include in the report when using the “customlog” report type.'
+    description: 'List of columns to include in the report when using the ï¿½customlogï¿½ report type.'
     xml:
       prefix: ezt
     required:
