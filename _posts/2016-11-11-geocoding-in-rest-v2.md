@@ -133,6 +133,8 @@ What you really want to do is program your mobile shopping cart or card machine 
 }
 ```
 
+<h3>Mixing Postal Addresses and Geocoding</h3>
+
 If necessary, you can also provide a mixture of geocoded and physical address transactions.  AvaTax will allow you to specify a geocoded address for either ShipTo, ShipFrom, or both addresses.  You can mix and match as needed:
 
 ```json
@@ -161,6 +163,69 @@ If necessary, you can also provide a mixture of geocoded and physical address tr
       "number": "1",
       "quantity": 1,
       "amount": 100
+    }
+  ]
+}
+```
+
+<h3>Line Item Address Overrides</h3>
+
+When I place my orders for holiday gifts on online stores, I often place a single order for multiple relatives who live in different areas.  It's very helpful to have a single transaction that can ship gifts to my parents, cousins, and other relatives overseas.  Additionally, most online stores often have multiple warehouses - and when you purchase five items, they might be shipped from five separate warehouses to your door.  To properly handle these and other types of complex multi-address transactions, you'll need to include addresses on each line item.
+
+It's important to note that you need to provide full shipping addresses for each line item in your transaction.  Because shipping rules are very precise and are critical for correct tax calculation, overriding addresses for any line item will require you to specify both the ShipFrom and ShipTo addresses for that line.
+
+Here's how you do that in AvaTax.  This example transaction shows how to ship one item from Bainbridge to Irvine, and a second item from Minnesota to New York.  The main transaction contains the Bainbridge and Irvine addresses, which apply to line 1; but line 2 contains address overrides which refer to the second shipment.
+
+```json
+/* POST /api/v2/transactions/create */
+
+{
+  "type": "SalesInvoice",
+  "companyCode": "DEFAULT",
+  "date": "2016-11-11",
+  "customerCode": "ABC",
+  "addresses": {
+    "ShipFrom": {
+      "line1": "100 Ravine Lane NE",
+      "city": "Bainbridge Island",
+      "region": "WA",
+      "country": "US",
+      "postalCode": "98110"
+    },
+    "ShipTo": {
+      "line1": "123 Main Street",
+      "city": "Irvine",
+      "region": "CA",
+      "country": "US",
+      "postalCode": "92615"
+    }
+  },
+  "lines": [
+    {
+      "number": "1",
+      "quantity": 1,
+      "amount": 56.78
+    },
+    {
+      "number": "2",
+      "quantity": 1,
+      "amount": 123.45,
+      "addresses": {
+        "ShipFrom": {
+          "line1": "1500 109th Ave NE",
+          "city": "Blaine",
+          "region": "MN",
+          "country": "US",
+          "postalCode": "55449"
+        },
+        "ShipTo": {
+          "line1": "750 7th Ave",
+          "city": "New York",
+          "region": "NY",
+          "country": "US",
+          "postalCode": "10019"
+        }
+      }
     }
   ]
 }
