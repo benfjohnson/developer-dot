@@ -18,9 +18,9 @@ Let's spend a bit of time talking about how to use AvaTax in each of these three
 
 In the case of a retail transaction, or a transaction conducted in person where both the money and the goods are handed over at a single location at a single time, you can use a very simple transaction structure with a single address.  This single transaction is considered both the Origin and Destination of the transaction.  Here's what your API call would look like:
 
-```json
-/* POST /api/v2/transactions/create */
+`POST /api/v2/transactions/create`
 
+```json
 {
   "type": "SalesInvoice",
   "companyCode": "DEFAULT",
@@ -53,7 +53,6 @@ Why do we switch between "SingleAddress" and "Origin"/"Destination"?  Because in
 {
   "originAddressId": 637238934,
   "destinationAddressId": 637238934,
-  /* ... */
 }
 ```
 
@@ -69,9 +68,9 @@ If you are building an online store, or providing services to different location
 
 Here's what a shipped transaction call looks like in REST v2:
 
-```json
-/* POST /api/v2/transactions/create */
+`POST /api/v2/transactions/create`
 
+```json
 {
   "type": "SalesInvoice",
   "companyCode": "DEFAULT",
@@ -109,9 +108,9 @@ Another common problem is a moveable location.  Many AvaTax customers today sell
 
 What you really want to do is program your mobile shopping cart or card machine to use your latitude and longitude rather than physical addresses.  A geocoded transaction looks like this:
 
-```json
-/* POST /api/v2/transactions/create */
+`POST /api/v2/transactions/create`
 
+```json
 {
   "type": "SalesInvoice",
   "companyCode": "DEFAULT",
@@ -137,9 +136,9 @@ What you really want to do is program your mobile shopping cart or card machine 
 
 If necessary, you can also provide a mixture of geocoded and physical address transactions.  AvaTax will allow you to specify a geocoded address for either ShipTo, ShipFrom, or both addresses.  You can mix and match as needed:
 
-```json
-/* POST /api/v2/transactions/create */
+`POST /api/v2/transactions/create`
 
+```json
 {
   "type": "SalesInvoice",
   "companyCode": "DEFAULT",
@@ -176,9 +175,9 @@ It's important to note that you need to provide full shipping addresses for each
 
 Here's how you do that in AvaTax.  This example transaction shows how to ship one item from Bainbridge to Irvine, and a second item from Minnesota to New York.  The main transaction contains the Bainbridge and Irvine addresses, which apply to line 1; but line 2 contains address overrides which refer to the second shipment.
 
-```json
-/* POST /api/v2/transactions/create */
+`POST /api/v2/transactions/create`
 
+```json
 {
   "type": "SalesInvoice",
   "companyCode": "DEFAULT",

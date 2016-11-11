@@ -155,7 +155,7 @@ The result you get back should look like this:
     "modifiedDate": "2016-10-25T17:17:33.413793Z",
     "modifiedUserId": 7097,
     "files": [
-        /* ... */
+        ...
     ]
   }
 ]

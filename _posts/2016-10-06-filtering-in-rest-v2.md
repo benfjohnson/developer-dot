@@ -15,9 +15,9 @@ disqus: 1
 The REST API pattern is designed to make it easy to store and retrieve data.  Every piece of data in REST is assigned a single unique URL - and you can always fetch that item back by retrieving its URL.  It works a bit like this:
 
 <h3>Request</h3>
-```json
-/* POST /api/v2/companies */
+`POST /api/v2/companies`
 
+```json
 { 
     "name": "Bob's Artisan Pottery" 
 }
@@ -25,9 +25,7 @@ The REST API pattern is designed to make it easy to store and retrieve data.  Ev
 <h3>Result</h3>
 In the result headers, you'll get back this response that tells you the URL of your newly created object:
 
-```
-Location: /api/v2/companies/123
-```
+`Location: /api/v2/companies/123`
 
 Then, when it's time to fetch something back, you can retrieve it back using that location, and you'll get the original object you created back.
 
@@ -47,17 +45,15 @@ You can fetch all of them back as follows:
 
 <h3>Request</h3>
 
-```
-GET /api/v2/companies
-```
+`GET /api/v2/companies`
 
 <h3>Result</h3>
 
 ```json
 [ 
-    { "id": 123, /* ... */ }, 
-    { "id": 456, /* ... */ }, 
-    { "id": 789, /* ... */ }
+    { "id": 123 }, 
+    { "id": 456 }, 
+    { "id": 789 }
 ]
 ```
 
@@ -71,9 +67,7 @@ In the <a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelin
 
 <h3>Request</h3>
 
-```
-GET /api/v2/companies?$filter=name ge A and name lt B
-```
+`GET /api/v2/companies?$filter=name ge A and name lt B`
 
 <h3>Result</h3>
 
