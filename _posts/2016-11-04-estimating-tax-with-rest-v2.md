@@ -22,7 +22,7 @@ If you're wondering where you should set up your next sales office or warehouse,
 
 This is how you call the TaxRates API:
 
-```json
+```
 GET https://sandbox-rest.avatax.com/api/v2/taxrates/byaddress?line1=123%20Main%20Street&city=Irvine&region=CA&postalCode=92615&country=US
 ```
 
@@ -66,9 +66,9 @@ Sales orders are an ideal way to represent a "shopping cart" in an online storef
 
 Here's how to construct a Sales Order for $100 sold at an address in Irvine, California:
 
-```json
-POST /api/v2/transactions/create
+`POST /api/v2/transactions/create`
 
+```json
 {
   "type": "SalesOrder",
   "companyCode": "DEFAULT",
@@ -110,9 +110,7 @@ This means that when your salesperson is showing a final total to the customer, 
 {
   "totalTax": 9.88,
   "totalTaxCalculated": 9.88,
-  ...
   "summary": [
-    ...
     {
       "country": "US",
       "region": "CA",
@@ -131,7 +129,6 @@ This means that when your salesperson is showing a final total to the customer, 
       "nonTaxable": 0,
       "exemption": 0
     }
-    ...
   ]
 }
 ```
@@ -140,12 +137,11 @@ The key things to look for in your results are the `"totalTax"` value and the `"
 
 Now, if you close the deal and the customer makes a purchase, it's very easy to record this transaction permanently.  You just change the `type` value at the top of the object to `SalesInvoice` and create the transaction again:
 
-```json
-POST /api/v2/transactions/create
+`POST /api/v2/transactions/create`
 
+```json
 {
   "type": "SalesInvoice",
-  ...
 }
 ```
 

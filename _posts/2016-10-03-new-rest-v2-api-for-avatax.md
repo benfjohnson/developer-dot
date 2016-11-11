@@ -38,7 +38,7 @@ These features, along with some Avalara-specific extensions, are included in the
 
 Over the coming weeks, we will gradually be rolling out the new API to our sandbox platform for customer previews, and you'll start seeing more documentation and tutorials appear on the Avalara developer website.  You'll see new pages, like the <a href="http://developer.avalara.com/avatax/errors">list of all error messages built into REST v2</a>, which will start to introduce all the features of the new service.  You'll see pages like the new REST v2 Postman Collection, a selection of sample API calls you can use to practice your development.
 
-For those of you who like to try it out yourself, <a href="https://rest-sbx.avatax.com/swagger/ui/index.html">the new AvaTax REST API comes with full Swagger-compatible API documentation</a> - you can call any API directly online in the friendly user interface.  Swagger is rapidly becoming the industry standard for API documentation; and we think you'll agree that it can make even a complex API much easier to approach.
+For those of you who like to try it out yourself, <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html">the new AvaTax REST API comes with full Swagger-compatible API documentation</a> - you can call any API directly online in the friendly user interface.  Swagger is rapidly becoming the industry standard for API documentation; and we think you'll agree that it can make even a complex API much easier to approach.
 
 <h2>Compatibility and Interoperability</h2>
 

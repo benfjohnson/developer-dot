@@ -81,14 +81,14 @@ Let's plan to ship these shoes from Prince Edward Island in Canada to Bainbridge
       "quantity": 1,
       "amount": 50,
       "description": "Shipping",
-      "taxCode": "FR010000",
+      "taxCode": "FR010000"
     },
     {
       "number": "3",
       "quantity": 1,
       "amount": 50,
       "description": "Insurance",
-      "taxCode": "FR070100",
+      "taxCode": "FR070100"
     }
   ],
   "parameters": {
@@ -110,9 +110,7 @@ The result object is huge.  It has information about all the line items, all the
   "code": "c12fd57d-b01b-4785-b6ad-0f532f852e9d",
   "companyId": 6669648,
   "date": "2016-10-13T00:00:00",
-  ...
   "description": "Buyer's estimated import obligation is: 102 USD",
-  ...
 }
 ```
 

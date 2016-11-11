@@ -17,14 +17,17 @@ AvaTax REST v2.16.11 has now adopted the naming system used by AvaTax SOAP (API 
 <table class="styled-table">
 	<tr>
 		<th>Environment</th>
+		<th>URL</th>
 		<th>Release Date</th>
 	</tr>
 	<tr>
 		<td>Sandbox</td>
+        <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
 		<td>2016-11-02</td>
 	</tr>
 	<tr>
 		<td>Production</td>
+        <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
 		<td>2016-11-09</td>
 	</tr>
 </table>
