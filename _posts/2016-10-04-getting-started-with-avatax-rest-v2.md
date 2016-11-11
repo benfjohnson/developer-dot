@@ -167,15 +167,15 @@ If we sold two separate mugs and a vase in a single order, the transaction might
         "city": "Irvine",
         "region": "CA",
         "country": "US",
-        "postalCode": "92615",
+        "postalCode": "92615"
       },
       "ShipTo": {
         "line1": "100 Market Street",
         "city": "San Francisco",
         "region": "CA",
         "country": "US",
-        "postalCode": "94105",
-      },
+        "postalCode": "94105"
+      }
     },
     "lines": [
       {

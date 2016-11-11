@@ -15,8 +15,8 @@ disqus: 1
 The REST API pattern is designed to make it easy to store and retrieve data.  Every piece of data in REST is assigned a single unique URL - and you can always fetch that item back by retrieving its URL.  It works a bit like this:
 
 <h3>Request</h3>
-```
-POST /api/v2/companies
+```json
+/* POST /api/v2/companies */
 
 { 
     "name": "Bob's Artisan Pottery" 
@@ -25,7 +25,7 @@ POST /api/v2/companies
 <h3>Result</h3>
 In the result headers, you'll get back this response that tells you the URL of your newly created object:
 
-```json
+```
 Location: /api/v2/companies/123
 ```
 
@@ -37,7 +37,7 @@ This works great as long as you know the URL you want - but how do you find some
 
 Let's say you have three companies, and these are their URLs:
 
-```json
+```
     /api/v2/companies/123
     /api/v2/companies/456
     /api/v2/companies/789
@@ -55,9 +55,9 @@ GET /api/v2/companies
 
 ```json
 [ 
-    { "id": 123, ... }, 
-    { "id": 456, ... }, 
-    { "id": 789, ... }
+    { "id": 123, /* ... */ }, 
+    { "id": 456, /* ... */ }, 
+    { "id": 789, /* ... */ }
 ]
 ```
 
@@ -79,7 +79,7 @@ GET /api/v2/companies?$filter=name ge A and name lt B
 
 ```json
 [ 
-    { "name": "Aardvark" ... }, 
+    { "name": "Aardvark" }, 
     { "name": "Aaron's Antiques" }, 
     { "name": "Andes Climbing Supply" }
 ]
