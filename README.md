@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # How To Get Started with Avalaras Developer Blog
 
 ### A guide to Jekyll's Posting and Editing Capabilities; Turning Local Github Repositories into a Locally Generated Website
@@ -192,6 +191,3 @@ For this you can log back into your Github account and locate your forked reposi
 
 ### Let's Review
 This was intended to be a brief overview of the steps taken to set up a local environment in which anyone can add or change posts to the Avalara/developer-dot blog, preview those additions and/or changes, and to finally submit them for review and/or publishing on the developer-dot site:
-=======
-=======
->>>>>>> ae721ff92969eff48e2a9b7f6e444ff066a2c27e
