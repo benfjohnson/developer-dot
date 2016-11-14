@@ -69,14 +69,14 @@ Accept: application/json
 }
 ```
 
-Before moving on, I'd like to mention that Postman has a nifty save feature that allows us to keep these requests in a collection in case I need to access the same request later! There's a panel on the left side of Postman, under *Collections*, click the button that has a plus sign to create a new Collection.  I recommend using them so you can always go back to your rock-solid requests. 
- 
+Before moving on, I'd like to mention that Postman has a nifty save feature that allows us to keep these requests in a collection in case I need to access the same request later! There's a panel on the left side of Postman, under *Collections*, click the button that has a plus sign to create a new Collection.  I recommend using them so you can always go back to your rock-solid requests.
+
 ## Now We're In Business:
 **Using: _*POST http://<*hostname*>/api/v2/companies*_ to Create my first Company**
 
-Next I wanted to add a Company to my Account which can be done in two different ways, both involving a POST request: api/v2/companies which creates a single Company or /companies/initialze which creates a single Company with other relevant resources like Contact, Location, and Nexus (basically a shortcut of what I'm going to walk you through). 
+Next I wanted to add a Company to my Account which can be done in two different ways, both involving a POST request: api/v2/companies which creates a single Company or /companies/initialize which creates a single Company with other relevant resources like Contact, Location, and Nexus (basically a shortcut of what I'm going to walk you through).
 
-If you're like me you might be assuming a POST has the same format as the GET request we had success with earlier... and you'd soon find out how wrong you were. My first basic POST request scolded me with a 415 Unsuppported Media Type error, meaning I needed a Content-Type Header. Once I clicked Headers, and filled in the row below my authorization Header, inputing **Content-Type** in the **key** column on the left and **application/json** in the right column I POSTed once more. This time the response also told me I required a **Model** for the body section of my request. Still new to this, I really had no idea how or why I’d do that, but surprisingly during what I’d like to call a “trial-error-google-adjust” process I was able to fairly quickly address the error by clicking **Body** in Postman and entering in the beginnings of the model required by initializing an Object in JSON format. This is outlined in the following code blocks. 
+If you're like me you might be assuming a POST has the same format as the GET request we had success with earlier... and you'd soon find out how wrong you were. My first basic POST request scolded me with a 415 Unsuppported Media Type error, meaning I needed a Content-Type Header. Once I clicked Headers, and filled in the row below my authorization Header, inputing **Content-Type** in the **key** column on the left and **application/json** in the right column I POSTed once more. This time the response also told me I required a **Model** for the body section of my request. Still new to this, I really had no idea how or why I’d do that, but surprisingly during what I’d like to call a “trial-error-google-adjust” process I was able to fairly quickly address the error by clicking **Body** in Postman and entering in the beginnings of the model required by initializing an Object in JSON format. This is outlined in the following code blocks.
 
 #### request
 ```
@@ -107,7 +107,7 @@ Content-Type: application/json
 }
 ```
 
-It’s requesting a model, which I found by entering empty brackets to the request code body and reading through the “missing field” errors in the response code seen below. 
+It’s requesting a model, which I found by entering empty brackets to the request code body and reading through the “missing field” errors in the response code seen below.
 
 #### request
 ```json
@@ -157,9 +157,9 @@ Content-Type: application/json
   }
 }
 ```
- 
+
 At this point I was just hoping nobody saw my continuous stream of errors. When I finally figured out what goes in the body section of the request based on those error message summaries, both Postman and the API happily produced an error free 200 response found in the next code block.  
- 
+
 #### request
 ```json
 POST http://<hostname>/api/v2/companies
@@ -233,20 +233,20 @@ Accept: application/json
   ]
 }
 ```
- 
+
 Voila!- a new Company. Notice many fields appear in the response that were not initialized in my request. Depending on the nature of your business, more information may be necessary to provide the Company with the full functionality of the API.  As previously mentioned, the entire Model including all the possible fields is available in the Swagger documentation! Though for my purposes, with the addition of a just a few more resources I'll have created a Company that I can now use to make Tax Calculations against!
 
 ## PUT 'Er There:
 **Using: _*PUT http://<*hostname*>/api/v2/companies/{companyId}*_ to Modify my Company**
 
-Notice in the GET api/v2/companies request my Company is Inactive and has no Tax Profile. These will have to be changed to true in order for the API to calculate tax on the transaction later. To rectify this problem we will modify these fields with a PUT request. 
+Notice in the GET api/v2/companies request my Company is Inactive and has no Tax Profile. These will have to be changed to true in order for the API to calculate tax on the transaction later. To rectify this problem we will modify these fields with a PUT request.
 
 #### request
 ```json
 PUT http://<hostname>/api/v2/companies/3333333
 Authorization: Basic base64(username:password)
 Content-Type: application/json
-	
+
 {
   "id": 3333333,
   "companyCode": "123",
@@ -384,14 +384,14 @@ Content-Type: application/json
 ## Establishing Nexus:
 **Using:_*POST http://<*hostname*>/api/v2/companies/{companyId}/nexus*_ to Establish Nexus**
 
-I decided to endeavor upon setting up a Nexus for my Company considering I will eventually want to do some Tax Calculations through the  Transactions endpoint. But simply knowing of Nexus in an economic sense was not enough. To be sure I understood how it works within the Avalara API I found a great feature that allows me to actually use the GET api/v2/definitions request and learn more about it. If you want more on Nexus, go to [Avalara University's](https://help.avalara.com/007_AvalaraUniversity) education center to find out everything you need and more. 
+I decided to endeavor upon setting up a Nexus for my Company considering I will eventually want to do some Tax Calculations through the  Transactions endpoint. But simply knowing of Nexus in an economic sense was not enough. To be sure I understood how it works within the Avalara API I found a great feature that allows me to actually use the GET api/v2/definitions request and learn more about it. If you want more on Nexus, go to [Avalara University's](https://help.avalara.com/007_AvalaraUniversity) education center to find out everything you need and more.
 
 ### Defining Nexus:
 **Using: _*GET http://<*hostname*>/api/v2/definitions/nexus/{country}/{region}*_ to Define Jurisdiction**
 
 The following code blocks illustrate the response from the GET definition feature from the endpoint /api/v2/definitions/nexus/US/WA:
 
- #### request
+#### request
 ```
 GET http://<hostname>/api/v2/definitions/nexus/US/WA
 Authorization: Basic base64(username:password)
@@ -422,7 +422,7 @@ Accept: application/json
 }
 ```
 
-That lookup provides information necessary to establish Nexus in Washington State. The code block below is another request looking up Nexus in the broader context of countries of the api/v2/definitions/nexus endpoint. Which produces a huge list of all possible Nexus assignements within the US. Searching for (quotations and all) **"state": "US"** to go directly to the sought after information finds the Country level Nexus that I also need. 
+That lookup provides information necessary to establish Nexus in Washington State. The code block below is another request looking up Nexus in the broader context of countries of the api/v2/definitions/nexus endpoint. Which produces a huge list of all possible Nexus assignements within the US. Searching for (quotations and all) **"state": "US"** to go directly to the sought after information finds the Country level Nexus that I also need.
 
  #### request
 ```
@@ -457,7 +457,7 @@ Accept: application/json
 ...
 ```
 
-Armed with this knowledge I can figure out how to establish Nexus in Washington State and the United States with the POST Nexus method. Really the only modification necessary to the information provided from the GET definitions request is to add an "effectiveDate" and "endDate" to specify how long your Company will have Nexus within these regions. 
+Armed with this knowledge I can figure out how to establish Nexus in Washington State and the United States with the POST Nexus method. Really the only modification necessary to the information provided from the GET definitions request is to add an "effectiveDate" and "endDate" to specify how long your Company will have Nexus within these regions.
 
 #### request
 ```
@@ -557,9 +557,9 @@ Content-Type: application/json
 There we have it, Nexus in all the jurisdictions to which the Company is legally bound.
 
 ## Initialize? Why Didn't You Say So?:
-**Using _*POST http://<*hostname*>/api/v2/api/v2/companies/initialize*_ to Initialize Company**
+**Using _*POST http://<*hostname*>/api/v2/companies/initialize*_ to Initialize Company**
 
-If you were thinking that all those requests were a bit cumbersome just to Create a Company Entity then have I got a solution for you. POST /api/v2/companies is a method more effectively  used for POSTing one or more Companies once a Company or a Parent Company has already been initialized. So real quick, here's the request/response code for the awesome companies/initialize endpoint, POSTing a Company Entity, a Contact, a Location, and Nexus in one fell swooping request. 
+If you were thinking that all those requests were a bit cumbersome just to Create a Company Entity then have I got a solution for you. POST /api/v2/companies is a method more effectively  used for POSTing one or more Companies once a Company or a Parent Company has already been initialized. So real quick, here's the request/response code for the awesome companies/initialize endpoint, POSTing a Company Entity, a Contact, a Location, and Nexus in one fell swooping request.
 
 ### request
 ```
@@ -707,7 +707,7 @@ Content-Type application/json
 **Using: _*GET http://<*hostname*>/api/v2/companies?$include=Contacts,Locations,*_**
 
 If I wanted take a look at everything I’ve done so far there’s a way to make a call to my Company that includes the GET Company call, GET Locations call, GET Contacts call, the Get Nexus call by filling in values for the $include parameter.
- 
+
 Here’s the request/response code block:
 #### request
 ```
