@@ -15,7 +15,7 @@ export default {
         product: 'avaTax'
     },
     'avatax/v2/rest.json': {
-        name: 'Avatax REST API v2 (BETA)',
+        name: 'Avatax REST API v2',
         path: 'avatax/api-reference/tax/v2',
         product: 'avaTax'
     },
