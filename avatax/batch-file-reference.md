@@ -20,20 +20,27 @@ To learn how to use batch files, visit this page: <a href="http://developer.aval
     <li>Batch files are processed by AvaTax in the order they were received.</li>
 </ul>
 
-<h3>Sample File</h3>
 
-To get started quickly, just download a sample file and start editing it yourself!  Here's how to download a sample file:
-
-<ul class="normal">
-    <li>Log on to <a href="">Avalara's Admin Console</a></li>
-    <li>Click on <b>Tools</b></li>
-    <li>Click on <b>Import Data</b></li>
-    <li>In the <b>Type</b> drop down box, select <b>Transaction Import</b></li>
-    <li>Click <b>Download</b> to receive a sample transaction file</li>
+<h3>Batch File Types</h3>
+<i> Batch Template Download Links (Most may also be found in the Admin Console):</i>
+<ul class"=normal">
+    <li> [ItemReport](Link Template for Download)
+      - Needs brief explanation
+    <li> [ExemptCertImport](Link Template for Download) - Needs brief explanation
+    <li> [CompanyLocationImport](Link Template for Download) - Needs brief explanation
+    <li> [TaxRuleImport](Link Template for Download)
+    <li> [TransactionImport](Link Template for Download)- Needs brief explanation
+    <li> [SstpTestDeckImport]("Link Template for Download") (SST Enabled Accounts Only)- Needs brief explanation
+    <li> [UPCBulkImport]("Link Template for Download")- Needs brief explanation
+    <li> [UPCValidationImport]("Link Template for Download")- Needs brief explanation
 </ul>
 
-<h3>List of Required Fields</h3>
+<h3>Sample File</h3>
 
+<Took out some of what Ted had in there because in this design template would be linked here>
+
+<h3>List of Required Fields</h3>
+In the following example the [transaction import template](Link Template)  
 The following fields correspond to the same fields in the CreateTransactionModel and are supported in batch files.  You must fill in, at a minimum, these fields:
 
 <table class="styled-table">
@@ -252,7 +259,7 @@ The following fields correspond to the same fields in the CreateTransactionModel
     <tr>
         <td>ExemptionNo</td>
         <td>Text, up to 25 characters</td>
-        <td>The exemption certificate number, if there is one. Putting a value in ExemptionNo generates a sales-tax exemption for the document line item to which the exemption certificate is applied. 
+        <td>The exemption certificate number, if there is one. Putting a value in ExemptionNo generates a sales-tax exemption for the document line item to which the exemption certificate is applied.
         ExemptionNo is required if:
         -Exemption certificate options for the account are set to required.
         -You're a seller in a Simplified Sales Tax Program (SSTP) state and thus are required to use an exemption certificate management system to generate exemption certificates in SSTP states.</td>
@@ -365,4 +372,3 @@ The following fields correspond to the same fields in the CreateTransactionModel
         <td></td>
     </tr>
 <table>
-
