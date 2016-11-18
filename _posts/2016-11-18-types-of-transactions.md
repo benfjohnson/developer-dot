@@ -19,11 +19,11 @@ Our customers require both the ability to <a href="http://developer.avalara.com/
 In AvaTax, an "Order" represents a temporary transaction that is not saved, whereas an "Invoice" represents a permanent transaction that will be maintained.  Think about these documents like you are a salesperson:
 
 <ul class="normal">
-	<li>You begin by speaking to a customer and obtaining information about what they would like to purchase.  With this information, you construct a 'Create Transaction' request.
-	<li>First, you calculate that transaction in AvaTax using a `SalesOrder` transaction type.  This becomes a quote (or lead, or opportunity) that you can share with the customer.  The quote is as accurate as the information you have on hand, but you know that the customer will review the quote before making a decision to purchase, so we do not record it in our accounting ledger yet.</li>
-	<li>The customer then reviews the quote and may or may not request changes.  It could be that the customer wants to purchase one more line item, or maybe they want the shipping address changed, or maybe they have an exemption certificate they want to provide to change their taxable use conditions.  These changes can be recalculated by resubmitting the transaction to AvaTax, each time using the `SalesOrder` transaction type.</li>
-	<li>If the customer decides to cancel the order, or not to make a purchase, no action is required.  You do not need to cancel a `SalesOrder` - because it has not been recorded as a permanent transaction yet.</li>
-	<li>When the customer does choose to make a purchase, you can then recalculate the transaction in AvaTax using the `SalesInvoice` transaction type.  The `SalesInvoice` transaction type represents a transaction that has occurred, and can then be recorded, queried, reported on, and eventually filed in a tax return to a taxing authority.</li>
+	<li>You begin by speaking to a customer and obtaining information about what they would like to purchase.  With this information, you construct a 'Create Transaction' request.</li>
+	<li>First, you calculate that transaction in AvaTax using a <code class="highlighter-rouge">SalesOrder</code> transaction type.  This becomes a quote (or lead, or opportunity) that you can share with the customer.  The quote is as accurate as the information you have on hand, but you know that the customer will review the quote before making a decision to purchase, so we do not record it in our accounting ledger yet.</li>
+	<li>The customer then reviews the quote and may or may not request changes.  It could be that the customer wants to purchase one more line item, or maybe they want the shipping address changed, or maybe they have an exemption certificate they want to provide to change their taxable use conditions.  These changes can be recalculated by resubmitting the transaction to AvaTax, each time using the <code class="highlighter-rouge">SalesOrder</code> transaction type.</li>
+	<li>If the customer decides to cancel the order, or not to make a purchase, no action is required.  You do not need to cancel a <code class="highlighter-rouge">SalesOrder</code> - because it has not been recorded as a permanent transaction yet.</li>
+	<li>When the customer does choose to make a purchase, you can then recalculate the transaction in AvaTax using the <code class="highlighter-rouge">SalesInvoice</code> transaction type.  The <code class="highlighter-rouge">SalesInvoice</code> transaction type represents a transaction that has occurred, and can then be recorded, queried, reported on, and eventually filed in a tax return to a taxing authority.</li>
 </ul>
 
 Because every type of transaction must be able to follow this same pattern, AvaTax supports all transaction types as both Orders and Invoices.  It's worth noting that the `Invoice` transaction type provides a key compatibility between Avalara's tax calculation API and the Avalara Managed Returns Service.  The Managed Returns Service only supports filing taxes calculated with AvaTax - but you can only file taxes that were recorded in `Invoice` types!  Anything you calculated using `Order` types is considered a temporary estimate and won't be reported.
@@ -68,12 +68,12 @@ Now that we've walked through a few of the implications, let's finish with an ov
 	<tr>
 		<th>Transaction Type</th>
 		<th>Lifetime</th>
-		<th>Tax Implications</th>
+		<th>Example</th>
 	</tr>
 	<tr>
 		<td>SalesOrder</td>
         <td>Temporary</td>
-		<td>A quote for a potential sale </td>
+		<td>A quote for a potential sale</td>
 	</tr>
 	<tr>
 		<td>SalesInvoice</td>
