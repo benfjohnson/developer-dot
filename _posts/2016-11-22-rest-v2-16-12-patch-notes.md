@@ -35,9 +35,9 @@ This article is about the December 2016 monthly update to the AvaTax REST v2 API
 
 <h3>POST /api/v2/transactions/create</h3>
 
-The `sourcing` field on TransactionLineModel was being returned as an integer instead of an enum in 2.16.11 due to a bug in JSON rendering.  This value is now being returned as an enum as intended.
+The `sourcing` field on TransactionLineModel was being returned as an integer instead of an enum in 2.16.11 due to a bug in JSON rendering.  Since most JSON libraries will parse string/enum objects, our test cases were reporting that the object was successfully parsed even though the data for it was being returned as an integer.
 
-If your application expected this value to be returned as an integer, you may need to update your code.
+In 2.16.12, this value is now being returned as a string/enum as intended.  If your application expected this value to be returned as an integer, you may need to update your code.
 
 An example of the incorrect result and updated result is shown here:
 
@@ -46,7 +46,7 @@ An example of the incorrect result and updated result is shown here:
 {
   "lines": [
     {
-      "sourcing": 42,
+      "sourcing": 42, // 
       "details": [
         {
           "sourcing": "Destination",
@@ -68,8 +68,8 @@ An example of the incorrect result and updated result is shown here:
       ]
     }
   ]
-}```
-
+}
+```
 
 <h3>New Point Of Sale Data API</h3>
 
@@ -83,9 +83,39 @@ The <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html">automaticall
 
 Many customers need to create a drop down user interface in their system that shows a selectable list of countries.  AvaTax now provides a convenient, friendly, accessible JSON endpoint for retrieving data about countries in a format suitable for use in a dropdown box.  For each country, this API lists its US English name and its two character ISO 3166 country code.
 
+Sample results are below:
+
+```json
+{
+  "@recordsetCount": 253,
+  "value": [
+    {
+      "code": "AD",
+      "name": "ANDORRA"
+    },
+    ...
+}
+```
+
 <h3>GET /api/v2/definitions/regions</h3>
 
 Similar to the country definition API, AvaTax also provides a full list of all region codes, either accessible by country or as a single list.
+
+Sample results are below:
+
+```json
+{
+  "@recordsetCount": 5120,
+  "value": [
+    {
+      "countryCode": "AF",
+      "code": "BAL",
+      "name": "Balkh",
+      "classification": "Province"
+    },
+    ...
+}
+```
 
 <h3>Improved JSON formatting error messages</h3>
 
