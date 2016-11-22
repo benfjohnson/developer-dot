@@ -190,4 +190,4 @@ This will add the Avalara/developer-dot repository as `upstream`, `fetch` any ch
 For this you can log back into your Github account and locate your forked repository, click the `Pull Request` button and make sure the Avalara/developer-dot:master is on the left hand side, receiving any changes from your repository on the right hand side, yourGitUserName/developer-dot:master. Please leave a comment, and submit the request.
 
 ### Let's Review
-This was intended to be a brief overview of the steps taken to set up a local environment in which anyone can add or change posts to the Avalara/developer-dot blog, preview those additions and/or changes, and to finally submit them for review and/or publishing on the developer-dot site:
+This was intended to be a brief overview of the steps taken to set up a local environment in which anyone can add or change posts to the Avalara/developer-dot blog, preview those additions and/or changes, and to finally submit them for review and/or publishing on the developer-dot site.

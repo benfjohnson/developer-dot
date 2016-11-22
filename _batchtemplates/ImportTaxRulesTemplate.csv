@@ -1,0 +1,1 @@
+TaxRuleId,ProcessCode,TaxRuleTypeId,TaxRuleSubtypeId,Country,Region,JurisTypeId,JurisCode,JurisName,IsAllJuris,TaxCode,EntityUseCode,TaxTypeId,RateTypeId,Value,Threshold,Cap,Options,IsPro,EffDate,EndDate,Description
