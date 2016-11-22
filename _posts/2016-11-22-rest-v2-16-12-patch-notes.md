@@ -35,18 +35,19 @@ This article is about the December 2016 monthly update to the AvaTax REST v2 API
 
 <h3>POST /api/v2/transactions/create</h3>
 
-The `sourcing` field on TransactionLineModel was being returned as an integer instead of an enum in 2.16.11 due to a bug in JSON rendering.  Since most JSON libraries will parse string/enum objects, our test cases were reporting that the object was successfully parsed even though the data for it was being returned as an integer.
+The `sourcing` field on TransactionLineModel was being returned as an integer instead of an enum in 2.16.11 due to a bug in JSON rendering.  Since our JSON library successfully parsed this int as an enum, our test cases were reporting that the object was successfully parsed even though the data for it was being returned as an integer.
 
 In 2.16.12, this value is now being returned as a string/enum as intended.  If your application expected this value to be returned as an integer, you may need to update your code.
 
 An example of the incorrect result and updated result is shown here:
 
+`Incorrect result from 2.16.11`
+
 ```json
-// Incorrect result from 2.16.11
 {
   "lines": [
     {
-      "sourcing": 42, // 
+      "sourcing": 42,
       "details": [
         {
           "sourcing": "Destination",
@@ -55,8 +56,11 @@ An example of the incorrect result and updated result is shown here:
     }
   ]
 }
+```
 
-// Corrected result from 2.16.12
+`Corrected result from 2.16.12`
+
+```json
 {
   "lines": [
     {
