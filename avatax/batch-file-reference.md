@@ -21,15 +21,15 @@ To learn how to use batch files, visit this page: <a href="http://developer.aval
 </ul>
 
 
-<h3>Batch File Types</h3>
+<h3>These are the REST v2 supported Batch File Types</h3>
 <i> Download CSV Batch Templates Here (Many of these are also available in the Admin Console):</i>
 <ul class="normal">
-    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/newBatchBranch/_batchtemplates/ImportItemsTemplate.csv" download>ItemImport</a> - refers to a batch type used for uploading multiple items and their respective tax codes at once.</li>
-    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/newBatchBranch/_batchtemplates/ImportCompanyLocationsTemplate.csv" download>CompanyLocationImport</a> - refers to a batch type used to upload multiple company locations at once.</li>
-    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/newBatchBranch/_batchtemplates/ImportExemptionCertificatesTemplate.csv" download>ExemptCertImport</a> - refers to a batch type used to upload all relevant data for multiple exemption certificates at once.</li>
-    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/newBatchBranch/_batchtemplates/ImportTaxRulesTemplate.csv" download>TaxRuleImport</a> - refers to a batch type used to upload all relevant information for multiple tax rules at once.</li>
+    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/master/_batchtemplates/ImportItemsTemplate.csv" download>ItemImport</a> - refers to a batch type used for uploading multiple items and their respective tax codes at once.</li>
+    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/master/_batchtemplates/ImportCompanyLocationsTemplate.csv" download>CompanyLocationImport</a> - refers to a batch type used to upload multiple company locations at once.</li>
+    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/master/_batchtemplates/ImportExemptionCertificatesTemplate.csv" download>ExemptCertImport</a> - refers to a batch type used to upload all relevant data for multiple exemption certificates at once.</li>
+    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/master/_batchtemplates/ImportTaxRulesTemplate.csv" download>TaxRuleImport</a> - refers to a batch type used to upload all relevant information for multiple tax rules at once.</li>
     <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/master/_batchtemplates/ImportTransactionsTemplate.csv" download>TransactionImport</a> - refers to a batch type used for uploading multiple transaction lines at once.</li>
-    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/newBatchBranch/_batchtemplates/ImportBulkUPCTemplate.csv" download>UPCBulkImport</a> - refers to a batch type used for uploading multiple UPC codes and their respective tax codes at once.</li>
+    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/master/_batchtemplates/ImportBulkUPCTemplate.csv" download>UPCBulkImport</a> - refers to a batch type used for uploading multiple UPC codes and their respective tax codes at once.</li>
 </ul>
 
 <h3>Sample File</h3>
