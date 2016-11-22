@@ -60,11 +60,6 @@ title: AvaTax REST v2 Error Codes
 			<td>One of the strings you uploaded to the server is too long and cannot be saved.</td>
 		</tr>		
         <tr>
-			<td>14</td>
-			<td><a href="StringValueRequiredError">StringValueRequiredError</a></td>
-			<td>One of the fields designated in your object model was null, but a string value is required.</td>
-		</tr>		
-        <tr>
 			<td>15</td>
 			<td><a href="EmailValidationError">EmailValidationError</a></td>
 			<td>You attempted to provide an email address that does not conform to email address standards.</td>
@@ -173,6 +168,41 @@ title: AvaTax REST v2 Error Codes
 			<td>40</td>
 			<td><a href="VisibilityError">VisibilityError</a></td>
 			<td>You attempted to request an object from AvaTax that you are not permitted to see.</td>
+		</tr>		
+        <tr>
+			<td>41</td>
+			<td><a href="BearerTokenNotSupported">BearerTokenNotSupported</a></td>
+			<td>Bearer Token authentication is not yet supported with this API.</td>
+		</tr>		
+        <tr>
+			<td>42</td>
+			<td><a href="InvalidSecurityRole">InvalidSecurityRole</a></td>
+			<td>You do not have permission to create or update users with this security role.</td>
+		</tr>		
+        <tr>
+			<td>43</td>
+			<td><a href="InvalidRegistrarAction">InvalidRegistrarAction</a></td>
+			<td>The action you attempted is restricted.</td>
+		</tr>		
+        <tr>
+			<td>44</td>
+			<td><a href="RemoteServerError">RemoteServerError</a></td>
+			<td>A remote server AvaTax depends on is not working.</td>
+		</tr>		
+        <tr>
+			<td>45</td>
+			<td><a href="NoFilterCriteriaException">NoFilterCriteriaException</a></td>
+			<td>You provided a filter with your query, but did not specify any criteria.</td>
+		</tr>		
+        <tr>
+			<td>46</td>
+			<td><a href="OpenClauseException">OpenClauseException</a></td>
+			<td>Your $filter value has a mismatched open parenthesis / close parenthesis.</td>
+		</tr>		
+        <tr>
+			<td>47</td>
+			<td><a href="JsonFormatError">JsonFormatError</a></td>
+			<td>The JSON you sent with your request was invalid.</td>
 		</tr>		
         <tr>
 			<td>50</td>

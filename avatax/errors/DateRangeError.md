@@ -12,21 +12,23 @@ This error occurs when you create an object whose end date is before its effecti
 
 ## Example
 
+```json
+{
+  "code": "DateRangeError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "DateRangeError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "DateRangeError",
-          "number": 80,
-          "message": "An invalid date range was provided.",
-          "description": "The effective date, -0-, is later than the end date, -1-.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/DateRangeError",
-          "severity": "Error"
-        }
-      ]
+      "number": 80,
+      "message": "Invalid date range.",
+      "description": "The effective date, -0-, is later than the end date, -1-.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/DateRangeError",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 
@@ -35,6 +37,9 @@ The "Effective Date" and "End Date" behavior exists to help you identify the dat
 This problem occurs when you put an End Date that is earlier than the Effective Date.
 
 Common troubleshooting:
-* Did you accidentally switch the two dates?
-* If you do not expect an object to expire, set its end date to null.  AvaTax will treat this as an object that does not expire.
-* If you do not know exactly when an object became effective, set its effective date to null.
+
+<ul class="normal">
+<li>Did you accidentally switch the two dates?</li>
+<li>If you do not expect an object to expire, set its end date to null.  AvaTax will treat this as an object that does not expire.</li>
+<li>If you do not know exactly when an object became effective, set its effective date to null.</li>
+</ul>

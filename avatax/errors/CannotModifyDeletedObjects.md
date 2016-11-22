@@ -12,20 +12,23 @@ If an object has been deleted, you may not modify it further after its deletion.
 
 ## Example
 
+```json
+{
+  "code": "CannotModifyDeletedObjects",
+  "target": "Unknown",
+  "details": [
     {
       "code": "CannotModifyDeletedObjects",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "CannotModifyDeletedObjects",
-          "number": 121,
-          "message": "You cannot modify an object to set its inactive / deleted flag.  To delete an object, call DELETE.",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/CannotModifyDeletedObjects",
-          "severity": "Error"
-        }
-      ]
+      "number": 121,
+      "message": "Object cannot be modified.",
+      "description": "You cannot modify an object with an inactive / deleted flag.",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/CannotModifyDeletedObjects",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

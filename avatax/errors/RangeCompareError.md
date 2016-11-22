@@ -12,21 +12,23 @@ You specified an out-of-bounds field value.
 
 ## Example
 
+```json
+{
+  "code": "RangeCompareError",
+  "target": "Unknown",
+  "details": [
     {
       "code": "RangeCompareError",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "RangeCompareError",
-          "number": 7,
-          "message": "-1- is expected to be -2- -3-.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/RangeCompareError",
-          "severity": "Error"
-        }
-      ]
+      "number": 7,
+      "message": "-1- is expected to be -2- -3-.",
+      "description": "-0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/RangeCompareError",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 
