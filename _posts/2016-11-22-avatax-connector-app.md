@@ -44,7 +44,8 @@ We can get the license key on the [Avalara Admin Console
 website](https://admin-avatax.avalara.net/login.aspx?ReturnUrl=%2f) as
 seen in this screenshot:
 
-<img src="https://github.com/JoeSava/developer-dot/blob/avaconnector/_blogpostimages/ResetLisenceKey.tif" width="102" height="88" alt="Reset Lisence Key" />
+<img src="developer-dot/_blogpostimages/ResetLisenceKey.tif" width="102" height="88" alt="Reset Lisence Key" />
+
 
 We will also need Account Number, which is located on top right corner
 of the application:
