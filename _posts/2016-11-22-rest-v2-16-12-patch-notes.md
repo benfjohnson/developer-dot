@@ -35,9 +35,7 @@ This article is about the December 2016 monthly update to the AvaTax REST v2 API
 
 <h3>POST /api/v2/transactions/create</h3>
 
-The `sourcing` field on TransactionLineModel was being returned as an integer instead of an enum in 2.16.11 due to a bug in JSON rendering.  Since our JSON library successfully parsed this int as an enum, our test cases were reporting that the object was successfully parsed even though the data for it was being returned as an integer.
-
-In 2.16.12, this value is now being returned as a string/enum as intended.  If your application expected this value to be returned as an integer, you may need to update your code.
+The `sourcing` field on TransactionLineModel had a mismatch between its documentation and its return value.  In release 2.16.11, the field was documented as a string, but its value was being returned as an integer.  Many libraries would still successfully parse this value although there was a discrepancy in the data formats.  In release 2.16.12, this value is now being returned as a string, matching its documentation.  If your application expected this value to be returned as an integer, you may need to update your code.
 
 An example of the incorrect result and updated result is shown here:
 
@@ -50,7 +48,7 @@ An example of the incorrect result and updated result is shown here:
       "sourcing": 42,
       "details": [
         {
-          "sourcing": "Destination",
+          "sourcing": "Destination"
         }
       ]
     }
@@ -67,7 +65,7 @@ An example of the incorrect result and updated result is shown here:
       "sourcing": "Destination", 
       "details": [
         {
-          "sourcing": "Destination",
+          "sourcing": "Destination"
         }
       ]
     }
@@ -78,6 +76,8 @@ An example of the incorrect result and updated result is shown here:
 <h3>New Point Of Sale Data API</h3>
 
 Avalara now provides a data file API for customers with offline point-of-sale systems.  This new API is available to calculate current tax rates for each physical location within the company, in CSV, JSON, and XML file formats.
+
+More information on the Point-Of-Sale data API is available on <a href="http://developer.avalara.com/blog/2016/11/28/point-of-sale-data-api/">the Developer Blog</a>.
 
 <h3>API Documentation Updates</h3>
 
