@@ -12,3 +12,5 @@ imgsrc: /public/images/blog/DevDot_ResetLisenceKey.tif
 ---
 
 <img src="/public/images/blog/DevDot_ResetLisenceKey.tif" alt="Admin Console View" width="500" height="489" />
+
+![Admin View](https://github.com/JoeSava/developer-dot/blob/avaconnector/public/images/blog/DevDot_ResetLisenceKey.tif "Admin View")
