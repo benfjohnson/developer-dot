@@ -13,7 +13,7 @@ disqus: 1
 
 <p>One of the most common questions we get from our point-of-sale customers is about the need to operate in a disconnected environment, while maintaining the same level of accuracy of a connected environment. Many businesses can face periods of intermittent internet connectivity, preventing live calls to our tax engine. Some businesses wish to operate entirely disconnected. In either scenario, businesses require the means to calculate tax locally.</p>
 
-<p>Today, we'll walk through the process of generating a tax content file that can be consumed by a Merchant's point-of-sale (POS) application, supporting its native tax functionality. The data in the API response, at a minimum, will contain tax jurisdiction, tax rate and product/service taxability information for each Tax Code and brick & mortar store location configured in your AvaTax account.</p>
+<p>Today, we'll walk through the process of generating a tax content file that can be consumed by a merchant's point-of-sale (POS) application, supporting its native tax functionality. The data in the API response, at a minimum, will contain tax jurisdiction, tax rate and product/service taxability information for each Tax Code and brick & mortar store Location configured in your AvaTax account.</p>
 
 <h3>The Point-of-Sale Tax Content File</h3>
 
@@ -48,7 +48,7 @@ disqus: 1
 	<tr>
 		<td>TaxCode</td>
 		<td>Avalara System Tax Code or Custom Tax Code</td>
-		<td>PG081610</td>
+		<td>P0000000</td>
 	</tr>
 	<tr>
 		<td>ShipToCity</td>
@@ -77,7 +77,7 @@ disqus: 1
 	</tr>
 	<tr>
 		<td>JurisType</td>
-		<td>The jurisdiction type. There are five supported values - Country, State, County, City, Special Tax Jurisdiction</td>
+		<td>The jurisdiction type. There are five supported values - Country, State, County, City, Special</td>
 		<td>State</td>
 	</tr>
 	<tr>
@@ -88,7 +88,7 @@ disqus: 1
 	<tr>
 		<td>JurisName</td>
 		<td>The name of the jurisdiction that corresponds to this tax record</td>
-		<td>North Carolina, Durham</td>
+		<td>North Carolina</td>
 	</tr>
 	<tr>
 		<td>TaxType</td>
@@ -112,24 +112,24 @@ disqus: 1
 	</tr>
 	<tr>
 		<td>Threshold</td>
-		<td>Applies a threshold to the taxable amount. Amounts up to an including the threshold are non-taxable. Amounts over the threshold are taxable. The tax rate applies to the taxable amount.</td>
+		<td>Applies a threshold to the taxable amount. Amounts up to and including the threshold are non-taxable. Amounts over the threshold are taxable. The tax rate applies to the taxable amount.</td>
 		<td>100</td>
 	</tr>
 	<tr>
 		<td>TaxRuleOptions</td>
-		<td>Applies a special tax scenario rule to the transaction. There is only one supported value at this time: Tax All - with a a threshold, this rule taxes entire amount once the total is over the threshold</td>
+		<td>Applies a special tax scenario rule to the transaction. There is only one supported value at this time: Tax All. With a threshold, this rule taxes the entire amount once the total is over the threshold</td>
 		<td>TaxAll</td>
 	</tr>
 	<tr>
 		<td>Tax_Application_Level</td>
-		<td>This field is not used at this time, but will be leveraged for tax-on-tax scenarios. This field will define the order in which taxes are applied in a tax-on-tax scenario and the tax base for each individual tax</td>
+		<td>This field is not used at this time, but will be leveraged for tax-on-tax scenarios in the future. This field will define the order in which taxes are applied in a tax-on-tax scenario and the tax base for each individual tax</td>
 		<td>N/A</td>
 	</tr>
 </table>
 
 <h3>Getting Started</h3>
 
-<p>Before we start building our JSON request, you'll want to ensure you have Locations and Items configured within your AvaTax account. Avalara's Help Center is a great resource for learning how to <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Locations/Add__or_Import_Company_Locations">Add or Import Company Locations</a> and <a href= "https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/020_Add_Items">Add or Import Items</a> .You can also take advantage of our suite of REST v2 endpoints for configuring your AvaTax account with Locations and Items. <i>Please note that the Tax Content API uses the Tax Codes assigned to your Items to generate a response.</i></p>
+<p>Before we start building our JSON request, you'll want to ensure you have Locations and Items configured within your AvaTax account. Avalara's Help Center is a great resource for learning how to <a href="https://help.avalara.com/000_Avalara_AvaTax/Manage_Locations/Add__or_Import_Company_Locations">Add or Import Company Locations</a> and <a href= "https://help.avalara.com/000_Avalara_AvaTax/Manage_Product_Taxability/020_Add_Items">Add or Import Items</a> .You can also take advantage of our suite of REST v2 endpoints for configuring your AvaTax account with Locations and Items. <i>Please note that the Point-of-Sale data API uses the Tax Codes assigned to your Items to generate a response.</i></p>
 
 <h3>Building our JSON Request</h3>
 
@@ -143,7 +143,7 @@ disqus: 1
 }
 ```
 
-<p>Wow! Only one field! In this JSON request, we only defined a CompanyCode. This means our resonse will include tax content for all of the Locations and Tax Codes configured in your AvaTax account and will be formatted as a standard JSON response, like this result:</p>
+<p>Wow! Only one field! In this JSON request, we only defined a CompanyCode. This means our response will include tax content for all of the Locations and Tax Codes configured in your AvaTax account and will be formatted as a standard JSON response, like this result:</p>
 
 ```json
 [
@@ -173,7 +173,7 @@ disqus: 1
 
 ```
 
-<p>But what if you only wanted to include a couple of Locations or Tax Codes? Or maybe you want to postdate the content included in the response. We can handle these request with a few additional parameters.</p>
+<p>But what if you only want to include a couple of Locations or Tax Codes? Or maybe you want to postdate the content included in the response. We can handle these requests with a few additional parameters.</p>
 
 `POST /api/v2/pointofsaledata/build`
 
@@ -199,7 +199,7 @@ disqus: 1
 
 `GET /api/v2/companies/12345/locations/56789/pointofsaledata`
 
-<p>In this JSON request, we added DocumentDate, TaxCode, LocationCode, and ResponseType parameters. The DocumentDate parameter determines the data associated with the content. When the DocumentDate is not specified, the current date is used. The TaxCode and LocationCode parameters limit the response to the specified Locations and TaxCodes. The response type parameter will determine how the response will be formatted. Since we specified "CSV", our response will be formatted as a Comma Separated Value file.</p>
+<p>In this JSON request, we added DocumentDate, TaxCode, LocationCode, and ResponseType parameters. The DocumentDate parameter determines the date associated with the tax content. When the DocumentDate is not specified, the current date is used. The TaxCode and LocationCode parameters limit the response to the specified Locations and TaxCodes. The ResponseType parameter will determine how the response will be formatted. Since we specified "CSV", our response will be formatted as a Comma Separated Value file.</p>
 
 ```
 ScenarioId,EffDate,EndDate,LocationCode,TaxCode,ShipToCity,ShipToCounty,ShipToState,ShipToPostalCode,ShipToCountry,JurisType,JurisCode,JurisName,TaxType,Tax_Description,Tax_Rate,Cap,Threshold,TaxRuleOptions,TaxApplicationLevel
@@ -258,6 +258,6 @@ ScenarioId,EffDate,EndDate,LocationCode,TaxCode,ShipToCity,ShipToCounty,ShipToSt
 </xmp>
 ```
 
-<p>We've now reviewed all of the available parameters for the Point-of-Sale data API. It's important to remember that each call made to the Point-of-Sale data API will only provide you with tax content relevant to th day you made your request or the date stated in your request. If you will be using the response data from this API to calculate tax regularly, you will need to schedule daily calls to this API to ensure you always have the most up-to-date tax rules and rates.</p> 
+<p>We've now reviewed all of the available parameters for the Point-of-Sale data API. It's important to remember that each call made to the Point-of-Sale data API will only provide you with tax content relevant to the day you made your request or the date stated in your request. If you will be using the response data from this API to calculate tax in a disconnected environment regularly, you will need to schedule daily calls to this API to ensure you always have the most up-to-date tax rules and rates.</p> 
 
--- Kevin Hess, Business Product Manager
+-- Kevin Hess, Business Program Manager
