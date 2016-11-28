@@ -68,7 +68,9 @@ CertCapture will look at ALL the data provided for country and see if it can fin
 
 To remove an existing data relationship, simply pass that relationship with null
 `PUT URL: /v2/exposure-zones/1`
+
 **DATA:**
+
 ```Json
 {
     "country":null
@@ -202,6 +204,7 @@ Filtering can be done on multiple values by using the "in" operator and splittin
 `
 `?filter=[["exposure_zone.name","in","Washington,Arizona"]]
 `
+
 `NOTE:` Ids and numeric values need to be encapsulated in a string, `["id","in","1,2,3,4,5"]` not `["id","in",1,2,3,4,5]`
 
 #### URL Encoding
