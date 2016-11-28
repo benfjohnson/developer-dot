@@ -13,7 +13,9 @@ disqus: 1
 
 <p>One of the most common questions we get from our point-of-sale customers is about the need to operate in a disconnected environment, while maintaining the same level of accuracy of a connected environment. Many businesses can face periods of intermittent internet connectivity, preventing live calls to our tax engine. Some businesses wish to operate entirely disconnected. In either scenario, businesses require the means to calculate tax locally.</p>
 
-<p>Today, we'll walk through the process of generating a tax content file that can be consumed by a merchant's point-of-sale (POS) application, supporting its native tax functionality. The data in the API response, at a minimum, will contain tax jurisdiction, tax rate and product/service taxability information for each Tax Code and brick & mortar store Location configured in your AvaTax account.</p>
+<p>Today, we'll walk through a new API launching in the <a href="http://developer.avalara.com/blog/2016/11/22/rest-v2-16-12-patch-notes/">AvaTax 2.16.12 release</a> - an API that generates a tax content file that can be consumed by a merchant's point-of-sale (POS) application, supporting its native tax functionality. The data in the API response, at a minimum, will contain tax jurisdiction, tax rate and product/service taxability information for each Tax Code and brick & mortar store Location configured in your AvaTax account.</p>
+
+<p>
 
 <h3>The Point-of-Sale Tax Content File</h3>
 
