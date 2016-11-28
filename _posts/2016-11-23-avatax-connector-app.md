@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Avatax Connector App
-date: 2016-11-22 11:00
+date: 2016-11-23 11:00
 author: Anagha Sulakhe
 comments: true
 categories: [Sales Tax APIs]
@@ -12,13 +12,7 @@ disqus: 1
 
 # Using The REST API To Build a Connector
 
-Avalara’s new [REST API
-v2 ](https://sandbox-rest.avatax.com/swagger/ui/index.html)now offers a
-wide variety of functionality for integrating ERP systems with AvaTax.
-In the new REST API, you can now add companies, estimate tax on the fly,
-validate address, and more! For today’s article, we will focus on
-building a web application to showcase how to use the new REST API to
-build a connector.
+Avalara’s new [REST API v2 ](https://sandbox-rest.avatax.com/swagger/ui/index.html)now offers a wide variety of functionality for integrating ERP systems with AvaTax. In the new REST API, you can now add companies, estimate tax on the fly, validate address, and more! For today’s article, we will focus on building a web application to showcase how to use the new REST API to build a connector.
 
 ## Core Functionality
 
@@ -38,25 +32,19 @@ API calls. 
 ## Basic Authentication
 
 To get started, let’s
-[authenticate ](http://developer.avalara.com/avatax/authentication-in-rest/)
-against the API. We will need an account ID and license key from AvaTax.
-We can get the license key on the [Avalara Admin Console
-website](https://admin-avatax.avalara.net/login.aspx?ReturnUrl=%2f) as
-seen in this screenshot:
+[authenticate ](http://developer.avalara.com/avatax/authentication-in-rest/) against the API. We will need an account ID and license key from AvaTax. We can get the license key on the [Avalara Admin Console website](https://admin-avatax.avalara.net/login.aspx?ReturnUrl=%2f) as seen in this screenshot:
 
-![Reset-Lisence-Key](https://github.com/JoeSava/developer-dot/blob/avaconnector/_blogpostimages/ResetLisenceKey.tif){:class="img-responsive"}
-
-<img src="https://github.com/JoeSava/developer-dot/blob/avaconnector/_blogpostimages/ResetLisenceKey.tif" width="102" height="88" alt="Reset Lisence Key" />
+`<Reset Lisence Key image goes Here>`
 
 We will also need Account Number, which is located on top right corner
 of the application:
 
-![](media/image2.tiff){width="2.1944444444444446in" height="1.5in"}
+`<account number image goes here>`
 
 We will put our account ID and license key in a configuration file and
 retrieve them using C\#’s ConfigurationManager class:
 
-#### Basic Authentication C\# Collapse source
+#### Basic Authentication `C#`
 
 ```c#
   1   private static HttpBasicAuthenticator GetAuthentication()
@@ -81,7 +69,7 @@ Now that we have the ability to get our authentication from the
 configuration file, let’s write some very small helper functions to
 perform GET and POST API calls using this authentication.
 
-#### RestSharp Get call Collapse source
+#### RestSharp Get call
 
   ```c#
   1    public static string Get(string urlSegment)
@@ -105,7 +93,7 @@ perform GET and POST API calls using this authentication.
   10          }
 ```
 
-#### RestSharp Post call Collapse source
+#### RestSharp Post call
 
 ```c#
   1    public static string Post(string postData, string urlSegment)
@@ -152,7 +140,7 @@ mistake in the address can easily result in incorrect tax calculation.
 I’ve written this function using a ‘ref’ parameter so that I can simply
 call it and it will fix up my address for me.
 
-#### Address Validation Post Collapse source
+#### Address Validation Post
 
 ```c#
   1     /// &lt;summary&gt;
@@ -210,7 +198,7 @@ Using the same credentials now we can send tax calculation parameters.
 I've created a class, called InvoiceModel, to replicate the object I'd
 like to post. Here’s what it looks like:
 
-#### InvoiceModel Collapse source
+#### InvoiceModel
 ```c#
   1    public class InvoiceModel
 
@@ -263,7 +251,7 @@ like to post. Here’s what it looks like:
   25    }
 ```
 
-#### AddressModel Collapse source
+#### AddressModel 
 
 ```c#
   1    public class Addresses
@@ -345,7 +333,7 @@ like to post. Here’s what it looks like:
   39   }
 ```
 
-#### ItemsModel Collapse source
+#### ItemsModel
 
   ```c#
   1    public class Items
@@ -375,7 +363,7 @@ like to post. Here’s what it looks like:
 
 Now that we have defined our models, all that remains is to fill-in the data and post the query to AvaTax. For my project today, I will limit my tax calculations to one line item per invoice; but you can easily change this by adding values to the array.
 
-#### InvoiceController Collapse source
+#### InvoiceController
 ```c#
   1    public ActionResult Index(string txtShipFrom, string txtShipTo, InvoiceModel i)
 
