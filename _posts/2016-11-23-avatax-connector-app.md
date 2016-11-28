@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Avatax Connector App
-date: 2016-11-23 11:00
+date: 2016-11-22 11:00
 author: Anagha Sulakhe
 comments: true
 categories: [Sales Tax APIs]
@@ -12,7 +12,13 @@ disqus: 1
 
 # Using The REST API To Build a Connector
 
-Avalara’s new [REST API v2 ](https://sandbox-rest.avatax.com/swagger/ui/index.html)now offers a wide variety of functionality for integrating ERP systems with AvaTax. In the new REST API, you can now add companies, estimate tax on the fly, validate address, and more! For today’s article, we will focus on building a web application to showcase how to use the new REST API to build a connector.
+Avalara’s new [REST API
+v2 ](https://sandbox-rest.avatax.com/swagger/ui/index.html)now offers a
+wide variety of functionality for integrating ERP systems with AvaTax.
+In the new REST API, you can now add companies, estimate tax on the fly,
+validate address, and more! For today’s article, we will focus on
+building a web application to showcase how to use the new REST API to
+build a connector.
 
 ## Core Functionality
 
@@ -32,16 +38,20 @@ API calls. 
 ## Basic Authentication
 
 To get started, let’s
-[authenticate ](http://developer.avalara.com/avatax/authentication-in-rest/) against the API. We will need an account ID and license key from AvaTax. We can get the license key on the [Avalara Admin Console website](https://admin-avatax.avalara.net/login.aspx?ReturnUrl=%2f) as seen in this screenshot:
+[authenticate ](http://developer.avalara.com/avatax/authentication-in-rest/)
+against the API. We will need an account ID and license key from AvaTax.
+We can get the license key on the [Avalara Admin Console
+website](https://admin-avatax.avalara.net/login.aspx?ReturnUrl=%2f) as
+seen in this screenshot:
 
-![Admin Console View](developer-dot/_blogpostimages/ResetLisenceKey.tif)
-`<p>
-<img src="/public/images/blog/Picture1.png" width="997" height="535" alt="internal latency chat"> == $0
-</p>`
+![Reset-Lisence-Key](https://github.com/JoeSava/developer-dot/blob/avaconnector/_blogpostimages/ResetLisenceKey.tif){:class="img-responsive"}
+
+<img src="https://github.com/JoeSava/developer-dot/blob/avaconnector/_blogpostimages/ResetLisenceKey.tif" width="102" height="88" alt="Reset Lisence Key" />
+
 We will also need Account Number, which is located on top right corner
 of the application:
 
-![Image description](/images/my-image.jpg)
+![](media/image2.tiff){width="2.1944444444444446in" height="1.5in"}
 
 We will put our account ID and license key in a configuration file and
 retrieve them using C\#’s ConfigurationManager class:
