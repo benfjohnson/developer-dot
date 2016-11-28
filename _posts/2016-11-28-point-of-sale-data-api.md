@@ -205,10 +205,12 @@ disqus: 1
 <p>In this JSON request, we added DocumentDate, TaxCode, LocationCode, and ResponseType parameters. The DocumentDate parameter determines the date associated with the tax content. When the DocumentDate is not specified, the current date is used. The TaxCode and LocationCode parameters limit the response to the specified Locations and TaxCodes. The ResponseType parameter will determine how the response will be formatted. Since we specified "CSV", our response will be formatted as a Comma Separated Value file.</p>
 
 
-`ScenarioId,EffDate,EndDate,LocationCode,TaxCode,ShipToCity,ShipToCounty,ShipToState,ShipToPostalCode,ShipToCountry,JurisType,JurisCode,JurisName,TaxType,Tax_Description,Tax_Rate,Cap,Threshold,TaxRuleOptions,TaxApplicationLevel
+```
+ScenarioId,EffDate,EndDate,LocationCode,TaxCode,ShipToCity,ShipToCounty,ShipToState,ShipToPostalCode,ShipToCountry,JurisType,JurisCode,JurisName,TaxType,Tax_Description,Tax_Rate,Cap,Threshold,TaxRuleOptions,TaxApplicationLevel
 1,11/01/2014,12/31/9999,001,P0000000,Durham,,NC,27707-1764,US,State,37,NORTH CAROLINA,Sales,NC STATE TAX,0.047500,0.000000,0.000000,,
 1,05/01/2013,12/31/9999,001,P0000000,Durham,,NC,27707-1764,US,County,063,DURHAM,Sales,NC COUNTY TAX,0.022500,0.000000,0.000000,,
-1,05/01/2013,12/31/9999,001,P0000000,Durham,,NC,27707-1764,US,Special,99063,NC SPECIAL TAX DISTRICT (99063),Sales,NC SPECIAL TAX,0.005000,0.000000,0.000000,,`
+1,05/01/2013,12/31/9999,001,P0000000,Durham,,NC,27707-1764,US,Special,99063,NC SPECIAL TAX DISTRICT (99063),Sales,NC SPECIAL TAX,0.005000,0.000000,0.000000,,
+```
 
 
 
