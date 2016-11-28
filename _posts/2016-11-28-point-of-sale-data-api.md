@@ -173,7 +173,7 @@ disqus: 1
 
 ```
 
-<p>But what if you only wanted to include a couple of Locations or Tax Codes? Or maybe you want to postdate the content included in the response. We can handle these request with a few additional parameters.
+<p>But what if you only wanted to include a couple of Locations or Tax Codes? Or maybe you want to postdate the content included in the response. We can handle these request with a few additional parameters.</p>
 
 `POST /api/v2/pointofsaledata/build`
 
