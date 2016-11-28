@@ -135,13 +135,15 @@ disqus: 1
 
 <p>In order to retrieve this file, we'll need to build a JSON request:</p>
 
+`POST /api/v2/pointofsaledata/build`
+
 ```json
 {
 	"CompanyCode": "AVALARA"
 }
 ```
 
-<p>Wow! Only one field! In this JSON request, we only defined a CompanyCode. This means our resonse will include taX content for all of the Locations and Tax Codes configured in your AvaTax account and will be formatted as a standard JSON response</p>
+<p>Wow! Only one field! In this JSON request, we only defined a CompanyCode. This means our resonse will include tax content for all of the Locations and Tax Codes configured in your AvaTax account and will be formatted as a standard JSON response, like this result:</p>
 
 ```json
 [
@@ -173,6 +175,8 @@ disqus: 1
 
 <p>But what if you only wanted to include a couple of Locations or Tax Codes? Or maybe you want to postdate the content included in the response. We can handle these request with a few additional parameters.
 
+`POST /api/v2/pointofsaledata/build`
+
 ```json
 {
 	"CompanyCode": "AVALARA",
@@ -191,6 +195,10 @@ disqus: 1
 }
 ```
 
+<p>Or, even easier, you can request the data file for one location at a time using the <a href="https://sandbox-rest/swagger/ui/index.html#!/Locations/BuildPointOfSaleDataFile">individual location point-of-sale data API:</p>
+
+`GET /api/v2/companies/12345/locations/56789/pointofsaledata`
+
 <p>In this JSON request, we added DocumentDate, TaxCode, LocationCode, and ResponseType parameters. The DocumentDate parameter determines the data associated with the content. When the DocumentDate is not specified, the current date is used. The TaxCode and LocationCode parameters limit the response to the specified Locations and TaxCodes. The response type parameter will determine how the response will be formatted. Since we specified "CSV", our response will be formatted as a Comma Separated Value file.</p>
 
 ```
@@ -201,6 +209,8 @@ ScenarioId,EffDate,EndDate,LocationCode,TaxCode,ShipToCity,ShipToCounty,ShipToSt
 ```
 
 <p>Let's update the response type to "xml" to see what an XML-based response looks like</p>
+
+`POST /api/v2/pointofsaledata/build`
 
 ```json
 {
