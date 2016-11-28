@@ -35,7 +35,9 @@ To get started, let’s
 [authenticate ](http://developer.avalara.com/avatax/authentication-in-rest/) against the API. We will need an account ID and license key from AvaTax. We can get the license key on the [Avalara Admin Console website](https://admin-avatax.avalara.net/login.aspx?ReturnUrl=%2f) as seen in this screenshot:
 
 ![Admin Console View](developer-dot/_blogpostimages/ResetLisenceKey.tif)
-
+`<p>
+<img src="/public/images/blog/Picture1.png" width="997" height="535" alt="internal latency chat"> == $0
+</p>`
 We will also need Account Number, which is located on top right corner
 of the application:
 
