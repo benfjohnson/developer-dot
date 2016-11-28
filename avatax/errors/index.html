@@ -20,6 +20,16 @@ title: AvaTax REST v2 Error Codes
 			<td>Indicates that there is a server configuration problem with one of the servers in Avalara's AvaTax cluster.</td>
 		</tr>		
         <tr>
+			<td>2</td>
+			<td><a href="AccountInvalidException">AccountInvalidException</a></td>
+			<td>TBD</td>
+		</tr>		
+        <tr>
+			<td>3</td>
+			<td><a href="CompanyInvalidException">CompanyInvalidException</a></td>
+			<td>TBD</td>
+		</tr>		
+        <tr>
 			<td>4</td>
 			<td><a href="EntityNotFoundError">EntityNotFoundError</a></td>
 			<td>You attempted to act on, retrieve, update, or delete an object that does not exist.</td>
@@ -50,9 +60,14 @@ title: AvaTax REST v2 Error Codes
 			<td>Customers subscribing to Avalara Returns must identify each company by its United States Taxpayer ID Number (TIN).</td>
 		</tr>		
         <tr>
+			<td>11</td>
+			<td><a href="CommonPassword">CommonPassword</a></td>
+			<td>TBD</td>
+		</tr>		
+        <tr>
 			<td>12</td>
-			<td><a href="PasswordMinComplexityError">PasswordMinComplexityError</a></td>
-			<td>This password does not meet the complexity requirements set by AvaTax.</td>
+			<td><a href="WeakPassword">WeakPassword</a></td>
+			<td>TBD</td>
 		</tr>		
         <tr>
 			<td>13</td>
@@ -375,6 +390,16 @@ title: AvaTax REST v2 Error Codes
 			<td>You specified a tax code type that is not recognized by Avalara.</td>
 		</tr>		
         <tr>
+			<td>148</td>
+			<td><a href="CannotActivateCompany">CannotActivateCompany</a></td>
+			<td>TBD</td>
+		</tr>		
+        <tr>
+			<td>149</td>
+			<td><a href="DuplicateEntityProperty">DuplicateEntityProperty</a></td>
+			<td>TBD</td>
+		</tr>		
+        <tr>
 			<td>200</td>
 			<td><a href="BatchSalesAuditMustBeZippedError">BatchSalesAuditMustBeZippedError</a></td>
 			<td>Sales audit files must be uploaded in ZIP or RAR formats.</td>
@@ -388,6 +413,16 @@ title: AvaTax REST v2 Error Codes
 			<td>202</td>
 			<td><a href="BatchInvalidFileTypeError">BatchInvalidFileTypeError</a></td>
 			<td>You uploaded a batch file with an incorrect file type.</td>
+		</tr>		
+        <tr>
+			<td>250</td>
+			<td><a href="PointOfSaleFileSize">PointOfSaleFileSize</a></td>
+			<td>TBD</td>
+		</tr>		
+        <tr>
+			<td>251</td>
+			<td><a href="PointOfSaleSetup">PointOfSaleSetup</a></td>
+			<td>TBD</td>
 		</tr>		
         <tr>
 			<td>300</td>
