@@ -195,7 +195,7 @@ disqus: 1
 }
 ```
 
-<p>Or, even easier, you can request the data file for one location at a time using the <a href="https://sandbox-rest/swagger/ui/index.html#!/Locations/BuildPointOfSaleDataFile">individual location point-of-sale data API:</p>
+<p>Or, even easier, you can request the data file for one location at a time using the <a href="https://sandbox-rest/swagger/ui/index.html#!/Locations/BuildPointOfSaleDataFile">individual location point-of-sale data API</a>:</p>
 
 `GET /api/v2/companies/12345/locations/56789/pointofsaledata`
 
