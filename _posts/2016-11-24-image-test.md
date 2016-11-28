@@ -8,6 +8,7 @@ categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 disqus: 1
+imgsrc: /public/images/blog/DevDot_ResetLisenceKey.tif
 ---
 
-<img src="/public/images/blog/Devot_ResetLisenceKey.tif" alt="Admin Console View" width="500" height="489" />
+<img src="/public/images/blog/DevDot_ResetLisenceKey.tif" alt="Admin Console View" width="500" height="489" />
