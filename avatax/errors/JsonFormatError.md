@@ -38,7 +38,7 @@ AvaTax REST supports only JSON encoded data; no other data encoding formats are 
 
 The document you uploaded did not meet the JSON standards.  Some common troubleshooting steps:
 
-<ul class="name">
+<ul class="normal">
 	<li>Compare your JSON object to the example objects provided in the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html">online documentation</a></li>
 	<li>Check your data types - did you format a date or number incorrectly?</li>
 	<li>If you are writing your JSON by hand, consider instead using the built-in JSON serialization functions in your programming language.</li>
