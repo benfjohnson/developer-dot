@@ -411,7 +411,7 @@ public ActionResult Index(string txtShipFrom, string txtShipTo, InvoiceModel
       ViewBag.OrderOrigin = "2511 Laguna Blvd, Elk Grove, CA, US, 95758";
 
       ViewBag.OrderAcceptance = "100 Market Street, San Francisco, CA, US";
-    } 
+  } 
 ```
 
-Now that you’ve seen the key parts of my software, you can download the full library by visiting GitHub here: (LINK TBD).
+Now that you’ve seen the key parts of my software, you can download the full library by visiting [GitHub here]("/public/code/blog/avatax-connector-app").
