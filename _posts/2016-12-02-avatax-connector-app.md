@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Avatax Connector App
-date: 2016-11-30 11:00
+date: 2016-12-02 11:00
 author: Anagha Sulakhe
 comments: true
 categories: [Sales Tax APIs]
@@ -414,4 +414,4 @@ public ActionResult Index(string txtShipFrom, string txtShipTo, InvoiceModel
   } 
 ```
 
-Now that you’ve seen the key parts of my software, you can download the full library by visiting [GitHub here](https://github.com/Avalara/developer-dot/tree/master/public/code/blog/avatax-connector-app).
+Now that you’ve seen the key parts of my software, you can download the full library by visiting [GitHub here](https://github.com/JoeSava/developer-dot/tree/master/public/code/blog/avatax-connector-app).
