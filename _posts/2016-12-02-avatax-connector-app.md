@@ -414,4 +414,4 @@ public ActionResult Index(string txtShipFrom, string txtShipTo, InvoiceModel
   } 
 ```
 
-Now that you’ve seen the key parts of my software, you can download the full library by visiting [GitHub here](https://github.com/JoeSava/developer-dot/tree/master/public/code/blog/avatax-connector-app).
+Now that you’ve seen the key parts of my software, you can download the full library by visiting [GitHub here](https://github.com/Avalara/developer-dot/tree/master/public/code/blog/avatax-connector-app).
