@@ -68,7 +68,7 @@ These versions or higher should suffice for now, if not, you can visit the sites
 Now that these are all in place, the following command will download Jekyll using the RubyGems package manager:
 
 ```
-$ gem jekyll install bundler
+$ gem install jekyll bundler
 ```
 This should install all of Jekyll's gem dependencies. At the time I ran this command it fetched and installed 18 gems, as well installing the sought after `jekyll-3.3.0`.
 
