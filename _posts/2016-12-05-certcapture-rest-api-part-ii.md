@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CertCapture REST API Part II
-date: 2016-12-05 2:00
+date: 2016-12-05 14:00
 author: Bob Maidens
 comments: true
 categories: [Sales Tax APIs]
