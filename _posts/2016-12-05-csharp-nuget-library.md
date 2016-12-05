@@ -17,19 +17,19 @@ For today's article, I'll walk you through the process of adding AvaTax to your 
 
 <h3>Create a New Project</h3>
 
-To begin, let's create a fresh new program.  I happen to be partial to Microsoft's C# language since I'm an old Turbo Pascal guy from way back, so I'll begin by creating a C# console application.  In Visual Studio, I begin by selecting *New Project* and then select *Console Application*, and click *OK*.
+To begin, let's create a fresh new program.  I happen to be partial to Microsoft's C# language since I'm an old Turbo Pascal guy from way back, so I'll begin by creating a C# console application.  In Visual Studio, I begin by selecting <code class="highlight-rouge">New Project</code> and then select <code class="highlight-rouge">Console Application</code>, and click <code class="highlight-rouge">OK</code>.
 
 <img src="/public/images/blog/nuget-create-new-project.png" alt="Create New Project in Visual Studio" width="477" height="330" />
 
-Now that Visual Studio has created a blank project, our next step is to add a reference to AvaTax using the NuGet package manager.  Use the *Tools* menu, and select *NuGet Package Manager* and the option *Manage Packages for Solution*.  The NuGet package manager provides a wide variety of open source code libraries you can use - and AvaTax is now available among them!  Just type `AvaTax` into the search box and hit the enter key; you'll see the library right away:
+Now that Visual Studio has created a blank project, our next step is to add a reference to AvaTax using the NuGet package manager.  Use the <code class="highlight-rouge">Tools</code> menu, and select <code class="highlight-rouge">NuGet Package Manager</code> and the option <code class="highlight-rouge">Manage Packages for Solution</code>.  The NuGet package manager provides a wide variety of open source code libraries you can use - and AvaTax is now available among them!  Just type `AvaTax` into the search box and hit the enter key; you'll see the library right away:
 
 <img src="/public/images/blog/nuget-avatax-client-library.png" alt="AvaTax in NuGet Package Manager" width="512" height="170" />
 
-To add this library to your project, click on the library on the left hand side, then select the checkbox next to your project on the right hand side and click *Install*.
+To add this library to your project, click on the library on the left hand side, then select the checkbox next to your project on the right hand side and click <code class="highlight-rouge">Install</code>.
 
 <img src="/public/images/blog/nuget-add-library.png" alt="Adding AvaTax to your project" width="553" height="384" />
 
-When you click *Install*, NuGet will begin to download this client library and its dependencies.  You'll get a popup indicating what other libraries it has to download in order to parse JSON-formatted data, and it will provide information about the licenses for those libraries.  Since AvaTax uses the Newtonsoft JSON library, you will see a few licenses pop up on your screen.  AvaTax and the AvaTax client library are published using the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 license</a>, which should make this code usable for most commercial and open source projects.  
+When you click <code class="highlight-rouge">Install</code>, NuGet will begin to download this client library and its dependencies.  You'll get a popup indicating what other libraries it has to download in order to parse JSON-formatted data, and it will provide information about the licenses for those libraries.  Since AvaTax uses the Newtonsoft JSON library, you will see a few licenses pop up on your screen.  AvaTax and the AvaTax client library are published using the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 license</a>, which should make this code usable for most commercial and open source projects.  
 
 Now that you've successfully linked to the AvaTax client library, you can begin writing code.  The first step is to add `using Avalara.AvaTax.RestClient;` to the top of your program to tell it that you want to begin using AvaTax.  Next, you'll create a client like this:
 
@@ -57,10 +57,10 @@ namespace ConsoleApplication3
 Let's walk through what these parameters mean.
 
 <ul class="normal">
-    <li>*appName* ("MyApp") and *appVersion* ("1.0") is the name and version number of your program.  These values do not change the behavior of your code, but they help Avalara team members assist you with debugging and diagnosing problems.  This information can also be helpful when auditing your tax functionality later.  If you provide a useful, readable name and version number, this can help you discover when one of your programs is using an out-of-date client library.</li>
-    <li>*machineName* (Environment.MachineName) is also a debugging aid.  If you call Avalara support, and ask for help understanding why a tax transaction has unexpected behavior, Avalara team members can help to identify your API calls and provide better support and guidance.</li>
-    <li>*environment* (AvaTaxEnvironment.Sandbox) is the name of the AvaTax server you wish to contact.  You can select between AvaTax Sandbox and Production services; Avalara will automatically contact the correct server based on the value you provide here.</li>
-    <li>The function *WithSecurity* allows you to set up your credentials.  You can authenticate using any supported method - Username / Password, AccountId / LicenseKey, and even Bearer Token.  Since Bearer Token is currently available for custom integrations only, for today's example, I will demonstrate username / password authentication.</li>
+    <li><code class="highlight-rouge">MyApp</code> and <code class="highlight-rouge">1.0</code> are the name and version number of the app we're developing.  You can provide whatever data you want here - but please provide something useful!  Avalara gets lots of calls from customers who are trying to debug problems with specific programs.  If you know that version 1.0.1 of your program has a specific problem, we can quickly look at the logs and notice that a customer is using a buggy version of the program and recommend a fix!</li>
+    <li><code class="highlight-rouge">Environment.MachineName</code> is also a debugging aid.  If you call Avalara support, and tell them that you're using a machine named <code class="highlight-rouge">W10-DE67A879</code>, they'll be able to find your API calls faster by searching on this value.</li>
+    <li><code class="highlight-rouge">AvaTaxEnvironment.Sandbox</code> is the name of the AvaTax server you wish to contact.  You can select between AvaTax Sandbox and Production services; Avalara will automatically contact the correct server based on the value you provide here.</li>
+    <li>The function <code class="highlight-rouge">WithSecurity</code> allows you to set up your credentials.  You can authenticate using any supported method - Username / Password, AccountId / LicenseKey, and even Bearer Token.  Since Bearer Token is currently available for custom integrations only, for today's example, I will demonstrate username / password authentication.</li>
 </ul>
 
 Now that you've set up your client, it's time to create a transaction!
@@ -83,10 +83,10 @@ How does this builder work?  Well, at its core, the AvaTax engine provides an AP
 At the end of the builder, you call `.Create();`.  This function assembles the object into a `CreateTransactionModel` for you, calls the API, and returns a fully formed transaction.  The only magic you need to understand is in the constructor for the TransactionBuilder.  We ask for four things:
 
 <ul class="normal">
-    <li>The *AvaTaxClient* you created above.</li>
-    <li>The *CompanyCode* of the company that created this transaction.</li>
-    <li>The *DocumentType* of this transaction - for more information on document types, see <a href="http://developer.avalara.com/blog/2016/11/18/types-of-transactions/">my previous article on Types of Transactions.</a></li>
-    <li>The *CustomerCode* of the customer who requested this transaction.  Customer codes are necessary to check for certain exemption cases; for example, when a customer has set up an exemption certificate for certain types of transactions.  As long as you make sure that each customer has their own unique customer code, any value will be fine here.</li>
+    <li>The <code class="highlight-rouge">AvaTaxClient</code> you created above.</li>
+    <li>The <code class="highlight-rouge">CompanyCode</code> of the company that created this transaction.</li>
+    <li>The <code class="highlight-rouge">DocumentType</code> of this transaction - for more information on document types, see <a href="http://developer.avalara.com/blog/2016/11/18/types-of-transactions/">my previous article on Types of Transactions.</a></li>
+    <li>The <code class="highlight-rouge">CustomerCode</code> of the customer who requested this transaction.  Customer codes are necessary to check for certain exemption cases; for example, when a customer has set up an exemption certificate for certain types of transactions.  As long as you make sure that each customer has their own unique customer code, any value will be fine here.</li>
 </ul>
 
 Now, you can look at the results:
@@ -103,8 +103,8 @@ That's pretty easy!  But what happens if you want to build a much more complex t
         .WithAddress(TransactionAddressType.ShipTo, "100 Ravine Lane NE", "Bainbridge Island", "WA", "98110", "US")
         .WithLine(100.0m)
         .WithLine(1234.56m) // Each line is added as a separate item on the invoice!
-        .WithExemptLine(50.0m, "NT") // An exempt component for the transaction!
-        .WithLine(2000.0m) // This line represents a computer that was shipped to New York!
+        .WithExemptLine(50.0m, "NT") // An exempt item!
+        .WithLine(2000.0m) // The two addresses below apply to this $2000 line item
         .WithLineAddress(TransactionAddressType.ShipFrom, "123 Main Street", "Irvine", "CA", "92615", "US")
         .WithLineAddress(TransactionAddressType.ShipTo, "1500 Broadway", "New York", "NY", "10019", "US")
         .WithLine(50.0m, "FR010000") // shipping costs!
