@@ -11,9 +11,11 @@ doctype: blog
 disqus: 1
 ---
 
-<h2>REST v2.16.12 Patch Notes</h2>
+
 
 This article is about the December 2016 monthly update to the AvaTax REST v2 API.
+
+UPDATED 2016-12-07 - The team added the definition of "Mixed" sourcing to the client library to address California sourcing scenarios prior to launch.  Launch has been rescheduled for Tuesday, December 13th.
 
 <table class="styled-table">
 	<tr>
@@ -29,7 +31,7 @@ This article is about the December 2016 monthly update to the AvaTax REST v2 API
 	<tr>
 		<td>Production</td>
         <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
-		<td>2016-12-08</td>
+		<td>2016-12-13</td>
 	</tr>
 </table>
 
@@ -62,7 +64,7 @@ An example of the incorrect result and updated result is shown here:
 {
   "lines": [
     {
-      "sourcing": "Destination", 
+      "sourcing": "Mixed", 
       "details": [
         {
           "sourcing": "Destination"
