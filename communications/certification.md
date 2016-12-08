@@ -53,16 +53,6 @@ doctype: integration_checklists
     <div class="col-xs-3">Function</div>
     <div class="col-xs-8">Comment</div>
 </div>
-<div class="row">
-    <div class="col-xs-1">R</div>
-    <div class="col-xs-3">Verify connectivity to WSDL</div>
-    <div class="col-xs-8"><span class="visible-xs"><br /></span>Make sure http://EZtaxasp.EZtax.com/EZtaxWebService/EZtaxWebService.svc?wsdl is accesible</div>
-</div>
-<div class="row">
-    <div class="col-xs-1">R</div>
-    <div class="col-xs-3">Call GetServerTime</div>
-    <div class="col-xs-8"><span class="visible-xs"><br /></span>Request requires no input from client application.  Verify contents is current Central time.</div>
-</div>
 
 <h5>Populate Transaction structure</h5>
 <p>See <a href="/communications/api-reference/saas/soap/">AvaTax for Comms documentation</a> for description of fields and how they should be set.</p>
