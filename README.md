@@ -68,7 +68,7 @@ These versions or higher should suffice for now, if not, you can visit the sites
 Now that these are all in place, the following command will download Jekyll using the RubyGems package manager:
 
 ```
-$ gem jekyll install bundler
+$ gem install jekyll bundler
 ```
 This should install all of Jekyll's gem dependencies. At the time I ran this command it fetched and installed 18 gems, as well installing the sought after `jekyll-3.3.0`.
 
@@ -190,4 +190,8 @@ This will add the Avalara/developer-dot repository as `upstream`, `fetch` any ch
 For this you can log back into your Github account and locate your forked repository, click the `Pull Request` button and make sure the Avalara/developer-dot:master is on the left hand side, receiving any changes from your repository on the right hand side, yourGitUserName/developer-dot:master. Please leave a comment, and submit the request.
 
 ### Let's Review
+<<<<<<< HEAD
 This was intended to be a brief overview of the steps taken to set up a local environment in which anyone can add or change posts to the Avalara/developer-dot blog, preview those additions and/or changes, and to finally submit them for review and/or publishing on the developer-dot site:
+=======
+This was intended to be a brief overview of the steps taken to set up a local environment in which anyone can add or change posts to the Avalara/developer-dot blog, preview those additions and/or changes, and to finally submit them for review and/or publishing on the developer-dot site.
+>>>>>>> 81bce162b343e312030cd574126c046ad72ac114

@@ -21,6 +21,7 @@ To learn how to use batch files, visit this page: <a href="http://developer.aval
 </ul>
 
 
+<<<<<<< HEAD
 <h3>Batch File Types</h3>
 <i> Batch Template Download Links (Most may also be found in the Admin Console):</i>
 <ul class"=normal">
@@ -42,6 +43,24 @@ To learn how to use batch files, visit this page: <a href="http://developer.aval
 <h3>List of Required Fields</h3>
 In the following example the [transaction import template](Link Template)  
 The following fields correspond to the same fields in the CreateTransactionModel and are supported in batch files.  You must fill in, at a minimum, these fields:
+=======
+<h3>These are the REST v2 supported Batch File Types</h3>
+<i> Download CSV Batch Templates Here (Many of these are also available in the Admin Console):</i>
+<ul class="normal">
+    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/master/_batchtemplates/ImportItemsTemplate.csv" download>ItemImport</a> - refers to a batch type used for uploading multiple items and their respective tax codes at once.</li>
+    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/master/_batchtemplates/ImportCompanyLocationsTemplate.csv" download>CompanyLocationImport</a> - refers to a batch type used to upload multiple company locations at once.</li>
+    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/master/_batchtemplates/ImportExemptionCertificatesTemplate.csv" download>ExemptCertImport</a> - refers to a batch type used to upload all relevant data for multiple exemption certificates at once.</li>
+    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/master/_batchtemplates/ImportTaxRulesTemplate.csv" download>TaxRuleImport</a> - refers to a batch type used to upload all relevant information for multiple tax rules at once.</li>
+    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/master/_batchtemplates/ImportTransactionsTemplate.csv" download>TransactionImport</a> - refers to a batch type used for uploading multiple transaction lines at once.</li>
+    <li><a href="https://raw.githubusercontent.com/Avalara/developer-dot/master/_batchtemplates/ImportBulkUPCTemplate.csv" download>UPCBulkImport</a> - refers to a batch type used for uploading multiple UPC codes and their respective tax codes at once.</li>
+</ul>
+
+<h3>Sample File</h3>
+As an example let's upload some transaction lines, to get satarted quickly download the TransactionImport template and enter in the following data.  
+<h3>List of Required Fields</h3>
+
+The following column fields correspond to the same fields in the CreateTransactionModel and are supported in batch files.  You must fill in, at a minimum, data for these columns in the batch file:
+>>>>>>> 81bce162b343e312030cd574126c046ad72ac114
 
 <table class="styled-table">
     <tr>

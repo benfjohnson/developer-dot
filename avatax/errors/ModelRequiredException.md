@@ -21,7 +21,7 @@ You called an API that requires an object, but you did not provide an object.
       "code": "ModelRequiredException",
       "number": 38,
       "message": "A required model was not provided.",
-      "description": "Please verify that your request included a request body in valid JSON format. -0-",
+      "description": "Please verify that your request included a request body in valid JSON format.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/ModelRequiredException",
       "severity": "Exception"

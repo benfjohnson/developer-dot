@@ -1,0 +1,42 @@
+﻿@model AvaTaxConnector.Models.AddressModel
+
+@{
+    ViewBag.Title = "Validate a customer address";
+}
+
+<h2>AddressValidation</h2>
+<fieldset>
+    <section class="main-content">
+        <table style="width:100%;" title="Input Address">
+    @using (Html.BeginForm("AddressValidation", "Invoice", FormMethod.Post))
+    { 
+        <tr><td>@Html.Label("Line 1")</td><td>@Html.TextBoxFor(x => x.Line1)</td><td>&nbsp;</td><td>&nbsp;</td><td></td></tr>
+        <tr><td>@Html.Label("Line 2")</td><td>@Html.TextBoxFor(x => x.Line2)</td><td>&nbsp;</td><td>&nbsp;</td><td></td></tr>
+        <tr><td>@Html.Label("Line 3")</td><td>@Html.TextBoxFor(x => x.Line3)</td><td>&nbsp;</td><td>&nbsp;</td><td></td></tr>
+        <tr><td>@Html.Label("City")</td><td>@Html.TextBoxFor(x => x.City)</td><td>&nbsp;</td><td>&nbsp;</td><td></td></tr>
+        <tr><td>@Html.Label("State")</td><td>@Html.TextBoxFor(x => x.Region)</td><td>&nbsp;</td><td>&nbsp;</td><td></td></tr>
+        <tr><td>@Html.Label("Zip Code")</td><td>@Html.TextBoxFor(x => x.PostalCode)</td><td>&nbsp;</td><td>&nbsp;</td><td></td></tr>
+        <tr><td>@Html.Label("Country")</td><td>@Html.TextBoxFor(x => x.Country)</td><td>&nbsp;</td><td>&nbsp;</td><td></td></tr>
+        <tr><td>@Html.Label("Latitude")</td><td>@Html.TextBoxFor(x => x.Latitude)</td><td>&nbsp;</td><td>&nbsp;</td><td></td></tr>
+        <tr><td>@Html.Label("Longitude")</td><td>@Html.TextBoxFor(x => x.Longitude)</td><td>&nbsp;</td><td>&nbsp;</td><td></td></tr>
+        <tr><td></td><td></td><td></td><td><input id="btnValidateAddress" type="submit" /></td><td></td></tr>
+    }</table>
+        Validated Address: 
+        <table style="width:100%;" title="Validated Address">
+            @if (ViewData.Model != null)
+            {
+                <tr><td>Line 1</td><td>@ViewData.Model.Line1</td></tr>
+                <tr><td>Line 2</td><td>@ViewData.Model.Line2</td></tr>
+                <tr><td>Line 3</td><td>@ViewData.Model.Line3</td></tr>
+                <tr><td>City</td><td>@ViewData.Model.City</td></tr>
+                <tr><td>State</td><td>@ViewData.Model.Region</td></tr>
+                <tr><td>Zip Code</td><td>@ViewData.Model.PostalCode</td></tr>
+                <tr><td>Country</td><td>@ViewData.Model.Country</td></tr>
+                <tr><td>Latitude</td><td>@ViewData.Model.Latitude</td></tr>
+                <tr><td>Longitude</td><td>@ViewData.Model.Longitude</td></tr>
+            }
+        </table>
+        <hr/>
+        <h2>@ViewBag.Message</h2>
+</section>
+</fieldset>
