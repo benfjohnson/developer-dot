@@ -176,6 +176,20 @@ The result shows that we have a rough guess of coordinates, but the resolution q
 }
 ```
 
+Next, what happens if you provide what looks like a good address, but there's something wrong with it?  If I were to try validating the address "123 Main Street" in Irvine, California, I would get an "Undeliverable address" error.  That's because the Main Street in Irvine begins with street number 1000, and there is no such address as 123 Main.  In this case, you'll need to look at the `messages` component of the result:
+
+```json
+  "messages": [
+    {
+      "summary": "The address is not deliverable.",
+      "details": "The physical location exists but there are no homes on this street. One reason might be railroad tracks or rivers running alongside this street, as they would prevent construction of homes in this location.",
+      "refersTo": "Address",
+      "severity": "Error",
+      "source": "Avalara.AvaTax.Services.Address"
+    }
+  ]
+```
+
 With this information, you should be able to put together an address-validator in your user experience.  You can show customers map coordinates near to their location easily, and help confirm that your postal code, city name, and region name are correct.
 
 Here's hoping you all have fun locating your holiday gift shipments!
