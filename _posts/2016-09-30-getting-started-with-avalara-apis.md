@@ -77,6 +77,7 @@ Before moving on, I'd like to mention that Postman has a nifty save feature that
 
 ## Now We're In Business:
 
+
 #### Using: POST http://<*hostname*>/api/v2/companies to Create my first Company
 
 Next I wanted to add a Company to my Account which can be done in two different ways, both involving a POST request: api/v2/companies which creates a single Company or /companies/initialize which creates a single Company with other relevant resources like Contact, Location, and Nexus (basically a shortcut of what I'm going to walk you through).
@@ -251,7 +252,9 @@ Voila!- a new Company. Notice many fields appear in the response that were not i
 
 ## PUT 'Er There:
 
+
 #### Using: PUT http://<*hostname*>/api/v2/companies/{companyId} To Modify my Company
+
 
 Notice in the GET api/v2/companies request my Company is Inactive and has no Tax Profile. These will have to be changed to true in order for the API to calculate tax on the transaction later. To rectify this problem we will modify these fields with a PUT request.
 
@@ -308,7 +311,8 @@ Now that I have a Company to go with my Account, I figured I would see how to bu
 
 #### request
 
-```
+```json
+
 POST http://<hostname>/api/v2/companies/{companyId}/contacts
 Authorization: Basic base64(username:password)
 Content-Type: application/json
@@ -361,7 +365,8 @@ After successfully getting a Contact added to my Company, I thought it may need 
 
 #### request
 
-```
+```json
+
 POST http://<hostname>/api/v2/companies/{companyId}/locations
 Authorization: Basic base64(username:password)
 Content-Type: application/json
@@ -406,6 +411,7 @@ Content-Type: application/json
 ## Establishing Nexus:
 
 #### Using: POST http://<*hostname*>/api/v2/companies/{companyId}/nexus to Establish Nexus
+
 
 I decided to endeavor upon setting up a Nexus for my Company considering I will eventually want to do some Tax Calculations through the  Transactions endpoint. But simply knowing of Nexus in an economic sense was not enough. To be sure I understood how it works within the Avalara API I found a great feature that allows me to actually use the GET api/v2/definitions request and learn more about it. If you want more on Nexus, go to [Avalara University's](https://help.avalara.com/007_AvalaraUniversity) education center to find out everything you need and more.
 
@@ -489,7 +495,8 @@ Armed with this knowledge I can figure out how to establish Nexus in Washington 
 
 #### request
 
-```
+```json
+
 POST http://<hostname>/api/v2/companies/3333333/nexus
 Authorization: Basic base64(username:password)
 Content-Type: application/json
@@ -588,14 +595,19 @@ There we have it, Nexus in all the jurisdictions to which the Company is legally
 
 ## Initialize? Why Didn't You Say So?:
 
+**Using _*POST http://<*hostname*>/api/v2/companies/initialize*_ to Initialize Company**
+
+
 #### Using POST http://<*hostname*>/api/v2/api/v2/companies/initialize To Initialize Company
+
 
 If you were thinking that all those requests were a bit cumbersome just to Create a Company Entity then have I got a solution for you. POST /api/v2/companies is a method more effectively  used for POSTing one or more Companies once a Company or a Parent Company has already been initialized. So real quick, here's the request/response code for the awesome companies/initialize endpoint, POSTing a Company Entity, a Contact, a Location, and Nexus in one fell swooping request.
 
 ### request
 
-```
-POST http://<hostname>.net:8020/api/v2/companies/initialize
+```json
+
+POST http://<hostname>/api/v2/companies/initialize
 Authorization: Basic base64(username:password)
 Content-Type application/json
 
