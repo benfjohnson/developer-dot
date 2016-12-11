@@ -20,29 +20,6 @@ To learn how to use batch files, visit this page: <a href="http://developer.aval
     <li>Batch files are processed by AvaTax in the order they were received.</li>
 </ul>
 
-
-<h3>Batch File Types</h3>
-<i> Batch Template Download Links (Most may also be found in the Admin Console):</i>
-<ul class"=normal">
-    <li> [ItemReport](Link Template for Download)
-      - Needs brief explanation
-    <li> [ExemptCertImport](Link Template for Download) - Needs brief explanation
-    <li> [CompanyLocationImport](Link Template for Download) - Needs brief explanation
-    <li> [TaxRuleImport](Link Template for Download)
-    <li> [TransactionImport](Link Template for Download)- Needs brief explanation
-    <li> [SstpTestDeckImport]("Link Template for Download") (SST Enabled Accounts Only)- Needs brief explanation
-    <li> [UPCBulkImport]("Link Template for Download")- Needs brief explanation
-    <li> [UPCValidationImport]("Link Template for Download")- Needs brief explanation
-</ul>
-
-<h3>Sample File</h3>
-
-<Took out some of what Ted had in there because in this design template would be linked here>
-
-<h3>List of Required Fields</h3>
-In the following example the [transaction import template](Link Template)  
-The following fields correspond to the same fields in the CreateTransactionModel and are supported in batch files.  You must fill in, at a minimum, these fields:
-
 <h3>These are the REST v2 supported Batch File Types</h3>
 <i> Download CSV Batch Templates Here (Many of these are also available in the Admin Console):</i>
 <ul class="normal">
@@ -59,7 +36,6 @@ As an example let's upload some transaction lines, to get satarted quickly downl
 <h3>List of Required Fields</h3>
 
 The following column fields correspond to the same fields in the CreateTransactionModel and are supported in batch files.  You must fill in, at a minimum, data for these columns in the batch file:
-
 
 <table class="styled-table">
     <tr>
