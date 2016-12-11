@@ -127,6 +127,7 @@ It might take some time to install all the dependencies inside the folder but th
 You're almost ready to add a post and preview the site. Although, there are just a few quick formatting basics to know about any future posts to ensure they're suitable for jekyll to parse and run through its converters.  
 
 ##### Abiding by Jekyll
+
 Let's say you have a blog post you want to get published, or just as likely, you want to make an edit to a post that you've already made to the site. I've split them up into three simple formatting rules to follow:
 
 * The first rule to creating a post that's jekyll ready is to make sure you've written your post in a format that jekyll supports. I've found that writing in [Markdown](https://en.support.wordpress.com/markdown-quick-reference/) is an easily adaptable format to write in but jekyll has a list of [convertible formats here](https://jekyllrb.com/docs/plugins/#converters-1).
@@ -190,8 +191,7 @@ This will add the Avalara/developer-dot repository as `upstream`, `fetch` any ch
 For this you can log back into your Github account and locate your forked repository, click the `Pull Request` button and make sure the Avalara/developer-dot:master is on the left hand side, receiving any changes from your repository on the right hand side, yourGitUserName/developer-dot:master. Please leave a comment, and submit the request.
 
 ### Let's Review
-<<<<<<< HEAD
+
 This was intended to be a brief overview of the steps taken to set up a local environment in which anyone can add or change posts to the Avalara/developer-dot blog, preview those additions and/or changes, and to finally submit them for review and/or publishing on the developer-dot site:
-=======
+
 This was intended to be a brief overview of the steps taken to set up a local environment in which anyone can add or change posts to the Avalara/developer-dot blog, preview those additions and/or changes, and to finally submit them for review and/or publishing on the developer-dot site.
->>>>>>> 81bce162b343e312030cd574126c046ad72ac114
