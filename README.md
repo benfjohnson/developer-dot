@@ -197,3 +197,5 @@ For this you can log back into your Github account and locate your forked reposi
 This was intended to be a brief overview of the steps taken to set up a local environment in which anyone can add or change posts to the Avalara/developer-dot blog, preview those additions and/or changes, and to finally submit them for review and/or publishing on the developer-dot site:
 
 This was intended to be a brief overview of the steps taken to set up a local environment in which anyone can add or change posts to the Avalara/developer-dot blog, preview those additions and/or changes, and to finally submit them for review and/or publishing on the developer-dot site.
+
+Thanks Joe for the great instructions.
