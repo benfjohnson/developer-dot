@@ -10,6 +10,8 @@ exclude_from_upload:
 
 ignore_on_server:
   - logs
+  
+treat_zero_length_objects_as_redirects: true
 
 redirects:
   form: /avatax/get-started
