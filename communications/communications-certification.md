@@ -56,22 +56,16 @@ you were to give us a full functionality demo, here's what we'd like to see.
 </tr>
 <tr>
 <td> Validate Company specific data in AFC transactional inputs. </td>
-<td> You should have the ability to pass through all types of inputs through with transactions:
+<td> You should be able to submit basic transaction with required data values. For example, ability to  calculate taxes using CalcTaxesWithPcode API call and get correct tax results. </td>
+<td>
 <ul class="normal">
-<li> Service Class: Primary Local or Primary Long Distance. </li>
-<li> Regulated or Unregulated. </li>
-<li> Customer Type: Business, Residential, Industrial, Senior Citizen. </li>
-<li> Business Class: ILEC, CLEC, or Other. </li>
-<li> Facilities Based. </li>
-<li> Franchise. </li>
-<li> Sale Type. </li>
-<li> Company Identifier. </li>
+<li>Display in source system how each of the input values are configured and passed to the API fields. </li>
+<li> Demonstrate results in source system based upon different input parameters required for a basic transaction </li>
 </ul>
 </td>
-<td> Display the correct Pcode for the jurisdiction. </td>
 </tr>
 <tr>
-<td> Validate Company specific data in AFC transactional inputs. </td>
+<td> Validate execution of base calculate tax function. </td>
 <td> You should have the ability to pass through all types of inputs through with transactions:
 <ul class="normal">
 <li> Service Class: Primary Local or Primary Long Distance. </li>
