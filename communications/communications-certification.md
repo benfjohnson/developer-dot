@@ -14,9 +14,9 @@ you were to give us a full functionality demo, here's what we'd like to see.
 
 <table class="styled-table">
 <tr>
-<th> Use Case </th>
-<th> Expected Outcome </th>
-<th> Demonstrate </th>
+<td><strong>Use Case</strong></td>
+<td><strong>Expected Outcome</strong></td>
+<td><strong>Demonstrate</strong></td>
 </tr>
 <tr>
 <td> Validate ability to asociate materials/products to AFC Transaction Service type pair (T/S pair). </td>
