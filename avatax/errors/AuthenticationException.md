@@ -21,7 +21,7 @@ The credentials you provided to AvaTax could not be validated.
       "code": "AuthenticationException",
       "number": 30,
       "message": "Authentication failed.",
-      "description": "Unable to authenticate the user or the account.  -0-",
+      "description": "Unable to authenticate the user or the account.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/AuthenticationException",
       "severity": "Exception"

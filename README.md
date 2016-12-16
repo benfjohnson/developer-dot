@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Avalara/developer-dot.svg?branch=master)](https://travis-ci.org/Avalara/developer-dot)
+
 # How To Get Started with Avalaras Developer Blog
 
 ### A guide to Jekyll's Posting and Editing Capabilities; Turning Local Github Repositories into a Locally Generated Website

@@ -9,7 +9,9 @@ exclude_from_upload:
   - node_modules
 
 ignore_on_server:
-  - logs
+  - logs/
+  
+treat_zero_length_objects_as_redirects: true
 
 redirects:
   form: /avatax/get-started

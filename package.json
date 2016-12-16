@@ -12,7 +12,7 @@
         "build:dev": "postcss -u autoprefixer -o public/css/style.css public/css/style.css",
         "predev":"git clean -dXf --exclude='!node_modules'",
         "dev": "npm run build-all-pages",
-        "postdev":"watch 'npm run build:dev' _sass | npm run watch-js-bundle | npm run watch-get-started-bundle | npm run watch-recipe-bundle | jekyll serve",
+        "postdev":"watch 'npm run build:dev' _sass | npm run watch-js-bundle | npm run watch-get-started-bundle | npm run watch-recipe-bundle | jekyll serve --host $IP --port $PORT --baseurl ''",
         "build-all-pages": "browserify -t babelify --node --extension=.jsx --extension=.js dynamic/build-all-pages.js --outfile /tmp/build-all-pages.js && node /tmp/build-all-pages.js",
         "watch-js-bundle": "watchify -g [ envify --NODE_ENV development ] -t babelify --extension=.jsx --extension=.js -vd dynamic/react/api-app/index.js --outfile public/js/api-bundle.js",
         "build-js-bundle": "browserify -g [ envify --NODE_ENV production ] -t babelify --extension=.jsx --extension=.js dynamic/react/api-app/index.js --outfile public/js/api-bundle.js",
