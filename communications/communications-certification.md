@@ -109,7 +109,8 @@ you were to give us a full functionality demo, here's what we'd like to see.
 <td> User should be able to submit invoice mode/customer mode transactions and  received results from API service For example, Ability to submit a single transaction to be processed for a customer batch using "CalcCustTaxes" API and verify results using "ProcessCustomerbatch" API. </td>
 <td>
 <ul class="normal">
-<li></li>
+<li>Show API setup in Invoice mode and execute transaction, displaying results in source system.</li>
+<li>Show API setup in Batch mode and execute transaction, displaying results in source system.</li>
 </ul>
 </td>
 </tr>
@@ -121,7 +122,7 @@ you were to give us a full functionality demo, here's what we'd like to see.
 <li>Ability to use an adjustment call for batch transaction</li>
 </ul>
 </td>
-<td> User should be able to submit invoice mode/customer mode adjustment transactions and received results from API service. For example, Ability to submit a single adjustment transaction to be processed for a customer batch using "CalcCustAdj" API and verify results using "ProcessCustomerbatch" API. </td>
+<td> User should be able to submit invoice mode/customer mode adjustment transactions and received results from API service. For example, Ability to submit a single adjustment transaction to be processed for a customer batch using "CalcCustAdj" API and verify results using "ProcessCustomerbatch" API.</td>
 <td>
 <ul class="normal">
 <li>Show API setup in Invoice mode and execute adjustment transaction, displaying results in source system.</li>
