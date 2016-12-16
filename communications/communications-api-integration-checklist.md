@@ -9,7 +9,7 @@ community: apis
 
 # Certified for Avalara AvaTax for Communications
 
-AvaTax for Communications API Integration Checklist to have your integration <a href="developer.avalara.com/certification/"> certified by Avalara</a> we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax for Communication with your application. To be certified for Avalara AvaTax for Communications, all of the items with an R in the Required column listed below are required elements that must be present in your integration.
+AvaTax for Communications API Integration Checklist to have your integration <a href="http://developer.avalara.com/certification/"> certified by Avalara</a> we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax for Communication with your application. To be certified for Avalara AvaTax for Communications, all of the items with an R in the Required column listed below are required elements that must be present in your integration.
 
 <h3> AFC General </h3>
 
