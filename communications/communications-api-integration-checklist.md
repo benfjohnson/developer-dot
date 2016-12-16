@@ -9,7 +9,7 @@ community: apis
 
 # Certified for Avalara AvaTax for Communications
 
-AvaTax for Communications API Integration Checklist to have your integration [certified by Avalara](developer.avalara.com/certification/) we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax for Communication with your application. To be certified for Avalara AvaTax for Communications, all of the items with an R in the Required column listed below are required elements that must be present in your integration.
+AvaTax for Communications API Integration Checklist to have your integration <a href="developer.avalara.com/certification/"> certified by Avalara</a> we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax for Communication with your application. To be certified for Avalara AvaTax for Communications, all of the items with an R in the Required column listed below are required elements that must be present in your integration.
 
 <h3> AFC General </h3>
 
@@ -113,7 +113,7 @@ AvaTax for Communications API Integration Checklist to have your integration [ce
 <p>Verify connectivity to WSDL</p>
 </td>
 <td width="300">
-<p>Make sure <a href= "http://eztaxasp.eztax.com/EZtaxWebService/EZtaxWebService.svc?wsdl"> You can access the WSDL here </a> </p>
+<p>Make sure <a href= "http://eztaxasp.eztax.com/EZtaxWebService/EZtaxWebService.svc?wsdl"> You can access the WSDL here. </a> </p>
 </td>
 </tr>
 <tr>
@@ -330,7 +330,7 @@ AvaTax for Communications API Integration Checklist to have your integration [ce
 <p> Verify access to Swagger UI</p>
 </td>
 <td width="300">
-<p>Make sure <a href="https://communications.avalara.net/swagger/UI/index.html">https://communications.avalara.net/swagger/UI/index.html</a> is accesible</p>
+<p> Make sure the <a href="https://communications.avalara.net/swagger/UI/index.html">API swagger documentation is available </a> <p>
 </td>
 </tr>
 <tr>
