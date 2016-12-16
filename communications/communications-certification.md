@@ -72,7 +72,7 @@ you were to give us a full functionality demo, here's what we'd like to see.
 <li> Ability to apply adjustment call for current/previous month transactions </li>
 </ul>
 </td>
-<td> You should be able to submit adjustment transactions. For example, ability to apply adjustments using CalcAdjWithPcode API call and get correct tax results </td>
+<td> You should be able to submit adjustment transactions. For example, ability to apply adjustments using CalcAdjWithPcode API call and get correct tax results.</td>
 <td>Pre API call setup and display adjustment results in source system </td>
 </tr>
 <tr>
@@ -106,35 +106,31 @@ you were to give us a full functionality demo, here's what we'd like to see.
 <li>Transaction Customer Mode.</li>
 </ul>
 </td>
-<td> You should have the ability to pass through all types of inputs through with transactions:
+User should be able to submit invoice mode/customer mode transactions and  received results from API service For example, Ability to submit a single transaction to be processed for a   customer batch using "CalcCustTaxes" API and verify results using "ProcessCustomerbatch" API.
+<td>
+</td>
+<td>
 <ul class="normal">
-<li> Service Class: Primary Local or Primary Long Distance. </li>
-<li> Regulated or Unregulated. </li>
-<li> Customer Type: Business, Residential, Industrial, Senior Citizen. </li>
-<li> Business Class: ILEC, CLEC, or Other. </li>
-<li> Facilities Based. </li>
-<li> Franchise. </li>
-<li> Sale Type. </li>
-<li> Company Identifier. </li>
+<li> Show API setup in Invoice mode and execute transaction, displaying results in source system.</li>
+<li>Show API setup in Batch mode and execute transaction, displaying results in source system.</li>
 </ul>
 </td>
-<td> Display the correct Pcode for the jurisdiction. </td>
 </tr>
 <tr>
-<td> Validate Company specific data in AFC transactional inputs. </td>
-<td> You should have the ability to pass through all types of inputs through with transactions:
-<ul class="normal">
-<li> Service Class: Primary Local or Primary Long Distance. </li>
-<li> Regulated or Unregulated. </li>
-<li> Customer Type: Business, Residential, Industrial, Senior Citizen. </li>
-<li> Business Class: ILEC, CLEC, or Other. </li>
-<li> Facilities Based. </li>
-<li> Franchise. </li>
-<li> Sale Type. </li>
-<li> Company Identifier. </li>
+<td>
+<p>Validate Batch Invoice/Customer Mode Adjustment handling</p>
+<ul class ="normal">
+<li>How to apply adjustment to current batch/previous batch</li>
+<li>Ability to use an adjustment call for batch transaction</li>
 </ul>
 </td>
-<td> Display the correct Pcode for the jurisdiction. </td>
+<td> User should be able to submit invoice mode/customer mode adjustment transactions and received results from API service. For example, Ability to submit a single adjustment transaction to be processed for a customer batch using "CalcCustAdj" API and verify results using "ProcessCustomerbatch" API. </td>
+<td>
+<ul class="normal">
+<li>Show API setup in Invoice mode and execute adjustment transaction, displaying results in source system.</li>
+<li>Show API setup in Batch mode and execute adjustment transaction, displaying results in source system.</li>
+</ul>
+</td>
 </tr>
 <tr>
 <td> Validate Company specific data in AFC transactional inputs. </td>
