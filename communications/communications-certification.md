@@ -133,20 +133,18 @@ User should be able to submit invoice mode/customer mode transactions and  recei
 </td>
 </tr>
 <tr>
-<td> Validate Company specific data in AFC transactional inputs. </td>
-<td> You should have the ability to pass through all types of inputs through with transactions:
+<td>Validate ability to pass a single channel line and a multi-channel line.</td>
+<td>
 <ul class="normal">
-<li> Service Class: Primary Local or Primary Long Distance. </li>
-<li> Regulated or Unregulated. </li>
-<li> Customer Type: Business, Residential, Industrial, Senior Citizen. </li>
-<li> Business Class: ILEC, CLEC, or Other. </li>
-<li> Facilities Based. </li>
-<li> Franchise. </li>
-<li> Sale Type. </li>
-<li> Company Identifier. </li>
+Ability to pass following line transactions together for system to return taxes.
+<li>Local/PBX Trunk, Local/PBX Extension, Local/PBX outbound channel. 
+Ability to pass following Trunk transactions together</li>
+<li>Local/Centrex/DID, Extension, Local/Centrex Trunk, Local/Centrex, outbound Channel.</li>
+<li>Ability to pass following channel   transactions together</li>
+<li>Local/High Capacity Trunk Bundle, Local/High Capacity Extension Bundle,Local/High Capacity Outbound Channel Bundle.</li>
 </ul>
 </td>
-<td> Display the correct Pcode for the jurisdiction. </td>
+<td>Display API set and execute transaction, showing results in source system.</td>
 </tr>
 <tr>
 <td>
