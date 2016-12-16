@@ -106,13 +106,13 @@ you were to give us a full functionality demo, here's what we'd like to see.
 <li>Transaction Customer Mode.</li>
 </ul>
 </td>
+<td>
 User should be able to submit invoice mode/customer mode transactions and  received results from API service For example, Ability to submit a single transaction to be processed for a   customer batch using "CalcCustTaxes" API and verify results using "ProcessCustomerbatch" API.
 <td>
 </td>
 <td>
 <ul class="normal">
-<li> Show API setup in Invoice mode and execute transaction, displaying results in source system.</li>
-<li>Show API setup in Batch mode and execute transaction, displaying results in source system.</li>
+<li></li>
 </ul>
 </td>
 </tr>
