@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Settings";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+   
+</hgroup>
+
+<section class="ui-icon-battery-0">
+    <header>
+        <h3>Basic Authentication - API Key</h3>
+    </header>
+    <p>        
+@using (@Html.BeginForm())
+{    
+    <span>AccountNumber</span><span>@Html.TextBox("txtAccountNumber")</span>
+    <span>APIKey</span><span>@Html.TextBox("txtAPIKey")</span>
+    <span></span><span><input id="Submit1" type="submit" value="submit" /></span>
+}
+        <h2>@ViewBag.Message</h2>
+    </p>
+</section>

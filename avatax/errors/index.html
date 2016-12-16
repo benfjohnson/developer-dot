@@ -22,7 +22,7 @@ title: AvaTax REST v2 Error Codes
         <tr>
 			<td>2</td>
 			<td><a href="AccountInvalidException">AccountInvalidException</a></td>
-			<td>TBD</td>
+			<td>You attempted to read information about an account that does not exist.</td>
 		</tr>		
         <tr>
 			<td>3</td>
@@ -62,12 +62,12 @@ title: AvaTax REST v2 Error Codes
         <tr>
 			<td>11</td>
 			<td><a href="CommonPassword">CommonPassword</a></td>
-			<td>TBD</td>
+			<td>The password you have chosen is a commonly-guessed password and cannot be used.</td>
 		</tr>		
         <tr>
 			<td>12</td>
 			<td><a href="WeakPassword">WeakPassword</a></td>
-			<td>TBD</td>
+			<td>The password you specified does not meet minimum complexity requirements.</td>
 		</tr>		
         <tr>
 			<td>13</td>
@@ -392,12 +392,12 @@ title: AvaTax REST v2 Error Codes
         <tr>
 			<td>148</td>
 			<td><a href="CannotActivateCompany">CannotActivateCompany</a></td>
-			<td>TBD</td>
+			<td>A company can only be activated when it has a valid tax profile.</td>
 		</tr>		
         <tr>
 			<td>149</td>
 			<td><a href="DuplicateEntityProperty">DuplicateEntityProperty</a></td>
-			<td>TBD</td>
+			<td>You attempted to create an object with a duplicate name or code.</td>
 		</tr>		
         <tr>
 			<td>200</td>
@@ -417,12 +417,12 @@ title: AvaTax REST v2 Error Codes
         <tr>
 			<td>250</td>
 			<td><a href="PointOfSaleFileSize">PointOfSaleFileSize</a></td>
-			<td>TBD</td>
+			<td>The Point-Of-Sale API cannot build this file dynamically.</td>
 		</tr>		
         <tr>
 			<td>251</td>
 			<td><a href="PointOfSaleSetup">PointOfSaleSetup</a></td>
-			<td>TBD</td>
+			<td>Invalid parameter provided in the Point-Of-Sale file request.</td>
 		</tr>		
         <tr>
 			<td>300</td>
@@ -458,6 +458,11 @@ title: AvaTax REST v2 Error Codes
 			<td>307</td>
 			<td><a href="CompanyCodeConflict">CompanyCodeConflict</a></td>
 			<td>The company code in the URL of your API call did not match the company code of the transaction you uploaded.</td>
+		</tr>		
+        <tr>
+			<td>308</td>
+			<td><a href="DocumentFetchLimit">DocumentFetchLimit</a></td>
+			<td>You attempted to fetch more than 1000 transaction documents at a time.</td>
 		</tr>		
         <tr>
 			<td>400</td>

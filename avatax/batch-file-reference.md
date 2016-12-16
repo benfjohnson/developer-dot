@@ -20,7 +20,6 @@ To learn how to use batch files, visit this page: <a href="http://developer.aval
     <li>Batch files are processed by AvaTax in the order they were received.</li>
 </ul>
 
-
 <h3>These are the REST v2 supported Batch File Types</h3>
 <i> Download CSV Batch Templates Here (Many of these are also available in the Admin Console):</i>
 <ul class="normal">
