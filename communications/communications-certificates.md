@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Communications Certification
 product: communications
 doctype: integration_checklists
@@ -8,14 +8,11 @@ community: apis
 ---
 
 
-# Communications Certification
-
 Depending on the scope of your integration and your business practice, your test cases
 will vary. For development partners, many of these are requirements for certification. If
 you were to give us a full functionality demo, here's what we'd like to see.
 
-<table border="0" cellspacing="3" cellpadding="0" align="left">
-
+<table class="styled-table">
 <tr>
 <th> Use Case </th>
 <th> Expected Outcome </th>
@@ -26,9 +23,9 @@ you were to give us a full functionality demo, here's what we'd like to see.
 <td> You should be able to run a transaction with valid AFC T/S pair. </td>
 <td> How AFC T/S pairs are   aligned to material/product in source system. </td>
 </tr>
+<tr>
 <td> Validate process to determine Jurisdiction(s). </td>
-<td> You should be able to obtain correct Pcode/FIPS/NPaNxx for the jurisdiction. For example, ability to obtain correct Pcode using ZipToPCode API.
-</td>
+<td> You should be able to obtain correct Pcode/FIPS/NPaNxx for the jurisdiction. For example, ability to obtain correct Pcode using ZipToPCode API. </td>
 <td> Display the correct Pcode for the jurisdiction. </td>
 </tr>
 <tr>
@@ -50,9 +47,13 @@ you were to give us a full functionality demo, here's what we'd like to see.
 <tr>
 <td> Validate execution of base calculate tax function. </td>
 <td> You Should be able to submit basic transactions with required data values. For example, ability to calculate taxes using CalcTaxesWithPcode API call and get correct tax results. </td>
-<td> <ul class="normal">
-<li> Display in source system how each of the input values are configured and passed to the API fields. </li>
-<li> Demonstrate results in source system based upon differrent input parameters required for a basic transaction. </li> </td>
+<td>
+<ul class="normal">
+<li> Display in source system how each of the input values are configured and passed to the API fields.</li>
+<li> Demonstrate results in source system based upon differrent input parameters required for a basic transaction.</li>
+</ul>
+</td>
+</tr>
 <tr>
 <td> Validate Company specific data in AFC transactional inputs. </td>
 <td> You should have the ability to pass through all types of inputs through with transactions:
@@ -152,7 +153,7 @@ you were to give us a full functionality demo, here's what we'd like to see.
 <tr>
 <td>
 <p>Validate ability to treat common AFC returned exceptions</p>
-<ul>
+<ul class="normal">
 <li> Invalid Address </li>
 <li> No Jurisdiction found </li>
 </ul>
@@ -161,9 +162,7 @@ you were to give us a full functionality demo, here's what we'd like to see.
 <p>Ability to distinguish between these exceptions and how to handle these: </p>
 </td>
 <td>
-<ul>
-<li>Display error code.</li>
-</ul>
+Display error code
 </td>
 </tr>
 </table>
