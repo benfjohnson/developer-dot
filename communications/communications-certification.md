@@ -60,44 +60,52 @@ you were to give us a full functionality demo, here's what we'd like to see.
 <td>
 <ul class="normal">
 <li>Display in source system how each of the input values are configured and passed to the API fields. </li>
-<li> Demonstrate results in source system based upon different input parameters required for a basic transaction </li>
+<li> Demonstrate results in source system based upon different input parameters required for a basic transaction. </li>
 </ul>
 </td>
 </tr>
 <tr>
-<td> Validate execution of base calculate tax function. </td>
-<td> You should have the ability to pass through all types of inputs through with transactions:
+<td>
+<p>Validate Adjustment handling</p>
 <ul class="normal">
-<li> Service Class: Primary Local or Primary Long Distance. </li>
-<li> Regulated or Unregulated. </li>
-<li> Customer Type: Business, Residential, Industrial, Senior Citizen. </li>
-<li> Business Class: ILEC, CLEC, or Other. </li>
-<li> Facilities Based. </li>
-<li> Franchise. </li>
-<li> Sale Type. </li>
-<li> Company Identifier. </li>
+<li>Ability to use an adjustment call for a normal transaction
+<li> Ability to apply adjustment call for current/previous month transactions </li>
 </ul>
 </td>
-<td> Display the correct Pcode for the jurisdiction. </td>
+<td> You should be able to submit adjustment transactions. For example, ability to apply adjustments using CalcAdjWithPcode API call and get correct tax results </td>
+<td>Pre API call setup and display adjustment results in source system </td>
 </tr>
 <tr>
-<td> Validate Company specific data in AFC transactional inputs. </td>
-<td> You should have the ability to pass through all types of inputs through with transactions:
+<td>
+<p>Validate Exemption handling</p>
 <ul class="normal">
-<li> Service Class: Primary Local or Primary Long Distance. </li>
-<li> Regulated or Unregulated. </li>
-<li> Customer Type: Business, Residential, Industrial, Senior Citizen. </li>
-<li> Business Class: ILEC, CLEC, or Other. </li>
-<li> Facilities Based. </li>
-<li> Franchise. </li>
-<li> Sale Type. </li>
-<li> Company Identifier. </li>
+<li>Ability to handle specific exemptions</li>
+<li>Ability to handle category exemptions</li>
+<li>Ability to handle level exemptions - optional</li>
 </ul>
+<p>Applies to both Customer Mode and non customer mode</p>
 </td>
-<td> Display the correct Pcode for the jurisdiction. </td>
+<td>
+<p>You should be able to submit transactions with exemption information for Level, category, and specific exemption. The results should reflect the exempted taxes.</p>
+<p>For example, Ability to submit Tax exemption[] along with Transaction[] using CalcTaxesWithPcode API call and verify correct tax results.</p>
+</td>
+<td>
+<ul class="normal">
+<li>Display Pre API setup and execute transaction without exemption, displaying results in originating system.</li>
+<li>Display Pre API setup with level exemptions and execute transaction, displaying results in originating system.</li>
+<li>Display Pre API setup with specify exemptions and execute transaction, displaying results in originating system.</li>
+<li>Display Pre API setup with category exemptions and execute transaction, displaying results in originating system.</li>
+</ul>
+ </td>
 </tr>
 <tr>
-<td> Validate Company specific data in AFC transactional inputs. </td>
+<td>
+<p>Validate Invoice transaction (Customer Mode):</p>
+<ul class ="normal">
+<li>Batch customer mode.</li>
+<li>Transaction Customer Mode.</li>
+</ul>
+</td>
 <td> You should have the ability to pass through all types of inputs through with transactions:
 <ul class="normal">
 <li> Service Class: Primary Local or Primary Long Distance. </li>
