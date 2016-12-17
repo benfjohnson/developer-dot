@@ -110,17 +110,6 @@ AvaTax for Communications API Integration Checklist to have your integration <a 
 <p>R</p>
 </td>
 <td width="200">
-<p>Verify connectivity to WSDL</p>
-</td>
-<td width="300">
-<p>Make sure <a href= "http://eztaxasp.eztax.com/EZtaxWebService/EZtaxWebService.svc?wsdl"> You can access the WSDL here. </a> </p>
-</td>
-</tr>
-<tr>
-<td width="75">
-<p>R</p>
-</td>
-<td width="200">
 <p>Call GetServerTime</p>
 </td>
 <td width="300">
@@ -320,28 +309,6 @@ AvaTax for Communications API Integration Checklist to have your integration <a 
 </td>
 <td width="300">
 <p><strong>Comment</strong></p>
-</td>
-</tr>
-<tr>
-<td width="75">
-<p>R</p>
-</td>
-<td width="200">
-<p> Verify access to Swagger UI</p>
-</td>
-<td width="300">
-<p> Make sure the <a href="https://communications.avalara.net/swagger/UI/index.html">API swagger documentation is available </a> <p>
-</td>
-</tr>
-<tr>
-<td width="75">
-<p>R</p>
-</td>
-<td width="200">
-<p>Call /api/v1/Application/ServerTime</p>
-</td>
-<td width="300">
-<p>Request requires no input from client application. Verify contents is current UTC time.</p>
 </td>
 </tr>
 </table>
