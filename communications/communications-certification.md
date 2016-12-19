@@ -135,10 +135,14 @@ you were to give us a full functionality demo, here's what we'd like to see.
 <td>
 <p>Ability to pass following line transactions together for system to return taxes.</p>
 <ul class="normal">
-<li>Local/PBX Trunk, Local/PBX Extension, Local/PBX outbound channel. 
-Ability to pass following Trunk transactions together</li>
-<li>Local/Centrex/DID, Extension, Local/Centrex Trunk, Local/Centrex, outbound Channel.</li>
-<li>Ability to pass following channel transactions together</li>
+<li>Local/PBX Trunk, Local/PBX Extension, Local/PBX outbound channel.</li>
+</ul>
+<p>Ability to pass following Trunk transactions together</p>
+<ul class="normal">
+<li>Local/Centrex/DID Extension, Local/Centrex Trunk, Local/Centrex, outbound Channel.</li>
+</ul>
+<p>Ability to pass following channel transactions together</p>
+<ul class="normal">
 <li>Local/High Capacity Trunk Bundle, Local/High Capacity Extension Bundle,Local/High Capacity Outbound Channel Bundle.</li>
 </ul>
 </td>
