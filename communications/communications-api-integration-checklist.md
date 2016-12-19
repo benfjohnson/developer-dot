@@ -51,10 +51,10 @@ AvaTax for Communications API Integration Checklist to have your integration <a 
 <tr>
 <td width="75">
 <p>R</p>
-<td width="200">Tax Calculation - Disable tax calculation option</td>
-<td>
-<p>The user must have an option to turn on or off the AvaTax for Comms Calculation service independent of any other Avalara product.</p></td>
 </td>
+<td width="200"> Tax Calculation - Disable tax calculation option</td>
+<td width="300">
+<p>The user must have an option to turn on or off the AvaTax for Comms Calculation service independent of any other Avalara product.</p></td>
 </tr>
 <tr>
 <td width="75">
@@ -461,7 +461,7 @@ AvaTax for Communications API Integration Checklist to have your integration <a 
 <td width="200">
 <p>/api/v1/CalculateAdjustments</p>
 </td>
-<td>
+<td width="300">
 <p>Populate Transaction data structure with appropriate data. Parse returned TaxData data structure for results. This method accepts transaction data and performs appropriate tax adjustment calculations.</p>
 </td>
 </tr>
