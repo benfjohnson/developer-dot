@@ -329,7 +329,7 @@ AvaTax for Communications API Integration Checklist to have your integration <a 
 <p> Verify access to Swagger UI</p>
 </td>
 <td width="300">
-<p> Make sure the <a href="https://communications.avalara.net/swagger/UI/index.html">API swagger documentation is available </a> <p>
+<p> Make sure the <a href="https://communications.avalara.net/swagger/UI/index.html">API swagger documentation is available </a> </p>
 </td>
 </tr>
 <tr>
