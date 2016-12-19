@@ -249,7 +249,6 @@ AvaTax for Communications API Integration Checklist to have your integration <a 
 <p>From previous call to one of the methods above, have Avalara admin review input information and output information to verify both parties agree with results.</p>
 </td>
 </tr>
-<tr>
 </table>
 
 <h4>Populate Transaction structure</h4>
@@ -330,7 +329,7 @@ AvaTax for Communications API Integration Checklist to have your integration <a 
 <p> Verify access to Swagger UI</p>
 </td>
 <td width="300">
-<p> Make sure the <a href="https://communications.avalara.net/swagger/UI/index.html">API swagger documentation is available </a> <p>
+<p> Make sure the <a href="https://communications.avalara.net/swagger/UI/index.html">API swagger documentation is available </a> </p>
 </td>
 </tr>
 <tr>
@@ -354,6 +353,7 @@ AvaTax for Communications API Integration Checklist to have your integration <a 
 <p>One of the Following is required: </p>
 </td>
 </tr>
+<tr>
 <td rowspan="2" width="75">
 <p>R</p>
 </td>
