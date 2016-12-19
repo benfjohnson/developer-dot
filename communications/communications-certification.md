@@ -30,7 +30,7 @@ you were to give us a full functionality demo, here's what we'd like to see.
 </tr>
 <tr>
 <td> Validate Company specific data in AFC transactional inputs. </td>
-<td> You should have the ability to pass through all types of inputs through with transactions:
+<td> <p>You should have the ability to pass through all types of inputs through with transactions: </p>
 <ul class="normal">
 <li> Service Class: Primary Local or Primary Long Distance. </li>
 <li> Regulated or Unregulated. </li>
@@ -68,7 +68,7 @@ you were to give us a full functionality demo, here's what we'd like to see.
 <td>
 <p>Validate Adjustment handling</p>
 <ul class="normal">
-<li>Ability to use an adjustment call for a normal transaction
+<li>Ability to use an adjustment call for a normal transaction </li>
 <li> Ability to apply adjustment call for current/previous month transactions </li>
 </ul>
 </td>
@@ -133,12 +133,16 @@ you were to give us a full functionality demo, here's what we'd like to see.
 <tr>
 <td>Validate ability to pass a single channel line and a multi-channel line.</td>
 <td>
+<p>Ability to pass following line transactions together for system to return taxes.</p>
 <ul class="normal">
-Ability to pass following line transactions together for system to return taxes.
-<li>Local/PBX Trunk, Local/PBX Extension, Local/PBX outbound channel. 
-Ability to pass following Trunk transactions together</li>
-<li>Local/Centrex/DID, Extension, Local/Centrex Trunk, Local/Centrex, outbound Channel.</li>
-<li>Ability to pass following channel   transactions together</li>
+<li>Local/PBX Trunk, Local/PBX Extension, Local/PBX outbound channel.</li>
+</ul>
+<p>Ability to pass following Trunk transactions together</p>
+<ul class="normal">
+<li>Local/Centrex/DID Extension, Local/Centrex Trunk, Local/Centrex, outbound Channel.</li>
+</ul>
+<p>Ability to pass following channel transactions together</p>
+<ul class="normal">
 <li>Local/High Capacity Trunk Bundle, Local/High Capacity Extension Bundle,Local/High Capacity Outbound Channel Bundle.</li>
 </ul>
 </td>
