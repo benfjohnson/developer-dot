@@ -7,6 +7,17 @@ nav: apis
 community: apis
 ---
 
+<style>
+.styled-table {
+  border-collapse: collapse;}
+  .styled-table tbody {
+    background-color: #f5f6fa; }
+    .styled-table tbody td {
+      border-top: 1px solid #ffff; }
+  .styled-table tbody {
+    background-color: #ffffff; }
+</style>
+
 # Certified for Avalara AvaTax for Communications
 
 AvaTax for Communications API Integration Checklist to have your integration <a href="http://developer.avalara.com/certification/"> certified by Avalara</a> we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax for Communication with your application. To be certified for Avalara AvaTax for Communications, all of the items with an R in the Required column listed below are required elements that must be present in your integration.
@@ -103,17 +114,6 @@ AvaTax for Communications API Integration Checklist to have your integration <a 
 </td>
 <td width="300">
 <p><strong>Comment</strong></p>
-</td>
-</tr>
-<tr>
-<td width="75">
-<p>R</p>
-</td>
-<td width="200">
-<p>Call GetServerTime</p>
-</td>
-<td width="300">
-<p>Request requires no input from client except credentials. Verify contents is current Central time.</p>
 </td>
 </tr>
 </table>
@@ -238,7 +238,6 @@ AvaTax for Communications API Integration Checklist to have your integration <a 
 <p>From previous call to one of the methods above, have Avalara admin review input information and output information to verify both parties agree with results.</p>
 </td>
 </tr>
-<tr>
 </table>
 
 <h4>Populate Transaction structure</h4>
@@ -321,6 +320,7 @@ AvaTax for Communications API Integration Checklist to have your integration <a 
 <p>One of the Following is required: </p>
 </td>
 </tr>
+<tr>
 <td rowspan="2" width="75">
 <p>R</p>
 </td>
