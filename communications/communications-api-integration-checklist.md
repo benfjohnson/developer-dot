@@ -4,7 +4,6 @@ title: Communications Integration Checklist
 product: communications
 doctype: integration_checklists
 nav: apis
-community: apis
 ---
 
 # Certified for Avalara AvaTax for Communications
