@@ -4,7 +4,6 @@ title: Communications Certification
 product: communications
 doctype: integration_checklists
 nav: apis
-community: apis
 ---
 
 
