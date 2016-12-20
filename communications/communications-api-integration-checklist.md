@@ -6,6 +6,17 @@ doctype: integration_checklists
 nav: apis
 ---
 
+<style>
+.styled-table {
+  border-collapse: collapse;}
+  .styled-table tbody {
+    background-color: #f5f6fa; }
+    .styled-table tbody td {
+      border-top: 1px solid #ffff; }
+  .styled-table tbody {
+    background-color: #ffffff; }
+</style>
+
 # Certified for Avalara AvaTax for Communications
 
 AvaTax for Communications API Integration Checklist to have your integration <a href="http://developer.avalara.com/certification/"> certified by Avalara</a> we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax for Communication with your application. To be certified for Avalara AvaTax for Communications, all of the items with an R in the Required column listed below are required elements that must be present in your integration.
@@ -102,28 +113,6 @@ AvaTax for Communications API Integration Checklist to have your integration <a 
 </td>
 <td width="300">
 <p><strong>Comment</strong></p>
-</td>
-</tr>
-<tr>
-<td width="75">
-<p>R</p>
-</td>
-<td width="200">
-<p>Verify connectivity to WSDL</p>
-</td>
-<td width="300">
-<p>Make sure <a href= "http://eztaxasp.eztax.com/EZtaxWebService/EZtaxWebService.svc?wsdl"> You can access the WSDL here. </a> </p>
-</td>
-</tr>
-<tr>
-<td width="75">
-<p>R</p>
-</td>
-<td width="200">
-<p>Call GetServerTime</p>
-</td>
-<td width="300">
-<p>Request requires no input from client except credentials. Verify contents is current Central time.</p>
 </td>
 </tr>
 </table>
@@ -318,28 +307,6 @@ AvaTax for Communications API Integration Checklist to have your integration <a 
 </td>
 <td width="300">
 <p><strong>Comment</strong></p>
-</td>
-</tr>
-<tr>
-<td width="75">
-<p>R</p>
-</td>
-<td width="200">
-<p> Verify access to Swagger UI</p>
-</td>
-<td width="300">
-<p> Make sure the <a href="https://communications.avalara.net/swagger/UI/index.html">API swagger documentation is available </a> </p>
-</td>
-</tr>
-<tr>
-<td width="75">
-<p>R</p>
-</td>
-<td width="200">
-<p>Call /api/v1/Application/ServerTime</p>
-</td>
-<td width="300">
-<p>Request requires no input from client application. Verify contents is current UTC time.</p>
 </td>
 </tr>
 </table>
