@@ -1,0 +1,79 @@
+﻿@model AvaTaxConnector.Models.InvoiceModel
+
+@{
+    ViewBag.Title = "Calculate SalesTax On an Invoice";
+    Layout = "~/Views/Shared/_Layout.cshtml";    
+}
+
+<h2>Generate Invoice</h2>
+<fieldset>
+    <section class="main-content">
+        <table style="width:90%;">
+            <tr>
+                <td>
+
+                    @using (@Html.BeginForm())
+                    {
+                        <table>
+                            <tr><td>@Html.Label("Ship From (example - Warehouse address")</td><td>@Html.TextBox("txtShipFrom", (string)ViewBag.ShipFrom)</td><td>&nbsp;</td><td>&nbsp;</td><td></td></tr>
+                            <tr><td>@Html.Label("Ship To")</td><td>@Html.TextBox("txtShipTo", (string)ViewBag.ShipTo)</td><td>&nbsp;</td><td>&nbsp;</td><td></td></tr>
+                            <tr><td>@Html.Label("Bill To")</td><td>@Html.TextBox("txtOrderOrigin", (string)ViewBag.OrderOrigin)</td><td>&nbsp;</td><td>&nbsp;</td><td></td></tr>
+                            <tr><td>@Html.Label("Order Received By")</td><td>@Html.TextBox("txtOrderAcceptance", (string)ViewBag.OrderAcceptance)</td><td>&nbsp;</td><td>&nbsp;</td><td></td></tr>
+                        </table>
+                        <hr />
+                        <table>
+                            <tr><td>@Html.Label("Description")</td><td>@Html.Label("Quantity")</td><td>@Html.Label("Rate")</td><td>@Html.Label("Discount")</td><td>SubTotal</td></tr>
+                            <tr><td>@Html.TextBoxFor(i => i.Lines[0].Description, new { @class = "form-control" })</td><td>@Html.TextBoxFor(i => i.Lines[0].Quantity, new { @class = "form-control", id = "invoiceModelQuantity", name = "txt" })</td><td>@Html.TextBoxFor(i => i.Lines[0].Rate, new { @class = "form-control", id = "invoiceModelRate", name = "txt" })</td><td>@Html.TextBoxFor(i => i.Lines[0].Discount, new { @class = "form-control", id = "invoiceModelDiscount", name = "txt" })</td><td>@Html.TextBoxFor(i => i.Lines[0].Amount, new { @class = "form-control", id = "invoiceModelTotal", name = "txt" })</td></tr>
+                            <tr><td></td><td></td><td></td><td><input id="btnGetTax" type="submit" value="submit" /></td><td><label id="lblTaxAmountTotal"></label></td></tr>
+                            <tr>
+                                <td></td><td></td><td></td>
+                                <td>Tax</td>
+                                <td>
+                                    @if (ViewData.Model != null)
+                                    { <h3>@ViewData.Model.Lines[0].Tax</h3> }
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td></td><td></td><td></td>
+                                <td>Total</td>
+                                <td>
+                                    @if (ViewData.Model != null)
+                                    { <h3>@ViewData.Model.Total</h3> }
+                                </td>
+                            </tr>
+                        </table>
+                    }
+                </td>
+            </tr>
+            <tr><td>
+</td></tr>
+    </table>
+        <hr />       
+        <table>
+            <tr><td>@ViewBag.Message</td></tr>
+        </table>
+        
+</section>
+</fieldset>
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+    $(document).ready(function () {
+       
+        $(".form-control").each(function () {
+           
+            $(this).keyup(function () {
+              
+                calculateTotal();
+            });
+        });
+    });
+
+    function calculateTotal() {
+        var Total = 0;
+        Total = $('#invoiceModelRate').val() * $('#invoiceModelQuantity').val() - $('#invoiceModelDiscount').val();
+       
+        $("#invoiceModelTotal").val(Total.toFixed(2));
+    }
+</script>
+

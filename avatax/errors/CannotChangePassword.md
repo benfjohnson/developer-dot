@@ -12,21 +12,23 @@ You attempted to change passwords for a user who is not permitted to change thei
 
 ## Example
 
+```json
+{
+  "code": "CannotChangePassword",
+  "target": "Unknown",
+  "details": [
     {
       "code": "CannotChangePassword",
-      "target": "Unknown",
-      "details": [
-        {
-          "code": "CannotChangePassword",
-          "number": 24,
-          "message": "User is not allowed to change password.",
-          "description": "-0-",
-          "faultCode": "Client",
-          "helpLink": "http://developer.avalara.com/avatax/errors/CannotChangePassword",
-          "severity": "Error"
-        }
-      ]
+      "number": 24,
+      "message": "The password of this user cannot change.",
+      "description": "-0-",
+      "faultCode": "Client",
+      "helpLink": "http://developer.avalara.com/avatax/errors/CannotChangePassword",
+      "severity": "Error"
     }
+  ]
+}
+```
 
 ## Explanation
 

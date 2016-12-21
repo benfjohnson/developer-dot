@@ -20,6 +20,16 @@ title: AvaTax REST v2 Error Codes
 			<td>Indicates that there is a server configuration problem with one of the servers in Avalara's AvaTax cluster.</td>
 		</tr>		
         <tr>
+			<td>2</td>
+			<td><a href="AccountInvalidException">AccountInvalidException</a></td>
+			<td>You attempted to read information about an account that does not exist.</td>
+		</tr>		
+        <tr>
+			<td>3</td>
+			<td><a href="CompanyInvalidException">CompanyInvalidException</a></td>
+			<td>TBD</td>
+		</tr>		
+        <tr>
 			<td>4</td>
 			<td><a href="EntityNotFoundError">EntityNotFoundError</a></td>
 			<td>You attempted to act on, retrieve, update, or delete an object that does not exist.</td>
@@ -50,19 +60,19 @@ title: AvaTax REST v2 Error Codes
 			<td>Customers subscribing to Avalara Returns must identify each company by its United States Taxpayer ID Number (TIN).</td>
 		</tr>		
         <tr>
+			<td>11</td>
+			<td><a href="CommonPassword">CommonPassword</a></td>
+			<td>The password you have chosen is a commonly-guessed password and cannot be used.</td>
+		</tr>		
+        <tr>
 			<td>12</td>
-			<td><a href="PasswordMinComplexityError">PasswordMinComplexityError</a></td>
-			<td>This password does not meet the complexity requirements set by AvaTax.</td>
+			<td><a href="WeakPassword">WeakPassword</a></td>
+			<td>The password you specified does not meet minimum complexity requirements.</td>
 		</tr>		
         <tr>
 			<td>13</td>
 			<td><a href="StringLengthError">StringLengthError</a></td>
 			<td>One of the strings you uploaded to the server is too long and cannot be saved.</td>
-		</tr>		
-        <tr>
-			<td>14</td>
-			<td><a href="StringValueRequiredError">StringValueRequiredError</a></td>
-			<td>One of the fields designated in your object model was null, but a string value is required.</td>
 		</tr>		
         <tr>
 			<td>15</td>
@@ -173,6 +183,41 @@ title: AvaTax REST v2 Error Codes
 			<td>40</td>
 			<td><a href="VisibilityError">VisibilityError</a></td>
 			<td>You attempted to request an object from AvaTax that you are not permitted to see.</td>
+		</tr>		
+        <tr>
+			<td>41</td>
+			<td><a href="BearerTokenNotSupported">BearerTokenNotSupported</a></td>
+			<td>Bearer Token authentication is not yet supported with this API.</td>
+		</tr>		
+        <tr>
+			<td>42</td>
+			<td><a href="InvalidSecurityRole">InvalidSecurityRole</a></td>
+			<td>You do not have permission to create or update users with this security role.</td>
+		</tr>		
+        <tr>
+			<td>43</td>
+			<td><a href="InvalidRegistrarAction">InvalidRegistrarAction</a></td>
+			<td>The action you attempted is restricted.</td>
+		</tr>		
+        <tr>
+			<td>44</td>
+			<td><a href="RemoteServerError">RemoteServerError</a></td>
+			<td>A remote server AvaTax depends on is not working.</td>
+		</tr>		
+        <tr>
+			<td>45</td>
+			<td><a href="NoFilterCriteriaException">NoFilterCriteriaException</a></td>
+			<td>You provided a filter with your query, but did not specify any criteria.</td>
+		</tr>		
+        <tr>
+			<td>46</td>
+			<td><a href="OpenClauseException">OpenClauseException</a></td>
+			<td>Your $filter value has a mismatched open parenthesis / close parenthesis.</td>
+		</tr>		
+        <tr>
+			<td>47</td>
+			<td><a href="JsonFormatError">JsonFormatError</a></td>
+			<td>The JSON you sent with your request was invalid.</td>
 		</tr>		
         <tr>
 			<td>50</td>
@@ -345,6 +390,16 @@ title: AvaTax REST v2 Error Codes
 			<td>You specified a tax code type that is not recognized by Avalara.</td>
 		</tr>		
         <tr>
+			<td>148</td>
+			<td><a href="CannotActivateCompany">CannotActivateCompany</a></td>
+			<td>A company can only be activated when it has a valid tax profile.</td>
+		</tr>		
+        <tr>
+			<td>149</td>
+			<td><a href="DuplicateEntityProperty">DuplicateEntityProperty</a></td>
+			<td>You attempted to create an object with a duplicate name or code.</td>
+		</tr>		
+        <tr>
 			<td>200</td>
 			<td><a href="BatchSalesAuditMustBeZippedError">BatchSalesAuditMustBeZippedError</a></td>
 			<td>Sales audit files must be uploaded in ZIP or RAR formats.</td>
@@ -358,6 +413,16 @@ title: AvaTax REST v2 Error Codes
 			<td>202</td>
 			<td><a href="BatchInvalidFileTypeError">BatchInvalidFileTypeError</a></td>
 			<td>You uploaded a batch file with an incorrect file type.</td>
+		</tr>		
+        <tr>
+			<td>250</td>
+			<td><a href="PointOfSaleFileSize">PointOfSaleFileSize</a></td>
+			<td>The Point-Of-Sale API cannot build this file dynamically.</td>
+		</tr>		
+        <tr>
+			<td>251</td>
+			<td><a href="PointOfSaleSetup">PointOfSaleSetup</a></td>
+			<td>Invalid parameter provided in the Point-Of-Sale file request.</td>
 		</tr>		
         <tr>
 			<td>300</td>
@@ -393,6 +458,11 @@ title: AvaTax REST v2 Error Codes
 			<td>307</td>
 			<td><a href="CompanyCodeConflict">CompanyCodeConflict</a></td>
 			<td>The company code in the URL of your API call did not match the company code of the transaction you uploaded.</td>
+		</tr>		
+        <tr>
+			<td>308</td>
+			<td><a href="DocumentFetchLimit">DocumentFetchLimit</a></td>
+			<td>You attempted to fetch more than 1000 transaction documents at a time.</td>
 		</tr>		
         <tr>
 			<td>400</td>

@@ -3,7 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="robots" content="index,follow"/>
+    {% if page.noRobots == 1 %}
+        <meta name="robots" content="noindex"/>
+    {% else %}
+        <meta name="robots" content="index,follow"/>
+    {% endif %}
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ site.title }}{% if page.title %} : {{ page.title }}{% endif %}</title>
     <meta name="description" content="{{ site.subtitle }}">
@@ -36,6 +41,9 @@
     {% if page.avaform == 1 %}
     <link rel="stylesheet" href="http://d30qslfa084pac.cloudfront.net/common/avaform/style.css">
     {% endif %}
+    <!-- Adobe Dynamic Tab Manager Tag Manager -->
+    <script src="//assets.adobedtm.com/bc10a2a9cf337c664f8f74e778a1987125aea184/satelliteLib-0387aefee1ddb8b2a9db7e4165c8d84dc0de8621.js"></script>
+    <!-- End Adobe Dynamic Tab Manager Tag Manager -->
 </head>
 {% assign post_count = site.posts|size %}
 {% if page.product %}
@@ -264,22 +272,8 @@ Custom build that just has S3 sdk included:
 <script>handleSearch();</script>
 {% endif %}
 
-<!-- Google Tag Manager -->
-<noscript>
-    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MKB5LP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-<script>(function(w, d, s, l, i) {
-    w[l] = w[l] || [];
-    w[l].push({
-        'gtm.start': new Date().getTime(), event: 'gtm.js'
-    });
-    var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-    j.async = true;
-    j.src =
-        '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-    f.parentNode.insertBefore(j, f);
-})(window, document, 'script', 'dataLayer', 'GTM-MKB5LP');</script>
-<!-- End Google Tag Manager -->
+<!-- Adobe Dynamic Tag Manager -->
+<script type="text/javascript">_satellite.pageBottom();</script>
+<!-- End Adobe Dynamic Tag Manager -->
 </body>
 </html>

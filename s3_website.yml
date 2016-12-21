@@ -9,7 +9,9 @@ exclude_from_upload:
   - node_modules
 
 ignore_on_server:
-  - logs
+  - logs/
+  
+treat_zero_length_objects_as_redirects: true
 
 redirects:
   form: /avatax/get-started
@@ -575,6 +577,7 @@ redirects:
   wp-content/apireference/master/:  /avatax/api-reference/tax/soap
   get-started/:  /avatax/get-started
   api-documentation/avatax-16-api/administrator/index.php:  /avalara-apis
+  api-docs/designing-your-integration/handling-return-invoices: /avatax/handling-return-invoices
   api-docs/designing-your-integration/handling-return-invoices/invoice-and-return:  /avatax/handling-return-invoices
   api-documentation/certcapture-api:  /certcapture
   wp-content/apireference/master/wp-admin/admin-ajax.php:  /avatax/api-reference/tax/v1
@@ -592,3 +595,4 @@ redirects:
   api-documentation/avatax-16-api/avatax-soap-api-reference:  /avalara-apis
   landedcost/api-reference/calculate/v3: /landedcost/api-reference/v3/index.html#calculate
   api-docs/soap/accountsvc: /avatax/api-reference/account/soap
+  api-docs/designing-your-integration/errors-and-outages/common-errors: /avatax/common-errors
