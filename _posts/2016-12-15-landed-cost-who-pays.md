@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Landed Cost: Who Pays?
+title: Landed Cost-Who Pays?
 date: 2016-12-15 14:00
 author: Amy Morgan
 comments: true
