@@ -45,7 +45,7 @@ The result of this API call indicates that Avalara was able to locate the addres
     "latitude": 33.691385,
     "longitude": -117.867524
   },
-  "resolutionQuality": "Intersection",
+  "resolutionQuality": "Intersection"
 }
 ```
 
@@ -66,6 +66,7 @@ When invalid information is provided to the address resolution API, you will rec
 In the response object, you will receive a list of `messages` with additional information about the address resolution problem:
 
 ```json
+{
   "messages": [
     {
       "summary": "The address is not deliverable.",
@@ -75,6 +76,7 @@ In the response object, you will receive a list of `messages` with additional in
       "source": "Avalara.AvaTax.Services.Address"
     }
   ]
+}
 ```
 
 Address validation is a difficult process, and it is not always possible to identify the address a customer means when they provide partial information.  The United States Postal Service provides guidance to developers like Avalara, and we update our address resolution system each month with the best available information.  Some common problems that customers experience are:
