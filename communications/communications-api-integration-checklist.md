@@ -18,9 +18,9 @@ community: apis
     background-color: #ffffff; }
 </style>
 
-# Certified for Avalara AvaTax for Communications
+<p>AvaTax for Communications API Integration Checklist to have your integration <a href="http://developer.avalara.com/certification/"> certified by Avalara</a> we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax for Communication with your application. To be certified for Avalara AvaTax for Communications, all of the items with an R in the Required column listed below are required elements that must be present in your integration.</p>
 
-AvaTax for Communications API Integration Checklist to have your integration <a href="http://developer.avalara.com/certification/"> certified by Avalara</a> we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax for Communication with your application. To be certified for Avalara AvaTax for Communications, all of the items with an R in the Required column listed below are required elements that must be present in your integration.
+<h4>Certified for Avalara AvaTax for Communications</h4>
 
 <h3> AFC General </h3>
 
@@ -387,33 +387,6 @@ AvaTax for Communications API Integration Checklist to have your integration <a 
 </td>
 <td width="300">
 <p>From previous call to one of the methods above, have Avalara admin review input information and output information to verify both parties agree with results.</p>
-</td>
-</tr>
-</table>
-
-<h4>Populate Transaction structure</h4>
-
-<table class="styled-table">
-<tr>
-<td width="75">
-<p>R</p>
-</td>
-<td width="200">
-<p>/api/v1/CalculateAdjustments</p>
-</td>
-<td width="300">
-<p>Populate Transaction data structure with appropriate data. Parse returned TaxData data structure for results. This method accepts transaction data and performs appropriate tax adjustment calculations.</p>
-</td>
-</tr>
-<tr>
-<td width="75">
-<p>R</p>
-</td>
-<td width="200">
-<p>Have Avalara admin review results in system.</p>
-</td>
-<td width="300">
-<p>From previous call to one of the methods above, have Avalara admin review input information and output information to verify adjustment was made and both parties agree with results.</p>
 </td>
 </tr>
 </table>
