@@ -249,7 +249,7 @@ In order to retrieve this file, we'll need to build a JSON request:
 
 ```json
 {
-  "CompanyCode": "AVALARA"
+  "companyCode": "AVALARA"
 }
 ```
 
