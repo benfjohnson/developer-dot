@@ -17,7 +17,7 @@ Let's run through a couple of quick examples to see how things might look. Depen
 
 For the first case let's assume you've already `Saved` and `Committed` a transaction but your customer found an issue when they looked over their receipt. In this case you might like to void the transaction altogether and re-submit a new one. Since you've already committed the transaction for reporting your best option is to record the void with the `DocVoided` `code`. Here's what you're request might look like in that case:
 
-```JSON
+```json
 
 {
 
