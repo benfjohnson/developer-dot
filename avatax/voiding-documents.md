@@ -15,7 +15,7 @@ Let's run through a couple of quick examples to see how things might look. Depen
 
 ### Using DocVoided
 
-For the first case let's assume you've already `Saved` and `Committed` a transaction but your customer found an issue when they looked over their receipt. In this case you might like to void the transaction altogether and re-submit a new one. Since you've already committed the transaction for reporting your best option is to record the void with the `DocVoided` `code`. Here's what you're request might look like in that case:
+For the first case let's assume you've already `Saved` and `Committed` a transaction but your customer found an issue when they looked over their receipt. In this case you might like to void the transaction altogether and re-submit a new one. Since you've already committed the transaction for reporting your best option is to record the void with the `DocVoided` `code`. Here's what your request might look like in that case:
 
 ```json
 
@@ -28,7 +28,7 @@ For the first case let's assume you've already `Saved` and `Committed` a transac
 }
 ```
 
-The Response will be a detailed summary of this action, of which the following response gives an idea as to its structure:
+The Response will be a detailed summary of this action of the following structure:
 
 ```json
 
@@ -74,7 +74,7 @@ The Response will be a detailed summary of this action, of which the following r
 }
 ```
 
-You'll notice this transaction has now been cancelled as it states in the response: `"status": "Cancelled"`. Finally, you'll notice the Admin Console has been updated as well, as the transaction will now be Voided under your companies transactions tab. This will allow for the transaction to be included in any reports you might wish to file.
+You'll notice this transaction has now been cancelled as it states in the response: `"status": "Cancelled"`. Also, when viewed in the Admin Console the transaction will now be Voided under your companies transactions tab. This will allow for the transaction to be included in any reports you might wish to file.
 
 ### Using DocDeleted
 
