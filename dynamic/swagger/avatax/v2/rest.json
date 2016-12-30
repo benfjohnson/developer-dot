@@ -2,8 +2,8 @@
 	"swagger": "2.0",
 	"info": {
 		"version": "v2",
-		"title": "AvaTax API",
-		"description": "REST interface to Avalara's enterprise tax service, AvaTax.",
+		"title": "AvaTax API References",
+		"description": "**From here you can navigate the various endpoints associated with AvaTax APIs. The URL's for our REST v2 services are:** \n- Sandbox: [https://sandbox-rest.avatax.com](https://sandbox-rest.avatax.com)\n- Production: [https://rest.avatax.com](https://rest.avatax.com) \n### Quick Guide \nNew to AvaTax or our REST v2 API? Check out [Getting Started With AvaTax REST v2](http://developer.avalara.com/blog/2016/10/04/getting-started-with-avatax-rest-v2/). If you're already familiar see the quick guide links below for some of the essential API methods of AvaTax services. \n#### [Calculate Tax and Record a Document](http://developer.avalara.com/avatax/api-reference/tax/v2/TaxRates/#ApiV2TaxratesByaddressGet) \nCurious about the transaction types our supporting AvaTax engine has to offer? There are various ways in which you can use our service for filing and remitting sales tax. Learn more about the [transaction types and their usage here.](http://developer.avalara.com/blog/2016/11/18/types-of-transactions/) \n#### [Voiding a Document](http://developer.avalara.com/avatax/api-reference/tax/v2/Transactions/#ApiV2CompaniesByCompanyCodeTransactionsByTransactionCodeVoidPost) \nIf you'd like to know more about the different actions performed by our void transactions endpoint, check out our [Voiding Documents page](http://developer.avalara.com/avatax/voiding-documents/) under AvaTax [Use Cases](http://developer.avalara.com/avatax/use-cases/).\n#### [Estimate Tax](http://developer.avalara.com/avatax/api-reference/tax/v2/TaxRates/#ApiV2TaxratesByaddressGet) \nAvaTax provides users with a simplistic method for estimating taxes prior to making a sale, especially for those who are mired in the complexities of their organizations nature of business and would like to consider rates prior to making a transaction. Not only can you use our REST v2 API to consider those potential rates; but you also have the ability to estimate the taxes on those transactions as well. [Find out more here.](http://developer.avalara.com/blog/2016/11/04/estimating-tax-with-rest-v2/) \n#### [Validate an Address](http://developer.avalara.com/avatax/api-reference/tax/v2/Addresses/) \nThe AvaTax Suite of products can also help validate addresses. Whether you're working with partial or mistyped addresses try the REST v2's `POST /api/v2/addresses/resolve` endpoint and AvaTax will do its best to find you a valid address. [Learn more about this process here](http://developer.avalara.com/blog/2016/12/09/address-validation-in-rest-v2/).",
 		"contact": {
 			"name": "Avalara Developer Relations",
 			"url": "https://developer.avalara.com"
@@ -11780,7 +11780,7 @@
 					"SourcingIssue",
 					"ReconciledWithGeneralLedger",
 					"ExemptCertApplied",
-					"PriceAdjusted",
+					"PricePriAdjusted",
 					"ProductReturned",
 					"ProductExchanged",
 					"BadDebt",
