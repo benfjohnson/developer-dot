@@ -83,7 +83,7 @@ For the next example, let's this time say the customer has included items in the
 ```json
 
 {
-    "companyCode": 456,
+    "companyCode": 555,
     "transactionCode": "5555555aa-5aa5-5a55-a555-55a555a5555a",
     "code": "DocDeleted",
     "commit": false
