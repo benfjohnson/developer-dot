@@ -11,7 +11,7 @@ community: void
 
 <p>The `POST /api/v2/companies/{companyCode}/transactions/{transactionCode}/void` method provides a mechanism to recover from posting problems and cancelled transactions. The effect of the void endpoint depends upon the current state of the document (uncommitted/saved, posted, or committed), and the parameter `code` made in the request body.</p>
 
-<p>Let's run through a couple of quick examples to see how things might look. Depending on your workflow, you may come across instances where a transaction was cancelled prior to any money transfers. Since you don't owe the customer a refund; depending on how you've submitted the transaction to AvaTax you might either attempt to void or delete the transaction.
+<p>Let's run through a couple of quick examples to see how things might look. Depending on your workflow, you may come across instances where a transaction was cancelled prior to any money transfers. Since you don't owe the customer a refund; depending on how you've submitted the transaction to AvaTax you might either attempt to void or delete the transaction. </p>
 
 <h4> Using DocVoided </h4>
 
