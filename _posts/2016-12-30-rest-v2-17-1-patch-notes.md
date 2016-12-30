@@ -79,7 +79,7 @@ When you use the API calls `POST /api/v2/users` or `POST /api/v2/accounts/resetl
 
 <h3>POST /api/v2/transactions/create</h3>
 
-You can now use location codes as a shortcut for an address when creating a transaction.  If you have already defined locations within your company, this can enable you to submit simpler transaction requests.  For example, if you have created a default location with `LocationCode` = `DEFAULT`, you can then reference that location's address using this shortcut:
+You can now use location codes as a shortcut for an address when creating a transaction.  If you have already defined locations within your company, this can enable you to submit simpler transaction requests.  For example, if you have created a location and given it the location code `MAINOFFICE`, you can then reference that location's address using this shortcut:
 
 ```json
 {
@@ -88,8 +88,15 @@ You can now use location codes as a shortcut for an address when creating a tran
   "date": "2016-12-30T00:00:00-08:00",
   "customerCode": "ABC",
   "addresses": {
-    "SingleLocation": {
-      "locationCode": "DEFAULT"
+    "ShipFrom": {
+      "locationCode": "MAINOFFICE"
+    },
+    "ShipTo": {
+      "line1": "123 Main Street",
+      "city": "Irvine",
+      "region": "CA",
+      "postalCode": "92615",
+      "country": "US"
     }
   },
   "lines": [
