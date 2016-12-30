@@ -11780,7 +11780,7 @@
 					"SourcingIssue",
 					"ReconciledWithGeneralLedger",
 					"ExemptCertApplied",
-					"PricePriAdjusted",
+					"PriceAdjusted",
 					"ProductReturned",
 					"ProductExchanged",
 					"BadDebt",
