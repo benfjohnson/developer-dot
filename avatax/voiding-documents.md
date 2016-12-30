@@ -1,23 +1,23 @@
 ---
 layout: page
-title: Voiding Documents
+title: Cancel Transactions
 product: avaTax
 doctype: use_cases
 nav: apis
 community: void
 ---
 
-<h2> Using REST v2 to Void Transactions </h2>
+## Using REST v2 to Void Transactions
 
-<p>The `POST /api/v2/companies/{companyCode}/transactions/{transactionCode}/void` method provides a mechanism to recover from posting problems and cancelled transactions. The effect of the void endpoint depends upon the current state of the document (uncommitted/saved, posted, or committed), and the parameter `code` made in the request body.</p>
+The `POST /api/v2/companies/{companyCode}/transactions/{transactionCode}/void` method provides a mechanism to recover from posting problems and cancelled transactions. The effect of the void endpoint depends upon the current state of the document (uncommitted/saved, posted, or committed), and the parameter `code` made in the request body.
 
-<p>Let's run through a couple of quick examples to see how things might look. Depending on your workflow, you may come across instances where a transaction was cancelled prior to any money transfers. Since you don't owe the customer a refund; depending on how you've submitted the transaction to AvaTax you might either attempt to void or delete the transaction.
+Let's run through a couple of quick examples to see how things might look. Depending on your workflow, you may come across instances where a transaction was cancelled prior to any money transfers. Since you don't owe the customer a refund; depending on how you've submitted the transaction to AvaTax you might either attempt to void or delete the transaction.
 
-<h4> Using DocVoided </h4>
+### Using DocVoided
 
-<p>For the first case let's assume you've already `Saved` and `Committed` a transaction but your customer found an issue when they looked over their receipt. In this case you might like to void the transaction altogether and re-submit a new one. Since you've already committed the transaction for reporting your best option is to record the void with the `DocVoided` `code`. Here's what you're request might look like in that case:</p>
+For the first case let's assume you've already `Saved` and `Committed` a transaction but your customer found an issue when they looked over their receipt. In this case you might like to void the transaction altogether and re-submit a new one. Since you've already committed the transaction for reporting your best option is to record the void with the `DocVoided` `code`. Here's what your request might look like in that case:
 
-```JSON
+```json
 
 {
 
@@ -27,7 +27,8 @@ community: void
     "commit": true
 }
 ```
-The Response will be a detailed summary of this action, of which the following response gives an idea as to its structure:
+
+The Response will be a detailed summary of this action of the following structure:
 
 ```json
 
@@ -72,21 +73,23 @@ The Response will be a detailed summary of this action, of which the following r
   "parameters": {}
 }
 ```
-<p>You'll notice this transaction has now been cancelled as it states in the response: `"status": "Cancelled"`. Finally, you'll notice the Admin Console has been updated as well, as the transaction will now be Voided under your companies transactions tab. This will allow for the transaction to be included in any reports you might wish to file. </p>
 
-<h4> Using DocDeleted </h4>
+You'll notice this transaction has now been cancelled as it states in the response: `"status": "Cancelled"`. Also, when viewed in the Admin Console the transaction will now be Voided under your companies transactions tab. This will allow for the transaction to be included in any reports you might wish to file.
 
-<p>For the next example, let's this time say the customer has included items in their shopping cart and when submitted to AvaTax they're `Saved` but `Uncommitted` transactions. Then the customer abandons their cart. For this case you can either use the DocVoided method like we did above or you have the option to delete the transaction altogether. The request for deletion will be as the following:</p>
+### Using DocDeleted
+
+For the next example, let's this time say the customer has included items in their shopping cart and when submitted to AvaTax they're `Saved` but `Uncommitted` transactions. Then the customer abandons their cart. For this case you can either use the DocVoided method like we did above or you have the option to delete the transaction altogether. The request for deletion will be as the following:
 
 ```json
 
 {
-    "companyCode": 456,
+    "companyCode": 555,
     "transactionCode": "5555555aa-5aa5-5a55-a555-55a555a5555a",
     "code": "DocDeleted",
     "commit": false
 }
 ```
+
 Notice here we've used `DocDeleted` rather than `DocVoided` in place of the `code` parameter. Since the file had not yet been committed the transaction will be deleted instead of voided. Though, if you wanted to keep record of this you could use `DocVoided`.
 
 Now that we've run through a couple of example requests using the REST API, here are the various types of REST v2 supported `code` parameters.
