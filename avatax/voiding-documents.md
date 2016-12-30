@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Voiding Documents
+title: Cancel Transactions
 product: avaTax
 doctype: use_cases
 nav: apis
