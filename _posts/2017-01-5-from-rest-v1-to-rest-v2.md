@@ -1,34 +1,41 @@
 ---
 layout: post
 title: From REST v1 to REST v2
-product: avatax
+date: 2017-01-05
+author: Joseph Savarese
+comments: true
+categories: [Sales Tax APIs]
+product: blog
 doctype: blog
-categories: Sales Tax APIs
-nav: apis
-community: apis
 disqus: 1
 ---
 
 ## As Easy as V1, V2...
 
 Well, not exactly, but it's definitely easy to switch from our REST v1 to our REST v2 and the benefits are huge.
-We've built a wide range of functionality into our new REST v2 API and all those improvements are in addition to everything v1 had to offer.
+We've built a wide range of functionality into our new REST v2 API and all of that is in addition to everything our REST v1 had to offer.
 
-To highlight some of these differences let's first run through the various methods of our v1 and show exactly how they've changed in the upgraded v2. Then we can dive into some of the additions made that will help users file and remit sales tax.
+To highlight some of the changes let's first run through the various methods of our v1 and show exactly how they've changed in the upgraded v2. Then we can dive into some of those additions and look at how they're intended to help users file and remit sales tax.
 
-### From v1 -> v2 Overview
+### From v1 to v2 Overview
 
 * [Calculating Tax](#calculating-tax)
+
 * [Estimating Tax](#estimating-tax)
+
 * [Voiding Documents](#voiding-documents)
+
 * [Address Validation](#address-validation)
+
 * [New Methods](#additional-v2-endpoints)
 
 #### Calculating Tax
 
-Previously the endpoint used to calculate tax for transactions was `/1.0/tax/get` which has been replaced by the `/v2/transactions/create` endpoint. After including some minor changes to the request body parameters you will be able to POST new transactions using the REST v2. The following shows an example request from both.
+Previously the endpoint used to calculate tax for transactions was `/1.0/tax/get` replaced in v2 by `/v2/transactions/create`. After including some minor changes to the request body parameters you will be able to POST new transactions in REST v2. The following shows an example request from both.
 
-**v1 Request:** `POST development.avalara.net/1.0/tax/get`
+**v1 Request:**
+
+`POST development.avalara.net/1.0/tax/get`
 
 ```json
 
@@ -64,7 +71,9 @@ Previously the endpoint used to calculate tax for transactions was `/1.0/tax/get
 
 ```
 
-**v2 Request:** `POST //sandbox-rest.avatax.com/api/v2/transactions/create`
+**v2 Request:**
+
+`POST //sandbox-rest.avatax.com/api/v2/transactions/create`
 
 ```json
 
@@ -101,9 +110,9 @@ Previously the endpoint used to calculate tax for transactions was `/1.0/tax/get
 
 ```
 
-They may look very similar but the REST v2 provides much greater functionality and flexibility to adhere to the unique circumstances each of our users face.
+They may look very similar but the REST v2 provides much greater functionality and flexibility to adhere to the unique circumstances each of our users face. Here you'll find more on our [transaction types and their use](http://developer.avalara.com/blog/2016/11/18/types-of-transactions/).
 
-Now let's say you'd like to view the Invoices that you've created without having to login to the Admin Console, but rather by making a simple request instead. This action can be done using a `GET //sandbox-rest.avatax.com/api/v2/companies/{companyCode}/transactions` request and you can now view the transactions made by the sought after company.
+Now let's say you'd like to view the Invoices that you've created without having to login to the Admin Console, but rather by making a simple request instead. This action can be made using `GET //sandbox-rest.avatax.com/api/v2/companies/{companyCode}/transactions` to view the transactions made by the sought after company.
 
 **Response:**
 
@@ -165,7 +174,7 @@ Estimating tax has changed quite a bit from the previous v1 request:
 
 `GET //development.avalara.net/1.0/tax/{latitude},{longitude}/get`
 
-Rather than making a call such as this, we suggest using our transactions create endpoint but with transaction `type`s such as: `SalesOrder`, `ReturnOrder`, `PurchaseOrder`, and `InventoryTransferOrder`, that provide temporary documents which are great to use as a quote to estimate tax. Our v2 offers the seamless transition from an "Order" type to an "Invoice" type transaction that will be maintained, all it takes is the simple modification of one or two parameters, depending on whether you're ready to `commit` the transaction `type` or not. Here you'll find more on our [transaction types and their usage](http://developer.avalara.com/blog/2016/11/18/types-of-transactions/). What's great about the new v2 API is that not only can you use these temporary documents to make estimates but you can also make a call to get all the tax rates for whatever region you may intend to do business in. For instance if you wanted to make a sale to someone in Indian Wells, California, for which you have Nexus, you'd be able to see the rate breakdown for that city with a request like the following.
+Rather than making a call such as this, we suggest using our transactions create endpoint but with transaction `type`s such as: `SalesOrder`, `ReturnOrder`, `PurchaseOrder`, and `InventoryTransferOrder`, that provide temporary documents which are great to use as a quote to estimate tax. Our v2 offers the seamless transition from an "Order" type to an "Invoice" type transaction that will be maintained, all it takes is the simple modification of one or two parameters, depending on whether you're ready to `commit` the transaction `type` or not. What's great about the new v2 API is that not only can you use these temporary documents to make estimates but you can also make a call to get all the tax rates for whatever region you may intend to do business in. For instance if you wanted to make a sale to someone in Indian Wells, California, for which you have Nexus, you'd be able to see the rate breakdown for that city with a request like the following.
 
 **v2 Request:**
 
@@ -213,12 +222,14 @@ For the following response:
 
 These are the two endpoints for voiding documents which include a few improvements, it's also worth looking into one of the additions to the REST v2 API here as it should assist the workflow related to voiding and adjusting transactions.
 
-**v1 Request:** `POST //development.avalara.net/1.0/tax/cancel`
+**v1 Request:**
+
+`POST //development.avalara.net/1.0/tax/cancel`
 
 ```json
 
 {
-  "CancelCode": "DocDeleted",
+  "CancelCode": "DocVoided",
   "CompanyCode": "555",
   "DocCode": "SalesInvoice",
   "DocType": "SalesInvoice"
@@ -226,18 +237,20 @@ These are the two endpoints for voiding documents which include a few improvemen
 
 ```
 
-**v2 Request** `POST //sandbox-rest.avatax.com/api/v2/companies/{companyCode}/transactions/{transactionCode}/void`
+**v2 Request**
+
+`POST //sandbox-rest.avatax.com/api/v2/companies/{companyCode}/transactions/{transactionCode}/void`
 
 ```json
 {
 
     "companyCode": 555,
     "transactionCode": "5555555aa-5aa5-5a55-a555-55a555a5555a",
-    "code": "DocVoided",
+    "code": "DocVoided"
 }
 ```
 
-In case you're looking to adjust a transaction, we've included a separate enpoint just for that. For example, if a customer at a grocery store realized the can soup they just bought had some serious dents in it and you decided to lower the price due to the cans condition. You might make a request like this.
+In case you're looking to adjust a transaction, we've included a separate enpoint just for that. For example, if a customer at a grocery store realized the can of soup they just bought had some serious dents in it and you decided to lower the price due to the cans condition. You might make a request like this.
 
 **v2 Request:**
 
@@ -275,7 +288,9 @@ This has been included in the voiding documents section because if you wanted to
 #### Address Validation
 
 
-**v1 Request:** `GET //development.avalara.net/1.0/address/validate`
+**v1 Request:**
+
+`GET //development.avalara.net/1.0/address/validate`
 
 **v2 Requests:**
 
@@ -310,12 +325,14 @@ Something else the REST v1 could never do was create companies. This could only 
 
 If you're ever looking for information, the v2 has a new Definitions method, by using the assorted `GET //sandbox-rest.avatax.com/api/v2/definitions` endpoints you can retrieve parameter lists and definitions for these and more:
 
-* [Tax Location Questions](http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsLocationquestionsGet)
-* [Nexus](http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsNexusGet)
-* [Transactions](http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsParametersGet)
-* [Permissions](http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsPermissionsGet)
-* [Subscriptions](http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsSubscriptiontypesGet)
-* [Tax Authorities](http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsTaxauthoritiesGet)
-* [Tax Codes](http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsTaxcodesGet)
+<ul class="normal">
+  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsLocationquestionsGet">Tax Location Questions </a></li>
+  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsNexusGet">Nexus</a></li>
+  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsParametersGet">Transactions</a></li>
+  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsPermissionsGet">Permissions</a></li>
+  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsSubscriptiontypesGet">Subscriptions</a></li>
+  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsTaxauthoritiesGet">Tax Authorities</a></li>
+  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsTaxcodesGet">Tax Codes</a></li>
+</ul>
 
 We've been working hard here at Avalara to fine tune our AvaTax REST v2 API to provide you with the best possible service. These are just a handful of the improvements made in our REST v2, go here to view our entire [API reference documentation](http://developer.avalara.com/avatax/api-reference/tax/v2/). Hopefully this will help guide you along in the transition from our v1 to v2.
