@@ -237,7 +237,7 @@ These are the two endpoints for voiding documents which include a few improvemen
 
 ```
 
-**v2 Request**
+**v2 Request:**
 
 `POST //sandbox-rest.avatax.com/api/v2/companies/{companyCode}/transactions/{transactionCode}/void`
 
