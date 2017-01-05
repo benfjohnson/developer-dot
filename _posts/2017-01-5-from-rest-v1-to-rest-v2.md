@@ -110,9 +110,9 @@ Previously the endpoint used to calculate tax for transactions was `/1.0/tax/get
 
 ```
 
-They may look very similar but the REST v2 provides much greater functionality and flexibility to adhere to the unique circumstances each of our users face. Here you'll find more on our [transaction types and their use](http://developer.avalara.com/blog/2016/11/18/types-of-transactions/).
+Switching from v1 to v2 is made simple, where as you can see, minus the enpoint, the requests are very similar. Though, through using our v2 I think you'll notice that built into the REST v2 is much greater functionality and flexibility as we work to adhere to the unique circumstances each user faces. Here you'll find more on our [transaction types and their use](http://developer.avalara.com/blog/2016/11/18/types-of-transactions/).
 
-Now let's say you'd like to view the Invoices that you've created without having to login to the Admin Console, but rather by making a simple request instead. This action can be made using `GET //sandbox-rest.avatax.com/api/v2/companies/{companyCode}/transactions` to view the transactions made by the sought after company.
+As an example, if you'd like to view the Invoices that you've created without having to login to the Admin Console, but rather by making a simple request instead. This action can be made using `GET //sandbox-rest.avatax.com/api/v2/companies/{companyCode}/transactions` to view the transactions made by the sought after company.
 
 **Response:**
 
@@ -174,7 +174,7 @@ Estimating tax has changed quite a bit from the previous v1 request:
 
 `GET //development.avalara.net/1.0/tax/{latitude},{longitude}/get`
 
-Rather than making a call such as this, we suggest using our transactions create endpoint but with transaction `type`s such as: `SalesOrder`, `ReturnOrder`, `PurchaseOrder`, and `InventoryTransferOrder`, that provide temporary documents which are great to use as a quote to estimate tax. Our v2 offers the seamless transition from an "Order" type to an "Invoice" type transaction that will be maintained, all it takes is the simple modification of one or two parameters, depending on whether you're ready to `commit` the transaction `type` or not. What's great about the new v2 API is that not only can you use these temporary documents to make estimates but you can also make a call to get all the tax rates for whatever region you may intend to do business in. For instance if you wanted to make a sale to someone in Indian Wells, California, for which you have Nexus, you'd be able to see the rate breakdown for that city with a request like the following.
+Rather than making a call such as this, we suggest using our transactions create endpoint but with a transaction `type` such as: `SalesOrder`, `ReturnOrder`, `PurchaseOrder`, and `InventoryTransferOrder`, that provide temporary documents which are great to use as a quote to estimate tax. Our v2 offers the seamless transition from an "Order" type to an "Invoice" type transaction that will be maintained, all it takes is the simple modification of one or two parameters, depending on whether you're ready to `commit` the transaction `type` or not. Another nifty feature of our REST v2 is that you can make a call to get all the tax rates for whatever region you may intend to do business in. For instance if you wanted to make a sale to someone in Indian Wells, California, you'd be able to see the rate breakdown for that city with requests like the following.
 
 **v2 Request:**
 
@@ -186,7 +186,7 @@ Or:
 
 `GET //sandbox-rest.avatax.com/api/v2/taxrates/byaddress?line1=123%20Main%20Street&city=Indian Wells&region=CA&postalCode=92210&country=US`
 
-For the following response:
+The response will be a full breakdown of the rates by jurisdiction.
 
 **v2 Response:**
 
@@ -220,7 +220,7 @@ For the following response:
 
 #### Voiding Documents
 
-These are the two endpoints for voiding documents which include a few improvements, it's also worth looking into one of the additions to the REST v2 API here as it should assist the workflow related to voiding and adjusting transactions.
+These are the two endpoints for voiding documents, also, its worth looking into one of the additions to the REST v2 API here as it should assist the workflow related to voiding and adjusting transactions.
 
 **v1 Request:**
 
@@ -283,7 +283,7 @@ In case you're looking to adjust a transaction, we've included a separate enpoin
   }
 }
 ```
-This has been included in the voiding documents section because if you wanted to cancel such an adjustment to the transaction you'd make a void request with the parameter `AdjustmentCancelled` for your `code` in place of `DocVoided` used above.
+This has been included with voiding documents because if you wanted to cancel such an adjustment to the transaction you'd make a void request with the parameter `AdjustmentCancelled` for your `code` in place of `DocVoided` used above. Find the full list of potential `code` [parameters and their actions here](http://developer.avalara.com/avatax/voiding-documents/).
 
 #### Address Validation
 
@@ -299,6 +299,8 @@ You can use either:
 * `POST //sandbox-rest.avatax.com/api/v2/addresses/resolve` or,
 
 * `GET //sandbox-rest.avatax.com/api/v2/addresses/resolve` (Coming Soon)
+
+**v2 Request:**
 
 ```json
 {
