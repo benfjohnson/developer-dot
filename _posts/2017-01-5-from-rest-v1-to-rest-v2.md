@@ -10,7 +10,7 @@ doctype: blog
 disqus: 1
 ---
 
-## As Easy as V1, V2...
+## As Easy as v1, v2...
 
 Well, not exactly, but it's definitely easy to switch from our REST v1 to our REST v2 and the benefits are huge.
 We've built a wide range of functionality into our new REST v2 API and all of that is in addition to everything our REST v1 had to offer.
