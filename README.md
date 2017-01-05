@@ -172,7 +172,7 @@ or
 
 `$ npm run dev`
 
-Though, depending on your changes and the method you've used to change them, you might need to build or rebuild the site:
+Though, depending on your changes and the method you've used to change them, you might need to build or rebuild the site before running the above commands:
 
 `$ npm run build`
 
