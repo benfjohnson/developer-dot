@@ -178,7 +178,7 @@ Though, depending on your changes and the method you've used to change them, you
 
 or 
 
-`npm rebuild`
+`$ npm rebuild`
 
 This should serve up a url link to the locally hosted site. the port will most likely be `:4000` or `:8080`. For me, since I'm using Cloud9 to run my local instance, the jekyll port has been `:8080`. Though I've been using a Cloud9 workspace which actually hosts the site at https://WorkspaceName-UserName.c9users.io:8080 rather than http://localhost:4000. If you've just made an edit to a post rather than added a new post altogether and want to compare the changes, go ahead and pull up the [Developer Blog Page](http://developer.avalara.com/blog/) along with your running application to actually compare the current site to what it might look like with your contributions.
 
