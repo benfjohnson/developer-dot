@@ -54,8 +54,10 @@ Avalara received bug reports about large fetch commands in REST v2 failing when 
     <li>Pagination is automatically enforced on all API calls.</li>
     <li>LIST and QUERY API calls can return at most 1,000 records at a time.  To retrieve more than 1,000 records, you must paginate your API calls.</li>
     <li>Internally, the code now enforces sorting to ensure that pagination will return consistent results.  If you do not specify a sorting option, your queries will be sorted by default using the unique ID number of the object.</li>
-    <li>The <code class="highlight-rouge">@recordsetCount</code> value on your result object will give you the count of records returned.  If you wish to retrieve the full number of all records across all pages, please specify <code class="highlight-rouge">$include=count</code> on your API call.</li>
+    
 </ul>
+
+To address concerns about delays in the API, the `@recordsetCount` value on the `GET /api/v2/companies/123/transactions` endpoint will return 0 for all queries in API 2.17.1.  We are currently in the process of testing performance tuning improvements that will allow us to restore this value in the 2.17.2 release.
 
 <h3>POST /api/v2/addresses/resolve</h3>
 
