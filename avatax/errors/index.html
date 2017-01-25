@@ -27,7 +27,7 @@ title: AvaTax REST v2 Error Codes
         <tr>
 			<td>3</td>
 			<td><a href="CompanyInvalidException">CompanyInvalidException</a></td>
-			<td>TBD</td>
+			<td>You attempted to modify a company that does not exist.</td>
 		</tr>		
         <tr>
 			<td>4</td>
@@ -400,6 +400,21 @@ title: AvaTax REST v2 Error Codes
 			<td>You attempted to create an object with a duplicate name or code.</td>
 		</tr>		
         <tr>
+			<td>150</td>
+			<td><a href="ReportingEntityError">ReportingEntityError</a></td>
+			<td>You attempted to use a Returns API on a company not designated to file returns.</td>
+		</tr>		
+        <tr>
+			<td>151</td>
+			<td><a href="InvalidReturnOperationError">InvalidReturnOperationError</a></td>
+			<td>You attempted to modify a tax filing return that has been approved.</td>
+		</tr>		
+        <tr>
+			<td>152</td>
+			<td><a href="CannotDeleteCompany">CannotDeleteCompany</a></td>
+			<td>You attempted to delete a company with committed transactions.</td>
+		</tr>		
+        <tr>
 			<td>200</td>
 			<td><a href="BatchSalesAuditMustBeZippedError">BatchSalesAuditMustBeZippedError</a></td>
 			<td>Sales audit files must be uploaded in ZIP or RAR formats.</td>
@@ -465,6 +480,21 @@ title: AvaTax REST v2 Error Codes
 			<td>You attempted to fetch more than 1000 transaction documents at a time.</td>
 		</tr>		
         <tr>
+			<td>309</td>
+			<td><a href="AddressIncomplete">AddressIncomplete</a></td>
+			<td>You provided an incomplete address to an AvaTax API.</td>
+		</tr>		
+        <tr>
+			<td>310</td>
+			<td><a href="AddressLocationNotFound">AddressLocationNotFound</a></td>
+			<td>The specified location code does not exist.</td>
+		</tr>		
+        <tr>
+			<td>311</td>
+			<td><a href="MissingLine">MissingLine</a></td>
+			<td>You attempted to create a tax transaction with no lines.</td>
+		</tr>		
+        <tr>
 			<td>400</td>
 			<td><a href="BadDocumentFetch">BadDocumentFetch</a></td>
 			<td>This error indicates that you have provided an incorrect "$include" value to the GET /api/v2/companies/{0}/transactions endpoint.</td>
@@ -478,4 +508,14 @@ title: AvaTax REST v2 Error Codes
 			<td>600</td>
 			<td><a href="SubscriptionRequired">SubscriptionRequired</a></td>
 			<td>This Avalara API call requires an active subscription to a specific service.</td>
+		</tr>		
+        <tr>
+			<td>601</td>
+			<td><a href="AccountExists">AccountExists</a></td>
+			<td>An account tied to this email address already exists.</td>
+		</tr>		
+        <tr>
+			<td>602</td>
+			<td><a href="InvitationOnly">InvitationOnly</a></td>
+			<td>You attempted to contact an API that is available by invitation only.</td>
 		</tr></tbody></table>
