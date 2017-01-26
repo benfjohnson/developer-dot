@@ -80,7 +80,7 @@ The AvaTax SOAP SDK exists for backward compatibility with older software.  User
 	<tbody>
     <tr>
       <td>C#</td>
-      <td><a href="https://www.nuget.org/packages/Avalara.AvaTax.SoapClient/"><img src="https://www.nuget.org/packages/Avalara.AvaTax.SoapClient?style=plastic" title="NuGet" alt="NuGet"/></a></td>
+      <td><a href="https://www.nuget.org/packages/Avalara.AvaTax.SoapClient/"><img src="https://img.shields.io/nuget/v/Avalara.AvaTax.SoapClient.svg?style=plastic" title="NuGet" alt="NuGet"/></a></td>
       <td><a href="https://github.com/avadev/AvaTax-SOAP-NET-SDK">AvaTax-SOAP-NET-SDK</a></td>
       <td></td>
     </tr>
