@@ -44,67 +44,28 @@ community: samples
             <td><a href="https://github.com/avadev/AvaTax-Calc-SOAP-csharp">Sample</a></td>
         </tr>
         <tr>
-            <td>cURL</td>
-            <td></td>
-            <td><a href="https://github.com/avadev/AvaTax-Calc-REST-cURL">Sample</a></td>
-            <td>n/a</td>
-        </tr>
-        <tr>
-            <td>Python</td>
-            <td></td>
-            <td><a href="https://github.com/avadev/AvaTax-Calc-REST-Python">Sample</a></td>
-            <td>n/a</td>
-        </tr>
-        <tr>
-            <td>JavaScript</td>
-            <td></td>
-            <td><a href="https://github.com/avadev/AvaTax-Calc-REST-JavaScript">Sample</a></td>
-            <td>n/a</td>
-        </tr>
-        <tr>
-            <td>iOS</td>
-            <td></td>
-            <td><a href="https://github.com/avadev/AvaTax-Calc-SDK-iOS">Sample</a></td>
-            <td>n/a</td>
-        </tr>
-        <tr>
-            <td>Postman Collection</td>
-            <td></td>
-            <td><a href="https://www.getpostman.com/collections/e362821310b01d7580e9">Sample</a></td>
-            <td>n/a</td>
-        </tr>
-        <tr>
-            <td>C++/CLI</td>
-            <td></td>
-            <td>n/a</td>
-            <td><a href="https://github.com/avadev/AvaTax-Calc-SOAP-CPP">Sample</a></td>
-        </tr>
-        <tr>
-            <td>IBM iSeries</td>
-            <td></td>
-            <td>n/a</td>
-            <td><a href="https://github.com/avadev/AvaTax-Calc-SOAP-IBMi">Documentation</a></td>
-        </tr>
-        <tr>
-            <td>Salesforce - APEX</td>
-            <td></td>
-            <td>n/a</td>
-            <td><a href="https://github.com/avadev/AvaTaxCalc-Salesforce-APEX-Documentation">Documentation</a></td>
-        </tr>
-        <tr>
-            <td>AvaTax Account Service</td>
-            <td></td>
-            <td>n/a</td>
-            <td><a href="https://github.com/avadev/AvaTax-Calc-AccountSvc-SOAP-csharp">Sample</a></td>
-        </tr>
-        <tr>
-            <td>AvaTax Batch Service</td>
-            <td></td>
-            <td>n/a</td>
-            <td><a href="https://github.com/avadev/AvaTax-Calc-BatchSvc-SOAP-csharp">Sample</a></td>
-        </tr>
-	</tbody>
-</table>
+
+# REST v2 SDK Library Status
+
+Avalara maintains and publishes SDKs for our current REST v2 API for the following programming languages:
+
+| Client | Version | Status |
+|--------|---------|--------|
+| C# | [![NuGet](https://img.shields.io/nuget/v/Avalara.AvaTax.svg)](https://www.nuget.org/packages/Avalara.AvaTax/) | Live |
+| Java | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11) | Live
+| JavaScript | | Research |
+| PHP | | Research |
+| Python | | Research |
+| Scala | [![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11) | Live |
+
+# SOAP v1 SDK Library Status
+
+The AvaTax SOAP SDK exists for backward compatibility with older software.  Users are encouraged to upgrade to the REST v2 SDK when possible.
+
+| Client | Version |
+|--------|---------|
+| C# | [![NuGet](https://img.shields.io/nuget/v/Avalara.AvaTax.SoapClient.svg)](https://www.nuget.org/packages/Avalara.AvaTax.SoapClient/) |
+| PHP | [![Packagist](https://img.shields.io/packagist/v/avalara/avatax.svg)](https://packagist.org/packages/avalara/avatax) |
 
 <h2>Partner Managed Samples</h2>
 
