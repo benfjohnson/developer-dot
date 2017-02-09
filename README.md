@@ -65,6 +65,8 @@ $ npm -v
 2.15.9
 ```
 
+Ensure you are running at least Node 6.0.0 (nvm install v6.0.0)
+
 These versions or higher should suffice for now, if not, you can visit the sites linked above to find documentation on how to install their latest releases.
 
 Now that these are all in place, the following command will download Jekyll using the RubyGems package manager:
