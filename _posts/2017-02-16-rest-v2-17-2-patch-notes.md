@@ -41,7 +41,7 @@ For more information on using the free TaxRates API, please see [Estimating Tax 
 
 <h2>Onboarding API in REST v2</h2>
 
-Partners who use the existing REST Onboarding API can now transition all their code to use REST v2.  All functionality available through the original onboarding API is now available through REST v2.  Avalara will be marking the existing onboarding API as deprecated and will work with individual partners to assist them in upgrading to REST v2.
+With the release of 2.17.2, all functionality from the existing Onboarding API has been fully migrated to REST v2.  Avalara will be deprecating the existing onboarding API, and will work with individual partners to assist them in upgrading to REST v2.
 
 <h2>Jurisdiction Override API</h2>
 
@@ -75,11 +75,13 @@ Next, you can choose to either authenticate via OAuth 2.0 or Username/Password:
 
 <img src="/public/images/blog/oauth-popup.png" alt="OAuth Pop Up" height="270" width="278" />
 
-We recommend authenticating via OAuth 2.0, since it works using a unique 30-minute bearer token that allows you to experiment with the API without having to encode your username and password into a Base64 string.  When you click that link, you'll redirect to Avalara Identity, the new universal sign-on page for Avalara products:
+We recommend authenticating via OAuth 2.0, since it works using a unique bearer token that is valid for 30 minutes at a time.  This token is automatically transmitted from Avalara Identity to the API server under a secure channel, so you can experiment with the swagger API without having to encode your username and password into a Base64 string.  
+
+When you click the OAuth 2.0 link, you'll redirect to Avalara Identity, the new universal sign-on page for Avalara products:
 
 <img src="/public/images/blog/oauth-sign-in.png" alt="OAuth Sign In" height="206" width="374" />
 
-When you click `Login`, you'll be redirected back to the AvaTax API, and all calls to the API will be fully authenticated using your account!
+Type in your username and password and click `Login`.  You'll be redirected back to the AvaTax API documentation, and all calls to the API will be fully authenticated.  When your token expires, you'll be redirected back to Avalara Identity to login again.
 
 <h2>Lock Document API</h2>
 
@@ -91,7 +93,7 @@ Customers wishing to test the behavior of document locking will be able to use a
 
 <ul class="normal">
     <li>Date fields on the CreateTransaction API call now only show date, with no time information or time zone offset.  This means that customers should see consistent behavior for the date of their API call regardless of the time zone in which they are calling the application.</li>
-    <li>Our QA team noticed that the it was possible to specify the tax date of a transaction in two different places: Both the root document level as <code class="highlight-rouge">taxDate</code>, and also in the <code class="highlight-rouge">taxOverride.taxDate</code> element.  We have removed the <code class="highlight-rouge">taxDate</code> element and standardized on <code class="highlight-rouge">taxOverride.taxDate</code>.  Code that transmits the <code class="highlight-rouge">taxDate</code> element will have no effect on a transaction.</li>
+    <li>In 2.17.1, it was possible to specify the tax date of a transaction in two different places: Both the root document level as <code class="highlight-rouge">taxDate</code>, and also in the <code class="highlight-rouge">taxOverride.taxDate</code> element.  We have removed the <code class="highlight-rouge">taxDate</code> element and standardized on <code class="highlight-rouge">taxOverride.taxDate</code>.  Code that transmits the <code class="highlight-rouge">taxDate</code> element will have no effect on a transaction.</li>
     <li>Some customers have expressed confusion about what happens when line-level address overrides are created on a transaction with more than one line.  Avalara's policy is that overriding any one address on a line shall override all addresses on the line.  This means that if you set the <code class="highlight-rouge">shipTo</code> element at the document level, and then set the <code class="highlight-rouge">shipFrom</code> element at the line level, the line level will not inherit the <code class="highlight-rouge">shipTo</code> address from the document.</li>
     <li>Customers wishing to override addresses for one line on a transaction must override all addresses for that one line.  If you leave the <code class="highlight-rouge">line.addresses</code> object null, it will inherit all addresses from the root document element.</li>
     <li>Latitude and Longitude are now returned when creating or fetching a document.</li>
