@@ -415,6 +415,16 @@ title: AvaTax REST v2 Error Codes
 			<td>You attempted to delete a company with committed transactions.</td>
 		</tr>		
         <tr>
+			<td>153</td>
+			<td><a href="CountryOverridesNotAvailable">CountryOverridesNotAvailable</a></td>
+			<td>The jurisdiction override feature is only available in the United States.</td>
+		</tr>		
+        <tr>
+			<td>154</td>
+			<td><a href="JurisdictionOverrideMismatch">JurisdictionOverrideMismatch</a></td>
+			<td>An address override cannot be created for this jurisdiction.</td>
+		</tr>		
+        <tr>
 			<td>200</td>
 			<td><a href="BatchSalesAuditMustBeZippedError">BatchSalesAuditMustBeZippedError</a></td>
 			<td>Sales audit files must be uploaded in ZIP or RAR formats.</td>
@@ -495,6 +505,16 @@ title: AvaTax REST v2 Error Codes
 			<td>You attempted to create a tax transaction with no lines.</td>
 		</tr>		
         <tr>
+			<td>312</td>
+			<td><a href="InvalidAddressTextCase">InvalidAddressTextCase</a></td>
+			<td>You provided an invalid parameter to the address resolution endpoint.</td>
+		</tr>		
+        <tr>
+			<td>313</td>
+			<td><a href="DocumentNotCommitted">DocumentNotCommitted</a></td>
+			<td>You attempted to lock a transaction (aka Document) that was not committed.</td>
+		</tr>		
+        <tr>
 			<td>400</td>
 			<td><a href="BadDocumentFetch">BadDocumentFetch</a></td>
 			<td>This error indicates that you have provided an incorrect "$include" value to the GET /api/v2/companies/{0}/transactions endpoint.</td>
@@ -518,4 +538,14 @@ title: AvaTax REST v2 Error Codes
 			<td>602</td>
 			<td><a href="InvitationOnly">InvitationOnly</a></td>
 			<td>You attempted to contact an API that is available by invitation only.</td>
+		</tr>		
+        <tr>
+			<td>604</td>
+			<td><a href="ZTBListConnectorFail">ZTBListConnectorFail</a></td>
+			<td>The Zero Touch Buying service did not respond in a timely manner.</td>
+		</tr>		
+        <tr>
+			<td>605</td>
+			<td><a href="ZTBCreateSubscriptionsFail">ZTBCreateSubscriptionsFail</a></td>
+			<td>The Zero Touch Buying service did not respond in a timely manner.</td>
 		</tr></tbody></table>
