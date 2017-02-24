@@ -142,41 +142,6 @@ var handleSearch = function() {
 
 };
 
-var setupAvaForm = function() {
-    var avaform = new Avaform({
-        profiles: "default",
-        _parent: "",
-        button_label: "Get Started",
-        form_name: "APIFreeTrialContactForm",
-        campaign_name: "",
-        campaign_id: "70140000000TsVb",
-        lsmr: "",
-        lso: "Marketing",
-        lead_status: "prospect",
-        type: "customer",
-        opp_type: "new",
-        opp_subtype: "SDK",
-        erp: "",
-        poi: "",
-        pos: "",
-        ecommerce: "",
-        callback: function() {},
-        showerrors: "1",
-        fullname: "1",
-        v: "3",
-        a15: "dev",
-        usphone: "true",
-        goal_type: "goal6_autoprovisioning",
-        redirecturl: "",
-        poi_menu: "false",
-        profile: "getting-started",
-        query_string: "referrer=&lastReferrer=developer.avalara.com",
-        container: ".avaform-wrapper",
-        referer: "http://developer.avalara.com/"
-    });
-    $('#avaform-phone').mask('(999) 999-9999');
-};
-
 var fixApiRefNav = function() {
     if ($('#the-nav li').length >= 22) {
         $('#the-nav').data('offset-bottom', '160');
