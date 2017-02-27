@@ -224,6 +224,10 @@
                 </nav>
                 <main class="col-md-9{% if page.doctype == 'api_references' %} small-no-padding{% endif %}">{{ content }}</main>
             </section>
+        {% else %}
+            <section class="row">
+                <main class="col-md-12">{{ content }}</main>
+            </section>
         {% endif %}
     {% elsif page.doctype == 'overview' or page.nav == 'home' %}
     <section class="row">
@@ -288,7 +292,6 @@ Custom build that just has S3 sdk included:
 {% if page.avaform == 1 %}
 <script src="/public/js/new-ava-form.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-<script>setupAvaForm();</script>
 {% endif %}
 
 {% if page.search == 1 %}

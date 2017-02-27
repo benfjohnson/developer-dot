@@ -19,7 +19,7 @@ IF ERRORLEVEL 1 GOTO :MISSING
 :LAUNCH
 call npm run build:dev
 call npm rebuild
-jekyll serve --host 127.0.0.1 --port 8976 --baseurl ''
+bundle exec jekyll serve --host 127.0.0.1 --port 8976 --baseurl ''
 
 :CLOSE
 GOTO :DONE
