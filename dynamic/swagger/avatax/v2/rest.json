@@ -3426,6 +3426,110 @@
 					"OauthSecurity": []
 				}]
 			}
+		},	
+		"/api/v2/companies/{companyId}/locations/{id}/pointofsaledata": {
+			"get": {
+				"tags": ["Locations"],
+				"summary": "Point of sale data file generation",
+				"operationId": "ApiV2CompaniesByCompanyIdLocationsByIdValidatePointOfSaleGet",
+				"consumes": [],
+				"produces": [],
+				"parameters": [{
+					"name": "companyId",
+					"in": "path",
+					"description": "The ID of the company that owns this location",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "id",
+					"in": "path",
+					"description": "The ID number of the location to retrieve point-of-sale data.",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "date",
+					"in": "query",
+					"description": "The date for which point-of-sale data would be calculated (today by default)",
+					"required": false,
+					"type": "date-time"
+				},
+				{
+					"name": "format", 
+					"in": "query",
+					"description": "The format of the file (JSON by default)",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "partnerId",
+					"in": "query",
+					"description": "If specified, requests a custom partner-formatted version of the file.",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "includeJurisCodes",
+					"in": "query", 
+					"description": "When true, the file will include jurisdiction codes in the result.",
+					"required": false,
+					"type": "boolean"			
+				},
+				{
+					"name": "Authorization", 
+					"in": "header",
+					"description": "Account Services v2 supports authentication via license key, username/password, and bearer token.  Please see <a href=\"http://developer.avalara.com/avatax/authentication-in-rest/\">Authentication in REST v2</a> for more information.",			
+					"required": false, 
+					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification. This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.17.1-35; Custom; 1.0"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/LocationValidationModel"
+						}
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
+			}
 		},
 		"/api/v2/companies/{companyId}/nexus": {
 			"get": {
