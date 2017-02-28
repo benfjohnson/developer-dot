@@ -99,7 +99,7 @@ nav: home
         </div>
         <div class="row border-top">
           <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">
-            <h2>Try it free for 90 days with an Avalara AvaTax sandbox account</h2>
+            <h2>Try it free for 30 days with an Avalara AvaTax sandbox account</h2>
           </div>
         </div>
         <div class="row">
