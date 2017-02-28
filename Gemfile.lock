@@ -40,7 +40,8 @@ GEM
       yell (~> 2.0)
     httpclient (2.8.2.3)
     i18n (0.7.0)
-    jekyll (3.2.1)
+    jekyll (3.3.1)
+      addressable (~> 2.4)
       colorator (~> 1.0)
       jekyll-sass-converter (~> 1.0)
       jekyll-watch (~> 1.1)
@@ -51,12 +52,12 @@ GEM
       rouge (~> 1.7)
       safe_yaml (~> 1.0)
     jekyll-paginate (1.1.0)
-    jekyll-sass-converter (1.4.0)
+    jekyll-sass-converter (1.5.0)
       sass (~> 3.4)
     jekyll-watch (1.5.0)
       listen (~> 3.0, < 3.1)
     json (1.8.3)
-    kramdown (1.12.0)
+    kramdown (1.13.1)
     liquid (3.0.6)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -72,7 +73,7 @@ GEM
       forwardable-extended (~> 2.6)
     pkg-config (1.1.7)
     rake (11.2.2)
-    rb-fsevent (0.9.7)
+    rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     rouge (1.11.1)
@@ -97,4 +98,4 @@ DEPENDENCIES
   jekyll-paginate
 
 BUNDLED WITH
-   1.12.5
+   1.13.6

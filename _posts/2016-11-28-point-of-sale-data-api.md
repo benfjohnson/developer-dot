@@ -249,7 +249,7 @@ In order to retrieve this file, we'll need to build a JSON request:
 
 ```json
 {
-  "CompanyCode": "AVALARA"
+  "companyCode": "AVALARA"
 }
 ```
 
@@ -288,11 +288,11 @@ But what if you only want to include a couple of Locations or Tax Codes? Or mayb
 
 ```json
 {
-  "CompanyCode": "AVALARA",
-  "DocumentDate": "12/31/2016",
-  "ResponseType": "csv",
-  "TaxCode": [ "P0000000", "PC040100", "PF050001" ],
-  "LocationCode": [ "001", "002", "003" ]
+  "companyCode": "AVALARA",
+  "documentDate": "12/31/2016",
+  "responseType": "csv",
+  "taxCodes": [ "P0000000", "PC040100", "PF050001" ],
+  "locationCodes": [ "001", "002", "003" ]
 }
 ```
 
@@ -312,11 +312,11 @@ Let's update the response type to "xml" to see what an XML-based response looks 
 
 ```json
 {
-  "CompanyCode": "AVALARA",
-  "DocumentDate": "12/31/2016",
-  "ResponseType": "xml",
-  "TaxCode": [ "P0000000", "PC040100", "PF050001" ],
-  "LocationCode": [ "001", "002", "003" ]
+  "companyCode": "AVALARA",
+  "documentDate": "12/31/2016",
+  "responseType": "xml",
+  "taxCodes": [ "P0000000", "PC040100", "PF050001" ],
+  "locationCodes": [ "001", "002", "003" ]
 }
 ```
 

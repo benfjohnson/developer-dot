@@ -41,6 +41,9 @@
     {% if page.avaform == 1 %}
     <link rel="stylesheet" href="http://d30qslfa084pac.cloudfront.net/common/avaform/style.css">
     {% endif %}
+    <!-- Adobe Dynamic Tab Manager Tag Manager -->
+    <script src="//assets.adobedtm.com/bc10a2a9cf337c664f8f74e778a1987125aea184/satelliteLib-0387aefee1ddb8b2a9db7e4165c8d84dc0de8621.js"></script>
+    <!-- End Adobe Dynamic Tab Manager Tag Manager -->
 </head>
 {% assign post_count = site.posts|size %}
 {% if page.product %}
@@ -142,6 +145,18 @@
                         </div>
                     </div>
                 </li>
+                <li class="sdk dropdown dropdown-large hidden-xs">
+                    <a class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">SDK</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu dropdown-menu-large">
+                        <li><a href="/sdk/">The AvaTax SDK</a></li>
+                        <li><a href="/sdk/soap">SOAP SDK</a></li>
+                        <li><a href="/sdk/partner">Partner SDKs</a></li>
+                        <br/>
+                        <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-DotNet-SDK#installing-the-dotnet-sdk">Install C# SDK via NuGet</a></li>
+                        <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK#installing-the-jre-sdk">Install JRE SDK via Maven</a></li>
+                        <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-PHP-SDK#installing-the-php-sdk">Install PHP SDK via Composer</a></li>
+                    </ul>
+                </li>
                 <li class="certification"><a href="/certification"><span class="text-uppercase">Become Certified</span></a></li>
                 <li class="resources dropdown dropdown-large hidden-xs">
                     <a class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">Resources</span> <b class="caret"></b></a>
@@ -186,18 +201,34 @@
     </nav>
 </header>
 <div class="container-fluid {{page.doctype}}">
-    {%if page.nav == 'apis' and page.doctype != 'overview' %}{% include api_breadcrumb.html %}{%endif%}
-    {% if page.doctype == 'api_references' or page.doctype == 'use_cases'%}
-    <section class="row padding-sides{% if page.doctype == 'use_cases' %} half{% endif %}">
-        <nav class="col-md-3">
-            {% if page.doctype == 'api_references' %}
-            {% include api_reference_navigation.html %}
-            {% else %}
-            {% include use_cases_navigation.html %}
-            {% endif %}
-        </nav>
-        <main class="col-md-9{% if page.doctype == 'api_references' %} small-no-padding{% endif %}">{{ content }}</main>
-    </section>
+    {%if page.nav == 'sdk' %}
+        {% include sdk_breadcrumb.html %}
+        <section class="row padding-sides half">
+            <nav class="col-md-3">
+                {% include sdk_navigation.html %}
+            </nav>
+            <main class="col-md-9 small-no-padding">{{ content }}</main>
+        </section>
+    {% elsif page.nav == 'apis' %}
+        {%if page.doctype != 'overview' %}
+            {% include api_breadcrumb.html %}
+        {%endif%}
+        {% if page.doctype == 'api_references' or page.doctype == 'use_cases' %}
+            <section class="row padding-sides{% if page.doctype == 'use_cases' or page.doctype == 'sdks' %} half{% endif %}">
+                <nav class="col-md-3">
+                    {% if page.doctype == 'api_references' %}
+                    {% include api_reference_navigation.html %}
+                    {% else %}
+                    {% include use_cases_navigation.html %}
+                    {% endif %}
+                </nav>
+                <main class="col-md-9{% if page.doctype == 'api_references' %} small-no-padding{% endif %}">{{ content }}</main>
+            </section>
+        {% else %}
+            <section class="row">
+                <main class="col-md-12">{{ content }}</main>
+            </section>
+        {% endif %}
     {% elsif page.doctype == 'overview' or page.nav == 'home' %}
     <section class="row">
         <main class="col-md-12">{{ content }}</main>
@@ -259,9 +290,8 @@ Custom build that just has S3 sdk included:
 <script>AWS.config.region = 'us-west-2';</script>
 
 {% if page.avaform == 1 %}
-<script src="https://d30qslfa084pac.cloudfront.net/common/avaform/avaform.3.min.js"></script>
+<script src="/public/js/new-ava-form.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-<script>setupAvaForm();</script>
 {% endif %}
 
 {% if page.search == 1 %}
@@ -269,22 +299,8 @@ Custom build that just has S3 sdk included:
 <script>handleSearch();</script>
 {% endif %}
 
-<!-- Google Tag Manager -->
-<noscript>
-    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MKB5LP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-<script>(function(w, d, s, l, i) {
-    w[l] = w[l] || [];
-    w[l].push({
-        'gtm.start': new Date().getTime(), event: 'gtm.js'
-    });
-    var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-    j.async = true;
-    j.src =
-        '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-    f.parentNode.insertBefore(j, f);
-})(window, document, 'script', 'dataLayer', 'GTM-MKB5LP');</script>
-<!-- End Google Tag Manager -->
+<!-- Adobe Dynamic Tag Manager -->
+<script type="text/javascript">_satellite.pageBottom();</script>
+<!-- End Adobe Dynamic Tag Manager -->
 </body>
 </html>

@@ -8,7 +8,7 @@ disqus: 0
 
 ## Summary
 
-TBD
+You attempted to modify a company that does not exist.
 
 ## Example
 
@@ -32,4 +32,6 @@ TBD
 
 ## Explanation
 
-TBD
+The company with the specific ID number does not exist, or you do not have access to use that company.
+
+Please use the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Companies/QueryCompanies">QueryCompanies</a> API to determine which companies exist in your account.

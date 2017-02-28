@@ -2,8 +2,8 @@
 	"swagger": "2.0",
 	"info": {
 		"version": "v2",
-		"title": "AvaTax API",
-		"description": "REST interface to Avalara's enterprise tax service, AvaTax.",
+		"title": "AvaTax API References",
+		"description": "**From here you can navigate the various endpoints associated with AvaTax APIs. The URL's for our REST v2 services are:** \n- Sandbox: [https://sandbox-rest.avatax.com](https://sandbox-rest.avatax.com)\n- Production: [https://rest.avatax.com](https://rest.avatax.com) \n### Quick Guide \nNew to AvaTax or our REST v2 API? Check out [Getting Started With AvaTax REST v2](http://developer.avalara.com/blog/2016/10/04/getting-started-with-avatax-rest-v2/). If you're already familiar see the quick guide links below for some of the essential API methods of AvaTax services. \n#### [Calculate Tax and Record a Document](http://developer.avalara.com/avatax/api-reference/tax/v2/Transactions/#ApiV2TransactionsCreatePost) \nCurious about the transaction types our supporting AvaTax engine has to offer? There are various ways in which you can use our service for filing and remitting sales tax. Learn more about the [transaction types and their usage here.](http://developer.avalara.com/blog/2016/11/18/types-of-transactions/) \n#### [Voiding a Document](http://developer.avalara.com/avatax/api-reference/tax/v2/Transactions/#ApiV2CompaniesByCompanyCodeTransactionsByTransactionCodeVoidPost) \nIf you'd like to know more about the different actions performed by our void transactions endpoint, check out our [Voiding Documents page](http://developer.avalara.com/avatax/voiding-documents/) under AvaTax [Use Cases](http://developer.avalara.com/avatax/use-cases/).\n#### [Estimate Tax](http://developer.avalara.com/avatax/api-reference/tax/v2/TaxRates/#ApiV2TaxratesByaddressGet) \nAvaTax provides users with a simplistic method for estimating taxes prior to making a sale, especially for those who are mired in the complexities of their organizations nature of business and would like to consider rates prior to making a transaction. Not only can you use our REST v2 API to consider those potential rates; but you also have the ability to estimate the taxes on those transactions as well. [Find out more here.](http://developer.avalara.com/blog/2016/11/04/estimating-tax-with-rest-v2/) \n#### [Validate an Address](http://developer.avalara.com/avatax/api-reference/tax/v2/Addresses#ApiV2AddressesResolvePost) \nThe AvaTax Suite of products can also help validate addresses. Whether you're working with partial or mistyped addresses try the REST v2's `POST /api/v2/addresses/resolve` endpoint and AvaTax will do its best to find you a valid address. [Learn more about this process here](http://developer.avalara.com/blog/2016/12/09/address-validation-in-rest-v2/).",
 		"contact": {
 			"name": "Avalara Developer Relations",
 			"url": "https://developer.avalara.com"
@@ -3389,6 +3389,110 @@
 					"required": false,
 					"type": "string",
 					"default": "Swagger UI; 2.16.11; Custom; 1.0"
+				}],
+				"responses": {
+					"204": {
+						"description": "No Content"
+					},
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/LocationValidationModel"
+						}
+					},
+					"404": {
+						"description": "NotFound",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"401": {
+						"description": "Unauthorized",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					},
+					"400": {
+						"description": "BadRequest",
+						"schema": {
+							"$ref": "#/definitions/ErrorResult"
+						}
+					}
+				},
+				"deprecated": false,
+				"security": [{
+					"UserSecurity": [],
+					"ApiKeySecurity": [],
+					"OauthSecurity": []
+				}]
+			}
+		},	
+		"/api/v2/companies/{companyId}/locations/{id}/pointofsaledata": {
+			"get": {
+				"tags": ["Locations"],
+				"summary": "Point of sale data file generation",
+				"operationId": "ApiV2CompaniesByCompanyIdLocationsByIdValidatePointOfSaleGet",
+				"consumes": [],
+				"produces": [],
+				"parameters": [{
+					"name": "companyId",
+					"in": "path",
+					"description": "The ID of the company that owns this location",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "id",
+					"in": "path",
+					"description": "The ID number of the location to retrieve point-of-sale data.",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "date",
+					"in": "query",
+					"description": "The date for which point-of-sale data would be calculated (today by default)",
+					"required": false,
+					"type": "date-time"
+				},
+				{
+					"name": "format", 
+					"in": "query",
+					"description": "The format of the file (JSON by default)",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "partnerId",
+					"in": "query",
+					"description": "If specified, requests a custom partner-formatted version of the file.",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				},
+				{
+					"name": "includeJurisCodes",
+					"in": "query", 
+					"description": "When true, the file will include jurisdiction codes in the result.",
+					"required": false,
+					"type": "boolean"			
+				},
+				{
+					"name": "Authorization", 
+					"in": "header",
+					"description": "Account Services v2 supports authentication via license key, username/password, and bearer token.  Please see <a href=\"http://developer.avalara.com/avatax/authentication-in-rest/\">Authentication in REST v2</a> for more information.",			
+					"required": false, 
+					"type": "string"
+				},
+				{
+					"name": "X-Avalara-Client",
+					"in": "header",
+					"description": "Identifies the software you are using to call this API to aid in debugging and verification. This is a string in the format '(app name); (app version); (library name); (library version); (machine name)'. For more information about designing an Avalara client string for your application, please see the developer website.",
+					"required": false,
+					"type": "string",
+					"default": "Swagger UI; 2.17.1-35; Custom; 1.0"
 				}],
 				"responses": {
 					"204": {

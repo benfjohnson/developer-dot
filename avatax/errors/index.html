@@ -22,12 +22,12 @@ title: AvaTax REST v2 Error Codes
         <tr>
 			<td>2</td>
 			<td><a href="AccountInvalidException">AccountInvalidException</a></td>
-			<td>TBD</td>
+			<td>You attempted to read information about an account that does not exist.</td>
 		</tr>		
         <tr>
 			<td>3</td>
 			<td><a href="CompanyInvalidException">CompanyInvalidException</a></td>
-			<td>TBD</td>
+			<td>You attempted to modify a company that does not exist.</td>
 		</tr>		
         <tr>
 			<td>4</td>
@@ -62,12 +62,12 @@ title: AvaTax REST v2 Error Codes
         <tr>
 			<td>11</td>
 			<td><a href="CommonPassword">CommonPassword</a></td>
-			<td>TBD</td>
+			<td>The password you have chosen is a commonly-guessed password and cannot be used.</td>
 		</tr>		
         <tr>
 			<td>12</td>
 			<td><a href="WeakPassword">WeakPassword</a></td>
-			<td>TBD</td>
+			<td>The password you specified does not meet minimum complexity requirements.</td>
 		</tr>		
         <tr>
 			<td>13</td>
@@ -392,12 +392,37 @@ title: AvaTax REST v2 Error Codes
         <tr>
 			<td>148</td>
 			<td><a href="CannotActivateCompany">CannotActivateCompany</a></td>
-			<td>TBD</td>
+			<td>A company can only be activated when it has a valid tax profile.</td>
 		</tr>		
         <tr>
 			<td>149</td>
 			<td><a href="DuplicateEntityProperty">DuplicateEntityProperty</a></td>
-			<td>TBD</td>
+			<td>You attempted to create an object with a duplicate name or code.</td>
+		</tr>		
+        <tr>
+			<td>150</td>
+			<td><a href="ReportingEntityError">ReportingEntityError</a></td>
+			<td>You attempted to use a Returns API on a company not designated to file returns.</td>
+		</tr>		
+        <tr>
+			<td>151</td>
+			<td><a href="InvalidReturnOperationError">InvalidReturnOperationError</a></td>
+			<td>You attempted to modify a tax filing return that has been approved.</td>
+		</tr>		
+        <tr>
+			<td>152</td>
+			<td><a href="CannotDeleteCompany">CannotDeleteCompany</a></td>
+			<td>You attempted to delete a company with committed transactions.</td>
+		</tr>		
+        <tr>
+			<td>153</td>
+			<td><a href="CountryOverridesNotAvailable">CountryOverridesNotAvailable</a></td>
+			<td>The jurisdiction override feature is only available in the United States.</td>
+		</tr>		
+        <tr>
+			<td>154</td>
+			<td><a href="JurisdictionOverrideMismatch">JurisdictionOverrideMismatch</a></td>
+			<td>An address override cannot be created for this jurisdiction.</td>
 		</tr>		
         <tr>
 			<td>200</td>
@@ -417,12 +442,12 @@ title: AvaTax REST v2 Error Codes
         <tr>
 			<td>250</td>
 			<td><a href="PointOfSaleFileSize">PointOfSaleFileSize</a></td>
-			<td>TBD</td>
+			<td>The Point-Of-Sale API cannot build this file dynamically.</td>
 		</tr>		
         <tr>
 			<td>251</td>
 			<td><a href="PointOfSaleSetup">PointOfSaleSetup</a></td>
-			<td>TBD</td>
+			<td>Invalid parameter provided in the Point-Of-Sale file request.</td>
 		</tr>		
         <tr>
 			<td>300</td>
@@ -460,6 +485,36 @@ title: AvaTax REST v2 Error Codes
 			<td>The company code in the URL of your API call did not match the company code of the transaction you uploaded.</td>
 		</tr>		
         <tr>
+			<td>308</td>
+			<td><a href="DocumentFetchLimit">DocumentFetchLimit</a></td>
+			<td>You attempted to fetch more than 1000 transaction documents at a time.</td>
+		</tr>		
+        <tr>
+			<td>309</td>
+			<td><a href="AddressIncomplete">AddressIncomplete</a></td>
+			<td>You provided an incomplete address to an AvaTax API.</td>
+		</tr>		
+        <tr>
+			<td>310</td>
+			<td><a href="AddressLocationNotFound">AddressLocationNotFound</a></td>
+			<td>The specified location code does not exist.</td>
+		</tr>		
+        <tr>
+			<td>311</td>
+			<td><a href="MissingLine">MissingLine</a></td>
+			<td>You attempted to create a tax transaction with no lines.</td>
+		</tr>		
+        <tr>
+			<td>312</td>
+			<td><a href="InvalidAddressTextCase">InvalidAddressTextCase</a></td>
+			<td>You provided an invalid parameter to the address resolution endpoint.</td>
+		</tr>		
+        <tr>
+			<td>313</td>
+			<td><a href="DocumentNotCommitted">DocumentNotCommitted</a></td>
+			<td>You attempted to lock a transaction (aka Document) that was not committed.</td>
+		</tr>		
+        <tr>
 			<td>400</td>
 			<td><a href="BadDocumentFetch">BadDocumentFetch</a></td>
 			<td>This error indicates that you have provided an incorrect "$include" value to the GET /api/v2/companies/{0}/transactions endpoint.</td>
@@ -473,4 +528,24 @@ title: AvaTax REST v2 Error Codes
 			<td>600</td>
 			<td><a href="SubscriptionRequired">SubscriptionRequired</a></td>
 			<td>This Avalara API call requires an active subscription to a specific service.</td>
+		</tr>		
+        <tr>
+			<td>601</td>
+			<td><a href="AccountExists">AccountExists</a></td>
+			<td>An account tied to this email address already exists.</td>
+		</tr>		
+        <tr>
+			<td>602</td>
+			<td><a href="InvitationOnly">InvitationOnly</a></td>
+			<td>You attempted to contact an API that is available by invitation only.</td>
+		</tr>		
+        <tr>
+			<td>604</td>
+			<td><a href="ZTBListConnectorFail">ZTBListConnectorFail</a></td>
+			<td>The Zero Touch Buying service did not respond in a timely manner.</td>
+		</tr>		
+        <tr>
+			<td>605</td>
+			<td><a href="ZTBCreateSubscriptionsFail">ZTBCreateSubscriptionsFail</a></td>
+			<td>The Zero Touch Buying service did not respond in a timely manner.</td>
 		</tr></tbody></table>
