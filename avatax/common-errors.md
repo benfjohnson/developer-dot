@@ -1,11 +1,13 @@
 ---
 layout: page
-title: Common Errors
+title: SOAP Error Codes
 product: avaTax
 doctype: use_cases
 nav: apis
 community: errors
 ---
+
+Also see [REST Error Codes](/avatax/errors) for errors in the REST v2 API.
 
 <table class="styled-table">
 	<thead>

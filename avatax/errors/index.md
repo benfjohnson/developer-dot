@@ -1,9 +1,14 @@
 ---
 layout: page
-title: AvaTax REST v2 Error Codes
+title: REST Error Codes
+product: AvaTax
+doctype: use_cases
+nav: apis
+community: errors
 ---
 
-<h2>AvaTax REST v2 Error Codes</h2>
+Also see [REST Error Codes](/avatax/common-errors) for errors in the SOAP v1 API.
+
 <table class="styled-table">
 	<thead>
 		<tr>
