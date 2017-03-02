@@ -7,7 +7,7 @@ nav: apis
 community: errors
 ---
 
-Also see [REST Error Codes](/avatax/common-errors) for errors in the SOAP v1 API.
+Also see [SOAP Error Codes](/avatax/common-errors) for errors in the SOAP v1 API.
 
 <table class="styled-table">
 	<thead>
