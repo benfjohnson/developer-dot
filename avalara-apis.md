@@ -34,6 +34,21 @@ doctype: overview
           {% endfor %}
           </ul>
         {% endif %}
+        <div class="row">
+            <div class="col-md-12"><h2>Calcula todos os impostos do Brazil, está escrito em português para poder fazer um texto legal depois</h2></div>
+        </div>
+        <p>Diz aí pq tem que usar isto.<a href="/avataxbr/get-started#signup">Get started with the AvaTax Brazil API now.</a></p>
+        <div class="pageTitle">
+            <img src="/public/images/Avalara_logo.svg" alt="Avalara">
+            <span>AvaTax Brazil</span>
+         </div>
+        {% if site.data.api_consoles.avataxbr.nav_links %}
+          <ul class="pipe padding-bottom">
+          {% for api_console_hash in site.data.api_consoles.avataxbr.nav_links %}
+              <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+          {% endfor %}
+          </ul>
+        {% endif %}
         <h2>Fees and taxes for telecommunications</h2>
         <p>The Avalara AvaTax for Communications API helps you quickly determine taxes for telecommunication services, as well as VoIP, internet services, satellite TV, and other communications services. <a href="/communications">Learn more about the Communications Tax API</a></p>
         <div class="pageTitle">
