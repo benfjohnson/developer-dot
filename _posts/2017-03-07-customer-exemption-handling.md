@@ -136,7 +136,7 @@ One caveat to note:  The use of the ExemptionNo field works by designating the E
 
 The second way that we'll go over making a transaction exempt is to use the `customerUsageType` field.  This field contains a code that can be used to designate the reason for a particular sale being exempt.  Each entity use code stands for a different exemption reason, the logic of which can be found in our [exemption reason documentation](https://help.avalara.com/000_Avalara_AvaTax/Exempt_Customers_from_Sales_Tax/Exemption_Reason_Matrices_for_US_and_Canada).
 
-You can browse through the full list of entity usage codes by calling `GET /api/v2/definitions/entityusecodes`.  This API produces a list of codes indicating codes your customer can select; it's designed to help you populat a dropdown box so your users can choose whether they are requesting a specific exemption.  Here's an example of the values that you can choose from:
+You can browse through the full list of entity usage codes by calling the [ListEntityUseCode API](https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Definitions/ListEntityUseCodes), `GET /api/v2/definitions/entityusecodes`.  This API produces a list of codes indicating codes your customer can select; it's designed to help you populat a dropdown box so your users can choose whether they are requesting a specific exemption.  Here's an example of the values that you can choose from:
 
 ```json
 {
