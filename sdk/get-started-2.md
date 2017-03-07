@@ -72,9 +72,9 @@ Mixed in along with all the diagnostic information, you'll see this data in the 
 
 This means you should charge your customer $7.75 worth of tax for this sale!
 
-<h4><img src="/public/images/blog/orange-box-4-sm.png" alt="4" style="margin: 20px" /> Download the AvaTax SDK</h4>
+<h4><img src="/public/images/blog/orange-box-4-sm.png" alt="4" style="margin: 20px" /> Download an AvaTax SDK (Optional)</h4>
 
-Your next step is to download the AvaTax SDK for your platform.  If you are writing code in a supported language, the AvaTax software development kit will help you get up to speed quickly.
+Avalara has a wide variety of available software development kits for major languages.  If you are writing your own code in a supported language, the AvaTax software development kit will help you get up to speed quickly!
 
 <ul class="normal">
     <li><a href="https://github.com/avadev/AvaTax-REST-V2-DotNet-SDK#installing-the-dotnet-sdk">Use the AvaTax DotNet SDK</a></li>
