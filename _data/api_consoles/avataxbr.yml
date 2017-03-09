@@ -2,20 +2,13 @@
 
 swagger_path: avataxbr/index.json
 nav_link:
-    title: Avatax Brazil REST API
-    path: /avataxbr/api-reference/tax/v2
+    title: Transactions
+    path: /avataxbr/api-reference/tax/v2/transactions
 product: avaTaxBr
-endpoint_hashes:
-    - name: Calculate Tax and Record a Document
-      link: '/#getTax'
-    - name: Void a Document
-      link: '/#cancelTax'
-    - name: Estimate Tax
-      link: '/#estimateTax'
-    - name: Validate an Address
-      link: '/#validateAddress'
 nav_links:
   - title: Overview
     path: /avataxbr
   - title: API references
-    path: /avataxbr/api-reference/calculations/
+    path: /avataxbr/api-reference/tax/v2/transactions
+  - title: Clients
+    path: /avataxbr/clients
