@@ -35,9 +35,9 @@ doctype: overview
           </ul>
         {% endif %}
         <div class="row">
-            <div class="col-md-12"><h2>Calcula todos os impostos do Brazil, está escrito em português para poder fazer um texto legal depois</h2></div>
+            <div class="col-md-12"><h2>Real-time tax calculation and electronic invoices supporting transactions created by ERPs, CRMs, POS and Shopping Cart Applications.</h2></div>
         </div>
-        <p>Diz aí pq tem que usar isto.<a href="/avataxbr/get-started#signup">Get started with the AvaTax Brazil API now.</a></p>
+        <p>Explore the API before you build. Automate tax calculation for sales, purchases and withholdings on payments and receipts.<a href="/avataxbr/">Get started with the AvaTax Brazil API now.</a></p>
         <div class="pageTitle">
             <img src="/public/images/Avalara_logo.svg" alt="Avalara">
             <span>AvaTax Brazil</span>
