@@ -7,7 +7,7 @@ nav: apis
 community: errors
 ---
 
-Also see [SOAP Error Codes](/avatax/common-errors) for errors in the SOAP v1 API.
+Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in the SOAP v1 API.
 
 <table class="styled-table">
 	<thead>
@@ -430,6 +430,31 @@ Also see [SOAP Error Codes](/avatax/common-errors) for errors in the SOAP v1 API
 			<td>An address override cannot be created for this jurisdiction.</td>
 		</tr>		
         <tr>
+			<td>155</td>
+			<td><a href="DuplicateSystemTaxCode">DuplicateSystemTaxCode</a></td>
+			<td>You attempted to create a duplicate TaxCode object.</td>
+		</tr>		
+        <tr>
+			<td>156</td>
+			<td><a href="SSTOverridesNotAvailable">SSTOverridesNotAvailable</a></td>
+			<td>Companies participating in Streamlined Sales Tax may not override addresses in SST states.</td>
+		</tr>		
+        <tr>
+			<td>157</td>
+			<td><a href="NexusDateMismatch">NexusDateMismatch</a></td>
+			<td>You declared nexus on a date when that nexus was not available.</td>
+		</tr>		
+        <tr>
+			<td>158</td>
+			<td><a href="TechSupportAuditRequired">TechSupportAuditRequired</a></td>
+			<td>To make this API call, you must provide tech support audit requirements.</td>
+		</tr>		
+        <tr>
+			<td>159</td>
+			<td><a href="NexusParentDateMismatch">NexusParentDateMismatch</a></td>
+			<td>You declared nexus on a date when that nexus was not available.</td>
+		</tr>		
+        <tr>
 			<td>200</td>
 			<td><a href="BatchSalesAuditMustBeZippedError">BatchSalesAuditMustBeZippedError</a></td>
 			<td>Sales audit files must be uploaded in ZIP or RAR formats.</td>
@@ -520,6 +545,16 @@ Also see [SOAP Error Codes](/avatax/common-errors) for errors in the SOAP v1 API
 			<td>You attempted to lock a transaction (aka Document) that was not committed.</td>
 		</tr>		
         <tr>
+			<td>314</td>
+			<td><a href="MultiDocumentTypesError">MultiDocumentTypesError</a></td>
+			<td>The API you called does not support transaction code overloading.</td>
+		</tr>		
+        <tr>
+			<td>315</td>
+			<td><a href="InvalidDocumentTypesToFetch">InvalidDocumentTypesToFetch</a></td>
+			<td>Temporary documents cannot be fetched from the API.</td>
+		</tr>		
+        <tr>
 			<td>400</td>
 			<td><a href="BadDocumentFetch">BadDocumentFetch</a></td>
 			<td>This error indicates that you have provided an incorrect "$include" value to the GET /api/v2/companies/{0}/transactions endpoint.</td>
@@ -553,4 +588,59 @@ Also see [SOAP Error Codes](/avatax/common-errors) for errors in the SOAP v1 API
 			<td>605</td>
 			<td><a href="ZTBCreateSubscriptionsFail">ZTBCreateSubscriptionsFail</a></td>
 			<td>The Zero Touch Buying service did not respond in a timely manner.</td>
+		</tr>		
+        <tr>
+			<td>606</td>
+			<td><a href="FreeTrialNotAvailable">FreeTrialNotAvailable</a></td>
+			<td>The Free Trial API is not available on this server.</td>
+		</tr>		
+        <tr>
+			<td>700</td>
+			<td><a href="InvalidDocumentStatusForRefund">InvalidDocumentStatusForRefund</a></td>
+			<td>The AvaTax Refund API is only available on committed documents.</td>
+		</tr>		
+        <tr>
+			<td>701</td>
+			<td><a href="RefundTypeAndPercentageMismatch">RefundTypeAndPercentageMismatch</a></td>
+			<td>You specified a `Full` refund, but the percentage parameter was not null.</td>
+		</tr>		
+        <tr>
+			<td>702</td>
+			<td><a href="InvalidDocumentTypeForRefund">InvalidDocumentTypeForRefund</a></td>
+			<td>The document you attempted to refund was not a SalesInvoice.</td>
+		</tr>		
+        <tr>
+			<td>703</td>
+			<td><a href="RefundTypeAndLineMismatch">RefundTypeAndLineMismatch</a></td>
+			<td>You specified a `Full` refund, but the lines parameter was not null.</td>
+		</tr>		
+        <tr>
+			<td>704</td>
+			<td><a href="NullRefundPercentageAndLines">NullRefundPercentageAndLines</a></td>
+			<td>You attempted to create a refund but did not specify the percentage or lines.</td>
+		</tr>		
+        <tr>
+			<td>705</td>
+			<td><a href="InvalidRefundType">InvalidRefundType</a></td>
+			<td>You specified an invalid refund type.</td>
+		</tr>		
+        <tr>
+			<td>706</td>
+			<td><a href="RefundPercentageForTaxOnly">RefundPercentageForTaxOnly</a></td>
+			<td>You attempted to create a TaxOnly refund for a partial percentage.</td>
+		</tr>		
+        <tr>
+			<td>707</td>
+			<td><a href="LineNoOutOfRange">LineNoOutOfRange</a></td>
+			<td>You attempted to refund a line item that did not exist in the original transaction.</td>
+		</tr>		
+        <tr>
+			<td>708</td>
+			<td><a href="RefundPercentageOutOfRange">RefundPercentageOutOfRange</a></td>
+			<td>You submitted a refund percentage lower than 0% or higher than 100%</td>
+		</tr>		
+        <tr>
+			<td>800</td>
+			<td><a href="TaxRateNotAvailableForFreeInThisCountry">TaxRateNotAvailableForFreeInThisCountry</a></td>
+			<td>The Free TaxRates API is only available in the US.</td>
 		</tr></tbody></table>
