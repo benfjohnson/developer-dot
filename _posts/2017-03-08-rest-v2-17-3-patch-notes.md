@@ -13,6 +13,8 @@ disqus: 1
 
 This article is about the March 2017 monthly update to the AvaTax REST v2 API.
 
+UPDATE 2017-03-13: Due to some requests for urgent updates, the release date for this patch has been accelerated to March 14th Sandbox and March 16th Production.  The old dates were March 16th Sandbox and March 21st Production.
+
 <table class="styled-table">
 	<tr>
 		<th>Environment</th>
@@ -22,12 +24,12 @@ This article is about the March 2017 monthly update to the AvaTax REST v2 API.
 	<tr>
 		<td>Sandbox</td>
         <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
-		<td>2017-03-16</td>
+		<td>2017-03-14 (UPDATED)</td>
 	</tr>
 	<tr>
 		<td>Production</td>
         <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
-		<td>2017-03-21</td>
+		<td>2017-03-16 (UPDATED)</td>
 	</tr>
 </table>
 
