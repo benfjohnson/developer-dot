@@ -35,7 +35,7 @@ This article is about the February 2017 monthly update to the AvaTax REST v2 API
 
 Avalara is pleased to announce the freely available REST v2 TaxRates API!  The TaxRates API provides basic tax functionality for no cost.
 
-You also now have available an API that creates a [free 90-day trial of AvaTax Professional](https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Free/RequestFreeTrial).  This free trial account comes with no obligations and allows you to experiment with a fully featured version of Avalara AvaTax.  After 90 days, you may continue to use the free TaxRates API or you can upgrade to a full account.
+You also now have available an API that creates a [free 30-day trial of AvaTax Professional](https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Free/RequestFreeTrial).  This free trial account comes with no obligations and allows you to experiment with a fully featured version of Avalara AvaTax.  After 30 days, you may continue to use the free TaxRates API or you can upgrade to a full account.
 
 For more information on using the free TaxRates API, please see [Estimating Tax with REST v2](http://developer.avalara.com/blog/2016/11/04/estimating-tax-with-rest-v2/).
 
