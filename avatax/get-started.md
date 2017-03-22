@@ -16,7 +16,7 @@ Want to know how the API looks? Make some requests with the tool below. See how 
 
 <div class="half padding-bottom">
 <h4 id="signup"><img src="/public/images/blog/orange-box-2-sm.png" alt="2" /> Create a Sandbox Account</h4>
-This sandbox account is for evaluation only and is initially active for 90 days, but you can request an extension if needed. You will need to add company profile and tax profile information to calculate sales tax. It is based on an AvaTax Basic subscription and includes access to Nexus Jurisdictions in the <strong>U.S. and Canada only</strong>. To access full AvaTax Pro System Tax Code functionality or Global Nexus Jurisdictions, please <a href="http://www.avalara.com/contact-us/">contact sales</a> to inquire about a paid development account.
+This sandbox account is for evaluation only and is initially active for 30 days, but you can request an extension if needed. You will need to add company profile and tax profile information to calculate sales tax. It is based on an AvaTax Basic subscription and includes access to Nexus Jurisdictions in the <strong>U.S. and Canada only</strong>. To access full AvaTax Pro System Tax Code functionality or Global Nexus Jurisdictions, please <a href="http://www.avalara.com/contact-us/">contact sales</a> to inquire about a paid development account.
 
 <div class="row">
  <div class="avaform-wrapper col-md-6"></div>
