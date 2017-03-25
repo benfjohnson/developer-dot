@@ -17,7 +17,7 @@ Interested in learning more about Avalara's suite of tax products and services? 
 
 In my time at Avalara, I've developed a deep appreciation for the researchers, analysts, and professionals who make up our team.  Tax is a complicated subject, and it takes a lot of effort to design a tax software suite that provides as much automation as Avalara's AvaTax suite.  At every step of the way, Avalara has challenged the industry to become automated, reliable, predictable, and easy to use.  I've been fortunate enough to play a part in this process, and I've benefited from the ability to work with a world-class team of people.
 
-You are invited to join me and other tax professionals at CRUSH AUSTIN, where you'll be able to mingle and ask questions during educational sessions, informal one-on-one meetings, and social events with key decision-makers.  You can learn about tax compliance, discover new technologies, and learn about ways to improve your transaction management and tax compliance processes.  
+You are invited to join me and other tax professionals at [CRUSH AUSTIN 2017](http://www.crushaustin.com/), where you'll be able to mingle and ask questions during educational sessions, informal one-on-one meetings, and social events with key decision-makers.  You can learn about tax compliance, discover new technologies, and learn about ways to improve your transaction management and tax compliance processes.  
 
 <h3>Share Your Challenges</h3>
 
