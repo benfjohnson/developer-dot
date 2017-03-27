@@ -32,20 +32,15 @@ I learn so much from customers directly on the [Avalara Community Forums](https:
 At [CRUSH AUSTIN 2017](http://www.crushaustin.com/), Mark Wilhelm and I will be hosting a new Developer track focused on tax compliance software.  This Developer track will be a full day long session on the second day of the conference, and it will feature a series of five sessions for Avalara's current and prospective Development Solution Partners (DSPs). We’ll do a deep dive into design and development topics for tax solutions powered by Avalara's suite of products.  Sessions are presented by Avalara's technical specialists and engineers.  You'll discover new methods and tips to use Avalara's existing APIs and first-hand view of new features and functions added to Avalara’s solutions.
 
 <ul class="normal">
-    <li>9:00 – 10:15 - Developer Track Part 1: Life Cycle of a Tax Transaction<br/>
-    <br/>
+    <li><b>9:00 – 10:15 - Developer Track Part 1: Life Cycle of a Tax Transaction</b><br/>
     Understand the life cycle of a tax transaction and how the AvaTax API is leveraged to calculate tax and commit transactions, including an overview of an Omni-Channel design for transaction tax.</li>
-    <li>10:30 – 11:45 - Developer Track Part 2: Customer Exemption Handling in AvaTax <br/>
-    <br/>
+    <li><b>10:30 – 11:45 - Developer Track Part 2: Customer Exemption Handling in AvaTax </b><br/>
     Avalara manages customer exemptions leveraging several API methods.  Review the options available, and learn how Avalara CertCapture can be integrated into your application’s solution stack.</li>
-    <li>12:45 – 2:00 - Developer Track Part 3: Leveraging API Features to Solve Complex Tax Scenarios <br/>
-    <br/>
+    <li><b>12:45 – 2:00 - Developer Track Part 3: Leveraging API Features to Solve Complex Tax Scenarios </b><br/>
     Learn tips and tricks of the Avalara API’s to solve complex tax scenarios.</li>
-    <li>2:15 – 3:30 - Developer Track Part 4: POS and AvaTax – A Hybrid Approach <br/>
-    <br/>
+    <li><b>2:15 – 3:30 - Developer Track Part 4: POS and AvaTax – A Hybrid Approach </b><br/>
     Discover options to automate transaction tax calculation for point-of-sale, including review of Avalara’s new Tax Content API.</li>
-    <li>3:45 – 5:00 - Developer Track Part 5: New AvaTax Features <br/>
-    <br/>
+    <li><b>3:45 – 5:00 - Developer Track Part 5: New AvaTax Features </b><br/>
     Learn about new AvaTax features, Landed Cost, Onboarding API, Multi-Tax, additional Address Types, & Avalara’s new Launch Portal.</li>
 </ul>
 
