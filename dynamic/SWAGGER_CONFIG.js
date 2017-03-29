@@ -113,6 +113,11 @@ export default {
         name: 'Avatax Brazil REST API - Transactions',
         path: 'avataxbr/api-reference/tax/v2/transactions',
         product: 'avaTaxBr'
+    },
+    'taxdocs/transactions-api.json': {
+        name: 'TaxDoc Monitor REST API',
+        path: 'taxdocs/api-reference/',
+        product: 'taxdocs'
     }
     /*,
     'avataxbr/index.json': {
