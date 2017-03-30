@@ -64,7 +64,7 @@ The `BoundaryLevel` values are normalized and use a single consistent enumerated
 
 <h3>GET /api/v2/addresses/resolve</h3>
 
-Calling `ValidateAddress()` with a missing line 1 results in a passthrough error.
+Improved reliability for calling `ValidateAddress()`.  Some API calls reporting a `PASSTHROUGH` error have been updated with correct behavior.
 
 <h3>GET /api/v2/taxrules</h3>
 
