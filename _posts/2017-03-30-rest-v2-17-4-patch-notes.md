@@ -44,6 +44,16 @@ Improvements to the Returns functionality of REST v2 in this release:
     <li>Cycle Safe APIs use the FilingFrequencyId enum in addition to the frequency code</li>
 </ul>
 
+<h3>New Rate Types</h3>
+
+As a result of the ongoing expansion of the AvaTax product, Avalara is proud to announce the introduction of a wide variety of new rate types.  Our old enumerated list of rate types is now obsolete; we have eliminated the use of the `RateTypeId` enumerated value throughout the API and replaced it with string values.
+
+Code that expects `RateTypeId` enumerated values should now expect to use strings.
+
+<h3>GET /api/v2/definitions/countries/US/ratetypes</h3>
+
+A new API is available to list valid rate types for each country.  The results of this API call is a full list of all rate type codes and descriptions.
+
 <h3>Point of Sale API</h3>
 
 Improvements to the Point-Of-Sale API include additional documentation and improved test suites.
@@ -51,10 +61,6 @@ Improvements to the Point-Of-Sale API include additional documentation and impro
 <h3>Refund Transaction API</h3>
 
 The refund API has been re-enabled after additional testing.
-
-<h3>GET /api/v2/definitions/countries/US/ratetypes</h3>
-
-A new API is available to list valid rate types for each country.  The rate type API will list all allowable values for each country.
 
 <h3>GET /api/v2/jurisdictionoverrides</h3>
 
