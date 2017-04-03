@@ -135,6 +135,16 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>The company code for a company is set when the company is created and may not be changed.</td>
 		</tr>		
         <tr>
+			<td>26</td>
+			<td><a href="DateFormatError">DateFormatError</a></td>
+			<td>The date value you provided was incorrectly formatted.</td>
+		</tr>		
+        <tr>
+			<td>27</td>
+			<td><a href="NoDefaultCompany">NoDefaultCompany</a></td>
+			<td>Your account does not currently have a default company.</td>
+		</tr>		
+        <tr>
 			<td>30</td>
 			<td><a href="AuthenticationException">AuthenticationException</a></td>
 			<td>The credentials you provided to AvaTax could not be validated.</td>
@@ -330,6 +340,11 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>The RateDepends option is only valid for countries in the European Union.</td>
 		</tr>		
         <tr>
+			<td>134</td>
+			<td><a href="InvalidRateTypeCode">InvalidRateTypeCode</a></td>
+			<td>This rate type is not valid in the country provided.</td>
+		</tr>		
+        <tr>
 			<td>135</td>
 			<td><a href="RateTypeNotSupported">RateTypeNotSupported</a></td>
 			<td>You attempted to choose a rate type that is not supported for the country you selected.</td>
@@ -453,6 +468,16 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>159</td>
 			<td><a href="NexusParentDateMismatch">NexusParentDateMismatch</a></td>
 			<td>You declared nexus on a date when that nexus was not available.</td>
+		</tr>		
+        <tr>
+			<td>160</td>
+			<td><a href="BearerTokenParseUserIdError">BearerTokenParseUserIdError</a></td>
+			<td>The bearer token you provided could not be parsed.</td>
+		</tr>		
+        <tr>
+			<td>161</td>
+			<td><a href="RetrieveUserError">RetrieveUserError</a></td>
+			<td>Your bearer token does not have a provisioned AvaTax account.</td>
 		</tr>		
         <tr>
 			<td>200</td>
