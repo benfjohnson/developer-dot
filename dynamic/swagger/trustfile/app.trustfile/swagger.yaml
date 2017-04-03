@@ -3,23 +3,27 @@ info:
   version: "3.0.0"
   title: TrustFile Provisioning API
   description: |
-    Signup endpoints for TrustFile.  Provision users via API or add an iframe to a landing page with a signup form.
-  
+    Signup endpoints for TrustFile.  Provision users via API to be called using connectors.
+
     #### Testing:
     Test this endpoint @ https://stable.trustfile.avalara.com
-    
+
     #### Security:
-    Authentication/Auth header is not required for either endpoint
-    
+    Authorization is done through header param
+
+    ```
+    Authorization: Bearer connectorToTFToken
+    ```
+
     #### CORS:
     Access-Control-Allow-Headers: X-Requested-With
-    
+
   contact:
     name: Trustfile API Support
     url: trustfile.com
     email: api@trustfile.com
 host: app.trustfile.avalara.com
-basePath: /v3
+basePath: /v4
 schemes:
   - https
 x-ApiType: SOAP
@@ -27,8 +31,14 @@ consumes:
   - application/json
 produces:
   - application/json
+securityDefinitions:
+  Authorization:
+    type: apiKey
+    in: header
+    name: Authorization
+    description: Key should be 'Bearer ' followed by the connectorToTFToken
 paths:
-  /companies:
+  /company/signup:
     post:
       tags:
         - Api
@@ -37,19 +47,23 @@ paths:
       description: >
         * All data is expected in the request body in a flat JSON format.
 
-        * User Fields: firstName lastName
+        * User Fields: email firstName lastName
 
         * Company fields: companyName companyPhone companyLine1
         companyLine2 companyLine3 companyCity companyZip companyState
         companyCountry
 
+        * transactionType
+
+        * License purchase fields: totalPrice paymentId
+
         * Optional Lead fields: campaignId lsmr integratorId salesUserId
         salesUserEmail
 
         * The new user will receive an email to set their password
-      
-        * user.company.connectionId will only be passed if the user completes the required fields AND provides a company address
-        
+
+        * Company token will be passed upon successful provisioning of the company
+
       parameters:
         - in: body
           name: body
@@ -59,6 +73,7 @@ paths:
             type: object
             required:
               - email
+              - companyName
             example:
               "email": "test.me@gmail.com"
               "firstName": "firstname"
@@ -70,6 +85,11 @@ paths:
               "companyZip": "98101"
               "companyState": "WA"
               "campaignId": "2"
+              "transactionType": "purchase"
+              "license": {
+                "totalPrice": 3600,
+                "paymentId": "123456789"
+              }
             properties:
               email:
                 type: string
@@ -106,67 +126,25 @@ paths:
                 type: string
               salesUserEmail:
                 type: string
+              transactionType:
+                type: string
+              license:
+                type: object
+                properties:
+                  paymentId:
+                    type: string
+                  totalPrice:
+                    type: string
+      security:
+        - Authorization: []
       responses:
         '200':
-          description: "User creation successful response"
+          description: "Company creation successful response"
           schema:
             type: object
             properties:
-              user:
-                type: object
-                properties:
-                  displayName:
-                    type: string
-                  firstName:
-                    type: string
-                  lastName:
-                    type: string
-                  email:
-                    type: string
-                  password:
-                    type: string
-                    description: Hashed password
-                  accountSetup:
-                    type: boolean
-                  lastLoginAt:
-                    type: string
-                    format: date-time
-                  accountCreated:
-                    type: string
-                    format: date-time
-                  tos:
-                    type: boolean
-                  createdAt:
-                    type: string
-                    format: date-time
-                  updatedAt:
-                    type: string
-                    format: date-time
-                  company:
-                    type: object
-                    properties:
-                      name:
-                        type: string
-                      isFba:
-                        type: boolean
-                      syncDate:
-                        type: string
-                        format: date-time
-                      connectionId:
-                        type: string
-                        description: connectionId. Will not be passed if the address is incomplete.
-                      fein:
-                        type: string
-                      phone:
-                        type: string
-                      fax:
-                        type: string
-                      createdAt:
-                        type: string
-                        format: date-time
-                      updatedAt:
-                        type: string
-                        format: date-time
+              status:
+                type: string
               notification:
                 type: object
                 properties:
@@ -178,19 +156,19 @@ paths:
                       level:
                         type: string
         '400':
-          description: "User creation failure response"
+          description: "Company creation failure response"
           schema:
             type: object
             example:
-              user: 'null'
+              status: 'Failed'
               notification:
-                message: There was a problem creating your account. User could not be created.
+                message: There was a problem creating your account. Account could not be created.
                 options:
                   level: error
             properties:
-              user:
+              status:
                 type: string
-                description: "Will be null for failed creation"
+                description: "Failed"
               notification:
                 type: object
                 properties:
