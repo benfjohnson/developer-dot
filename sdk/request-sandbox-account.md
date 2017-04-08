@@ -4,7 +4,7 @@ title: Request an AvaTax Account
 product: avaTax
 doctype: sdks
 nav: sdk
-community: sdk
+disqus: 1
 avaform: 1
 ---
 

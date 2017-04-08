@@ -4,7 +4,7 @@ title: Cancel Transactions
 product: avaTax
 doctype: use_cases
 nav: apis
-community: void
+disqus: 1
 ---
 
 ## Using REST v2 to Void Transactions

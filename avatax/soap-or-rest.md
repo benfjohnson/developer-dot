@@ -4,7 +4,7 @@ title: SOAP or REST?
 product: avaTax
 doctype: use_cases
 nav: apis
-community: apiDisambiguation
+disqus: 1
 ---
 <h2>Where to start></h2>
 

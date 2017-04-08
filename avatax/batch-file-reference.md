@@ -4,7 +4,7 @@ title: Batch File Reference
 product: avaTax
 doctype: use_cases
 nav: apis
-community: apis
+disqus: 1
 ---
 
 <h2>Batch File Reference</h2>
