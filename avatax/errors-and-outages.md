@@ -4,7 +4,7 @@ title: Errors and Outages
 product: avaTax
 doctype: use_cases
 nav: apis
-community: errors
+disqus: 1
 ---
 <h2>Handling Errors and Outages when things don't go your way.</h2>
 Although Avalara outages have been historically infrequent and short in duration, disruptions in connectivity due to service or internet outages are things that should be considered when designing your AvaTax SDK integration. Avalara sends out service notifications if there is an issue with our service.

@@ -4,7 +4,7 @@ title: Drop Shipping
 product: avaTax
 doctype: use_cases
 nav: apis
-community: shipping
+disqus: 1
 ---
 <h2>Drop Shipping</h2>
 <p>For information on reflecting shipping charges in your tax calculation, go <a href="/avatax/calculating-tax">here</a>.</p>

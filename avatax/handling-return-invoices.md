@@ -4,7 +4,7 @@ title: Product Returns
 product: avaTax
 doctype: use_cases
 nav: apis
-community: returns
+disqus: 1
 ---
 <h2>Reflecting Returns and Credits Memos in AvaTax</h2>
 When you’re calculating tax on returns or credit memos through the API, there are a few things to keep in mind:

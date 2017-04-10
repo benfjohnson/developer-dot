@@ -3,7 +3,7 @@ layout: page
 title: InactiveUserError
 number: 33
 categories: [AvaTax Error Codes]
-disqus: 0
+disqus: 1
 ---
 
 ## Summary

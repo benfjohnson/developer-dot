@@ -668,4 +668,19 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>800</td>
 			<td><a href="TaxRateNotAvailableForFreeInThisCountry">TaxRateNotAvailableForFreeInThisCountry</a></td>
 			<td>The Free TaxRates API is only available in the US.</td>
+		</tr>		
+        <tr>
+			<td>900</td>
+			<td><a href="FilingCalendarCannotBeDeleted">FilingCalendarCannotBeDeleted</a></td>
+			<td>A filing calendar cannot be deleted once in use.</td>
+		</tr>		
+        <tr>
+			<td>1000</td>
+			<td><a href="QuestionNotNeededForThisAddress">QuestionNotNeededForThisAddress</a></td>
+			<td>No jursidiction-specific questions are relevant for this location.</td>
+		</tr>		
+        <tr>
+			<td>1001</td>
+			<td><a href="QuestionNotValidForThisAddress">QuestionNotValidForThisAddress</a></td>
+			<td>One of the questions you answered is not valid for this address.</td>
 		</tr></tbody></table>

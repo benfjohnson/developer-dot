@@ -4,7 +4,7 @@ title: Authentication in AvaTax REST v2
 product: avaTax
 doctype: use_cases
 nav: apis
-community: apis
+disqus: 1
 ---
 
 <h2>Authentication in AvaTax REST v2</h2>

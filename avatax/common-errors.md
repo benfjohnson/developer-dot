@@ -4,7 +4,7 @@ title: SOAP Error Codes
 product: avaTax
 doctype: use_cases
 nav: apis
-community: errors
+disqus: 1
 ---
 
 Also see [REST Error Codes](/avatax/errors) for errors in the REST v2 API.
