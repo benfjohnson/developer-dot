@@ -1046,11 +1046,11 @@ definitions:
       DestinationCode:
         type: string
         example: '01'
-        description: 'Destination (ship-to) address code. `DestinationCode` references an address from the `Addresses` collection.'
+        description: 'Destination (ship-to) address code. `DestinationCode` references an address from the `Addresses` collection. Required if OriginCode is not provided.'
       OriginCode:
         type: string
         example: '02'
-        description: 'Origination (ship-from) address code. `OriginCode` references an address from the `Addresses` collection.'
+        description: 'Origination (ship-from) address code. `OriginCode` references an address from the `Addresses` collection. Required if DestinationCode is not provided.'
       ItemCode:
         maxLength: 50
         type: string
