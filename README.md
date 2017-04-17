@@ -2,6 +2,14 @@
 
 # How To Get Started with Avalaras Developer Blog
 
+To run the Avalara developer site locally requires the following software:
+
+* [Ruby](https://www.ruby-lang.org/en/downloads/)  ( also available from [RubyInstaller](https://rubyinstaller.org/downloads/) )
+* [Ruby Development Kit](https://rubyinstaller.org/downloads/)
+* [RubyGems](https://rubygems.org/pages/download)
+* [Node.js](https://nodejs.org/en/)
+* [npm](https://docs.npmjs.com/) (Should come installed with Node.js)
+
 ### A guide to Jekyll's Posting and Editing Capabilities; Turning Local Github Repositories into a Locally Generated Website
 
 In this *How To* guide I'm hoping to give you the necessary tools and knowledge to make pain free contributions to the [Avalara Developer Blog](http://developer.avalara.com/blog/).
@@ -64,6 +72,8 @@ v6.0.0
 $ npm -v
 2.15.9
 ```
+
+Ensure you are running at least Node 6.0.0 (nvm install v6.0.0)
 
 These versions or higher should suffice for now, if not, you can visit the sites linked above to find documentation on how to install their latest releases.
 
@@ -202,3 +212,25 @@ For this you can log back into your Github account and locate your forked reposi
 This was intended to be a brief overview of the steps taken to set up a local environment in which anyone can add or change posts to the Avalara/developer-dot blog, preview those additions and/or changes, and to finally submit them for review and/or publishing on the developer-dot site:
 
 This was intended to be a brief overview of the steps taken to set up a local environment in which anyone can add or change posts to the Avalara/developer-dot blog, preview those additions and/or changes, and to finally submit them for review and/or publishing on the developer-dot site.
+
+# Setup (Windows)
+
+First, you will have to install the packages above (Ruby / Ruby Development Kit / Ruby Gems / Node.JS / NPM).  Once that is complete, follow these steps:
+
+* Launch a Ruby command line window
+* Go to the folder where you installed the ruby development kit - that folder will have a file `dk.rb` in it.
+* Run `ruby dk.rb init`
+* Run `ruby dk.rb review`
+* Run `ruby dk.rb install`
+* Go to the folder with the latest copy of the developer-dot github project.
+* Run the file `windows-desktop-setup.cmd`.  
+* If you receive no errors, you are fine.
+
+# Launch (Windows)
+
+* Launch a Ruby command line window
+* Go to the folder with the latest copy of the developer-dot github project.
+* Run the file `launch.cmd`.  
+* Launch a web browser targeted towards the URL `http://localhost:8976`.
+
+You should now be able to see the Developer-Dot site!

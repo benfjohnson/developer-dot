@@ -4,7 +4,7 @@ title: Reportable Transactions
 product: avaTax
 doctype: use_cases
 nav: apis
-community: commit
+disqus: 1
 ---
 <h2>Commit transactions to make them part of your reports and liability calculations.</h2>
 <p>When a GetTax call is made using a DocType value of SalesInvoice, the transaction is saved on the Admin Console as uncommitted (the default value for DocType, SalesOrder, does not save a transaction record on the Admin Console). Uncommitted transactions do not appear in AvaTax Admin Console reports or liability calculations.</p>

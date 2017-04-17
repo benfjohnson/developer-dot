@@ -4,7 +4,7 @@ title: Calculating Tax
 product: avaTax
 doctype: use_cases
 nav: apis
-community: calculate
+disqus: 1
 ---
 Getting a tax calculation is the primary reason developers use the Avalara AvaTax Service. Whether you are just looking to get a tax rate to populate into a database or application field, or you need to utilize all of the reporting and filing functionality that AvaTax offers, GetTax is the starting point.
 

@@ -3,7 +3,7 @@ layout: page
 title: TaxpayerNumberRequired
 number: 9
 categories: [AvaTax Error Codes]
-disqus: 0
+disqus: 1
 ---
 
 ## Summary

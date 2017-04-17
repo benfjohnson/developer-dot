@@ -1,0 +1,14 @@
+# AVATAX BRAZIL
+
+swagger_path: avataxbr/index.json
+nav_link:
+    title: Transactions
+    path: /avataxbr/api-reference/tax/v2/transactions
+product: avaTaxBr
+nav_links:
+  - title: Overview
+    path: /avataxbr
+  - title: API references
+    path: /avataxbr/api-reference/tax/v2/transactions
+  - title: Clients
+    path: /avataxbr/clients

@@ -4,7 +4,7 @@ title: Service Availability and Performance
 product: avaTax
 doctype: use_cases
 nav: apis
-community: availability
+disqus: 1
 ---
 <h2>Service Availability and Performance</h2>
 Consuming sales tax related services can be considered mission-critical, especially when making calculation queries through the Avatax product. As a cloud-based Software-as-a-Service provider, Avalara understands the need to ensure that our services are available continuously and respond in a timely manner.

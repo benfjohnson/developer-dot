@@ -8,6 +8,8 @@ nav: home
     <div class="bg-map col-md-12">
         <div class="row">
           <div class="col-md-8 col-md-offset-2 text-center">
+            <h2>Sign up now to attend the Developer Track at <a href="http://www.crushaustin.com">CRUSH AUSTIN 2017 Tax Conference</a> on May 2-3!</h2>
+            
             <h1 class="h1pp ">Bring real-time tax calculation to your financial application</h1>
             <img src="/public/images/homepage_hero.svg" alt="Welcome to the Avalara Developer Portal" />
           </div>
@@ -99,7 +101,7 @@ nav: home
         </div>
         <div class="row border-top">
           <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">
-            <h2>Try it free for 90 days with an Avalara AvaTax sandbox account</h2>
+            <h2>Try it free for 30 days with an Avalara AvaTax sandbox account</h2>
           </div>
         </div>
         <div class="row">
