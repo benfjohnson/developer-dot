@@ -7,8 +7,6 @@ nav: apis
 ---
 <div class="half">
 <h2>Certification for AvaTax Integrations</h2>
-<p>How do you know if you’re compliant with our best practices?  To start, we recommend watching an overview of our API.</p>
-<iframe id="player_1" src="http://www.youtube.com/embed/R0WUijv8xKk?rel=0&amp;enablejsapi=1&amp;wmode=opaque" width="705" height="396"></iframe>
 <p><img src="/public/images/blog/Avalara_CERTIFIED-150x25-01.png" alt="Avalara Certified" /></p>
 <p>
 An integration can be issued for any of the following feature subsets in addition to a basic calculation certification:<br />
@@ -21,6 +19,7 @@ To have your integration <a href="/certification">Certified by Avalara</a>, we h
 <li><a href="/avatax/certification/returns">Calculation with Avalara AvaTax and Returns</a></li>
 <li><a href="/avatax/certification/global">Calculation with Avalara AvaTax for Global Calculations</a></li>
 <li><a href="/avatax/certification/use-tax">Calculation with Avalara AvaTax for Use Tax</a></li>
+<li><a href="/avatax/certification/pos">Calculation with Avalara AvaTax for Point of Sale</a></li>
 </ul>
 <p>For more information about the benefits of certification, check out our <a href="/certification">Certification Guide</a>.</p>
 <h2>Certified for Avalara AvaTax<a name="CertifiedForAvalaraAvaTax"></a></h2>
@@ -28,7 +27,7 @@ To have your integration <a href="/certification">Certified by Avalara</a>, we h
 <h3>Avalara AvaTax Administration &amp; Utilities Integration</h3>
 <p>The AvaTax Administration section provides the user with configuration, setup and utility functions necessary to administer the AvaTax sales tax calculation and address validation functions. Note that these items cannot be examined on a analysis of your data performed by AvaTax support staff.</p>
 <p>Here’s a video showing an example of one of our integrations to AvaTax and how a configuration screen should be designed:</p>
-<iframe id="player_2" src="http://www.youtube.com/embed/9IGMZfrYU9A?enablejsapi=1&amp;wmode=opaque" width="705" height="396" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+<iframe id="player_2" src="https://www.youtube.com/embed/9IGMZfrYU9A?enablejsapi=1&amp;wmode=opaque" width="705" height="396" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
@@ -84,7 +83,7 @@ To have your integration <a href="/certification">Certified by Avalara</a>, we h
 
 <h3 data-fontsize="22" data-lineheight="32">Customer Record Integration</h3>
 <p>Here’s a video showing an example of the required elements of the customer record integration to AvaTax:</p>
-<iframe id="player_3" src="http://www.youtube.com/embed/SkBgcKa_yFY?enablejsapi=1&amp;wmode=opaque" width="705" height="396" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+<iframe id="player_3" src="https://www.youtube.com/embed/SkBgcKa_yFY?enablejsapi=1&amp;wmode=opaque" width="705" height="396" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
@@ -108,7 +107,7 @@ To have your integration <a href="/certification">Certified by Avalara</a>, we h
 
 <h3>Items/Charge Integration</h3>
 <p>Here’s a video showing an example of the item record elements necessary for a successful integration to AvaTax:</p>
-<iframe id="player_4" src="http://www.youtube.com/embed/iZE8BEgZBt4?enablejsapi=1&amp;wmode=opaque" width="705" height="396" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+<iframe id="player_4" src="https://www.youtube.com/embed/iZE8BEgZBt4?enablejsapi=1&amp;wmode=opaque" width="705" height="396" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
@@ -132,7 +131,7 @@ To have your integration <a href="/certification">Certified by Avalara</a>, we h
 
 <h3>Sales/Billing Document Integration</h3>
 <p>Integrating with the Sales and/or Billing process involves making tax calculation and/or modifying a transaction.  Here’s a video showing an example of all necessary elements for a successful integration to AvaTax:</p>
-<iframe id="player_5" src="http://www.youtube.com/embed/6465JvR3lNk?enablejsapi=1&amp;wmode=opaque" width="705" height="396" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+<iframe id="player_5" src="https://www.youtube.com/embed/6465JvR3lNk?enablejsapi=1&amp;wmode=opaque" width="705" height="396" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 <div class="row">
 <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
 <div class="col-xs-3">Function</div>
