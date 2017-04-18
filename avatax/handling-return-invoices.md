@@ -25,10 +25,11 @@ With the following line items:
 <img src="/public/images/devdot/ProductReturns_Lineitems.svg" alt="Line Items" width="100%" />
 
 As you address returns processing, keep in mind that:
-<ul>
-	<li>The document in question has (in this example) been committed, and the tax remitted to the appropriate jurisdiction.</li>
-	<li>There may be multiple lines in the document.</li>
-	<li>We need to work towards the eventual outcome of a complete or partial refund.
+
+<p>The document in question has (in this example) been committed, and the tax remitted to the appropriate jurisdiction.</p>
+<p>There may be multiple lines in the document.</p>
+<p>We need to work towards the eventual outcome of a complete or partial refund.</p>
+
 <ol>
 	<li>Call GetTax with a duplicate of the document (invoice) you want to process returns on:
 <ul>
@@ -50,12 +51,13 @@ As you address returns processing, keep in mind that:
 </ul>
 </li>
 </ol>
-<blockquote><strong>NOTE:</strong> Pass only line items being returned -- do not include the line items that will not be returned unless all items are returned). In this example, we are returning line items 1 and 3.</blockquote>
+<blockquote><strong>NOTE:</strong> Pass only line items being returned -- do not include the line items that will not be returned unless all items are returned). In this example, we are returning line items one and three.</blockquote>
 <ol start="4">
 	<li>Set the Amt property to a negative dollar amount on the line items (always leave the Qty as a positive number)</li>
 </ol>
-<img src="/public/images/devdot/ProductReturns_Returnedlineitems.svg" alt="Returned Line Items"width="100%" /></li>
-</ul>
+<img src="/public/images/devdot/ProductReturns_Returnedlineitems.svg" alt="Invoice and Return" width="100%" />
+
+
 Once sent to the AvaTax web service, the tax engine will return negative tax amounts on the line items based on the TaxDate specified. If no TaxDate is set, the document date will be used to calculate tax. Taxable Amounts on a Return Invoice show negative amounts equal to the items returned.
 
 Out of the 6 items originally processed, 2 items have been reversed on your tax reporting –- in this case $29.10 appears essentially as a “credit” on the current month’s tax liability.
