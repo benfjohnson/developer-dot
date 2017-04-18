@@ -1149,7 +1149,7 @@ definitions:
         maxLength: 50
         type: string
         example: 45 Fremont Street
-        description: 'Address line 1, required if Latitude and Longitude are not provided.'
+        description: 'Address line 1, required if Latitude and Longitude are not provided or PostalCode is not provided.'
       Line2:
         maxLength: 50
         type: string
