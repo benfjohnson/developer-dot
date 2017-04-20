@@ -6,7 +6,7 @@ doctype: use_cases
 nav: apis
 disqus: 1
 ---
-<h2>Where to start></h2>
+<h2>Where to start</h2>
 
 Avalara's world-class AvaTax API has been around for twelve years, and we've implemented so many features it's hard to list them all.  When it comes time to start a new project, a good place to begin is asking what API should I use?  Let's start by comparing Avalara's SOAP and REST services.
 
