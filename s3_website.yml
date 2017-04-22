@@ -1,6 +1,6 @@
 s3_id: <%= ENV['access_key'] %>
 s3_secret: <%= ENV['secret_key'] %>
-s3_bucket: developer.avalara.com
+s3_bucket: <%= ENV['bucket_name'] %>
 
 cloudfront_distribution_id: E14INHTPGUUPMC
 cloudfront_wildcard_invalidation: true
