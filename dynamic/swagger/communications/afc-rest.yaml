@@ -538,6 +538,35 @@ paths:
             items:
               "$ref": "#/definitions/TaxData"
       deprecated: false
+  "/api/v1/CommitTransactions":
+    post:
+      tags:
+      - Commit
+      summary: Calculate taxes on a transaction
+      description: This method accepts transaction data and performs appropriate tax
+        calculations.
+      operationId: ApiV1CommitTransactionsPost
+      consumes:
+      - application/json
+      - text/json
+      - application/json-patch+json
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - name: commitData
+        in: body
+        description: Document number and optional field information.
+        required: false
+        schema:
+          "$ref": "#/definitions/CommitData"
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: boolean
+      deprecated: false
   "/api/v1/CustMode/BeginBatch":
     get:
       tags:
@@ -1020,6 +1049,13 @@ definitions:
         type: array
         items:
           "$ref": "#/definitions/OptionalField"
+      DocumentCode:
+        description: Document code.
+        type: string
+      Commit:
+        description: Indicates if the transaction should be committed as soon at it
+          is processed.
+        type: boolean
   ZipAddress:
     description: Zip Address Class
     required:
@@ -1571,6 +1607,35 @@ definitions:
         description: Indicates if the charge of this transaction is tax-inclusive
           (reverse tax calculation).
         type: boolean
+      SafeHarborOverrides:
+        description: List of overrides for the USF safe harbor rate.
+        type: array
+        items:
+          "$ref": "#/definitions/SafeHarborOverride"
+      DocumentCode:
+        description: Document code.
+        type: string
+      Commit:
+        description: Indicates if the transaction should be committed as soon at it
+          is processed.
+        type: boolean
+  SafeHarborOverride:
+    description: Data structure used to override the safe harbor rate for a USF tax
+      type.
+    type: object
+    properties:
+      SafeHarborType:
+        format: int32
+        description: Safe harbor type (1 = Cellular, 2 = VoIP, 4 = Paging).
+        type: integer
+      OriginalFederalTam:
+        format: double
+        description: Original Federal TAM value to override.
+        type: number
+      NewFederalTam:
+        format: double
+        description: New TAM value that will replace the original TAM value.
+        type: number
   ProRatedTransaction:
     description: Parameter for pro-rated tax calculation API.
     required:
@@ -1685,6 +1750,64 @@ definitions:
         description: For sales and use taxes only (tax types 1 and 49), indicates
           that this tax replaces the tax at the county level.
         type: boolean
+  CommitData:
+    description: Parameter for CommitTransactions API.
+    type: object
+    properties:
+      DocumentCode:
+        description: Document code.
+        type: string
+      Committed:
+        description: Indicates if transactions for the specified document code should
+          be committed.
+        type: boolean
+      CustomerNumber:
+        description: Overrides value for CustomerNumber field in reports.
+        type: string
+      InvoiceNumber:
+        format: int32
+        description: Overrides value for InvoiceNumber field in reports.
+        type: integer
+      Optional:
+        format: int32
+        description: Overrides value for Optional field in reports.
+        type: integer
+      Optional4:
+        format: int32
+        description: Overrides value for Optional4 field in reports.
+        type: integer
+      Optional5:
+        format: int32
+        description: Overrides value for Optional5 field in reports.
+        type: integer
+      Optional6:
+        format: int32
+        description: Overrides value for Optional6 field in reports.
+        type: integer
+      Optional7:
+        format: int32
+        description: Overrides value for Optional7 field in reports.
+        type: integer
+      Optional8:
+        format: int32
+        description: Overrides value for Optional8 field in reports.
+        type: integer
+      Optional9:
+        format: int32
+        description: Overrides value for Optional9 field in reports.
+        type: integer
+      Optional10:
+        format: int32
+        description: Overrides value for Optional10 field in reports.
+        type: integer
+      OptionalAlpha1:
+        description: Overrides value for OptionalAlpha1 field in reports.
+        type: string
+      OptionalFields:
+        description: Overrides value for OptionalFields field in reports.
+        type: array
+        items:
+          "$ref": "#/definitions/OptionalField"
   CustModeTransaction:
     description: Parameter for the CustMode/CalcTaxes and CustMode/CalcAdj APIs.
     required:
@@ -1717,6 +1840,13 @@ definitions:
       ReturnDetail:
         description: Indicates if the individual transaction taxes should be returned
           in the response.
+        type: boolean
+      DocumentCode:
+        description: Document code.
+        type: string
+      Commit:
+        description: Indicates if the transaction should be committed as soon at it
+          is processed.
         type: boolean
   CustomerResults:
     description: Data structure returned when processing transactions in customer
@@ -1829,6 +1959,13 @@ definitions:
       ReturnDetail:
         description: Indicates if the individual transaction taxes should be returned
           in the response.
+        type: boolean
+      DocumentCode:
+        description: Document code.
+        type: string
+      Commit:
+        description: Indicates if the transaction should be committed as soon at it
+          is processed.
         type: boolean
   RequestPCodeDetail:
     description: Request PCode Detail Class
