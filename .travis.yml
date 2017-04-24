@@ -15,5 +15,17 @@ script:
   - npm run build && bundle exec jekyll build
 after_success:
   - if [ -n "$ALGOLIA_API_KEY" ]; then bundle exec jekyll algolia push; fi
-  - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "master" ]; then s3_website push; fi
-  
+  - echo $TRAVIS_BRANCH
+deploy:
+  # deploy master to s3
+  - provider: script
+    script: 
+      - s3_website push
+    on:
+      branch: master
+  # deploy master to production
+  - provider: script
+    all_branches: true
+    script: echo "hi"
+    on:
+      condition: "$TRAVIS_BRANCH != master"
