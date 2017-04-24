@@ -19,6 +19,7 @@ after_success:
 deploy:
   # deploy master to s3
   - provider: script
+    skip_cleanup: true
     script: 
       - s3_website push
     on:
