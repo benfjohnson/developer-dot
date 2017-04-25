@@ -2,7 +2,7 @@
 layout: post
 title: AvaTax API 17.5 Patch Notes
 description: Release Notes for the May 2017 update to the AvaTax REST v2 API.
-date: 2017-03-30 16:00
+date: 2017-04-25 16:00
 author: Ted Spence
 comments: true
 categories: [Sales Tax APIs]
