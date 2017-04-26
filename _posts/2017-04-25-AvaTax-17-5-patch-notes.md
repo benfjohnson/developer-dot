@@ -35,11 +35,11 @@ This article is about the May 2017 monthly update to the AvaTax REST v2 API.
 
 As part of our ongoing expansion, we are proud to announce the introduction of Tax Type Groups.  This new feature allows the AvaTax API to support new tax types and to correctly distinguish between different tax domains that have different rules.  Our first expansion includes information about a variety of tax domains including VAT input and output, excise, lodging, and bottle tax.
 
-During the rollout period, Avalara will be working with key partners to introduce the new functionality gradually.  If you are interested in making use of these new tax types, please let your customer account manager know about your requirements.
+During the rollout period, Avalara will be working with key partners to introduce the new functionality gradually.  If you are interested in making use of these new tax types, please inform your customer account manager.
 
 <h3>New API: Create or Adjust transaction</h3>
 
-If you attempt to create two identical transactions with the same code, AvaTax will report an error and prevent you from creating the same transaction twice.  The new `CreateOrAdjust` API call simplifies the process: it will either create the transaction if it does not yet exist, or adjust the transaction if it already exists.  This new simplified API can simplify the steps necessary to ensure that a transaction exists.
+If you attempt to create two identical transactions with the same code, AvaTax will report an error and prevent you from creating the same transaction twice.  The new `CreateOrAdjust` API call simplifies the process: it will either create the transaction if it does not yet exist, or adjust the transaction if it already exists.  Using this API you don't need to check in advance if a transaction has already been recorded.
 
 Please note, however, that if a transaction has already been reported to a taxing authority, it is considered locked and the `CreateOrAdjust` API call will still return an error.  Transactions that have been reported to a tax authority can no longer be adjusted, cancelled, or deleted due to audit maintenance laws.
 
@@ -53,15 +53,15 @@ Please note, however, that if a transaction has already been reported to a taxin
 
 Connector developers often need a way to store information about a company or account in a way that can be shared across multiple devices conveniently.  For example, if a company has a retail point-of-sale system with a few dozen registers, each register may need to fetch configuration information each day upon startup.
 
-AvaTax now introduces Account Configuration and Company Configuration APIs which allow you to store and retrieve metadata about a company or account.  This API allows you to view or modify AvaTax settings for address API configuration, tax API configuration, and 
+AvaTax now introduces Account Configuration and Company Configuration APIs which allow you to store and retrieve metadata about a company or account.  This API allows you to view or modify AvaTax settings such as address and tax configuration properties.  In addition, you can define your own configuration categories by using values beginning with the prefix `X-`.  For example, if your connector allows a customer to choose between a date-based document code or a GUID-based document code, you can save that preference using the configuration API, and whenever your connector starts up you can fetch the latest data.
 
 <h3>POST /api/v2/transactions/create</h3>
 
-Previously, when creating `SalesOrder` transactions, only some information would be returned.  In REST 17.5, more information will be returned to the caller.
+Previously, when using temporary transaction types like `SalesOrder`, `ReturnOrder`, or `PurchaseOrder`, only some information in your request would be returned in the result since the document type was assumed to be a temporary type that did not need to return all information to the caller.  In REST 17.5, more information will be returned to the caller to increase consistency in behavior between temporary document types and permanent document types.
 
-For consistency between the legacy SOAP API and the new REST API, `SalesOrder` transactions will have their ID numbers zeroed out.  In previous months, the ID numbers were stored as -1.
+Additionally, for consistency between the legacy SOAP API and the new REST API, temporary transactions will have their ID numbers zeroed out.  In REST 2.17.4, the ID numbers were returned as -1.
 
-These changes affect temporary document types only.
+These changes affect temporary document types only.  Temporary document types are still not saved in the database; if you would like to fetch documents back, please use the permanent document types such as `SalesInvoice` or `ReturnInvoice` or `PurchaseInvoice`.
 
 <h3>Free Trial now includes Landed Cost</h3>
 
