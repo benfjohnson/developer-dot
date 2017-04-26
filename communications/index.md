@@ -19,7 +19,7 @@ doctype: overview
         supporting thousands of taxing jurisdictions, including country state/province, county,
         city and special taxing jurisdiction levels.    
     </h4>
-    <h3>The Communications Tax API is a SOAP web service</h3>
+    <h3>The Communications Tax API's are web services</h3>
     <p class="text-left">This service is the external programmatic interface into the Avalara Communications tax engine. It provides a platform-independent mechanism for obtaining tax calculation information.</p>
      <h2>How does the Avalara Communications solution benefit businesses?</h2>
      <h4 class="text-left">Avalara Communications connects to billing or ERP systems to quickly determine taxes
@@ -55,7 +55,7 @@ doctype: overview
         </div>
         <div class="col-md-3 col-md-offset-2 padding-top">
             <ul class="pipe">
-                <li><a href="mailto:communicationsupport@avalara.com">Get started via email</a></li>
+                <li><a href="mailto:communicationsupport@avalara.com?subject=Communications Tax API Interest from Developer.Avalara.com site">Get started via email</a></li>
             </ul>
         </div>
     </div>
@@ -70,7 +70,7 @@ doctype: overview
         <div class="col-md-3 col-md-offset-2 padding-top">
             <p class="text-left">To access the Avalara Communications service
                and obtain an API key, contact your Avalara
-               account manager or <a href="mailto:communicationsupport@avalara.com">email us</a>.
+               account manager or <a href="mailto:communicationsupport@avalara.com?subject=Communications Tax API Interest from Developer.Avalara.com site.">email us</a>.
             </p>
         </div>
     </div>
