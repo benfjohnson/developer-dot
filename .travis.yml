@@ -18,7 +18,6 @@ after_success:
 deploy:
   # deploy none master to production
   - provider: script
-    all_branches: true
     script: echo "hi"
     on:
       condition: "$TRAVIS_BRANCH != master"
