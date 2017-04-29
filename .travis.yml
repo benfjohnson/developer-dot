@@ -15,4 +15,4 @@ script:
   - npm run build && bundle exec jekyll build
 after_success:
   - if [ -n "$ALGOLIA_API_KEY" ]; then bundle exec jekyll algolia push; fi
-  - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "master" ]; then s3_website push; fi
+  - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "master" ]; then bucket_name=developer.avalara.com s3_website push; fi
