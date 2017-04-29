@@ -1,9 +1,14 @@
 ---
 layout: page
-title: AvaTax REST v2 Error Codes
+title: REST Error Codes
+product: AvaTax
+doctype: use_cases
+nav: apis
+community: errors
 ---
 
-<h2>AvaTax REST v2 Error Codes</h2>
+Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in the SOAP v1 API.
+
 <table class="styled-table">
 	<thead>
 		<tr>
@@ -128,6 +133,16 @@ title: AvaTax REST v2 Error Codes
 			<td>25</td>
 			<td><a href="CannotChangeCompanyCode">CannotChangeCompanyCode</a></td>
 			<td>The company code for a company is set when the company is created and may not be changed.</td>
+		</tr>		
+        <tr>
+			<td>26</td>
+			<td><a href="DateFormatError">DateFormatError</a></td>
+			<td>The date value you provided was incorrectly formatted.</td>
+		</tr>		
+        <tr>
+			<td>27</td>
+			<td><a href="NoDefaultCompany">NoDefaultCompany</a></td>
+			<td>Your account does not currently have a default company.</td>
 		</tr>		
         <tr>
 			<td>30</td>
@@ -325,6 +340,11 @@ title: AvaTax REST v2 Error Codes
 			<td>The RateDepends option is only valid for countries in the European Union.</td>
 		</tr>		
         <tr>
+			<td>134</td>
+			<td><a href="InvalidRateTypeCode">InvalidRateTypeCode</a></td>
+			<td>This rate type is not valid in the country provided.</td>
+		</tr>		
+        <tr>
 			<td>135</td>
 			<td><a href="RateTypeNotSupported">RateTypeNotSupported</a></td>
 			<td>You attempted to choose a rate type that is not supported for the country you selected.</td>
@@ -425,6 +445,41 @@ title: AvaTax REST v2 Error Codes
 			<td>An address override cannot be created for this jurisdiction.</td>
 		</tr>		
         <tr>
+			<td>155</td>
+			<td><a href="DuplicateSystemTaxCode">DuplicateSystemTaxCode</a></td>
+			<td>You attempted to create a duplicate TaxCode object.</td>
+		</tr>		
+        <tr>
+			<td>156</td>
+			<td><a href="SSTOverridesNotAvailable">SSTOverridesNotAvailable</a></td>
+			<td>Companies participating in Streamlined Sales Tax may not override addresses in SST states.</td>
+		</tr>		
+        <tr>
+			<td>157</td>
+			<td><a href="NexusDateMismatch">NexusDateMismatch</a></td>
+			<td>You declared nexus on a date when that nexus was not available.</td>
+		</tr>		
+        <tr>
+			<td>158</td>
+			<td><a href="TechSupportAuditRequired">TechSupportAuditRequired</a></td>
+			<td>To make this API call, you must provide tech support audit requirements.</td>
+		</tr>		
+        <tr>
+			<td>159</td>
+			<td><a href="NexusParentDateMismatch">NexusParentDateMismatch</a></td>
+			<td>You declared nexus on a date when that nexus was not available.</td>
+		</tr>		
+        <tr>
+			<td>160</td>
+			<td><a href="BearerTokenParseUserIdError">BearerTokenParseUserIdError</a></td>
+			<td>The bearer token you provided could not be parsed.</td>
+		</tr>		
+        <tr>
+			<td>161</td>
+			<td><a href="RetrieveUserError">RetrieveUserError</a></td>
+			<td>Your bearer token does not have a provisioned AvaTax account.</td>
+		</tr>		
+        <tr>
 			<td>200</td>
 			<td><a href="BatchSalesAuditMustBeZippedError">BatchSalesAuditMustBeZippedError</a></td>
 			<td>Sales audit files must be uploaded in ZIP or RAR formats.</td>
@@ -515,6 +570,16 @@ title: AvaTax REST v2 Error Codes
 			<td>You attempted to lock a transaction (aka Document) that was not committed.</td>
 		</tr>		
         <tr>
+			<td>314</td>
+			<td><a href="MultiDocumentTypesError">MultiDocumentTypesError</a></td>
+			<td>The API you called does not support transaction code overloading.</td>
+		</tr>		
+        <tr>
+			<td>315</td>
+			<td><a href="InvalidDocumentTypesToFetch">InvalidDocumentTypesToFetch</a></td>
+			<td>Temporary documents cannot be fetched from the API.</td>
+		</tr>		
+        <tr>
 			<td>400</td>
 			<td><a href="BadDocumentFetch">BadDocumentFetch</a></td>
 			<td>This error indicates that you have provided an incorrect "$include" value to the GET /api/v2/companies/{0}/transactions endpoint.</td>
@@ -548,4 +613,74 @@ title: AvaTax REST v2 Error Codes
 			<td>605</td>
 			<td><a href="ZTBCreateSubscriptionsFail">ZTBCreateSubscriptionsFail</a></td>
 			<td>The Zero Touch Buying service did not respond in a timely manner.</td>
+		</tr>		
+        <tr>
+			<td>606</td>
+			<td><a href="FreeTrialNotAvailable">FreeTrialNotAvailable</a></td>
+			<td>The Free Trial API is not available on this server.</td>
+		</tr>		
+        <tr>
+			<td>700</td>
+			<td><a href="InvalidDocumentStatusForRefund">InvalidDocumentStatusForRefund</a></td>
+			<td>The AvaTax Refund API is only available on committed documents.</td>
+		</tr>		
+        <tr>
+			<td>701</td>
+			<td><a href="RefundTypeAndPercentageMismatch">RefundTypeAndPercentageMismatch</a></td>
+			<td>You specified a `Full` refund, but the percentage parameter was not null.</td>
+		</tr>		
+        <tr>
+			<td>702</td>
+			<td><a href="InvalidDocumentTypeForRefund">InvalidDocumentTypeForRefund</a></td>
+			<td>The document you attempted to refund was not a SalesInvoice.</td>
+		</tr>		
+        <tr>
+			<td>703</td>
+			<td><a href="RefundTypeAndLineMismatch">RefundTypeAndLineMismatch</a></td>
+			<td>You specified a `Full` refund, but the lines parameter was not null.</td>
+		</tr>		
+        <tr>
+			<td>704</td>
+			<td><a href="NullRefundPercentageAndLines">NullRefundPercentageAndLines</a></td>
+			<td>You attempted to create a refund but did not specify the percentage or lines.</td>
+		</tr>		
+        <tr>
+			<td>705</td>
+			<td><a href="InvalidRefundType">InvalidRefundType</a></td>
+			<td>You specified an invalid refund type.</td>
+		</tr>		
+        <tr>
+			<td>706</td>
+			<td><a href="RefundPercentageForTaxOnly">RefundPercentageForTaxOnly</a></td>
+			<td>You attempted to create a TaxOnly refund for a partial percentage.</td>
+		</tr>		
+        <tr>
+			<td>707</td>
+			<td><a href="LineNoOutOfRange">LineNoOutOfRange</a></td>
+			<td>You attempted to refund a line item that did not exist in the original transaction.</td>
+		</tr>		
+        <tr>
+			<td>708</td>
+			<td><a href="RefundPercentageOutOfRange">RefundPercentageOutOfRange</a></td>
+			<td>You submitted a refund percentage lower than 0% or higher than 100%</td>
+		</tr>		
+        <tr>
+			<td>800</td>
+			<td><a href="TaxRateNotAvailableForFreeInThisCountry">TaxRateNotAvailableForFreeInThisCountry</a></td>
+			<td>The Free TaxRates API is only available in the US.</td>
+		</tr>		
+        <tr>
+			<td>900</td>
+			<td><a href="FilingCalendarCannotBeDeleted">FilingCalendarCannotBeDeleted</a></td>
+			<td>A filing calendar cannot be deleted once in use.</td>
+		</tr>		
+        <tr>
+			<td>1000</td>
+			<td><a href="QuestionNotNeededForThisAddress">QuestionNotNeededForThisAddress</a></td>
+			<td>No jursidiction-specific questions are relevant for this location.</td>
+		</tr>		
+        <tr>
+			<td>1001</td>
+			<td><a href="QuestionNotValidForThisAddress">QuestionNotValidForThisAddress</a></td>
+			<td>One of the questions you answered is not valid for this address.</td>
 		</tr></tbody></table>

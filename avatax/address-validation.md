@@ -4,7 +4,7 @@ title: Address Validation
 product: avaTax
 doctype: use_cases
 nav: apis
-community: address
+disqus: 1
 ---
 
 <h3>Validate and normalize addresses for sales tax calculation.</h3>

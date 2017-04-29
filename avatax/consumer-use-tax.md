@@ -4,7 +4,7 @@ title: Consumer Use Tax
 product: avaTax
 doctype: use_cases
 nav: apis
-community: consumerUse
+disqus: 1
 ---
 <h3>Add Consumer Use Tax reporting to your Avalara AvaTax integration</h3>
 As a general rule, if the product is taxable, somebody has to pay the tax. If the seller is not required/registered to collect tax in a taxable state, the purchaser is responsible for remitting the tax. You can report and calculate this tax through the Avalara AvaTax service through the standard tax calculation and document recording methods, with a few variations.

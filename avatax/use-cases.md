@@ -4,7 +4,7 @@ title: Develop
 product: avaTax
 doctype: use_cases
 nav: apis
-community: document
+disqus: 1
 ---
 
 {% for page in site.avatax %}

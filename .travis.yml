@@ -1,18 +1,40 @@
 language: ruby
 rvm:
-  - 2.1  
+  - 2.1
+
 before_install:
   - nvm install 6.0
 install:
   - gem install jekyll
   - gem install s3_website
-# before_script:
-#   - npm install
-#   - bundle install
 script:
   - npm install
   - bundle install
   - npm run build && bundle exec jekyll build
 after_success:
   - if [ -n "$ALGOLIA_API_KEY" ]; then bundle exec jekyll algolia push; fi
-  - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "master" ]; then s3_website push; fi
+  - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "master" ]; then bucket_name=developer.avalara.com s3_website push; fi
+
+deploy:
+  # deploy none master to production
+  - provider: s3
+    access_key_id: $access_key
+    secret_access_key: $secret_key
+    bucket: "pr.developer.avalara.com"
+    skip_cleanup: true
+    region: us-west-2
+    local_dir: _site
+    upload-dir: $TRAVIS_BRANCH
+    acl: public_read
+    on:
+      all_branches: true
+      condition: "$TRAVIS_BRANCH != master"
+
+  - deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+    local_dir: _site
+    on:
+      branch: master
+      condition: "-n $GITHUB_TOKEN"

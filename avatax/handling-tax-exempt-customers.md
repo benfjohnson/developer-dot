@@ -4,7 +4,7 @@ title: Exempt Transactions
 product: avaTax
 doctype: use_cases
 nav: apis
-community: exemption
+disqus: 1
 ---
 <h2>Handling sales tax exempt customers in your integration</h2>
 Depending on how you store your customer information, there are several ways you can manage your customer’s exempt status. Here are all of the methods available, arranged in order of detail capability.

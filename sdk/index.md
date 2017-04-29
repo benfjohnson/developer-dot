@@ -4,7 +4,7 @@ title: AvaTax Software Development Kit
 product: avaTax
 doctype: sdks
 nav: sdk
-community: sdk
+disqus: 1
 ---
 
 Code samples are designed to help you get started in writing correct code to interface with the Avalara AvaTax APIs. You can do this from a myriad of languages and frameworks and most of them are listed below. You will find officially supported libraries and those that are contributed by our community.
