@@ -14,6 +14,8 @@ script:
 after_success:
   - if [ -n "$ALGOLIA_API_KEY" ]; then bundle exec jekyll algolia push; fi
   - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "master" ]; then bucket_name=developer.avalara.com s3_website push; fi
+  - export s3_dir="$TRAVIS_BRANCH/$TRAVIS_REPO_SLUG"
+  - echo $s3_dir
 
 deploy:
   # deploy none master to production
@@ -24,6 +26,7 @@ deploy:
     skip_cleanup: true
     region: us-west-2
     local_dir: _site
+    upload-dir: $s3_dir
     acl: public_read
     on:
       all_branches: true
