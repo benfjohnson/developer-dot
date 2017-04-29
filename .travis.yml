@@ -17,7 +17,8 @@ deploy:
   # deploy master to production
   - provider: script
     skip_cleanup: true
-    script: bucket_name=developer.avalara.com s3_website push
+    # script: bucket_name=developer.avalara.com s3_website push
+    script: s3_website push
     on:
       branch: master
   # deploy master to production
