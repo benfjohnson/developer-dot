@@ -17,8 +17,11 @@ after_success:
 
 deploy:
   # deploy none master to production
-  - provider: script
-    script: echo "hi"
+  - provider: s3
+    access_key_id: <%= ENV['access_key'] %>
+    secret_access_key: <%= ENV['secret_key'] %>
+    bucket: "pr.developer.avalara.com"
+    skip_cleanup: true
     on:
       all_branches: true
       condition: "$TRAVIS_BRANCH != master"
