@@ -22,6 +22,7 @@ deploy:
     secret_access_key: <%= ENV['secret_key'] %>
     bucket: "pr.developer.avalara.com"
     skip_cleanup: true
+    region: us-west-2
     on:
       all_branches: true
       condition: "$TRAVIS_BRANCH != master"
