@@ -23,6 +23,8 @@ deploy:
     bucket: "pr.developer.avalara.com"
     skip_cleanup: true
     region: us-west-2
+    local_dir: _site
+    acl: public_read
     on:
       all_branches: true
       condition: "$TRAVIS_BRANCH != master"
