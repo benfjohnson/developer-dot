@@ -14,8 +14,11 @@ script:
 after_success:
   - if [ -n "$ALGOLIA_API_KEY" ]; then bundle exec jekyll algolia push; fi
   - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "master" ]; then bucket_name=developer.avalara.com s3_website push; fi
+
 before_deploy:
   - find _site -iname "*.html" -exec sed -i -e 's/=\"\//=\"\/developer-dot\//g' {} \;
+  - find _site -iname "style.css" -exec sed -i -e 's/url(\"\//url(\"\/developer-dot\//g' {} \;
+  - find _site -iname "style.css" -exec sed -i -e 's/url(\//url(\/developer-dot\//g' {} \;
 
 deploy:
 
