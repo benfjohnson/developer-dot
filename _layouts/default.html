@@ -13,7 +13,7 @@
 
     <meta property="og:title" content="Home" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://developer.avalara.com/" />
+    <meta property="og:url" content="https://developer.avalara.com/" />
     <meta property="og:site_name" content="Avalara Developer Network" />
     <meta property="og:description" content="Avalara AvaTax Accurate and easy sales tax calculation Automatically tie your non-taxable transactions directly to the correct exemption or reseller certificate. Determine accurate taxability & duties for millions of products and services in over 100 countries."
     />
@@ -37,9 +37,9 @@
     <meta name="theme-color" content="#ffffff ">
 
     <link rel="stylesheet" href="/public/css/style.css"> {% if page.avaform == 1 %}
-    <link rel="stylesheet" href="http://d30qslfa084pac.cloudfront.net/common/avaform/style.css"> {% endif %}
+    <link rel="stylesheet" href="https://d30qslfa084pac.cloudfront.net/common/avaform/style.css"> {% endif %}
     <!-- Adobe Dynamic Tab Manager Tag Manager -->
-    <script src="//assets.adobedtm.com/bc10a2a9cf337c664f8f74e778a1987125aea184/satelliteLib-0387aefee1ddb8b2a9db7e4165c8d84dc0de8621.js"></script>
+    <script src="https://assets.adobedtm.com/bc10a2a9cf337c664f8f74e778a1987125aea184/satelliteLib-0387aefee1ddb8b2a9db7e4165c8d84dc0de8621.js"></script>
     <!-- End Adobe Dynamic Tab Manager Tag Manager -->
 </head>
 {% assign post_count = site.posts|size %} {% if page.product %} {% assign product_name = page.product %} {% else %} {% if page.api_name %} {% assign product_name = page.api_name %} {% endif %} {% endif %}
@@ -270,7 +270,7 @@
     <script src="/public/js/site.js"></script>
 
     {% comment %} Because the AWS JavaScript SDK is dumb and doesn't work with browserify, have to include it the ole' fashioned way. Custom build that just has S3 sdk included: {% endcomment %}
-    <script src='/public/js/vendor/aws-sdk-2.5.3.min.js'></script>
+    <script src="/public/js/vendor/aws-sdk-2.5.3.min.js"></script>
     <script>
         AWS.config.region = 'us-west-2';
     </script>
