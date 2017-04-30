@@ -270,7 +270,7 @@
     <script src="/public/js/site.js"></script>
 
     {% comment %} Because the AWS JavaScript SDK is dumb and doesn't work with browserify, have to include it the ole' fashioned way. Custom build that just has S3 sdk included: {% endcomment %}
-    <script src='/public/js/vendor/aws-sdk-2.5.3.min.js'></script>
+    <script src="/public/js/vendor/aws-sdk-2.5.3.min.js"></script>
     <script>
         AWS.config.region = 'us-west-2';
     </script>
