@@ -2,7 +2,7 @@
     {
         "id": 0,
         "action": "post",
-        "path": "http://sandbox.landedcost.api.avalara.com/v3/calculate",
+        "path": "https://sandbox.landedcost.api.avalara.com/v3/calculate",
         "operationId": "calculate",
         "recipeName": "Ship Swords to a Destination of your Choice!",
         "recipeDescription": "You're a German blacksmith and have just sold a shipment of your finest swords to a customer internationally.\nPick a destination country and see how much landed cost is owed!",
@@ -79,7 +79,7 @@
     {
         "id": 1,
         "action": "get",
-        "path": "http://sandbox.landedcost.api.avalara.com/v2/hscodes/{system}/{code}",
+        "path": "https://sandbox.landedcost.api.avalara.com/v2/hscodes/{system}/{code}",
         "operationId": "Get Rate Data_",
         "recipeName": "Get HS Code Details",
         "recipeDescription": "You're trying to classify a product and want to get a better understanding of its place in the Harmonized Code system. Pick one of the codes to get started!",
