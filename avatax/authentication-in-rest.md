@@ -121,12 +121,6 @@ As you'll notice, license key and basic authentication are very similar in pract
     </li>
 </ul>
 
-<h3>What about Bearer Token?</h3>
-
-Avalara also supports "OAuth 2.0 Bearer Token" authentication.  However, Bearer Token authentication is much more complex and is only suitable for websites that build in direct integrations with AvaTax.  Bearer Token functionality is available for specific partners only, but it offers significantly stronger security and allows for password security to be deferred and not actually passed between websites.
-
-If you are interested in building an active web integration, please contact Avalara's business development department.
-
 <h3>I got an error message - what does it mean?</h3>
 
 If you are working on authentication and you received an error message, here's a breakdown of <a href="http://developer.avalara.com/avatax/errors/">all REST v2 error codes and how to interpret them</a>.
