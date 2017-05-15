@@ -5,7 +5,7 @@ info:
   title: Saas Pro
   description: The AFC REST service provides APIs to calculate taxes on communiations transactions and lookup tax rate and jurisdiction information.
   termsOfService: None
-host: development.avalara.net
+host: communications.avalara.net
 basePath: "/"
 schemes:
   - https
