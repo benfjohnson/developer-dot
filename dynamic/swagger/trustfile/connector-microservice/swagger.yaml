@@ -887,5 +887,5 @@ definitions:
         items:
           $ref: '#/definitions/HealthObject'
     example:
-      stasues:
+      statuses:
         [{"type": "connector", "status": "OK", "description": "NOMINAL"},{"type": "hostSystem", "status": "OK", "description": "NOMINAL"},{"type": "trustfile", "status": "OK", "description": "NOMINAL"}]
