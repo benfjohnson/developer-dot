@@ -17,22 +17,47 @@ Getting started with any new piece of software can take a bit of time.  AvaTax i
 
 First, let’s get the correct URL for AvaTax and verify that we can contact it.  AvaTax has four different servers available to choose from:
 
-| Environment       | URL                             | Notes                                                              | 
-| ----------------- | ------------------------------- | ------------------------------------------------------------------ |
-| Production - REST | https://rest.avatax.com         | For live customer data using the latest REST API                   |
-| Production - SOAP | https://avatax.avalara.net      | For a live customer using our mainstream SOAP interface            |
-| Sandbox - REST    | https://sandbox-rest.avatax.com | For testing and development purposes; uses our latest REST API     |
-| Sandbox - SOAP    | https://development.avalara.net | For testing and development purposes; uses our mainstream SOAP API |
+<table class="styled-table">
+    <thead>
+		<tr>
+			<th>Environment</th>
+			<th>URL</th>
+			<th>Notes</th>
+		</tr>
+    </thead>
+    <tbody>
+		<tr>
+			<td>Production - REST</td>
+			<td>https://rest.avatax.com</td>
+			<td>For live customer data using the latest REST API </td>
+		</tr>
+		<tr>
+			<td>Production - SOAP</td>
+			<td>https://avatax.avalara.net</td>
+			<td>For a live customer using our mainstream SOAP interface</td>
+		</tr>
+		<tr>
+			<td>Sandbox - REST</td>
+			<td>https://sandbox-rest.avatax.com</td>
+			<td>For testing and development purposes; uses our latest REST API</td>
+  	    </tr>
+        <tr>
+			<td>Sandbox - SOAP</td>
+			<td>https://development.avalara.net</td>
+			<td>For testing and development purposes; uses our mainstream SOAP API</td>
+  	   </tr>
+    </tbody>
+</table>  
 
 If you’re just getting started and you’re not sure which to choose, pick Sandbox – REST.  You can get a [free trial account](https://developer.avalara.com/avatax/signup/) right now and make use of the REST interface immediately.
 
 Now that you’ve selected the URL for your AvaTax API server, can you view that page in your web browser?  Here’s what you should see:
 
 <h4>REST</h4>
-<img src="/public/images/blog/rest_site.png"
+<img src="/public/images/blog/rest_site_resize.png">
 
 <h4>SOAP</h4>
-<img src="/public/images/blog/soap_site.png"
+<img src="/public/images/blog/soap_site_resize.png">
 
 If you can’t visit these sites, try these steps:
 
@@ -69,9 +94,9 @@ If you can visit the AvaTax API website in your web browser, but your code still
 If you are running into certificate issues, you may find the steps below to help resolve the issue: 
 
 <ul class="normal">
-    <li>The https://development.avalara.net (Sandbox) and https://avatax.avalara.net (Production) endpoints support only TLS 1.0, 1.1, and 1.2.  If you are attempting to access these from a system which does not support TLS, you will need to use https://development-ssl.avalara.net and https://avatax-ssl.avalara.net for Sandbox and Production access as these endpoints are configured to support only SSLv3.</li>
-    <li>The endpoints above (standard and SSLv3) utilize a full SHA256 certificate chain, and it is possible that you do not have those certificates installed as a trusted root and intermediate.  To get the full certificate chain, you will need to download the ZIP file containing the individual certificates located here https://help.avalara.com/@api/deki/files/20147/SHA256_Symantec-Signed_Bundle.zip?revision=1 and assembled them into a single file in the order of: certificate, intermediate, root.  The resulting file can be imported.</li>
-    <li>If you are attempting to access these endpoints from a system that does not support SHA256 certificates, you will need to use https://development-sha1.avalara.net and https://avatax-sha1.avalara.net for Sandbox and Production access as these endpoints are configured with SHA1 certificates.  Note that these endpoints use an Avalara-signed certificate as SHA1 is deprecated and no longer issued.  To get the full certificate chain, you will need to download the ZIP file containing the individual certificates located here https://help.avalara.com/@api/deki/files/20148/SHA1_Avalara-Signed_Bundle.zip?revision=1 and assembled them into a single file in the order of: certificate, intermediate, root.  The resulting file can be imported.</li>
+    <li>The <a href="https://development.avalara.net">https://development.avalara.net</a> (Sandbox) and <a href="https://avatax.avalara.net">https://avatax.avalara.net</a> (Production) endpoints support only TLS 1.0, 1.1, and 1.2.  If you are attempting to access these from a system which does not support TLS, you will need to use <a href="https://development-ssl.avalara.net">https://development-ssl.avalara.net</a> and <a href="https://avatax-ssl.avalara.net">https://avatax-ssl.avalara.net</a> for Sandbox and Production access as these endpoints are configured to support only SSLv3.</li>
+    <li>The endpoints above (standard and SSLv3) utilize a full SHA256 certificate chain, and it is possible that you do not have those certificates installed as a trusted root and intermediate.  To get the full certificate chain, you will need to download the ZIP file containing the individual certificates located <a href="https://help.avalara.com/@api/deki/files/20147/SHA256_Symantec-Signed_Bundle.zip?revision=1">here</a> and assembled them into a single file in the order of: certificate, intermediate, root.  The resulting file can be imported.</li>
+    <li>If you are attempting to access these endpoints from a system that does not support SHA256 certificates, you will need to use <a href="https://development-sha1.avalara.net">https://development-sha1.avalara.net</a> and <a href="https://avatax-sha1.avalara.net">https://avatax-sha1.avalara.net</a> for Sandbox and Production access as these endpoints are configured with SHA1 certificates.  Note that these endpoints use an Avalara-signed certificate as SHA1 is deprecated and no longer issued.  To get the full certificate chain, you will need to download the ZIP file containing the individual certificates located <a href="https://help.avalara.com/@api/deki/files/20148/SHA1_Avalara-Signed_Bundle.zip?revision=1">here</a> and assembled them into a single file in the order of: certificate, intermediate, root.  The resulting file can be imported.</li>
 </ul>
 
 The good news is that once you’re connected to AvaTax, you have all the privileges of using the world’s best tax calculation service, and the rock solid reliability you’ve come to expect from Avalara.
