@@ -3,7 +3,7 @@ layout: default
 title: AvaTax with Address Validation Checklist
 product: avaTax
 doctype: integration_checklists
-nav: apis
+nav: certification
 ---
 <div class="half">
 <h2>AvaTax with Address Validation Checklist</h2>

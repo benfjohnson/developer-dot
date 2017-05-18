@@ -3,7 +3,7 @@ layout: page
 title: Communications Integration Checklist
 product: communications
 doctype: integration_checklists
-nav: apis
+nav: certification
 ---
 
 <style>

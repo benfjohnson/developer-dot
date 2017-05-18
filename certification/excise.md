@@ -2,7 +2,7 @@
 layout: default
 title: AvaTax with Excise Checklist
 product: excise
-nav: apis
+nav: certification
 doctype: integration_checklists
 ---
 <div class="half">

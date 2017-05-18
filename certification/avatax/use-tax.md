@@ -3,7 +3,7 @@ layout: default
 title: AvaTax Use Tax Checklist
 product: avaTax
 doctype: integration_checklists
-nav: apis
+nav: certification
 ---
 <div class="half">
 <h2 id="UseTaxRequirements-Administration/UtilitiesIntegration" data-fontsize="26" data-lineheight="34">Administration/Utilities Integration</h2>

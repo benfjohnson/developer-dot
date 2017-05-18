@@ -2,7 +2,7 @@
 layout: default
 title: Certification Checklist
 product: communications
-nav: apis
+nav: certification
 doctype: integration_checklists
 ---
 <h2>Certified for Avalara AvaTax for Communications</h2>

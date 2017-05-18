@@ -3,7 +3,7 @@ layout: default
 title: AvaTax Point of Sale Certification
 product: avaTax
 doctype: integration_checklists
-nav: apis
+nav: certification
 ---
 <div class="half">
 <h2>Certification for AvaTax Point of Sale</h2>

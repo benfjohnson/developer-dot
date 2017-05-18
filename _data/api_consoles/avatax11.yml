@@ -25,7 +25,3 @@ nav_links:
     path: /avatax/api-reference/tax/v2
   - title: Set up your sandbox
     path: /avatax/get-started
-  - title: Test your integration
-    path: /avatax/testing-your-integration
-  - title: Integration checklists
-    path: /avatax/certification

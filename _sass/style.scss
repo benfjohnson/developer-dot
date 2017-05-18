@@ -28,7 +28,8 @@
         @extend .mouse;
         background-color: $Darkest-blue;
         border-color: white;
-        border-radius: 4px;
+        //according to JIRA DX-277 --> no corner-radius on this style
+        //border-radius: 4px; 
         color: white;
         font-family: 'source sans pro bold', Helvetica, Arial, sans-serif;
         font-size: 18px;
@@ -244,7 +245,9 @@ header {
             &.home li.home,
             &.apis li.apis,
             &.certification li.certification,
-            &.resources li.resources {
+            &.resources li.resources , 
+            &.sdk li.sdk, 
+            &.tests li.tests{
                 background-color: $Darker-Ava-orange;
             }
             .dropdown-large {

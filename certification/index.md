@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Avalara Certified
 doctype: documentation
 nav: certification
@@ -91,7 +91,7 @@ nav: certification
 <div class="row">
     <div class="col-sm-offset-3 col-sm-6 text-center">
          <ul class="pipe">
-        <li><a href="/avatax/testing-your-integration">Test your integration</a></li>
+        <li><a href="/tests/testing-your-integration">Test your integration</a></li>
         <li><a href="/avatax/certification">Integration Checklists</a></li>
         </ul>
     </div>

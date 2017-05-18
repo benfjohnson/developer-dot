@@ -3,7 +3,7 @@ layout: default
 title: AvaTax with CertCapture Checklist
 product: certCapture
 doctype: integration_checklists
-nav: apis
+nav: certification
 ---
 <div class="half">
 <h2>Avalara AvaTax with CertCapture</h2>

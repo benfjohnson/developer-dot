@@ -56,12 +56,12 @@ redirects:
   api-documentation/avatax-15-api/designing-your-integration/errors-and-outages/proxy-server-settings: /avatax/proxy-server-settings
   api-documentation/avatax-15-api/designing-your-integration/errors-and-outages/common-errors: /avatax/common-errors
   api-documentation/avatax-15-api/designing-your-integration/errors-and-outages/ssl-certificates: /avatax/ssl-certificates
-  api-documentation/avatax-15-api/designing-your-integration/api-integration-checklist: /avatax/certification
-  api-documentation/avatax-15-api/designing-your-integration/api-integration-checklist/avalara-avatax-with-global: /avatax/certification/global
-  api-documentation/avatax-15-api/designinÉur-integration/api-integration-checklist/avalara-avatax-with-certcapture: /certcapture/certification
-  api-documentation/avatax-15-api/designinÉgration/api-integration-checklist/avalara-avatax-with-address-validation: /avatax/certification/address-validation
-  api-documentation/avatax-15-api/designing-your-integration/api-integration-checklist/avalara-avatax-with-returns: /avatax/certification/returns
-  api-documentation/avatax-15-api/designing-your-integration/api-integration-checklist/avalara-avatax-for-use-tax: /avatax/certification/use-tax
+  api-documentation/avatax-15-api/designing-your-integration/api-integration-checklist: /certification/avatax
+  api-documentation/avatax-15-api/designing-your-integration/api-integration-checklist/avalara-avatax-with-global: /certification/avatax/global
+  api-documentation/avatax-15-api/designinÉur-integration/api-integration-checklist/avalara-avatax-with-certcapture: /certification/certcapture
+  api-documentation/avatax-15-api/designinÉgration/api-integration-checklist/avalara-avatax-with-address-validation: /certification/avatax/address-validation
+  api-documentation/avatax-15-api/designing-your-integration/api-integration-checklist/avalara-avatax-with-returns: /certification/avatax/returns
+  api-documentation/avatax-15-api/designing-your-integration/api-integration-checklist/avalara-avatax-for-use-tax: /certification/avatax/use-tax
   api-documentation/avatax-15-api/designinÉr-integration/api-integration-checklist/avalara-avatax-for-point-of-sale: /avatax/certification
   api-documentation/avatax-15-api/getting-started: avatax/get-started
   api-documentation/avatax-15-api/getting-started/logins: avatax/logins
@@ -106,7 +106,7 @@ redirects:
   thank-you: /avatax/thank-you-for-registering
   thank-you-for-registering: /avatax/thank-you-for-registering
   resources: /avatax
-  resources/self-test: /avatax/self-test
+  resources/self-test: /tests/self-test
   onboarding/api-reference: /avatax/api-reference/onboarding/v1/
   avatax/api-reference: /avatax/api-reference/tax/v1/
   certification/preferred-developers: /resources/preferred-developers

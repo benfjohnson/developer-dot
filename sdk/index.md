@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: AvaTax Software Development Kit
 product: avaTax
 doctype: sdks
@@ -22,7 +22,7 @@ Avalara maintains and publishes SDKs for our current REST v2 API for the followi
         <th>Version</th>
         <th>Status</th>
         <th>GitHub</th>
-        <th>Getting Started</th>
+        <th>Resources</th>
     </tr>
 	</thead>
 	<tbody>
@@ -31,7 +31,7 @@ Avalara maintains and publishes SDKs for our current REST v2 API for the followi
         <td><a href="https://www.nuget.org/packages/Avalara.AvaTax/"><img src="https://img.shields.io/nuget/v/Avalara.AvaTax.svg?style=plastic" title="NuGet" alt="NuGet"/></a></td>
         <td><a href="https://travis-ci.org/avadev/AvaTax-REST-V2-DotNet-SDK"><img src="https://api.travis-ci.org/avadev/AvaTax-REST-V2-DotNet-SDK.svg?branch=master&style=plastic" title="Travis CI" alt="Travis CI"></a></td>
         <td><a href="https://github.com/avadev/AvaTax-REST-V2-DotNet-SDK">AvaTax-REST-V2-DotNet-SDK</a></td>
-        <td><a href="http://developer.avalara.com/blog/2016/12/05/csharp-nuget-library">Article</a></td>
+        <td><a href="http://developer.avalara.com/blog/2016/12/05/csharp-nuget-library">Blog Post</a></td>
     </tr>
     <tr>
         <td>Java</td>
@@ -63,3 +63,10 @@ Avalara maintains and publishes SDKs for our current REST v2 API for the followi
     </tr>
   </tbody>
 </table>
+
+<br />
+<hr />
+
+Submit questions or log bugs using the "Issues" link provided in GitHub.
+
+If you have built libraries or sample code that connects to our services, and would like to showcase them on this site, please send us an email at <a href="mailto:developer@avalara.com">developer@avalara.com.</a>
