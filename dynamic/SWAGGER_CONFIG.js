@@ -119,7 +119,7 @@ export default {
         path: 'taxdocs/api-reference/',
         product: 'taxdocs'
     }
-    /*,
+    /* ,
     'avataxbr/index.json': {
         name: 'Avatax Brazil REST API',
         path: 'avataxbr/api-reference',
