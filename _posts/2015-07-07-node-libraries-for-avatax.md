@@ -4,7 +4,7 @@ title: Node Libraries for AvaTax
 date: 2015-07-07 21:11
 author: greg.bulmash
 comments: true
-categories: [Sales Tax APIs]
+categories: [Sales_Tax_APIs]
 product: avaTax
 doctype: blog
 ---

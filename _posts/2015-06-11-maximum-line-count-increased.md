@@ -4,7 +4,7 @@ title: Maximum Line Count Increased!
 date: 2015-06-11 17:32
 author: anya.stettler
 comments: true
-categories: [Sales Tax APIs]
+categories: [Sales_Tax_APIs]
 product: avaTax
 doctype: blog
 ---

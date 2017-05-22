@@ -13,4 +13,5 @@ _test/**/_results
 selenium-debug.log
 
 npm-debug.log
-.DS_Store
+**/.DS_Store
+

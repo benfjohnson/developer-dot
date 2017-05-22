@@ -151,9 +151,15 @@
                     </li>
                     <li class="sdk dropdown dropdown-large hidden-xs">
                         <a class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">SDK</span> <b class="caret"></b></a>
-                        <ul class="dropdown-menu dropdown-menu-large">
+                        <ul class="dropdown-menu dropdown-menu-large"> 
+                            <li {% if page.url == "/sdk/get-started-2" %}class="active"{% endif %}><a href="/sdk/get-started-2">Get Started with AvaTax</a></li>
+                            <br/>
                             <li><a href="/sdk/">The AvaTax SDK</a></li>
                             <li><a href="/sdk/soap">SOAP SDK</a></li>
+                            <br/>		
+                            <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-DotNet-SDK#installing-the-dotnet-sdk">Install C# SDK via NuGet</a></li>		
+                            <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK#installing-the-jre-sdk">Install JRE SDK via Maven</a></li>		
+                            <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-PHP-SDK#installing-the-php-sdk">Install PHP SDK via Composer</a></li>
                         </ul>
                     </li>
                     <li class="tests"><a href="/tests/testing-your-integration/"><span class="text-uppercase">Tests</span></a></li>
@@ -185,6 +191,7 @@
                             <li><a href="/blog">Developer Blog</a></li>
                             <li><a href="/resources/preferred-developers">Preferred developers</a></li>
                             <li><a href="https://community.avalara.com/avalara/category_sets/developers">Help Forum</a></li>
+                            <li><a href="http://www.info.avalara.com/avalaradevcentral">Developer Webinar Series</a></li>
                         </ul>
                     </li>
                     <li class="resources visible-xs-block"><a href="/blog"><span class="text-uppercase">Developer Blog</span></a></li>

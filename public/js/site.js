@@ -101,6 +101,12 @@ var handleSearch = function() {
                     console.error(err);
                 }
                 $searchResults.html('<h5>No Results Found</h5>');
+            } else if (productfacet == "blog" ) {
+                $searchResults.append('<div class="row">');
+                content.hits.forEach(function(result) {
+                    $searchResults.append('<div class="col-md-6"><div class="blog-preview"><div class="gradient"></div><h5><a href="' + result.url + '">' + result.title + '</a></h5><p class="blog-excerpt">' + result.text + '<br /></p><div class="readMore"><a href="' + result.url +'" class="btn btn-blog">Read More</a></div></div></div>');
+                });
+                $searchResults.append('</div>');
             } else {
                 content.hits.forEach(function(result) {
                     $searchResults.append('<h5><a href="' + result.url + '">' + result.title + '</a></h5><p>' + result.text + '<br />Product: ' + result.product + '<br />Doctype: ' + result.doctype + '</p>');

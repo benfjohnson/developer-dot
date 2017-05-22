@@ -4,7 +4,7 @@ title: LandedCost with REST v2
 date: 2016-10-13 10:30
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [Sales_Tax_APIs]
 product: blog
 doctype: blog
 disqus: 1

@@ -4,7 +4,7 @@ title: Anya Stettler speaking at DataWeek + API World 2014
 date: 2014-08-22 11:04
 author: seanrust
 comments: true
-categories: [Sales Tax APIs]
+categories: [Sales_Tax_APIs]
 product: blog
 doctype: blog
 ---

@@ -4,7 +4,7 @@ title: REST v2.3.1 Patch Notes
 date: 2016-10-20 11:00
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [Sales_Tax_APIs]
 product: blog
 doctype: blog
 disqus: 1

@@ -4,7 +4,7 @@ title: From REST v1 to REST v2
 date: 2017-01-05
 author: Joseph Savarese
 comments: true
-categories: [Sales Tax APIs]
+categories: [Sales_Tax_APIs]
 product: blog
 doctype: blog
 disqus: 1

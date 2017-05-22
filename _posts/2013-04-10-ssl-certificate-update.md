@@ -4,7 +4,7 @@ title: SSL Certificate Update
 date: 2013-04-10 00:44
 author: anya.stettler
 comments: true
-categories: [Sales Tax APIs]
+categories: [Sales_Tax_APIs]
 product: avaTax
 doctype: blog
 ---

@@ -4,7 +4,7 @@ title: Introduction to the Avalara AvaTax API
 date: 2013-11-11 22:03
 author: seanrust
 comments: true
-categories: [Sales Tax APIs]
+categories: [Sales_Tax_APIs]
 product: avaTax
 doctype: blog
 ---

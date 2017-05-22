@@ -4,7 +4,7 @@ title: Types of Transactions
 date: 2016-11-18 16:00
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [Sales_Tax_APIs]
 product: blog
 doctype: blog
 disqus: 1

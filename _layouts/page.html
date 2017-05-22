@@ -4,11 +4,25 @@ layout: default
 
 {% if page.blog_breadcrumb == 1 or page.doctype == 'blog' %}
 {% include blog_breadcrumb.html %}
-{% endif %}
+    <section class="row padding-sides half">
+            <nav class="col-md-3">
+               {% include blog_navigation.html %}
+            </nav>
+            <main class="col-md-9 small-no-padding">
+                <h1>{{ page.title }}
+                    {% if page.subtitle %}<small>{{ page.subtitle }}</small>{% endif %}
+                </h1>
+                    {{ content }}
+
+                </main>
+        </section> 
+    {% else %}
     <h1>{{ page.title }}
         {% if page.subtitle %}<small>{{ page.subtitle }}</small>{% endif %}
     </h1>
 {{ content }}
+{% endif %}
+
 
 
 {% if page.community %}

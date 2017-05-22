@@ -5,7 +5,7 @@ description: How should I mark items exempt using AvaTax?
 date: 2017-03-07 16:00
 author: Aaron Robles
 comments: true
-categories: [Sales Tax APIs]
+categories: [Sales_Tax_APIs]
 product: blog
 doctype: blog
 disqus: 1
