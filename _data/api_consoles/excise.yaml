@@ -5,5 +5,3 @@ nav_links:
     path: /excise
   - title: API references
     path: /excise/api-reference/tax-determination/v5_18_0
-  - title: Integration checklists
-    path: /excise/certification

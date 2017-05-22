@@ -5,12 +5,11 @@ layout: default
 {% if page.blog_breadcrumb == 1 or page.doctype == 'blog' %}
 {% include blog_breadcrumb.html %}
 {% endif %}
-
-<h1>{{ page.title }}
-    {% if page.subtitle %}<small>{{ page.subtitle }}</small>{% endif %}
-</h1>
-
+    <h1>{{ page.title }}
+        {% if page.subtitle %}<small>{{ page.subtitle }}</small>{% endif %}
+    </h1>
 {{ content }}
+
 
 {% if page.community %}
 {% include community.html %}

@@ -1,5 +1,5 @@
-import { buildPostmanCollection, buildAuth } from './react/api-app/helpers';
-import { buildQueryString, reduceParamsToKeyValuePair, buildCurl, buildInitialPostBodyData } from './react/shared/helpers';
+import {buildPostmanCollection, buildAuth} from './react/api-app/helpers';
+import {buildQueryString, reduceParamsToKeyValuePair, buildCurl, buildInitialPostBodyData} from './react/shared/helpers';
 
 // Given array of parameters, filters out non-query string params and converts them to consummable shape
 const buildSchema = (schema, required = [], excludedProperties = [], propName = null) => {
@@ -22,17 +22,17 @@ const buildSchema = (schema, required = [], excludedProperties = [], propName = 
             [nestedPropName]: buildSchema(schema.properties[nestedPropName], schema.required, schema['x-excludedProperties'], nestedPropName)
         }));
 
-        return Object.assign({ required: required.includes(propName), isExcluded: excludedProperties.includes(propName) }, ...nestedSchemaProps);
+        return Object.assign({required: required.includes(propName), isExcluded: excludedProperties.includes(propName)}, ...nestedSchemaProps);
     }
 
     if (schema.type && schema.type === 'array') {
         const arraySchema = buildSchema(schema.items, schema.items.required, schema.items['x-excludedProperties']);
 
         // items holds the schema definition of objects in our array, and value holds the actual objects of said schema...
-        return { fieldType: schema.type, required: required.includes(propName), isExcluded: excludedProperties.includes(propName), items: arraySchema };
+        return {fieldType: schema.type, required: required.includes(propName), isExcluded: excludedProperties.includes(propName), items: arraySchema};
     }
 
-    const objToReturn = { fieldType: schema.type, required: required.includes(propName), isExcluded: excludedProperties.includes(propName) };
+    const objToReturn = {fieldType: schema.type, required: required.includes(propName), isExcluded: excludedProperties.includes(propName)};
 
     if (schema.example) {
         objToReturn.example = schema.example;
@@ -62,7 +62,7 @@ const buildRequestParams = (params, paramType) => {
     if (paramType !== 'query' && paramType !== 'path' && paramType !== 'header') {
         throw new Error('In parseSwaggerUI.buildRequestParams: Invalid `paramType` ' + paramType);
     }
-    return params.filter((p) => (p.in === paramType)).reduce((paramObj, p) => ({...paramObj, [p.name]: { description: p.description, required: p.required, value: '', example: p.example || p['x-example'] || '', enum: p.enum, fieldType: p.type } }), {});
+    return params.filter((p) => (p.in === paramType)).reduce((paramObj, p) => ({...paramObj, [p.name]: {description: p.description, required: p.required, value: '', example: p.example || p['x-example'] || '', enum: p.enum, fieldType: p.type}}), {});
 };
 
 // Builds a schema of what a request to a particular endpoint should look like, based on its Swagger definition
@@ -172,5 +172,5 @@ export default (api, rootPath) => {
     swaggerData.postmanCollection = buildPostmanCollection(swaggerData);
 
     // Give every endpoint a simple ID
-    return {...swaggerData, apiEndpoints: swaggerData.apiEndpoints.map((endp, i) => ({...endp, id: i })) };
+    return {...swaggerData, apiEndpoints: swaggerData.apiEndpoints.map((endp, i) => ({...endp, id: i}))};
 };

@@ -9,3 +9,8 @@ public/js/*-bundle.js
 
 _test/**/_results
 !_test/**/api-reference
+
+selenium-debug.log
+
+npm-debug.log
+.DS_Store

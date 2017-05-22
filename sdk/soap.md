@@ -21,7 +21,9 @@ The AvaTax SOAP SDK exists for backward compatibility with older software.  User
             <th>Language</th>
             <th>Version</th>
             <th>GitHub</th>
-            <th>Getting Started</th>
+            <th>Author</th>
+            <!-- removing until we have resources associated
+            <th>Resources</th> -->
 		</tr>
 	</thead>
 	<tbody>
@@ -29,13 +31,44 @@ The AvaTax SOAP SDK exists for backward compatibility with older software.  User
         <td>C#</td>
         <td><a href="https://www.nuget.org/packages/Avalara.AvaTax.SoapClient/"><img src="https://img.shields.io/nuget/v/Avalara.AvaTax.SoapClient.svg?style=plastic" title="NuGet" alt="NuGet"/></a></td>
         <td><a href="https://github.com/avadev/AvaTax-SOAP-NET-SDK">AvaTax-SOAP-NET-SDK</a></td>
+        <td>Avalara</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Perl</td>
+        <td><a href="https://metacpan.org/release/WebService-Avalara-AvaTax"><img src="https://img.shields.io/cpan/v/WebService-Avalara-AvaTax.svg?style=plastic" title="CPAN" alt="CPAN"/></a></td>
+        <td><a href="https://github.com/mjgardner/WebService-Avalara-AvaTax">WebService-Avalara-AvaTax</a></td>
+        <td>Supported by Mark Gardner of <a href="http://www.ziprecruiter.com"><img src="/public/images/blog/ziprecruiter_logo.png" alt="ziprecruiter.com" width="98" height="25" /></a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Python</td>
+        <td><a href="https://pypi.python.org/pypi/PyAvaTax/1.3.8"><img src="https://img.shields.io/pypi/v/PyAvaTax.svg?style=plastic" title="PyPI" alt="PyPI"/></a></td>
+        <td><a href="https://github.com/activefrequency/pyavatax/">pyavatax</a></td>
+        <td>Supported by <a href="http://www.activefrequency.com/">Active Frequency</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>JavaScript</td>
+        <td><a href="https://www.npmjs.com/package/avatax"><img src="https://img.shields.io/npm/v/npm.svg?style=plastic" title="NPM" alt="NPM"/></a></td>
+        <td><a href="https://github.com/Matter-and-Form/node-avatax">node-avatax</a></td>
+        <td>Supported by Daniel Hritzkiv of <a href="https://matterandform.net/">Matter and Form</a></td>
         <td></td>
     </tr>
     <tr>
         <td>PHP</td>
         <td><a href="https://packagist.org/packages/avalara/avatax"><img src="https://img.shields.io/packagist/v/avalara/avatax.svg?style=plastic" title="Packagist" alt="Packagist"/></a></td>
         <td><a href="https://github.com/avadev/AvaTax-SOAP-PHP-SDK">AvaTax-SOAP-PHP-SDK</a></td>
+        <td>Avalara</td>
         <td></td>
     </tr>
   </tbody>
 </table>
+
+<br />
+
+<hr />
+
+Submit questions or log bugs using the "Issues" link provided in GitHub.
+
+If you have built libraries or sample code that connects to our services, and would like to showcase them on this site, please send us an email at <a href="mailto:developer@avalara.com">developer@avalara.com.</a>

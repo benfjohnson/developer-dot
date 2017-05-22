@@ -74,7 +74,7 @@ doctype: overview
   <div class="col-md-8 col-md-offset-2 text-center">
     <h1 class="h1p">Fast and easy integration with AvaTax</h1>
     <ul class="pipe">
-        <li><a href="certification">Integration checklists</a></li>
+        <li><a href="/certification/certcapture/">Integration checklists</a></li>
     </ul>
   </div>
 </div>
