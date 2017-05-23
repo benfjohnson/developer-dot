@@ -13,13 +13,7 @@ RUN bundle install
 # Should cache unless package.json or Gemfile changes
 # for fast builds
 COPY package.json /app/
-RUN npm install
-
-ADD . /app
-
-# Build our dynamic javascript content
-RUN npm run build
+RUN npm install --progress=false
 
 # Run the jekyll server on port 80
-EXPOSE 80
-CMD bundle exec jekyll serve --port 80
+EXPOSE 4000
