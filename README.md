@@ -44,7 +44,7 @@ There will be no canines involved during the generation of these static Web Page
 Jekyll is known as "a simple, blog aware, static site generator", or at least that is the generic response you will find if you are to google "What is Jekyll?". For now, lets go with that,
 and hopefully a more descriptive definition will become clear as we see it in action, or [click here more about Jekyll now](https://jekyllrb.com/).
 
-### Set The Envioronment
+### Set The Environment
 
 ##### Access a Github Account
 The first thing you'll need to really begin setting up an environment is a Github account. An account with Github will allow you to access the Avalara/developer-dot repository for you to make contributions to.
