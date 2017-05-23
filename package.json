@@ -5,6 +5,8 @@
     "scripts": {
         "build": "bash ./scripts/build.sh",
         "dev": "bash ./scripts/dev.sh",
+        "jekyll": "bundle exec jekyll serve",
+        "docker": "docker build -t devdot . && docker run -p 4000:80 -t -i devdot",
         "pretest": "npm run build && bundle exec jekyll build",
         "test": "NODE_ENV=test mocha --compilers js:babel-register --recursive _test/react",
         "test-web": "bash ./scripts/test-web.sh",
