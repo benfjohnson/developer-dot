@@ -6,7 +6,7 @@
         "build": "bash ./scripts/build.sh",
         "dev": "bash ./scripts/dev.sh",
         "jekyll": "bundle exec jekyll serve",
-        "docker-build": "docker build -t devdot .",
+        "docker-build": "docker build -t devdot . && docker run --rm -v \"$(pwd)\":/app -p 4000:4000 -ti devdot npm i",
         "docker-run": "docker run -v \"$(pwd)\":/app -p 4000:4000 -ti devdot bash -c \"npm run dev & npm run jekyll\"",
         "pretest": "npm run build && bundle exec jekyll build",
         "test": "NODE_ENV=test mocha --compilers js:babel-register --recursive _test/react",
