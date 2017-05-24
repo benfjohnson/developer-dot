@@ -365,12 +365,13 @@ header {
 footer {
     @extend .border-top;
     background: $Form-fill;
-    padding: $grid-gutter-width;
+    // padding: $grid-gutter-width;
+    padding: 20px 20px 20px 20px;
 
     a {
-        color: $Ava-blue;
+        color: $Darkest-blue;
         font-family: 'apertura regular';
-        font-size: 20px;
+        font-size: 16px;
         font-weight: normal;
         line-height: 24px;
         &:hover {
@@ -389,15 +390,20 @@ footer {
             list-style-type: none;
             display: inline-block;
             padding-right: 40px;
+            font-size: 16px;
 
             &:last-child {
                 margin-right: 0;
             }
             span {
-                padding-right: .25em;
+                padding-right: 10px;
+                padding-bottom: 0px;
+                font-size: 20px;
+                vertical-align: -3px;
             }
         }
     }
+
     .social {
         float: right;
         margin-bottom: 0;
@@ -408,7 +414,7 @@ footer {
         }
         li {
             list-style-type: none;
-            margin-right: 1em;
+            margin-right: 30px;
             display: inline-block;
             &:last-child {
                 margin-right: 0;
@@ -422,26 +428,68 @@ footer {
             display: inline-block;
             background-repeat: no-repeat;
         }
+
+        /*
+            5/23/2017
+            Since we place the social icons as background-images, it makes them hard to manipulate
+            such as changing the fill color on hover/click. That being said, quick-fix for right now
+            is just to target a 'new' .svg with the correct color. Doesn't seem efficient, but does
+            the job until a better solution is found. Tried everything from svg:hover, .class:hover, 
+            a:hover, etc - doesn't seem to work
+        */
+
         .twitter a {
             @extend .icon;
-            background-image: url(/public/images/devdot/DevDotSvgGAssets_Twitter.svg);
+            background-image: url(/public/images/devdot/TwitterIcon.svg);
+
+            &:hover {
+                background-image: url(/public/images/devdot/TwitterIconHover.svg);
+            }
+            &:active {
+                background-image: url(/public/images/devdot/TwitterIconClick.svg);
+            }
         }
         .facebook a {
             @extend .icon;
-            background-image: url(/public/images/devdot/DevDotSvgGAssets_Facebook.svg);
+            background-image: url(/public/images/devdot/FacebookIcon.svg);
+            
+            &:hover {
+                background-image: url(/public/images/devdot/FacebookIconHover.svg);
+            }
+            &:active {
+                background-image: url(/public/images/devdot/FacebookIconClick.svg);
+            }
         }
         .linkedin a {
-            background-image: url(/public/images/devdot/DevDotSvgGAssets_LinkedIn.svg);
+            background-image: url(/public/images/devdot/LinkedinIcon.svg);
             @extend .icon;
+
+            &:hover {
+                background-image: url(/public/images/devdot/LinkedinIconHover.svg);
+            }
+            &:active {
+                background-image: url(/public/images/devdot/LinkedinIconClick.svg);
+            }
         }
         .youtube a {
             @extend .icon;
-            background-image: url(/public/images/devdot/DevDotSvgGAssets_YouTube.svg);
+            background-image: url(/public/images/devdot/YoutubeIcon.svg);
+
+            &:hover {
+                background-image: url(/public/images/devdot/YoutubeIconHover.svg);
+            }
+            &:active {
+                background-image: url(/public/images/devdot/YoutubeIconClick.svg);
+            }
         }
+        
     }
+
     .legal {
         @extend .pipe;
         clear: both;
+        float: left;
+        padding-top: 30px;
         li {
             color: $Medium-grey;
             list-style-type: none;
@@ -450,22 +498,55 @@ footer {
                 margin-right: 0;
             }
             a {
-                color: $Ava-blue;
+                color: $Darkest-blue;
                 font-size: 14px;
                 line-height: 16.8px;
                 padding-right: 0;
             }
         }
     }
+
     .github {
         clear: right;
         float: right;
-        margin-top: 10px;
+        padding-top: 30px;
+        text-align: right;
+
+        li {
+            list-style-type: none;
+            display: inline-block;
+
+            a {
+                color: $Darkest-blue;
+                font-size: 14px;
+                line-height: 16.8px;
+                padding-right: 0;
+                margin-right: 0;
+            }
+        }
+
         @media(max-width: $screen-xs-max) {
             float: none;
         }
 
     }
+
+    .github-icon span {
+            @extend .icon;
+            background-image: url(/public/images/devdot/GitHubIcon.svg);
+
+            &:active {
+                background-image: url(/public/images/devdot/GitHubIconClick.svg);
+            }
+            background-repeat: no-repeat;
+            color: transparent;
+            vertical-align: 2px;
+    }
+
+    .github-icon a:active span {
+        background-image: url(/public/images/devdot/GitHubIconClick.svg);    
+    }
+
     &.navbar {
         margin-bottom: 0;
     }
