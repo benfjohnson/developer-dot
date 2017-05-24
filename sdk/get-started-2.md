@@ -80,8 +80,8 @@ Avalara has a wide variety of available software development kits for major lang
     <li><a href="https://github.com/avadev/AvaTax-REST-V2-DotNet-SDK#installing-the-dotnet-sdk">Use the AvaTax DotNet SDK</a></li>
     <li><a href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK#installing-the-jre-sdk">Use the AvaTax Java Runtime SDK</a></li>
     <li><a href="https://github.com/avadev/AvaTax-REST-V2-PHP-SDK#installing-the-php-sdk">Use the AvaTax PHP SDK</a></li>
-    <li><a href="http://localhost:8976/sdk/soap">Download software development kits for AvaTax SOAP</a></li>
-    <li><a href="http://localhost:8976/sdk/partner">Download a partner-developed SDK for other languages</a></li>
+    <li><a href="/sdk/soap">Download software development kits for AvaTax SOAP</a></li>
+    <li><a href="/sdk/partner">Download a partner-developed SDK for other languages</a></li>
 </ul>
 
 The AvaTax SDK contains a lot of useful features to make it quick and easy to begin using all of the world-class features built into AvaTax.  Even better, all of our SDKs are fully open source and we welcome bug reports and pull requests to add new features!
@@ -97,7 +97,7 @@ We're really proud of the world-leading AvaTax platform, and we hope you'll have
 <ul class="normal">
     <li>Read our <a href="/blog">Developer Blog</a> for up-to-date news and articles about the great features of AvaTax</li>
     <li>Ready to upgrade to a production account?  Please <a href="https://www.avalara.com/contact-us/?referrer=&lastReferrer=developer.avalara.com">contact the sales department</a> anytime and we'll be happy to help you out.</li>
-    <li>Want to develop a certified connector?  Visit our <a href="http://localhost:8976/certification/">Certified Avalara Integration</a> page today and get started!</li>
+    <li>Want to develop a certified connector?  Visit our <a href="/certification/">Certified Avalara Integration</a> page today and get started!</li>
     <li>Want more information about all the great API features in AvaTax?  Visit the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html">online AvaTax API reference</a> now!</li>
     <li>Have a question about the API, or want to share your success story?  Visit the <a href="https://community.avalara.com/avalara">AvaTax Developer Community</a> and ask questions and share tips and tricks with other developers from around the world!</li>
 </ul>
