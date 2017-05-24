@@ -4,7 +4,7 @@ title: Welcome to Avalara's Developer Network
 date: 2011-03-14 23:55
 author: avalara
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 ---

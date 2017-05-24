@@ -75,3 +75,15 @@ excerpt_separator: <!--more-->
 
 collections:
     permalink: :basename/
+    
+## Jekyll Archives configuration
+jekyll-archives:
+  enabled: 
+    - categories
+  layouts:
+    category: archive-tag
+  permalinks:
+    category: 'blog/:name/'
+    
+    
+

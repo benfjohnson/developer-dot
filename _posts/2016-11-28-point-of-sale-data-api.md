@@ -5,7 +5,7 @@ description: ...
 date: 2016-11-28 11:00
 author: Kevin Hess
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 disqus: 1

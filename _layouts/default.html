@@ -42,7 +42,7 @@
     <script src="https://assets.adobedtm.com/bc10a2a9cf337c664f8f74e778a1987125aea184/satelliteLib-0387aefee1ddb8b2a9db7e4165c8d84dc0de8621.js"></script>
     <!-- End Adobe Dynamic Tab Manager Tag Manager -->
 </head>
-{% assign post_count = site.posts|size %} {% if page.product %} {% assign product_name = page.product %} {% else %} {% if page.api_name %} {% assign product_name = page.api_name %} {% endif %} {% endif %}
+{% assign post_count = site.posts|size %} {% if page.product %} {% assign product_name = page.product %} {% elsif layout.product %} {% assign product_name = layout.product %}{% else %} {% if page.api_name %} {% assign product_name = page.api_name %} {% endif %} {% endif %}
 
 <body id="top" data-spy="scroll" data-target="#bootstrap-scrollspy" data-product={{product_name}}>
     <header>
@@ -60,7 +60,7 @@
             </button>
             </div>
             <div class="collapse navbar-collapse js-navbar-collapse">
-                <ul class="nav navbar-nav {{page.nav}}">
+                <ul class="nav navbar-nav {{page.nav}} {{layout.nav}}">
                     <li class="apis visible-xs-block"><a href="/avalara-apis"><span class="text-uppercase">API</span>s</a></li>
                     <li class="apis dropdown dropdown-large hidden-xs">
                         <a class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">API</span>s <i class="caret"></i></a>
@@ -225,6 +225,14 @@
                         </div>
                     </form>
                 </ul>
+                <!-- makes the try it now button at the far right-->
+                <!-- commenting this out until I get approval from Abigail/Ed 
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/avatax/get-started" class="btn btn-lg btn-primary" role="button">Try the API</a>
+                    </li>
+                </ul>
+                -->
             </div>
         </nav>
     </header>

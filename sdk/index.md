@@ -61,6 +61,20 @@ Avalara maintains and publishes SDKs for our current REST v2 API for the followi
         <td><a href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK">AvaTax-REST-V2-JRE-SDK</a></td>
         <td></td>
     </tr>
+    <tr>
+        <td>Ruby</td>
+        <td></td>
+        <td><a href="https://travis-ci.org/avadev/AvaTax-REST-V2-JRE-SDK"><img src="https://api.travis-ci.org/avadev/AvaTax-REST-V2-Ruby-SDK.svg?branch=master&style=plastic" title="Travis CI" alt="Travis CI"></a></td>
+        <td><a href="https://github.com/avadev/AvaTax-REST-V2-Ruby-SDK">AvaTax-REST-V2-Ruby-SDK</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>SalesForce Apex</td>
+        <td></td>
+        <td></td>
+        <td><a href="https://github.com/avadev/AvaTax-REST-V2-Apex-SDK">AvaTax-REST-V2-Apex-SDK</a></td>
+        <td></td>
+    </tr>
   </tbody>
 </table>
 

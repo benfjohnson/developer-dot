@@ -4,7 +4,7 @@ title: REST API Makes AvaTax Integration Easy
 date: 2012-03-09 08:49
 author: will.frei
 comments: true
-categories: [rest api, sales tax, Sales_Tax_APIs]
+categories: [rest api, sales tax, Sales Tax APIs]
 product: avaTax
 doctype: blog
 ---

@@ -62,6 +62,66 @@ The AvaTax SOAP SDK exists for backward compatibility with older software.  User
         <td>Avalara</td>
         <td></td>
     </tr>
+    <tr>
+        <td>PHP</td>
+        <td></td>
+        <td><a href="https://github.com/avadev/AvaTax-Calc-REST-PHP">AvaTax-Calc-REST-PHP</a></td>
+        <td>Avalara</td>
+    </tr>
+    <tr>
+        <td>PHP</td>
+        <td></td>
+        <td><a href="https://github.com/avadev/AvaTax-SOAP-PHP-SDK">AvaTax-SOAP-PHP-SDK</a></td>
+        <td>Avalara</td>
+    </tr>
+    <tr>
+        <td>Ruby</td>
+        <td></td>
+        <td><a href="https://github.com/avadev/AvaTax-Calc-REST-Ruby">AvaTax-Calc-REST-Ruby</a></td>
+        <td>Avalara</td>
+    </tr>
+    <tr>
+        <td>IBMM iSeries</td>
+        <td></td>
+        <td><a href="https://github.com/avadev/AvaTax-Calc-SOAP-IBMi">AvaTax-Calc-SOAP-IBMi</a></td>
+        <td>Avalara</td>
+    </tr>
+    <tr>
+        <td>SalesForce Apex</td>
+        <td></td>
+        <td><a href="https://github.com/avadev/AvaTax-SOAP-SF-SDK">AvaTax-SOAP-SF-SDK</a></td>
+        <td>Avalara</td>
+    </tr>
+    <tr>
+        <td>CURL</td>
+        <td></td>
+        <td><a href="https://github.com/avadev/AvaTax-Calc-REST-cURL">AvaTax-Calc-REST-cURL</a></td>
+        <td>Avalara</td>
+    </tr>
+    <tr>
+        <td>JavaScript</td>
+        <td></td>
+        <td><a href="https://github.com/avadev/AvaTax-Calc-REST-JavaScript">AvaTax-Calc-REST-JavaScript</a></td>
+        <td>Avalara</td>
+    </tr>
+    <tr>
+        <td>iOS</td>
+        <td></td>
+        <td><a href="https://github.com/avadev/AvaTax-Calc-SDK-iOS">AvaTax-Calc-SDK-iOS</a></td>
+        <td>Avalara</td>
+    </tr>
+    <tr>
+        <td>C++</td>
+        <td></td>
+        <td><a href="https://github.com/avadev/AvaTax-Calc-SOAP-CPP">AvaTax-Calc-SOAP-CPP</a></td>
+        <td>Avalara</td>
+    </tr>
+    <tr>
+        <td>Python</td>
+        <td></td>
+        <td><a href="https://github.com/avadev/AvaTax-Calc-REST-Python">AvaTax-Calc-REST-Python</a></td>
+        <td>Avalara</td>
+    </tr>
   </tbody>
 </table>
 

@@ -5,7 +5,7 @@ description: Avalara’s National Tax Compliance Automation Conference at the Hi
 date: 2017-03-25 16:00
 author: Ted Spence
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 disqus: 1

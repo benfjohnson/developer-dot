@@ -5,7 +5,7 @@ description: A discussion of the AvaTax DocStatusError and how it affects your d
 date: 2017-03-03 15:00
 author: Mark Withers
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 disqus: 1

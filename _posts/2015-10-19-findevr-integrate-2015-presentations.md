@@ -4,7 +4,7 @@ title: FinDEVr & Integrate 2015 Presentations
 date: 2015-10-19 09:00
 author: lokeuei
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 ---

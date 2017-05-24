@@ -9,6 +9,10 @@
 @import './blog';
 @import './syntax-highlighting';
 
+html, body {
+    overflow-x: hidden;
+}
+
 .mouse {
     cursor: pointer;
 }
@@ -32,7 +36,7 @@
         //border-radius: 4px; 
         color: white;
         font-family: 'source sans pro bold', Helvetica, Arial, sans-serif;
-        font-size: 18px;
+        font-size: 18px; 
         line-height: 1.5;
         letter-spacing: .035em;
         padding: ($grid-gutter-width / 2) ($grid-gutter-width);
@@ -347,10 +351,11 @@ header {
                 input[type="search"] {
                     color: $Darkest-grey;
                     margin-bottom: 5px;
+                    border-collapse: $Rule-grey;
                 }
                 input[type="checkbox"] {
-                    border: 1px solid $Rule-grey;
-                    font-size: 16px;
+                    border: 16px solid $Rule-grey;
+                    font-size: 16px;   
                 }
             }
         }

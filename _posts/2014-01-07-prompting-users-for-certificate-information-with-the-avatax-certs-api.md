@@ -4,7 +4,7 @@ title: Prompting users for certificate information with the AvaTax Certs API
 date: 2014-01-07 00:54
 author: anya.stettler
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: certcapture
 doctype: blog
 imgsrc: /public/images/blog/AvaTaxCertsWorkflow.png

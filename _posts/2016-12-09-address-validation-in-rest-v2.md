@@ -4,7 +4,7 @@ title: Address Validation in REST v2
 date: 2016-12-09 14:00
 author: Ted Spence
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 disqus: 1

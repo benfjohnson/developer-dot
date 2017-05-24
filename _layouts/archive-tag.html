@@ -1,0 +1,40 @@
+---
+layout: default
+blog_breadcrumb: 1
+nav: resources
+product: blog
+doctype: archive
+---
+
+{% include blog_breadcrumb.html %}
+<section class="row padding-sides half">
+    <nav class="col-md-3">
+       {% include blog_navigation.html %}
+    </nav>
+    <main class="col-md-9 small-no-padding">
+        {% if page.title == "api" or page.title == "sdk" or page.title == "rest" %}
+            <h4><span class="text-uppercase">{{ page.title }} </span>Posts</h4>
+        {% else %}
+            <h4><span class="capitalize">{{ page.title }} </span>Posts</h4>
+        {% endif %}
+        <div class="container">
+            <div class="row">
+              {% for post in page.posts %}
+                <div class="col-md-5">
+                    <div class="blog-preview">
+                        <div class="gradient"></div>
+                        <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+                        <h5>{{ post.subtitle }}</h5>
+                        <p class="byline">By {{post.author}} | {{ post.date | date: "%B %d, %Y"}}</p>
+                        {% if post.imgsrc %}<p><img src="{{ post.imgsrc }}" class="blog-preview-image" alt="blog preview image"/></p>{% endif %}
+                        <p class="blog-excerpt">{{ post.excerpt | strip_html | truncatewords: 100 }}</p>
+                        <div class="readMore">
+                            <a href="{{ post.url }}" class="btn btn-blog">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </main>
+</section>

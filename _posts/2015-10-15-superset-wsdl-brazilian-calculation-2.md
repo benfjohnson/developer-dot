@@ -4,7 +4,7 @@ title: Superset WSDL for Brazilian Calculation!
 date: 2015-10-15 13:22
 author: anya.stettler
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: avaTax
 doctype: blog
 imgsrc: /public/images/blog/5064720453_1f3995a5d1_z-300x274.jpg

@@ -4,7 +4,7 @@ title: The Business of Sales Tax is Bizarre!
 date: 2015-06-16 09:00
 author: lokeuei
 comments: true
-categories: [bizarre, edge cases, jurisdictions, sales tax, Sales_Tax_APIs, weird]
+categories: [bizarre, edge cases, jurisdictions, sales tax, Sales Tax APIs, weird]
 product: avaTax
 doctype: blog
 imgsrc: /public/images/blog/12000-juris.jpg

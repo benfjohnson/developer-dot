@@ -4,7 +4,7 @@ title: Who Pays for Landed Cost?
 date: 2016-12-15 14:00
 author: Amy Morgan
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 disqus: 1
