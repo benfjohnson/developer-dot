@@ -72,13 +72,22 @@
 }
 
 .blog-content col {
-    width: 650px;
+        width: 650px;  
 }
 
+.byline {
+    font-size: 14px;
+    color: $Dark-grey;
+}
+
+a:link {
+    color: $Darkest-blue;
+}
+//changes not only the blog posts but the article content style as well
 body {
     font-family: "source sans pro light";
-    font-szie: 16px;
-    color: #5f6062;
+    font-size: 16px;
+    color: $Darkest-grey;
     line-height: 24px;
 }
 
@@ -86,3 +95,4 @@ body {
     font-size: 14px;
     font-color: $Darkest-grey;
 }
+
