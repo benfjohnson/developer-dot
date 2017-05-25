@@ -36,14 +36,16 @@ Avalara maintains and publishes SDKs for our current REST v2 API for the followi
         </tr>
         <tr>
             <td>Java</td>
-            <td><a href="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11"><img src="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg?style=plastic" title="Maven" alt="Maven"/></a></td>
+            <td><a href="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11"><img src="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg?style=plastic" title="Maven" alt="Maven"/></a>
+            <a href="https://oss.sonatype.org/#nexus-search;gav~net.avalara.avatax~avatax-rest-v2-api-java_2.11~2.17.3.48-SNAPSHOT~~"><img src="https://img.shields.io/badge/Sonatype%20Snapshots-2.17.3.48--SNAPSHOT-blue.svg?style=plastic"></a></td>
             <td><a href="https://travis-ci.org/avadev/AvaTax-REST-V2-JRE-SDK"><img src="https://api.travis-ci.org/avadev/AvaTax-REST-V2-JRE-SDK.svg?branch=master&style=plastic" title="Travis CI" alt="Travis CI"></a></td>
             <td><a href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK">AvaTax-REST-V2-JRE-SDK</a></td>
             <td></td>
         </tr>
         <tr>
             <td>JavaScript</td>
-            <td></td>
+            <td><a href="https://www.npmjs.com/package/avatax"><img src="https://img.shields.io/npm/v/avatax.svg?style=plastic" title="npm"></a>
+                </td>
             <td><a href="https://travis-ci.org/avadev/AvaTax-REST-V2-JS-SDK"><img src="https://api.travis-ci.org/avadev/AvaTax-REST-V2-JRE-SDK.svg?branch=master&style=plastic" title="Travis CI" alt="Travis CI"></a></td>
             <td><a href="https://github.com/avadev/AvaTax-REST-V2-JS-SDK">AvaTax-REST-V2-JS-SDK</a></td>
             <td></td>
@@ -57,14 +59,15 @@ Avalara maintains and publishes SDKs for our current REST v2 API for the followi
         </tr>
         <tr>
             <td>Scala</td>
-            <td><a href="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11"><img src="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg?style=plastic" title="Maven" alt="Maven"/></a></td>
+            <td><a href="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11"><img src="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg?style=plastic" title="Maven" alt="Maven"/></a>
+            <a href="https://oss.sonatype.org/#nexus-search;gav~net.avalara.avatax~avatax-rest-v2-api-java_2.11~2.17.3.48-SNAPSHOT~~"><img src="https://img.shields.io/badge/Sonatype%20Snapshots-2.17.3.48--SNAPSHOT-blue.svg?style=plastic"/></a></td>
             <td><a href="https://travis-ci.org/avadev/AvaTax-REST-V2-JRE-SDK"><img src="https://api.travis-ci.org/avadev/AvaTax-REST-V2-JRE-SDK.svg?branch=master&style=plastic" title="Travis CI" alt="Travis CI"></a></td>
             <td><a href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK">AvaTax-REST-V2-JRE-SDK</a></td>
             <td></td>
         </tr>
         <tr>
             <td>Ruby</td>
-            <td></td>
+            <td><a href="https://rubygems.org/gems/avatax"><img src="https://img.shields.io/gem/v/avatax.svg?style=plastic"></a></td>
             <td><a href="https://travis-ci.org/avadev/AvaTax-REST-V2-JRE-SDK"><img src="https://api.travis-ci.org/avadev/AvaTax-REST-V2-Ruby-SDK.svg?branch=master&style=plastic" title="Travis CI" alt="Travis CI"></a></td>
             <td><a href="https://github.com/avadev/AvaTax-REST-V2-Ruby-SDK">AvaTax-REST-V2-Ruby-SDK</a></td>
             <td></td>

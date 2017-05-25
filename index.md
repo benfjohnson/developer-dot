@@ -119,5 +119,6 @@ nav: home
         <div class="row margin-top">
           <div class="col-md-12 text-center btn-callout"><a href="/avatax/signup" role="button">Setup a free sandbox account</a></div>
         </div>
-    </div>
+    </div>  
 </div>
+ 

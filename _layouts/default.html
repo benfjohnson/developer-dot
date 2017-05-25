@@ -160,6 +160,7 @@
                             <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-DotNet-SDK#installing-the-dotnet-sdk">Install C# SDK via NuGet</a></li>		
                             <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK#installing-the-jre-sdk">Install JRE SDK via Maven</a></li>		
                             <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-PHP-SDK#installing-the-php-sdk">Install PHP SDK via Composer</a></li>
+                            <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-Ruby-SDK">Install Ruby SDK via RubyGems</a></li>
                         </ul>
                     </li>
                     <li class="tests"><a href="/tests/testing-your-integration/"><span class="text-uppercase">Tests</span></a></li>
@@ -240,8 +241,7 @@
             </nav>
             <main class="col-md-9 small-no-padding">{{ content }}</main>
         </section>
-<!-- removing this until we get approval on the self-test link -->
-        
+<!-- removing this until we get approval on the self-test link -->      
         {% elsif page.nav == 'tests' %}
         <section class="row padding-sides half">
 <!--
@@ -287,6 +287,40 @@
         {% endif %}
     </div>
     <footer class="navbar navbar-default">
+    {% if page.nav=="home" %}
+    <div class="row">
+          <div class="col-md-4">
+              <a class="twitter-timeline" 
+              data-height=200
+              data-width=400
+              data-theme="light" 
+              data-link-color="#E95F28" 
+              href="https://twitter.com/avalara">Tweets by Avalara</a> 
+              <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+          <div class="col-md-4">
+              <iframe src="http://www.youtube.com/embed/?listType=user_uploads&list=Avalara1"
+                      height=200
+                      width=400></iframe> 
+          </div>
+          <div class="col-md-4">
+              <div class="fb-page" 
+                  data-href="https://www.facebook.com/avalara" 
+                  data-tabs="timeline" 
+                  data-height=200
+                  data-width=400
+                  data-small-header="true" 
+                  data-adapt-container-width="true" 
+                  data-hide-cover="false"     
+                  data-show-facepile="true">
+                  <blockquote cite="https://www.facebook.com/avalara" class="fb-xfbml-parse-ignore">
+                      <a href="https://www.facebook.com/avalara">Avalara</a>
+                  </blockquote>
+              </div> 
+          </div>  
+        </div>
+        <br />
+        {% endif %}
 
         <ul class="global">
             <li><a href="https://www.avalara.com/"><span class="icon-sphere"></span>Avalara.com</a></li>
@@ -344,6 +378,15 @@
         _satellite.pageBottom();
     </script>
     <!-- End Adobe Dynamic Tag Manager -->
+    <!-- This is needed to have the facebook feed -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 </body>
 
 </html>

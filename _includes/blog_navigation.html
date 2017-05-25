@@ -5,15 +5,17 @@
     <li {% if page.url=="/blog/" %}class="active" {% endif %}>
         <a class="capitalize" href="/blog/">All</a>
     </li>
-  
+
     {% for category in site.categories %}
         {% if category[1].size != 1 %}
-            {% assign a = category[0] %}
-            <li {% if page.title contains a %}class="active"{% endif %} >
+            {% assign a = category[0] | downcase %}
+            {% assign p = page.title | downcase %}
+            <li {% if p == a %}class="active"{% endif %} >
+                {% assign cate = category[0] | replace: ' ', '-' %}
                 {% if category[0] == "api" or category[0] == "sdk" or category[0] == "rest" %}
-                    <a class="text-uppercase" href="/blog/{{ category[0] | replace: ' ', '-'}}/">{{ category[0] }}</a>
+                    <a class="text-uppercase" href="/blog/{{ cate | downcase}}/">{{ category[0] }}</a>
                 {% else %}
-                    <a class="capitalize" href="/blog/{{ category[0] | replace: ' ', '-'}}/">{{ category[0] }}</a>
+                    <a class="capitalize" href="/blog/{{ cate | downcase}}/">{{ category[0] }}</a>
                 {% endif %}
 
             </li>
