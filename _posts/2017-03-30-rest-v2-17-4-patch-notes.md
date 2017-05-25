@@ -13,23 +13,25 @@ disqus: 1
 
 This article is about the April 2017 monthly update to the AvaTax REST v2 API.
 
-<table class="styled-table">
-	<tr>
-		<th>Environment</th>
-		<th>URL</th>
-		<th>Release Date</th>
-	</tr>
-	<tr>
-		<td>Sandbox</td>
-        <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
-		<td>2017-04-03</td>
-	</tr>
-	<tr>
-		<td>Production</td>
-        <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
-		<td>2017-04-06</td>
-	</tr>
-</table>
+<div class="mobile-table">
+    <table class="styled-table">
+        <tr>
+            <th>Environment</th>
+            <th>URL</th>
+            <th>Release Date</th>
+        </tr>
+        <tr>
+            <td>Sandbox</td>
+            <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
+            <td>2017-04-03</td>
+        </tr>
+        <tr>
+            <td>Production</td>
+            <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
+            <td>2017-04-06</td>
+        </tr>
+    </table>
+</div>
 
 <h3>Returns Features</h3>
 

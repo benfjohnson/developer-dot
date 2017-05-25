@@ -94,59 +94,61 @@ Notice here we've used `DocDeleted` rather than `DocVoided` in place of the `cod
 
 Now that we've run through a couple of example requests using the REST API, here are the various types of REST v2 supported `code` parameters.
 
-<table class="styled-table">
-	<thead>
-		<tr>
-			<th>code</th>
-			<th>Uncommitted (Saved)</th>
-			<th>Uncommitted (Posted)</th>
-			<th>Committed</th>
-			<th>Committed (Adjusted)</th>
-			<th>Voided</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><em>Unspecified</em></td>
-			<td>Uncommitted (Saved)</td>
-			<td>Uncommitted (Posted)</td>
-			<td>Committed</td>
-			<td>Committed (Adjusted)</td>
-			<td>Voided</td>
-		</tr>
-		<tr>
-			<td>PostFailed</td>
-			<td>DocStatusError</td>
-			<td>Saved</td>
-			<td>DocStatusError</td>
-			<td>DocStatusError</td>
-			<td>DocStatusError</td>
-		</tr>
-		<tr>
-			<td>DocDeleted</td>
-			<td>Deleted</td>
-			<td>Deleted</td>
-			<td>Voided</td>
-			<td>Voided</td>
-			<td>Deleted</td>
-		</tr>
-		<tr>
-			<td>DocVoided</td>
-			<td>Voided</td>
-			<td>Voided</td>
-			<td>Voided</td>
-			<td>Voided</td>
-			<td>Voided</td>
-		</tr>
-		<tr>
-			<td>Adjustment Cancelled</td>
-			<td>DocStatusError</td>
-			<td>DocStatusError</td>
-			<td>DocStatusError</td>
-			<td>Removes last adjustment.</td>
-			<td>DocStatusError</td>
-		</tr>
-	</tbody>
-</table>
+<div class="mobile-table">
+	<table class="styled-table">
+		<thead>
+			<tr>
+				<th>code</th>
+				<th>Uncommitted (Saved)</th>
+				<th>Uncommitted (Posted)</th>
+				<th>Committed</th>
+				<th>Committed (Adjusted)</th>
+				<th>Voided</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><em>Unspecified</em></td>
+				<td>Uncommitted (Saved)</td>
+				<td>Uncommitted (Posted)</td>
+				<td>Committed</td>
+				<td>Committed (Adjusted)</td>
+				<td>Voided</td>
+			</tr>
+			<tr>
+				<td>PostFailed</td>
+				<td>DocStatusError</td>
+				<td>Saved</td>
+				<td>DocStatusError</td>
+				<td>DocStatusError</td>
+				<td>DocStatusError</td>
+			</tr>
+			<tr>
+				<td>DocDeleted</td>
+				<td>Deleted</td>
+				<td>Deleted</td>
+				<td>Voided</td>
+				<td>Voided</td>
+				<td>Deleted</td>
+			</tr>
+			<tr>
+				<td>DocVoided</td>
+				<td>Voided</td>
+				<td>Voided</td>
+				<td>Voided</td>
+				<td>Voided</td>
+				<td>Voided</td>
+			</tr>
+			<tr>
+				<td>Adjustment Cancelled</td>
+				<td>DocStatusError</td>
+				<td>DocStatusError</td>
+				<td>DocStatusError</td>
+				<td>Removes last adjustment.</td>
+				<td>DocStatusError</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 
 Further reference on the request/response parameters can be found <a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Transactions/#ApiV2CompaniesByCompanyCodeTransactionsByTransactionCodeVoidPost"> in our API references.</a>

@@ -13,23 +13,25 @@ disqus: 1
 
 This article is about the February 2017 monthly update to the AvaTax REST v2 API.
 
-<table class="styled-table">
-	<tr>
-		<th>Environment</th>
-		<th>URL</th>
-		<th>Release Date</th>
-	</tr>
-	<tr>
-		<td>Sandbox</td>
-        <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
-		<td>2017-02-23</td>
-	</tr>
-	<tr>
-		<td>Production</td>
-        <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
-		<td>2017-02-27</td>
-	</tr>
-</table>
+<div class="mobile-table">
+    <table class="styled-table">
+        <tr>
+            <th>Environment</th>
+            <th>URL</th>
+            <th>Release Date</th>
+        </tr>
+        <tr>
+            <td>Sandbox</td>
+            <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
+            <td>2017-02-23</td>
+        </tr>
+        <tr>
+            <td>Production</td>
+            <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
+            <td>2017-02-27</td>
+        </tr>
+    </table>
+</div>
 
 <h2>Free Tax Rates!</h2>
 

@@ -15,23 +15,25 @@ This article is about the January 2017 monthly update to the AvaTax REST v2 API.
 
 UPDATE 2017-01-18 - Due to testing on the Recordset Count issue for pagination described below, we have elected to remove the `$include=count` option and restore the previous recordset count behavior.  All queries will receive correct recordset counts except for queries on the `/api/v2/transactions` endpoint.  We have delayed the correct implementation of recordset count for the transactions table to the 2.17.2 release.  As a result of this change, the release to Sandbox has been rescheduled for Jan 24th.
 
-<table class="styled-table">
-	<tr>
-		<th>Environment</th>
-		<th>URL</th>
-		<th>Release Date</th>
-	</tr>
-	<tr>
-		<td>Sandbox</td>
-        <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
-		<td>2017-01-24</td>
-	</tr>
-	<tr>
-		<td>Production</td>
-        <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
-		<td>2017-01-26</td>
-	</tr>
-</table>
+<div class="mobile-table">
+  <table class="styled-table">
+    <tr>
+      <th>Environment</th>
+      <th>URL</th>
+      <th>Release Date</th>
+    </tr>
+    <tr>
+      <td>Sandbox</td>
+          <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
+      <td>2017-01-24</td>
+    </tr>
+    <tr>
+      <td>Production</td>
+          <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
+      <td>2017-01-26</td>
+    </tr>
+  </table>
+</div>
 
 <h3>Avalara Managed Returns now supported in REST v2!</h3>
 

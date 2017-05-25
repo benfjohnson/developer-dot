@@ -47,6 +47,16 @@ html, body {
     }
 }
 
+.btn-signup {
+    float: right;
+    margin: 7px 20px 7px 20px;
+
+    @media(max-width: $screen-xs-min) {
+        float: left;
+        margin: 0 0 10px 0;
+    }
+}
+
 .bg-map {
     background-image: url(/public/images/devdot/DevDotSvgGAssets_MapBG.svg);
     background-repeat: repeat;
@@ -606,6 +616,10 @@ footer {
     td, th {
         padding: 5px 10px;
     }
+}
+
+.mobile-table {
+    overflow-x: auto;
 }
 
 .card {
