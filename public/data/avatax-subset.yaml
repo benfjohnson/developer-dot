@@ -30,10 +30,10 @@ security:
 x-auth-formula: "`Basic ${btoa(`<username>:<password>`)}`"
 x-sample-auth-header: "Basic aHR0cHdhdGNoOmY="
 x-api-proxy: 
-  route: https://e3zwcxla5k.execute-api.us-west-2.amazonaws.com/prod/
+  route: https://xp0wfn7roi.execute-api.us-west-2.amazonaws.com/production/proxy
   key:
     name: api-key
-    location: api-proxy-key/key
+    location: v2-devdot-keys/devdot-proxy-key
 x-ApiType: REST
 paths:
   '/tax/get':
