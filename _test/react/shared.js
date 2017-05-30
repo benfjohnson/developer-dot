@@ -953,7 +953,7 @@ describe('Shared Reducers', () => {
                 const expectedState = R.clone(state);
 
                 expectedState.apiResponse = undefined;
-                expectedState.curl = "curl -X POST \"https://development.avalara.net/1.0/tax/get\" -H \"Accept: application/json\" -H \"Content-Type: application/json\" --data '{\"Addresses\":[{}],\"Lines\":[{}]}'";
+                expectedState.curl = "curl\n    -X POST\n    -H 'Accept: application/json'\n    -H 'Content-Type: application/json'\n    --data '{\n  \"Addresses\": [\n    {}\n  ],\n  \"Lines\": [\n    {}\n  ]\n}'\n    https://development.avalara.net/1.0/tax/get";
                 expectedState.postBody = {
                     "Addresses": [
                         {
@@ -2603,7 +2603,7 @@ describe('Shared Reducers', () => {
                 };
                 const expectedState = R.clone(state);
 
-                expectedState.curl = "curl -X POST \"https://development.avalara.net/1.0/tax/get\" -H \"Accept: application/json\" -H \"Content-Type: application/json\" --data '{\"Commit\":\"false\",\"Client\":\"AvaTaxSample\",\"CompanyCode\":\"APITrialCompany\",\"CustomerCode\":\"ABC4335\",\"DocCode\":\"INV001\",\"DocType\":\"SalesOrder\",\"DocDate\":\"2014-01-01\",\"Addresses\":[{\"AddressCode\":\"01\",\"Line1\":\"45 Fremont Street\",\"Line2\":\"Suite 100\",\"Line3\":\"ATTN Accounts Payable\",\"City\":\"Chicago\",\"Region\":\"IL\",\"Country\":\"US\",\"PostalCode\":\"60602\"}],\"Lines\":[{\"LineNo\":\"1\",\"DestinationCode\":\"01\",\"OriginCode\":\"02\",\"ItemCode\":\"N543\",\"TaxCode\":\"NT\",\"Description\":\"Red Size 7 Widget\",\"Qty\":\"1\",\"Amount\":\"10\"}]}'";
+                expectedState.curl = "curl\n    -X POST\n    -H 'Accept: application/json'\n    -H 'Content-Type: application/json'\n    --data '{\n  \"Commit\": \"false\",\n  \"Client\": \"AvaTaxSample\",\n  \"CompanyCode\": \"APITrialCompany\",\n  \"CustomerCode\": \"ABC4335\",\n  \"DocCode\": \"INV001\",\n  \"DocType\": \"SalesOrder\",\n  \"DocDate\": \"2014-01-01\",\n  \"Addresses\": [\n    {\n      \"AddressCode\": \"01\",\n      \"Line1\": \"45 Fremont Street\",\n      \"Line2\": \"Suite 100\",\n      \"Line3\": \"ATTN Accounts Payable\",\n      \"City\": \"Chicago\",\n      \"Region\": \"IL\",\n      \"Country\": \"US\",\n      \"PostalCode\": \"60602\"\n    }\n  ],\n  \"Lines\": [\n    {\n      \"LineNo\": \"1\",\n      \"DestinationCode\": \"01\",\n      \"OriginCode\": \"02\",\n      \"ItemCode\": \"N543\",\n      \"TaxCode\": \"NT\",\n      \"Description\": \"Red Size 7 Widget\",\n      \"Qty\": \"1\",\n      \"Amount\": \"10\"\n    }\n  ]\n}'\n    https://development.avalara.net/1.0/tax/get";
                 expectedState.qsPath = '';
                 expectedState.postBody = {
                     "Commit": "false",
@@ -2752,7 +2752,7 @@ describe('Shared Reducers', () => {
                 };
                 const expectedState = R.clone(state);
 
-                expectedState.curl = "curl -X GET \"http://sandbox.landedcost.api.avalara.com/v2/hscodes/TARIC/010229?qsParam=qsValue\" -H \"Accept: application/json\"";
+                expectedState.curl = "curl\n    -X GET\n    -H 'Accept: application/json'\n    http://sandbox.landedcost.api.avalara.com/v2/hscodes/TARIC/010229?qsParam=qsValue";
                 expectedState.qsPath = '?qsParam=qsValue';
                 expectedState.queryString.qsParam = {value: "qsValue"};
                 /* eslint-enable quote-props */
@@ -2837,7 +2837,7 @@ describe('Shared Reducers', () => {
                 };
                 const expectedState = R.clone(state);
 
-                expectedState.curl = "curl -X GET \"http://sandbox.landedcost.api.avalara.com/v2/browse?parent=2&qsParam=qsValue\" -H \"Accept: application/json\"";
+                expectedState.curl = "curl\n    -X GET\n    -H 'Accept: application/json'\n    http://sandbox.landedcost.api.avalara.com/v2/browse?parent=2&qsParam=qsValue";
                 expectedState.qsPath = '?parent=2&qsParam=qsValue';
                 expectedState.queryString.qsParam = {value: "qsValue"};
                 /* eslint-enable quote-props */
@@ -2933,7 +2933,7 @@ describe('Shared Reducers', () => {
                 };
                 const expectedState = R.clone(state);
 
-                expectedState.curl = "curl -X GET \"http://sandbox.landedcost.api.avalara.com/v2/hscodes/HTS/{code}\" -H \"Accept: application/json\"";
+                expectedState.curl = "curl\n    -X GET\n    -H 'Accept: application/json'\n    http://sandbox.landedcost.api.avalara.com/v2/hscodes/HTS/{code}";
                 expectedState.pathParams.system.value = 'HTS';
                 /* eslint-enable quote-props */
                 /* eslint-enable quotes */
@@ -3026,7 +3026,7 @@ describe('Shared Reducers', () => {
                 };
                 const expectedState = R.clone(state);
 
-                expectedState.curl = "curl -X GET \"http://sandbox.landedcost.api.avalara.com/v2/hscodes/CTCA/930700\" -H \"Accept: application/json\"";
+                expectedState.curl = "curl\n    -X GET\n    -H 'Accept: application/json'\n    http://sandbox.landedcost.api.avalara.com/v2/hscodes/CTCA/930700";
                 expectedState.pathParams.code.value = '930700';
                 /* eslint-enable quote-props */
                 /* eslint-enable quotes */
@@ -16756,7 +16756,7 @@ describe('Shared Reducers', () => {
                             }
                         ]
                     },
-                    "curl": "curl -X POST \"http://sandbox.landedcost.api.avalara.com/v3/calculate\" -H \"Accept: application/json\" -H \"Content-Type: application/json\" --data '{\"source\":{},\"destination\":{},\"shipping\":{},\"items\":[{\"units\":[{}]}]}'",
+                    "curl": "curl\n    -X POST\n    -H 'Accept: application/json'\n    -H 'Content-Type: application/json'\n    --data '{\n  \"source\": {},\n  \"destination\": {},\n  \"shipping\": {},\n  \"items\": [\n    {\n      \"units\": [\n        {}\n      ]\n    }\n  ]\n}'\n    http://sandbox.landedcost.api.avalara.com/v3/calculate",
                     "responseSchema": {
                         "required": false,
                         "isExcluded": false,
