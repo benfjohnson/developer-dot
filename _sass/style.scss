@@ -122,6 +122,14 @@ html, body {
     }
 }
 
+.padding-marginbottom {
+margin-bottom:33px;
+}
+
+.text-colorchange {
+color: $Medium-grey; 
+}
+
 .breadcrumbs {
     @extend .row;
     @extend .padding-top;
