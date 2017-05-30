@@ -1,7 +1,6 @@
-<h4>Categories</h4>
-<h5>
 <ul class = "api-ref-side-nav nav nav-pills nav-stacked hidden-xs hidden-sm">
-    
+    <h4>Categories</h4>
+    <h5>
     <li {% if page.url=="/blog/" %}class="active" {% endif %}>
         <a class="capitalize" href="/blog/">All</a>
     </li>
@@ -21,5 +20,26 @@
             </li>
         {% endif %}
     {% endfor %}
+    </h5>
 </ul>
-</h5>
+<div class="sm-section-nav dropdown visible-xs-block visible-sm-block">
+    <button id="use-case-nav" type="button" data-toggle="dropdown">Categories</button>
+    <ul class="dropdown-menu" aria-labelledby="use-case-nav">
+            <li {% if page.url=="/blog/" %}class="active" {% endif %}><a class="capitalize" href="/blog/">All</a></li>
+                {% for category in site.categories %}
+                    {% if category[1].size != 1 %}
+                        {% assign a = category[0] | downcase %}
+                        {% assign p = page.title | downcase %}
+                        <li {% if p == a %}class="active"{% endif %} >
+                            {% assign cate = category[0] | replace: ' ', '-' %}
+                            {% if category[0] == "api" or category[0] == "sdk" or category[0] == "rest" %}
+                                <a class="text-uppercase" href="/blog/{{ cate | downcase}}/">{{ category[0] }}</a>
+                            {% else %}
+                                <a class="capitalize" href="/blog/{{ cate | downcase}}/">{{ category[0] }}</a>
+                            {% endif %}
+
+                        </li>
+                    {% endif %}
+                {% endfor %}
+    </ul>
+</div>

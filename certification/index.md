@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Avalara Certified
-doctype: documentation
+doctype: overview
 nav: certification
 ---
 

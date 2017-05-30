@@ -152,7 +152,7 @@
                     <li class="sdk dropdown dropdown-large hidden-xs">
                         <a class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">SDK</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-large"> 
-                            <li {% if page.url == "/sdk/get-started-2" %}class="active"{% endif %}><a href="/sdk/get-started-2">Get Started with AvaTax</a></li>
+                            <li {% if page.url == "/avatax/get-started" %}class="active"{% endif %}><a href="/avatax/get-started">Get Started with AvaTax</a></li>
                             <br/>
                             <li><a href="/sdk/">The AvaTax SDK</a></li>
                             <li><a href="/sdk/soap">SOAP SDK</a></li>
@@ -241,6 +241,14 @@
             </nav>
             <main class="col-md-9 small-no-padding">{{ content }}</main>
         </section>
+        {% elsif page.nav == "certification" and page.product != "avaTax" and page.doctype != 'overview' %} {% include certification_breadcrumb.html %}
+        <section class="row padding-sides half">
+            <nav class="col-md-3">
+                {% include certification_navigation.html %} 
+            </nav>
+            <main class="col-md-9 small-no-padding">{{ content }}</main>
+        </sectiion>
+        
 <!-- removing this until we get approval on the self-test link -->      
         {% elsif page.nav == 'tests' %}
         <section class="row padding-sides half">
@@ -253,12 +261,11 @@
             <main class="col-md-9 small-no-padding">{{ content }}</main>
         </section>
     
-        {% elsif page.nav == 'certification' %} {% if page.title == 'AvaTax Certification' %} {% include ava_certification_breadcrumbs.html %}
+        {% elsif page.nav == 'certification' and page.product == "avaTax" %} {% include ava_certification_breadcrumbs.html %}
         <section class="row padding-sides half">
             <nav class="col-md-3">
                {% include ava_certification_navigation.html %}
                 </nav>
-            {%endif%}
             <main class="col-md-9 small-no-padding">{{ content }}</main>
         </section> 
         {% elsif page.nav == 'apis' %} {%if page.doctype != 'overview' %} {% include api_breadcrumb.html %} {%endif%} {% if page.doctype == 'api_references' or page.doctype == 'use_cases' %}
@@ -287,42 +294,6 @@
         {% endif %}
     </div>
     <footer class="navbar navbar-default">
-    {% if page.nav=="home" %}
-    <div class="row">
-          <div class="col-md-6">
-              <a class="twitter-timeline" 
-              data-height=200
-              data-width=600
-              data-theme="light" 
-              data-link-color="#E95F28" 
-              href="https://twitter.com/avalara">Tweets by Avalara</a> 
-              <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-          </div>
-          <!-- not working beucase the playlist of uploads on Avalara's account needs to be marked as embeddable
-          <div class="col-md-4">
-              <iframe src="http://www.youtube.com/embed/?listType=user_uploads&list=Avalara1"
-                      height=200
-                      width=400></iframe> 
-          </div> -->
-          <div class="col-md-6">
-              <div class="fb-page" 
-                  data-href="https://www.facebook.com/avalara" 
-                  data-tabs="timeline" 
-                  data-height=200
-                  data-width=600
-                  data-small-header="true" 
-                  data-adapt-container-width="true" 
-                  data-hide-cover="false"     
-                  data-show-facepile="true">
-                  <blockquote cite="https://www.facebook.com/avalara" class="fb-xfbml-parse-ignore">
-                      <a href="https://www.facebook.com/avalara">Avalara</a>
-                  </blockquote>
-              </div> 
-          </div>  
-        </div>
-        <br />
-        {% endif %}
-
         <ul class="global">
             <li><a href="https://www.avalara.com/"><span class="icon-sphere"></span>Avalara.com</a></li>
             <li><a href="https://help.avalara.com/"><span class="icon-help"></span>Help Center</a></li>
@@ -379,15 +350,6 @@
         _satellite.pageBottom();
     </script>
     <!-- End Adobe Dynamic Tag Manager -->
-    <!-- This is needed to have the facebook feed -->
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
 </body>
 
 </html>
