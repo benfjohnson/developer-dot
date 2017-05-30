@@ -53,11 +53,21 @@ html, body {
     float: right;
     margin: 5px 20px 0 20px;
 
+    @media(max-width:$screen-md-max) {
+        margin: 5px 40px 5px 20px;
+    }
 
-    @media(max-width: $screen-xs-min) {
+    @media(max-width: 767px) {
         float: left;
         margin: 0 0 10px 0;
     }
+
+    /*@media(max-width: $screen-xs-min) {
+        float: left;
+        margin: 0 0 10px 0;
+    }*/
+
+    
 }
 
 .bg-map {
@@ -714,6 +724,19 @@ footer {
         margin-bottom: 20px;
         display:block;
     }
+}
+
+.apiLast {
+    height: 105px;
+}
+
+.row .card .padding-top {
+    padding-top: 2em;
+}
+
+.row .card .twoFix {
+    padding-top: 10px;
+    padding-bottom: 10030px;
 }
 
 
