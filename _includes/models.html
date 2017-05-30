@@ -1,0 +1,42 @@
+<h1>{{include.name}}</h1>
+<h2 id="description">Description</h2>
+<p>{{include.model.description}}</p>
+<!--
+TODO(DX-347): split into sub task from this ticket
+<h2 id="references">References</h2>
+<p>This model is used in the following APIs:</p>
+-->
+<ul class="normal"></ul>
+<h2 id="fields">Fields</h2>
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Parameter</th>
+            <th>Attributes</th>
+            <th>Summary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- The allOf Swagger helper concatenates
+        multiple objects into a single definition.
+        Need to handle it slightly differently.
+        -->
+        {% if include.model.allOf %}
+            {% for part in include.model.allOf %}
+                {% for prop in part.properties %}
+                    {% include model-property.html %}
+                {% endfor %}
+            {% endfor %}
+        {% else %}
+            {% for prop in include.model.properties %}
+                {% include model-property.html %}
+            {% endfor %}
+        {% endif %}
+        </tbody>
+</table>
+{% if include.examplePretty %}
+    <h2 id="example-addressresolutionmodel">Example {{name}}</h2>
+    <pre class="highlight">{{include.examplePretty}}</pre>
+{% endif %}
+<p><br></p>

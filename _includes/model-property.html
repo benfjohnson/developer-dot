@@ -1,0 +1,53 @@
+<tr>
+<td>{{prop[0]}}</td>
+<td>
+    {% if prop[1].type %}
+        {% if prop[1].format %}
+            {{prop[1].format}}<br>
+        {% elsif prop[1].enum %}
+            Enum:<br>
+            <!--
+            TODO(DX-347): will need ticket to implement enum pages before uncommenting these links
+            <a href="/{{page.product}}/enums/{{prop[1]['x-enum-type']}}">{{prop[1]["x-enum-type"]}}</a><br>-->
+            {% for enum in prop[1]["enum"] %}
+                &nbsp;&nbsp;&nbsp;{{enum}}<br>
+            {% endfor %}
+        {% elsif prop[1].type == "array" %}
+            {% assign ref = prop[1].items["$ref"] | split:"/" | last %}
+            <a href="../{{ref}}">{{ref}}</a><br>
+        {% elsif prop[1].type == "object" %}
+            {% assign ref = prop[1]["$ref"] | split:"/" | last %}
+            <a href="../{{ref}}">{{ref}}</a><br>
+        {% else %}
+            {{prop[1].type}}<br>
+        {% endif %}
+    {% else %}
+        <!-- Props without a type are objects, also want to link to these -->
+        {% assign ref = prop[1]["$ref"] | split:"/" | last %}
+        <a href="../{{ref}}">{{ref}}</a><br>
+    {% endif %}
+    {% assign is_required = false %}
+    {% for field in include.model.required %}
+        {% if field == prop[0] %}
+            {% assign is_required = true %}
+        {% endif %}
+    {% endfor %}
+    {% if is_required %}
+        Required<br>
+    {% else %}
+        Optional<br>
+    {% endif %}
+    {% if prop[1].readOnly %}Read Only<br>{% endif %}
+    {% if prop[1].maxLength %}Maximum Length: {{prop[1].maxLength}}<br>{% endif %}
+    {% if prop[1].minLength %}Minimum Length: {{prop[1].minLength}}<br>{% endif %}
+</td>
+<td>
+    {{prop[1].description}}
+    {% if prop[1].example and prop[1].type != "array" %}
+        <br><br>
+        <b>Example:</b>
+        <br>
+        <pre class="highlight">{{prop[1].example}}</pre>
+    {% endif %}
+</td>
+</tr>

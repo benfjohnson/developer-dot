@@ -33,20 +33,21 @@ browserify_bundle() {
         $1 --outfile $2
 }
 
-build_all_pages() {
+build_pages() {
     browserify \
         -t babelify \
         --node \
         --extension=.jsx \
         --extension=.js \
-        dynamic/build-all-pages.js \
-        --outfile /tmp/build-all-pages.js
-    node /tmp/build-all-pages.js
+        dynamic/$1 \
+        --outfile /tmp/$1
+    node /tmp/$1
 }
 
 init() {
     set -x
     git clean -dXf --exclude='!node_modules'
     transpile_sass
-    build_all_pages
+    build_pages build-all-pages.js
+    build_pages build-models.js
 }
