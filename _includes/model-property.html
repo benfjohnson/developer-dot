@@ -42,7 +42,7 @@
     {% if prop[1].minLength %}Minimum Length: {{prop[1].minLength}}<br>{% endif %}
 </td>
 <td>
-    {{prop[1].description}}
+    {{prop[1].description | markdownify}}
     {% if prop[1].example and prop[1].type != "array" %}
         <br><br>
         <b>Example:</b>

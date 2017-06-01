@@ -46,7 +46,7 @@ endpoint_links: []
         table = `${table}
         <tr>
             <td><a href="${encodeURIComponent(def)}">${def}</a></td>
-            <td>${defs[def].description || ''}</td>
+            <td>{{"${(defs[def].description || '').replace(/"/g, "'")}" | markdownify}}</td>
         </tr>`;
     });
 
@@ -72,7 +72,7 @@ const writeHtml = function(dir, defs, product, fields, apiName) {
         Object.keys(defs).forEach((def) => {
             let prettyJson = JSON.stringify(defs[def].example, null, 4);
 
-            prettyJson = (prettyJson) ? prettyJson.replace("'", '') : prettyJson;
+            prettyJson = (prettyJson) ? prettyJson.replace(/'/g, '') : prettyJson;
 
             const html = `---
 layout: default

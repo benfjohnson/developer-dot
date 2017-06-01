@@ -1,6 +1,6 @@
 <h1>{{include.name}}</h1>
 <h2 id="description">Description</h2>
-<p>{{include.model.description}}</p>
+<p>{{include.model.description | markdownify}}</p>
 <!--
 TODO(DX-347): split into sub task from this ticket
 <h2 id="references">References</h2>
