@@ -14,7 +14,11 @@
             {% endfor %}
         {% elsif prop[1].type == "array" %}
             {% assign ref = prop[1].items["$ref"] | split:"/" | last %}
-            <a href="../{{ref}}">{{ref}}</a><br>
+            {% if ref %}
+                <div>Array[<a href="../{{ref}}">{{ref}}</a>]</div>
+            {% else %}
+                <div>Array[{{prop[1].items.type}}]</div>
+            {% endif %}
         {% elsif prop[1].type == "object" %}
             {% assign ref = prop[1]["$ref"] | split:"/" | last %}
             <a href="../{{ref}}">{{ref}}</a><br>

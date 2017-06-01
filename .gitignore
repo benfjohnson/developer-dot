@@ -16,5 +16,10 @@ npm-debug.log
 
 **/.DS_Store
 
+# Ignore any models.json file that's built based on a swagger file
+dynamic/swagger/**/models.json
+
 _data/swagger
 models
+
+.vscode

@@ -3,6 +3,7 @@ import fs from 'fs';
 import yaml from 'js-yaml';
 import mkdirp from 'mkdirp';
 import SWAGGER_CONFIG from './SWAGGER_CONFIG';
+import buildDefinitions from './build-models-helpers';
 
 const dataDir = `${__dirname}/../_data/swagger`;
 
@@ -60,21 +61,17 @@ endpoint_links: []
 
 const writeHtml = function(dir, defs, product, fields, apiName) {
     // write directory where all models will be written
-    mkdirp(dir, (error) => {
-        if (error) {
-            console.log(`Error writing directory: ${error}`);
-            return;
-        }
+    mkdirp.sync(dir);
 
-        // write index for entire directory
-        writeDirectoryIndex(dir, defs, product, apiName);
+    // write index for entire directory
+    writeDirectoryIndex(dir, defs, product, apiName);
 
-        Object.keys(defs).forEach((def) => {
-            let prettyJson = JSON.stringify(defs[def].example, null, 4);
+    Object.keys(defs).forEach((def) => {
+        let prettyJson = JSON.stringify(defs[def].example, null, 4);
 
-            prettyJson = (prettyJson) ? prettyJson.replace(/'/g, '') : prettyJson;
+        prettyJson = (prettyJson) ? prettyJson.replace(/'/g, '') : prettyJson;
 
-            const html = `---
+        const html = `---
 layout: default
 title: "API Console"
 api_console: 1
@@ -86,39 +83,23 @@ endpoint_links: []
 ---
 
 {% assign name = "${def}" %}
-{% assign model_ = site.data.swagger${fields}.definitions[name] %}
+{% assign model_ = site.data.swagger${fields}[name] %}
 {% assign ep = '${prettyJson}' %}
 
 {% include models.html name=name ${(prettyJson) ? 'examplePretty=ep' : ''} model=model_ %}
 `;
 
-            fs.writeFile(`${dir}/${def}.html`, html, function(err) {
-                if (err) {
-                    console.log(err);
-                }
-            });
+        fs.writeFile(`${dir}/${def}.html`, html, function(err) {
+            if (err) {
+                console.log(err);
+            }
         });
     });
 };
 
-const buildHtml = function(fileName, api) {
-    const defs = api.definitions || {};
+const buildHtml = function(fileName, apiDefinitions, apiName, product) {
+    const defs = apiDefinitions || {};
     const relativeFilePath = fileName.substr(`${dataDir}/`.length);
-
-    /* used in combination with `fields` to access swagger
-     * data linked in _data folder
-     */
-    let apiName;
-    let product;
-
-    try {
-        product = SWAGGER_CONFIG[relativeFilePath].product;
-        apiName = SWAGGER_CONFIG[relativeFilePath].name;
-    } catch (e) {
-        // TODO(DX-347): no config for avataxbr index.json and default-api.json
-        console.log(`Couldn\'t find ${relativeFilePath} in SWAGGER_CONFIG file: ${e}`);
-        return;
-    }
 
     /* used for bracket notation of dynamic length
      * some key values cannot be accessed by dot notation
@@ -129,31 +110,39 @@ const buildHtml = function(fileName, api) {
 
     fields = `["${fields.join('"]["')}"]`;
 
-    const siteDir = `${__dirname}/../${pathWithoutExt}/models`;
+    const siteDir = `${__dirname}/../${pathWithoutExt}`;
 
     writeHtml(siteDir, defs, product, fields, apiName);
 };
 
-const fsReadRecursive = function(fileOrDir) {
-    fs.stat(fileOrDir, (error, stats) => {
-        if (error) {
-            console.log(error);
-            return null;
-        } else if (stats.isDirectory()) {
-            return fs.readdir(fileOrDir, (err, files) => {
-                if (err) {
-                    console.log(`Could not read directory ${fileOrDir}`);
-                    return;
-                }
-                files.forEach((file) => {
-                    fsReadRecursive(`${fileOrDir}/${file}`);
-                });
-            });
-        }
-        return buildHtml(fileOrDir, loadFile(fileOrDir));
-    });
-};
+const stripFileExt = (file) => file.substring(0, file.lastIndexOf('.'));
 
-fs.symlink(`${__dirname}/../dynamic/swagger`, dataDir, function() {
-    fsReadRecursive(dataDir);
+const swagPath = `${__dirname}/../dynamic/swagger`;
+const dataPath = `${__dirname}/../_data/swagger`;
+
+fs.symlink(swagPath, dataPath, function() {
+    Object.keys(SWAGGER_CONFIG).forEach((key) => {
+        try {
+            const filename = swagPath + '/' + key;
+            const data = loadFile(filename);
+            const allDefinitions = buildDefinitions(data.definitions);
+
+            const {name, product} = SWAGGER_CONFIG[key];
+
+            const saveFolder = `${dataPath}/${stripFileExt(key)}`;
+            const newFilename = `${saveFolder}/models.json`;
+
+            if (!fs.existsSync(saveFolder)) {
+                fs.mkdirSync(saveFolder);
+            }
+
+            console.log('writing definition file ' + newFilename + '!');
+            fs.writeFileSync(newFilename, JSON.stringify(allDefinitions, null, 2));
+
+            buildHtml(newFilename, allDefinitions, name, product);
+        } catch (e) {
+            // Some Swagger_Config files don't exist, or are missing definitions to parse
+            // Skip these!
+        }
+    });
 });

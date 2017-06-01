@@ -340,6 +340,7 @@ definitions:
       name: Body
       prefix: 's'
   GetServerTimeObject:
+    properties: {}
     description: 'The object used for requesting a the server time.'
     xml:
       name: GetServerTime

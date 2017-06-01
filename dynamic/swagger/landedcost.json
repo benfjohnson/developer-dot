@@ -673,6 +673,7 @@
                 },
                 "error": {
                     "type": "object",
+                    "properties": {},
                     "description": "Full error object response"
                 }
             },
