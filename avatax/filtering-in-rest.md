@@ -90,9 +90,19 @@ The following filters are not defined in the Microsoft standard, but are availab
             <td>Matches all records whose value is the same as one of the items in the list.</td>
         </tr>
         <tr>
-            <td>Like</td>
-            <td><pre>name like '%Bob%'</pre></td>
-            <td>Performsn string matching similarly to an SQL 'LIKE' statement.  Can only be used on string value fields.</td>
+            <td>Contains</td>
+            <td><pre>name contains 'Bob'</pre></td>
+            <td>Matches all records whose value contains the specified filter string.  To represent an apostrophe, use two apostrophe characters in a row, for example <span class="highlight-rouge">'Bob''s Hardware'</span>.</td>
+        </tr>
+        <tr>
+            <td>StartsWith</td>
+            <td><pre>name startswith 'Bob'</pre></td>
+            <td>Matches all records whose value begins with the specified filter string.  To represent an apostrophe, use two apostrophe characters in a row, for example <span class="highlight-rouge">'Bob''s Hardware'</span>.</td>
+        </tr>
+        <tr>
+            <td>EndsWith</td>
+            <td><pre>name endswith 'Bob'</pre></td>
+            <td>Matches all records whose value ends with the specified filter string.  To represent an apostrophe, use two apostrophe characters in a row, for example <span class="highlight-rouge">'Bob''s Hardware'</span>.</td>
         </tr>
         <tr>
             <td>Is Null / Is Not Null</td>
@@ -118,7 +128,7 @@ taxDate eq '2016-01-01' or taxDate eq '2016-01-02'
 
 Now let's put it all together, shall we?
 
-<pre>GET /api/v2/companies/$filter=name like 'Bob%' and (isActive eq true or hasProfile eq true)</pre>
+<pre>GET /api/v2/companies/$filter=name startswith 'Bob' and (isActive eq true or hasProfile eq true)</pre>
 
 This example retrieves all companies with a name begins with the letters 'Bob' and where either the isActive flag is true or the hasProfile flag is true.
 
@@ -129,5 +139,9 @@ Matches all records where the taxDate is in the month of January and the record'
 <pre>GET /api/v2/locations$filter=(country eq 'US' and region eq 'CA') or (country eq 'CA')</pre>
 
 Matches all locations for all companies where the location is either in the country of Canada or in California in the United States.  This filter carefully ensures that even if a different country has a region whose code is "CA", this filter will still only return those locations in the United States.
+
+<pre>GET /api/v2/companies$filter=code startswith 'Franchise' and name contains 'Bob''s'</pre>
+
+Matches all companies whose code begins with the characters `Franchise` and whose name contains the phrase `Bob's`.  Note the apostrophe is doubled up.
 
 
