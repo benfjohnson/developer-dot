@@ -7,7 +7,7 @@ function isBasicType(def) {
     return def.type && def.type !== 'object' && def.type !== 'array';
 }
 
-function capitalize(string) {
+function concatenateName(string) {
     return ' > ' + string.charAt(0).toUpperCase() + string.slice(1);
 }
 
@@ -61,14 +61,14 @@ function hashNewDefinitions(definition, name, accum, allDefs) {
 
         if (!isBasicType(property) && !property.$ref && !(property.items && (property.items.$ref || isBasicType(property.items)))) {
             // Going to recurse, build initial object
-            accum[name + capitalize(propKey)] = {};
+            accum[name + concatenateName(propKey)] = {};
 
             if (property.items) {
-                accum[name + capitalize(propKey)] = hashNewDefinitions(property.items, name + capitalize(propKey), accum, allDefs);
-                accum[name].properties[propKey] = {type: 'array', items: {$ref: `#/definitions/${name + capitalize(propKey)}`}};
+                accum[name + concatenateName(propKey)] = hashNewDefinitions(property.items, name + concatenateName(propKey), accum, allDefs);
+                accum[name].properties[propKey] = {type: 'array', items: {$ref: `#/definitions/${name + concatenateName(propKey)}`}};
             } else {
-                accum[name + capitalize(propKey)] = hashNewDefinitions(property, name + capitalize(propKey), accum, allDefs);
-                accum[name].properties[propKey] = {$ref: `#/definitions/${name + capitalize(propKey)}`};
+                accum[name + concatenateName(propKey)] = hashNewDefinitions(property, name + concatenateName(propKey), accum, allDefs);
+                accum[name].properties[propKey] = {$ref: `#/definitions/${name + concatenateName(propKey)}`};
             }
         } else {
             // basic property, so just add it to accum
@@ -95,4 +95,10 @@ function buildDefinitions(definitions) {
     return {...returnDefinitions, ...additionalDefinitions};
 }
 
-export default buildDefinitions;
+export {
+    hashNewDefinitions,
+    buildDefinitions,
+    combineAllOf,
+    concatenateName,
+    isBasicType
+};

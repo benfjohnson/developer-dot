@@ -10,7 +10,7 @@
     "docker-run": "docker run -v \"$(pwd)\":/app -p 4000:4000 -ti devdot bash -c \"npm run dev & npm run jekyll\"",
     "docker-selenium": "docker run --rm -v \"$(pwd)/scripts\":/usr/local/bin -p 4444:4444 -ti selenium/standalone-chrome /usr/local/bin/selenium.sh",
     "pretest": "npm run build && bundle exec jekyll build",
-    "test": "NODE_ENV=test mocha --compilers js:babel-register --recursive _test/react",
+    "test": "NODE_ENV=test mocha --compilers js:babel-register --recursive _test/react _test/unit",
     "test-web": "bash ./scripts/test-web.sh",
     "test-web-bstack": "_test/browser/nightwatch --config _test/browser/nightwatchBrowserStack.json --retries 1",
     "lint": "eslint --ext .js,.jsx ./dynamic ./_test"

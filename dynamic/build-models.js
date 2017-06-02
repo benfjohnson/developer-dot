@@ -3,7 +3,7 @@ import fs from 'fs';
 import yaml from 'js-yaml';
 import mkdirp from 'mkdirp';
 import SWAGGER_CONFIG from './SWAGGER_CONFIG';
-import buildDefinitions from './build-models-helpers';
+import {buildDefinitions} from './build-models-helpers';
 
 const dataDir = `${__dirname}/../_data/swagger`;
 
