@@ -56,7 +56,7 @@ function hashNewDefinitions(definition, name, accum, allDefs) {
     accum[name] = Object.assign({}, definition, {properties: {}});
 
     // Object type that's defined inline, need to build its defs
-    Object.keys(definition.properties).forEach((propKey) => {
+    Object.keys(definition.properties || {}).forEach((propKey) => {
         const property = definition.properties[propKey];
 
         if (!isBasicType(property) && !property.$ref && !(property.items && (property.items.$ref || isBasicType(property.items)))) {

@@ -13,22 +13,25 @@
                 &nbsp;&nbsp;&nbsp;{{enum}}<br>
             {% endfor %}
         {% elsif prop[1].type == "array" %}
-            {% assign ref = prop[1].items["$ref"] | split:"/" | last %}
+            {% assign reflink = prop[1].items["$ref"] | split:"/" | last %}
+            {% assign ref = reflink | split:" > " | last %}
             {% if ref %}
-                <div>Array[<a href="../{{ref}}">{{ref}}</a>]</div>
+                <div>Array[<a href="../{{reflink}}">{{ref}}</a>]</div>
             {% else %}
                 <div>Array[{{prop[1].items.type}}]</div>
             {% endif %}
         {% elsif prop[1].type == "object" %}
-            {% assign ref = prop[1]["$ref"] | split:"/" | last %}
-            <a href="../{{ref}}">{{ref}}</a><br>
+            {% assign reflink = prop[1]["$ref"] | split:"/" | last %}
+            {% assign ref = reflink | split:" > " | last %}
+            <a href="../{{reflink}}">{{ref}}</a><br>
         {% else %}
             {{prop[1].type}}<br>
         {% endif %}
     {% else %}
         <!-- Props without a type are objects, also want to link to these -->
-        {% assign ref = prop[1]["$ref"] | split:"/" | last %}
-        <a href="../{{ref}}">{{ref}}</a><br>
+        {% assign reflink = prop[1]["$ref"] | split:"/" | last %}
+        {% assign ref = reflink | split:" > " | last %}
+        <a href="../{{reflink}}">{{ref}}</a><br>
     {% endif %}
     {% assign is_required = false %}
     {% for field in include.model.required %}
@@ -42,8 +45,8 @@
         Optional<br>
     {% endif %}
     {% if prop[1].readOnly %}Read Only<br>{% endif %}
-    {% if prop[1].maxLength %}Maximum Length: {{prop[1].maxLength}}<br>{% endif %}
-    {% if prop[1].minLength %}Minimum Length: {{prop[1].minLength}}<br>{% endif %}
+    {% if prop[1].maxLength %}Max Length: {{prop[1].maxLength}}<br>{% endif %}
+    {% if prop[1].minLength %}Min Length: {{prop[1].minLength}}<br>{% endif %}
 </td>
 <td>
     {{prop[1].description | markdownify}}

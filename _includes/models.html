@@ -1,6 +1,8 @@
 <h1>{{include.name}}</h1>
-<h2 id="description">Description</h2>
-<p>{{include.model.description | markdownify}}</p>
+{% if include.model.description %}
+    <h2 id="description">Description</h2>
+    <p>{{include.model.description | markdownify}}</p>
+{% endif %}
 <!--
 TODO(DX-347): split into sub task from this ticket
 <h2 id="references">References</h2>
@@ -26,7 +28,7 @@ TODO(DX-347): split into sub task from this ticket
             <!-- Model doesn't necessarily have to be object
             type (could be a string enum). If so treat it as a single "property" -->
             <!-- Note that we have to split the model into an array of its name
-            and the model itself to work with our model-property template --> 
+            and the model itself to work with our model-property template -->
             {% assign prop = "" | split: ""  %}
             {% assign prop = prop | push: include.name %}
             {% assign prop = prop | push: include.model %}
