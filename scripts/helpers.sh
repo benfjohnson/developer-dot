@@ -46,7 +46,7 @@ build_pages() {
 
 init() {
     set -x
-    git clean -dXf --exclude='!node_modules'
+    git clean -dxf --exclude='**/node_modules' --exclude='**/tmp'
     transpile_sass
     build_pages build-all-pages.js
     build_pages build-models.js
