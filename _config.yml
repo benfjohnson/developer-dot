@@ -1,4 +1,4 @@
-# Site title and subtitle. This is used in _includes/header.html 
+# Site title and subtitle. This is used in _includes/header.html
 title: 'Developer '
 subtitle: ''
 
@@ -50,7 +50,7 @@ highlighter: rouge
 future: true
 
 # Exclude non-site files
-exclude: [node_modules, dynamic, LICENSE, README.md, package.json, s3_website.yml, Gemfile, Gemfile.lock]
+exclude: [node_modules, dynamic, LICENSE, README.md, package.json, s3_website.yml, Gemfile, Gemfile.lock, _test]
 
 # Use the kramdown Markdown renderer
 markdown: kramdown
@@ -75,15 +75,15 @@ excerpt_separator: <!--more-->
 
 collections:
     permalink: :basename/
-    
+
 ## Jekyll Archives configuration
 jekyll-archives:
-  enabled: 
+  enabled:
     - categories
   layouts:
     category: archive-tag
   permalinks:
     category: 'blog/:name/'
-    
-    
+
+
 

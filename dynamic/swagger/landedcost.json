@@ -16,8 +16,13 @@
         "application/json"
     ],
     "x-ApiType": "REST",
-    "xxNOT_USED-auth-formula": "`avalaraapikey id:${btoa(`<id>`)} key:${btoa(`<key>`)}`",
-    "xxNOT_USED-sample-auth-header": "avalaraapikey id:dXNlckBjb21wYW55LmNvbQ== key:bXl2b2ljZWlzbXlwYXNzcG9ydA==",
+    "x-api-proxy": {
+        "route": "https://xp0wfn7roi.execute-api.us-west-2.amazonaws.com/production/proxy",
+        "key": {
+            "name": "api-key",
+            "location": "v2-devdot-keys/devdot-proxy-key"
+        }
+    },
     "tags": [
         {
             "name": "Landed Cost Calculation API"
@@ -2464,7 +2469,7 @@
                     "hsCode": {
                         "type": "string",
                         "description": "The harmonized classification code of the product",
-                        "example": "1108199010"
+                        "example": "040110"
                     },
                     "source": {
                         "$ref": "#/definitions/Source",
@@ -2489,7 +2494,7 @@
                     "hsCode": {
                         "type": "string",
                         "description": "The harmonized classification code of the product",
-                        "example": "010229"
+                        "example": "040110"
                     },
                     "source": {
                         "$ref": "#/definitions/Source",
@@ -2503,8 +2508,7 @@
                         "type": "array",
                         "description": "Units used in rate formulas for a given hs code",
                         "items": {
-                            "type": "string",
-                            "example": "kg"
+                            "type": "string"
                         }
                     },
                     "status": {
@@ -2524,8 +2528,7 @@
                                 "type": "array",
                                 "description": "The response messages, if any apply",
                                 "items": {
-                                    "type": "string",
-                                    "example": ""
+                                    "type": "string"
                                 }
                             }
                         },
