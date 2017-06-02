@@ -1,7 +1,5 @@
 import React from 'react';
 import ApiConsole from '../../shared/components/apiConsole';
-import ReactMarkdown from 'react-markdown';
-import RequestParamsDocumentation from './requestParamsDocumentation';
 import ApiDocumentation from './apiDocumentation';
 import EndpointExamples from './endpointExamples';
 import ExpanderIcon from './expanderIcon';
@@ -9,60 +7,10 @@ import ExpanderIcon from './expanderIcon';
 const replaceSpaces = (str) => str.replace(/\s/g, '');
 
 // Give our endpoint an id based on its name for our clientside routing in jekyll
-const EndPointComponent = ({endpoint, sampleContentType, apiType, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleShowExcludedPostBodyProps}) => (
-    <div id={replaceSpaces(endpoint.operationId)}>
-        <div className={'endpoint-summary'}>
-            <h2>{endpoint.name}</h2>
-            {
-                apiType === 'REST' ?
-                <div>
-                    <h5 className={'try-it-now-link'}><a
-                        href={`#${replaceSpaces(endpoint.operationId)}-console`}
-                        onClick={
-                            () => {
-                                $(`#${replaceSpaces(endpoint.operationId)}-console-body`).collapse('show');
-                                $(`#${replaceSpaces(endpoint.operationId)}-console-icon`).addClass('rotate');
-                                const intervalId = setInterval(() => {
-                                    $('#the-nav').affix('checkPosition');
-                                }, 20);
-
-                                setTimeout(() => clearInterval(intervalId), 350);
-                            }
-                        }
-                    >{'Try ' + endpoint.name + ' now!'}</a></h5>
-                    <br />
-                    <br />
-                </div> : null
-            }
-            {
-                endpoint.description ?
-                <div>
-                    <ReactMarkdown source={endpoint.description} />
-                </div> : null
-            }
-            <div>
-                <div className={'api-label-text'}>{'Api Endpoint'}</div>
-                <div className={'code-snippet-plaintext'}>
-                    <span>{`${endpoint.action.toUpperCase()} ${endpoint.path}`}</span>
-                </div>
-                {endpoint.sampleAuthHeader || sampleContentType ?
-                    <div>
-                        <br />
-                        <div className={'api-label-text'}>{'Headers'}</div>
-                        <div className={'code-snippet-plaintext'}>
-                            {endpoint.sampleAuthHeader ? <span style={{display: 'block'}}>{`Authorization: ${endpoint.sampleAuthHeader}`}</span> : null}
-                            {sampleContentType && (endpoint.action.toUpperCase() === 'POST' || endpoint.action.toUpperCase() === 'PUT') ? <span style={{display: 'block'}}>{`Content-Type: ${sampleContentType}`}</span> : null}
-                            {endpoint.headerParams && endpoint.headerParams.SOAPAction ? <span style={{display: 'block'}}>{`SOAPAction: ${endpoint.headerParams.SOAPAction.example}`}</span> : null}
-                        </div>
-                    </div> :
-                null}
-            </div>
-            <br />
-        </div>
-        {endpoint.queryString ? <RequestParamsDocumentation paramType={'QUERY_STRING'} params={endpoint.queryString} /> : null}
-        {endpoint.pathParams ? <RequestParamsDocumentation paramType={'PATH'} params={endpoint.pathParams} /> : null}
-        {endpoint.requestSchema ? <ApiDocumentation documentationFor={'REQUEST'} endpointId={endpoint.id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} requestOrResponseSchema={endpoint.requestSchema} /> : null}
-        {endpoint.responseSchema ? <ApiDocumentation documentationFor={'RESPONSE'} endpointId={endpoint.id} name={endpoint.name.toLowerCase() + '_' + endpoint.action} requestOrResponseSchema={endpoint.responseSchema} /> : null}
+const EndPointComponent = ({endpoint, apiType, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleShowExcludedPostBodyProps}) => (
+    <div>
+        <ApiDocumentation endpoint={endpoint} />
+        <br />
         {apiType === 'REST' ?
             <div>
                 <div className={'try-it-now-header'} data-target={`#${replaceSpaces(endpoint.operationId)}-console-body`} data-toggle={'collapse'} id={`${replaceSpaces(endpoint.operationId)}-console`} onClick={
