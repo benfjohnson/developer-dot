@@ -2,7 +2,7 @@
 
 # TL;DR
 
-* To develop on MacOS or Linux, `git clone https://github.com/<YOUR_FORK>/developer-dot`. Next make sure you have Ruby, RubyGems and Node >= v6.0 installed (see below for details). `npm install && bundle install` will build all dependencies. Then open a couple of command prompts and `cd path/to/developer-dot` in each. Run `npm run dev` in one (this rebuilds our JavaScript bundles whenever those files change), and `npm run jekyll` (regenerates our static Jekyll site whenever static content changes) in the other. You should now have the app running on `localhost:4000`, and any changes to site templates or javascript will auto-rebuild the affected pages.
+* To develop on MacOS or Linux, `git clone https://github.com/<YOUR_FORK>/developer-dot.git`. Next make sure you have Ruby, RubyGems and Node >= v6.0 installed (see below for details). `npm install && bundle install` will build all dependencies. Then open a couple of command prompts and `cd path/to/developer-dot` in each. Run `npm run dev` in one (this rebuilds our JavaScript bundles whenever those files change), and `npm run jekyll` (regenerates our static Jekyll site whenever static content changes) in the other. You should now have the app running on `localhost:4000`, and any changes to site templates or javascript will auto-rebuild the affected pages.
 
 * To get the site running on Windows, or if you just want to preview a few changes quickly, [download Docker](https://www.docker.com/community-edition#/download).
 * Once you have Docker installed, `git clone https://github.com/<YOUR_FORK>/developer-dot` to clone the repo, then open a command line in the root of the developer-dot directory. Run `npm run docker-build` to build the docker container, and
