@@ -13,15 +13,6 @@ An integration can be issued for any of the following feature subsets in additio
 To have your integration <a href="/certification">Certified by Avalara</a>, we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax with your application.  To be Certified for Avalara AvaTax, all of the items with an R beside them listed below are the required elements that must be present in your integration.
 </p>
 <blockquote><strong>Note: </strong>Address validation is a requirement for certification, however we don’t require you to use our address validation service.</blockquote>
-<!-- Wanted to be removed based on JIRA DX-299
-<p>There are several different certifications that can be achieved according to the functionality supported in your application.</p>
-<ul>
-<li><a href="/certification/avatax/address-validation">Calculation with Avalara AvaTax and Address Validation</a></li>
-<li><a href="/certification/avatax/returns">Calculation with Avalara AvaTax and Returns</a></li>
-<li><a href="/certification/avatax/global">Calculation with Avalara AvaTax for Global Calculations</a></li>
-<li><a href="/certification/avatax/use-tax">Calculation with Avalara AvaTax for Use Tax</a></li>
-<li><a href="/certification/avatax/pos">Calculation with Avalara AvaTax for Point of Sale</a></li>
-</ul> -->
 <p>For more information about the benefits of certification, check out our <a href="/certification">Certification Guide</a>.</p>
 <h2>Certified for Avalara AvaTax<a name="CertifiedForAvalaraAvaTax"></a></h2>
 <p>Certification for Avalara AvaTax requires the delivery of all functional requirements shown below.</p>
@@ -69,7 +60,7 @@ To have your integration <a href="/certification">Certified by Avalara</a>, we h
 <div class="row">
 <div class="col-xs-1">R</div>
 <div class="col-xs-3">Enable logging</div>
-<div class="col-xs-8">Enables detailed AvaTax transaction logging within the application including capture of round-trip processing time.We need the complete xml request/response for each call made to Avalara services. It does not need to run all the time as we understand the DB will grow unnecessarily large – you are free to only log the last week, 30 days, custom, or have a control for the next N hours, etc. The spirit of the requirement is to assist customers and support in troubleshooting exercises, so it needs to be retrievable by an end user (or an administrator) It should be specifically Avalara service calls.</div>
+<div class="col-xs-8">Enables detailed transaction logging within the host application; ideally the log will include the calling context, timestamp of request and response to AvaTax. We need the complete request/response for each call made to Avalara services. This logging does not need to run all the time as we understand the DB will grow unnecessarily large – you are free to only log the last week, 30 days, custom, or have a control for the next N hours, etc. The spirit of the requirement is to assist customers and support in troubleshooting exercises, so it needs to be retrievable by an end user (or an administrator). It should be specifically Avalara service calls.</div>
 </div>
 <div class="row">
 <div class="col-xs-1">N</div>

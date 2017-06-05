@@ -42,7 +42,7 @@
     <script src="https://assets.adobedtm.com/bc10a2a9cf337c664f8f74e778a1987125aea184/satelliteLib-0387aefee1ddb8b2a9db7e4165c8d84dc0de8621.js"></script>
     <!-- End Adobe Dynamic Tab Manager Tag Manager -->
 </head>
-{% assign post_count = site.posts|size %} {% if page.product %} {% assign product_name = page.product %} {% else %} {% if page.api_name %} {% assign product_name = page.api_name %} {% endif %} {% endif %}
+{% assign post_count = site.posts|size %} {% if page.product %} {% assign product_name = page.product %} {% elsif layout.product %} {% assign product_name = layout.product %}{% else %} {% if page.api_name %} {% assign product_name = page.api_name %} {% endif %} {% endif %}
 
 <body id="top" data-spy="scroll" data-target="#bootstrap-scrollspy" data-product={{product_name}}>
     <header>
@@ -60,7 +60,7 @@
             </button>
             </div>
             <div class="collapse navbar-collapse js-navbar-collapse">
-                <ul class="nav navbar-nav {{page.nav}}">
+                <ul class="nav navbar-nav {{page.nav}} {{layout.nav}}">
                     <li class="apis visible-xs-block"><a href="/avalara-apis"><span class="text-uppercase">API</span>s</a></li>
                     <li class="apis dropdown dropdown-large hidden-xs">
                         <a class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">API</span>s <i class="caret"></i></a>
@@ -152,7 +152,7 @@
                     <li class="sdk dropdown dropdown-large hidden-xs">
                         <a class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">SDK</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-large"> 
-                            <li {% if page.url == "/sdk/get-started-2" %}class="active"{% endif %}><a href="/sdk/get-started-2">Get Started with AvaTax</a></li>
+                            <li {% if page.url == "/avatax/get-started" %}class="active"{% endif %}><a href="/avatax/get-started">Get Started with AvaTax</a></li>
                             <br/>
                             <li><a href="/sdk/">The AvaTax SDK</a></li>
                             <li><a href="/sdk/soap">SOAP SDK</a></li>
@@ -160,6 +160,7 @@
                             <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-DotNet-SDK#installing-the-dotnet-sdk">Install C# SDK via NuGet</a></li>		
                             <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK#installing-the-jre-sdk">Install JRE SDK via Maven</a></li>		
                             <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-PHP-SDK#installing-the-php-sdk">Install PHP SDK via Composer</a></li>
+                            <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-Ruby-SDK">Install Ruby SDK via RubyGems</a></li>
                         </ul>
                     </li>
                     <li class="tests"><a href="/tests/testing-your-integration/"><span class="text-uppercase">Tests</span></a></li>
@@ -225,6 +226,10 @@
                         </div>
                     </form>
                 </ul>
+
+
+                <a href="https://developer.avalara.com/avatax/signup/" class="btn btn-primary btn-signup">Sign up</a>
+
             </div>
         </nav>
     </header>
@@ -236,8 +241,15 @@
             </nav>
             <main class="col-md-9 small-no-padding">{{ content }}</main>
         </section>
-<!-- removing this until we get approval on the self-test link -->
+        {% elsif page.nav == "certification" and page.product != "avaTax" and page.doctype != 'overview' %} {% include certification_breadcrumb.html %}
+        <section class="row padding-sides half">
+            <nav class="col-md-3">
+                {% include certification_navigation.html %} 
+            </nav>
+            <main class="col-md-9 small-no-padding">{{ content }}</main>
+        </sectiion>
         
+<!-- removing this until we get approval on the self-test link -->      
         {% elsif page.nav == 'tests' %}
         <section class="row padding-sides half">
 <!--
@@ -249,12 +261,11 @@
             <main class="col-md-9 small-no-padding">{{ content }}</main>
         </section>
     
-        {% elsif page.nav == 'certification' %} {% if page.title == 'AvaTax Certification' %} {% include ava_certification_breadcrumbs.html %}
+        {% elsif page.nav == 'certification' and page.product == "avaTax" %} {% include ava_certification_breadcrumbs.html %}
         <section class="row padding-sides half">
             <nav class="col-md-3">
                {% include ava_certification_navigation.html %}
                 </nav>
-            {%endif%}
             <main class="col-md-9 small-no-padding">{{ content }}</main>
         </section> 
         {% elsif page.nav == 'apis' %} {%if page.doctype != 'overview' %} {% include api_breadcrumb.html %} {%endif%} {% if page.doctype == 'api_references' or page.doctype == 'use_cases' %}
@@ -283,7 +294,6 @@
         {% endif %}
     </div>
     <footer class="navbar navbar-default">
-
         <ul class="global">
             <li><a href="https://www.avalara.com/"><span class="icon-sphere"></span>Avalara.com</a></li>
             <li><a href="https://help.avalara.com/"><span class="icon-help"></span>Help Center</a></li>

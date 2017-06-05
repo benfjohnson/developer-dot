@@ -4,7 +4,7 @@ title: Getting Started with AvaTax REST v2
 date: 2016-10-04 09:00
 author: Ted Spence
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 disqus: 1
@@ -53,24 +53,26 @@ As Bob's Artisan Pottery store, we will need to begin by adding a "Company" reco
 
 If you'd like to type along with me without using a programming language, we can create an authentication header by hand.  Here's how you do it:
 
-<table class="styled-table">
+<div class="mobile-table">
+  <table class="styled-table">
+      <tr>
+          <th>Task</th>
+          <th>Result</th>
+      </tr>
     <tr>
-        <th>Task</th>
-        <th>Result</th>
+      <td>Start with the word "Basic" followed by username and password.</td>
+      <td><pre>Basic username:password</pre></td>
     </tr>
-	<tr>
-		<td>Start with the word "Basic" followed by username and password.</td>
-		<td><pre>Basic username:password</pre></td>
-	</tr>
-	<tr>
-		<td>Replace "username" with your username, and "password" with your password.</td>
-		<td><pre>Basic bob@example.org:bobspasswordgoeshere</pre></td>
-	</tr>
-	<tr>
-		<td>Now use your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> to encode the right hand side of the string.</td>
-		<td><pre>Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl</pre></td>
-	</tr>
-</table>
+    <tr>
+      <td>Replace "username" with your username, and "password" with your password.</td>
+      <td><pre>Basic bob@example.org:bobspasswordgoeshere</pre></td>
+    </tr>
+    <tr>
+      <td>Now use your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> to encode the right hand side of the string.</td>
+      <td><pre>Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl</pre></td>
+    </tr>
+  </table>
+</div>
 
 Of course, to make this work, you'll have to use your username and password instead of Bob McExample's information.  Once you've completed your basic authentication header, let's make an API call to list companies:
 

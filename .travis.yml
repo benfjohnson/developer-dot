@@ -2,6 +2,11 @@ language: ruby
 rvm:
   - 2.1
 
+#TODO(DX-392) something about pulling in image here
+cache:
+  bundler: true
+  directories:
+  - node_modules
 before_install:
   - nvm install 6.0
 install:

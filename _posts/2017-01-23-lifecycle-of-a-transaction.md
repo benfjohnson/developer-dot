@@ -5,7 +5,7 @@ description: How does a transaction begin its life, and how does it change over 
 date: 2017-01-23 17:00
 author: Ted Spence
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 disqus: 1

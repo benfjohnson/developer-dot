@@ -1,4 +1,4 @@
-a:default {
+a {
     color: $Darkest-blue;
     text-decoration: none;
     cursor: auto;
@@ -6,7 +6,7 @@ a:default {
 a:hover {
     color: $Ava-blue;
     text-decoration: none;
-    cursor: auto;
+    cursor: pointer;
 }
 
 a:link:active, a:visited:active {
@@ -124,3 +124,4 @@ h5 {
     letter-spacing: 0.07em;
     line-height: 14px;
 }
+ 

@@ -4,7 +4,7 @@ title: Migrating Your PHP Dev Environment to Windows 10
 date: 2015-08-12 14:22
 author: greg.bulmash
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: avaTax
 doctype: blog
 imgsrc: /public/images/blog/pingtest.jpg

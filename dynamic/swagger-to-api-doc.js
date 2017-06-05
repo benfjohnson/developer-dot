@@ -51,11 +51,16 @@ export default (fileName, apiName, apiPath, product) => {
             console.log('\x1b[31m', swaggerPathErr, '\x1b[0m');
             /* eslint-enable no-console */
         } else {
-            new SwaggerParser().dereference(swaggerPath).then((swaggerDoc) => {
+            const options = {$refs: {internal: false}};
+
+            Promise.all([
+                new SwaggerParser().dereference(swaggerPath),
+                new SwaggerParser().dereference(swaggerPath, options)
+            ]).then((swaggerDocs) => {
                 let staticState;
 
                 try {
-                    staticState = parseSwaggerUi(swaggerDoc, swaggerPath);
+                    staticState = parseSwaggerUi(...swaggerDocs, swaggerPath);
                 } catch (e) {
                     /* eslint-disable no-console */
                     console.log('Error parsing swaggerDoc', e);
@@ -76,6 +81,7 @@ ${tagName ? `tag_name: ${tagName}` : ''}
 nav: apis
 product: ${product}
 doctype: api_references
+modelsPath: ${fileName.substr(0, fileName.lastIndexOf('.'))}/models
 endpoint_links: [
     ${endpointLinks}
 ]

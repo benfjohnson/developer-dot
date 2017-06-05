@@ -4,7 +4,7 @@ title: REST v2.16.11 Patch Notes
 date: 2016-10-31 11:00
 author: Ted Spence
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 disqus: 1
@@ -14,23 +14,26 @@ disqus: 1
 
 AvaTax REST v2.16.11 has now adopted the naming system used by AvaTax SOAP (API version/year/month).
 
-<table class="styled-table">
-	<tr>
-		<th>Environment</th>
-		<th>URL</th>
-		<th>Release Date</th>
-	</tr>
-	<tr>
-		<td>Sandbox</td>
-        <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
-		<td>2016-11-02</td>
-	</tr>
-	<tr>
-		<td>Production</td>
-        <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
-		<td>2016-11-09</td>
-	</tr>
-</table>
+<div class="mobile-table">
+	<table class="styled-table">
+		<tr>
+			<th>Environment</th>
+			<th>URL</th>
+			<th>Release Date</th>
+		</tr>
+		<tr>
+			<td>Sandbox</td>
+			<td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
+			<td>2016-11-02</td>
+		</tr>
+		<tr>
+			<td>Production</td>
+			<td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
+			<td>2016-11-09</td>
+		</tr>
+	</table>
+</div>
+
 
 <h3>POST /api/v2/taxrates</h3>
 

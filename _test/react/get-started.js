@@ -139,7 +139,7 @@ describe('getStarted Reducer', () => {
                     {}
                 ]
             },
-            "curl": "curl -X POST \"https://development.avalara.net/1.0/tax/get\" -H \"Accept: application/json\" -H \"Authorization: Basic aHR0cHdhdGNoOmY=\" -H \"Content-Type: application/json\" --data '{\"Addresses\":[{}],\"Lines\":[{}]}'",
+            "curl": "curl\n    -X POST\n    -H 'Accept: application/json'\n    -H 'Authorization: Basic aHR0cHdhdGNoOmY='\n    -H 'Content-Type: application/json'\n    --data '{\n  \"Addresses\": [\n    {}\n  ],\n  \"Lines\": [\n    {}\n  ]\n}'\n    https://development.avalara.net/1.0/tax/get",
             "responseSchema": {
                 "required": false,
                 "isExcluded": false,
@@ -655,7 +655,7 @@ describe('getStarted Reducer', () => {
             const expectedState = R.clone(state);
 
             expectedState[0].apiResponse = undefined;
-            expectedState[0].curl = "curl -X POST \"https://development.avalara.net/1.0/tax/get\" -H \"Accept: application/json\" -H \"Authorization: Basic aHR0cHdhdGNoOmY=\" -H \"Content-Type: application/json\" --data '{\"Addresses\":[{}],\"Lines\":[{}]}'";
+            expectedState[0].curl = "curl\n    -X POST\n    -H 'Accept: application/json'\n    -H 'Authorization: Basic aHR0cHdhdGNoOmY='\n    -H 'Content-Type: application/json'\n    --data '{\n  \"Addresses\": [\n    {}\n  ],\n  \"Lines\": [\n    {}\n  ]\n}'\n    https://development.avalara.net/1.0/tax/get";
             expectedState[0].qsPath = '';
             expectedState[0].postBody = {
                 "Addresses": [
@@ -721,7 +721,7 @@ describe('getStarted Reducer', () => {
             /* eslint-disable quote-props */
             const expectedState = R.clone(state);
 
-            expectedState[0].curl = "curl -X POST \"https://development.avalara.net/1.0/tax/get\" -H \"Accept: application/json\" -H \"Authorization: Basic aHR0cHdhdGNoOmY=\" -H \"Content-Type: application/json\" --data '{\"CustomerCode\":\"ABC4335\",\"Addresses\":[{\"AddressCode\":\"01\",\"Line1\":\"45 Fremont Street\",\"City\":\"Chicago\",\"Region\":\"IL\",\"Country\":\"US\",\"PostalCode\":\"60602\"}],\"Lines\":[{\"LineNo\":\"1\",\"DestinationCode\":\"01\",\"OriginCode\":\"02\",\"Qty\":\"1\",\"Amount\":\"10\"}]}'";
+            expectedState[0].curl = "curl\n    -X POST\n    -H 'Accept: application/json'\n    -H 'Authorization: Basic aHR0cHdhdGNoOmY='\n    -H 'Content-Type: application/json'\n    --data '{\n  \"CustomerCode\": \"ABC4335\",\n  \"Addresses\": [\n    {\n      \"AddressCode\": \"01\",\n      \"Line1\": \"45 Fremont Street\",\n      \"City\": \"Chicago\",\n      \"Region\": \"IL\",\n      \"Country\": \"US\",\n      \"PostalCode\": \"60602\"\n    }\n  ],\n  \"Lines\": [\n    {\n      \"LineNo\": \"1\",\n      \"DestinationCode\": \"01\",\n      \"OriginCode\": \"02\",\n      \"Qty\": \"1\",\n      \"Amount\": \"10\"\n    }\n  ]\n}'\n    https://development.avalara.net/1.0/tax/get";
             expectedState[0].qsPath = '';
             expectedState[0].postBody = {
                 "CustomerCode": "ABC4335",
@@ -757,7 +757,7 @@ describe('getStarted Reducer', () => {
             /* eslint-disable quote-props */
             const expectedState = R.clone(state);
 
-            expectedState[1].curl = "curl -X GET \"https://development.avalara.net/1.0/address/validate?Line1=1\" -H \"Accept: application/json\" -H \"Authorization: Basic aHR0cHdhdGNoOmY=\"";
+            expectedState[1].curl = "curl\n    -X GET\n    -H 'Accept: application/json'\n    -H 'Authorization: Basic aHR0cHdhdGNoOmY='\n    https://development.avalara.net/1.0/address/validate?Line1=1";
             expectedState[1].qsPath = '?Line1=1';
             expectedState[1].queryString.Line1 = {
                 description: 'Address line 1',
@@ -1407,7 +1407,7 @@ describe('getStarted Reducer', () => {
             ];
             const expectedState = R.clone(qsState);
 
-            expectedState[1].curl = "curl -X GET \"https://development.avalara.net/1.0/address/validate?Line1=1&City=Dalla&Region=WA&PostalCode=98109\" -H \"Accept: application/json\" -H \"Authorization: Basic aHR0cHdhdGNoOmY=\"";
+            expectedState[1].curl = "curl\n    -X GET\n    -H 'Accept: application/json'\n    -H 'Authorization: Basic aHR0cHdhdGNoOmY='\n    https://development.avalara.net/1.0/address/validate?Line1=1&City=Dalla&Region=WA&PostalCode=98109";
             expectedState[1].qsPath = '?Line1=1&City=Dalla&Region=WA&PostalCode=98109';
             expectedState[1].queryString.Line1 = {
                 description: 'Address line 1',

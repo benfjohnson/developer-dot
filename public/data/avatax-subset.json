@@ -1,0 +1,4146 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v2",
+    "title": "AvaTax API",
+    "description": "REST interface to Avalara's enterprise tax service, AvaTax.",
+    "contact": {
+      "name": "Avalara Developer Community",
+      "url": "https://community.avalara.com"
+    },
+    "license": {
+      "name": "Terms of Use",
+      "url": "https://www.avalara.com/terms-of-use/"
+    }
+  },
+  "host": "sandbox-rest.avatax.com",
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/",
+  "paths": {
+    "/api/v2/transactions/create": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "Calculate Tax",
+        "description": "Records a new transaction in AvaTax.\r\n\r\nThe `CreateTransaction` endpoint uses the configuration values specified by your company to identify the correct tax rules\r\nand rates to apply to all line items in this transaction, and reports the total tax calculated by AvaTax based on your\r\ncompany's configuration and the data provided in this API call.\r\n\r\nIf you don't specify type in the provided data, a new transaction with type of SalesOrder will be recorded by default.\r\n\r\nA transaction represents a unique potentially taxable action that your company has recorded, and transactions include actions like\r\nsales, purchases, inventory transfer, and returns (also called refunds).\r\nYou may specify one or more of the following values in the '$include' parameter to fetch additional nested data, using commas to separate multiple values:\r\n            \r\n* Lines\r\n* Details (implies lines)\r\n* Summary (implies details)\r\n* Addresses\r\n            \r\nIf you don't specify '$include' parameter, it will include both details and addresses.",
+        "operationId": "CreateTransaction",
+        "consumes": ["application/json", "text/json", "application/json-patch+json"],
+        "produces": ["application/json"],
+        "parameters": [{
+          "name": "model",
+          "in": "body",
+          "description": "The transaction you wish to create",
+          "required": false,
+          "schema": {
+            "$ref": "#/definitions/CreateTransactionModel"
+          }
+        }, {
+          "name": "$include",
+          "in": "query",
+          "description": "A comma separated list of child objects to return underneath the primary object.",
+          "required": false,
+          "type": "string"
+        }, {
+          "name": "X-Avalara-Client",
+          "in": "header",
+          "description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format `(app name); (app version); (library name); (library version); (machine name)`. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+          "required": false,
+          "type": "string",
+          "default": "Swagger UI; 17.5.1-73; Custom; 1.0"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TransactionModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "400": {
+            "description": "BadRequest"
+          }
+        },
+        "security": [{
+          "UserSecurity": [],
+          "OauthSecurity": []
+        }]
+      }
+    },
+    "/api/v2/addresses/resolve": {
+      "get": {
+        "tags": ["Addresses"],
+        "summary": "Validate an Address",
+        "description": "Resolve an address against Avalara's address-validation system.  If the address can be resolved, this API \r\nprovides the latitude and longitude of the resolved location.  The value 'resolutionQuality' can be used \r\nto identify how closely this address can be located.  If the address cannot be clearly located, use the \r\n'messages' structure to learn more about problems with this address.\r\nThis is the same API as the POST /api/v2/addresses/resolve endpoint.\r\nBoth verbs are supported to provide for flexible implementation.",
+        "operationId": "ResolveAddress",
+        "consumes": [],
+        "produces": ["application/json"],
+        "parameters": [{
+          "name": "line1",
+          "in": "query",
+          "description": "Line 1",
+          "required": false,
+          "type": "string",
+          "example": "123 Main Street"
+        }, {
+          "name": "line2",
+          "in": "query",
+          "description": "Line 2",
+          "required": false,
+          "type": "string"
+        }, {
+          "name": "line3",
+          "in": "query",
+          "description": "Line 3",
+          "required": false,
+          "type": "string"
+        }, {
+          "name": "city",
+          "in": "query",
+          "description": "City",
+          "required": false,
+          "type": "string",
+          "example": "Irvine"
+        }, {
+          "name": "region",
+          "in": "query",
+          "description": "State / Province / Region",
+          "required": false,
+          "type": "string",
+          "example": "CA"
+        }, {
+          "name": "postalCode",
+          "in": "query",
+          "description": "Postal Code / Zip Code",
+          "required": false,
+          "type": "string",
+          "example": "92615"
+        }, {
+          "name": "country",
+          "in": "query",
+          "description": "Two character ISO 3166 Country Code (see /api/v2/definitions/countries for a full list)",
+          "required": false,
+          "type": "string",
+          "example" : "US"
+        }, {
+          "name": "textCase",
+          "in": "query",
+          "description": "selectable text case for address validation",
+          "required": false,
+          "type": "string",
+          "enum": ["Upper", "Mixed"],
+          "x-enum-type": "TextCase",
+          "x-enum-description": "Casing to use for validation result",
+          "x-enum-value-comments": {
+            "Upper": "Upper case",
+            "Mixed": "Mixed Case"
+          }
+        }, {
+          "name": "latitude",
+          "in": "query",
+          "description": "Geospatial latitude measurement",
+          "required": false,
+          "type": "number",
+          "format": "double"
+        }, {
+          "name": "longitude",
+          "in": "query",
+          "description": "Geospatial longitude measurement",
+          "required": false,
+          "type": "number",
+          "format": "double"
+        }, {
+          "name": "X-Avalara-Client",
+          "in": "header",
+          "description": "Identifies the software you are using to call this API to aid in debugging and verification.\r\n                    This is a string in the format `(app name); (app version); (library name); (library version); (machine name)`. \r\n                    For more information about designing an Avalara client string for your application, please see the developer website.",
+          "required": false,
+          "type": "string",
+          "default": "Swagger UI; 17.5.1-73; Custom; 1.0"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AddressResolutionModel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "400": {
+            "description": "BadRequest"
+          }
+        },
+        "security": [{
+          "UserSecurity": [],
+          "OauthSecurity": []
+        }]
+      }
+    }  
+  },
+  "definitions": {
+    "AddressValidationInfo": {
+      "description": "TextCase info for input address",
+      "type": "object",
+      "properties": {
+        "textCase": {
+          "description": "Specify the text case for the validated address result.  If not specified, will return uppercase.",
+          "enum": ["Upper", "Mixed"],
+          "type": "string",
+          "example": "Upper",
+          "x-enum-type": "TextCase",
+          "x-enum-description": "Casing to use for validation result",
+          "x-enum-value-comments": {
+            "Upper": "Upper case",
+            "Mixed": "Mixed Case"
+          }
+        },
+        "line1": {
+          "description": "Line1",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "123 Main Street"
+        },
+        "line2": {
+          "description": "Line2",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "line3": {
+          "description": "Line3",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "city": {
+          "description": "City",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "Irvine"
+        },
+        "region": {
+          "description": "State / Province / Region",
+          "maxLength": 3,
+          "minLength": 0,
+          "type": "string",
+          "example": "CA"
+        },
+        "country": {
+          "description": "Two character ISO 3166 Country Code",
+          "maxLength": 2,
+          "minLength": 2,
+          "type": "string",
+          "example": "US"
+        },
+        "postalCode": {
+          "description": "Postal Code / Zip Code",
+          "maxLength": 11,
+          "minLength": 0,
+          "type": "string",
+          "example": "92615"
+        },
+        "latitude": {
+          "format": "double",
+          "description": "Geospatial latitude measurement",
+          "type": "number"
+        },
+        "longitude": {
+          "format": "double",
+          "description": "Geospatial longitude measurement",
+          "type": "number"
+        }
+      },
+      "example": {
+        "textCase": "Upper",
+        "line1": "123 Main Street",
+        "city": "Irvine",
+        "region": "CA",
+        "country": "US",
+        "postalCode": "92615"
+      }
+    },
+    "AddressResolutionModel": {
+      "description": "Address Resolution Model",
+      "type": "object",
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/AddressInfo",
+          "description": "The original address",
+          "example": {
+            "line1": "123 Main Street",
+            "city": "Irvine",
+            "region": "CA",
+            "country": "US",
+            "postalCode": "92615"
+          }
+        },
+        "validatedAddresses": {
+          "description": "The validated address or addresses",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValidatedAddressInfo"
+          }
+        },
+        "coordinates": {
+          "$ref": "#/definitions/CoordinateInfo",
+          "description": "The geospatial coordinates of this address",
+          "example": {
+            "latitude": 33.684884,
+            "longitude": -117.851321
+          }
+        },
+        "resolutionQuality": {
+          "description": "The resolution quality of the geospatial coordinates",
+          "enum": ["NotCoded", "External", "CountryCentroid", "RegionCentroid", "PartialCentroid", "PostalCentroidGood", "PostalCentroidBetter", "PostalCentroidBest", "Intersection", "Interpolated", "Rooftop", "Constant"],
+          "type": "string",
+          "example": "Rooftop",
+          "x-enum-type": "ResolutionQuality",
+          "x-enum-description": "The address resolution quality of an address validation result",
+          "x-enum-value-comments": {
+            "NotCoded": "Location was not geocoded",
+            "External": "Location was already geocoded on the request",
+            "CountryCentroid": "Avalara-defined country centroid",
+            "RegionCentroid": "Avalara-defined state / province centroid",
+            "PartialCentroid": "Geocoded at a level more coarse than a PostalCentroid1",
+            "PostalCentroidGood": "Largest postal code (zip5 in US, left three in CA, etc",
+            "PostalCentroidBetter": "Better postal code (zip7 in US)",
+            "PostalCentroidBest": "Best postal code (zip9 in US, complete postal code elsewhere)",
+            "Intersection": "Nearest intersection",
+            "Interpolated": "Interpolated to rooftop",
+            "Rooftop": "Assumed to be rooftop level, non-interpolated",
+            "Constant": "Pulled from a static list of geocodes for specific jurisdictions"
+          }
+        },
+        "taxAuthorities": {
+          "description": "List of informational and warning messages regarding this address",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TaxAuthorityInfo"
+          }
+        },
+        "messages": {
+          "description": "List of informational and warning messages regarding this address",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AvaTaxMessage"
+          },
+          "example": [{
+            "summary": "The address is not deliverable.",
+            "details": "The physical location exists but there are no homes on this street. One reason might be railroad tracks or rivers running alongside this street, as they would prevent construction of homes in this location.",
+            "refersTo": "address",
+            "severity": "Error",
+            "source": "Avalara.AvaTax.Services.Address"
+          }]
+        }
+      },
+      "example": {
+        "address": {
+          "line1": "123 Main Street",
+          "city": "Irvine",
+          "region": "CA",
+          "country": "US",
+          "postalCode": "92615"
+        },
+        "coordinates": {
+          "latitude": 33.684884,
+          "longitude": -117.851321
+        },
+        "resolutionQuality": "Rooftop",
+        "messages": [{
+          "summary": "The address is not deliverable.",
+          "details": "The physical location exists but there are no homes on this street. One reason might be railroad tracks or rivers running alongside this street, as they would prevent construction of homes in this location.",
+          "refersTo": "address",
+          "severity": "Error",
+          "source": "Avalara.AvaTax.Services.Address"
+        }]
+      }
+    },
+    "AddressInfo": {
+      "description": "Represents an address to resolve.",
+      "type": "object",
+      "properties": {
+        "line1": {
+          "description": "Line1",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "123 Main Street"
+        },
+        "line2": {
+          "description": "Line2",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "line3": {
+          "description": "Line3",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "city": {
+          "description": "City",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "Irvine"
+        },
+        "region": {
+          "description": "State / Province / Region",
+          "maxLength": 3,
+          "minLength": 0,
+          "type": "string",
+          "example": "CA"
+        },
+        "country": {
+          "description": "Two character ISO 3166 Country Code",
+          "maxLength": 2,
+          "minLength": 2,
+          "type": "string",
+          "example": "US"
+        },
+        "postalCode": {
+          "description": "Postal Code / Zip Code",
+          "maxLength": 11,
+          "minLength": 0,
+          "type": "string",
+          "example": "92615"
+        },
+        "latitude": {
+          "format": "double",
+          "description": "Geospatial latitude measurement",
+          "type": "number"
+        },
+        "longitude": {
+          "format": "double",
+          "description": "Geospatial longitude measurement",
+          "type": "number"
+        }
+      },
+      "example": {
+        "line1": "123 Main Street",
+        "city": "Irvine",
+        "region": "CA",
+        "country": "US",
+        "postalCode": "92615"
+      }
+    },
+    "ValidatedAddressInfo": {
+      "description": "Represents a validated address",
+      "type": "object",
+      "properties": {
+        "addressType": {
+          "description": "Address type code. One of: \r\n* F - Firm or company address\r\n* G - General Delivery address\r\n* H - High-rise or business complex\r\n* P - PO Box address\r\n* R - Rural route address\r\n* S - Street or residential address",
+          "type": "string"
+        },
+        "line1": {
+          "description": "Line1",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "123 Main Street"
+        },
+        "line2": {
+          "description": "Line2",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "line3": {
+          "description": "Line3",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "city": {
+          "description": "City",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "Irvine"
+        },
+        "region": {
+          "description": "State / Province / Region",
+          "maxLength": 3,
+          "minLength": 0,
+          "type": "string",
+          "example": "CA"
+        },
+        "country": {
+          "description": "Two character ISO 3166 Country Code",
+          "maxLength": 2,
+          "minLength": 2,
+          "type": "string",
+          "example": "US"
+        },
+        "postalCode": {
+          "description": "Postal Code / Zip Code",
+          "maxLength": 11,
+          "minLength": 0,
+          "type": "string",
+          "example": "92615"
+        },
+        "latitude": {
+          "format": "double",
+          "description": "Geospatial latitude measurement",
+          "type": "number"
+        },
+        "longitude": {
+          "format": "double",
+          "description": "Geospatial longitude measurement",
+          "type": "number"
+        }
+      },
+      "example": {
+        "line1": "123 Main Street",
+        "city": "Irvine",
+        "region": "CA",
+        "country": "US",
+        "postalCode": "92615"
+      }
+    },
+    "CoordinateInfo": {
+      "description": "Coordinate Info",
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "format": "double",
+          "description": "Latitude",
+          "type": "number",
+          "example": 33.684884
+        },
+        "longitude": {
+          "format": "double",
+          "description": "Longitude",
+          "type": "number",
+          "example": -117.851321
+        }
+      },
+      "example": {
+        "latitude": 33.684884,
+        "longitude": -117.851321
+      }
+    },
+    "TaxAuthorityInfo": {
+      "description": "Tax Authority Info",
+      "required": ["jurisdictionName"],
+      "type": "object",
+      "properties": {
+        "avalaraId": {
+          "description": "Avalara Id",
+          "type": "string",
+          "example": "AGAM"
+        },
+        "jurisdictionName": {
+          "description": "Jurisdiction Name",
+          "maxLength": 128,
+          "minLength": 0,
+          "type": "string",
+          "example": "CALIFORNIA"
+        },
+        "jurisdictionType": {
+          "description": "Jurisdiction Type",
+          "enum": ["Country", "Composite", "State", "County", "City", "Special"],
+          "type": "string",
+          "example": "State",
+          "x-enum-type": "JurisdictionType",
+          "x-enum-description": "Jurisdiction Type",
+          "x-enum-value-comments": {
+            "Country": "Country",
+            "Composite": "Deprecated",
+            "State": "State",
+            "County": "County",
+            "City": "City",
+            "Special": "Special Tax Jurisdiction"
+          }
+        },
+        "signatureCode": {
+          "description": "Signature Code",
+          "maxLength": 4,
+          "minLength": 0,
+          "type": "string",
+          "example": "AGAM"
+        }
+      },
+      "example": {
+        "avalaraId": "AGAM",
+        "jurisdictionName": "CALIFORNIA",
+        "jurisdictionType": "State",
+        "signatureCode": "AGAM"
+      }
+    },
+    "AvaTaxMessage": {
+      "description": "Informational or warning messages returned by AvaTax with a transaction",
+      "type": "object",
+      "properties": {
+        "summary": {
+          "description": "A brief summary of what this message tells us",
+          "type": "string"
+        },
+        "details": {
+          "description": "Detailed information that explains what the summary provided",
+          "type": "string"
+        },
+        "refersTo": {
+          "description": "Information about what object in your request this message refers to",
+          "type": "string"
+        },
+        "severity": {
+          "description": "A category that indicates how severely this message affects the results",
+          "type": "string"
+        },
+        "source": {
+          "description": "The name of the code or service that generated this message",
+          "type": "string"
+        }
+      },
+      "example": {}
+    }, 
+    "BatchModel": {
+      "description": "Represents a batch of uploaded documents.",
+      "required": ["name", "type"],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "description": "The unique ID number of this batch.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "description": "The user-friendly readable name for this batch.",
+          "maxLength": 194,
+          "minLength": 0,
+          "type": "string",
+          "example": "TestBatch"
+        },
+        "accountId": {
+          "format": "int32",
+          "description": "The Account ID number of the account that owns this batch.",
+          "type": "integer"
+        },
+        "companyId": {
+          "format": "int32",
+          "description": "The Company ID number of the company that owns this batch.",
+          "type": "integer"
+        },
+        "type": {
+          "description": "The type of this batch.",
+          "enum": ["AvaCertUpdate", "AvaCertUpdateAll", "BatchMaintenance", "CompanyLocationImport", "DocumentImport", "ExemptCertImport", "ItemImport", "SalesAuditExport", "SstpTestDeckImport", "TaxRuleImport", "TransactionImport", "UPCBulkImport", "UPCValidationImport"],
+          "type": "string",
+          "example": "TransactionImport",
+          "x-enum-type": "BatchType",
+          "x-enum-description": "The type of data contained in this batch",
+          "x-enum-value-comments": {
+            "TransactionImport": "This batch type represents tax transaction data being uploaded to AvaTax.  Each line in the batch represents a single transaction\n            or a line in a multi-line transaction.  For reference, see [Batched Transactions in REST v2](http://developer.avalara.com/blog/2016/10/24/batch-transaction-upload-in-rest-v2)"
+          }
+        },
+        "status": {
+          "description": "This batch's current processing status",
+          "enum": ["Waiting", "SystemErrors", "Cancelled", "Completed", "Creating", "Deleted", "Errors", "Paused", "Processing"],
+          "type": "string",
+          "readOnly": true,
+          "x-enum-type": "BatchStatus",
+          "x-enum-description": "The status of a batch file",
+          "x-enum-value-comments": {
+            "Waiting": "Batch file has been received and is in the queue to be processed.",
+            "SystemErrors": "Batch file experienced system errors and cannot be processed.",
+            "Cancelled": "Batch file is cancelled",
+            "Completed": "Batch file has been completely processed.",
+            "Creating": "Batch file is currently being created.",
+            "Deleted": "Batch file has been deleted.",
+            "Errors": "Batch file was processed with some errors.",
+            "Paused": "Batch processing was paused.",
+            "Processing": "Batch is currently being processed."
+          }
+        },
+        "options": {
+          "description": "Any optional flags provided for this batch",
+          "maxLength": 200,
+          "minLength": 0,
+          "type": "string"
+        },
+        "batchAgent": {
+          "description": "The agent used to create this batch",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "manual"
+        },
+        "startedDate": {
+          "format": "date-time",
+          "description": "The date/time when this batch started processing",
+          "type": "string",
+          "readOnly": true
+        },
+        "recordCount": {
+          "format": "int32",
+          "description": "The number of records in this batch; determined by the server",
+          "type": "integer",
+          "readOnly": true
+        },
+        "currentRecord": {
+          "format": "int32",
+          "description": "The current record being processed",
+          "type": "integer",
+          "readOnly": true
+        },
+        "completedDate": {
+          "format": "date-time",
+          "description": "The date/time when this batch was completely processed",
+          "type": "string",
+          "readOnly": true
+        },
+        "createdDate": {
+          "format": "date-time",
+          "description": "The date when this record was created.",
+          "type": "string",
+          "readOnly": true
+        },
+        "createdUserId": {
+          "format": "int32",
+          "description": "The User ID of the user who created this record.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "modifiedDate": {
+          "format": "date-time",
+          "description": "The date/time when this record was last modified.",
+          "type": "string",
+          "readOnly": true
+        },
+        "modifiedUserId": {
+          "format": "int32",
+          "description": "The user ID of the user who last modified this record.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "files": {
+          "description": "The list of files contained in this batch.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BatchFileModel"
+          },
+          "example": [{
+            "name": "samplebatch.csv",
+            "content": "UHJvY2Vzc0NvZGUsRG9jQ29kZSxEb2NUeXBlLERvY0RhdGUsQ29tcGFueUNvZGUsQ3VzdG9tZXJDb2RlLEVudGl0eVVzZUNvZGUsTGluZU5vLFRheENvZGUsVGF4RGF0ZSxJdGVtQ29kZSxEZXNjcmlwdGlvbixRdHksQW1vdW50LERpc2NvdW50LFJlZjEsUmVmMixFeGVtcHRpb25ObyxSZXZBY2N0LERlc3RBZGRyZXNzLERlc3RDaXR5LERlc3RSZWdpb24sRGVzdFBvc3RhbENvZGUsRGVzdENvdW50cnksT3JpZ0FkZHJlc3MsT3JpZ0NpdHksT3JpZ1JlZ2lvbixPcmlnUG9zdGFsQ29kZSxPcmlnQ291bnRyeSxMb2NhdGlvbkNvZGUsU2FsZXNQZXJzb25Db2RlLFB1cmNoYXNlT3JkZXJObyxDdXJyZW5jeUNvZGUsRXhjaGFuZ2VSYXRlLEV4Y2hhbmdlUmF0ZUVmZkRhdGUsUGF5bWVudERhdGUsVGF4SW5jbHVkZWQsRGVzdFRheFJlZ2lvbixPcmlnVGF4UmVnaW9uLFRheGFibGUsVGF4VHlwZSxUb3RhbFRheCxDb3VudHJ5TmFtZSxDb3VudHJ5Q29kZSxDb3VudHJ5UmF0ZSxDb3VudHJ5VGF4LFN0YXRlTmFtZSxTdGF0ZUNvZGUsU3RhdGVSYXRlLFN0YXRlVGF4LENvdW50eU5hbWUsQ291bnR5Q29kZSxDb3VudHlSYXRlLENvdW50eVRheCxDaXR5TmFtZSxDaXR5Q29kZSxDaXR5UmF0ZSxDaXR5VGF4LE90aGVyMU5hbWUsT3RoZXIxQ29kZSxPdGhlcjFSYXRlLE90aGVyMVRheCxPdGhlcjJOYW1lLE90aGVyMkNvZGUsT3RoZXIyUmF0ZSxPdGhlcjJUYXgsT3RoZXIzTmFtZSxPdGhlcjNDb2RlLE90aGVyM1JhdGUsT3RoZXIzVGF4LE90aGVyNE5hbWUsT3RoZXI0Q29kZSxPdGhlcjRSYXRlLE90aGVyNFRheCxSZWZlcmVuY2VDb2RlLEJ1eWVyc1ZBVE5vLElzU2VsbGVySW1wb3J0ZXJPZlJlY29yZCxCUkJ1eWVyVHlwZSxCUkJ1eWVyX0lzRXhlbXB0T3JDYW5ub3RXSF9JUlJGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX1BJU1JGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX0NPRklOU1JGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX0NTTExSRixCUkJ1eWVyX0lzRXhlbXB0X1BJUyxCUkJ1eWVyX0lzRXhlbXB0X0NPRklOUyxCUkJ1eWVyX0lzRXhlbXB0X0NTTEwsSGVhZGVyX0Rlc2NyaXB0aW9uLEVtYWlsDQozLDlhYzI4MGMzLTNhNTUtNGEzNS1iZWQyLWE4M2RiNTNiMDUxZSwxLDEvMS8yMDE0LERFRkFVTFQsQ3VzdDEsLDEsLCwsLCwxMDAwLCwsLCwsMjM1IEUgNDJuZCBTdCAsTmV3IFlvcmssTlksMTAwMTctNTcwMyAgLFVTLDkwMCBXaW5zbG93IFdheSxCYWluYnJpZGdlIElzbGFuZCxXQSw5ODExMCxVUywsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwNCg==",
+            "contentLength": 0,
+            "contentType": "text/csv",
+            "fileExtension": ".csv"
+          }]
+        }
+      },
+      "example": {
+        "name": "TestBatch",
+        "type": "TransactionImport",
+        "batchAgent": "manual",
+        "files": [{
+          "name": "samplebatch.csv",
+          "content": "UHJvY2Vzc0NvZGUsRG9jQ29kZSxEb2NUeXBlLERvY0RhdGUsQ29tcGFueUNvZGUsQ3VzdG9tZXJDb2RlLEVudGl0eVVzZUNvZGUsTGluZU5vLFRheENvZGUsVGF4RGF0ZSxJdGVtQ29kZSxEZXNjcmlwdGlvbixRdHksQW1vdW50LERpc2NvdW50LFJlZjEsUmVmMixFeGVtcHRpb25ObyxSZXZBY2N0LERlc3RBZGRyZXNzLERlc3RDaXR5LERlc3RSZWdpb24sRGVzdFBvc3RhbENvZGUsRGVzdENvdW50cnksT3JpZ0FkZHJlc3MsT3JpZ0NpdHksT3JpZ1JlZ2lvbixPcmlnUG9zdGFsQ29kZSxPcmlnQ291bnRyeSxMb2NhdGlvbkNvZGUsU2FsZXNQZXJzb25Db2RlLFB1cmNoYXNlT3JkZXJObyxDdXJyZW5jeUNvZGUsRXhjaGFuZ2VSYXRlLEV4Y2hhbmdlUmF0ZUVmZkRhdGUsUGF5bWVudERhdGUsVGF4SW5jbHVkZWQsRGVzdFRheFJlZ2lvbixPcmlnVGF4UmVnaW9uLFRheGFibGUsVGF4VHlwZSxUb3RhbFRheCxDb3VudHJ5TmFtZSxDb3VudHJ5Q29kZSxDb3VudHJ5UmF0ZSxDb3VudHJ5VGF4LFN0YXRlTmFtZSxTdGF0ZUNvZGUsU3RhdGVSYXRlLFN0YXRlVGF4LENvdW50eU5hbWUsQ291bnR5Q29kZSxDb3VudHlSYXRlLENvdW50eVRheCxDaXR5TmFtZSxDaXR5Q29kZSxDaXR5UmF0ZSxDaXR5VGF4LE90aGVyMU5hbWUsT3RoZXIxQ29kZSxPdGhlcjFSYXRlLE90aGVyMVRheCxPdGhlcjJOYW1lLE90aGVyMkNvZGUsT3RoZXIyUmF0ZSxPdGhlcjJUYXgsT3RoZXIzTmFtZSxPdGhlcjNDb2RlLE90aGVyM1JhdGUsT3RoZXIzVGF4LE90aGVyNE5hbWUsT3RoZXI0Q29kZSxPdGhlcjRSYXRlLE90aGVyNFRheCxSZWZlcmVuY2VDb2RlLEJ1eWVyc1ZBVE5vLElzU2VsbGVySW1wb3J0ZXJPZlJlY29yZCxCUkJ1eWVyVHlwZSxCUkJ1eWVyX0lzRXhlbXB0T3JDYW5ub3RXSF9JUlJGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX1BJU1JGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX0NPRklOU1JGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX0NTTExSRixCUkJ1eWVyX0lzRXhlbXB0X1BJUyxCUkJ1eWVyX0lzRXhlbXB0X0NPRklOUyxCUkJ1eWVyX0lzRXhlbXB0X0NTTEwsSGVhZGVyX0Rlc2NyaXB0aW9uLEVtYWlsDQozLDlhYzI4MGMzLTNhNTUtNGEzNS1iZWQyLWE4M2RiNTNiMDUxZSwxLDEvMS8yMDE0LERFRkFVTFQsQ3VzdDEsLDEsLCwsLCwxMDAwLCwsLCwsMjM1IEUgNDJuZCBTdCAsTmV3IFlvcmssTlksMTAwMTctNTcwMyAgLFVTLDkwMCBXaW5zbG93IFdheSxCYWluYnJpZGdlIElzbGFuZCxXQSw5ODExMCxVUywsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwNCg==",
+          "contentLength": 0,
+          "contentType": "text/csv",
+          "fileExtension": ".csv"
+        }]
+      }
+    },
+    "BatchFileModel": {
+      "description": "Represents one file in a batch upload.",
+      "required": ["name", "content", "contentType", "fileExtension"],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "description": "The unique ID number assigned to this batch file.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "batchId": {
+          "format": "int32",
+          "description": "The unique ID number of the batch that this file belongs to.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "name": {
+          "description": "Logical Name of file (e.g. \"Input\" or \"Error\").",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "samplebatch.csv"
+        },
+        "content": {
+          "format": "byte",
+          "description": "Content of the batch file.",
+          "type": "string",
+          "example": "UHJvY2Vzc0NvZGUsRG9jQ29kZSxEb2NUeXBlLERvY0RhdGUsQ29tcGFueUNvZGUsQ3VzdG9tZXJDb2RlLEVudGl0eVVzZUNvZGUsTGluZU5vLFRheENvZGUsVGF4RGF0ZSxJdGVtQ29kZSxEZXNjcmlwdGlvbixRdHksQW1vdW50LERpc2NvdW50LFJlZjEsUmVmMixFeGVtcHRpb25ObyxSZXZBY2N0LERlc3RBZGRyZXNzLERlc3RDaXR5LERlc3RSZWdpb24sRGVzdFBvc3RhbENvZGUsRGVzdENvdW50cnksT3JpZ0FkZHJlc3MsT3JpZ0NpdHksT3JpZ1JlZ2lvbixPcmlnUG9zdGFsQ29kZSxPcmlnQ291bnRyeSxMb2NhdGlvbkNvZGUsU2FsZXNQZXJzb25Db2RlLFB1cmNoYXNlT3JkZXJObyxDdXJyZW5jeUNvZGUsRXhjaGFuZ2VSYXRlLEV4Y2hhbmdlUmF0ZUVmZkRhdGUsUGF5bWVudERhdGUsVGF4SW5jbHVkZWQsRGVzdFRheFJlZ2lvbixPcmlnVGF4UmVnaW9uLFRheGFibGUsVGF4VHlwZSxUb3RhbFRheCxDb3VudHJ5TmFtZSxDb3VudHJ5Q29kZSxDb3VudHJ5UmF0ZSxDb3VudHJ5VGF4LFN0YXRlTmFtZSxTdGF0ZUNvZGUsU3RhdGVSYXRlLFN0YXRlVGF4LENvdW50eU5hbWUsQ291bnR5Q29kZSxDb3VudHlSYXRlLENvdW50eVRheCxDaXR5TmFtZSxDaXR5Q29kZSxDaXR5UmF0ZSxDaXR5VGF4LE90aGVyMU5hbWUsT3RoZXIxQ29kZSxPdGhlcjFSYXRlLE90aGVyMVRheCxPdGhlcjJOYW1lLE90aGVyMkNvZGUsT3RoZXIyUmF0ZSxPdGhlcjJUYXgsT3RoZXIzTmFtZSxPdGhlcjNDb2RlLE90aGVyM1JhdGUsT3RoZXIzVGF4LE90aGVyNE5hbWUsT3RoZXI0Q29kZSxPdGhlcjRSYXRlLE90aGVyNFRheCxSZWZlcmVuY2VDb2RlLEJ1eWVyc1ZBVE5vLElzU2VsbGVySW1wb3J0ZXJPZlJlY29yZCxCUkJ1eWVyVHlwZSxCUkJ1eWVyX0lzRXhlbXB0T3JDYW5ub3RXSF9JUlJGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX1BJU1JGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX0NPRklOU1JGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX0NTTExSRixCUkJ1eWVyX0lzRXhlbXB0X1BJUyxCUkJ1eWVyX0lzRXhlbXB0X0NPRklOUyxCUkJ1eWVyX0lzRXhlbXB0X0NTTEwsSGVhZGVyX0Rlc2NyaXB0aW9uLEVtYWlsDQozLDlhYzI4MGMzLTNhNTUtNGEzNS1iZWQyLWE4M2RiNTNiMDUxZSwxLDEvMS8yMDE0LERFRkFVTFQsQ3VzdDEsLDEsLCwsLCwxMDAwLCwsLCwsMjM1IEUgNDJuZCBTdCAsTmV3IFlvcmssTlksMTAwMTctNTcwMyAgLFVTLDkwMCBXaW5zbG93IFdheSxCYWluYnJpZGdlIElzbGFuZCxXQSw5ODExMCxVUywsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwNCg=="
+        },
+        "contentLength": {
+          "format": "int32",
+          "description": "Size of content, in bytes.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 0
+        },
+        "contentType": {
+          "description": "Content mime type (e.g. text/csv).  This is used for HTTP downloading.",
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string",
+          "example": "text/csv"
+        },
+        "fileExtension": {
+          "description": "File extension (e.g. CSV).",
+          "maxLength": 10,
+          "minLength": 0,
+          "type": "string",
+          "example": ".csv"
+        },
+        "errorCount": {
+          "format": "int32",
+          "description": "Number of errors that occurred when processing this file.",
+          "type": "integer"
+        }
+      },
+      "example": {
+        "name": "samplebatch.csv",
+        "content": "UHJvY2Vzc0NvZGUsRG9jQ29kZSxEb2NUeXBlLERvY0RhdGUsQ29tcGFueUNvZGUsQ3VzdG9tZXJDb2RlLEVudGl0eVVzZUNvZGUsTGluZU5vLFRheENvZGUsVGF4RGF0ZSxJdGVtQ29kZSxEZXNjcmlwdGlvbixRdHksQW1vdW50LERpc2NvdW50LFJlZjEsUmVmMixFeGVtcHRpb25ObyxSZXZBY2N0LERlc3RBZGRyZXNzLERlc3RDaXR5LERlc3RSZWdpb24sRGVzdFBvc3RhbENvZGUsRGVzdENvdW50cnksT3JpZ0FkZHJlc3MsT3JpZ0NpdHksT3JpZ1JlZ2lvbixPcmlnUG9zdGFsQ29kZSxPcmlnQ291bnRyeSxMb2NhdGlvbkNvZGUsU2FsZXNQZXJzb25Db2RlLFB1cmNoYXNlT3JkZXJObyxDdXJyZW5jeUNvZGUsRXhjaGFuZ2VSYXRlLEV4Y2hhbmdlUmF0ZUVmZkRhdGUsUGF5bWVudERhdGUsVGF4SW5jbHVkZWQsRGVzdFRheFJlZ2lvbixPcmlnVGF4UmVnaW9uLFRheGFibGUsVGF4VHlwZSxUb3RhbFRheCxDb3VudHJ5TmFtZSxDb3VudHJ5Q29kZSxDb3VudHJ5UmF0ZSxDb3VudHJ5VGF4LFN0YXRlTmFtZSxTdGF0ZUNvZGUsU3RhdGVSYXRlLFN0YXRlVGF4LENvdW50eU5hbWUsQ291bnR5Q29kZSxDb3VudHlSYXRlLENvdW50eVRheCxDaXR5TmFtZSxDaXR5Q29kZSxDaXR5UmF0ZSxDaXR5VGF4LE90aGVyMU5hbWUsT3RoZXIxQ29kZSxPdGhlcjFSYXRlLE90aGVyMVRheCxPdGhlcjJOYW1lLE90aGVyMkNvZGUsT3RoZXIyUmF0ZSxPdGhlcjJUYXgsT3RoZXIzTmFtZSxPdGhlcjNDb2RlLE90aGVyM1JhdGUsT3RoZXIzVGF4LE90aGVyNE5hbWUsT3RoZXI0Q29kZSxPdGhlcjRSYXRlLE90aGVyNFRheCxSZWZlcmVuY2VDb2RlLEJ1eWVyc1ZBVE5vLElzU2VsbGVySW1wb3J0ZXJPZlJlY29yZCxCUkJ1eWVyVHlwZSxCUkJ1eWVyX0lzRXhlbXB0T3JDYW5ub3RXSF9JUlJGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX1BJU1JGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX0NPRklOU1JGLEJSQnV5ZXJfSXNFeGVtcHRPckNhbm5vdFdIX0NTTExSRixCUkJ1eWVyX0lzRXhlbXB0X1BJUyxCUkJ1eWVyX0lzRXhlbXB0X0NPRklOUyxCUkJ1eWVyX0lzRXhlbXB0X0NTTEwsSGVhZGVyX0Rlc2NyaXB0aW9uLEVtYWlsDQozLDlhYzI4MGMzLTNhNTUtNGEzNS1iZWQyLWE4M2RiNTNiMDUxZSwxLDEvMS8yMDE0LERFRkFVTFQsQ3VzdDEsLDEsLCwsLCwxMDAwLCwsLCwsMjM1IEUgNDJuZCBTdCAsTmV3IFlvcmssTlksMTAwMTctNTcwMyAgLFVTLDkwMCBXaW5zbG93IFdheSxCYWluYnJpZGdlIElzbGFuZCxXQSw5ODExMCxVUywsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwNCg==",
+        "contentLength": 0,
+        "contentType": "text/csv",
+        "fileExtension": ".csv"
+      }
+    },
+    "FetchResult[BatchModel]": {
+      "type": "object",
+      "properties": {
+        "@recordsetCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BatchModel"
+          }
+        },
+        "@nextLink": {
+          "type": "string"
+        }
+      }
+    },
+    "CompanyModel": {
+      "description": "A company or business entity.",
+      "required": ["id", "accountId", "companyCode", "name", "defaultCountry"],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "description": "The unique ID number of this company.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 12345
+        },
+        "accountId": {
+          "format": "int32",
+          "description": "The unique ID number of the account this company belongs to.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 123456789
+        },
+        "parentCompanyId": {
+          "format": "int32",
+          "description": "If this company is fully owned by another company, this is the unique identity of the parent company.",
+          "type": "integer"
+        },
+        "sstPid": {
+          "description": "If this company files Streamlined Sales Tax, this is the PID of this company as defined by the Streamlined Sales Tax governing board.",
+          "maxLength": 9,
+          "minLength": 0,
+          "type": "string"
+        },
+        "companyCode": {
+          "description": "A unique code that references this company within your account.",
+          "maxLength": 25,
+          "minLength": 0,
+          "type": "string",
+          "readOnly": true,
+          "example": "DEFAULT"
+        },
+        "name": {
+          "description": "The name of this company, as shown to customers.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "Default Company"
+        },
+        "isDefault": {
+          "description": "This flag is true if this company is the default company for this account.  Only one company may be set as the default.",
+          "type": "boolean",
+          "example": false
+        },
+        "defaultLocationId": {
+          "format": "int32",
+          "description": "If set, this is the unique ID number of the default location for this company.",
+          "type": "integer"
+        },
+        "isActive": {
+          "description": "This flag indicates whether tax activity can occur for this company.  Set this flag to true to permit the company to process transactions.",
+          "type": "boolean",
+          "example": true
+        },
+        "taxpayerIdNumber": {
+          "description": "For United States companies, this field contains your Taxpayer Identification Number.  \r\nThis is a nine digit number that is usually called an EIN for an Employer Identification Number if this company is a corporation, \r\nor SSN for a Social Security Number if this company is a person.\r\nThis value is required if you subscribe to Avalara Managed Returns or the SST Certified Service Provider services, \r\nbut it is optional if you do not subscribe to either of those services.",
+          "maxLength": 11,
+          "minLength": 0,
+          "type": "string",
+          "example": "123456789"
+        },
+        "hasProfile": {
+          "description": "Set this flag to true to give this company its own unique tax profile.\r\nIf this flag is true, this company will have its own Nexus, TaxRule, TaxCode, and Item definitions.\r\nIf this flag is false, this company will inherit all profile values from its parent.",
+          "type": "boolean",
+          "example": true
+        },
+        "isReportingEntity": {
+          "description": "Set this flag to true if this company must file its own tax returns.\r\nFor users who have Returns enabled, this flag turns on monthly Worksheet generation for the company.",
+          "type": "boolean",
+          "example": false
+        },
+        "sstEffectiveDate": {
+          "format": "date-time",
+          "description": "If this company participates in Streamlined Sales Tax, this is the date when the company joined the SST program.",
+          "type": "string"
+        },
+        "defaultCountry": {
+          "description": "The two character ISO-3166 country code of the default country for this company.",
+          "maxLength": 2,
+          "minLength": 2,
+          "type": "string",
+          "example": "US"
+        },
+        "baseCurrencyCode": {
+          "description": "This is the three character ISO-4217 currency code of the default currency used by this company.",
+          "maxLength": 3,
+          "minLength": 0,
+          "type": "string",
+          "example": "USD"
+        },
+        "roundingLevelId": {
+          "description": "Indicates whether this company prefers to round amounts at the document level or line level.",
+          "enum": ["Line", "Document"],
+          "type": "string",
+          "example": "Line",
+          "x-enum-type": "RoundingLevelId",
+          "x-enum-description": "Choice of rounding level for a transaction",
+          "x-enum-value-comments": {
+            "Line": "Round tax on each line separately",
+            "Document": "Round tax at the document level"
+          }
+        },
+        "warningsEnabled": {
+          "description": "Set this value to true to receive warnings in API calls via SOAP.",
+          "type": "boolean"
+        },
+        "isTest": {
+          "description": "Set this flag to true to indicate that this company is a test company.\r\nIf you have Returns enabled, Test companies will not file tax returns and can be used for validation purposes.",
+          "type": "boolean",
+          "example": true
+        },
+        "taxDependencyLevelId": {
+          "description": "Used to apply tax detail dependency at a jurisdiction level.",
+          "enum": ["Document", "State", "TaxRegion", "Address"],
+          "type": "string",
+          "example": "Document",
+          "x-enum-type": "TaxDependencyLevelId",
+          "x-enum-description": "TaxDependencyLevelId",
+          "x-enum-value-comments": {
+            "Document": "Document",
+            "State": "State",
+            "TaxRegion": "TaxRegion",
+            "Address": "Address"
+          }
+        },
+        "inProgress": {
+          "description": "Set this value to true to indicate that you are still working to finish configuring this company.\r\nWhile this value is true, no tax reporting will occur and the company will not be usable for transactions.",
+          "type": "boolean",
+          "example": false
+        },
+        "businessIdentificationNo": {
+          "description": "Business Identification No",
+          "maxLength": 25,
+          "minLength": 0,
+          "type": "string"
+        },
+        "createdDate": {
+          "format": "date-time",
+          "description": "The date when this record was created.",
+          "type": "string",
+          "readOnly": true
+        },
+        "createdUserId": {
+          "format": "int32",
+          "description": "The User ID of the user who created this record.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "modifiedDate": {
+          "format": "date-time",
+          "description": "The date/time when this record was last modified.",
+          "type": "string",
+          "readOnly": true
+        },
+        "modifiedUserId": {
+          "format": "int32",
+          "description": "The user ID of the user who last modified this record.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "contacts": {
+          "description": "Optional: A list of contacts defined for this company.  To fetch this list, add the query string \"?$include=Contacts\" to your URL.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContactModel"
+          }
+        },
+        "items": {
+          "description": "Optional: A list of items defined for this company.  To fetch this list, add the query string \"?$include=Items\" to your URL.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ItemModel"
+          }
+        },
+        "locations": {
+          "description": "Optional: A list of locations defined for this company.  To fetch this list, add the query string \"?$include=Locations\" to your URL.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LocationModel"
+          }
+        },
+        "nexus": {
+          "description": "Optional: A list of nexus defined for this company.  To fetch this list, add the query string \"?$include=Nexus\" to your URL.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NexusModel"
+          }
+        },
+        "settings": {
+          "description": "Optional: A list of settings defined for this company.  To fetch this list, add the query string \"?$include=Settings\" to your URL.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SettingModel"
+          }
+        },
+        "taxCodes": {
+          "description": "Optional: A list of tax codes defined for this company.  To fetch this list, add the query string \"?$include=TaxCodes\" to your URL.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TaxCodeModel"
+          }
+        },
+        "taxRules": {
+          "description": "Optional: A list of tax rules defined for this company.  To fetch this list, add the query string \"?$include=TaxRules\" to your URL.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TaxRuleModel"
+          }
+        },
+        "upcs": {
+          "description": "Optional: A list of UPCs defined for this company.  To fetch this list, add the query string \"?$include=UPCs\" to your URL.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UPCModel"
+          }
+        }
+      },
+      "example": {
+        "id": 12345,
+        "accountId": 123456789,
+        "companyCode": "DEFAULT",
+        "name": "Default Company",
+        "isDefault": false,
+        "isActive": true,
+        "taxpayerIdNumber": "123456789",
+        "hasProfile": true,
+        "isReportingEntity": false,
+        "defaultCountry": "US",
+        "baseCurrencyCode": "USD",
+        "roundingLevelId": "Line",
+        "isTest": true,
+        "taxDependencyLevelId": "Document",
+        "inProgress": false
+      }
+    },
+    "ContactModel": {
+      "description": "A contact person for a company.",
+      "required": ["id", "companyId", "contactCode"],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "description": "The unique ID number of this contact.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 56789
+        },
+        "companyId": {
+          "format": "int32",
+          "description": "The unique ID number of the company to which this contact belongs.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 12345
+        },
+        "contactCode": {
+          "description": "A unique code for this contact.",
+          "maxLength": 25,
+          "minLength": 0,
+          "type": "string",
+          "example": "DEFAULT"
+        },
+        "firstName": {
+          "description": "The first or given name of this contact.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "Bob"
+        },
+        "middleName": {
+          "description": "The middle name of this contact.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "lastName": {
+          "description": "The last or family name of this contact.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "McExample"
+        },
+        "title": {
+          "description": "Professional title of this contact.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "Owner"
+        },
+        "line1": {
+          "description": "The first line of the postal mailing address of this contact.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "123 Main Street"
+        },
+        "line2": {
+          "description": "The second line of the postal mailing address of this contact.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "line3": {
+          "description": "The third line of the postal mailing address of this contact.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "city": {
+          "description": "The city of the postal mailing address of this contact.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "Irvine"
+        },
+        "region": {
+          "description": "The state, region, or province of the postal mailing address of this contact.",
+          "maxLength": 3,
+          "minLength": 0,
+          "type": "string",
+          "example": "CA"
+        },
+        "postalCode": {
+          "description": "The postal code or zip code of the postal mailing address of this contact.",
+          "maxLength": 10,
+          "minLength": 0,
+          "type": "string",
+          "example": "92615"
+        },
+        "country": {
+          "description": "The ISO 3166 two-character country code of the postal mailing address of this contact.",
+          "maxLength": 2,
+          "minLength": 2,
+          "type": "string",
+          "example": "US"
+        },
+        "email": {
+          "description": "The email address of this contact.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "bob@example.org"
+        },
+        "phone": {
+          "description": "The main phone number for this contact.",
+          "maxLength": 25,
+          "minLength": 0,
+          "type": "string",
+          "example": "714 555-1212"
+        },
+        "mobile": {
+          "description": "The mobile phone number for this contact.",
+          "maxLength": 25,
+          "minLength": 0,
+          "type": "string"
+        },
+        "fax": {
+          "description": "The facsimile phone number for this contact.",
+          "maxLength": 25,
+          "minLength": 0,
+          "type": "string"
+        },
+        "createdDate": {
+          "format": "date-time",
+          "description": "The date when this record was created.",
+          "type": "string",
+          "readOnly": true
+        },
+        "createdUserId": {
+          "format": "int32",
+          "description": "The User ID of the user who created this record.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "modifiedDate": {
+          "format": "date-time",
+          "description": "The date/time when this record was last modified.",
+          "type": "string",
+          "readOnly": true
+        },
+        "modifiedUserId": {
+          "format": "int32",
+          "description": "The user ID of the user who last modified this record.",
+          "type": "integer",
+          "readOnly": true
+        }
+      },
+      "example": {
+        "id": 56789,
+        "companyId": 12345,
+        "contactCode": "DEFAULT",
+        "firstName": "Bob",
+        "lastName": "McExample",
+        "title": "Owner",
+        "line1": "123 Main Street",
+        "city": "Irvine",
+        "region": "CA",
+        "postalCode": "92615",
+        "country": "US",
+        "email": "bob@example.org",
+        "phone": "714 555-1212"
+      }
+    },
+    "ItemModel": {
+      "description": "Represents an item in your company's product catalog.",
+      "required": ["id", "companyId", "itemCode", "description"],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int64",
+          "description": "The unique ID number of this item.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 56789
+        },
+        "companyId": {
+          "format": "int32",
+          "description": "The unique ID number of the company that owns this item.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 12345
+        },
+        "itemCode": {
+          "description": "A unique code representing this item.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "CERMUG"
+        },
+        "taxCodeId": {
+          "format": "int32",
+          "description": "The unique ID number of the tax code that is applied when selling this item.\r\nWhen creating or updating an item, you can either specify the Tax Code ID number or the Tax Code string; you do not need to specify both values.",
+          "type": "integer"
+        },
+        "taxCode": {
+          "description": "The unique code string of the Tax Code that is applied when selling this item.\r\nWhen creating or updating an item, you can either specify the Tax Code ID number or the Tax Code string; you do not need to specify both values.",
+          "maxLength": 25,
+          "minLength": 0,
+          "type": "string",
+          "example": "P0000000"
+        },
+        "description": {
+          "description": "A friendly description of this item in your product catalog.",
+          "maxLength": 255,
+          "minLength": 0,
+          "type": "string",
+          "example": "Ceramic Mug"
+        },
+        "createdDate": {
+          "format": "date-time",
+          "description": "The date when this record was created.",
+          "type": "string",
+          "readOnly": true
+        },
+        "createdUserId": {
+          "format": "int32",
+          "description": "The User ID of the user who created this record.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "modifiedDate": {
+          "format": "date-time",
+          "description": "The date/time when this record was last modified.",
+          "type": "string",
+          "readOnly": true
+        },
+        "modifiedUserId": {
+          "format": "int32",
+          "description": "The user ID of the user who last modified this record.",
+          "type": "integer",
+          "readOnly": true
+        }
+      },
+      "example": {
+        "id": 56789,
+        "companyId": 12345,
+        "itemCode": "CERMUG",
+        "taxCode": "P0000000",
+        "description": "Ceramic Mug"
+      }
+    },
+    "LocationModel": {
+      "description": "A location where this company does business.\r\nSome jurisdictions may require you to list all locations where your company does business.",
+      "required": ["id", "companyId", "locationCode", "addressTypeId", "addressCategoryId", "line1", "postalCode"],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "description": "The unique ID number of this location.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 56789
+        },
+        "companyId": {
+          "format": "int32",
+          "description": "The unique ID number of the company that operates at this location.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 12345
+        },
+        "locationCode": {
+          "description": "A code that identifies this location.  Must be unique within your company.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "DEFAULT"
+        },
+        "description": {
+          "description": "A friendly name for this location.",
+          "maxLength": 255,
+          "minLength": 0,
+          "type": "string",
+          "example": "Bob's Artisan Pottery"
+        },
+        "addressTypeId": {
+          "description": "Indicates whether this location is a physical place of business or a temporary salesperson location.",
+          "enum": ["Location", "Salesperson"],
+          "type": "string",
+          "example": "Location",
+          "x-enum-type": "AddressTypeId",
+          "x-enum-description": "Indicates whether this address refers to a person or an business",
+          "x-enum-value-comments": {
+            "Location": "A business location, for example a store, warehouse, or office.",
+            "Salesperson": "A person's address who performs sales tasks for the company remotely from an office."
+          }
+        },
+        "addressCategoryId": {
+          "description": "Indicates the type of place of business represented by this location.",
+          "enum": ["Storefront", "MainOffice", "Warehouse", "Salesperson", "Other"],
+          "type": "string",
+          "example": "MainOffice",
+          "x-enum-type": "AddressCategoryId",
+          "x-enum-description": "The type of address represented by this object",
+          "x-enum-value-comments": {
+            "Storefront": "Address refers to a storefront location",
+            "MainOffice": "Address refers to a main office of this company",
+            "Warehouse": "Address refers to a warehouse or other non-public location",
+            "Salesperson": "Address refers to a location for a single salesperson",
+            "Other": "Address is a type not reflected in the other lists"
+          }
+        },
+        "line1": {
+          "description": "The first line of the physical address of this location.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "123 Main Street"
+        },
+        "line2": {
+          "description": "The second line of the physical address of this location.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "line3": {
+          "description": "The third line of the physical address of this location.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "city": {
+          "description": "The city of the physical address of this location.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "Irvine"
+        },
+        "county": {
+          "description": "The county name of the physical address of this location.  Not required.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "Orange"
+        },
+        "region": {
+          "description": "The state, region, or province of the physical address of this location.",
+          "maxLength": 3,
+          "minLength": 0,
+          "type": "string",
+          "example": "CA"
+        },
+        "postalCode": {
+          "description": "The postal code or zip code of the physical address of this location.",
+          "maxLength": 10,
+          "minLength": 0,
+          "type": "string",
+          "example": "92615"
+        },
+        "country": {
+          "description": "The two character ISO-3166 country code of the physical address of this location.",
+          "maxLength": 2,
+          "minLength": 2,
+          "type": "string",
+          "example": "US"
+        },
+        "isDefault": {
+          "description": "Set this flag to true to indicate that this is the default location for this company.",
+          "type": "boolean",
+          "example": true
+        },
+        "isRegistered": {
+          "description": "Set this flag to true to indicate that this location has been registered with a tax authority.",
+          "type": "boolean",
+          "example": true
+        },
+        "dbaName": {
+          "description": "If this location has a different business name from its legal entity name, specify the \"Doing Business As\" name for this location.",
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string",
+          "example": "Bob's Artisan Pottery"
+        },
+        "outletName": {
+          "description": "A friendly name for this location.",
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string",
+          "example": "Main Office"
+        },
+        "effectiveDate": {
+          "format": "date-time",
+          "description": "The date when this location was opened for business, or null if not known.",
+          "type": "string"
+        },
+        "endDate": {
+          "format": "date-time",
+          "description": "If this place of business has closed, the date when this location closed business.",
+          "type": "string"
+        },
+        "lastTransactionDate": {
+          "format": "date-time",
+          "description": "The most recent date when a transaction was processed for this location.  Set by AvaTax.",
+          "type": "string",
+          "readOnly": true
+        },
+        "registeredDate": {
+          "format": "date-time",
+          "description": "The date when this location was registered with a tax authority.  Not required.",
+          "type": "string",
+          "example": "2015-01-01T00:00:00"
+        },
+        "createdDate": {
+          "format": "date-time",
+          "description": "The date when this record was created.",
+          "type": "string",
+          "readOnly": true
+        },
+        "createdUserId": {
+          "format": "int32",
+          "description": "The User ID of the user who created this record.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "modifiedDate": {
+          "format": "date-time",
+          "description": "The date/time when this record was last modified.",
+          "type": "string",
+          "readOnly": true
+        },
+        "modifiedUserId": {
+          "format": "int32",
+          "description": "The user ID of the user who last modified this record.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "settings": {
+          "description": "Extra information required by certain jurisdictions for filing.\r\nFor a list of settings recognized by Avalara, query the endpoint \"/api/v2/definitions/locationquestions\". \r\nTo determine the list of settings required for this location, query the endpoint \"/api/v2/companies/(id)/locations/(id)/validate\".",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LocationSettingModel"
+          }
+        }
+      },
+      "example": {
+        "id": 56789,
+        "companyId": 12345,
+        "locationCode": "DEFAULT",
+        "description": "Bob's Artisan Pottery",
+        "addressTypeId": "Location",
+        "addressCategoryId": "MainOffice",
+        "line1": "123 Main Street",
+        "city": "Irvine",
+        "county": "Orange",
+        "region": "CA",
+        "postalCode": "92615",
+        "country": "US",
+        "isDefault": true,
+        "isRegistered": true,
+        "dbaName": "Bob's Artisan Pottery",
+        "outletName": "Main Office",
+        "registeredDate": "2015-01-01T00:00:00"
+      }
+    },
+    "NexusModel": {
+      "description": "Represents a declaration of nexus within a particular taxing jurisdiction.",
+      "required": ["id", "companyId", "region", "jurisCode", "jurisName"],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "description": "The unique ID number of this declaration of nexus.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 0
+        },
+        "companyId": {
+          "format": "int32",
+          "description": "The unique ID number of the company that declared nexus.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 0
+        },
+        "country": {
+          "description": "The two character ISO-3166 country code of the country in which this company declared nexus.",
+          "maxLength": 2,
+          "minLength": 2,
+          "type": "string",
+          "readOnly": true,
+          "example": "US"
+        },
+        "region": {
+          "description": "The two or three character ISO region code of the region, state, or province in which this company declared nexus.",
+          "maxLength": 3,
+          "minLength": 0,
+          "type": "string",
+          "readOnly": true,
+          "example": "CA"
+        },
+        "jurisTypeId": {
+          "description": "The jurisdiction type of the jurisdiction in which this company declared nexus.",
+          "enum": ["STA", "CTY", "CIT", "STJ", "CNT"],
+          "type": "string",
+          "example": "STA",
+          "x-enum-type": "JurisTypeId",
+          "x-enum-description": "Types of jurisdiction referenced in a transaction",
+          "x-enum-value-comments": {
+            "STA": "State",
+            "CTY": "County",
+            "CIT": "City",
+            "STJ": "Special",
+            "CNT": "Country"
+          }
+        },
+        "jurisCode": {
+          "description": "The code identifying the jurisdiction in which this company declared nexus.",
+          "maxLength": 10,
+          "minLength": 0,
+          "type": "string",
+          "readOnly": true,
+          "example": "06"
+        },
+        "jurisName": {
+          "description": "The common name of the jurisdiction in which this company declared nexus.",
+          "maxLength": 200,
+          "minLength": 0,
+          "type": "string",
+          "readOnly": true,
+          "example": "CALIFORNIA"
+        },
+        "effectiveDate": {
+          "format": "date-time",
+          "description": "The date when this nexus began.  If not known, set to null.",
+          "type": "string"
+        },
+        "endDate": {
+          "format": "date-time",
+          "description": "If this nexus will end or has ended on a specific date, set this to the date when this nexus ends.",
+          "type": "string"
+        },
+        "shortName": {
+          "description": "The short name of the jurisdiction.",
+          "maxLength": 15,
+          "minLength": 0,
+          "type": "string",
+          "readOnly": true,
+          "example": "CA"
+        },
+        "signatureCode": {
+          "description": "The signature code of the boundary region as defined by Avalara.",
+          "maxLength": 4,
+          "minLength": 0,
+          "type": "string",
+          "readOnly": true,
+          "example": ""
+        },
+        "stateAssignedNo": {
+          "description": "The state assigned number of this jurisdiction.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "readOnly": true,
+          "example": ""
+        },
+        "nexusTypeId": {
+          "description": "(DEPRECATED) The type of nexus that this company is declaring.\r\nPlease use NexusTaxTypeGroupId instead.",
+          "enum": ["None", "SalesOrSellersUseTax", "SalesTax", "SSTVolunteer", "SSTNonVolunteer"],
+          "type": "string",
+          "example": "SalesOrSellersUseTax",
+          "x-enum-type": "NexusTypeId",
+          "x-enum-description": "Describes the different types of statuses which describe an entity (company).",
+          "x-enum-value-comments": {
+            "None": "Indicates no nexus",
+            "SalesOrSellersUseTax": "Indicates the entity is voluntarily collecting tax (default)\n            \n            This has replaced Collect",
+            "SalesTax": "Indicates the entity is required to collect tax in the state\n            \n            This has replaced Legal",
+            "SSTVolunteer": "Indicates the entity is registered as a Volunteer in an SST state.\n            Only your SST administrator may set this option.",
+            "SSTNonVolunteer": "Indicates the entity is registered as a Non-Volunteer in an SST state.\n            Only your SST administrator may set this option."
+          }
+        },
+        "sourcing": {
+          "description": "Indicates whether this nexus is defined as origin or destination nexus.",
+          "enum": ["Mixed", "Destination", "Origin"],
+          "type": "string",
+          "x-enum-type": "Sourcing",
+          "x-enum-description": "Sourcing",
+          "x-enum-value-comments": {
+            "Origin": "Origin",
+            "Destination": "Destination",
+            "Mixed": "Mixed sourcing, for states that do both origin and destination calculation"
+          }
+        },
+        "hasLocalNexus": {
+          "description": "True if you are also declaring local nexus within this jurisdiction.\r\nMany U.S. states have options for declaring nexus in local jurisdictions as well as within the state.",
+          "type": "boolean",
+          "example": true
+        },
+        "localNexusTypeId": {
+          "description": "If you are declaring local nexus within this jurisdiction, this indicates whether you are declaring only \r\na specified list of local jurisdictions, all state-administered local jurisdictions, or all local jurisdictions.",
+          "enum": ["Selected", "StateAdministered", "All"],
+          "type": "string",
+          "x-enum-type": "LocalNexusTypeId",
+          "x-enum-description": "Describes nexus type id",
+          "x-enum-value-comments": {
+            "Selected": "Selected",
+            "StateAdministered": "StateAdministered",
+            "All": "All"
+          }
+        },
+        "hasPermanentEstablishment": {
+          "description": "Set this value to true if your company has a permanent establishment within this jurisdiction.",
+          "type": "boolean",
+          "example": true
+        },
+        "taxId": {
+          "description": "Optional - the tax identification number under which you declared nexus.",
+          "maxLength": 25,
+          "minLength": 0,
+          "type": "string"
+        },
+        "streamlinedSalesTax": {
+          "description": "For the United States, this flag indicates whether this particular nexus falls within a U.S. State that participates \r\nin the Streamlined Sales Tax program.  For countries other than the US, this flag is null.",
+          "type": "boolean",
+          "example": false
+        },
+        "createdDate": {
+          "format": "date-time",
+          "description": "The date when this record was created.",
+          "type": "string",
+          "readOnly": true,
+          "example": "2017-05-16T16:22:03.9631084Z"
+        },
+        "createdUserId": {
+          "format": "int32",
+          "description": "The User ID of the user who created this record.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 285475
+        },
+        "modifiedDate": {
+          "format": "date-time",
+          "description": "The date/time when this record was last modified.",
+          "type": "string",
+          "readOnly": true,
+          "example": "2017-05-16T16:22:03.9631084Z"
+        },
+        "modifiedUserId": {
+          "format": "int32",
+          "description": "The user ID of the user who last modified this record.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 285475
+        },
+        "nexusTaxTypeGroup": {
+          "description": "The type of nexus that this company is declaring.Replaces NexusTypeId.\r\nUse /api/v2/definitions/nexustaxtypegroup for a list of tax type groups.",
+          "type": "string",
+          "example": "SalesAndUse"
+        }
+      },
+      "example": {
+        "id": 0,
+        "companyId": 0,
+        "country": "US",
+        "region": "CA",
+        "jurisTypeId": "STA",
+        "jurisCode": "06",
+        "jurisName": "CALIFORNIA",
+        "shortName": "CA",
+        "signatureCode": "",
+        "stateAssignedNo": "",
+        "nexusTypeId": "SalesOrSellersUseTax",
+        "hasLocalNexus": true,
+        "hasPermanentEstablishment": true,
+        "streamlinedSalesTax": false,
+        "createdDate": "2017-05-16T16:22:03.9631084Z",
+        "createdUserId": 285475,
+        "modifiedDate": "2017-05-16T16:22:03.9631084Z",
+        "modifiedUserId": 285475,
+        "nexusTaxTypeGroup": "SalesAndUse"
+      }
+    },
+    "SettingModel": {
+      "description": "This object is used to keep track of custom information about a company.\r\nA setting can refer to any type of data you need to remember about this company object.\r\nWhen creating this object, you may define your own \"set\", \"name\", and \"value\" parameters.\r\nTo define your own values, please choose a \"set\" name that begins with \"X-\" to indicate an extension.",
+      "required": ["id", "companyId", "set", "name"],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "description": "The unique ID number of this setting.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 56789
+        },
+        "companyId": {
+          "format": "int32",
+          "description": "The unique ID number of the company this setting refers to.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 12345
+        },
+        "set": {
+          "description": "A user-defined \"set\" containing this name-value pair.",
+          "maxLength": 25,
+          "minLength": 0,
+          "type": "string",
+          "example": "ItemsToRemember"
+        },
+        "name": {
+          "description": "A user-defined \"name\" for this name-value pair.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "Texas"
+        },
+        "value": {
+          "description": "The value of this name-value pair.",
+          "maxLength": 200,
+          "minLength": 0,
+          "type": "string",
+          "example": "Alamo"
+        }
+      },
+      "example": {
+        "id": 56789,
+        "companyId": 12345,
+        "set": "ItemsToRemember",
+        "name": "Texas",
+        "value": "Alamo"
+      }
+    },
+    "TaxCodeModel": {
+      "description": "Represents a tax code that can be applied to items on a transaction.\r\nA tax code can have specific rules for specific jurisdictions that change the tax calculation behavior.",
+      "required": ["id", "companyId", "taxCode", "taxCodeTypeId"],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "description": "The unique ID number of this tax code.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 56789
+        },
+        "companyId": {
+          "format": "int32",
+          "description": "The unique ID number of the company that owns this tax code.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 12345
+        },
+        "taxCode": {
+          "description": "A code string that identifies this tax code.",
+          "maxLength": 25,
+          "minLength": 0,
+          "type": "string",
+          "example": "PS081282"
+        },
+        "taxCodeTypeId": {
+          "description": "The type of this tax code.",
+          "maxLength": 2,
+          "minLength": 0,
+          "type": "string",
+          "example": "P"
+        },
+        "description": {
+          "description": "A friendly description of this tax code.",
+          "maxLength": 255,
+          "minLength": 0,
+          "type": "string",
+          "example": "Yarn"
+        },
+        "parentTaxCode": {
+          "description": "If this tax code is a subset of a different tax code, this identifies the parent code.",
+          "maxLength": 25,
+          "minLength": 0,
+          "type": "string",
+          "example": "PS080100"
+        },
+        "isPhysical": {
+          "description": "True if this tax code type refers to a physical object.  Read only field.",
+          "type": "boolean",
+          "readOnly": true,
+          "example": true
+        },
+        "goodsServiceCode": {
+          "format": "int64",
+          "description": "The Avalara Goods and Service Code represented by this tax code.",
+          "type": "integer",
+          "example": 0
+        },
+        "entityUseCode": {
+          "description": "The Avalara Entity Use Code represented by this tax code.",
+          "maxLength": 40,
+          "minLength": 0,
+          "type": "string",
+          "example": ""
+        },
+        "isActive": {
+          "description": "True if this tax code is active and can be used in transactions.",
+          "type": "boolean",
+          "example": true
+        },
+        "isSSTCertified": {
+          "description": "True if this tax code has been certified by the Streamlined Sales Tax governing board.\r\nBy default, you should leave this value empty.",
+          "type": "boolean",
+          "example": false
+        },
+        "createdDate": {
+          "format": "date-time",
+          "description": "The date when this record was created.",
+          "type": "string",
+          "readOnly": true
+        },
+        "createdUserId": {
+          "format": "int32",
+          "description": "The User ID of the user who created this record.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "modifiedDate": {
+          "format": "date-time",
+          "description": "The date/time when this record was last modified.",
+          "type": "string",
+          "readOnly": true
+        },
+        "modifiedUserId": {
+          "format": "int32",
+          "description": "The user ID of the user who last modified this record.",
+          "type": "integer",
+          "readOnly": true
+        }
+      },
+      "example": {
+        "id": 56789,
+        "companyId": 12345,
+        "taxCode": "PS081282",
+        "taxCodeTypeId": "P",
+        "description": "Yarn",
+        "parentTaxCode": "PS080100",
+        "isPhysical": true,
+        "goodsServiceCode": 0,
+        "entityUseCode": "",
+        "isActive": true,
+        "isSSTCertified": false
+      }
+    },
+    "TaxRuleModel": {
+      "description": "Represents a tax rule that changes the behavior of Avalara's tax engine for certain products in certain jurisdictions.",
+      "required": ["id", "companyId", "jurisCode", "country", "region"],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "description": "The unique ID number of this tax rule.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 56789
+        },
+        "companyId": {
+          "format": "int32",
+          "description": "The unique ID number of the company that owns this tax rule.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 12345
+        },
+        "taxCodeId": {
+          "format": "int32",
+          "description": "The unique ID number of the tax code for this rule.\r\nWhen creating or updating a tax rule, you may specify either the taxCodeId value or the taxCode value.",
+          "type": "integer"
+        },
+        "taxCode": {
+          "description": "The code string of the tax code for this rule.\r\nWhen creating or updating a tax rule, you may specify either the taxCodeId value or the taxCode value.",
+          "maxLength": 25,
+          "minLength": 0,
+          "type": "string",
+          "example": "FR020800"
+        },
+        "stateFIPS": {
+          "description": "For U.S. tax rules, this is the state's Federal Information Processing Standard (FIPS) code.",
+          "maxLength": 2,
+          "minLength": 0,
+          "type": "string",
+          "example": "04"
+        },
+        "jurisName": {
+          "description": "The name of the jurisdiction to which this tax rule applies.",
+          "maxLength": 200,
+          "minLength": 0,
+          "type": "string",
+          "example": "MARICOPA"
+        },
+        "jurisCode": {
+          "description": "The code of the jurisdiction to which this tax rule applies.",
+          "maxLength": 10,
+          "minLength": 0,
+          "type": "string",
+          "example": "013"
+        },
+        "jurisTypeId": {
+          "description": "The type of the jurisdiction to which this tax rule applies.",
+          "enum": ["STA", "CTY", "CIT", "STJ", "CNT"],
+          "type": "string",
+          "example": "CTY",
+          "x-enum-type": "JurisTypeId",
+          "x-enum-description": "Types of jurisdiction referenced in a transaction",
+          "x-enum-value-comments": {
+            "STA": "State",
+            "CTY": "County",
+            "CIT": "City",
+            "STJ": "Special",
+            "CNT": "Country"
+          }
+        },
+        "customerUsageType": {
+          "description": "The type of customer usage to which this rule applies.",
+          "maxLength": 25,
+          "minLength": 0,
+          "type": "string",
+          "example": ""
+        },
+        "taxTypeId": {
+          "description": "Indicates which tax types to which this rule applies.",
+          "enum": ["Excise", "Lodging", "Bottle", "All", "BothSalesAndUseTax", "ConsumerUseTax", "ConsumersUseAndSellersUseTax", "ConsumerUseAndSalesTax", "Fee", "VATInputTax", "VATNonrecoverableInputTax", "VATOutputTax", "Rental", "SalesTax", "UseTax"],
+          "type": "string",
+          "example": "BothSalesAndUseTax",
+          "x-enum-type": "MatchingTaxType",
+          "x-enum-description": "This data type is only used when an object must \"Match\" tax types.  By specifying options here,\n            you can indicate which tax types will match for the purposes of this object.\n            For example, if you specify BothSalesAndUseTax, this value matches with both sales and seller's use tax.",
+          "x-enum-value-comments": {
+            "All": "Match all tax types",
+            "BothSalesAndUseTax": "Match both Sales and Use Tax only",
+            "ConsumerUseTax": "Match Consumer Use Tax only",
+            "SalesTax": "Match Sales Tax only",
+            "UseTax": "Match Seller's Use Tax only",
+            "VATOutputTax": "Match VAT Output Tax only",
+            "VATInputTax": "Match VAT Input Tax only",
+            "VATNonrecoverableInputTax": "Match VAT Nonrecoverable Input Tax only",
+            "Fee": "Match Fee tax types only",
+            "Rental": "Match Rental tax types only",
+            "ConsumerUseAndSalesTax": "Match both Consumer Use and Sales Tax types",
+            "ConsumersUseAndSellersUseTax": "Match both Consumer Use and Seller's Use Tax types",
+            "Excise": "Match medical excise type",
+            "Lodging": "Match Lodging tax type",
+            "Bottle": "Match bottle tax type"
+          }
+        },
+        "rateTypeId": {
+          "description": "(DEPRECATED) Enumerated rate type to which this rule applies.  Please use rateTypeCode instead.",
+          "enum": ["ReducedA", "ReducedB", "Food", "General", "IncreasedStandard", "LinenRental", "Medical", "Parking", "SuperReduced", "ReducedR", "Standard", "Zero"],
+          "type": "string",
+          "x-enum-type": "RateType",
+          "x-enum-description": "",
+          "x-enum-value-comments": {}
+        },
+        "rateTypeCode": {
+          "description": "Indicates the code of the rate type that applies to this rule.  Use `/api/v2/definitions/ratetypes` for a full list of rate type codes.",
+          "maxLength": 1,
+          "minLength": 0,
+          "type": "string"
+        },
+        "taxRuleTypeId": {
+          "description": "This type value determines the behavior of the tax rule.\r\nYou can specify that this rule controls the product's taxability or exempt / nontaxable status, the product's rate \r\n(for example, if you have been granted an official ruling for your product's rate that differs from the official rate), \r\nor other types of behavior.",
+          "enum": ["RateRule", "RateOverrideRule", "BaseRule", "ExemptEntityRule", "ProductTaxabilityRule", "NexusRule"],
+          "type": "string",
+          "example": "ProductTaxabilityRule",
+          "x-enum-type": "TaxRuleTypeId",
+          "x-enum-description": "TaxRuleTypeId",
+          "x-enum-value-comments": {
+            "RateRule": "RateRule",
+            "RateOverrideRule": "RateOverrideRule",
+            "BaseRule": "BaseRule",
+            "ExemptEntityRule": "ExemptEntityRule",
+            "ProductTaxabilityRule": "ProductTaxabilityRule",
+            "NexusRule": "NexusRule"
+          }
+        },
+        "isAllJuris": {
+          "description": "Set this value to true if this tax rule applies in all jurisdictions.",
+          "type": "boolean",
+          "example": true
+        },
+        "value": {
+          "format": "double",
+          "description": "The corrected rate for this tax rule.",
+          "type": "number",
+          "example": 0.0
+        },
+        "cap": {
+          "format": "double",
+          "description": "The maximum cap for the price of this item according to this rule.",
+          "type": "number",
+          "example": 0.0
+        },
+        "threshold": {
+          "format": "double",
+          "description": "The per-unit threshold that must be met before this rule applies.",
+          "type": "number",
+          "example": 0.0
+        },
+        "options": {
+          "description": "Custom option flags for this rule.",
+          "maxLength": 100,
+          "minLength": 0,
+          "type": "string",
+          "example": ""
+        },
+        "effectiveDate": {
+          "format": "date-time",
+          "description": "The first date at which this rule applies.  If null, this rule will apply to all dates prior to the end date.",
+          "type": "string",
+          "example": "2017-05-16T00:00:00-07:00"
+        },
+        "endDate": {
+          "format": "date-time",
+          "description": "The last date for which this rule applies.  If null, this rule will apply to all dates after the effective date.",
+          "type": "string"
+        },
+        "description": {
+          "description": "A friendly name for this tax rule.",
+          "maxLength": 255,
+          "minLength": 0,
+          "type": "string",
+          "example": "Freight"
+        },
+        "countyFIPS": {
+          "description": "For U.S. tax rules, this is the county's Federal Information Processing Standard (FIPS) code.",
+          "maxLength": 3,
+          "minLength": 0,
+          "type": "string",
+          "example": "013"
+        },
+        "isSTPro": {
+          "description": "If true, indicates this rule is for Sales Tax Pro.",
+          "type": "boolean",
+          "example": false
+        },
+        "country": {
+          "description": "The two character ISO 3166 country code for the locations where this rule applies.",
+          "maxLength": 2,
+          "minLength": 2,
+          "type": "string",
+          "example": "US"
+        },
+        "region": {
+          "description": "The state, region, or province name for the locations where this rule applies.",
+          "maxLength": 3,
+          "minLength": 0,
+          "type": "string",
+          "example": "AZ"
+        },
+        "sourcing": {
+          "description": "The sourcing types to which this rule applies.",
+          "enum": ["Mixed", "Destination", "Origin"],
+          "type": "string",
+          "x-enum-type": "Sourcing",
+          "x-enum-description": "Sourcing",
+          "x-enum-value-comments": {
+            "Origin": "Origin",
+            "Destination": "Destination",
+            "Mixed": "Mixed sourcing, for states that do both origin and destination calculation"
+          }
+        },
+        "createdDate": {
+          "format": "date-time",
+          "description": "The date when this record was created.",
+          "type": "string",
+          "readOnly": true
+        },
+        "createdUserId": {
+          "format": "int32",
+          "description": "The User ID of the user who created this record.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "modifiedDate": {
+          "format": "date-time",
+          "description": "The date/time when this record was last modified.",
+          "type": "string",
+          "readOnly": true
+        },
+        "modifiedUserId": {
+          "format": "int32",
+          "description": "The user ID of the user who last modified this record.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "taxTypeGroup": {
+          "description": "The group Id of tax types supported by Avalara. Refer to /api/v2/definitions/taxtypegroups for types we support.",
+          "type": "string",
+          "example": "SalesAndUse"
+        },
+        "taxSubType": {
+          "description": "The Id of sub tax types supported by Avalara. Refer to /api/v2/definitions/taxsubtypes for types we support.",
+          "type": "string",
+          "example": "ALL"
+        },
+        "taxTypeMappingId": {
+          "format": "int32",
+          "description": "Id for TaxTypeMapping object",
+          "type": "integer",
+          "readOnly": true
+        },
+        "rateTypeTaxTypeMappingId": {
+          "format": "int32",
+          "description": "Id for RateTypeTaxTypeMapping object",
+          "type": "integer",
+          "readOnly": true
+        }
+      },
+      "example": {
+        "id": 56789,
+        "companyId": 12345,
+        "taxCode": "FR020800",
+        "stateFIPS": "04",
+        "jurisName": "MARICOPA",
+        "jurisCode": "013",
+        "jurisTypeId": "CTY",
+        "customerUsageType": "",
+        "taxTypeId": "BothSalesAndUseTax",
+        "taxRuleTypeId": "ProductTaxabilityRule",
+        "isAllJuris": true,
+        "value": 0.0,
+        "cap": 0.0,
+        "threshold": 0.0,
+        "options": "",
+        "effectiveDate": "2017-05-16",
+        "description": "Freight",
+        "countyFIPS": "013",
+        "isSTPro": false,
+        "country": "US",
+        "region": "AZ",
+        "taxTypeGroup": "SalesAndUse",
+        "taxSubType": "ALL"
+      }
+    },
+    "UPCModel": {
+      "description": "One Universal Product Code object as defined for your company.",
+      "required": ["id", "companyId", "upc", "description"],
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "description": "The unique ID number for this UPC.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 123456789
+        },
+        "companyId": {
+          "format": "int32",
+          "description": "The unique ID number of the company to which this UPC belongs.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 1234567
+        },
+        "upc": {
+          "description": "The 12-14 character Universal Product Code, European Article Number, or Global Trade Identification Number.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "023032550992"
+        },
+        "legacyTaxCode": {
+          "description": "Legacy Tax Code applied to any product sold with this UPC.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "PS081282"
+        },
+        "description": {
+          "description": "Description of the product to which this UPC applies.",
+          "maxLength": 255,
+          "minLength": 0,
+          "type": "string",
+          "example": "Yarn"
+        },
+        "effectiveDate": {
+          "format": "date-time",
+          "description": "If this UPC became effective on a certain date, this contains the first date on which the UPC was effective.",
+          "type": "string"
+        },
+        "endDate": {
+          "format": "date-time",
+          "description": "If this UPC expired or will expire on a certain date, this contains the last date on which the UPC was effective.",
+          "type": "string"
+        },
+        "usage": {
+          "format": "int32",
+          "description": "A usage identifier for this UPC code.",
+          "type": "integer"
+        },
+        "isSystem": {
+          "format": "int32",
+          "description": "A flag indicating whether this UPC code is attached to the AvaTax system or to a company.",
+          "type": "integer"
+        },
+        "createdDate": {
+          "format": "date-time",
+          "description": "The date when this record was created.",
+          "type": "string",
+          "readOnly": true
+        },
+        "createdUserId": {
+          "format": "int32",
+          "description": "The User ID of the user who created this record.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "modifiedDate": {
+          "format": "date-time",
+          "description": "The date/time when this record was last modified.",
+          "type": "string",
+          "readOnly": true
+        },
+        "modifiedUserId": {
+          "format": "int32",
+          "description": "The user ID of the user who last modified this record.",
+          "type": "integer",
+          "readOnly": true
+        }
+      },
+      "example": {
+        "id": 123456789,
+        "companyId": 1234567,
+        "upc": "023032550992",
+        "legacyTaxCode": "PS081282",
+        "description": "Yarn"
+      }
+    },
+    "LocationSettingModel": {
+      "description": "Represents the answer to one local jurisdiction question for a location.",
+      "type": "object",
+      "properties": {
+        "questionId": {
+          "format": "int32",
+          "description": "The unique ID number of the location question answered.",
+          "type": "integer"
+        },
+        "value": {
+          "description": "The answer the user provided.",
+          "type": "string"
+        }
+      },
+      "example": {}
+    },
+    "FetchResult[CompanyModel]": {
+      "type": "object",
+      "properties": {
+        "@recordsetCount": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CompanyModel"
+          }
+        },
+        "@nextLink": {
+          "type": "string"
+        }
+      }
+    },
+    "TransactionModel": {
+      "description": "A single transaction - for example, a sales invoice or purchase order.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int64",
+          "description": "The unique ID number of this transaction.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 123456789
+        },
+        "code": {
+          "description": "A unique customer-provided code identifying this transaction.",
+          "type": "string",
+          "readOnly": true,
+          "example": "855838c1-31da-4874-a25e-ec6ffade1307"
+        },
+        "companyId": {
+          "format": "int32",
+          "description": "The unique ID number of the company that recorded this transaction.",
+          "type": "integer",
+          "example": 12345
+        },
+        "date": {
+          "format": "date-time",
+          "description": "The date on which this transaction occurred.",
+          "type": "string",
+          "example": "2017-05-16T00:00:00-07:00"
+        },
+        "paymentDate": {
+          "format": "date-time",
+          "description": "The date when payment was made on this transaction.  By default, this should be the same as the date of the transaction.",
+          "type": "string",
+          "example": "2017-05-16T00:00:00-07:00"
+        },
+        "status": {
+          "description": "The status of the transaction.",
+          "enum": ["Temporary", "Saved", "Posted", "Committed", "Cancelled", "Adjusted", "Queued", "PendingApproval", "Any"],
+          "type": "string",
+          "example": "Committed",
+          "x-enum-type": "DocumentStatus",
+          "x-enum-description": "Document Status",
+          "x-enum-value-comments": {
+            "Temporary": "Temporary document not saved (SalesOrder, PurchaseOrder)",
+            "Saved": "Saved document (SalesInvoice or PurchaseInvoice) ready to be posted",
+            "Posted": "A posted document (not committed)",
+            "Committed": "A posted document that has been committed",
+            "Cancelled": "A Committed document that has been cancelled",
+            "Adjusted": "A document that has been adjusted",
+            "Queued": "A document which is in Queue status and processed later",
+            "PendingApproval": "A document which is Pending for Approval",
+            "Any": "Any status (for searching)"
+          }
+        },
+        "type": {
+          "description": "The type of the transaction.  For Returns customers, a transaction type of \"Invoice\" will be reported to the tax authorities.\r\nA sales transaction represents a sale from the company to a customer.  A purchase transaction represents a purchase made by the company.\r\nA return transaction represents a customer who decided to request a refund after purchasing a product from the company.  An inventory \r\ntransfer transaction represents goods that were moved from one location of the company to another location without changing ownership.",
+          "enum": ["SalesOrder", "SalesInvoice", "PurchaseOrder", "PurchaseInvoice", "ReturnOrder", "ReturnInvoice", "InventoryTransferOrder", "InventoryTransferInvoice", "ReverseChargeOrder", "ReverseChargeInvoice", "Any"],
+          "type": "string",
+          "example": "SalesInvoice",
+          "x-enum-type": "DocumentType",
+          "x-enum-description": "Document Types",
+          "x-enum-value-comments": {
+            "SalesOrder": "Sales Order, estimate or quote (default).  This is a temporary document type and is not saved in tax history.",
+            "SalesInvoice": "Sales Invoice",
+            "PurchaseOrder": "Purchase order, estimate, or quote.  This is a temporary document type and is not saved in tax history.",
+            "PurchaseInvoice": "Purchase Invoice",
+            "ReturnOrder": "Sales Return Order.  This is a temporary document type and is not saved in tax history.",
+            "ReturnInvoice": "Sales Return Invoice",
+            "InventoryTransferOrder": "InventoryTransferOrder",
+            "InventoryTransferInvoice": "InventoryTransferInvoice",
+            "ReverseChargeOrder": "ReverseChargeOrder",
+            "ReverseChargeInvoice": "ReverseChargeInvoice",
+            "Any": "No particular type"
+          }
+        },
+        "batchCode": {
+          "description": "If this transaction was created as part of a batch, this code indicates which batch.",
+          "type": "string"
+        },
+        "currencyCode": {
+          "description": "The three-character ISO 4217 currency code that was used for payment for this transaction.",
+          "type": "string",
+          "example": "USD"
+        },
+        "customerUsageType": {
+          "description": "The customer usage type for this transaction.  Customer usage types often affect exemption or taxability rules.",
+          "type": "string",
+          "example": ""
+        },
+        "customerVendorCode": {
+          "description": "CustomerVendorCode",
+          "type": "string",
+          "example": "ABC"
+        },
+        "exemptNo": {
+          "description": "If this transaction was exempt, this field will contain the word \"Exempt\".",
+          "type": "string",
+          "example": ""
+        },
+        "reconciled": {
+          "description": "If this transaction has been reconciled against the company's ledger, this value is set to true.",
+          "type": "boolean",
+          "example": true
+        },
+        "locationCode": {
+          "description": "If this transaction was made from a specific reporting location, this is the code string of the location.\r\nFor customers using Returns, this indicates how tax will be reported according to different locations on the tax forms.",
+          "type": "string",
+          "example": "DEFAULT"
+        },
+        "purchaseOrderNo": {
+          "description": "The customer-supplied purchase order number of this transaction.",
+          "type": "string"
+        },
+        "referenceCode": {
+          "description": "A user-defined reference code for this transaction.",
+          "type": "string"
+        },
+        "salespersonCode": {
+          "description": "The salesperson who provided this transaction.  Not required.",
+          "type": "string",
+          "example": "DEF"
+        },
+        "taxOverrideType": {
+          "description": "If a tax override was applied to this transaction, indicates what type of tax override was applied.",
+          "enum": ["None", "TaxAmount", "Exemption", "TaxDate", "AccruedTaxAmount", "DeriveTaxable"],
+          "type": "string",
+          "example": "None",
+          "x-enum-type": "TaxOverrideTypeId",
+          "x-enum-description": "TaxOverrideTypeId",
+          "x-enum-value-comments": {
+            "None": "No override",
+            "TaxAmount": "Tax was overriden by the client",
+            "Exemption": "Entity exemption was ignored (e.g. item was consumed)",
+            "TaxDate": "Only the tax date was overriden",
+            "AccruedTaxAmount": "To support Consumer Use Tax",
+            "DeriveTaxable": "Derive the taxable amount from the tax amount"
+          }
+        },
+        "taxOverrideAmount": {
+          "format": "double",
+          "description": "If a tax override was applied to this transaction, indicates the amount of tax that was requested by the customer.",
+          "type": "number",
+          "example": 0.00
+        },
+        "taxOverrideReason": {
+          "description": "If a tax override was applied to this transaction, indicates the reason for the tax override.",
+          "type": "string",
+          "example": ""
+        },
+        "totalAmount": {
+          "format": "double",
+          "description": "The total amount of this transaction.",
+          "type": "number",
+          "example": 1000.0
+        },
+        "totalExempt": {
+          "format": "double",
+          "description": "The amount of this transaction that was exempt.",
+          "type": "number",
+          "example": 0.0
+        },
+        "totalTax": {
+          "format": "double",
+          "description": "The total tax calculated for all lines in this transaction.",
+          "type": "number",
+          "example": 62.50
+        },
+        "totalTaxable": {
+          "format": "double",
+          "description": "The portion of the total amount of this transaction that was taxable.",
+          "type": "number",
+          "example": 1000.0
+        },
+        "totalTaxCalculated": {
+          "format": "double",
+          "description": "If a tax override was applied to this transaction, indicates the amount of tax Avalara calculated for the transaction.",
+          "type": "number",
+          "example": 62.50
+        },
+        "adjustmentReason": {
+          "description": "If this transaction was adjusted, indicates the unique ID number of the reason why the transaction was adjusted.",
+          "enum": ["NotAdjusted", "SourcingIssue", "ReconciledWithGeneralLedger", "ExemptCertApplied", "PriceAdjusted", "ProductReturned", "ProductExchanged", "BadDebt", "Other", "Offline"],
+          "type": "string",
+          "example": "NotAdjusted",
+          "x-enum-type": "AdjustmentReason",
+          "x-enum-description": "Indicates the type of adjustment that was performed on a transaction",
+          "x-enum-value-comments": {
+            "NotAdjusted": "The transaction has not been adjusted",
+            "SourcingIssue": "A sourcing issue existed which caused the transaction to be adjusted",
+            "ReconciledWithGeneralLedger": "Transaction was adjusted to reconcile it with a general ledger",
+            "ExemptCertApplied": "Transaction was adjusted after an exemption certificate was applied",
+            "PriceAdjusted": "Transaction was adjusted when the price of an item changed",
+            "ProductReturned": "Transaction was adjusted due to a product return",
+            "ProductExchanged": "Transaction was adjusted due to a product exchange",
+            "BadDebt": "Transaction was adjusted due to bad or uncollectable debt",
+            "Other": "Transaction was adjusted for another reason not specified",
+            "Offline": "Offline"
+          }
+        },
+        "adjustmentDescription": {
+          "description": "If this transaction was adjusted, indicates a description of the reason why the transaction was adjusted.",
+          "type": "string",
+          "example": ""
+        },
+        "locked": {
+          "description": "If this transaction has been reported to a tax authority, this transaction is considered locked and may not be adjusted after reporting.",
+          "type": "boolean",
+          "example": false
+        },
+        "region": {
+          "description": "The two-or-three character ISO region code of the region for this transaction.",
+          "type": "string",
+          "example": "CA"
+        },
+        "country": {
+          "description": "The two-character ISO 3166 code of the country for this transaction.",
+          "maxLength": 2,
+          "minLength": 2,
+          "type": "string",
+          "example": "US"
+        },
+        "version": {
+          "format": "int32",
+          "description": "If this transaction was adjusted, this indicates the version number of this transaction.  Incremented each time the transaction\r\nis adjusted.",
+          "type": "integer",
+          "example": 0
+        },
+        "softwareVersion": {
+          "description": "The software version used to calculate this transaction.",
+          "type": "string"
+        },
+        "originAddressId": {
+          "format": "int64",
+          "description": "The unique ID number of the origin address for this transaction.",
+          "type": "integer",
+          "example": 123456789
+        },
+        "destinationAddressId": {
+          "format": "int64",
+          "description": "The unique ID number of the destination address for this transaction.",
+          "type": "integer",
+          "example": 123456789
+        },
+        "exchangeRateEffectiveDate": {
+          "format": "date-time",
+          "description": "If this transaction included foreign currency exchange, this is the date as of which the exchange rate was calculated.",
+          "type": "string"
+        },
+        "exchangeRate": {
+          "format": "double",
+          "description": "If this transaction included foreign currency exchange, this is the exchange rate that was used.",
+          "type": "number"
+        },
+        "isSellerImporterOfRecord": {
+          "description": "If true, this seller was considered the importer of record of a product shipped internationally.",
+          "type": "boolean",
+          "example": false
+        },
+        "description": {
+          "description": "Description of this transaction.",
+          "type": "string",
+          "example": "Yarn"
+        },
+        "email": {
+          "description": "Email address associated with this transaction.",
+          "type": "string"
+        },
+        "businessIdentificationNo": {
+          "description": "VAT business identification number used for this transaction.",
+          "type": "string"
+        },
+        "modifiedDate": {
+          "format": "date-time",
+          "description": "The date/time when this record was last modified.",
+          "type": "string",
+          "readOnly": true
+        },
+        "modifiedUserId": {
+          "format": "int32",
+          "description": "The user ID of the user who last modified this record.",
+          "type": "integer",
+          "readOnly": true
+        },
+        "taxDate": {
+          "format": "date-time",
+          "description": "Tax date for this transaction",
+          "type": "string",
+          "readOnly": true,
+          "example": "2017-05-16T00:00:00-07:00"
+        },
+        "lines": {
+          "description": "Optional: A list of line items in this transaction.  To fetch this list, add the query string \"?$include=Lines\" or \"?$include=Details\" to your URL.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TransactionLineModel"
+          },
+          "example": [{
+            "id": 123456789,
+            "transactionId": 123456789,
+            "lineNumber": "1",
+            "boundaryOverrideId": 0,
+            "customerUsageType": "",
+            "description": "Yarn",
+            "destinationAddressId": 12345,
+            "originAddressId": 123456789,
+            "discountAmount": 100.0,
+            "discountTypeId": 0,
+            "exemptAmount": 0.0,
+            "exemptCertId": 0,
+            "exemptNo": "",
+            "isItemTaxable": true,
+            "isSSTP": false,
+            "itemCode": "116292",
+            "lineAmount": 1000.0,
+            "quantity": 1.00,
+            "ref1": "Note: Deliver to Bob",
+            "reportingDate": "2017-05-16",
+            "revAccount": "",
+            "sourcing": "Destination",
+            "tax": 62.50,
+            "taxableAmount": 1000.0,
+            "taxCalculated": 62.50,
+            "taxCode": "PS081282",
+            "taxDate": "2017-05-16",
+            "taxEngine": "",
+            "taxOverrideType": "None",
+            "taxOverrideAmount": 0.00,
+            "taxOverrideReason": "",
+            "taxIncluded": false,
+            "details": [{
+              "id": 123456789,
+              "transactionLineId": 123456789,
+              "transactionId": 123456789,
+              "addressId": 12345,
+              "country": "US",
+              "region": "CA",
+              "stateFIPS": "06",
+              "exemptAmount": 0.00,
+              "exemptReasonId": 4,
+              "inState": false,
+              "jurisCode": "06",
+              "jurisName": "CALIFORNIA",
+              "jurisdictionId": 5000531,
+              "signatureCode": "AGAM",
+              "stateAssignedNo": "",
+              "jurisType": "STA",
+              "nonTaxableAmount": 0.0,
+              "nonTaxableRuleId": 0,
+              "nonTaxableType": "BaseRule",
+              "rate": 0.0625,
+              "rateRuleId": 1321915,
+              "rateSourceId": 3,
+              "serCode": "",
+              "sourcing": "Destination",
+              "tax": 62.50,
+              "taxableAmount": 1000.0,
+              "taxType": "Sales",
+              "taxName": "CA STATE TAX",
+              "taxAuthorityTypeId": 45,
+              "taxRegionId": 2127184,
+              "taxCalculated": 62.50,
+              "taxOverride": 0.00,
+              "rateType": "General"
+            }]
+          }]
+        },
+        "addresses": {
+          "description": "Optional: A list of line items in this transaction.  To fetch this list, add the query string \"?$include=Addresses\" to your URL.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TransactionAddressModel"
+          },
+          "example": [{
+            "id": 0,
+            "transactionId": 0,
+            "boundaryLevel": "Address",
+            "line1": "100 Ravine Lane Northeast #220",
+            "city": "Bainbridge Island",
+            "region": "WA",
+            "postalCode": "98110",
+            "country": "US",
+            "taxRegionId": 0
+          }]
+        },
+        "locationTypes": {
+          "description": "Optional: A list of location types in this transaction.  To fetch this list, add the query string \"?$include=Addresses\" to your URL.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TransactionLocationTypeModel"
+          }
+        },
+        "summary": {
+          "description": "Contains a summary of tax on this transaction.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TransactionSummary"
+          }
+        },
+        "parameters": {
+          "description": "Contains a list of extra parameters that were set when the transaction was created.",
+          "type": "object",
+          "properties": {}
+        },
+        "messages": {
+          "description": "List of informational and warning messages regarding this API call.  These messages are only relevant to the current API call.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AvaTaxMessage"
+          }
+        }
+      },
+      "example": {
+        "id": 123456789,
+        "code": "855838c1-31da-4874-a25e-ec6ffade1307",
+        "companyId": 12345,
+        "date": "2017-05-16",
+        "paymentDate": "2017-05-16",
+        "status": "Committed",
+        "type": "SalesInvoice",
+        "currencyCode": "USD",
+        "customerUsageType": "",
+        "customerVendorCode": "ABC",
+        "exemptNo": "",
+        "reconciled": true,
+        "locationCode": "DEFAULT",
+        "salespersonCode": "DEF",
+        "taxOverrideType": "None",
+        "taxOverrideAmount": 0.00,
+        "taxOverrideReason": "",
+        "totalAmount": 1000.0,
+        "totalExempt": 0.0,
+        "totalTax": 62.50,
+        "totalTaxable": 1000.0,
+        "totalTaxCalculated": 62.50,
+        "adjustmentReason": "NotAdjusted",
+        "adjustmentDescription": "",
+        "locked": false,
+        "region": "CA",
+        "country": "US",
+        "version": 0,
+        "originAddressId": 123456789,
+        "destinationAddressId": 123456789,
+        "isSellerImporterOfRecord": false,
+        "description": "Yarn",
+        "taxDate": "2017-05-16T00:00:00-07:00",
+        "lines": [{
+          "id": 123456789,
+          "transactionId": 123456789,
+          "lineNumber": "1",
+          "boundaryOverrideId": 0,
+          "customerUsageType": "",
+          "description": "Yarn",
+          "destinationAddressId": 12345,
+          "originAddressId": 123456789,
+          "discountAmount": 100.0,
+          "discountTypeId": 0,
+          "exemptAmount": 0.0,
+          "exemptCertId": 0,
+          "exemptNo": "",
+          "isItemTaxable": true,
+          "isSSTP": false,
+          "itemCode": "116292",
+          "lineAmount": 1000.0,
+          "quantity": 1.00,
+          "ref1": "Note: Deliver to Bob",
+          "reportingDate": "2017-05-16",
+          "revAccount": "",
+          "sourcing": "Destination",
+          "tax": 62.50,
+          "taxableAmount": 1000.0,
+          "taxCalculated": 62.50,
+          "taxCode": "PS081282",
+          "taxDate": "2017-05-16",
+          "taxEngine": "",
+          "taxOverrideType": "None",
+          "taxOverrideAmount": 0.00,
+          "taxOverrideReason": "",
+          "taxIncluded": false,
+          "details": [{
+            "id": 123456789,
+            "transactionLineId": 123456789,
+            "transactionId": 123456789,
+            "addressId": 12345,
+            "country": "US",
+            "region": "CA",
+            "stateFIPS": "06",
+            "exemptAmount": 0.00,
+            "exemptReasonId": 4,
+            "inState": false,
+            "jurisCode": "06",
+            "jurisName": "CALIFORNIA",
+            "jurisdictionId": 5000531,
+            "signatureCode": "AGAM",
+            "stateAssignedNo": "",
+            "jurisType": "STA",
+            "nonTaxableAmount": 0.0,
+            "nonTaxableRuleId": 0,
+            "nonTaxableType": "BaseRule",
+            "rate": 0.0625,
+            "rateRuleId": 1321915,
+            "rateSourceId": 3,
+            "serCode": "",
+            "sourcing": "Destination",
+            "tax": 62.50,
+            "taxableAmount": 1000.0,
+            "taxType": "Sales",
+            "taxName": "CA STATE TAX",
+            "taxAuthorityTypeId": 45,
+            "taxRegionId": 2127184,
+            "taxCalculated": 62.50,
+            "taxOverride": 0.00,
+            "rateType": "General"
+          }]
+        }],
+        "addresses": [{
+          "id": 0,
+          "transactionId": 0,
+          "boundaryLevel": "Address",
+          "line1": "100 Ravine Lane Northeast #220",
+          "city": "Bainbridge Island",
+          "region": "WA",
+          "postalCode": "98110",
+          "country": "US",
+          "taxRegionId": 0
+        }]
+      }
+    },
+    "TransactionLineModel": {
+      "description": "One line item on this transaction.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int64",
+          "description": "The unique ID number of this transaction line item.",
+          "type": "integer",
+          "example": 123456789
+        },
+        "transactionId": {
+          "format": "int64",
+          "description": "The unique ID number of the transaction to which this line item belongs.",
+          "type": "integer",
+          "example": 123456789
+        },
+        "lineNumber": {
+          "description": "The line number or code indicating the line on this invoice or receipt or document.",
+          "type": "string",
+          "example": "1"
+        },
+        "boundaryOverrideId": {
+          "format": "int32",
+          "description": "The unique ID number of the boundary override applied to this line item.",
+          "type": "integer",
+          "example": 0
+        },
+        "customerUsageType": {
+          "description": "The customer usage type for this line item.  Usage type often affects taxability rules.",
+          "type": "string",
+          "example": ""
+        },
+        "description": {
+          "description": "A description of the item or service represented by this line.",
+          "type": "string",
+          "example": "Yarn"
+        },
+        "destinationAddressId": {
+          "format": "int64",
+          "description": "The unique ID number of the destination address where this line was delivered or sold.\r\nIn the case of a point-of-sale transaction, the destination address and origin address will be the same.\r\nIn the case of a shipped transaction, they will be different.",
+          "type": "integer",
+          "example": 12345
+        },
+        "originAddressId": {
+          "format": "int64",
+          "description": "The unique ID number of the origin address where this line was delivered or sold.\r\nIn the case of a point-of-sale transaction, the origin address and destination address will be the same.\r\nIn the case of a shipped transaction, they will be different.",
+          "type": "integer",
+          "example": 123456789
+        },
+        "discountAmount": {
+          "format": "double",
+          "description": "The amount of discount that was applied to this line item.  This represents the difference between list price and sale price of the item.\r\nIn general, a discount represents money that did not change hands; tax is calculated on only the amount of money that changed hands.",
+          "type": "number",
+          "example": 100.0
+        },
+        "discountTypeId": {
+          "format": "int32",
+          "description": "The type of discount, if any, that was applied to this line item.",
+          "type": "integer",
+          "example": 0
+        },
+        "exemptAmount": {
+          "format": "double",
+          "description": "The amount of this line item that was exempt.",
+          "type": "number",
+          "example": 0.0
+        },
+        "exemptCertId": {
+          "format": "int32",
+          "description": "The unique ID number of the exemption certificate that applied to this line item.",
+          "type": "integer",
+          "example": 0
+        },
+        "exemptNo": {
+          "description": "If this line item was exempt, this string contains the word 'Exempt'.",
+          "type": "string",
+          "example": ""
+        },
+        "isItemTaxable": {
+          "description": "True if this item is taxable.",
+          "type": "boolean",
+          "example": true
+        },
+        "isSSTP": {
+          "description": "True if this item is a Streamlined Sales Tax line item.",
+          "type": "boolean",
+          "example": false
+        },
+        "itemCode": {
+          "description": "The code string of the item represented by this line item.",
+          "type": "string",
+          "example": "116292"
+        },
+        "lineAmount": {
+          "format": "double",
+          "description": "The total amount of the transaction, including both taxable and exempt.  This is the total price for all items.\r\nTo determine the individual item price, divide this by quantity.",
+          "type": "number",
+          "example": 1000.0
+        },
+        "quantity": {
+          "format": "double",
+          "description": "The quantity of products sold on this line item.",
+          "type": "number",
+          "example": 1.00
+        },
+        "ref1": {
+          "description": "A user-defined reference identifier for this transaction line item.",
+          "type": "string",
+          "example": "Note: Deliver to Bob"
+        },
+        "ref2": {
+          "description": "A user-defined reference identifier for this transaction line item.",
+          "type": "string"
+        },
+        "reportingDate": {
+          "format": "date-time",
+          "description": "The date when this transaction should be reported.  By default, all transactions are reported on the date when the actual transaction took place.\r\nIn some cases, line items may be reported later due to delayed shipments or other business reasons.",
+          "type": "string",
+          "example": "2017-05-16T00:00:00-07:00"
+        },
+        "revAccount": {
+          "description": "The revenue account number for this line item.",
+          "type": "string",
+          "example": ""
+        },
+        "sourcing": {
+          "description": "Indicates whether this line item was taxed according to the origin or destination.",
+          "enum": ["Mixed", "Destination", "Origin"],
+          "type": "string",
+          "example": "Destination",
+          "x-enum-type": "Sourcing",
+          "x-enum-description": "Sourcing",
+          "x-enum-value-comments": {
+            "Origin": "Origin",
+            "Destination": "Destination",
+            "Mixed": "Mixed sourcing, for states that do both origin and destination calculation"
+          }
+        },
+        "tax": {
+          "format": "double",
+          "description": "The amount of tax generated for this line item.",
+          "type": "number",
+          "example": 62.50
+        },
+        "taxableAmount": {
+          "format": "double",
+          "description": "The taxable amount of this line item.",
+          "type": "number",
+          "example": 1000.0
+        },
+        "taxCalculated": {
+          "format": "double",
+          "description": "The tax calculated for this line by Avalara.  If the transaction was calculated with a tax override, this amount will be different from the \"tax\" value.",
+          "type": "number",
+          "example": 62.50
+        },
+        "taxCode": {
+          "description": "The code string for the tax code that was used to calculate this line item.",
+          "type": "string",
+          "example": "PS081282"
+        },
+        "taxCodeId": {
+          "format": "int32",
+          "description": "The unique ID number for the tax code that was used to calculate this line item.",
+          "type": "integer"
+        },
+        "taxDate": {
+          "format": "date-time",
+          "description": "The date that was used for calculating tax amounts for this line item.  By default, this date should be the same as the document date.\r\nIn some cases, for example when a consumer returns a product purchased previously, line items may be calculated using a tax date in the past\r\nso that the consumer can receive a refund for the correct tax amount that was charged when the item was originally purchased.",
+          "type": "string",
+          "example": "2017-05-16T00:00:00-07:00"
+        },
+        "taxEngine": {
+          "description": "The tax engine identifier that was used to calculate this line item.",
+          "type": "string",
+          "example": ""
+        },
+        "taxOverrideType": {
+          "description": "If a tax override was specified, this indicates the type of tax override.",
+          "enum": ["None", "TaxAmount", "Exemption", "TaxDate", "AccruedTaxAmount", "DeriveTaxable"],
+          "type": "string",
+          "example": "None",
+          "x-enum-type": "TaxOverrideTypeId",
+          "x-enum-description": "TaxOverrideTypeId",
+          "x-enum-value-comments": {
+            "None": "No override",
+            "TaxAmount": "Tax was overriden by the client",
+            "Exemption": "Entity exemption was ignored (e.g. item was consumed)",
+            "TaxDate": "Only the tax date was overriden",
+            "AccruedTaxAmount": "To support Consumer Use Tax",
+            "DeriveTaxable": "Derive the taxable amount from the tax amount"
+          }
+        },
+        "businessIdentificationNo": {
+          "description": "VAT business identification number used for this transaction.",
+          "type": "string"
+        },
+        "taxOverrideAmount": {
+          "format": "double",
+          "description": "If a tax override was specified, this indicates the amount of tax that was requested.",
+          "type": "number",
+          "example": 0.00
+        },
+        "taxOverrideReason": {
+          "description": "If a tax override was specified, represents the reason for the tax override.",
+          "type": "string",
+          "example": ""
+        },
+        "taxIncluded": {
+          "description": "True if tax was included in the purchase price of the item.",
+          "type": "boolean",
+          "example": false
+        },
+        "details": {
+          "description": "Optional: A list of tax details for this line item.  To fetch this list, add the query string \"?$include=Details\" to your URL.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TransactionLineDetailModel"
+          },
+          "example": [{
+            "id": 123456789,
+            "transactionLineId": 123456789,
+            "transactionId": 123456789,
+            "addressId": 12345,
+            "country": "US",
+            "region": "CA",
+            "stateFIPS": "06",
+            "exemptAmount": 0.00,
+            "exemptReasonId": 4,
+            "inState": false,
+            "jurisCode": "06",
+            "jurisName": "CALIFORNIA",
+            "jurisdictionId": 5000531,
+            "signatureCode": "AGAM",
+            "stateAssignedNo": "",
+            "jurisType": "STA",
+            "nonTaxableAmount": 0.0,
+            "nonTaxableRuleId": 0,
+            "nonTaxableType": "BaseRule",
+            "rate": 0.0625,
+            "rateRuleId": 1321915,
+            "rateSourceId": 3,
+            "serCode": "",
+            "sourcing": "Destination",
+            "tax": 62.50,
+            "taxableAmount": 1000.0,
+            "taxType": "Sales",
+            "taxName": "CA STATE TAX",
+            "taxAuthorityTypeId": 45,
+            "taxRegionId": 2127184,
+            "taxCalculated": 62.50,
+            "taxOverride": 0.00,
+            "rateType": "General"
+          }]
+        },
+        "lineLocationTypes": {
+          "description": "Optional: A list of location types for this line item.  To fetch this list, add the query string \"?$include=LineLocationTypes\" to your URL.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TransactionLineLocationTypeModel"
+          }
+        },
+        "parameters": {
+          "description": "Contains a list of extra parameters that were set when the transaction was created.",
+          "type": "object",
+          "properties": {}
+        }
+      },
+      "example": {
+        "id": 123456789,
+        "transactionId": 123456789,
+        "lineNumber": "1",
+        "boundaryOverrideId": 0,
+        "customerUsageType": "",
+        "description": "Yarn",
+        "destinationAddressId": 12345,
+        "originAddressId": 123456789,
+        "discountAmount": 100.0,
+        "discountTypeId": 0,
+        "exemptAmount": 0.0,
+        "exemptCertId": 0,
+        "exemptNo": "",
+        "isItemTaxable": true,
+        "isSSTP": false,
+        "itemCode": "116292",
+        "lineAmount": 1000.0,
+        "quantity": 1.00,
+        "ref1": "Note: Deliver to Bob",
+        "reportingDate": "2017-05-16",
+        "revAccount": "",
+        "sourcing": "Destination",
+        "tax": 62.50,
+        "taxableAmount": 1000.0,
+        "taxCalculated": 62.50,
+        "taxCode": "PS081282",
+        "taxDate": "2017-05-16",
+        "taxEngine": "",
+        "taxOverrideType": "None",
+        "taxOverrideAmount": 0.00,
+        "taxOverrideReason": "",
+        "taxIncluded": false,
+        "details": [{
+          "id": 123456789,
+          "transactionLineId": 123456789,
+          "transactionId": 123456789,
+          "addressId": 12345,
+          "country": "US",
+          "region": "CA",
+          "stateFIPS": "06",
+          "exemptAmount": 0.00,
+          "exemptReasonId": 4,
+          "inState": false,
+          "jurisCode": "06",
+          "jurisName": "CALIFORNIA",
+          "jurisdictionId": 5000531,
+          "signatureCode": "AGAM",
+          "stateAssignedNo": "",
+          "jurisType": "STA",
+          "nonTaxableAmount": 0.0,
+          "nonTaxableRuleId": 0,
+          "nonTaxableType": "BaseRule",
+          "rate": 0.0625,
+          "rateRuleId": 1321915,
+          "rateSourceId": 3,
+          "serCode": "",
+          "sourcing": "Destination",
+          "tax": 62.50,
+          "taxableAmount": 1000.0,
+          "taxType": "Sales",
+          "taxName": "CA STATE TAX",
+          "taxAuthorityTypeId": 45,
+          "taxRegionId": 2127184,
+          "taxCalculated": 62.50,
+          "taxOverride": 0.00,
+          "rateType": "General"
+        }]
+      }
+    },
+    "TransactionAddressModel": {
+      "description": "An address used within this transaction.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int64",
+          "description": "The unique ID number of this address.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 0
+        },
+        "transactionId": {
+          "format": "int64",
+          "description": "The unique ID number of the document to which this address belongs.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 0
+        },
+        "boundaryLevel": {
+          "description": "The boundary level at which this address was validated.",
+          "enum": ["Address", "Zip9", "Zip5"],
+          "type": "string",
+          "readOnly": true,
+          "example": "Address",
+          "x-enum-type": "BoundaryLevel",
+          "x-enum-description": "Jurisdiction boundary precision level found for address.  This depends on the accuracy of the address\n                as well as the precision level of the state provided jurisdiction boundaries.",
+          "x-enum-value-comments": {
+            "Address": "Street address precision",
+            "Zip9": "9-digit zip precision",
+            "Zip5": "5-digit zip precision"
+          }
+        },
+        "line1": {
+          "description": "The first line of the address.",
+          "type": "string",
+          "example": "100 Ravine Lane Northeast #220"
+        },
+        "line2": {
+          "description": "The second line of the address.",
+          "type": "string"
+        },
+        "line3": {
+          "description": "The third line of the address.",
+          "type": "string"
+        },
+        "city": {
+          "description": "The city for the address.",
+          "type": "string",
+          "example": "Bainbridge Island"
+        },
+        "region": {
+          "description": "The region, state, or province for the address.",
+          "type": "string",
+          "example": "WA"
+        },
+        "postalCode": {
+          "description": "The postal code or zip code for the address.",
+          "type": "string",
+          "example": "98110"
+        },
+        "country": {
+          "description": "The country for the address.",
+          "type": "string",
+          "example": "US"
+        },
+        "taxRegionId": {
+          "format": "int32",
+          "description": "The unique ID number of the tax region for this address.",
+          "type": "integer",
+          "example": 0
+        },
+        "latitude": {
+          "description": "Latitude for this address (CALC - 13394)",
+          "type": "string"
+        },
+        "longitude": {
+          "description": "Longitude for this address (CALC - 13394)",
+          "type": "string"
+        }
+      },
+      "example": {
+        "id": 0,
+        "transactionId": 0,
+        "boundaryLevel": "Address",
+        "line1": "100 Ravine Lane Northeast #220",
+        "city": "Bainbridge Island",
+        "region": "WA",
+        "postalCode": "98110",
+        "country": "US",
+        "taxRegionId": 0
+      }
+    },
+    "TransactionLocationTypeModel": {
+      "description": "Information about a location type",
+      "type": "object",
+      "properties": {
+        "documentLocationTypeId": {
+          "format": "int64",
+          "description": "Location type ID for this location type in transaction",
+          "type": "integer",
+          "readOnly": true,
+          "example": 123
+        },
+        "documentId": {
+          "format": "int64",
+          "description": "Transaction ID",
+          "type": "integer",
+          "readOnly": true,
+          "example": 456
+        },
+        "documentAddressId": {
+          "format": "int64",
+          "description": "Address ID for the transaction",
+          "type": "integer",
+          "readOnly": true,
+          "example": 789
+        },
+        "locationTypeCode": {
+          "description": "Location type code",
+          "type": "string",
+          "readOnly": true,
+          "example": "SingleLocation"
+        }
+      },
+      "example": {
+        "documentLocationTypeId": 123,
+        "documentId": 456,
+        "documentAddressId": 789,
+        "locationTypeCode": "SingleLocation"
+      }
+    },
+    "TransactionSummary": {
+      "description": "Summary information about an overall transaction.",
+      "type": "object",
+      "properties": {
+        "country": {
+          "description": "Two character ISO-3166 country code.",
+          "type": "string"
+        },
+        "region": {
+          "description": "Two or three character ISO region, state or province code, if applicable.",
+          "type": "string"
+        },
+        "jurisType": {
+          "description": "The type of jurisdiction that collects this tax.",
+          "enum": ["Country", "Composite", "State", "County", "City", "Special"],
+          "type": "string",
+          "x-enum-type": "JurisdictionType",
+          "x-enum-description": "Jurisdiction Type",
+          "x-enum-value-comments": {
+            "Country": "Country",
+            "Composite": "Deprecated",
+            "State": "State",
+            "County": "County",
+            "City": "City",
+            "Special": "Special Tax Jurisdiction"
+          }
+        },
+        "jurisCode": {
+          "description": "Jurisdiction Code for the taxing jurisdiction",
+          "type": "string"
+        },
+        "jurisName": {
+          "description": "The name of the jurisdiction that collects this tax.",
+          "type": "string"
+        },
+        "taxAuthorityType": {
+          "format": "int32",
+          "description": "The unique ID of the Tax Authority Type that collects this tax.",
+          "type": "integer"
+        },
+        "stateAssignedNo": {
+          "description": "The state assigned number of the jurisdiction that collects this tax.",
+          "type": "string"
+        },
+        "taxType": {
+          "description": "The tax type of this tax.",
+          "enum": ["Lodging", "Bottle", "ConsumerUse", "Excise", "Fee", "Input", "Nonrecoverable", "Output", "Rental", "Sales", "Use"],
+          "type": "string",
+          "x-enum-type": "TaxType",
+          "x-enum-description": "Tax type",
+          "x-enum-value-comments": {
+            "Sales": "Sales tax",
+            "Use": "Use tax",
+            "ConsumerUse": "Consumer Use Tax",
+            "Output": "VAT/GST Output tax",
+            "Input": "VAT/GST Input tax",
+            "Nonrecoverable": "VAT/GST Nonrecoverable Input tax",
+            "Fee": "Fee - PIFs (Public Improvement Fees) and RSFs (Retail Sales Fees)",
+            "Rental": "Rental Tax",
+            "Excise": "Medical Excise Tax",
+            "Lodging": "Match Lodging tax type",
+            "Bottle": "Match bottle tax type"
+          }
+        },
+        "taxName": {
+          "description": "The name of the tax.",
+          "type": "string"
+        },
+        "taxGroup": {
+          "description": "Group code when special grouping is enabled.",
+          "type": "string"
+        },
+        "rateType": {
+          "description": "(DEPRECATED) Indicates the tax rate type.  Please use rateTypeCode instead.",
+          "enum": ["ReducedA", "ReducedB", "Food", "General", "IncreasedStandard", "LinenRental", "Medical", "Parking", "SuperReduced", "ReducedR", "Standard", "Zero"],
+          "type": "string",
+          "x-enum-type": "RateType",
+          "x-enum-description": "",
+          "x-enum-value-comments": {}
+        },
+        "rateTypeCode": {
+          "description": "Indicates the code of the rate type.  Use `/api/v2/definitions/ratetypes` for a full list of rate type codes.",
+          "type": "string"
+        },
+        "taxable": {
+          "format": "double",
+          "description": "Tax Base - The adjusted taxable amount.",
+          "type": "number"
+        },
+        "rate": {
+          "format": "double",
+          "description": "Tax Rate - The rate of taxation, as a fraction of the amount.",
+          "type": "number"
+        },
+        "tax": {
+          "format": "double",
+          "description": "Tax amount - The calculated tax (Base * Rate).",
+          "type": "number"
+        },
+        "taxCalculated": {
+          "format": "double",
+          "description": "Tax Calculated by Avalara AvaTax.  This may be overriden by a TaxOverride.TaxAmount.",
+          "type": "number"
+        },
+        "nonTaxable": {
+          "format": "double",
+          "description": "The amount of the transaction that was non-taxable.",
+          "type": "number"
+        },
+        "exemption": {
+          "format": "double",
+          "description": "The amount of the transaction that was exempt.",
+          "type": "number"
+        }
+      },
+      "example": {}
+    },
+    "TransactionLineDetailModel": {
+      "description": "An individual tax detail element.  Represents the amount of tax calculated for a particular jurisdiction, for a particular line in an invoice.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int64",
+          "description": "The unique ID number of this tax detail.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 123456789
+        },
+        "transactionLineId": {
+          "format": "int64",
+          "description": "The unique ID number of the line within this transaction.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 123456789
+        },
+        "transactionId": {
+          "format": "int64",
+          "description": "The unique ID number of this transaction.",
+          "type": "integer",
+          "readOnly": true,
+          "example": 123456789
+        },
+        "addressId": {
+          "format": "int64",
+          "description": "The unique ID number of the address used for this tax detail.",
+          "type": "integer",
+          "example": 12345
+        },
+        "country": {
+          "description": "The two character ISO 3166 country code of the country where this tax detail is assigned.",
+          "maxLength": 2,
+          "minLength": 2,
+          "type": "string",
+          "example": "US"
+        },
+        "region": {
+          "description": "The two-or-three character ISO region code for the region where this tax detail is assigned.",
+          "type": "string",
+          "example": "CA"
+        },
+        "countyFIPS": {
+          "description": "For U.S. transactions, the Federal Information Processing Standard (FIPS) code for the county where this tax detail is assigned.",
+          "type": "string"
+        },
+        "stateFIPS": {
+          "description": "For U.S. transactions, the Federal Information Processing Standard (FIPS) code for the state where this tax detail is assigned.",
+          "type": "string",
+          "example": "06"
+        },
+        "exemptAmount": {
+          "format": "double",
+          "description": "The amount of this line that was considered exempt in this tax detail.",
+          "type": "number",
+          "example": 0.00
+        },
+        "exemptReasonId": {
+          "format": "int32",
+          "description": "The unique ID number of the exemption reason for this tax detail.",
+          "type": "integer",
+          "example": 4
+        },
+        "inState": {
+          "description": "True if this detail element represented an in-state transaction.",
+          "type": "boolean",
+          "example": false
+        },
+        "jurisCode": {
+          "description": "The code of the jurisdiction to which this tax detail applies.",
+          "type": "string",
+          "example": "06"
+        },
+        "jurisName": {
+          "description": "The name of the jurisdiction to which this tax detail applies.",
+          "type": "string",
+          "example": "CALIFORNIA"
+        },
+        "jurisdictionId": {
+          "format": "int32",
+          "description": "The unique ID number of the jurisdiction to which this tax detail applies.",
+          "type": "integer",
+          "example": 5000531
+        },
+        "signatureCode": {
+          "description": "The Avalara-specified signature code of the jurisdiction to which this tax detail applies.",
+          "type": "string",
+          "example": "AGAM"
+        },
+        "stateAssignedNo": {
+          "description": "The state assigned number of the jurisdiction to which this tax detail applies.",
+          "type": "string",
+          "example": ""
+        },
+        "jurisType": {
+          "description": "The type of the jurisdiction to which this tax detail applies.",
+          "enum": ["STA", "CTY", "CIT", "STJ", "CNT"],
+          "type": "string",
+          "example": "STA",
+          "x-enum-type": "JurisTypeId",
+          "x-enum-description": "Types of jurisdiction referenced in a transaction",
+          "x-enum-value-comments": {
+            "STA": "State",
+            "CTY": "County",
+            "CIT": "City",
+            "STJ": "Special",
+            "CNT": "Country"
+          }
+        },
+        "nonTaxableAmount": {
+          "format": "double",
+          "description": "The amount of this line item that was considered nontaxable in this tax detail.",
+          "type": "number",
+          "example": 0.0
+        },
+        "nonTaxableRuleId": {
+          "format": "int32",
+          "description": "The rule according to which portion of this detail was considered nontaxable.",
+          "type": "integer",
+          "example": 0
+        },
+        "nonTaxableType": {
+          "description": "The type of nontaxability that was applied to this tax detail.",
+          "enum": ["RateRule", "RateOverrideRule", "BaseRule", "ExemptEntityRule", "ProductTaxabilityRule", "NexusRule"],
+          "type": "string",
+          "example": "BaseRule",
+          "x-enum-type": "TaxRuleTypeId",
+          "x-enum-description": "TaxRuleTypeId",
+          "x-enum-value-comments": {
+            "RateRule": "RateRule",
+            "RateOverrideRule": "RateOverrideRule",
+            "BaseRule": "BaseRule",
+            "ExemptEntityRule": "ExemptEntityRule",
+            "ProductTaxabilityRule": "ProductTaxabilityRule",
+            "NexusRule": "NexusRule"
+          }
+        },
+        "rate": {
+          "format": "double",
+          "description": "The rate at which this tax detail was calculated.",
+          "type": "number",
+          "example": 0.0625
+        },
+        "rateRuleId": {
+          "format": "int32",
+          "description": "The unique ID number of the rule according to which this tax detail was calculated.",
+          "type": "integer",
+          "example": 1321915
+        },
+        "rateSourceId": {
+          "format": "int32",
+          "description": "The unique ID number of the source of the rate according to which this tax detail was calculated.",
+          "type": "integer",
+          "example": 3
+        },
+        "serCode": {
+          "description": "For Streamlined Sales Tax customers, the SST Electronic Return code under which this tax detail should be applied.",
+          "type": "string",
+          "example": ""
+        },
+        "sourcing": {
+          "description": "Indicates whether this tax detail applies to the origin or destination of the transaction.",
+          "enum": ["Mixed", "Destination", "Origin"],
+          "type": "string",
+          "example": "Destination",
+          "x-enum-type": "Sourcing",
+          "x-enum-description": "Sourcing",
+          "x-enum-value-comments": {
+            "Origin": "Origin",
+            "Destination": "Destination",
+            "Mixed": "Mixed sourcing, for states that do both origin and destination calculation"
+          }
+        },
+        "tax": {
+          "format": "double",
+          "description": "The amount of tax for this tax detail.",
+          "type": "number",
+          "example": 62.50
+        },
+        "taxableAmount": {
+          "format": "double",
+          "description": "The taxable amount of this tax detail.",
+          "type": "number",
+          "example": 1000.0
+        },
+        "taxType": {
+          "description": "The type of tax that was calculated.  Depends on the company's nexus settings as well as the jurisdiction's tax laws.",
+          "enum": ["Lodging", "Bottle", "ConsumerUse", "Excise", "Fee", "Input", "Nonrecoverable", "Output", "Rental", "Sales", "Use"],
+          "type": "string",
+          "example": "Sales",
+          "x-enum-type": "TaxType",
+          "x-enum-description": "Tax type",
+          "x-enum-value-comments": {
+            "Sales": "Sales tax",
+            "Use": "Use tax",
+            "ConsumerUse": "Consumer Use Tax",
+            "Output": "VAT/GST Output tax",
+            "Input": "VAT/GST Input tax",
+            "Nonrecoverable": "VAT/GST Nonrecoverable Input tax",
+            "Fee": "Fee - PIFs (Public Improvement Fees) and RSFs (Retail Sales Fees)",
+            "Rental": "Rental Tax",
+            "Excise": "Medical Excise Tax",
+            "Lodging": "Match Lodging tax type",
+            "Bottle": "Match bottle tax type"
+          }
+        },
+        "taxName": {
+          "description": "The name of the tax against which this tax amount was calculated.",
+          "type": "string",
+          "example": "CA STATE TAX"
+        },
+        "taxAuthorityTypeId": {
+          "format": "int32",
+          "description": "The type of the tax authority to which this tax will be remitted.",
+          "type": "integer",
+          "example": 45
+        },
+        "taxRegionId": {
+          "format": "int32",
+          "description": "The unique ID number of the tax region.",
+          "type": "integer",
+          "example": 2127184
+        },
+        "taxCalculated": {
+          "format": "double",
+          "description": "The amount of tax that was calculated.  This amount may be different if a tax override was used.\r\nIf the customer specified a tax override, this calculated tax value represents the amount of tax that would\r\nhave been charged if Avalara had calculated the tax for the rule.",
+          "type": "number",
+          "example": 62.50
+        },
+        "taxOverride": {
+          "format": "double",
+          "description": "The amount of tax override that was specified for this tax line.",
+          "type": "number",
+          "example": 0.00
+        },
+        "rateType": {
+          "description": "(DEPRECATED) The rate type for this tax detail.  Please use rateTypeCode instead.",
+          "enum": ["ReducedA", "ReducedB", "Food", "General", "IncreasedStandard", "LinenRental", "Medical", "Parking", "SuperReduced", "ReducedR", "Standard", "Zero"],
+          "type": "string",
+          "example": "General",
+          "x-enum-type": "RateType",
+          "x-enum-description": "",
+          "x-enum-value-comments": {}
+        },
+        "rateTypeCode": {
+          "description": "Indicates the code of the rate type that was used to calculate this tax detail.  Use `/api/v2/definitions/ratetypes` for a full list of rate type codes.",
+          "maxLength": 25,
+          "minLength": 0,
+          "type": "string"
+        },
+        "taxableUnits": {
+          "format": "double",
+          "description": "Number of units in this line item that were calculated to be taxable according to this rate detail.",
+          "type": "number"
+        },
+        "nonTaxableUnits": {
+          "format": "double",
+          "description": "Number of units in this line item that were calculated to be nontaxable according to this rate detail.",
+          "type": "number"
+        },
+        "exemptUnits": {
+          "format": "double",
+          "description": "Number of units in this line item that were calculated to be exempt according to this rate detail.",
+          "type": "number"
+        },
+        "unitOfBasis": {
+          "description": "When calculating units, what basis of measurement did we use for calculating the units?",
+          "type": "string"
+        }
+      },
+      "example": {
+        "id": 123456789,
+        "transactionLineId": 123456789,
+        "transactionId": 123456789,
+        "addressId": 12345,
+        "country": "US",
+        "region": "CA",
+        "stateFIPS": "06",
+        "exemptAmount": 0.00,
+        "exemptReasonId": 4,
+        "inState": false,
+        "jurisCode": "06",
+        "jurisName": "CALIFORNIA",
+        "jurisdictionId": 5000531,
+        "signatureCode": "AGAM",
+        "stateAssignedNo": "",
+        "jurisType": "STA",
+        "nonTaxableAmount": 0.0,
+        "nonTaxableRuleId": 0,
+        "nonTaxableType": "BaseRule",
+        "rate": 0.0625,
+        "rateRuleId": 1321915,
+        "rateSourceId": 3,
+        "serCode": "",
+        "sourcing": "Destination",
+        "tax": 62.50,
+        "taxableAmount": 1000.0,
+        "taxType": "Sales",
+        "taxName": "CA STATE TAX",
+        "taxAuthorityTypeId": 45,
+        "taxRegionId": 2127184,
+        "taxCalculated": 62.50,
+        "taxOverride": 0.00,
+        "rateType": "General"
+      }
+    },
+    "TransactionLineLocationTypeModel": {
+      "description": "Represents information about location types stored in a line",
+      "type": "object",
+      "properties": {
+        "documentLineLocationTypeId": {
+          "format": "int64",
+          "description": "The unique ID number of this line location address model",
+          "type": "integer",
+          "readOnly": true,
+          "example": 123
+        },
+        "documentLineId": {
+          "format": "int64",
+          "description": "The unique ID number of the document line associated with this line location address model",
+          "type": "integer",
+          "readOnly": true,
+          "example": 456
+        },
+        "documentAddressId": {
+          "format": "int64",
+          "description": "The address ID corresponding to this model",
+          "type": "integer",
+          "readOnly": true,
+          "example": 789
+        },
+        "locationTypeCode": {
+          "description": "The location type code corresponding to this model",
+          "type": "string",
+          "readOnly": true,
+          "example": "SingleLocation"
+        }
+      },
+      "example": {
+        "documentLineLocationTypeId": 123,
+        "documentLineId": 456,
+        "documentAddressId": 789,
+        "locationTypeCode": "SingleLocation"
+      }
+    },
+    "CreateTransactionModel": {
+      "description": "Create a transaction",
+      "required": ["date", "customerCode"],
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "Document Type: if not specified, a document with type of SalesOrder will be created by default",
+          "enum": ["SalesOrder", "SalesInvoice", "PurchaseOrder", "PurchaseInvoice", "ReturnOrder", "ReturnInvoice", "InventoryTransferOrder", "InventoryTransferInvoice", "ReverseChargeOrder", "ReverseChargeInvoice", "Any"],
+          "type": "string",
+          "example": "SalesInvoice",
+          "x-enum-type": "DocumentType",
+          "x-enum-description": "Document Types",
+          "x-enum-value-comments": {
+            "SalesOrder": "Sales Order, estimate or quote (default).  This is a temporary document type and is not saved in tax history.",
+            "SalesInvoice": "Sales Invoice",
+            "PurchaseOrder": "Purchase order, estimate, or quote.  This is a temporary document type and is not saved in tax history.",
+            "PurchaseInvoice": "Purchase Invoice",
+            "ReturnOrder": "Sales Return Order.  This is a temporary document type and is not saved in tax history.",
+            "ReturnInvoice": "Sales Return Invoice",
+            "InventoryTransferOrder": "InventoryTransferOrder",
+            "InventoryTransferInvoice": "InventoryTransferInvoice",
+            "ReverseChargeOrder": "ReverseChargeOrder",
+            "ReverseChargeInvoice": "ReverseChargeInvoice",
+            "Any": "No particular type"
+          }
+        },
+        "code": {
+          "description": "Transaction Code - the internal reference code used by the client application.  This is used for operations such as\r\nGet, Adjust, Settle, and Void.  If you leave the transaction code blank, a GUID will be assigned to each transaction.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "companyCode": {
+          "description": "Company Code - Specify the code of the company creating this transaction here.  If you leave this value null,\r\nyour account's default company will be used instead.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "DEFAULT"
+        },
+        "date": {
+          "format": "date-time",
+          "description": "Transaction Date - The date on the invoice, purchase order, etc.",
+          "type": "string",
+          "example": "2017-05-16T00:00:00-07:00"
+        },
+        "customerCode": {
+          "description": "Customer Code - The client application customer reference code.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "ABC"
+        },
+        "purchaseOrderNo": {
+          "description": "Purchase Order Number for this document\r\nThis is required for single use exemption certificates to match the order and invoice with the certificate.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "2017-05-16-001"
+        },
+        "addresses": {
+          "$ref": "#/definitions/AddressesModel",
+          "description": "Default addresses for all lines in this document",
+          "example": {
+            "singleLocation": {
+              "line1": "123 Main Street",
+              "city": "Irvine",
+              "region": "CA",
+              "country": "US",
+              "postalCode": "92615"
+            }
+          }
+        },
+        "lines": {
+          "description": "Document line items list",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LineItemModel"
+          },
+          "example": [{
+            "number": "1",
+            "quantity": 1.0,
+            "amount": 100.0,
+            "taxCode": "PS081282",
+            "itemCode": "Y0001",
+            "description": "Yarn"
+          }]
+        },
+        "commit": {
+          "description": "Causes the document to be committed if true.  This option is only applicable for invoice document \r\ntypes, not orders.",
+          "type": "boolean",
+          "example": true
+        },
+        "currencyCode": {
+          "description": "3 character ISO 4217 currency code.",
+          "maxLength": 3,
+          "minLength": 0,
+          "type": "string",
+          "example": "USD"
+        },
+        "description": {
+          "description": "Description",
+          "maxLength": 2048,
+          "minLength": 0,
+          "type": "string",
+          "example": "Yarn"
+        }
+      },
+      "example": {
+        "type": "SalesInvoice",
+        "companyCode": "DEFAULT",
+        "date": "2017-05-16",
+        "customerCode": "ABC",
+        "purchaseOrderNo": "2017-05-16-001",
+        "addresses": {
+          "singleLocation": {
+            "line1": "123 Main Street",
+            "city": "Irvine",
+            "region": "CA",
+            "country": "US",
+            "postalCode": "92615"
+          }
+        },
+        "lines": [{
+          "number": "1",
+          "quantity": 1.0,
+          "amount": 100.0,
+          "taxCode": "PS081282",
+          "itemCode": "Y0001",
+          "description": "Yarn"
+        }],
+        "commit": true,
+        "currencyCode": "USD",
+        "description": "Yarn"
+      }
+    },
+    "AddressesModel": {
+      "description": "A series of addresses information in a GetTax call",
+      "type": "object",
+      "properties": {
+        "singleLocation": {
+          "$ref": "#/definitions/AddressLocationInfo",
+          "description": "If this transaction occurred at a retail point-of-sale location, use this"
+        }
+      },
+      "example": {
+        "shipFrom": {
+          "line1": "123 Main Street",
+          "city": "Irvine",
+          "region": "CA",
+          "country": "US",
+          "postalCode": "92615"
+        },
+        "shipTo": {
+          "line1": "1100 2nd Ave",
+          "city": "Seattle",
+          "region": "WA",
+          "country": "US",
+          "postalCode": "98101"
+        }
+      }
+    },
+    "LineItemModel": {
+      "description": "Represents one line item in a transaction",
+      "required": ["quantity", "amount"],
+      "type": "object",
+      "properties": {
+        "number": {
+          "description": "Line number within this document",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "1"
+        },
+        "quantity": {
+          "format": "double",
+          "description": "Quantity of items in this line",
+          "type": "number",
+          "example": 1.0
+        },
+        "amount": {
+          "format": "double",
+          "description": "Total amount for this line",
+          "type": "number",
+          "example": 100.0
+        },
+        "taxCode": {
+          "description": "Tax Code - System or Custom Tax Code.",
+          "maxLength": 25,
+          "minLength": 0,
+          "type": "string",
+          "example": "PS081282"
+        },
+        "itemCode": {
+          "description": "Item Code (SKU)",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "Y0001"
+        },
+        "description": {
+          "description": "Item description.  This is required for SST transactions if an unmapped ItemCode is used.",
+          "maxLength": 2096,
+          "minLength": 0,
+          "type": "string",
+          "example": "Yarn"
+        }
+      },
+      "example": {
+        "number": "1",
+        "quantity": 1.0,
+        "amount": 100.0,
+        "taxCode": "PS081282",
+        "itemCode": "Y0001",
+        "description": "Yarn"
+      }
+    },
+    "TaxOverrideModel": {
+      "description": "Represents a tax override for a transaction",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "Identifies the type of tax override",
+          "enum": ["None", "TaxAmount", "Exemption", "TaxDate", "AccruedTaxAmount", "DeriveTaxable"],
+          "type": "string",
+          "example": "TaxAmount",
+          "x-enum-type": "TaxOverrideType",
+          "x-enum-description": "TaxOverride reasons",
+          "x-enum-value-comments": {
+            "None": "No override",
+            "TaxAmount": "Tax was overriden by the client",
+            "Exemption": "Entity exemption was ignored (e.g. item was consumed)",
+            "TaxDate": "Only the tax date was overriden",
+            "AccruedTaxAmount": "To support Consumer Use Tax",
+            "DeriveTaxable": "Derive the taxable amount from the tax amount"
+          }
+        },
+        "taxAmount": {
+          "format": "double",
+          "description": "Indicates a total override of the calculated tax on the document.  AvaTax will distribute\r\nthe override across all the lines.",
+          "type": "number",
+          "example": 6.25
+        },
+        "taxDate": {
+          "format": "date-time",
+          "description": "The override tax date to use",
+          "type": "string",
+          "example": "2017-05-16T00:00:00-07:00"
+        },
+        "reason": {
+          "description": "This provides the reason for a tax override for audit purposes.  It is required for types 2-4.",
+          "type": "string",
+          "example": "Precalculated Tax"
+        }
+      },
+      "example": {
+        "type": "TaxAmount",
+        "taxAmount": 6.25,
+        "taxDate": "2017-05-16",
+        "reason": "Precalculated Tax"
+      }
+    },
+    "AddressLocationInfo": {
+      "description": "Represents an address to resolve.",
+      "type": "object",
+      "properties": {
+        "locationCode": {
+          "description": "If you wish to use the address of an existing location for this company, specify the address here.\r\nOtherwise, leave this value empty.",
+          "type": "string"
+        },
+        "line1": {
+          "description": "Line1",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "123 Main Street"
+        },
+        "line2": {
+          "description": "Line2",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "line3": {
+          "description": "Line3",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string"
+        },
+        "city": {
+          "description": "City",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "example": "Irvine"
+        },
+        "region": {
+          "description": "State / Province / Region",
+          "maxLength": 3,
+          "minLength": 0,
+          "type": "string",
+          "example": "CA"
+        },
+        "country": {
+          "description": "Two character ISO 3166 Country Code",
+          "maxLength": 2,
+          "minLength": 2,
+          "type": "string",
+          "example": "US"
+        },
+        "postalCode": {
+          "description": "Postal Code / Zip Code",
+          "maxLength": 11,
+          "minLength": 0,
+          "type": "string",
+          "example": "92615"
+        },
+        "latitude": {
+          "format": "double",
+          "description": "Geospatial latitude measurement",
+          "type": "number"
+        },
+        "longitude": {
+          "format": "double",
+          "description": "Geospatial longitude measurement",
+          "type": "number"
+        }
+      },
+      "example": {
+        "line1": "123 Main Street",
+        "city": "Irvine",
+        "region": "CA",
+        "country": "US",
+        "postalCode": "92615"
+      }
+    }
+  },
+ "securityDefinitions": {
+    "OauthSecurity": {
+      "flow": "implicit",
+      "authorizationUrl": "https://ai-sbx.avlr.sh/connect/authorize?response_type=id_token token&scope=avatax_api avatax openid&nonce=bb67a572-ead1-48ae-af53-21f0a695eaf7&",
+      "type": "oauth2",
+      "description": "A bearer token provided by the Avalara Identity server."
+    },
+    "UserSecurity": {
+      "type": "basic",
+      "description": "Basic authentication supports either Username/Password or AccountId/LicenseKey, using Base64 encoding."
+    }
+  },
+  "x-group-by-tags": true,
+  "x-auth-formula": "`Basic ${btoa(`<username>:<password>`)}`",
+  "x-sample-auth-header": "Basic aHR0cHdhdGNoOmY=",
+  "x-ApiType": "REST",
+  "x-avalara-version": "17.5.1-73",
+  "x-api-proxy": {
+    "route": "https://xp0wfn7roi.execute-api.us-west-2.amazonaws.com/production/proxy",
+    "key": {
+      "name": "api-key",
+      "location": "v2-devdot-keys/devdot-proxy-key"
+    }
+  }
+}

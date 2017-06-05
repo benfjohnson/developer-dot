@@ -70,3 +70,25 @@
     max-width: 100%;
     height: auto;
 }
+
+.blog-content col {
+        width: 650px;  
+}
+
+.byline {
+    font-size: 14px;
+    color: $Dark-grey;
+}
+//changes not only the blog posts but the article content style as well
+body {
+    font-family: "source sans pro light";
+    font-size: 16px;
+    color: $Darkest-grey;
+    line-height: 24px;
+}
+
+.byline {
+    font-size: 14px;
+    color: $Darkest-grey;
+}
+

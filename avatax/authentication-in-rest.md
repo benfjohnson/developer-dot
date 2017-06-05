@@ -24,24 +24,26 @@ The simplest type of authentication is called Basic HTTP Authentication, and it 
 
 That's it!  No magic.  Here's how to construct an authentication token for AvaTax REST v2 using your username and password:
 
-<table class="styled-table">
-    <tr>
-        <th>Task</th>
-        <th>Result</th>
-    </tr>
-	<tr>
-		<td>Start with the word "Basic" followed by username and password.</td>
-		<td><pre>Basic username:password</pre></td>
-	</tr>
-	<tr>
-		<td>Replace "username" with your username, and "password" with your password.</td>
-		<td><pre>Basic bob@example.org:bobspasswordgoeshere</pre></td>
-	</tr>
-	<tr>
-		<td>Now use your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> to encode the right hand side of the string.</td>
-		<td><pre>Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl</pre></td>
-	</tr>
-</table>
+<div class="mobile-table">
+    <table class="styled-table">
+        <tr>
+            <th>Task</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <td>Start with the word "Basic" followed by username and password.</td>
+            <td><pre>Basic username:password</pre></td>
+        </tr>
+        <tr>
+            <td>Replace "username" with your username, and "password" with your password.</td>
+            <td><pre>Basic bob@example.org:bobspasswordgoeshere</pre></td>
+        </tr>
+        <tr>
+            <td>Now use your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> to encode the right hand side of the string.</td>
+            <td><pre>Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl</pre></td>
+        </tr>
+    </table>
+</div>
 
 Now you're done!  Just paste your authorization header into the swagger online UI tester, or attach the authorization header to an HTTP request.
 
@@ -81,24 +83,26 @@ As you'll notice, this page is restricted to only account administrators.  Keep 
 
 To authenticate using a license key, here's how you construct your authorization header:
 
-<table class="styled-table">
-    <tr>
-        <th>Task</th>
-        <th>Result</th>
-    </tr>
-	<tr>
-		<td>Start with the word "Basic" followed by accountid and licensekey.</td>
-		<td><pre>Basic accountid:licensekey</pre></td>
-	</tr>
-	<tr>
-		<td>Replace "accountid" with your account ID number, and "licensekey" with the license key you generated above.</td>
-		<td><pre>Basic 123456789:123456789ABCDEF123456789ABCDEF</pre></td>
-	</tr>
-	<tr>
-		<td>Now use your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> to encode the right hand side of the string.</td>
-		<td><pre>Basic MTIzNDU2Nzg5OjEyMzQ1Njc4OUFCQ0RFRjEyMzQ1Njc4OUFCQ0RFRg==</pre></td>
-	</tr>
-</table>
+<div class="mobile-table">
+    <table class="styled-table">
+        <tr>
+            <th>Task</th>
+            <th>Result</th>
+        </tr>
+        <tr>
+            <td>Start with the word "Basic" followed by accountid and licensekey.</td>
+            <td><pre>Basic accountid:licensekey</pre></td>
+        </tr>
+        <tr>
+            <td>Replace "accountid" with your account ID number, and "licensekey" with the license key you generated above.</td>
+            <td><pre>Basic 123456789:123456789ABCDEF123456789ABCDEF</pre></td>
+        </tr>
+        <tr>
+            <td>Now use your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> to encode the right hand side of the string.</td>
+            <td><pre>Basic MTIzNDU2Nzg5OjEyMzQ1Njc4OUFCQ0RFRjEyMzQ1Njc4OUFCQ0RFRg==</pre></td>
+        </tr>
+    </table>
+</div>
 
 As you'll notice, license key and basic authentication are very similar in practice.  Why would someone want to use license key authentication instead of username/password?  Let's look at the advantages and disadvantages of license key authentication.
 

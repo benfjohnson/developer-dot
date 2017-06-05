@@ -23,6 +23,7 @@ nav: certification
 
 <h3> AFC General </h3>
 
+<div class="mobile-table">
 <table class="styled-table">
 <tr>
 <td width="75">
@@ -100,9 +101,11 @@ nav: certification
 </td>
 </tr>
 </table>
+</div>
 
 <h3> AFC SOAP API (Only required for SOAP API user) </h3>
 
+<div class="mobile-table">
 <table class="styled-table">
 <tr>
 <td width="75">
@@ -116,8 +119,10 @@ nav: certification
 </td>
 </tr>
 </table>
+</div>
 
 <h4> Obtain a Pcode </h4>
+<div class="mobile-table">
 <table class="styled-table">
 <tr>
 <td colspan="3" width="575">
@@ -171,9 +176,11 @@ nav: certification
 </td>
 </tr>
 </table>
+</div>
 
 <h4>Populate Transaction structure</h4>
 <p>See <a href = "http://developer.avalara.com/communications/api-reference/saas/soap/">AvaTax for Comms documentation</a> for a description of the fields and how they should be set.</p>
+<div class="mobile-table">
 <table class="styled-table">
 <tr>
 <td colspan="3" width="575">
@@ -238,9 +245,11 @@ nav: certification
 </td>
 </tr>
 </table>
+</div>
 
 <h4>Populate Transaction structure</h4>
 <p>See <a href = "http://developer.avalara.com/communications/api-reference/saas/soap/">AvaTax for Comms documentation</a> for a description of the fields and how they should be set.</p>
+<div class="mobile-table">
 <table class="styled-table">
 <tr>
 <td colspan="3" width="575">
@@ -294,9 +303,11 @@ nav: certification
 </td>
 </tr>
 </table>
+</div>
 
 <h3>AFC REST API (only required for REST API user)</h3>
 
+<div class="mobile-table">
 <table class="styled-table">
 <tr>
 <td width="75">
@@ -310,9 +321,11 @@ nav: certification
 </td>
 </tr>
 </table>
+</div>
 
 <h4> Obtain a Pcode </h4>
 
+<div class="mobile-table">
 <table class="styled-table">
 <tr>
 <td colspan="3" width="575">
@@ -351,9 +364,11 @@ nav: certification
 </td>
 </tr>
 </table>
+</div>
 
 <h4>Populate Transaction structure</h4>
 <p>See <a href = "http://developer.avalara.com/communications/api-reference/saas/soap/">AvaTax for Comms documentation</a> for a description of the fields and how they should be set.</p>
+<div class="mobile-table">
 <table class="styled-table">
 <tr>
 <td width="75">
@@ -389,9 +404,11 @@ nav: certification
 </td>
 </tr>
 </table>
+</div>
 
 <h4>Populate Transaction structure</h4>
 <p>See <a href = "http://developer.avalara.com/communications/api-reference/saas/soap/">AvaTax for Comms documentation</a> for a description of the fields and how they should be set.</p>
+<div class="mobile-table">
 <table class="styled-table">
 <tr>
 <td width="75">
@@ -416,3 +433,4 @@ nav: certification
 </td>
 </tr>
 </table>
+</div>

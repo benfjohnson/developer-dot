@@ -9,7 +9,7 @@ module.exports = {
     },
 
     'API Reference: Communications: SOAP (verify number of endpoints)': function(browser) {
-        const expectedNumberOfApiEndpoints = 13;
+        const expectedNumberOfApiEndpoints = 41;
 
         browser
             .maximizeWindow()

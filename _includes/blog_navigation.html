@@ -1,36 +1,45 @@
-<h1>Categories</h1>
 <ul class = "api-ref-side-nav nav nav-pills nav-stacked hidden-xs hidden-sm">
+    <h4>Categories</h4>
+    <h5>
     <li {% if page.url=="/blog/" %}class="active" {% endif %}>
-        <a class="text-uppercase" href="/blog/">All</a>
+        <a class="capitalize" href="/blog/">All</a>
     </li>
-    <li {% if page.url=="/blog/api/" %}class="active" {% endif %}>
-        <a class="text-uppercase" href="/blog/api/">api</a>    
-    </li>
-    <li {% if page.url=="/blog/avalara/" %}class="active" {% endif %}>
-        <a class="text-uppercase" href="/blog/avalara/">Avalara</a>    
-    </li>
-    <li {% if page.url=="/blog/avatax/" %}class="active" {% endif %}>
-        <a class="text-uppercase" href="/blog/avatax/">AvaTax</a>    
-    </li>
-    <li {% if page.url=="/blog/development/" %}class="active" {% endif %}>
-        <a class="text-uppercase" href="/blog/development/">Development</a>    
-    </li> 
-    <li {% if page.url=="/blog/presentations/" %}class="active" {% endif %}>
-        <a class="text-uppercase" href="/blog/presentations/">Presentations</a>    
-    </li>
-    <li {% if page.url=="/blog/rest/" %}class="active" {% endif %}>
-        <a class="text-uppercase" href="/blog/rest/">REST</a>    
-    </li>
-    <li {% if page.url=="/blog/sales_tax_apis/" %}class="active" {% endif %}>
-        <a class="text-uppercase" href="/blog/sales_tax_apis/">Sales Tax Apis</a>    
-    </li>
-    <li {% if page.url=="/blog/wsdl/" %}class="active" {% endif %}>
-        <a class="text-uppercase" href="/blog/wsdl/">WSDL</a>    
-    </li>
-    <!--
-    <li {% if page.url=="/blog/test/" %}class="active" {% endif %}>
-        <a class="text-uppercase" href="/blog/test/">test</a>
-    </li>
-    -->
 
+    {% for category in site.categories %}
+        {% if category[1].size != 1 %}
+            {% assign a = category[0] | downcase %}
+            {% assign p = page.title | downcase %}
+            <li {% if p == a %}class="active"{% endif %} >
+                {% assign cate = category[0] | replace: ' ', '-' %}
+                {% if category[0] == "api" or category[0] == "sdk" or category[0] == "rest" %}
+                    <a class="text-uppercase" href="/blog/{{ cate | downcase}}/">{{ category[0] }}</a>
+                {% else %}
+                    <a class="capitalize" href="/blog/{{ cate | downcase}}/">{{ category[0] }}</a>
+                {% endif %}
+
+            </li>
+        {% endif %}
+    {% endfor %}
+    </h5>
 </ul>
+<div class="sm-section-nav dropdown visible-xs-block visible-sm-block">
+    <button id="use-case-nav" type="button" data-toggle="dropdown">Categories</button>
+    <ul class="dropdown-menu" aria-labelledby="use-case-nav">
+            <li {% if page.url=="/blog/" %}class="active" {% endif %}><a class="capitalize" href="/blog/">All</a></li>
+                {% for category in site.categories %}
+                    {% if category[1].size != 1 %}
+                        {% assign a = category[0] | downcase %}
+                        {% assign p = page.title | downcase %}
+                        <li {% if p == a %}class="active"{% endif %} >
+                            {% assign cate = category[0] | replace: ' ', '-' %}
+                            {% if category[0] == "api" or category[0] == "sdk" or category[0] == "rest" %}
+                                <a class="text-uppercase" href="/blog/{{ cate | downcase}}/">{{ category[0] }}</a>
+                            {% else %}
+                                <a class="capitalize" href="/blog/{{ cate | downcase}}/">{{ category[0] }}</a>
+                            {% endif %}
+
+                        </li>
+                    {% endif %}
+                {% endfor %}
+    </ul>
+</div>

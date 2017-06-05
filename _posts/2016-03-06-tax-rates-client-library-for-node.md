@@ -4,7 +4,7 @@ title: Tax Rates Client Library for Node
 date: 2016-03-06 22:20
 author: greg.bulmash
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: avaTax
 doctype: blog
 ---

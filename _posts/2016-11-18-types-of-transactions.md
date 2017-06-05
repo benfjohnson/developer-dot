@@ -4,7 +4,7 @@ title: Types of Transactions
 date: 2016-11-18 16:00
 author: Ted Spence
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 disqus: 1
@@ -64,53 +64,55 @@ Inventory transafers are another way of tracking transactions that have Consumer
 
 Now that we've walked through a few of the implications, let's finish with an overview of all these transaction types:
 
-<table class="styled-table">
-	<tr>
-		<th>Transaction Type</th>
-		<th>Lifetime</th>
-		<th>Example</th>
-	</tr>
-	<tr>
-		<td>SalesOrder</td>
-        <td>Temporary</td>
-		<td>A quote for a potential sale</td>
-	</tr>
-	<tr>
-		<td>SalesInvoice</td>
-        <td>Permanent</td>
-		<td>A finalized sale made to a customer</td>
-	</tr>
-	<tr>
-		<td>ReturnOrder</td>
-        <td>Temporary</td>
-		<td>A quote for a refund to a customer</td>
-	</tr>
-	<tr>
-		<td>ReturnInvoice</td>
-        <td>Permanent</td>
-		<td>A finalized refund given to a customer</td>
-	</tr>
-	<tr>
-		<td>PurchaseOrder</td>
-        <td>Temporary</td>
-		<td>A quote for identifying estimated tax to pay to a vendor</td>
-	</tr>
-	<tr>
-		<td>PurchaseInvoice</td>
-        <td>Permanent</td>
-		<td>A purchase made from a vendor</td>
-	</tr>
-	<tr>
-		<td>InventoryTransferOrder</td>
-        <td>Temporary</td>
-		<td>An estimate for shipping inventory from one location to another</td>
-	</tr>
-	<tr>
-		<td>InventoryTransferInvoice</td>
-        <td>Permanent</td>
-		<td>A finalized shipment of inventory from one location to another</td>
-	</tr>
-</table>
+<div class="mobile-table">
+	<table class="styled-table">
+		<tr>
+			<th>Transaction Type</th>
+			<th>Lifetime</th>
+			<th>Example</th>
+		</tr>
+		<tr>
+			<td>SalesOrder</td>
+			<td>Temporary</td>
+			<td>A quote for a potential sale</td>
+		</tr>
+		<tr>
+			<td>SalesInvoice</td>
+			<td>Permanent</td>
+			<td>A finalized sale made to a customer</td>
+		</tr>
+		<tr>
+			<td>ReturnOrder</td>
+			<td>Temporary</td>
+			<td>A quote for a refund to a customer</td>
+		</tr>
+		<tr>
+			<td>ReturnInvoice</td>
+			<td>Permanent</td>
+			<td>A finalized refund given to a customer</td>
+		</tr>
+		<tr>
+			<td>PurchaseOrder</td>
+			<td>Temporary</td>
+			<td>A quote for identifying estimated tax to pay to a vendor</td>
+		</tr>
+		<tr>
+			<td>PurchaseInvoice</td>
+			<td>Permanent</td>
+			<td>A purchase made from a vendor</td>
+		</tr>
+		<tr>
+			<td>InventoryTransferOrder</td>
+			<td>Temporary</td>
+			<td>An estimate for shipping inventory from one location to another</td>
+		</tr>
+		<tr>
+			<td>InventoryTransferInvoice</td>
+			<td>Permanent</td>
+			<td>A finalized shipment of inventory from one location to another</td>
+		</tr>
+	</table>
+</div>
 
 With all these tax types, AvaTax can help your business be ready for the onrush of holiday traffic!
 

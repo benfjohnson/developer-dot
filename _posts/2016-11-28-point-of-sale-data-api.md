@@ -5,7 +5,7 @@ description: ...
 date: 2016-11-28 11:00
 author: Kevin Hess
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 disqus: 1
@@ -18,6 +18,7 @@ Today, we'll walk through a new API launching in the [AvaTax 2.16.12 release](ht
 ### The Point-of-Sale Tax Content File
 
 To begin, let's take a look at the template for the point-of-sale tax content file. Here are the details for each field included in the tax content file:
+<div class="mobile-table">
 
 <table class="styled-table">
 
@@ -236,6 +237,8 @@ To begin, let's take a look at the template for the point-of-sale tax content fi
 </tbody>
 
 </table>
+
+</div>
 
 ### Getting Started
 

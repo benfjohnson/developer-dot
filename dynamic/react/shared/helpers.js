@@ -73,21 +73,6 @@ const buildQueryString = (map = {}) => {
     return queryString ? `?${queryString}` : '';
 };
 
-const buildCurl = (sampleAuthHeader, endpoint) => {
-    const endpointPath = replaceStringPlaceholders(endpoint.path, reduceParamsToKeyValuePair(endpoint.pathParams));
-
-    let curl = `curl -X ${endpoint.action.toUpperCase()} "${endpointPath}${endpoint.qsPath || ''}" -H "Accept: application/json"`;
-
-    if (sampleAuthHeader) {
-        curl += ` -H "Authorization: ${sampleAuthHeader}"`;
-    }
-
-    if (endpoint.postBody) {
-        curl += ` -H "Content-Type: application/json" --data '${JSON.stringify(endpoint.postBody)}'`;
-    }
-    return curl;
-};
-
 /* ******* FILL SAMPLE DATA AND RESET API CONSOLE DATA HELPERS ******* */
 const fillOrRemoveRequestParamSampleData = (params, remove) => {
     if (remove) {
@@ -125,6 +110,36 @@ const fillPostBodySampleData = (body, showExcludedPostBodyFields) => {
 
     return objBody;
 };
+
+// This is mainly used to dynamically build a cURL req based on user's API console input!
+// staticValues parameter will build curl based on example data, and not latest
+// API console inputs for an endpoint. This is used only by our "Example Using CURL" doc sections.
+const buildCurl = (sampleAuthHeader, endpoint, staticValues = false) => {
+    const endpointPath = replaceStringPlaceholders(endpoint.path, reduceParamsToKeyValuePair(endpoint.pathParams));
+
+    let curl = `curl
+    -X ${endpoint.action.toUpperCase()}
+    -H 'Accept: application/json'`;
+
+    if (sampleAuthHeader) {
+        curl += `
+    -H 'Authorization: ${sampleAuthHeader}'`;
+    }
+
+    if (endpoint.postBody) {
+        const curlData = staticValues ? fillPostBodySampleData(endpoint.requestSchema) : endpoint.postBody;
+
+        curl += `
+    -H 'Content-Type: application/json'
+    --data '${JSON.stringify(curlData, null, 2)}'`;
+    }
+
+    curl += `
+    ${endpointPath}${endpoint.qsPath || ''}`;
+
+    return curl;
+};
+
 // Generates initial postBody given Post Body's schema
 const buildInitialPostBodyData = (body, showExcludedPostBodyFields) => {
     if (body === undefined || (body.isExcluded && !showExcludedPostBodyFields)) {

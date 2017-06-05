@@ -4,7 +4,7 @@ title: DefragCon and APIStrat 2015!
 date: 2015-11-13 12:18
 author: anya.stettler
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 ---

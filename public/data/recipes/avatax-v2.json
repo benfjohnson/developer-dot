@@ -2,12 +2,12 @@
     {
         "id": 0,
         "action": "get",
-        "path": "https://rest-sbx-preview.avalara.net/api/v2/taxrates/bypostalcode",
+        "path": "https://sandbox-rest.avatax.com/api/v2/taxrates/bypostalcode",
         "proxy": {
-            "route": "https://e3zwcxla5k.execute-api.us-west-2.amazonaws.com/prod/",
+            "route": "https://xp0wfn7roi.execute-api.us-west-2.amazonaws.com/production/proxy",
             "key": {
                 "name": "api-key",
-                "location": "api-proxy-key/key"
+                "location": "v2-devdot-keys/devdot-proxy-key"
             }
         },
         "operationId": "getTax",
@@ -56,12 +56,12 @@
     {
         "id": 1,
         "action": "get",
-        "path": "https://rest-sbx-preview.avalara.net/api/v2/definitions/subscriptiontypes",
+        "path": "https://sandbox-rest.avatax.com/api/v2/definitions/subscriptiontypes",
         "proxy": {
-            "route": "https://e3zwcxla5k.execute-api.us-west-2.amazonaws.com/prod/",
+            "route": "https://xp0wfn7roi.execute-api.us-west-2.amazonaws.com/production/proxy",
             "key": {
                 "name": "api-key",
-                "location": "api-proxy-key/key"
+                "location": "v2-devdot-keys/devdot-proxy-key"
             }
         },
         "operationId": "ApiV2DefinitionsSubscriptiontypes",

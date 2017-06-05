@@ -48,6 +48,11 @@ doctype: overview
 <div class="row border-top padding-top padding-bottom">
   <div class="col-md-8 col-md-offset-2 text-center">
     <h1 class="h1p">Get started learning about and using this API</h1>
+    <div class="row card">
+        <div class="col-md-3 col-md-offset-2">
+                <img src="/public/images/devdot/DevDotSvgGAssets_One.svg" height="75" alt="1" />
+        </div>
+    </div>
     <div class="row card card-border-top">
         <div class="col-md-3 col-md-offset-2">
             <h4>Check out the documentation</h4>

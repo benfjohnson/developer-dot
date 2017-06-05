@@ -5,7 +5,7 @@ description: How does Avalara publish updates to its AvaTax products?
 date: 2017-02-07 17:00
 author: Ted Spence
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 disqus: 1
@@ -50,48 +50,50 @@ After each release has launched to Sandbox and been available for testing for a 
 
 Avalara maintains a number of SDK libraries for commonly used programming languages.  Each of these SDK libraries is automatically updated each month with the latest interfaces and documentation.  Each software development kit is automatically generated each month based on the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html">official Swagger documentation for REST v2</a>, and many of them are available in package management systems like NuGet or Maven.  The current list of SDKs available is here:
 
-<table class="styled-table">
-	<thead>
-		<tr>
-      <th>Language</th>
-      <th>Version</th>
-      <th>GitHub</th>
-      <th>Getting Started</th>
-		</tr>
-	</thead>
-	<tbody>
-    <tr>
-      <td>C#</td>
-      <td><a href="https://www.nuget.org/packages/Avalara.AvaTax/"><img src="https://img.shields.io/nuget/v/Avalara.AvaTax.svg?style=plastic" title="NuGet" alt="NuGet"/></a></td>
-      <td><a href="https://github.com/avadev/AvaTax-REST-V2-DotNet-SDK">AvaTax-REST-V2-DotNet-SDK</a></td>
-      <td><a href="http://developer.avalara.com/blog/2016/12/05/csharp-nuget-library">Article</a></td>
-    </tr>
-    <tr>
-      <td>Java</td>
-      <td><a href="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11"><img src="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg?style=plastic" title="Maven" alt="Maven"/></a></td>
-      <td><a href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK">AvaTax-REST-V2-JRE-SDK</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>JavaScript</td>
-      <td></td>
-      <td><a href="https://github.com/avadev/AvaTax-REST-V2-JS-SDK">AvaTax-REST-V2-JS-SDK</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>PHP</td>
-      <td></td>
-      <td><a href="https://github.com/avadev/AvaTax-REST-V2-PHP-SDK">AvaTax-REST-V2-PHP-SDK</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Scala</td>
-      <td><a href="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11"><img src="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg?style=plastic" title="Maven" alt="Maven"/></a></td>
-      <td><a href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK">AvaTax-REST-V2-JRE-SDK</a></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+<div class="mobile-table">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Language</th>
+        <th>Version</th>
+        <th>GitHub</th>
+        <th>Getting Started</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>C#</td>
+        <td><a href="https://www.nuget.org/packages/Avalara.AvaTax/"><img src="https://img.shields.io/nuget/v/Avalara.AvaTax.svg?style=plastic" title="NuGet" alt="NuGet"/></a></td>
+        <td><a href="https://github.com/avadev/AvaTax-REST-V2-DotNet-SDK">AvaTax-REST-V2-DotNet-SDK</a></td>
+        <td><a href="http://developer.avalara.com/blog/2016/12/05/csharp-nuget-library">Article</a></td>
+      </tr>
+      <tr>
+        <td>Java</td>
+        <td><a href="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11"><img src="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg?style=plastic" title="Maven" alt="Maven"/></a></td>
+        <td><a href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK">AvaTax-REST-V2-JRE-SDK</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>JavaScript</td>
+        <td></td>
+        <td><a href="https://github.com/avadev/AvaTax-REST-V2-JS-SDK">AvaTax-REST-V2-JS-SDK</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>PHP</td>
+        <td></td>
+        <td><a href="https://github.com/avadev/AvaTax-REST-V2-PHP-SDK">AvaTax-REST-V2-PHP-SDK</a></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Scala</td>
+        <td><a href="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11"><img src="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg?style=plastic" title="Maven" alt="Maven"/></a></td>
+        <td><a href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK">AvaTax-REST-V2-JRE-SDK</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 Do you have a favorite language that isn't supported?  Please <a href="https://community.avalara.com/avalara/topics/new">contact us</a> and let us know which one you'd like to see!
 

@@ -13,5 +13,16 @@ _test/**/_results
 selenium-debug.log
 
 npm-debug.log
+
 **/.DS_Store
 
+# Ignore any models.json file that's built based on a swagger file
+dynamic/swagger/**/models.json
+
+_data/swagger
+models
+
+.vscode
+
+# put all scripts for local development here
+tmp

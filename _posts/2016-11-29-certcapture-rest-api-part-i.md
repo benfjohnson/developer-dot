@@ -4,7 +4,7 @@ title: CertCapture REST API Part I
 date: 2016-11-29 11:00
 author: Bob Maidens
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 disqus: 1

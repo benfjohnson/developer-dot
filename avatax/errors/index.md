@@ -9,6 +9,7 @@ community: errors
 
 Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in the SOAP v1 API.
 
+<div class="mobile-table">
 <table class="styled-table">
 	<thead>
 		<tr>
@@ -683,4 +684,4 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>1001</td>
 			<td><a href="QuestionNotValidForThisAddress">QuestionNotValidForThisAddress</a></td>
 			<td>One of the questions you answered is not valid for this address.</td>
-		</tr></tbody></table>
+		</tr></tbody></table></div>

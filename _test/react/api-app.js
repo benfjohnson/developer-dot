@@ -8100,7 +8100,7 @@ describe('apiApp Reducer', () => {
                                 }
                             ]
                         },
-                        "curl": "curl -X POST \"http://sandbox.landedcost.api.avalara.com/v3/calculate\" -H \"Accept: application/json\" -H \"Content-Type: application/json\" --data '{\"date\":\"2016-01-01T00:00:00.000Z\",\"incoterms\":\"DAP\",\"source\":{\"country\":\"US\"},\"destination\":{\"country\":\"CA\",\"region\":\"CA-BC\"},\"entityType\":\"B2C\",\"currency\":\"USD\",\"shipping\":{\"cost\":50,\"insurance\":50,\"mode\":\"ground\",\"express\":true},\"items\":[{\"id\":\"1\",\"hsCode\":\"930700\",\"description\":\"Swords\",\"price\":100,\"quantity\":10,\"units\":[{\"name\":\"kg\",\"amount\":10,\"total\":10}]}]}'",
+                        "curl": "curl\n -X POST\n  -H \"Accept: application/json\" -H \"Content-Type: application/json\" --data '{\"date\":\"2016-01-01T00:00:00.000Z\",\"incoterms\":\"DAP\",\"source\":{\"country\":\"US\"},\"destination\":{\"country\":\"CA\",\"region\":\"CA-BC\"},\"entityType\":\"B2C\",\"currency\":\"USD\",\"shipping\":{\"cost\":50,\"insurance\":50,\"mode\":\"ground\",\"express\":true},\"items\":[{\"id\":\"1\",\"hsCode\":\"930700\",\"description\":\"Swords\",\"price\":100,\"quantity\":10,\"units\":[{\"name\":\"kg\",\"amount\":10,\"total\":10}]}]}'",
                         "responseSchema": {
                             "required": false,
                             "isExcluded": false,
@@ -13305,7 +13305,7 @@ describe('apiApp Reducer', () => {
             const expectedState = R.clone(state);
 
             expectedState.apiEndpoints[1].apiResponse = undefined;
-            expectedState.apiEndpoints[1].curl = "curl -X POST \"http://sandbox.landedcost.api.avalara.com/v3/calculate\" -H \"Accept: application/json\" -H \"Content-Type: application/json\" --data '{\"source\":{},\"destination\":{},\"shipping\":{},\"items\":[{\"units\":[{}]}]}'";
+            expectedState.apiEndpoints[1].curl = "curl\n    -X POST\n    -H 'Accept: application/json'\n    -H 'Content-Type: application/json'\n    --data '{\n  \"source\": {},\n  \"destination\": {},\n  \"shipping\": {},\n  \"items\": [\n    {\n      \"units\": [\n        {}\n      ]\n    }\n  ]\n}'\n    http://sandbox.landedcost.api.avalara.com/v3/calculate";
             expectedState.apiEndpoints[1].postBody.charges = undefined;
             expectedState.apiEndpoints[1].postBody.currency = undefined;
             expectedState.apiEndpoints[1].postBody.date = undefined;
@@ -25353,7 +25353,7 @@ describe('apiApp Reducer', () => {
             };
             const expectedState = R.clone(state);
 
-            expectedState.apiEndpoints[1].curl = "curl -X POST \"http://sandbox.landedcost.api.avalara.com/v3/calculate\" -H \"Accept: application/json\" -H \"Content-Type: application/json\" --data '{\"date\":\"2016-01-01T00:00:00.000Z\",\"incoterms\":\"DAP\",\"source\":{\"country\":\"US\"},\"destination\":{\"country\":\"CA\",\"region\":\"CA-BC\"},\"entityType\":\"B2C\",\"currency\":\"USD\",\"shipping\":{\"cost\":50,\"insurance\":50,\"mode\":\"ground\",\"express\":true},\"items\":[{\"id\":\"1\",\"hsCode\":\"930700\",\"description\":\"Swords\",\"price\":100,\"quantity\":10,\"units\":[{\"name\":\"kg\",\"amount\":10,\"total\":10}]}]}'";
+            expectedState.apiEndpoints[1].curl = "curl\n    -X POST\n    -H 'Accept: application/json'\n    -H 'Content-Type: application/json'\n    --data '{\n  \"date\": \"2016-01-01T00:00:00.000Z\",\n  \"incoterms\": \"DAP\",\n  \"source\": {\n    \"country\": \"US\"\n  },\n  \"destination\": {\n    \"country\": \"CA\",\n    \"region\": \"CA-BC\"\n  },\n  \"entityType\": \"B2C\",\n  \"currency\": \"USD\",\n  \"shipping\": {\n    \"cost\": 50,\n    \"insurance\": 50,\n    \"mode\": \"ground\",\n    \"express\": true\n  },\n  \"items\": [\n    {\n      \"id\": \"1\",\n      \"hsCode\": \"930700\",\n      \"description\": \"Swords\",\n      \"price\": 100,\n      \"quantity\": 10,\n      \"units\": [\n        {\n          \"name\": \"kg\",\n          \"amount\": 10,\n          \"total\": 10\n        }\n      ]\n    }\n  ]\n}'\n    http://sandbox.landedcost.api.avalara.com/v3/calculate";
             expectedState.apiEndpoints[1].qsPath = '';
             expectedState.apiEndpoints[1].postBody = {
                 "charges": undefined,
@@ -31405,7 +31405,7 @@ describe('apiApp Reducer', () => {
             };
             const expectedState = R.clone(state);
 
-            expectedState.apiEndpoints[5].curl = "curl -X GET \"http://sandbox.landedcost.api.avalara.com/v2/systems?source=FR\" -H \"Accept: application/json\"";
+            expectedState.apiEndpoints[5].curl = "curl\n    -X GET\n    -H 'Accept: application/json'\n    http://sandbox.landedcost.api.avalara.com/v2/systems?source=FR";
             expectedState.apiEndpoints[5].qsPath = "?source=FR";
             expectedState.apiEndpoints[5].queryString.source.value = "FR";
 
@@ -37416,7 +37416,7 @@ describe('apiApp Reducer', () => {
             };
             const expectedState = R.clone(state);
 
-            expectedState.apiEndpoints[5].curl = "curl -X GET \"http://sandbox.landedcost.api.avalara.com/v2/systems?source=FR&destination=US\" -H \"Accept: application/json\"";
+            expectedState.apiEndpoints[5].curl = "curl\n    -X GET\n    -H 'Accept: application/json'\n    http://sandbox.landedcost.api.avalara.com/v2/systems?source=FR&destination=US";
             expectedState.apiEndpoints[5].qsPath = "?source=FR&destination=US";
             expectedState.apiEndpoints[5].queryString.destination.value = "US";
             /* eslint-enable quote-props */
@@ -43404,7 +43404,7 @@ describe('apiApp Reducer', () => {
             };
             const expectedState = R.clone(state);
 
-            expectedState.apiEndpoints[8].curl = "curl -X GET \"http://sandbox.landedcost.api.avalara.com/v2/hscodes/HTS/{code}\" -H \"Accept: application/json\"";
+            expectedState.apiEndpoints[8].curl = "curl\n    -X GET\n    -H 'Accept: application/json'\n    http://sandbox.landedcost.api.avalara.com/v2/hscodes/HTS/{code}";
             expectedState.apiEndpoints[8].pathParams.system.value = 'HTS';
             /* eslint-enable quote-props */
             /* eslint-enable quotes */
@@ -49390,7 +49390,7 @@ describe('apiApp Reducer', () => {
             };
             const expectedState = R.clone(state);
 
-            expectedState.apiEndpoints[8].curl = "curl -X GET \"http://sandbox.landedcost.api.avalara.com/v2/hscodes/TARIC/930700\" -H \"Accept: application/json\"";
+            expectedState.apiEndpoints[8].curl = "curl\n    -X GET\n    -H 'Accept: application/json'\n    http://sandbox.landedcost.api.avalara.com/v2/hscodes/TARIC/930700";
             expectedState.apiEndpoints[8].pathParams.code.value = '930700';
             /* eslint-enable quote-props */
             /* eslint-enable quotes */
@@ -62197,7 +62197,7 @@ describe('apiApp Reducer', () => {
                                 }
                             ]
                         },
-                        "curl": "curl -X POST \"http://sandbox.landedcost.api.avalara.com/v3/calculate\" -H \"Accept: application/json\" -H \"Content-Type: application/json\" --data '{\"source\":{},\"destination\":{},\"shipping\":{},\"items\":[{\"units\":[{}]}]}'",
+                        "curl": "curl\n    -X POST\n    -H 'Accept: application/json'\n    -H 'Content-Type: application/json'\n    --data '{\n  \"source\": {},\n  \"destination\": {},\n  \"shipping\": {},\n  \"items\": [\n    {\n      \"units\": [\n        {}\n      ]\n    }\n  ]\n}'\n    http://sandbox.landedcost.api.avalara.com/v3/calculate",
                         "responseSchema": {
                             "required": false,
                             "isExcluded": false,

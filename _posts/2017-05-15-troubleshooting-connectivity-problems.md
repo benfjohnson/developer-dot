@@ -17,37 +17,39 @@ Getting started with any new piece of software can take a bit of time.  AvaTax i
 
 First, let’s get the correct URL for AvaTax and verify that we can contact it.  AvaTax has four different servers available to choose from:
 
-<table class="styled-table">
-    <thead>
-		<tr>
-			<th>Environment</th>
-			<th>URL</th>
-			<th>Notes</th>
+<div class="mobile-table">
+	<table class="styled-table">
+		<thead>
+			<tr>
+				<th>Environment</th>
+				<th>URL</th>
+				<th>Notes</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Production - REST</td>
+				<td>https://rest.avatax.com</td>
+				<td>For live customer data using the latest REST API </td>
+			</tr>
+			<tr>
+				<td>Production - SOAP</td>
+				<td>https://avatax.avalara.net</td>
+				<td>For a live customer using our mainstream SOAP interface</td>
+			</tr>
+			<tr>
+				<td>Sandbox - REST</td>
+				<td>https://sandbox-rest.avatax.com</td>
+				<td>For testing and development purposes; uses our latest REST API</td>
+			</tr>
+			<tr>
+				<td>Sandbox - SOAP</td>
+				<td>https://development.avalara.net</td>
+				<td>For testing and development purposes; uses our mainstream SOAP API</td>
 		</tr>
-    </thead>
-    <tbody>
-		<tr>
-			<td>Production - REST</td>
-			<td>https://rest.avatax.com</td>
-			<td>For live customer data using the latest REST API </td>
-		</tr>
-		<tr>
-			<td>Production - SOAP</td>
-			<td>https://avatax.avalara.net</td>
-			<td>For a live customer using our mainstream SOAP interface</td>
-		</tr>
-		<tr>
-			<td>Sandbox - REST</td>
-			<td>https://sandbox-rest.avatax.com</td>
-			<td>For testing and development purposes; uses our latest REST API</td>
-  	    </tr>
-        <tr>
-			<td>Sandbox - SOAP</td>
-			<td>https://development.avalara.net</td>
-			<td>For testing and development purposes; uses our mainstream SOAP API</td>
-  	   </tr>
-    </tbody>
-</table>  
+		</tbody>
+	</table>  
+</div>
 
 If you’re just getting started and you’re not sure which to choose, pick Sandbox – REST.  You can get a [free trial account](https://developer.avalara.com/avatax/signup/) right now and make use of the REST interface immediately.
 

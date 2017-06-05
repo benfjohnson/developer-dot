@@ -4,7 +4,7 @@ title: GetTax For Excel? Really?
 date: 2016-09-21 17:00
 author: Dustin Welden
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 disqus: 1

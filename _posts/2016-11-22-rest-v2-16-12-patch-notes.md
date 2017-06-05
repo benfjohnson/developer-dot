@@ -5,7 +5,7 @@ description: Release Notes for the December 2016 update to the AvaTax REST v2 AP
 date: 2016-11-22 11:00
 author: Ted Spence
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: blog
 doctype: blog
 disqus: 1
@@ -17,23 +17,25 @@ This article is about the December 2016 monthly update to the AvaTax REST v2 API
 
 UPDATED 2016-12-07 - The team added the definition of "Mixed" sourcing to the client library to address California sourcing scenarios prior to launch.  Launch has been rescheduled for Tuesday, December 13th.
 
-<table class="styled-table">
-	<tr>
-		<th>Environment</th>
-		<th>URL</th>
-		<th>Release Date</th>
-	</tr>
-	<tr>
-		<td>Sandbox</td>
-        <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
-		<td>2016-12-01</td>
-	</tr>
-	<tr>
-		<td>Production</td>
-        <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
-		<td>2016-12-13</td>
-	</tr>
-</table>
+<div class="mobile-table">
+  <table class="styled-table">
+    <tr>
+      <th>Environment</th>
+      <th>URL</th>
+      <th>Release Date</th>
+    </tr>
+    <tr>
+      <td>Sandbox</td>
+          <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
+      <td>2016-12-01</td>
+    </tr>
+    <tr>
+      <td>Production</td>
+          <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
+      <td>2016-12-13</td>
+    </tr>
+  </table>
+</div>
 
 <h3>POST /api/v2/transactions/create</h3>
 

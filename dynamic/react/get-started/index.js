@@ -14,7 +14,7 @@ import swaggerToGetStartedState from './swaggerToGetStartedState';
 
 const logger = createLogger();
 
-swaggerToGetStartedState('avatax-subset.yaml', (appState) => {
+swaggerToGetStartedState('avatax-subset.json', (appState) => {
     const store = process.env.NODE_ENV !== 'production' ? createStore(reducer, appState, applyMiddleware(logger)) : createStore(reducer, appState);
 
     render(

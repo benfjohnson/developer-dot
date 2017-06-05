@@ -4,7 +4,7 @@ title: Getting our PHP Samples Running on Windows
 date: 2015-06-02 09:00
 author: greg.bulmash
 comments: true
-categories: [Sales_Tax_APIs]
+categories: [Sales Tax APIs]
 product: avaTax
 doctype: blog
 imgsrc: /public/images/blog/zce_logo-150x150.jpg

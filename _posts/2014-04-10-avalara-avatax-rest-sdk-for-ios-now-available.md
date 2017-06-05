@@ -4,7 +4,7 @@ title: Avalara Avatax REST SDK for iOS now available!
 date: 2014-04-10 18:49
 author: lokeuei
 comments: true
-categories: [avalara, avatax, Development, iOS, rest, Sales Tax APIs, SDK, sdk]
+categories: [avalara, avatax, Development, iOS, rest, Sales Tax APIs, sdk]
 product: avaTax
 doctype: blog
 ---

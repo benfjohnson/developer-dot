@@ -18,114 +18,118 @@ disqus: 1
 	<li>The chair however is drop shipped from a partner company with a warehouse in New London, CT. (where you do not have nexus).</li>
 </ol>
 <p>How does tax get calculated? Below is what is known so far:</p>
-<table class="styled-table">
-	<thead>
-		<tr>
-			<th>LineNo</th>
-			<th>TaxCode</th>
-			<th>ItemCode</th>
-			<th>Description</th>
-			<th>Qty</th>
-			<th>Amount</th>
-			<th>DestAddress</th>
-			<th>OrigAddress</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>1</td>
-			<td>PRO50204</td>
-			<td>Desk</td>
-			<td>Office Desk</td>
-			<td>1</td>
-			<td>$505</td>
-			<td>320 S Boston Ave, Tulsa, OK 74103-3703</td>
-			<td>6850 W Buckeye Rd, Phoenix, AZ 85043</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>PR000000</td>
-			<td>Chair</td>
-			<td>Ergonomic Chair</td>
-			<td>1</td>
-			<td>$995</td>
-			<td>320 S Boston Ave, Tulsa, OK 74103-3703</td>
-			<td>375 Connecticut 12, Groton, CT 06340-2947</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>FR020100</td>
-			<td>Shipping (Desk)</td>
-			<td>Shipping / Handling Phoenix, AZ</td>
-			<td>1</td>
-			<td>$25</td>
-			<td>320 S Boston Ave, Tulsa, OK 74103-3703</td>
-			<td>6850 W Buckeye Rd, Phoenix, AZ 85043</td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td>FR020100</td>
-			<td>Shipping (Chair)</td>
-			<td>Shipping / Handling New London, CT</td>
-			<td>1</td>
-			<td>$25</td>
-			<td>320 S Boston Ave, Tulsa, OK 74103-3703</td>
-			<td>375 Connecticut 12, Groton, CT 06340-2947</td>
-		</tr>
-	</tbody>
-</table>
+<div class="mobile-table">
+	<table class="styled-table">
+		<thead>
+			<tr>
+				<th>LineNo</th>
+				<th>TaxCode</th>
+				<th>ItemCode</th>
+				<th>Description</th>
+				<th>Qty</th>
+				<th>Amount</th>
+				<th>DestAddress</th>
+				<th>OrigAddress</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>PRO50204</td>
+				<td>Desk</td>
+				<td>Office Desk</td>
+				<td>1</td>
+				<td>$505</td>
+				<td>320 S Boston Ave, Tulsa, OK 74103-3703</td>
+				<td>6850 W Buckeye Rd, Phoenix, AZ 85043</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>PR000000</td>
+				<td>Chair</td>
+				<td>Ergonomic Chair</td>
+				<td>1</td>
+				<td>$995</td>
+				<td>320 S Boston Ave, Tulsa, OK 74103-3703</td>
+				<td>375 Connecticut 12, Groton, CT 06340-2947</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>FR020100</td>
+				<td>Shipping (Desk)</td>
+				<td>Shipping / Handling Phoenix, AZ</td>
+				<td>1</td>
+				<td>$25</td>
+				<td>320 S Boston Ave, Tulsa, OK 74103-3703</td>
+				<td>6850 W Buckeye Rd, Phoenix, AZ 85043</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>FR020100</td>
+				<td>Shipping (Chair)</td>
+				<td>Shipping / Handling New London, CT</td>
+				<td>1</td>
+				<td>$25</td>
+				<td>320 S Boston Ave, Tulsa, OK 74103-3703</td>
+				<td>375 Connecticut 12, Groton, CT 06340-2947</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 <p>The results of this invoice were as follows:</p>
-<table class="styled-table">
-	<thead>
-		<tr>
-			<th>Description</th>
-			<th>Qty</th>
-			<th>Amount</th>
-			<th>Taxable</th>
-			<th>Tax</th>
-			<th>Totals</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>Office Desk</td>
-			<td>1</td>
-			<td>$505</td>
-			<td>Yes</td>
-			<td>$43</td>
-			<td>$548</td>
-		</tr>
-		<tr>
-			<td>Ergonomic Chair</td>
-			<td>1</td>
-			<td>$995</td>
-			<td>No</td>
-			<td>$0</td>
-			<td>$995</td>
-		</tr>
-		<tr>
-			<td>Shipping Phoenix, AZ</td>
-			<td>1</td>
-			<td>$25</td>
-			<td>Yes</td>
-			<td>$5</td>
-			<td>$30</td>
-		</tr>
-		<tr>
-			<td>Shipping New London, CT</td>
-			<td>1</td>
-			<td>$25</td>
-			<td>No</td>
-			<td>$0</td>
-			<td>$25</td>
-		</tr>
-		<tr>
-			<td>Order Total</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>$1,598</td>
-		</tr>
-	</tbody>
-</table>
+<div class="mobile-table">
+	<table class="styled-table">
+		<thead>
+			<tr>
+				<th>Description</th>
+				<th>Qty</th>
+				<th>Amount</th>
+				<th>Taxable</th>
+				<th>Tax</th>
+				<th>Totals</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Office Desk</td>
+				<td>1</td>
+				<td>$505</td>
+				<td>Yes</td>
+				<td>$43</td>
+				<td>$548</td>
+			</tr>
+			<tr>
+				<td>Ergonomic Chair</td>
+				<td>1</td>
+				<td>$995</td>
+				<td>No</td>
+				<td>$0</td>
+				<td>$995</td>
+			</tr>
+			<tr>
+				<td>Shipping Phoenix, AZ</td>
+				<td>1</td>
+				<td>$25</td>
+				<td>Yes</td>
+				<td>$5</td>
+				<td>$30</td>
+			</tr>
+			<tr>
+				<td>Shipping New London, CT</td>
+				<td>1</td>
+				<td>$25</td>
+				<td>No</td>
+				<td>$0</td>
+				<td>$25</td>
+			</tr>
+			<tr>
+				<td>Order Total</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>$1,598</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

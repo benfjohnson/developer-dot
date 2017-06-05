@@ -1744,6 +1744,7 @@ definitions:
           namespace: "http://avatax.avalara.com/services"
         properties: 
           Version:
+            type: string
             description: The service version of the AvaTax service.
             maxLength: 15
           TransactionId:

@@ -21,24 +21,24 @@ nav: home
           <div class="col-md-4 text-center">
             <div class="row">
               <div class="col-md-8 col-md-offset-2">
-                  <h2>Accurate and fast sales tax calculation</h2>
-                  <p>Instantaneously calculate sales tax in more than 70,000 taxing jurisdictions with our REST API.</p>
+                  <h2 class="text-left">Accurate and fast sales tax calculation</h2>
+                  <p class="text-left">Instantaneously calculate sales tax in more than 70,000 taxing jurisdictions with our REST API.</p>
               </div>
             </div>
           </div>
           <div class="col-md-4 text-center">
             <div class="row">
               <div class="col-md-8 col-md-offset-2">
-                  <h2>Exempt the right customers for the right reasons</h2>
-                  <p>Automatically tie your non-taxable transactions directly to the correct exemption or reseller certificate.</p>
+                  <h2 class="text-left">Exempt the right customers for the right reasons</h2>
+                  <p class="text-left">Automatically tie your non-taxable transactions directly to the correct exemption or reseller certificate.</p>
               </div>
             </div>
           </div>
           <div class="col-md-4 text-center">
             <div class="row">
               <div class="col-md-8 col-md-offset-2">
-                <h2>Automated rules for global transactions</h2>
-                <p>Determine accurate taxability & duties for millions of products and services in over 100 countries.</p>
+                <h2 class="text-left">Automated rules for global transactions</h2>
+                <p class="text-left">Determine accurate taxability & duties for millions of products and services in over 100 countries.</p>
               </div>
             </div>
           </div>
@@ -105,12 +105,12 @@ nav: home
         </div>
         <div class="row border-top">
           <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">
-          <h2>Try it free for 30 days with an <br />Avalara AvaTax sandbox account</h2>
+          <h2 class="text-left">Try it free for 30 days with an <br />Avalara AvaTax sandbox account</h2>
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-            <p>
+          <div class="col-md-6 col-md-offset-3">
+            <p class="text-left">
               You'll be set up with an <a href="/avatax/get-started#signup">AvaTax Basic subscription</a> which lets you calculate taxes in the U.S. and Canada only.<br />
               Please <a href="mailto:sales@avalara.com">contact us</a> if you need to request an extension, evaluate our global tax calculation or other compliance services.<br />
             </p>

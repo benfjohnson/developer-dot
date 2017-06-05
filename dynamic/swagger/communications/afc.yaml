@@ -1534,6 +1534,7 @@ definitions:
 # == BadRequest ==
   BadRequest:
     description: 'IIS rejection - Insure schemas match binding and that prefixes are matched.'
+    type: string
 # === Category Exemption ===
   CategoryExemption:
     description: Category Exemption Class
@@ -3910,9 +3911,11 @@ definitions:
       sauTransactions:
         description: "Please see 'TM_00117_AFC SaaS Pro Sales and Use Developer Manual.pdf' for details."
         type: object
+        properties: {}
       sauAdjustments:
         description: "Please see 'TM_00117_AFC SaaS Pro Sales and Use Developer Manual.pdf' for details."
         type: object
+        properties: {}
       nexus:
         type: object
         xml:
@@ -4655,6 +4658,7 @@ definitions:
     xml:
       name: GetEZTaxDbVersion
       prefix: tem
+    properties: {}
 #------------
   GetEZTaxDbVersionRespEnvelope:
     description: 'Returns the version of the AFC database as a string.'
@@ -4708,6 +4712,7 @@ definitions:
       prefix: 's'
   GetEZTaxVersion:
     description: 'The request to fetch the EZTax Net version.'
+    properties: {}
     xml:
       name: GetEZTaxVersion
       prefix: tem
@@ -4764,6 +4769,7 @@ definitions:
       prefix: 's'
   GetOptionalFieldKeyDesc:
     description: 'The request to retrieve the Field Key Descriptions.'
+    properties: {}
     xml:
       name: GetOptionalFieldKeyDesc
       prefix: tem
@@ -4823,6 +4829,7 @@ definitions:
       prefix: 's'
   GetServerTimeObject:
     description: 'The object used to get the current server time. Syntax: a: GetServerTime /'
+    properties: {}
     xml:
       name: GetServerTime
       prefix: tem
@@ -5075,6 +5082,7 @@ definitions:
       prefix: 's'
   GetVersion:
     description: 'The request to fetch the Web Service version.'
+    properties: {}
     xml:
       name: GetVersion
       prefix: a

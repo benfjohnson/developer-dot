@@ -66,16 +66,21 @@ const buildRequestParams = (params, paramType) => {
 };
 
 // Builds a schema of what a request to a particular endpoint should look like, based on its Swagger definition
-const buildRequestSchema = (endpointParams) => {
+const buildRequestSchema = (endpointParams, isRef) => {
     const postBodyParams = endpointParams.filter((p) => (p.in === 'body'));
 
     // Can only be one post body per request, so safe to take first item
+    if (isRef) {
+        // if isRef is true, the swagger doc has not been dereference and therefore
+        //   does not need to build the schema
+        return postBodyParams.length ? postBodyParams[0] : null;
+    }
     return postBodyParams.length ? buildSchema(postBodyParams[0].schema) : null;
 };
 
 // const buildTagEndpointMap = (tags)
 
-export default (api, rootPath) => {
+export default (api, apiWithRefs, rootPath) => {
     // Build base URL path (e.g. http://localhost:8082/v3)
 
     const scheme = api.schemes && api.schemes[0] ? api.schemes[0] : 'http';
@@ -103,6 +108,8 @@ export default (api, rootPath) => {
 
     Object.keys(api.paths).forEach((k) => {
         const endpoint = api.paths[k];
+        const endpointWithRefs = apiWithRefs.paths[k];
+
         // console.log(`!!! ${JSON.stringify(api.paths)}`);
 
         Object.keys(endpoint).forEach((action) => {
@@ -128,6 +135,7 @@ export default (api, rootPath) => {
                 }
 
                 const endpointParams = endpoint[action].parameters || [];
+                const endpointParamsWithRefs = endpointWithRefs[action].parameters || [];
                 const headerParams = buildRequestParams(endpointParams, 'header');
                 const pathParams = buildRequestParams(endpointParams, 'path');
                 const queryString = buildRequestParams(endpointParams, 'query');
@@ -148,9 +156,11 @@ export default (api, rootPath) => {
                 }
 
                 const requestSchema = buildRequestSchema(endpointParams);
+                const requestSchemaWithRefs = buildRequestSchema(endpointParamsWithRefs, true);
 
                 if (requestSchema) {
                     apiMethod.requestSchema = requestSchema;
+                    apiMethod.requestSchemaWithRefs = requestSchemaWithRefs;
                     apiMethod.postBody = buildInitialPostBodyData(requestSchema, apiMethod.showExcludedPostBodyFields);
                 }
 
@@ -160,9 +170,13 @@ export default (api, rootPath) => {
 
                 if (endpoint[action].responses[200] && endpoint[action].responses[200].schema) {
                     apiMethod.responseSchema = buildSchema(endpoint[action].responses[200].schema);
+                    apiMethod.responseSchemaWithRefs = endpointWithRefs[action].responses[200];
                 } else if (endpoint[action].responses[204] && endpoint[action].responses[204].schema) {
                     apiMethod.responseSchema = buildSchema(endpoint[action].responses[204].schema);
+                    apiMethod.responseSchemaWithRefs = endpointWithRefs[action].responses[204];
                 }
+
+                apiMethod.produces = endpoint[action].produces || api.produces || [];
 
                 swaggerData.apiEndpoints.push(apiMethod);
             }
