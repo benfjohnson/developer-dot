@@ -32,15 +32,37 @@ You called an API that requires an object, but you did not provide an object.
 
 ## Explanation
 
-Each REST API call requires that you upload an object matching its expected structure.  Your API call was not structured correctly.
+This error indicates that you failed to provide a *Request Body* with your API call.
 
-For more information, please visit the documentation for your API endpoint and look closely at the expected object structure.
+An HTTP request looks like this:
+
+```
+POST /api/v2/transactions/create HTTP/1.1
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+Content-Type: application/json
+Content-Length: 23
+
+{
+  "name": "value"
+}
+```
+
+In this case, each element has a specific meaning:
+
+<ul class="normal">
+<li><b>POST</b> is an HTTP verb indicating the type of the request.</li>
+<li><b>/api/v2/transactions/create</b> is the name of the API you are calling.</li>
+<li><b>Authorization</b>, <b>Content-Type</b> and <b>Content-Length</b> are request headers.</li>
+<li>The element within the squiggly brackets is called the <b>Request Body</b>.</li>
+</ul>
+
+If you are seeing this error message, it indicates that you failed to pass in a request body, or the request body was not recognized.  For more information, please visit the documentation for your API endpoint and look closely at the expected object structure.
 
 Common troubleshooting:
 
 <ul class="normal">
+<li>Try making your request via <a href="https://www.getpostman.com/">Postman</a>, <a href="https://curl.haxx.se/">CURL</a>, or our <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html">online Swagger API reference</a>.  Examine closely how each one works and see whether you are providing the same request body in your code.</li>
 <li>In the AvaTax REST API, you must provide data in JSON format.  Did you provide the object in JSON format?</li>
 <li>In JSON, you must provide arrays using the square brackets [ ] and you must provide objects using curly brackets { }.  Did you use the correct brackets?</li>
 <li>Compare your data against the example API object documented in swagger.  Do you see any differences between the object you uploaded and the example?</li>
-<li>Some fields have a limited choice of values - often called an "Enumeration".  Did you make sure that your values for those enumerated fields were valid?</li>
 </ul>
