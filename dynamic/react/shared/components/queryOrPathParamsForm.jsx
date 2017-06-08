@@ -88,7 +88,7 @@ QueryOrPathParamsForm.propTypes = {
             })
         ),
         requestSchema: PropTypes.object,
-        postBody: PropTypes.oneOf([PropTypes.object, PropTypes.array])
+        postBody: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
     }).isRequired,
     onInputChange: PropTypes.func.isRequired,
     onSubmitConsoleRequest: PropTypes.func.isRequired,

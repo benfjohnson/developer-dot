@@ -71,7 +71,7 @@ PostmanCollection.propTypes = {
                     key: PropTypes.string.isRequired,
                     value: PropTypes.string.isRequired
                 })).isRequired,
-                method: PropTypes.oneOf(['get', 'GET', 'put', 'PUT', 'post', 'POST', 'delete', 'DELETE']).isRequired,
+                method: PropTypes.oneOf(['get', 'GET', 'put', 'PUT', 'post', 'POST', 'delete', 'DELETE', 'head', 'HEAD']).isRequired,
                 url: PropTypes.string.isRequired
             }).isRequired,
             response: PropTypes.array

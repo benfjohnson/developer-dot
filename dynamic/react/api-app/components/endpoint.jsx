@@ -39,7 +39,7 @@ EndPointComponent.propTypes = {
     endpoint: PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
+        description: PropTypes.string,
         curl: PropTypes.string.isRequired,
         sampleAuthHeader: PropTypes.string,
         path: PropTypes.string.isRequired,
