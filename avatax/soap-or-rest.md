@@ -71,32 +71,32 @@ Here's a quick look at a few critical features and how they compare between REST
 		<tbody>
 			<tr>
 				<td><a href="/avatax/address-validation">Address validation</a></td>
-				<td><a href="/avatax/api-reference/tax/soap/#validateAddress">ValidateAddress</a> request</td>
+				<td><a href="/api-reference/avatax/soap/methods/validateAddress">ValidateAddress</a> request</td>
 				<td><a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Addresses/ApiV2AddressesResolvePost">POST /api/v2/addresses/resolve</a></td>
 			</tr>
 			<tr>
 				<td>Tax calculation</td>
-				<td><a href="/avatax/api-reference/tax/soap/#getTax">GetTax</a></td>
+				<td><a href="/api-reference/avatax/soap/methods/getTax">GetTax</a></td>
 				<td><a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Transactions/ApiV2TransactionsCreatePost">POST /api/v2/transactions/create</a></td>
 			</tr>
 			<tr>
 				<td><a href="/avatax/voiding-documents">Voiding documents</a></td>
-				<td><a href="/avatax/api-reference/tax/soap/#cancelTax">CancelTax</a></td>
+				<td><a href="/api-reference/avatax/soap/methods/cancelTax">CancelTax</a></td>
 				<td><a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Transactions/ApiV2CompaniesByCompanyCodeTransactionsByTransactionCodeVoidPost">POST /api/v2/companies/123/transactions/456/void</a></td>
 			</tr>
 			<tr>
 				<td><a href="/avatax/reportable-transactions">Committing a document</a></td>
-				<td><a href="/avatax/api-reference/tax/soap/#postTax">PostTax</a></td>
+				<td><a href="/api-reference/avatax/soap/methods/postTax">PostTax</a></td>
 				<td><a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Transactions/ApiV2CompaniesByCompanyCodeTransactionsByTransactionCodeCommitPost">POST /api/v2/companies/123/transactions/456/commit</a></td>
 			</tr>
 			<tr>
 				<td>Retrieve document history</td>
-				<td><a href="/avatax/api-reference/tax/soap/#getTaxHistory">GetTaxHistory</a></td>
+				<td><a href="/api-reference/avatax/soap/methods/getTaxHistory">GetTaxHistory</a></td>
 				<td><a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Transactions/ApiV2CompaniesByCompanyCodeTransactionsByTransactionCodeGet">GET /api/v2/companies/123/transactions/456</a></td>
 			</tr>
 			<tr>
 				<td>Modify committed transaction records</td>
-				<td><a href="/avatax/api-reference/tax/soap/#adjustTax">AdjustTax</a></td>
+				<td><a href="/api-reference/avatax/soap/methods/adjustTax">AdjustTax</a></td>
 				<td><a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Transactions/ApiV2CompaniesByCompanyCodeTransactionsByTransactionCodeAdjustPost">POST /api/v2/companies/123/transactions/456/adjust</a></td>
 			</tr>
 		</tbody>

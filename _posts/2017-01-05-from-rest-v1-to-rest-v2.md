@@ -319,22 +319,22 @@ Both operate the same; the `GET` method was introduced for simplicity of integra
 
 Something else the REST v1 could never do was create companies. This could only be done using the Onboarding API or through the Admin Console. Not only can the REST v2 create a new company, but you can create a company fully formed and ready for the calculation of tax in a single call to the API. Both of these are illustrated using the following two endpoints.
 
-[Create New](http://developer.avalara.com/avatax/api-reference/tax/v2/Companies/#ApiV2CompaniesPost) `POST //sandbox-rest.avatax.com/api/v2/companies`
+[Create New](http://developer.avalara.com/api-reference/avatax/rest/v2/methods/Companies/ApiV2CompaniesPost) `POST //sandbox-rest.avatax.com/api/v2/companies`
 
-[Initialize](http://developer.avalara.com/avatax/api-reference/tax/v2/Companies/#ApiV2CompaniesInitializePost) `POST //sandbox-rest.avatax.com/api/v2/companies/initialize`
+[Initialize](http://developer.avalara.com/api-reference/avatax/rest/v2/methods/Companies/ApiV2CompaniesInitializePost) `POST //sandbox-rest.avatax.com/api/v2/companies/initialize`
 
 #### Try our Definitions Endpoint
 
 If you're ever looking for information, the v2 has a new Definitions method, by using the assorted `GET //sandbox-rest.avatax.com/api/v2/definitions` endpoints you can retrieve parameter lists and definitions for these and more:
 
 <ul class="normal">
-  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsLocationquestionsGet">Tax Location Questions </a></li>
-  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsNexusGet">Nexus</a></li>
-  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsParametersGet">Transactions</a></li>
-  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsPermissionsGet">Permissions</a></li>
-  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsSubscriptiontypesGet">Subscriptions</a></li>
-  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsTaxauthoritiesGet">Tax Authorities</a></li>
-  <li><a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Definitions/#ApiV2DefinitionsTaxcodesGet">Tax Codes</a></li>
+  <li><a href="http://developer.avalara.com/api-reference/avatax/rest/v2/methods/Definitions/ApiV2DefinitionsLocationquestionsGet">Tax Location Questions </a></li>
+  <li><a href="http://developer.avalara.com/api-reference/avatax/rest/v2/methods/Definitions/ApiV2DefinitionsNexusGet">Nexus</a></li>
+  <li><a href="http://developer.avalara.com/api-reference/avatax/rest/v2/methods/Definitions/ApiV2DefinitionsParametersGet">Transactions</a></li>
+  <li><a href="http://developer.avalara.com/api-reference/avatax/rest/v2/methods/Definitions/ApiV2DefinitionsPermissionsGet">Permissions</a></li>
+  <li><a href="http://developer.avalara.com/api-reference/avatax/rest/v2/methods/Definitions/ApiV2DefinitionsSubscriptiontypesGet">Subscriptions</a></li>
+  <li><a href="http://developer.avalara.com/api-reference/avatax/rest/v2/methods/Definitions/ApiV2DefinitionsTaxauthoritiesGet">Tax Authorities</a></li>
+  <li><a href="http://developer.avalara.com/api-reference/avatax/rest/v2/methods/Definitions/ApiV2DefinitionsTaxcodesGet">Tax Codes</a></li>
 </ul>
 
-We've been working hard here at Avalara to fine tune our AvaTax REST v2 API to provide you with the best possible service. These are just a handful of the improvements made in our REST v2, go here to view our entire [API reference documentation](http://developer.avalara.com/avatax/api-reference/tax/v2/). Hopefully this will help guide you along in the transition from our v1 to v2.
+We've been working hard here at Avalara to fine tune our AvaTax REST v2 API to provide you with the best possible service. These are just a handful of the improvements made in our REST v2, go here to view our entire [API reference documentation](http://developer.avalara.com/api-reference/avatax/rest/v2/). Hopefully this will help guide you along in the transition from our v1 to v2.

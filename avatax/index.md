@@ -40,7 +40,7 @@ doctype: overview
     <h1 class="h1p">Learn what the AvaTax API can do for you</h1>
     <ul class="pipe">
         <li><a href="/avatax/use-cases">Use cases</a></li>
-        <li><a href="/avatax/api-reference/tax/v1">API references</a></li>
+        <li><a href="/api-reference/avatax/rest/v1">API references</a></li>
     </ul>
   </div>
 </div>

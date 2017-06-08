@@ -14,7 +14,7 @@ services:
     image: jeremycraigmartinez/devdot
     ports:
       - "4000:4000"
-    command: [npm, run, test-web, --, --ci-test, --skip-initial-build]
+    command: [npm, run, test-web, --, --ci-test, --skip-initial-build,  --skip-npm-build]
     volumes:
       - ./:/app
     container_name: devdot

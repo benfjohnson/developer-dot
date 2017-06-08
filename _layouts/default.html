@@ -44,7 +44,7 @@
 </head>
 {% assign post_count = site.posts|size %} {% if page.product %} {% assign product_name = page.product %} {% elsif layout.product %} {% assign product_name = layout.product %}{% else %} {% if page.api_name %} {% assign product_name = page.api_name %} {% endif %} {% endif %}
 
-<body id="top" data-spy="scroll" data-target="#bootstrap-scrollspy" data-product={{product_name}}>
+<body id="top" data-product={{product_name}}>
     <header>
         <div class="pageTitle">
             <a href="/">

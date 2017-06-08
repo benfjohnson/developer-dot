@@ -54,7 +54,7 @@ paths:
         * Addresses are used to source the jurisdictions involved in the sale
 
         * Defaults are used for shipFromAddress if none provided or the address is
-        invalid. The default shipFromAddress can be retrieved with the GET /connections/{connectionID} route
+        invalid. The default shipFromAddress can be retrieved with the GET /connections/{<connectionID> route
         
         * In some cases, review by the user may be required (e.g. if the service does not provide taxes or shipping data for refunds). When this occurs, reviewRequired should be set to true and reviewMessage should be a string with the reason for the review.
         

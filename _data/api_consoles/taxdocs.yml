@@ -9,4 +9,4 @@ nav_links:
   - title: Overview
     path: /taxdocs
   - title: API references
-    path: /taxdocs/api-reference/
+    path: /api-reference/taxdocs/transactions

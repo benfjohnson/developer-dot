@@ -115,7 +115,7 @@ const buildHtml = function(fileName, apiDefinitions, apiName, product) {
 
     fields = `["${fields.join('"]["')}"]`;
 
-    const siteDir = `${__dirname}/../${pathWithoutExt}`;
+    const siteDir = `${__dirname}/../api-reference/${pathWithoutExt}`;
 
     writeHtml(siteDir, defs, product, fields, apiName);
 };

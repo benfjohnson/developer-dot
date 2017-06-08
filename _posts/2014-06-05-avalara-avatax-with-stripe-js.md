@@ -54,4 +54,4 @@ Otherwise, if you're recording an order to AvaTax that has been confirmed, and y
 {% highlight javascript %}GetTax(getTaxRequest, function(getTaxResult) { chargeCardViaStripe((getTaxResult.TotalTax + getTaxResult.TotalAmount) *100 )});{% endhighlight %}
 </li>
 </ol>
-And you're done!  That one <a href="/avatax/api-reference/tax/v1">GetTax</a> call can be used to calculate tax on a cart and/or to record a finalized order in the AvaTax™ system for reporting and filing. For more examples of calls using the AvaTax.js library, take a look at the test html files available in the <a href="https://github.com/avadev/AvaTax-Calc-REST-JavaScript">JavaScript sample repository</a>.
+And you're done!  That one <a href="/api-reference/avatax/rest/v1">GetTax</a> call can be used to calculate tax on a cart and/or to record a finalized order in the AvaTax™ system for reporting and filing. For more examples of calls using the AvaTax.js library, take a look at the test html files available in the <a href="https://github.com/avadev/AvaTax-Calc-REST-JavaScript">JavaScript sample repository</a>.

@@ -14,7 +14,7 @@ disqus: 1
 
 One of the most common inquiries we get at Avalara is about the need to reconcile, or publish, a full list of a company's transactions at the end of the month.  Many businesses work by cash register day by day, and at the end of each month they produce a report listing all the transactions that they processed.  Sometimes businesses will have one report for each location, or cash register, or salesperson; and they need a batch process they can use to upload all of these transactions into AvaTax for later reconciliation, or for filing tax returns.
 
-Today, let's walk through the process of creating a batch and submitting it via the new <a href="http://developer.avalara.com/avatax/api-reference/tax/v2/">REST v2 API</a>.
+Today, let's walk through the process of creating a batch and submitting it via the new <a href="http://developer.avalara.com/api-reference/avatax/rest/v2/">REST v2 API</a>.
 
 <h2>Creating Your Batch File</h2>
 

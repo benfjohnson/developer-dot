@@ -61,7 +61,7 @@ doctype: overview
     <div class="row card">
         <div class="col-md-3 col-md-offset-2 padding-top">
             <ul class="pipe">
-                <li><a href="api-reference/">API references</a></li>
+                <li><a href="/api-reference/taxdocs/transactions/">API references</a></li>
             </ul>
         </div>
     </div>

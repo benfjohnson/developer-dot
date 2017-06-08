@@ -28,7 +28,7 @@ Once service is restored, the tax can be transmitted to AvaTax using one of the 
 	<li>Use TaxIncluded to back-calculate the correct tax amount from the total (including estimated tax) charged to the customer.</li>
 	<li>Allow AvaTax to recalculate the tax amount, and absorb any additional payment of taxes.</li>
 </ul>
-Transactions can be loaded with the <a href="/avatax/api-reference/tax/v1/#getTax">standard calculation method</a> or by using our <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/060_Managing_Transactions/030_Importing_Transactions">batch import functionality directly in the Admin Console</a>.
+Transactions can be loaded with the <a href="getTax">standard calculation method</a> or by using our <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/060_Managing_Transactions/030_Importing_Transactions">batch import functionality directly in the Admin Console</a>.
 <h2>Messages and Errors</h2>
 Understanding and taking appropriate action on error messages is critical to the successful implementation of a custom SDK connector. The errors and warnings that result from web service calls will guide the receiver to the most logical problem resolution path.
 

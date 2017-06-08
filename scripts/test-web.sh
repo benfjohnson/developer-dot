@@ -13,6 +13,10 @@ else
     bundle exec jekyll serve --detach
 fi
 
+if [[ "$@" != *"--skip-npm-build"* ]]; then
+    npm run build
+fi
+
 rm -rf _test/browser/_results
 
 # is we are in CI

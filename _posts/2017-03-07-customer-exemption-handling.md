@@ -258,7 +258,7 @@ There's one last thing to note on these methods.  Regardless of either manner th
 
 <h2>Are these my only options for managing exemptions?</h2>
 
-No, you can actually create an [ECMS record](https://help.avalara.com/000_Avalara_AvaTax/Exempt_Customers_from_Sales_Tax/ECMS_-_Frequently_Asked_Questions) and use that specific CustomerCode attributed to the customer in the ECMS record on your invoice as well to automatically have the service consider them exempt. This record can be created manually, or even through our same [REST v2 API](http://developer.avalara.com/avatax/api-reference/tax/v2/Batches/#ApiV2CompaniesByCompanyIdBatchesPost) via [ECMS Batch upload](https://help.avalara.com/000_Avalara_AvaTax/Exempt_Customers_from_Sales_Tax/Add_or_Import_ECMS_Exemption_Certificate_Entries)!
+No, you can actually create an [ECMS record](https://help.avalara.com/000_Avalara_AvaTax/Exempt_Customers_from_Sales_Tax/ECMS_-_Frequently_Asked_Questions) and use that specific CustomerCode attributed to the customer in the ECMS record on your invoice as well to automatically have the service consider them exempt. This record can be created manually, or even through our same [REST v2 API](http://developer.avalara.com/api-reference/avatax/rest/v2/Batches/#ApiV2CompaniesByCompanyIdBatchesPost) via [ECMS Batch upload](https://help.avalara.com/000_Avalara_AvaTax/Exempt_Customers_from_Sales_Tax/Add_or_Import_ECMS_Exemption_Certificate_Entries)!
 
 We also offer a completely separate service called [Avalara CertCapture](https://certcapture.avalara.com/) with very robust controls and features that can automate many aspects of the otherwise manual process of creating exemption certificate records.
 

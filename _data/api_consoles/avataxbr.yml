@@ -9,6 +9,6 @@ nav_links:
   - title: Overview
     path: /avataxbr
   - title: API references
-    path: /avataxbr/api-reference/tax/v2/transactions
+    path: /api-reference/avataxbr/accounts
   - title: Clients
     path: /avataxbr/clients

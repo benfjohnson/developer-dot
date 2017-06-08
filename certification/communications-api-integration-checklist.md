@@ -179,7 +179,7 @@ nav: certification
 </div>
 
 <h4>Populate Transaction structure</h4>
-<p>See <a href = "http://developer.avalara.com/communications/api-reference/saas/soap/">AvaTax for Comms documentation</a> for a description of the fields and how they should be set.</p>
+<p>See <a href = "http://developer.avalara.com/api-reference/communications/afc/">AvaTax for Comms documentation</a> for a description of the fields and how they should be set.</p>
 <div class="mobile-table">
 <table class="styled-table">
 <tr>
@@ -248,7 +248,7 @@ nav: certification
 </div>
 
 <h4>Populate Transaction structure</h4>
-<p>See <a href = "http://developer.avalara.com/communications/api-reference/saas/soap/">AvaTax for Comms documentation</a> for a description of the fields and how they should be set.</p>
+<p>See <a href = "http://developer.avalara.com/api-reference/communications/afc/">AvaTax for Comms documentation</a> for a description of the fields and how they should be set.</p>
 <div class="mobile-table">
 <table class="styled-table">
 <tr>
@@ -367,7 +367,7 @@ nav: certification
 </div>
 
 <h4>Populate Transaction structure</h4>
-<p>See <a href = "http://developer.avalara.com/communications/api-reference/saas/soap/">AvaTax for Comms documentation</a> for a description of the fields and how they should be set.</p>
+<p>See <a href = "http://developer.avalara.com/api-reference/communications/afc/">AvaTax for Comms documentation</a> for a description of the fields and how they should be set.</p>
 <div class="mobile-table">
 <table class="styled-table">
 <tr>
@@ -407,7 +407,7 @@ nav: certification
 </div>
 
 <h4>Populate Transaction structure</h4>
-<p>See <a href = "http://developer.avalara.com/communications/api-reference/saas/soap/">AvaTax for Comms documentation</a> for a description of the fields and how they should be set.</p>
+<p>See <a href = "http://developer.avalara.com/api-reference/communications/afc/">AvaTax for Comms documentation</a> for a description of the fields and how they should be set.</p>
 <div class="mobile-table">
 <table class="styled-table">
 <tr>

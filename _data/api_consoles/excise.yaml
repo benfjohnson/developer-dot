@@ -4,4 +4,4 @@ nav_links:
   - title: Overview
     path: /excise
   - title: API references
-    path: /excise/api-reference/tax-determination/v5_18_0
+    path: /api-reference/excise/5_18_0
