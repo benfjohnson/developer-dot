@@ -92,7 +92,8 @@ endpoint_links: []
 {% assign ep = '${prettyJson}' %}
 
 {% include models.html name=name ${(prettyJson) ? 'examplePretty=ep' : ''} model=model_ %}
-`;
+
+{% include disqus.html %}`;
 
         fs.writeFile(`${dir}/${def}.html`, html, function(err) {
             if (err) {

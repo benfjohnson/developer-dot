@@ -28,7 +28,7 @@ const saveToFs = (folder, file, html) => {
     });
 };
 
-const saveStaticPage = (tagName, apiPath, buildHtmlFunc, state) => {
+const saveStaticPage = (tagName, apiPath, buildHtmlFunc, state, disqus = true) => {
     const store = createStore(reducer, state);
 
     const staticHtml = renderToString(
@@ -36,7 +36,7 @@ const saveStaticPage = (tagName, apiPath, buildHtmlFunc, state) => {
             <App />
         </Provider>
     );
-    const html = buildHtmlFunc(tagName, staticHtml, state);
+    const html = buildHtmlFunc(tagName, staticHtml, state, disqus);
     const savePath = path.join(__dirname, '..', apiPath);
     const saveFolder = savePath.substring(0, savePath.lastIndexOf('/'));
 
@@ -122,7 +122,7 @@ export default (fileName, apiName, apiPath, product) => {
                     throw new Error('Error parsing swaggerDoc');
                 }
 
-                const buildHtml = (tagName, reactHtml, initialState) => {
+                const buildHtml = (tagName, reactHtml, initialState, disqus) => {
                     const endpointLinks = initialState.apiEndpoints.reduce((accum, endpt) => `${accum}["#${endpt.operationId.replace(/\s/g, '')}", "${endpt.name}"],\n`, '');
 
                     return (
@@ -142,13 +142,15 @@ endpoint_links: [
 ---
 <div id="api-console">${reactHtml}</div>
 <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
-<script src="/public/js/api-bundle.js"></script>`
+<script src="/public/js/api-bundle.js"></script>
+
+${(disqus) ? '{% include disqus.html %}' : ''}`
                     );
                 };
 
                 // Save our root documentation page, with Postman Collection download link,
                 // API name/description, and links to models and methods documentation!
-                saveStaticPage(null, apiPath, buildHtml, {...staticState, apiEndpoints: []});
+                saveStaticPage(null, apiPath, buildHtml, {...staticState, apiEndpoints: []}, false);
 
                 const tagMap = {...staticState.tagMap};
 
