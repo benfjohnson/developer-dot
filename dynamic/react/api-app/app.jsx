@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import AllEndpointsContainer from './containers/allEndpointsContainer';
 import DownloadPostmanCollection from './containers/downloadPostmanCollection';
@@ -24,7 +25,7 @@ const mapStateToProps = (state) => ({
 
 App.displayName = 'App';
 App.propTypes = {
-    isEmpty: React.PropTypes.bool
+    isEmpty: PropTypes.bool
 };
 
 export default connect(mapStateToProps)(App);

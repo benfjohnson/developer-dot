@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Recipe from './recipe';
 
 const RecipeConsoles = (props) => {
@@ -13,9 +14,9 @@ const RecipeConsoles = (props) => {
 
 RecipeConsoles.displayName = 'Recipe Consoles';
 RecipeConsoles.propTypes = {
-    onInputChange: React.PropTypes.func.isRequired,
-    onSubmitRequest: React.PropTypes.func.isRequired,
-    recipes: React.PropTypes.array.isRequired
+    onInputChange: PropTypes.func.isRequired,
+    onSubmitRequest: PropTypes.func.isRequired,
+    recipes: PropTypes.array.isRequired
 };
 
 export default RecipeConsoles;

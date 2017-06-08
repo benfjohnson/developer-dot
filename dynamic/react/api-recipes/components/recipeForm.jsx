@@ -11,6 +11,7 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const RecipeForm = ({recipe, onInputChange, onSubmitRequest}) => {
     return (
@@ -43,9 +44,9 @@ const RecipeForm = ({recipe, onInputChange, onSubmitRequest}) => {
 
 RecipeForm.displayName = 'Recipe Form';
 RecipeForm.propTypes = {
-    onInputChange: React.PropTypes.func.isRequired,
-    onSubmitRequest: React.PropTypes.func.isRequired,
-    recipe: React.PropTypes.object.isRequired
+    onInputChange: PropTypes.func.isRequired,
+    onSubmitRequest: PropTypes.func.isRequired,
+    recipe: PropTypes.object.isRequired
 };
 
 export default RecipeForm;

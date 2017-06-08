@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 const ExpanderIcon = ({startPosition}) => (
 	<svg id='Layer_1' style={{display: 'block', margin: 'auto'}} version='1.1' viewBox='0 0 512 512' width='24px' x='0px' xmlSpace='preserve' y='0px'>
 		<g transform={`rotate(${startPosition === 'UP' ? '180' : '0'} 256 256)`}>
@@ -14,7 +14,7 @@ const ExpanderIcon = ({startPosition}) => (
 
 ExpanderIcon.displayName = 'Expand and Collapse Icon';
 ExpanderIcon.propTypes = {
-    startPosition: React.PropTypes.oneOf(['UP', 'DOWN']).isRequired
+    startPosition: PropTypes.oneOf(['UP', 'DOWN']).isRequired
 };
 
 export default ExpanderIcon;

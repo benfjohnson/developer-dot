@@ -4,6 +4,7 @@
 
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import PropTypes from 'prop-types';
 
 const PARAM_TYPES = {
     QUERY_STRING: 'QUERY_STRING',
@@ -36,14 +37,14 @@ const RequestParamsDocumentation = ({paramType, params}) => {
 
 RequestParamsDocumentation.displayName = 'Request Parameters';
 RequestParamsDocumentation.propTypes = {
-    paramType: React.PropTypes.oneOf(['QUERY_STRING', 'PATH']).isRequired,
-    params: React.PropTypes.objectOf(
-        React.PropTypes.shape({
-            fieldType: React.PropTypes.string.isRequired,
-            description: React.PropTypes.string,
-            example: React.PropTypes.any,
-            required: React.PropTypes.bool,
-            value: React.PropTypes.any.isRequired
+    paramType: PropTypes.oneOf(['QUERY_STRING', 'PATH']).isRequired,
+    params: PropTypes.objectOf(
+        PropTypes.shape({
+            fieldType: PropTypes.string.isRequired,
+            description: PropTypes.string,
+            example: PropTypes.any,
+            required: PropTypes.bool,
+            value: PropTypes.any.isRequired
         })
     ).isRequired
 };

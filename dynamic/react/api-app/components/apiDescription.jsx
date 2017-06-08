@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import ReactMarkdown from 'react-markdown';
 
@@ -24,8 +25,8 @@ const ApiDescRender = ({apiName, apiDescription}) => (
 
 ApiDescRender.displayName = 'Api Description';
 ApiDescRender.propTypes = {
-    apiDescription: React.PropTypes.string,
-    apiName: React.PropTypes.string.isRequired
+    apiDescription: PropTypes.string,
+    apiName: PropTypes.string.isRequired
 };
 
 const ApiDescription = connect(

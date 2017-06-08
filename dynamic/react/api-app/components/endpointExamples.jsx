@@ -5,6 +5,7 @@
 
 import {hasExampleData, fillPostBodySampleData, buildCurl} from '../../shared/helpers';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const RenderExample = ({example}) => {
     return (
@@ -16,7 +17,7 @@ const RenderExample = ({example}) => {
 
 RenderExample.displayName = 'Render Example';
 RenderExample.propTypes = {
-    example: React.PropTypes.string
+    example: PropTypes.string
 };
 
 // Transforms an request or response schema into a prettified code snippet.
@@ -47,7 +48,7 @@ const EndpointExamples = ({endpoint}) => {
 };
 
 EndpointExamples.propTypes = {
-    endpoint: React.PropTypes.object
+    endpoint: PropTypes.object
 };
 
 EndpointExamples.displayName = 'EndpointExamples';

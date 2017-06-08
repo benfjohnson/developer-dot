@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import url from 'url';
 import ReactMarkdown from 'react-markdown';
 import ApiDocumentationParam from './apiDocumentationParam';
@@ -81,7 +82,7 @@ const ApiDocumentation = ({endpoint}) => (
 
 ApiDocumentation.displayName = 'API Documentation';
 ApiDocumentation.propTypes = {
-    endpoint: React.PropTypes.object
+    endpoint: PropTypes.object
 };
 
 export default ApiDocumentation;

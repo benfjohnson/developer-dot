@@ -39,6 +39,7 @@
     "nightwatch": "^0.9.8",
     "node-sass": "^3.8.0",
     "postcss-cli": "^2.6.0",
+    "prop-types": "^15.5.10",
     "ramda": "^0.22.1",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",

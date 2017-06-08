@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ApiDocModelLink = ({refSchema}) => {
     if (!refSchema) {
@@ -29,7 +30,7 @@ const ApiDocModelLink = ({refSchema}) => {
 };
 
 ApiDocModelLink.propTypes = {
-    refSchema: React.PropTypes.object
+    refSchema: PropTypes.object
 };
 
 ApiDocModelLink.displayName = 'Link to Model Documentation';

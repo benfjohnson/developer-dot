@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import PropTypes from 'prop-types';
 
 const ApiDocumentationParam = ({params, type}) => (
     <tbody>
@@ -21,8 +22,8 @@ const ApiDocumentationParam = ({params, type}) => (
 
 ApiDocumentationParam.displayName = 'API Documentation';
 ApiDocumentationParam.propTypes = {
-    params: React.PropTypes.object,
-    type: React.PropTypes.string
+    params: PropTypes.object,
+    type: PropTypes.string
 };
 
 export default ApiDocumentationParam;
