@@ -5,7 +5,11 @@ import {
     hashNewDefinitions,
     combineAllOf,
     concatenateName,
-    isBasicType
+    isBasicType,
+    getDefName,
+    addMethodToDef,
+    addMethodToAllDefs,
+    setupDefMethodSets
 } from '../../dynamic/build-models-helpers';
 
 const landedCost = require('../../dynamic/swagger/landedcost.json');
@@ -194,6 +198,53 @@ describe('build-models-helpers', () => {
             const everySubPropKeyExists = calcResponseRefKeys.every((key) => accum[key]);
 
             expect(everySubPropKeyExists).to.eql(true);
+        });
+    });
+
+    describe('getDefName', () => {
+        it('returns just the unique part of the definition ref', () => {
+            const ref = {
+                $ref: '#/definitions/TransactionModel'
+            };
+
+            expect(getDefName(ref)).to.eql('TransactionModel');
+        });
+    });
+
+    describe('addMethodToDef', () => {
+        it('pushes method name correctly', () => {
+            const schemaRef = {
+                $ref: '#/definitions/TransactionModel'
+            };
+
+            const methodName = 'CreateTransaction';
+
+            const defs = {
+                TransactionModel: {
+                    'properties': {
+                        foo: 'bar'
+                    },
+                    'x-methods-used-in': new Set()
+                }
+            };
+
+            const addResult = addMethodToDef(schemaRef, methodName, defs);
+
+            expect(Array.from(addResult.TransactionModel['x-methods-used-in'])).to.be.deep.eq(['CreateTransaction']);
+        });
+    });
+
+    describe('addMethodToAllDefs', () => {
+        it('adds CreateTransaction method to def references in the request, 200 response and error response', () => {
+            const method = landedCost.paths['/v3/calculate'].post;
+            const defs = setupDefMethodSets(landedCost.definitions);
+
+            const newDefs = addMethodToAllDefs(method, defs);
+            const {CalculateRequest, CalculateResponse, Error} = newDefs;
+
+            expect(Array.from(CalculateRequest['x-methods-used-in'])).to.be.deep.eq(['calculate']);
+            expect(Array.from(CalculateResponse['x-methods-used-in'])).to.be.deep.eq(['calculate']);
+            expect(Array.from(Error['x-methods-used-in'])).to.be.deep.eq(['calculate']);
         });
     });
 });

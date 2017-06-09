@@ -88,10 +88,11 @@ endpoint_links: []
 ---
 
 {% assign name = "${def}" %}
+{% assign path = "${dir}" %}
 {% assign model_ = site.data.swagger${fields}[name] %}
 {% assign ep = '${prettyJson}' %}
 
-{% include models.html name=name ${(prettyJson) ? 'examplePretty=ep' : ''} model=model_ %}
+{% include models.html name=name path=path ${(prettyJson) ? 'examplePretty=ep' : ''} model=model_ %}
 
 {% include disqus.html %}`;
 
@@ -131,7 +132,7 @@ fs.symlink(swagPath, dataPath, function() {
         try {
             const filename = swagPath + '/' + key;
             const data = loadFile(filename);
-            const allDefinitions = buildDefinitions(data.definitions);
+            const allDefinitions = buildDefinitions(data.definitions, data.paths, data['x-group-by-tags']);
 
             const {name, product} = SWAGGER_CONFIG[key];
 
