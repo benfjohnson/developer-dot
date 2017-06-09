@@ -71,6 +71,7 @@ module.exports = {
     'API Reference: AvaTax: REST v2 (verify number of endpoints)': function(browser) {
         // NOTE: THESE NOW ALL EXIST ON SUB 'TAG' PAGES
         const expectedNumberOfApiEndpoints = 26;
+        const expectedNumberOfSubTags = 5;
 
         browser
             .url(this.baseURL + '/api-reference/avatax/rest/v2/methods/Accounts/AccountResetLicenseKey/')
@@ -82,8 +83,8 @@ module.exports = {
                 /* eslint-enable no-invalid-this */
             })
             .elements('css selector', nav.APIS, nav.check(browser.verify, NUMAPIS))
-            .elements('css selector', nav.TAGS, nav.check(browser.verify, expectedNumberOfApiEndpoints))
-            .elements('css selector', nav.SUBTAGS, nav.check(browser.verify, expectedNumberOfApiEndpoints + 5));
+            .elements('css selector', nav.TAGS, nav.check(browser.verify, expectedNumberOfApiEndpoints + expectedNumberOfSubTags))
+            .elements('css selector', nav.SUBTAGS, nav.check(browser.verify, expectedNumberOfSubTags));
     },
     'API Reference: AvaTax: SOAP (verify number of endpoints)': function(browser) {
         const expectedNumberOfApiEndpoints = 11;

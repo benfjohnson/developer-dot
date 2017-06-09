@@ -13,16 +13,15 @@
             {% assign allLinks = product_api[1] %}
             {% assign baseLinks = allLinks.index %}
 
-            {% if apiName == product_api_pretty or apiName_no_decimals == product_api_pretty %}
-                <li>
-                    <a href="#top">{{ product_api_pretty }}</a>
+            <li>
+                <a href="/{{baseLinks.home}}">{{product_api_pretty}}</a>
+                <!-- not quite sure how to do boolean algebra in liquid syntax -->
+                {% if apiName == product_api_pretty or apiName_no_decimals == product_api_pretty %}
                     {% if page.homepage != true %}
                         {% include api_reference_subnavigation.html tags=baseLinks allLinks=allLinks %}
                     {% endif %}
-                </li>
-            {% else %}
-                <li><a href="/{{baseLinks.home}}">{{product_api_pretty}}</a></li>
-            {% endif %}
+                {% endif %}
+            </li>
         {% endfor %}
     </ul>
 </div>
