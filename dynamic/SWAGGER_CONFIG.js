@@ -118,6 +118,11 @@ export default {
         name: 'TaxDoc Monitor REST API',
         path: 'taxdocs/api-reference/',
         product: 'taxdocs'
+    },
+    'validate/transactions-api.json': {
+        name: 'Validate REST API',
+        path: 'api-reference/validate/transactions-api',
+        product: 'validate'
     }
     /* ,
     'avataxbr/index.json': {

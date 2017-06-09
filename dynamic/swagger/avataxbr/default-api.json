@@ -32,8 +32,7 @@
                   "type": "string"
                 },
                 "expired": {
-                  "type": "string",
-                  "format": "date-time"
+                  "type": "string"
                 }
               }
             }
@@ -68,8 +67,7 @@
                   "type": "string"
                 },
                 "expired": {
-                  "type": "string",
-                  "format": "date-time"
+                  "type": "string"
                 }
               }
             }
@@ -187,12 +185,11 @@
     "HeaderForGoods": {
       "type": "object",
       "required": [
-        "accountId",
-        "companyCode",
         "participants",
         "transactionType",
         "eDocCreatorType",
-        "companyLocation"
+        "companyLocation",
+        "messageType"
       ],
       "properties": {
         "messageType": {
@@ -240,7 +237,7 @@
         "transactionType": {
           "type": "string",
           "enum": [
-            "Sales",
+            "Sale",
             "Purchase",
             "SalesReturn",
             "PurchaseReturn",
@@ -297,22 +294,17 @@
           "enum": [
             "self",
             "other"
-          ]
+          ],
+          "default": "self"
         },
         "eDocCreatorPerspective": {
           "type": "boolean",
           "default": true,
           "description": "This Flag is used only when eDocCreatorType is other and the return show Taxes using eDocCreator perspective or self perspective."
         },
-        "entityCode": {
-          "type": "string",
-          "description": "This string is a code maintained by the client application and recorded in CUP to uniquely identify the party with whom the company (identified by companyCode) is transacting. It is unique within the context of a Company."
-        },
         "currency": {
           "type": "string",
-          "enum": [
-            "BRL"
-          ],
+          "default": "BRL",
           "description": "currency code"
         },
         "companyLocation": {
@@ -350,7 +342,8 @@
             1,
             2,
             3
-          ]
+          ],
+          "default": 0
         },
         "indPres": {
           "type": "string",
@@ -412,7 +405,7 @@
       "properties": {
         "lineCode": {
           "type": "integer",
-          "description": "This string is a unique identifier for this line in the transaction"
+          "description": "This is unique identifier for this line in the transaction"
         },
         "itemCode": {
           "type": "string",
@@ -471,6 +464,7 @@
             "use or consumption on demand by contract",
             "use or consumption on energy supplier establishment",
             "use or consumption of fuel transaction type exportation",
+            "use or consumption on services",
             "fixed assets",
             "resale export",
             "resale icms exempt",
@@ -482,11 +476,41 @@
         "processScenario": {
           "type": "string",
           "maxLength": 60,
-          "description": "Reference to process configurantion of this transaction, See ProcessScenario definition"
+          "description": "Reference to process configurantion of this transaction, See ProcessScenario definition\nthis property is used only if eDocCreator=self or  eDocCreator=others and eDocCreatorPerspective=true\n"
+        },
+        "operationTypeReceiptMap": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "Mapping table used to discover the CFOP when execute the Tax receipt in funciotn of CFOP Received and Item Type\nthis property is used only if eDocCreator=others and eDocCreatorPerspective=false\n"
+        },
+        "legalReason": {
+          "type": "object",
+          "description": "Legal Reason for this tax scenario",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Internal ID"
+            },
+            "name": {
+              "type": "string",
+              "description": "Short name to this message"
+            }
+          }
         },
         "cfop": {
           "type": "integer",
           "description": "Fiscal Operation Code of transport service"
+        },
+        "overwrite": {
+          "type": "string",
+          "enum": [
+            "all",
+            "cfop",
+            "proportional",
+            "no"
+          ],
+          "description": "- 'all' # THE SYSTEM GET ALL INFORMATIONS PASSED IN TRANSACTION\n- 'cfop' # THE SYSTEM DISCOVRE AND REPLACE ONLY CFOP\n- 'proportional' # THE SYSTEM DISCOVER CFOP AND AND USES TAX VALUES FROM REFERENCED TRANSACTION, PROPORTINAL BY QUANTITY\n- 'no' # DEFAULT THE SYSTEM WILL CALCULATED ALL TAXES\n",
+          "default": "no"
         },
         "hasStockImpact": {
           "type": "boolean",
@@ -515,6 +539,21 @@
           "type": "boolean",
           "default": true,
           "description": "The item value will compose the invoice total value."
+        },
+        "referencedItem": {
+          "type": "object",
+          "description": "order number, information used for B2B control process",
+          "properties": {
+            "refNFe": {
+              "type": "string",
+              "maxLength": 44,
+              "pattern": "[0-9]{44}"
+            },
+            "lineCode": {
+              "type": "integer",
+              "description": "This identifier for this line in the transaction"
+            }
+          }
         },
         "orderNumber": {
           "type": "string",
@@ -671,7 +710,6 @@
               },
               "registerDateDI": {
                 "type": "string",
-                "format": "date",
                 "description": "Register date of import declaration number, DI/DSI/DA/DRI-E (DI/DSI/DA/DRI-E)"
               },
               "clearanceSite": {
@@ -686,7 +724,6 @@
               },
               "clearanceDate": {
                 "type": "string",
-                "format": "date",
                 "description": "Clerance date"
               },
               "transportDIType": {
@@ -832,7 +869,20 @@
                   "$ref": "#/definitions/TaxByTypeTax"
                 },
                 "ipiReturned": {
-                  "$ref": "#/definitions/TaxByTypeTax"
+                  "allOf": [
+                    {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "calcBase": {
+                          "type": "number",
+                          "format": "double"
+                        }
+                      }
+                    }
+                  ]
                 },
                 "ii": {
                   "$ref": "#/definitions/TaxByTypeTax"
@@ -933,7 +983,9 @@
         {
           "type": "object",
           "required": [
-            "zipcode"
+            "zipcode",
+            "cityCode",
+            "state"
           ],
           "properties": {
             "street": {
@@ -1050,7 +1102,9 @@
             {
               "type": "object",
               "required": [
-                "zipcode"
+                "zipcode",
+                "cityCode",
+                "state"
               ],
               "properties": {
                 "street": {
@@ -1110,7 +1164,7 @@
         "cityGovernment",
         "foreign"
       ],
-      "description": "Entity Type (business, individual, federal government, state government, city government foreign)"
+      "description": "Entity Type (business, individual, federal government, state government, city government, foreign)"
     },
     "FederalTaxRegime": {
       "type": "string",
@@ -1373,7 +1427,6 @@
               },
               "date": {
                 "type": "string",
-                "format": "date",
                 "description": "Installment expiration date"
               },
               "grossValue": {
@@ -1707,7 +1760,11 @@
         },
         "subjectToSRF1234": {
           "type": "boolean",
-          "description": "Companies subject to follow same rules of Government entities (Instrução Normativa: SRF1234)"
+          "description": "Companies subject to follow same rules of Government entities (Instrução Normativa SRF1234)"
+        },
+        "subjectToPayrollTaxRelief": {
+          "type": "boolean",
+          "description": "Sujeito à desoneração de folha de pagamento."
         }
       }
     },
@@ -1782,7 +1839,9 @@
         {
           "type": "object",
           "required": [
-            "zipcode"
+            "zipcode",
+            "cityCode",
+            "state"
           ],
           "properties": {
             "street": {
@@ -1899,7 +1958,9 @@
             {
               "type": "object",
               "required": [
-                "zipcode"
+                "zipcode",
+                "cityCode",
+                "state"
               ],
               "properties": {
                 "street": {
@@ -2315,12 +2376,10 @@
           "description": "This is a decimal type with 11 digits including 3 decimal positions."
         },
         "manufactotyDate": {
-          "type": "string",
-          "format": "date"
+          "type": "string"
         },
         "expirationDate": {
-          "type": "string",
-          "format": "date"
+          "type": "string"
         },
         "maxValueToEndUser": {
           "type": "number",
@@ -2476,6 +2535,38 @@
           "description": "Type of jurisdiction\n- 'City'\n- 'State'\n- 'Country'\n",
           "default": "Country"
         },
+        "taxImpact": {
+          "type": "object",
+          "properties": {
+            "impactOnFinalPrice": {
+              "type": "string",
+              "enum": [
+                "Add",
+                "Included",
+                "Subtracted",
+                "Informative"
+              ]
+            },
+            "impactOnNetAmount": {
+              "type": "string",
+              "enum": [
+                "Add",
+                "Included",
+                "Subtracted",
+                "Informative"
+              ]
+            },
+            "accounting": {
+              "type": "string",
+              "description": "Escrituração",
+              "enum": [
+                "liability",
+                "asset",
+                "none"
+              ]
+            }
+          }
+        },
         "taxType": {
           "type": "string",
           "enum": [
@@ -2498,6 +2589,7 @@
             "ipiReturned",
             "ii",
             "iof",
+            "aproxtribCity",
             "aproxtribState",
             "aproxtribFed",
             "aproxtrib"
@@ -2527,9 +2619,19 @@
           "format": "double",
           "description": "This decimal captures how much of the lineAmount was taxable by this tax"
         },
-        "exemptionCode": {
-          "type": "string",
-          "description": "This string is required if is exempt"
+        "legalReason": {
+          "type": "object",
+          "description": "Legal Reason for this tax scenario",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Internal ID"
+            },
+            "name": {
+              "type": "string",
+              "description": "Short name to this message"
+            }
+          }
         },
         "significantLocations": {
           "type": "array",

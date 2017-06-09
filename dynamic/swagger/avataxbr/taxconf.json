@@ -16,30 +16,27 @@
   "basePath": "/v2",
   "paths": {
     "/taxconf/iss": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        }
+      ],
       "get": {
         "summary": "retrive list of ISS",
         "operationId": "getIssList",
-        "description": "This operation return ISS configurations that match with parameters queries\n",
+        "description": "This operation return ISS configurations that match with parameters queries.\n",
         "parameters": [
           {
-            "name": "suffixcode",
+            "name": "cityCode",
             "in": "query",
-            "description": "Identify this ISS\n",
-            "type": "string",
-            "maxLength": 60
+            "description": "Optionally filter by city IBGE code.\n",
+            "type": "string"
           },
           {
-            "name": "date",
+            "name": "state",
             "in": "query",
-            "description": "When informed return valid version configuration for this date\n",
-            "type": "string",
-            "format": "date"
-          },
-          {
-            "name": "inactive",
-            "in": "query",
-            "description": "return the inactive versions too\n",
-            "type": "boolean"
+            "description": "Optionally filter by state (two letters).\n",
+            "type": "string"
           }
         ],
         "tags": [
@@ -149,35 +146,18 @@
       }
     },
     "/taxconf/iss/{cityCode}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        },
+        {
+          "$ref": "#/parameters/path_cityCode"
+        }
+      ],
       "get": {
         "summary": "get ISS information by City Code.",
         "operationId": "getIssConfByCity",
         "description": "This operation return configurations of ISS that match with parameters queries\n",
-        "parameters": [
-          {
-            "$ref": "#/parameters/path_cityCode"
-          },
-          {
-            "name": "code",
-            "in": "query",
-            "description": "Identificator of this configuration, it is unique for account or standard namedspace\n",
-            "type": "string",
-            "maxLength": 60
-          },
-          {
-            "name": "date",
-            "in": "query",
-            "description": "When informed return valid version configuration for this date\n",
-            "type": "string",
-            "format": "date"
-          },
-          {
-            "name": "inactive",
-            "in": "query",
-            "description": "return the inctives versions too\n",
-            "type": "boolean"
-          }
-        ],
         "tags": [
           "Tax Conf ISS"
         ],
@@ -185,12 +165,59 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "title": "Array of Configurations",
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/IssConfByCity"
-              }
+              "title": "City Configurations",
+              "$ref": "#/definitions/IssConfByCity"
             }
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      },
+      "post": {
+        "summary": "create a ISS Service Code in City.",
+        "operationId": "createIssConfByCityServiceId",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "IssConfService",
+            "in": "body",
+            "description": "The pet JSON you want to post",
+            "schema": {
+              "$ref": "#/definitions/IssConfService"
+            },
+            "required": true
+          }
+        ],
+        "tags": [
+          "Tax Conf ISS"
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/responses/204_NoContent"
           },
           "400": {
             "$ref": "#/responses/400_BadRequest"
@@ -225,9 +252,6 @@
           "application/json"
         ],
         "parameters": [
-          {
-            "$ref": "#/parameters/path_cityCode"
-          },
           {
             "name": "IssConfByCity",
             "in": "body",
@@ -271,11 +295,140 @@
       "delete": {
         "summary": "disable a ISS by City Code.",
         "operationId": "deleteIssConf",
+        "tags": [
+          "Tax Conf ISS"
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/responses/204_NoContent"
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      }
+    },
+    "/taxconf/iss/{cityCode}/{serviceCode}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        },
+        {
+          "$ref": "#/parameters/path_cityCode"
+        },
+        {
+          "$ref": "#/parameters/path_serviceCode"
+        }
+      ],
+      "get": {
+        "summary": "get ISS information by Service Code in City.",
+        "operationId": "getIssConfByCityServiceId",
+        "description": "This operation return configurations of ISS that match with parameters queries\n",
+        "tags": [
+          "Tax Conf ISS"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "title": "Service Configurations",
+              "$ref": "#/definitions/IssConfService"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      },
+      "put": {
+        "summary": "update a ISS by Service Code in City.",
+        "operationId": "updateIssConfByCityServiceId",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
-            "$ref": "#/parameters/path_cityCode"
+            "name": "IssConfService",
+            "in": "body",
+            "description": "The pet JSON you want to post",
+            "schema": {
+              "$ref": "#/definitions/IssConfService"
+            },
+            "required": true
           }
         ],
+        "tags": [
+          "Tax Conf ISS"
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/responses/204_NoContent"
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      },
+      "delete": {
+        "summary": "disable a ISS by Service Code in City.",
+        "operationId": "deleteIssConfServiceId",
         "tags": [
           "Tax Conf ISS"
         ],
@@ -310,6 +463,9 @@
     "/taxconf/icms/{state}": {
       "parameters": [
         {
+          "$ref": "#/parameters/header_jwt"
+        },
+        {
           "$ref": "#/parameters/path_stateAbbr"
         }
       ],
@@ -329,8 +485,7 @@
             "name": "date",
             "in": "query",
             "description": "When informed return valid version configuration for this date",
-            "type": "string",
-            "format": "date"
+            "type": "string"
           },
           {
             "name": "inactive",
@@ -447,6 +602,9 @@
     },
     "/taxconf/icms/{state}/{code}": {
       "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        },
         {
           "$ref": "#/parameters/path_stateAbbr"
         },
@@ -580,6 +738,11 @@
       }
     },
     "/taxconf/icms-search/": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        }
+      ],
       "get": {
         "summary": "retrive list of ICMS.",
         "operationId": "getIcmsListSearch",
@@ -659,6 +822,11 @@
       }
     },
     "/taxconf/cfop": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        }
+      ],
       "get": {
         "summary": "retrive list of CFOP.",
         "operationId": "getCfopList",
@@ -675,8 +843,7 @@
             "name": "date",
             "in": "query",
             "description": "When informed return valid version configuration for this date\n",
-            "type": "string",
-            "format": "date"
+            "type": "string"
           },
           {
             "name": "inactive",
@@ -792,6 +959,11 @@
       }
     },
     "/taxconf/cfop/{code}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        }
+      ],
       "get": {
         "summary": "get CFOP information.",
         "operationId": "getCfop",
@@ -927,6 +1099,11 @@
       }
     },
     "/taxconf/process": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        }
+      ],
       "get": {
         "summary": "retrive list of Process.",
         "operationId": "getProcessList",
@@ -943,8 +1120,7 @@
             "name": "date",
             "in": "query",
             "description": "When informed return valid version configuration for this date\n",
-            "type": "string",
-            "format": "date"
+            "type": "string"
           },
           {
             "name": "inactive",
@@ -1060,6 +1236,11 @@
       }
     },
     "/taxconf/process/{code}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        }
+      ],
       "get": {
         "summary": "get Process information.",
         "operationId": "getProcess",
@@ -1194,91 +1375,18 @@
         }
       }
     },
-    "/taxconf/ibpt": {
-      "get": {
-        "summary": "retrive list of IBPT.",
-        "operationId": "getIbptConfList",
-        "description": "This operation return Process Type configurations that match with parameters queries\n",
-        "parameters": [
-          {
-            "name": "accountId",
-            "in": "query",
-            "description": "filter the configuration by accountID, if not informed, only the standard configuration will be returned\n",
-            "type": "string",
-            "maxLength": 60
-          },
-          {
-            "name": "date",
-            "in": "query",
-            "description": "When informed return valid version configuration for this date\n",
-            "type": "string",
-            "format": "date"
-          },
-          {
-            "name": "inactive",
-            "in": "query",
-            "description": "return the inactive versions too\n",
-            "type": "boolean"
-          }
-        ],
-        "tags": [
-          "Tax Conf IBPT"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success response",
-            "headers": {
-              "X-Pagination-Current-Page": {
-                "description": "The current page. Defaults to 1.",
-                "type": "number"
-              },
-              "X-Pagination-Limit": {
-                "description": "The per page limit. Currently set to 10 but subject to change at any time (max 100).",
-                "type": "number"
-              },
-              "X-Pagination-Total-Pages": {
-                "description": "The total number of pages in the result set. Use this along with X-Pagination-Current-Page to determine if there are any remaining pages/records to be retrieved.",
-                "type": "number"
-              },
-              "X-Pagination-Total-Count": {
-                "description": "The total number of records across all pages.",
-                "type": "number"
-              }
-            },
-            "schema": {
-              "title": "Array of Configurations",
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/IbptConf"
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/responses/400_BadRequest"
-          },
-          "401": {
-            "$ref": "#/responses/401_Unauthorized"
-          },
-          "403": {
-            "$ref": "#/responses/403_Forbidden"
-          },
-          "404": {
-            "$ref": "#/responses/404_NotFound"
-          },
-          "429": {
-            "$ref": "#/responses/429_TooManyRequests"
-          },
-          "500": {
-            "$ref": "#/responses/500_InternalServerError"
-          },
-          "503": {
-            "$ref": "#/responses/503_ServiceUnavailable"
-          }
+    "/taxconf/ibpt/{state}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        },
+        {
+          "$ref": "#/parameters/path_stateAbbr"
         }
-      },
+      ],
       "post": {
         "summary": "create a new Process Type configuration",
-        "operationId": "createIbptConf",
+        "operationId": "createIbptFromCSV",
         "consumes": [
           "application/json"
         ],
@@ -1287,11 +1395,11 @@
         ],
         "parameters": [
           {
-            "name": "taxconfprocess",
+            "name": "csvIBPT",
             "in": "body",
-            "description": "The pet JSON you want to post",
+            "description": "CSV file",
             "schema": {
-              "$ref": "#/definitions/IbptConf"
+              "$ref": "#/definitions/CsvIbptList"
             },
             "required": true
           }
@@ -1325,112 +1433,10 @@
             "$ref": "#/responses/503_ServiceUnavailable"
           }
         }
-      }
-    },
-    "/taxconf/ibpt/{code}": {
-      "get": {
-        "summary": "get IBPT information.",
-        "operationId": "getIbptConf",
-        "description": "This operation return Process Type configuration\n",
-        "parameters": [
-          {
-            "$ref": "#/parameters/path_ipbtCode"
-          }
-        ],
-        "tags": [
-          "Tax Conf IBPT"
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "schema": {
-              "$ref": "#/definitions/IbptConf"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/400_BadRequest"
-          },
-          "401": {
-            "$ref": "#/responses/401_Unauthorized"
-          },
-          "403": {
-            "$ref": "#/responses/403_Forbidden"
-          },
-          "404": {
-            "$ref": "#/responses/404_NotFound"
-          },
-          "429": {
-            "$ref": "#/responses/429_TooManyRequests"
-          },
-          "500": {
-            "$ref": "#/responses/500_InternalServerError"
-          },
-          "503": {
-            "$ref": "#/responses/503_ServiceUnavailable"
-          }
-        }
-      },
-      "put": {
-        "summary": "update a Process Type configuration",
-        "operationId": "updateIbptConf",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "$ref": "#/parameters/path_ipbtCode"
-          },
-          {
-            "name": "taxconfprocess",
-            "in": "body",
-            "description": "The pet JSON you want to post",
-            "schema": {
-              "$ref": "#/definitions/IbptConf"
-            },
-            "required": true
-          }
-        ],
-        "tags": [
-          "Tax Conf IBPT"
-        ],
-        "responses": {
-          "204": {
-            "$ref": "#/responses/204_NoContent"
-          },
-          "400": {
-            "$ref": "#/responses/400_BadRequest"
-          },
-          "401": {
-            "$ref": "#/responses/401_Unauthorized"
-          },
-          "403": {
-            "$ref": "#/responses/403_Forbidden"
-          },
-          "404": {
-            "$ref": "#/responses/404_NotFound"
-          },
-          "429": {
-            "$ref": "#/responses/429_TooManyRequests"
-          },
-          "500": {
-            "$ref": "#/responses/500_InternalServerError"
-          },
-          "503": {
-            "$ref": "#/responses/503_ServiceUnavailable"
-          }
-        }
       },
       "delete": {
         "summary": "disable a IBPT.",
-        "operationId": "deleteIbptConf",
-        "parameters": [
-          {
-            "$ref": "#/parameters/path_ipbtCode"
-          }
-        ],
+        "operationId": "deleteIbptFromState",
         "tags": [
           "Tax Conf IBPT"
         ],
@@ -1463,6 +1469,11 @@
       }
     },
     "/taxconf/legal-reason": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        }
+      ],
       "get": {
         "summary": "List Legal Reasons.",
         "operationId": "listReason",
@@ -1476,6 +1487,12 @@
             "description": "Filters by company domain entries.\nProvide \"global\" to retrive only \"global\" entries.\nCompanyId searches also match global entries.\n",
             "type": "string",
             "maxLength": 60
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "type": "string",
+            "description": "Performs text search.\n"
           }
         ],
         "responses": {
@@ -1511,7 +1528,7 @@
       },
       "put": {
         "summary": "Update Legal Reason.",
-        "operationId": "updateReason.",
+        "operationId": "updateReason",
         "tags": [
           "Legal Reason"
         ],
@@ -1533,7 +1550,7 @@
       },
       "post": {
         "summary": "Create Legal Reason.",
-        "operationId": "createReason.",
+        "operationId": "createReason",
         "tags": [
           "Legal Reason"
         ],
@@ -1555,9 +1572,14 @@
       }
     },
     "/taxconf/legal-reason/{uuid}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        }
+      ],
       "get": {
         "summary": "Get single Legal Reason.",
-        "operationId": "getReason.",
+        "operationId": "getReason",
         "tags": [
           "Legal Reason"
         ],
@@ -1573,14 +1595,14 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/ProcessScenario"
+              "$ref": "#/definitions/LegalReason"
             }
           }
         }
       },
       "delete": {
         "summary": "Delete a Legal Reason entry.",
-        "operationId": "deleteReason.",
+        "operationId": "deleteReason",
         "tags": [
           "Legal Reason"
         ],
@@ -1601,12 +1623,25 @@
     }
   },
   "parameters": {
+    "header_jwt": {
+      "name": "Authorization",
+      "in": "header",
+      "description": "Bearer {auth}",
+      "required": true,
+      "type": "string"
+    },
     "path_cityCode": {
       "name": "cityCode",
       "in": "path",
       "description": "City Code",
       "required": true,
       "type": "number"
+    },
+    "path_serviceCode": {
+      "name": "serviceCode",
+      "in": "path",
+      "required": true,
+      "type": "string"
     },
     "path_processCode": {
       "name": "code",
@@ -1810,6 +1845,11 @@
               "type": "string",
               "maxLength": 60
             },
+            "class": {
+              "type": "string",
+              "maxLength": 60,
+              "description": "Natureza da Opreração - 'Describe kind of this transaction, summary"
+            },
             "description": {
               "type": "string",
               "maxLength": 512
@@ -1833,15 +1873,6 @@
             "codOtherCountry": {
               "type": "integer",
               "description": "CFOP code (tax code operation) when the transactions are to another country."
-            },
-            "cstICMSSameState": {
-              "$ref": "#/definitions/CstIcmsEnum"
-            },
-            "cstICMSOtherState": {
-              "$ref": "#/definitions/CstIcmsEnum"
-            },
-            "cstICMSOtherCountry": {
-              "$ref": "#/definitions/CstIcmsEnum"
             },
             "productType": {
               "type": "string",
@@ -1871,12 +1902,12 @@
                 "COMMUNICATION",
                 "ENERGY",
                 "TRANSPORT",
-                "FUEL AND LUBRIFICANT",
+                "FUEL AND LUBRICANT",
                 "VEHICLE",
                 "ALCOHOLIC BEVERAGES",
                 "WEAPONS",
                 "AMMO",
-                "PERFUM",
+                "PERFUME",
                 "TOBACCO"
               ],
               "description": "field used to indicate an operation to some product class specifically"
@@ -1901,6 +1932,58 @@
         },
         "state": {
           "$ref": "#/definitions/StateEnum"
+        }
+      }
+    },
+    "IssConfService": {
+      "type": "object",
+      "required": [
+        "cityCode",
+        "serviceCode"
+      ],
+      "properties": {
+        "companyCode": {
+          "type": "string",
+          "description": "Company code for custom AGAST, standard AGAST does't use this code."
+        },
+        "inheritedFrom": {
+          "type": "string",
+          "description": "Reference to agastServiceCode, do keep traceability."
+        },
+        "cityCode": {
+          "description": "City Code (IBGE)",
+          "type": "integer",
+          "format": "int64"
+        },
+        "agastServiceCode": {
+          "description": "Service Agast Code in this City",
+          "type": "string"
+        },
+        "serviceCode": {
+          "description": "Service Code in City",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "serviceAgasts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "relationship to ServiceAgast, where we have the federal confguration"
+          }
+        },
+        "issTaxation": {
+          "description": "- 'T' # TAXABLE - TRIBUTÁVEL INCLUSIVE PARA EXPORTAÇÃO'\n- 'E' # TAXABLE WITH EXEMPTION FOR EXPORTS - ISENTO PARA SERVIÇOS PRESTADOS AO EXTERIOR (DEFAULT)\n- 'F' # EXEMPT\n- 'A' # SUSPENDED FOR ADMINISTRATIVE REASON\n- 'L' # SUSPENDED FOR LEGAL DECISION\n- 'I' # IMMUNE\n",
+          "type": "string",
+          "enum": [
+            "T",
+            "E",
+            "F",
+            "A",
+            "L",
+            "I"
+          ]
         },
         "issWhDestOtherCities": {
           "type": "boolean"
@@ -1911,11 +1994,8 @@
         "issWhOriginUnregSeller": {
           "type": "boolean"
         },
-        "serviceList": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/IssConfServiceList"
-          }
+        "taxRate": {
+          "$ref": "#/definitions/IssConfService_TaxRate"
         }
       }
     },
@@ -1941,12 +2021,10 @@
         },
         "startDate": {
           "type": "string",
-          "format": "date-time",
           "description": "date when this configuration values starts"
         },
         "expirationDate": {
           "type": "string",
-          "format": "date-time",
           "description": "date when this configuration values expire"
         },
         "inactive": {
@@ -1960,13 +2038,15 @@
         "icmsCST": {
           "type": "string",
           "enum": [
-            "00",
-            "20",
-            "40",
-            "41",
-            "50"
+            "T",
+            "E",
+            "H",
+            "D",
+            "N",
+            "O",
+            "OZ"
           ],
-          "description": "On sales process inform the CST hat the item linked to this configuration is subject to for the own ICMS\n- '00' # TAXABLE\n- '20' # TAXABLE WITH BASE DISCOUNT\n- '40' # EXEMPT\n- '41' # NOT TAXABLE\n- '50' # SUSPENDED\n"
+          "description": "On sales process inform the CST hat the item linked to this configuration is subject to for the own ICMS\n- 'T' # TAXABLE 00-Tributada\n- 'E' # EXEMPT 40-Isenta\n- 'H' # SUSPENDED 50-Suspensão\n- 'D' # DEFERMENT 51-Diferimento\n- 'N' # NO TAXABLE 41-Nao tributada\n- 'O' # OTHER 90-Outras\n- 'OZ' # OTHER AND ZERO VALUES 90-Outras\n"
         },
         "calcMode": {
           "type": "string",
@@ -2021,6 +2101,11 @@
         "icmsSTConf": {
           "type": "object",
           "properties": {
+            "icmsStLegalReason": {
+              "type": "string",
+              "maxLength": 60,
+              "description": "Code for the ICM-ST legal reason, this message will be placed on invoice."
+            },
             "hasReductionOfMVAForSimples": {
               "type": "boolean",
               "description": "inform that substituted is tax regime Simplified the operation MVA will be reduced"
@@ -2029,6 +2114,11 @@
               "type": "number",
               "format": "double",
               "description": "mva reduction when substituted is tax regime Simplified."
+            },
+            "reductionOfMVAForSimplesLegalReason": {
+              "type": "string",
+              "maxLength": 60,
+              "description": "Code for MVA Reduction legal reason, this message will be placed on invoice, when destionation entity is Simplified."
             },
             "calcMode": {
               "type": "string",
@@ -2088,6 +2178,15 @@
         }
       }
     },
+    "CsvIbptList": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
     "ProcessScenario": {
       "allOf": [
         {
@@ -2104,10 +2203,14 @@
               "maxLength": 60,
               "description": "Process name to Identify this configuration"
             },
-            "code": {
+            "description": {
+              "type": "string",
+              "description": "description detail about process"
+            },
+            "class": {
               "type": "string",
               "maxLength": 60,
-              "description": "Process code to Identify this configuration, its is unique by Accounty Id or when standard, its has priority when the code match with the standard code."
+              "description": "Natureza da Opreração - 'Describe kind of this transaction, summary"
             },
             "type": {
               "type": "string",
@@ -2141,7 +2244,8 @@
                 "Replacement",
                 "Return",
                 "Adjustment"
-              ]
+              ],
+              "description": "- 'Normal' # Normal\n- 'Complementary' # Complemento de Valores\n- 'Voided' # Anulação\n- 'Replacement' # Substituto\n- 'Return' # Devolução ou retorno\n- 'Adjustment' # Ajuste\n"
             },
             "overWriteCFOP": {
               "type": "boolean",
@@ -2170,6 +2274,14 @@
           "type": "string",
           "description": "Internal ID"
         },
+        "referenceCode": {
+          "type": "string",
+          "description": "A custom, non-unique, non-mandatory reference code that might be used to reference\na company Reason record to a global Reason record.\n"
+        },
+        "companyId": {
+          "type": "string",
+          "description": "If present, this record is scoped to the company."
+        },
         "scope": {
           "type": "string",
           "description": "Message scope. May be one of these.\ngeneral - This message is not linked to any entity (agast/process/cfop) and will be applied to any item in a transacition. (Esta mensagem tem escopo geral, nao está relacionadas diretamente qualquer objeto.);\nlinkedTo - This message is linked to an entity, and its processing will only occur when the context involves it. (Esta mensagens estão relacionadas diretamente a algum objeto como um AGAST por exemplo, um Processo ou uma CFOP.);\n",
@@ -2184,6 +2296,7 @@
         },
         "description": {
           "type": "string",
+          "maxLength": 5000,
           "description": "Legal reason textual description;"
         },
         "name": {
@@ -2200,7 +2313,8 @@
           "enum": [
             "complementaryInfoMessage",
             "fiscalInfoMessage",
-            "itemInfoMessage"
+            "itemInfoMessage",
+            "no show"
           ]
         },
         "referencedProcesses": {
@@ -2229,13 +2343,8 @@
             }
           }
         },
-        "taxScope": {
-          "description": "Filter this message application to specified tax cases.\n- taxtype\n- jurisdictionType\n",
-          "type": "object",
-          "required": [
-            "taxType",
-            "jurisdictionType"
-          ],
+        "taxConstraint": {
+          "description": "Filter this message application to specified tax cases.\n",
           "properties": {
             "taxType": {
               "type": "string",
@@ -2291,9 +2400,13 @@
               ],
               "description": "Types of jurisdiction\n- 'NONE'\n- 'City'\n- 'State'\n- 'Country'\n"
             },
-            "jurisdictionIbgeCode": {
+            "jurisdictionCode": {
               "type": "string",
               "description": "Code to identify the Jurisdiction"
+            },
+            "precondition": {
+              "type": "string",
+              "description": "script rule that will evaluated to decide if this message is applicable.\nif doesn't have rule is samething that return true value.\n"
             }
           }
         }
@@ -2361,6 +2474,11 @@
           "maxLength": 40,
           "description": "main unique identificator"
         },
+        "class": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "Natureza da Operação\nOperation Class\n"
+        },
         "stockImpact": {
           "type": "boolean",
           "description": "Inform that the process has inventory impact."
@@ -2371,7 +2489,7 @@
         },
         "cstIPI": {
           "type": "string",
-          "description": "Inform if this process is subject to IPI taxation on output process\n- 'T'  # TAXABLE\n- 'Z'  # TAXABLE WITH RATE=0.00\n- 'E'  # EXEMPT\n- 'H'  # SUSPENDED\n- 'N'  # NO TAXABLE    \n- 'I'  # IMMUNE\n- 'O'  # OTHER\n- 'OZ' # OTHER AND ZERO VALUES\n",
+          "description": "Inform if this process is subject to IPI taxation on output process\n- 'T'  # TAXABLE\n- 'Z'  # TAXABLE WITH RATE=0.00\n- 'E'  # EXEMPT\n- 'H'  # SUSPENDED\n- 'N'  # NO TAXABLE    \n- 'I'  # IMMUNE\n- 'O'  # OTHER\n- 'OZ' # OTHER AND ZERO VALUES\n- 'R'  # RETURN OF IPI\n",
           "enum": [
             "T",
             "Z",
@@ -2380,16 +2498,21 @@
             "N",
             "I",
             "O",
-            "OZ"
+            "OZ",
+            "R"
           ]
         },
         "ipiLegalTaxClass": {
           "type": "string",
           "description": "Legal tax classificação for IPI (enquadramento)\nWhen the processo has CST IPI 52 or 54, is mandatory inform Reason Code, see Anexo XIV - Código de Enquadramento Legal do IPI from  http://www.nfe.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=mCnJajU4BKU=\n"
         },
+        "lookupIPIFromReferredTransaction": {
+          "type": "boolean",
+          "description": "Busca IPI para adicionar na base de calculo de ICMS do item de uma nota referenciada, Exemplo, processo de venda para entrega futura e simples remessa de uma venda de entrega futura.\nLookup IPI tax to add to ICMS Tax base from same item of Referred Transaction\n"
+        },
         "accruablePISTaxation": {
           "type": "string",
-          "description": "Inform if this item by nature is subject to PIS taxation or exempt\n- 'T' # TAXABLE\n- 'Z' # TAXABLE WITH RATE=0.00\n- 'E' # EXEMPT\n- 'H' # SUSPENDED\n- 'N' # NO TAXABLE\n- 'O' # OTHER\n- 'OZ'# OTHER AND ZERO VALUES\n",
+          "description": "Inform if this item by nature is subject to PIS taxation or exempt\n- 'T'  # TAXABLE\n- 'Z'  # TAXABLE WITH RATE=0.00\n- 'E'  # EXEMPT\n- 'H'  # SUSPENDED\n- 'N'  # NO TAXABLE\n- 'O'  # OTHER\n- 'OZ' # OTHER AND ZERO VALUES\n",
           "enum": [
             "T",
             "Z",
@@ -2402,8 +2525,7 @@
         },
         "pisExemptLegalReasonCode": {
           "type": "string",
-          "maxLength": 3,
-          "description": "When exempt, taxable with zero, suspended, not taxable, this field holds the official code number"
+          "description": "Reference to a tax reason record ID."
         },
         "pisExemptLegalReason": {
           "type": "string",
@@ -2446,17 +2568,6 @@
         }
       }
     },
-    "CstIcmsEnum": {
-      "type": "string",
-      "enum": [
-        "00",
-        "20",
-        "40",
-        "41",
-        "50"
-      ],
-      "description": "On sales process inform the CST that the item linked to this configuration is subject to\n- '00' # TAXABLE\n- '20' # TAXABLE WITH BASE DISCOUNT\n- '40' # EXEMPT\n- '41' # NOT TAXABLE\n- '50' # SUSPENDED\n"
-    },
     "IcmsTaxConf": {
       "allOf": [
         {
@@ -2465,6 +2576,10 @@
         {
           "type": "object",
           "properties": {
+            "sameforAllDestination": {
+              "type": "boolean",
+              "description": "when this attribute is true, the relationShip dont need be analysed"
+            },
             "relationShip": {
               "type": "array",
               "description": "the mapping key is state code / A chave do mapeamento é o código do Estado.",
@@ -2485,16 +2600,34 @@
         "state": {
           "$ref": "#/definitions/StateEnum"
         },
+        "icmsCSOSN": {
+          "type": "string",
+          "description": "when the company is tax regime Simples uses CSOSN and for the same type of transaction, CST and CSOSN cant match",
+          "enum": [
+            "T",
+            "E",
+            "N",
+            "O",
+            "OZ"
+          ]
+        },
         "icmsCST": {
           "type": "string",
           "enum": [
-            "00",
-            "20",
-            "40",
-            "41",
-            "50"
+            "T",
+            "E",
+            "H",
+            "D",
+            "N",
+            "O",
+            "OZ"
           ],
-          "description": "On sales process inform the CST hat the item linked to this configuration is subject to\n- '00' # TAXABLE\n- '20' # TAXABLE WITH BASE DISCOUNT\n- '40' # EXEMPT\n- '41' # NOT TAXABLE\n- '50' # SUSPENDED\n"
+          "description": "On sales process inform the CST hat the item linked to this configuration is subject to\n- 'T' # TAXABLE 00-Tributada\n- 'E' # EXEMPT 40-Isenta\n- 'H' # SUSPENDED 50-Suspensão\n- 'D' # DEFERMENT 51-Diferimento\n- 'N' # NO TAXABLE 41-Nao tributada\n- 'O' # OTHER 90-Outras\n- 'OZ' # OTHER AND ZERO VALUES 90-Outras\n"
+        },
+        "deferralrate": {
+          "type": "number",
+          "format": "double",
+          "description": "Percentual deferral rate, applied over ICMS tax when CST is D DEFEREMENT"
         },
         "messageCode": {
           "type": "string",
@@ -2537,48 +2670,21 @@
       ],
       "description": "State Abreviation:\n- 'AC'\n- 'AL'\n- 'AP'\n- 'AM'\n- 'BA'\n- 'CE'\n- 'DF'\n- 'ES'\n- 'GO'\n- 'MA'\n- 'MT'\n- 'MS'\n- 'MG'\n- 'PA'\n- 'PB'\n- 'PR'\n- 'PE'\n- 'PI'\n- 'RJ'\n- 'RN'\n- 'RS'\n- 'RO'\n- 'RR'\n- 'SC'\n- 'SP'\n- 'SE'\n- 'TO'\n"
     },
-    "IssConfServiceList": {
+    "IssConfService_TaxRate": {
       "type": "object",
       "properties": {
-        "agast": {
-          "type": "string"
+        "ISS": {
+          "$ref": "#/definitions/IssConfService_TaxRateItem"
         },
-        "cityServiceCode": {
-          "type": "string"
+        "ISS_RF": {
+          "$ref": "#/definitions/IssConfService_TaxRateItem"
         },
-        "taxRate": {
-          "type": "object",
-          "properties": {
-            "ISS": {
-              "$ref": "#/definitions/ServiceItemTaxRate"
-            },
-            "ISS_RF": {
-              "$ref": "#/definitions/ServiceItemTaxRate"
-            },
-            "ISS_E": {
-              "$ref": "#/definitions/ServiceItemTaxRate"
-            },
-            "ISS_I": {
-              "$ref": "#/definitions/ServiceItemTaxRate"
-            },
-            "ibpt": {
-              "type": "object",
-              "properties": {
-                "nationalFedTax": {
-                  "type": "number",
-                  "format": "double"
-                },
-                "cityTax": {
-                  "type": "number",
-                  "format": "double"
-                }
-              }
-            }
-          }
+        "ISS_CPOM": {
+          "$ref": "#/definitions/IssConfService_TaxRateItem"
         }
       }
     },
-    "ServiceItemTaxRate": {
+    "IssConfService_TaxRateItem": {
       "type": "object",
       "properties": {
         "taxType": {
@@ -2610,12 +2716,10 @@
           "type": "object",
           "properties": {
             "startDate": {
-              "type": "string",
-              "format": "date"
+              "type": "string"
             },
             "expirationDate": {
-              "type": "string",
-              "format": "date"
+              "type": "string"
             }
           }
         },
@@ -2632,6 +2736,19 @@
       "properties": {
         "state": {
           "$ref": "#/definitions/StateEnum"
+        },
+        "icmsCST": {
+          "type": "string",
+          "enum": [
+            "T",
+            "E",
+            "H",
+            "D",
+            "N",
+            "O",
+            "OZ"
+          ],
+          "description": "On sales process inform the CST hat the item linked to this configuration is subject to for the own ICMS\n- 'T' # TAXABLE 00-Tributada\n- 'E' # EXEMPT 40-Isenta\n- 'H' # SUSPENDED 50-Suspensão\n- 'D' # DEFERMENT 51-Diferimento\n- 'N' # NO TAXABLE 41-Nao tributada\n- 'O' # OTHER 90-Outras\n- 'OZ' # OTHER AND ZERO VALUES 90-Outras\n"
         },
         "calcMode": {
           "type": "string",
@@ -2661,7 +2778,17 @@
         "icmsBaseDiscount": {
           "type": "number",
           "format": "double",
-          "description": "ICMS rate"
+          "description": "ICMS discount rate"
+        },
+        "icmsBaseDiscountInterState": {
+          "type": "number",
+          "format": "double",
+          "description": "ICMS interstate discount rate"
+        },
+        "icmsBaseDiscountInterStateForImported": {
+          "type": "number",
+          "format": "double",
+          "description": "ICMS interstate discount rate"
         },
         "msrp": {
           "type": "number",
@@ -2694,6 +2821,11 @@
                 "NOTHING"
               ]
             },
+            "icmsStLegalReason": {
+              "type": "string",
+              "maxLength": 60,
+              "description": "Code for the ICM-ST legal reason, this message will be placed on invoice."
+            },
             "hasReductionOfMVAForSimples": {
               "type": "boolean",
               "description": "inform that substituted is tax regime Simplified the operation MVA will be reduced"
@@ -2702,6 +2834,11 @@
               "type": "number",
               "format": "double",
               "description": "MVA reduction when substituted is tax regime Simplified."
+            },
+            "reductionOfMVAForSimplesLegalReason": {
+              "type": "string",
+              "maxLength": 60,
+              "description": "Code for MVA Reduction legal reason, this message will be placed on invoice, when destionation entity is Simplified."
             },
             "calcMode": {
               "type": "string",
