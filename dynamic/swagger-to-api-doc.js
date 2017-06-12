@@ -194,7 +194,7 @@ ${(disqus) ? '{% include disqus.html %}' : ''}`
                         const apiEndpointLinks = staticState.apiEndpoints.filter((ep) => operationIdsForTag.indexOf(ep.operationId) !== -1).map((ep) => {
                             return {
                                 link: createEndpointUrl(apiPath, ep.operationId, tag),
-                                name: ep.name,
+                                name: ep.operationId,
                                 description: ep.description
                             };
                         });
@@ -212,7 +212,7 @@ ${(disqus) ? '{% include disqus.html %}' : ''}`
                     const apiEndpointLinks = staticState.apiEndpoints.map((ep) => {
                         return {
                             link: createEndpointUrl(apiPath, ep.operationId),
-                            name: ep.name,
+                            name: ep.operationId,
                             description: ep.description
                         };
                     });

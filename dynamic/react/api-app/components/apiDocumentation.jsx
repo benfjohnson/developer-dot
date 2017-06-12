@@ -7,7 +7,7 @@ import ApiDocModelLink from './apiDocModelLink';
 
 const ApiDocumentation = ({endpoint}) => (
     <div>
-        <h1 id={endpoint.operationId}>{endpoint.name || endpoint.operationId}</h1>
+        <h1 id={endpoint.operationId}>{endpoint.operationId}</h1>
         <table className='styled-table'>
             <thead>
                 <tr>
