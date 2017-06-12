@@ -85,7 +85,6 @@ export default (api, apiWithRefs, rootPath) => {
 
     const scheme = api.schemes && api.schemes[0] ? api.schemes[0] : 'http';
     const root = (scheme && api.host && api.basePath) ? scheme + '://' + api.host + (api.basePath !== '/' ? api.basePath : '') : rootPath;
-
     const apiProxy = api['x-api-proxy'] || null;
 
     const swaggerData = {
@@ -125,6 +124,10 @@ export default (api, apiWithRefs, rootPath) => {
                     // Determines whether or not we show API console input fields for params in the 'x-excludedProperties' array in Swagger
                     showExcludedPostBodyFields: false
                 };
+
+                if (api['x-production-host']) {
+                    apiMethod.productionPath = (scheme && api.basePath) ? scheme + '://' + api['x-production-host'] + (api.basePath !== '/' ? api.basePath : '') + k : rootPath + k;
+                }
 
                 // Update `tagMap` for this endpoint
                 if (swaggerData.tagMap && endpoint[action].tags && endpoint[action].tags.length) {
