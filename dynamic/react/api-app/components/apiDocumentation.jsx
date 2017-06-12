@@ -35,10 +35,6 @@ const ApiDocumentation = ({endpoint}) => (
         <table className='styled-table'>
             <thead>
                 <tr>
-                    <th>{'API'}</th>
-                    <td>{endpoint.operationId}</td>
-                </tr>
-                <tr>
                     <th>{'Purpose'}</th>
                     <td>{endpoint.name}</td>
                 </tr>
@@ -106,7 +102,7 @@ ApiDocumentation.propTypes = {
     endpoint: PropTypes.object
 };
 UrlHelper.propTypes = {
-    endpoint: React.PropTypes.object
+    endpoint: PropTypes.object
 };
 
 
