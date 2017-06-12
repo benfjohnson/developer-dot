@@ -30,7 +30,7 @@ const PostmanCollection = ({apiType, appLoaded, auth, onAuthKeyChange, postmanCo
                     {Object.keys(auth.params).map((param, i) => (
                         <fieldset className={'form-group'} key={i}>
                             <label className={'api-label-text'}>{param}</label>
-                            <input className={'form-control'} onChange={onAuthKeyChange.bind(null, param)} type={'password'} value={auth.params[param]} />
+                            <input className={'form-control auth-input'} onChange={onAuthKeyChange.bind(null, param)} type={'password'} value={auth.params[param]} />
                         </fieldset>
                     ))}
                 </form>
