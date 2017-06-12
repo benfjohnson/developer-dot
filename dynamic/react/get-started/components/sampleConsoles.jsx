@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ApiConsoleWrapper from './apiConsoleWrapper';
 
 const SampleConsoles = ({apiEndpoints, onAddItemToPostbodyCollection, onFillConsoleSampleData, onPostBodyInputChanged, onQueryParamChanged, onRemovePostbodyCollectionItem, onResetConsole, onSubmitConsoleRequest}) => {
@@ -22,15 +23,15 @@ const SampleConsoles = ({apiEndpoints, onAddItemToPostbodyCollection, onFillCons
 
 SampleConsoles.displayName = 'Sample API Consoles';
 SampleConsoles.propTypes = {
-    apiEndpoints: React.PropTypes.array.isRequired,
-    onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
-    onFillConsoleSampleData: React.PropTypes.func.isRequired,
-    onPathParamChanged: React.PropTypes.func.isRequired,
-    onPostBodyInputChanged: React.PropTypes.func.isRequired,
-    onQueryParamChanged: React.PropTypes.func.isRequired,
-    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
-    onResetConsole: React.PropTypes.func.isRequired,
-    onSubmitConsoleRequest: React.PropTypes.func.isRequired
+    apiEndpoints: PropTypes.array.isRequired,
+    onAddItemToPostbodyCollection: PropTypes.func.isRequired,
+    onFillConsoleSampleData: PropTypes.func.isRequired,
+    onPathParamChanged: PropTypes.func.isRequired,
+    onPostBodyInputChanged: PropTypes.func.isRequired,
+    onQueryParamChanged: PropTypes.func.isRequired,
+    onRemovePostbodyCollectionItem: PropTypes.func.isRequired,
+    onResetConsole: PropTypes.func.isRequired,
+    onSubmitConsoleRequest: PropTypes.func.isRequired
 };
 
 export default SampleConsoles;

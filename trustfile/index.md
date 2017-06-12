@@ -31,9 +31,9 @@ doctype: overview
             </div>
             <div class="col-md-7 col-md-offset-5 padding-top">
                 <ul class="pipe">
-                    <li><a href="/trustfile/api-reference/core/v3">Core</a></li>
-                    <li><a href="/trustfile/api-reference/provisioning/v3">Provisioning</a></li>
-                    <li><a href="/trustfile/api-reference/connector-management/v3">Connectors</a></li>
+                    <li><a href="/api-reference/trustfile/api/">Core</a></li>
+                    <li><a href="/api-reference/trustfile/app/">Provisioning</a></li>
+                    <li><a href="/api-reference/trustfile/connector-microservice/">Connectors</a></li>
                 </ul>
             </div>
             <div class="col-md-7 col-md-offset-5 padding-top">

@@ -46,7 +46,7 @@ doctype: overview
             </div>
             <div class="col-md-7 col-md-offset-5 padding-top">
                 <ul class="pipe">
-                    <li><a href="api-reference/tax-determination/v5_18_0">API references</a></li>
+                    <li><a href="/api-reference/excise/5_18_0">API references</a></li>
                 </ul>
             </div>
             <div class="col-md-7 col-md-offset-5 padding-top">

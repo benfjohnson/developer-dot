@@ -88,11 +88,13 @@ endpoint_links: []
 ---
 
 {% assign name = "${def}" %}
+{% assign path = "${dir}" %}
 {% assign model_ = site.data.swagger${fields}[name] %}
 {% assign ep = '${prettyJson}' %}
 
-{% include models.html name=name ${(prettyJson) ? 'examplePretty=ep' : ''} model=model_ %}
-`;
+{% include models.html name=name path=path ${(prettyJson) ? 'examplePretty=ep' : ''} model=model_ %}
+
+{% include disqus.html %}`;
 
         fs.writeFile(`${dir}/${def}.html`, html, function(err) {
             if (err) {
@@ -115,7 +117,7 @@ const buildHtml = function(fileName, apiDefinitions, apiName, product) {
 
     fields = `["${fields.join('"]["')}"]`;
 
-    const siteDir = `${__dirname}/../${pathWithoutExt}`;
+    const siteDir = `${__dirname}/../api-reference/${pathWithoutExt}`;
 
     writeHtml(siteDir, defs, product, fields, apiName);
 };
@@ -130,7 +132,7 @@ fs.symlink(swagPath, dataPath, function() {
         try {
             const filename = swagPath + '/' + key;
             const data = loadFile(filename);
-            const allDefinitions = buildDefinitions(data.definitions);
+            const allDefinitions = buildDefinitions(data.definitions, data.paths, data['x-group-by-tags']);
 
             const {name, product} = SWAGGER_CONFIG[key];
 

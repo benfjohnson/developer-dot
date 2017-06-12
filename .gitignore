@@ -20,6 +20,7 @@ npm-debug.log
 dynamic/swagger/**/models.json
 
 _data/swagger
+_data/api_tag_pages
 models
 
 .vscode

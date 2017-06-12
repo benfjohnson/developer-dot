@@ -40,7 +40,7 @@ doctype: overview
   <div class="col-md-8 col-md-offset-2 text-center">
     <h1 class="h1p">TaxDoc Monitor API References</h1>
      <h2>From here you can navigate the various endpoints associated with TaxDoc Monitor APIs. The URL's for our Brazil API services are:</h2>
-     <h4 class="text-left">•	Production: <a href="http://api.taxdocs.avalarabrasil.com.br">http://api.taxdocs.avalarabrasil.com.br</a></h4>
+     <h4 class="text-left">•	Production: <a href="http://api.taxdocs.avalarabrasil.com.br/swagger/">http://api.taxdocs.avalarabrasil.com.br/swagger/</a></h4>
   </div>
 
 
@@ -61,7 +61,7 @@ doctype: overview
     <div class="row card">
         <div class="col-md-3 col-md-offset-2 padding-top">
             <ul class="pipe">
-                <li><a href="api-reference/">API references</a></li>
+                <li><a href="/api-reference/taxdocs/transactions/">API references</a></li>
             </ul>
         </div>
     </div>

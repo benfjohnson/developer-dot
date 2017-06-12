@@ -2,7 +2,7 @@
 swagger_path: communications/afc.yaml
 nav_link:
     title: Communications SOAP
-    path: /communications/api-reference/saas/soap
+    path: /api-reference/communications/afc
 product: communications
 endpoint_hashes:
     - name: NpaNxxToPCode
@@ -36,4 +36,4 @@ nav_links:
   - title: Overview
     path: /communications
   - title: API references
-    path: /communications/api-reference/rest
+    path: /api-reference/communications/afc-rest

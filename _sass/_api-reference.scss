@@ -33,6 +33,10 @@ h2, h3 {
     }
 }
 
+.auth-input {
+    max-width: 47%;
+}
+
 .postBodySectionHeader {
     width: 100%;
 }
@@ -64,9 +68,9 @@ h2, h3 {
     & +:not(.documentation-parameter-body) {
         border-bottom: 1px solid lightgrey;
     }
-    
+
     border: 1px solid lightgrey;
-    
+
     & & {
         border-left: none;
         border-right: none;
@@ -154,18 +158,6 @@ h2, h3 {
     display: none;
 }
 
-.affix {
-    /* This defaults to 141px for dumb reasons, don't waste the screen space */
-    top: 0px;
-    /* When nav is fixed, it loses the col--md3 class of its parent, so replicate its size restriction */
-    @extend .col-md-3;
-    padding-left:0;
-}
-
-.affix-bottom {
-    position: relative
-}
-
 .code-snippet-plaintext {
     background: #5f6062;
     border: 1px solid #75c5e4;
@@ -174,10 +166,6 @@ h2, h3 {
     margin-top: 5px;
     padding: 10px;
     overflow: auto;
-}
-
-.endpoint-summary, .api-summary {
-    max-width: 650px;
 }
 
 /* Override bootstraps default padding for nav items to fit more on the page */

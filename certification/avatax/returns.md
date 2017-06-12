@@ -29,7 +29,7 @@ nav: certification
 </div>
 <div class="row">
 <div class="col-xs-1">R</div>
-<div class="col-xs-3"><a href="/avatax/api-reference/tax/v1#estimateTax">AvaTax Test Connection</a> button</div>
+<div class="col-xs-3"><a href="/api-reference/avatax/rest/v1/methods/estimateTax">AvaTax Test Connection</a> button</div>
 <div class="col-xs-8">Tests the connection to the AvaTax service and verifies the AvaTax credentials. This is an important element to allow for successful troubleshooting of the AvaTax service. Optional – display license key expiration date upon successful connection response.</div>
 </div>
 <div class="row">

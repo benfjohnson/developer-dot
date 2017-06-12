@@ -15,9 +15,14 @@
   ],
   "basePath": "/v2",
   "paths": {
-    "/agasts": {
+    "/agasts?service": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        }
+      ],
       "get": {
-        "operationId": "getAgastList",
+        "operationId": "getAgastListService",
         "description": "This operation return agast configurations that match with parameters queries\n",
         "parameters": [
           {
@@ -29,7 +34,7 @@
           }
         ],
         "tags": [
-          "AGAST"
+          "AGAST Service"
         ],
         "responses": {
           "200": {
@@ -80,7 +85,7 @@
         }
       },
       "post": {
-        "operationId": "createAgast",
+        "operationId": "createAgastService",
         "summary": "Create agast",
         "description": "This method operation create a AGAST\n",
         "consumes": [
@@ -96,12 +101,12 @@
             "description": "Transaction Message",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Agast"
+              "$ref": "#/definitions/AgastService"
             }
           }
         ],
         "tags": [
-          "AGAST"
+          "AGAST Service"
         ],
         "responses": {
           "201": {
@@ -131,24 +136,27 @@
         }
       }
     },
-    "/agasts/{code}": {
+    "/agasts/{code}?service": {
       "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        },
         {
           "$ref": "#/parameters/path_agastCode"
         }
       ],
       "get": {
-        "operationId": "getAgast",
+        "operationId": "getAgastService",
         "summary": "Get agast",
         "description": "This operation return agast configurations that match with parameters queries\n",
         "tags": [
-          "AGAST"
+          "AGAST Service"
         ],
         "responses": {
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/Agast"
+              "$ref": "#/definitions/AgastService"
             }
           },
           "400": {
@@ -175,7 +183,7 @@
         }
       },
       "put": {
-        "operationId": "updateAgast",
+        "operationId": "updateAgastService",
         "summary": "Update agast",
         "description": "This method operation create a agast\n",
         "consumes": [
@@ -191,12 +199,12 @@
             "description": "Transaction Message",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Agast"
+              "$ref": "#/definitions/AgastService"
             }
           }
         ],
         "tags": [
-          "AGAST"
+          "AGAST Service"
         ],
         "responses": {
           "204": {
@@ -226,11 +234,264 @@
         }
       },
       "delete": {
-        "operationId": "deleteAgast",
+        "operationId": "deleteAgastService",
         "summary": "Delete Agast",
         "description": "Delete Agast",
         "tags": [
-          "AGAST"
+          "AGAST Service"
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/responses/204_NoContent"
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      }
+    },
+    "/agasts?goods": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        }
+      ],
+      "get": {
+        "operationId": "getAgastListGoods",
+        "description": "This operation return agast configurations that match with parameters queries\n",
+        "parameters": [
+          {
+            "name": "text",
+            "in": "query",
+            "description": "Text query",
+            "type": "string",
+            "maxLength": 40
+          }
+        ],
+        "tags": [
+          "AGAST Goods"
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucessful response",
+            "schema": {
+              "title": "List of AGASTS",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string",
+                    "description": "Item description"
+                  },
+                  "id": {
+                    "type": "string",
+                    "description": "uuid"
+                  },
+                  "code": {
+                    "type": "string",
+                    "description": "Custom item code"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createAgastGoods",
+        "summary": "Create agast",
+        "description": "This method operation create a AGAST\n",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Transaction Message",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AgastGoods"
+            }
+          }
+        ],
+        "tags": [
+          "AGAST Goods"
+        ],
+        "responses": {
+          "201": {
+            "$ref": "#/responses/201_Created"
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      }
+    },
+    "/agasts/{code}?goods": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        },
+        {
+          "$ref": "#/parameters/path_agastCode"
+        }
+      ],
+      "get": {
+        "operationId": "getAgastGoods",
+        "summary": "Get agast",
+        "description": "This operation return agast configurations that match with parameters queries\n",
+        "tags": [
+          "AGAST Goods"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/AgastGoods"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      },
+      "put": {
+        "operationId": "updateAgastGoods",
+        "summary": "Update agast",
+        "description": "This method operation create a agast\n",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Transaction Message",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AgastGoods"
+            }
+          }
+        ],
+        "tags": [
+          "AGAST Goods"
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/responses/204_NoContent"
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteAgastGoods",
+        "summary": "Delete Agast",
+        "description": "Delete Agast",
+        "tags": [
+          "AGAST Goods"
         ],
         "responses": {
           "204": {
@@ -262,6 +523,13 @@
     }
   },
   "parameters": {
+    "header_jwt": {
+      "name": "Authorization",
+      "in": "header",
+      "description": "Bearer {auth}",
+      "required": true,
+      "type": "string"
+    },
     "path_agastCode": {
       "name": "code",
       "in": "path",
@@ -338,359 +606,125 @@
     }
   },
   "definitions": {
-    "Agast": {
-      "type": "object",
-      "required": [
-        "code"
-      ],
-      "properties": {
-        "code": {
-          "type": "string",
-          "description": "Agast Code. AGAST (Avalara Goods and Services Types) are preset products with default tax definitions available to be used as provided or copied to create an specific comapany item."
+    "AgastGoods": {
+      "title": "Service Agast Specialization",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Agast"
         },
-        "description": {
-          "type": "string",
-          "maxLength": 200,
-          "description": "Agast Description"
-        },
-        "hsCode": {
-          "type": "string",
-          "maxLength": 8,
-          "description": "harmonized code, NCM or LC 116"
-        },
-        "ex": {
-          "type": "integer",
-          "description": "hsCode Exception for IPI tax"
-        },
-        "cest": {
-          "type": "string",
-          "pattern": "[0-9]{7}",
-          "description": "tax substitution code - Codigo especificador da Substuicao Tributaria"
-        },
-        "cean": {
-          "type": "string",
-          "pattern": "[0-9]{0}|[0-9]{8}|[0-9]{12,14}",
-          "description": "GTIN NUMBER"
-        },
-        "codeType": {
+        {
           "type": "object",
           "properties": {
-            "code": {
-              "description": "- 'NCM'\n- 'NBS'\n- 'LC116'\n- 'SERVICE UNREGULATED'\n",
+            "ex": {
               "type": "integer",
+              "description": "hsCode Exception for IPI tax"
+            },
+            "cest": {
+              "type": "string",
+              "pattern": "[0-9]{7}",
+              "description": "tax substitution code - Codigo especificador da Substuicao Tributaria"
+            },
+            "cean": {
+              "type": "string",
+              "pattern": "[0-9]{0}|[0-9]{8}|[0-9]{12,14}",
+              "description": "GTIN NUMBER"
+            },
+            "cstIPI": {
+              "type": "string",
+              "description": "Inform if this process is subject to IPI taxation on output process\n- 'T'  # TAXABLE\n- 'Z'  # TAXABLE WITH RATE=0.00\n- 'E'  # EXEMPT\n- 'N'  # NO TAXABLE\n- 'I'  # IMMUNE\n",
               "enum": [
-                0,
-                1,
-                2,
-                3
+                "T",
+                "Z",
+                "E",
+                "N",
+                "I"
               ]
             },
-            "name": {
+            "ipiLegalTaxClass": {
+              "type": "string",
+              "description": "Legal tax classificação for IPI (enquadramento tributário)\nWhen the process has CST IPI 52 or 54, it is mandatory to inform a Reason Code, see Anexo XIV - Código de Enquadramento Legal do IPI from  http://www.nfe.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=mCnJajU4BKU=\n"
+            },
+            "ipiLegalReason": {
+              "type": "string",
+              "maxLength": 60,
+              "description": "Code for the IPI legal reason, this message will be placed on invoice."
+            },
+            "specialProductClass": {
               "type": "string",
               "enum": [
-                "NCM",
-                "NBS",
-                "LC116",
-                "SERVICE UNREGULATED"
+                "OTHERS",
+                "COMMUNICATION",
+                "ENERGY",
+                "TRANSPORT",
+                "FUEL AND LUBRICANT",
+                "VEHICLE",
+                "ALCOHOLIC BEVERAGES",
+                "WEAPONS",
+                "AMMO",
+                "PERFUME",
+                "TOBACCO"
               ]
-            }
-          }
-        },
-        "cstIPI": {
-          "type": "string",
-          "description": "Inform if this process is subject to IPI taxation on output process\n- 'T'  # TAXABLE\n- 'Z'  # TAXABLE WITH RATE=0.00\n- 'E'  # EXEMPT\n- 'N'  # NO TAXABLE    \n- 'I'  # IMMUNE\n",
-          "enum": [
-            "T",
-            "Z",
-            "E",
-            "N",
-            "I"
-          ]
-        },
-        "ipiLegalTaxClass": {
-          "type": "string",
-          "description": "Legal tax classificação for IPI (enquadramento tributário)\nWhen the process has CST IPI 52 or 54, it is mandatory to inform a Reason Code, see Anexo XIV - Código de Enquadramento Legal do IPI from  http://www.nfe.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=mCnJajU4BKU=\n"
-        },
-        "pisCofinsTaxReporting": {
-          "type": "string",
-          "enum": [
-            "cumulative",
-            "noCumulative"
-          ],
-          "description": "when the company is Real Profit inform if this item is cumulative or no cumulative by default"
-        },
-        "accruablePISTaxation": {
-          "type": "string",
-          "description": "Inform if this item by nature is subject to PIS taxation or exempt\n- 'T' # TAXABLE\n- 'Z' # TAXABLE WITH RATE=0.00\n- 'E' # EXEMPT\n- 'H' # SUSPENDED\n- 'N' # NO TAXABLE\n",
-          "enum": [
-            "T",
-            "Z",
-            "E",
-            "H",
-            "N"
-          ]
-        },
-        "pisExemptLegalReasonCode": {
-          "type": "string",
-          "description": "When exempt, taxable with zero rate, suspended, not taxable, this field informs the official code number for the exemption"
-        },
-        "pisExemptLegalReason": {
-          "type": "string",
-          "maxLength": 1024,
-          "description": "When specified a reason, this field holds the reason's description"
-        },
-        "accruableCOFINSTaxation": {
-          "type": "string",
-          "description": "Inform if this item by nature is subject to COFINS taxation or exempt\n- 'T' # TAXABLE\n- 'Z' # TAXABLE WITH RATE=0.00\n- 'E' # EXEMPT\n- 'H' # SUSPENDED\n- 'N' # NO TAXABLE\n",
-          "enum": [
-            "T",
-            "Z",
-            "E",
-            "H",
-            "N"
-          ]
-        },
-        "cofinsExemptLegalReasonCode": {
-          "type": "string",
-          "description": "When exempt, taxable with zero rate, suspended, not taxable, this field informs the official code number for the exemption"
-        },
-        "cofinsExemptLegalReason": {
-          "type": "string",
-          "maxLength": 1024,
-          "description": "When specified a reason, this field holds the reason's description"
-        },
-        "accruableCSLLTaxation": {
-          "type": "string",
-          "description": "Inform if this item by nature is subject to CSLL taxation or exempt\n- 'T' # TAXABLE\n- 'E' # EXEMPT\n",
-          "enum": [
-            "T",
-            "E"
-          ]
-        },
-        "csllExemptLegalReason": {
-          "type": "string",
-          "maxLength": 1024
-        },
-        "csllExemptLegalReasonCode": {
-          "type": "string"
-        },
-        "withholding": {
-          "description": "inform if this item is subject to withholding tax on service Transactions, default true",
-          "type": "object",
-          "properties": {
-            "IRRF": {
-              "type": "boolean"
             },
-            "IRRFLegalReason": {
-              "type": "string",
-              "maxLength": 60,
-              "description": "reference id to TaxLegalReason"
-            },
-            "INSSSubjectToDischarge": {
-              "type": "boolean",
-              "description": "Item subjecto to payroll discharge\nItem sujeto à desoneraçãode folha de pagamento\n"
-            },
-            "INSS": {
-              "type": "boolean"
-            },
-            "INSSLegalReason": {
-              "type": "string",
-              "maxLength": 60,
-              "description": "reference id to TaxLegalReason"
-            },
-            "INSsForSimples": {
-              "type": "boolean"
-            },
-            "INSSForSimplesLegalReason": {
-              "type": "string",
-              "maxLength": 60,
-              "description": "reference id to TaxLegalReason"
-            },
-            "PIS": {
-              "description": "inform if this item is subject to withholding PIS on service Transactions, by entity type, default true",
-              "type": "object",
-              "properties": {
-                "legalReason": {
-                  "type": "string"
-                },
-                "business": {
-                  "type": "boolean"
-                },
-                "businessLegalReason": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "reference id to TaxLegalReason"
-                },
-                "federalGovernment": {
-                  "type": "boolean"
-                },
-                "federalGovernmentLegalReason": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "reference id to TaxLegalReason"
-                },
-                "stateGovernment": {
-                  "type": "boolean"
-                },
-                "stateGovernmentLegalReason": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "reference id to TaxLegalReason"
-                },
-                "cityGovernment": {
-                  "type": "boolean"
-                },
-                "cityGovernmentLegalReason": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "reference id to TaxLegalReason"
-                }
-              }
-            },
-            "COFINS": {
-              "description": "inform if this item is subject to withholding COFINS on service Transactions, by entity type, default true",
-              "type": "object",
-              "properties": {
-                "legalReason": {
-                  "type": "string"
-                },
-                "business": {
-                  "type": "boolean"
-                },
-                "businessLegalReason": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "reference id to TaxLegalReason"
-                },
-                "federalGovernment": {
-                  "type": "boolean"
-                },
-                "federalGovernmentLegalReason": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "reference id to TaxLegalReason"
-                },
-                "stateGovernment": {
-                  "type": "boolean"
-                },
-                "stateGovernmentLegalReason": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "reference id to TaxLegalReason"
-                },
-                "cityGovernment": {
-                  "type": "boolean"
-                },
-                "cityGovernmentLegalReason": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "reference id to TaxLegalReason"
-                }
-              }
-            },
-            "CSLL": {
-              "description": "inform if this item is subject to withholding CSLL on service Transactions, by entity type, default true",
-              "type": "object",
-              "properties": {
-                "legalReason": {
-                  "type": "string"
-                },
-                "business": {
-                  "type": "boolean"
-                },
-                "businessLegalReason": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "reference id to TaxLegalReason"
-                },
-                "federalGovernment": {
-                  "type": "boolean"
-                },
-                "federalGovernmentLegalReason": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "reference id to TaxLegalReason"
-                },
-                "stateGovernment": {
-                  "type": "boolean"
-                },
-                "stateGovernmentLegalReason": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "reference id to TaxLegalReason"
-                },
-                "cityGovernment": {
-                  "type": "boolean"
-                },
-                "cityGovernmentLegalReason": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "reference id to TaxLegalReason"
-                }
+            "icmsConf": {
+              "type": "array",
+              "description": "One per State",
+              "items": {
+                "$ref": "#/definitions/AgastGoods_IcmsConf"
               }
             }
           }
         },
-        "issDueatDestination": {
-          "type": "boolean",
-          "description": "for service items with City Jurisdiction, inform where the ISS tax is due"
-        },
-        "pisCofinsCreditNotAllowed": {
-          "type": "boolean",
-          "description": "on Real Profit Purchase transaction, inform if this item allows tax credits when it is non-cumulative"
-        },
-        "issTaxation": {
-          "description": "- 'T' # TAXABLE - TRIBUTÁVEL INCLUSIVE PARA EXPORTAÇÃO'\n- 'E' # TAXABLE WITH EXEMPTION FOR EXPORTS - ISENTO PARA SERVIÇOS PRESTADOS AO EXTERIOR (DEFAULT)\n- 'F' # EXEMPT\n- 'A' # SUSPENDED FOR ADMINISTRATIVE REASON\n- 'L' # SUSPENDED FOR LEGAL DECISION\n- 'I' # IMMUNE\n",
-          "type": "string",
-          "enum": [
-            "T",
-            "E",
-            "F",
-            "A",
-            "L",
-            "I"
-          ]
-        },
-        "federalTaxRate": {
-          "type": "array",
-          "description": "This is an array of tax object related to an agast.",
-          "items": {
-            "$ref": "#/definitions/TaxTypeRate"
-          }
-        },
-        "specialProductClass": {
-          "type": "string",
-          "enum": [
-            "OTHERS",
-            "COMMUNICATION",
-            "ENERGY",
-            "TRANSPORT",
-            "FUEL AND LUBRIFICANT",
-            "VEHICLE",
-            "ALCOHOLIC BEVERAGES",
-            "WEAPONS",
-            "AMMO",
-            "PERFUME",
-            "TOBACCO"
-          ]
-        },
-        "icmsConf": {
-          "type": "array",
-          "description": "One per State",
-          "items": {
-            "type": "object",
-            "description": "See definitions IcmsConfByState",
-            "properties": {
-              "code": {
-                "type": "string"
-              },
-              "state": {
-                "$ref": "#/definitions/StateEnum"
-              }
-            }
-          }
+        {
+          "title": "Service Agast Specialization"
         }
-      }
+      ]
+    },
+    "AgastService": {
+      "title": "Service Agast Specialization",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Agast"
+        },
+        {
+          "type": "object",
+          "title": "Service Agast Specialization",
+          "properties": {
+            "pisCofinsTaxReporting": {
+              "type": "string",
+              "enum": [
+                "cumulative",
+                "noCumulative"
+              ],
+              "description": "when the company is Real Profit inform if this item is cumulative or no cumulative by default"
+            },
+            "accruableCSLLTaxation": {
+              "type": "string",
+              "description": "Inform if this item by nature is subject to CSLL taxation or exempt\n- 'T' # TAXABLE\n- 'E' # EXEMPT\n",
+              "enum": [
+                "T",
+                "E"
+              ]
+            },
+            "csllExemptLegalReason": {
+              "type": "string",
+              "maxLength": 1024
+            },
+            "csllExemptLegalReasonCode": {
+              "type": "string"
+            },
+            "withholding": {
+              "$ref": "#/definitions/AgastService_Withhold"
+            },
+            "issDueatDestination": {
+              "type": "boolean",
+              "description": "for service items with City Jurisdiction, inform where the ISS tax is due"
+            }
+          }
+        },
+        {
+          "title": "Service Agast Specialization"
+        }
+      ]
     },
     "ValidationError": {
       "type": "object",
@@ -743,6 +777,147 @@
         }
       }
     },
+    "Agast": {
+      "type": "object",
+      "required": [
+        "code",
+        "codeType"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Agast Code. AGAST (Avalara Goods and Services Types) are preset products with default tax definitions available to be used as provided or copied to create an specific comapany item."
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "Agast Description"
+        },
+        "lifeTimeStart": {
+          "type": "string",
+          "description": "date when this configuration values starts"
+        },
+        "lifeTimeEnd": {
+          "type": "string",
+          "description": "date when this configuration values expire"
+        },
+        "inactive": {
+          "type": "boolean",
+          "description": "set this configuration to Inactive"
+        },
+        "hsCode": {
+          "type": "string",
+          "maxLength": 8,
+          "description": "harmonized code, NCM or LC 116"
+        },
+        "codeType": {
+          "type": "string",
+          "enum": [
+            "NCM",
+            "NBS",
+            "LC116",
+            "SERVICE UNREGULATED"
+          ]
+        },
+        "accruablePISTaxation": {
+          "type": "string",
+          "description": "Inform if this item by nature is subject to PIS taxation or exempt\n- 'T' # TAXABLE\n- 'Z' # TAXABLE WITH RATE=0.00\n- 'E' # EXEMPT\n- 'H' # SUSPENDED\n- 'N' # NO TAXABLE\n",
+          "enum": [
+            "T",
+            "Z",
+            "E",
+            "H",
+            "N"
+          ]
+        },
+        "pisExemptLegalReasonCode": {
+          "type": "string",
+          "description": "When exempt, taxable with zero rate, suspended, not taxable, this field informs the official code number for the exemption"
+        },
+        "pisExemptLegalReason": {
+          "type": "string",
+          "maxLength": 1024,
+          "description": "When specified a reason, this field holds the reason's description"
+        },
+        "accruableCOFINSTaxation": {
+          "type": "string",
+          "description": "Inform if this item by nature is subject to COFINS taxation or exempt\n- 'T' # TAXABLE\n- 'Z' # TAXABLE WITH RATE=0.00\n- 'E' # EXEMPT\n- 'H' # SUSPENDED\n- 'N' # NO TAXABLE\n",
+          "enum": [
+            "T",
+            "Z",
+            "E",
+            "H",
+            "N"
+          ]
+        },
+        "cofinsExemptLegalReasonCode": {
+          "type": "string",
+          "description": "When exempt, taxable with zero rate, suspended, not taxable, this field informs the official code number for the exemption"
+        },
+        "cofinsExemptLegalReason": {
+          "type": "string",
+          "maxLength": 1024,
+          "description": "When specified a reason, this field holds the reason's description"
+        },
+        "pisCofinsCreditNotAllowed": {
+          "type": "boolean",
+          "description": "on Real Profit Purchase transaction, inform if this item allows tax credits when it is non-cumulative"
+        },
+        "federalTaxRate": {
+          "type": "array",
+          "description": "This is an array of tax object related to an agast.",
+          "items": {
+            "$ref": "#/definitions/TaxTypeRate"
+          }
+        }
+      }
+    },
+    "AgastGoods_IcmsConf": {
+      "type": "object",
+      "description": "See definitions IcmsConfByState",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/definitions/StateEnum"
+        }
+      }
+    },
+    "StateEnum": {
+      "type": "string",
+      "maxLength": 2,
+      "enum": [
+        "AC",
+        "AL",
+        "AP",
+        "AM",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MA",
+        "MT",
+        "MS",
+        "MG",
+        "PA",
+        "PB",
+        "PR",
+        "PE",
+        "PI",
+        "RJ",
+        "RN",
+        "RS",
+        "RO",
+        "RR",
+        "SC",
+        "SP",
+        "SE",
+        "TO"
+      ],
+      "description": "State Abreviation:\n- 'AC'\n- 'AL'\n- 'AP'\n- 'AM'\n- 'BA'\n- 'CE'\n- 'DF'\n- 'ES'\n- 'GO'\n- 'MA'\n- 'MT'\n- 'MS'\n- 'MG'\n- 'PA'\n- 'PB'\n- 'PR'\n- 'PE'\n- 'PI'\n- 'RJ'\n- 'RN'\n- 'RS'\n- 'RO'\n- 'RR'\n- 'SC'\n- 'SP'\n- 'SE'\n- 'TO'\n"
+    },
     "TaxTypeRate": {
       "type": "object",
       "required": [
@@ -785,40 +960,6 @@
         }
       }
     },
-    "StateEnum": {
-      "type": "string",
-      "maxLength": 2,
-      "enum": [
-        "AC",
-        "AL",
-        "AP",
-        "AM",
-        "BA",
-        "CE",
-        "DF",
-        "ES",
-        "GO",
-        "MA",
-        "MT",
-        "MS",
-        "MG",
-        "PA",
-        "PB",
-        "PR",
-        "PE",
-        "PI",
-        "RJ",
-        "RN",
-        "RS",
-        "RO",
-        "RR",
-        "SC",
-        "SP",
-        "SE",
-        "TO"
-      ],
-      "description": "State Abreviation:\n- 'AC'\n- 'AL'\n- 'AP'\n- 'AM'\n- 'BA'\n- 'CE'\n- 'DF'\n- 'ES'\n- 'GO'\n- 'MA'\n- 'MT'\n- 'MS'\n- 'MG'\n- 'PA'\n- 'PB'\n- 'PR'\n- 'PE'\n- 'PI'\n- 'RJ'\n- 'RN'\n- 'RS'\n- 'RO'\n- 'RR'\n- 'SC'\n- 'SP'\n- 'SE'\n- 'TO'\n"
-    },
     "TaxType": {
       "type": "string",
       "description": "Tax Rate\nObs: AR - \"a recolher\" (serviço).\nRP e PP - filtrado para alvos de lucro real ou lucro presumido (serviço)\n",
@@ -858,6 +999,14 @@
           "type": "string",
           "description": "Internal ID"
         },
+        "referenceCode": {
+          "type": "string",
+          "description": "A custom, non-unique, non-mandatory reference code that might be used to reference\na company Reason record to a global Reason record.\n"
+        },
+        "companyId": {
+          "type": "string",
+          "description": "If present, this record is scoped to the company."
+        },
         "scope": {
           "type": "string",
           "description": "Message scope. May be one of these.\ngeneral - This message is not linked to any entity (agast/process/cfop) and will be applied to any item in a transacition. (Esta mensagem tem escopo geral, nao está relacionadas diretamente qualquer objeto.);\nlinkedTo - This message is linked to an entity, and its processing will only occur when the context involves it. (Esta mensagens estão relacionadas diretamente a algum objeto como um AGAST por exemplo, um Processo ou uma CFOP.);\n",
@@ -872,6 +1021,7 @@
         },
         "description": {
           "type": "string",
+          "maxLength": 5000,
           "description": "Legal reason textual description;"
         },
         "name": {
@@ -888,7 +1038,8 @@
           "enum": [
             "complementaryInfoMessage",
             "fiscalInfoMessage",
-            "itemInfoMessage"
+            "itemInfoMessage",
+            "no show"
           ]
         },
         "referencedProcesses": {
@@ -917,13 +1068,8 @@
             }
           }
         },
-        "taxScope": {
-          "description": "Filter this message application to specified tax cases.\n- taxtype\n- jurisdictionType\n",
-          "type": "object",
-          "required": [
-            "taxType",
-            "jurisdictionType"
-          ],
+        "taxConstraint": {
+          "description": "Filter this message application to specified tax cases.\n",
           "properties": {
             "taxType": {
               "type": "string",
@@ -979,12 +1125,109 @@
               ],
               "description": "Types of jurisdiction\n- 'NONE'\n- 'City'\n- 'State'\n- 'Country'\n"
             },
-            "jurisdictionIbgeCode": {
+            "jurisdictionCode": {
               "type": "string",
               "description": "Code to identify the Jurisdiction"
+            },
+            "precondition": {
+              "type": "string",
+              "description": "script rule that will evaluated to decide if this message is applicable.\nif doesn't have rule is samething that return true value.\n"
             }
           }
         }
+      }
+    },
+    "AgastService_Withhold": {
+      "description": "inform if this item is subject to withholding tax on service Transactions, default true",
+      "type": "object",
+      "properties": {
+        "IRRF": {
+          "type": "boolean"
+        },
+        "IRRFLegalReason": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "reference id to TaxLegalReason"
+        },
+        "INSSSubjectPayrollTaxRelief": {
+          "type": "boolean",
+          "description": "Item subjecto to Payroll Tax Relief\nItem sujeto à desoneraçãode folha de pagamento\n"
+        },
+        "INSS": {
+          "type": "boolean"
+        },
+        "INSSLegalReason": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "reference id to TaxLegalReason"
+        },
+        "INSSForSimples": {
+          "type": "boolean"
+        },
+        "INSSForSimplesLegalReason": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "reference id to TaxLegalReason"
+        },
+        "PIS": {
+          "description": "inform if this item is subject to withholding PIS on service Transactions, by entity type, default true",
+          "$ref": "#/definitions/AgastService_WithholdPCC"
+        },
+        "COFINS": {
+          "description": "inform if this item is subject to withholding COFINS on service Transactions, by entity type, default true",
+          "$ref": "#/definitions/AgastService_WithholdPCC"
+        },
+        "CSLL": {
+          "description": "inform if this item is subject to withholding CSLL on service Transactions, by entity type, default true",
+          "$ref": "#/definitions/AgastService_WithholdPCC"
+        }
+      }
+    },
+    "AgastService_WithholdPCC": {
+      "type": "object",
+      "properties": {
+        "business": {
+          "type": "boolean"
+        },
+        "businessLegalReason": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "reference id to TaxLegalReason"
+        },
+        "federalGovernment": {
+          "type": "boolean"
+        },
+        "federalGovernmentLegalReason": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "reference id to TaxLegalReason"
+        },
+        "stateGovernment": {
+          "type": "boolean"
+        },
+        "stateGovernmentLegalReason": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "reference id to TaxLegalReason"
+        },
+        "cityGovernment": {
+          "type": "boolean"
+        },
+        "cityGovernmentLegalReason": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "reference id to TaxLegalReason"
+        }
+      }
+    }
+  },
+  "x-swagger-erouter-validation-rules": {
+    "/agasts/*": {
+      "in": "header",
+      "field": "Avalara-Product-Type",
+      "rules": {
+        "goods": "/agasts/*?goods",
+        "_default": "/agasts/*?service"
       }
     }
   }

@@ -16,17 +16,17 @@ export default {
     },
     'avatax/rest/v2.json': {
         name: 'Avatax REST API v2',
-        path: 'avatax/api-reference/tax/v2',
+        path: 'api-reference/avatax/rest/v2',
         product: 'avaTax'
     },
     'avatax/soap.yaml': {
         name: 'Avatax SOAP API',
-        path: 'avatax/api-reference/tax/soap',
+        path: 'api-reference/avatax/soap',
         product: 'avaTax'
     },
     'communications/afc.yaml': {
         name: 'Communications SOAP',
-        path: 'communications/api-reference/saas/soap',
+        path: 'api-reference/communications/afc',
         product: 'communications'
     },
     'communications/afc-geo.yaml': {
@@ -118,6 +118,11 @@ export default {
         name: 'TaxDoc Monitor REST API',
         path: 'taxdocs/api-reference/',
         product: 'taxdocs'
+    },
+    'validate/transactions-api.json': {
+        name: 'Validate REST API',
+        path: 'api-reference/validate/transactions-api',
+        product: 'validate'
     }
     /* ,
     'avataxbr/index.json': {

@@ -1,9 +1,0 @@
-api_name: AvaTax Brazil REST API
-api_tags:
-  - name: 'Accounts'
-  - name: 'Agast'
-  - name: 'Calculation'
-  - name: 'Company'
-  - name: 'Invoice'
-  - name: 'TaxConf'
-  - name: 'Transactions'

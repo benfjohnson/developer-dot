@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 /*
  * Defines a wrapper to nest object properties or
  * array items in a PostBody
@@ -30,15 +30,15 @@ const PostBodyFormSection = ({endpointId, propertyName, displayName, children, c
 
 PostBodyFormSection.displayName = 'Post Item Section Header';
 PostBodyFormSection.propTypes = {
-    canRemove: React.PropTypes.bool.isRequired,
-    children: React.PropTypes.oneOfType([
-        React.PropTypes.element,
-        React.PropTypes.array
+    canRemove: PropTypes.bool.isRequired,
+    children: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.array
     ]),
-    displayName: React.PropTypes.string.isRequired,
-    endpointId: React.PropTypes.number.isRequired,
-    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
-    propertyName: React.PropTypes.string.isRequired
+    displayName: PropTypes.string.isRequired,
+    endpointId: PropTypes.number.isRequired,
+    onRemovePostbodyCollectionItem: PropTypes.func.isRequired,
+    propertyName: PropTypes.string.isRequired
 };
 
 export default PostBodyFormSection;

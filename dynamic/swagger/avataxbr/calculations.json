@@ -40,6 +40,12 @@
             "schema": {
               "$ref": "#/definitions/TransactionForGoodsIn"
             }
+          },
+          {
+            "name": "noPersist",
+            "in": "query",
+            "description": "Do not save this calculation",
+            "type": "string"
           }
         ],
         "tags": [
@@ -101,10 +107,16 @@
             "schema": {
               "$ref": "#/definitions/SalesTransactionIn"
             }
+          },
+          {
+            "name": "noPersist",
+            "in": "query",
+            "description": "Do not save this calculation",
+            "type": "string"
           }
         ],
         "tags": [
-          "Service Calculations"
+          "Services Calculations"
         ],
         "responses": {
           "200": {
@@ -162,10 +174,16 @@
             "schema": {
               "$ref": "#/definitions/PurchaseTransactionIn"
             }
+          },
+          {
+            "name": "noPersist",
+            "in": "query",
+            "description": "Do not save this calculation",
+            "type": "string"
           }
         ],
         "tags": [
-          "Service Calculations"
+          "Services Calculations"
         ],
         "responses": {
           "200": {
@@ -223,10 +241,16 @@
             "schema": {
               "$ref": "#/definitions/PaymentTransactionIn"
             }
+          },
+          {
+            "name": "noPersist",
+            "in": "query",
+            "description": "Do not save this calculation",
+            "type": "string"
           }
         ],
         "tags": [
-          "Service Calculations"
+          "Services Calculations"
         ],
         "responses": {
           "200": {
@@ -284,10 +308,16 @@
             "schema": {
               "$ref": "#/definitions/ReceiptTransactionIn"
             }
+          },
+          {
+            "name": "noPersist",
+            "in": "query",
+            "description": "Do not save this calculation",
+            "type": "string"
           }
         ],
         "tags": [
-          "Service Calculations"
+          "Services Calculations"
         ],
         "responses": {
           "200": {
@@ -320,24 +350,18 @@
         }
       }
     },
-    "/calculations/account/{accountId}/company/{companyCode}/{transactionType}": {
+    "/calculations/goods/{transactionType}": {
       "parameters": [
         {
           "$ref": "#/parameters/header_jwt"
         },
         {
-          "$ref": "#/parameters/path_accountId"
-        },
-        {
-          "$ref": "#/parameters/path_companyCode"
-        },
-        {
-          "$ref": "#/parameters/path_transactionType"
+          "$ref": "#/parameters/path_transactionType_goods"
         }
       ],
       "get": {
-        "operationId": "retrieveTransactions",
-        "summary": "Retrieve transactions",
+        "operationId": "retrieveGoodsTransactions",
+        "summary": "Retrieve goods transactions",
         "description": "Retrieve a list of transactions",
         "consumes": [
           "application/json"
@@ -346,11 +370,17 @@
           "application/json"
         ],
         "tags": [
-          "Service Calculations"
+          "Goods Calculations"
         ],
         "responses": {
           "200": {
-            "description": "List of transaction"
+            "description": "Calculations list.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TransactionForGoodsIn"
+              }
+            }
           },
           "400": {
             "$ref": "#/responses/400_BadRequest"
@@ -376,27 +406,21 @@
         }
       }
     },
-    "/calculations/account/{accountId}/company/{companyCode}/{transactionType}/{documentCode}": {
+    "/calculations/goods/{transactionType}/{documentCode}": {
       "parameters": [
         {
           "$ref": "#/parameters/header_jwt"
         },
         {
-          "$ref": "#/parameters/path_accountId"
-        },
-        {
-          "$ref": "#/parameters/path_companyCode"
-        },
-        {
-          "$ref": "#/parameters/path_transactionType"
+          "$ref": "#/parameters/path_transactionType_goods"
         },
         {
           "$ref": "#/parameters/path_documentCode"
         }
       ],
       "get": {
-        "operationId": "retrieveTransactionDocument",
-        "summary": "Retrieve transactions",
+        "operationId": "retrieveGoodsTransactionDocument",
+        "summary": "Retrieve goods transactions",
         "description": "Retrieve a single transaction",
         "consumes": [
           "application/json"
@@ -405,7 +429,60 @@
           "application/json"
         ],
         "tags": [
-          "Service Calculations"
+          "Goods Calculations"
+        ],
+        "responses": {
+          "200": {
+            "description": "Calculations item",
+            "schema": {
+              "$ref": "#/definitions/TransactionForGoodsIn"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      }
+    },
+    "/calculations/service/{transactionType}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        },
+        {
+          "$ref": "#/parameters/path_transactionType_service"
+        }
+      ],
+      "get": {
+        "operationId": "retrieveServiceTransactions",
+        "summary": "Retrieve service transactions",
+        "description": "Retrieve a list of transactions",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "Services Calculations"
         ],
         "responses": {
           "200": {
@@ -435,26 +512,73 @@
         }
       }
     },
-    "/calculations/account/{accountId}/company/{companyCode}/{transactionType}/{documentCode}/transactions": {
+    "/calculations/service/{transactionType}/{documentCode}": {
       "parameters": [
         {
           "$ref": "#/parameters/header_jwt"
         },
         {
-          "$ref": "#/parameters/path_accountId"
+          "$ref": "#/parameters/path_transactionType_service"
         },
         {
-          "$ref": "#/parameters/path_companyCode"
+          "$ref": "#/parameters/path_documentCode"
+        }
+      ],
+      "get": {
+        "operationId": "retrieveServiceTransactionDocument",
+        "summary": "Retrieve service transactions",
+        "description": "Retrieve a single transaction",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "Services Calculations"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of transaction"
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      }
+    },
+    "/calculations/service/{transactionType}/{documentCode}/transactions": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
         },
         {
-          "$ref": "#/parameters/path_transactionType"
+          "$ref": "#/parameters/path_transactionType_service"
         },
         {
           "$ref": "#/parameters/path_documentCode"
         }
       ],
       "post": {
-        "operationId": "convertCalculatioToTransaction",
+        "operationId": "convertServiceCalculatioToTransaction",
         "summary": "Promote a calculation to transaction",
         "description": "Promote a calculation to transaction",
         "consumes": [
@@ -464,7 +588,7 @@
           "application/json"
         ],
         "tags": [
-          "Service Calculations"
+          "Services Calculations"
         ],
         "responses": {
           "200": {
@@ -518,7 +642,26 @@
       "required": true,
       "type": "string"
     },
-    "path_transactionType": {
+    "path_transactionType_goods": {
+      "name": "transactionType",
+      "in": "path",
+      "description": "Transaction Type",
+      "required": true,
+      "type": "string",
+      "enum": [
+        "sale",
+        "purchase",
+        "sales-return",
+        "purchase-return",
+        "transfer-return",
+        "shipping",
+        "shipping-return",
+        "transfer",
+        "receipt-adjustment",
+        "transfer-adjustment"
+      ]
+    },
+    "path_transactionType_service": {
       "name": "transactionType",
       "in": "path",
       "description": "Transaction Type (sale, purchase, receipts or payment)",
@@ -527,8 +670,8 @@
       "enum": [
         "sale",
         "purchase",
-        "receipt",
-        "payment"
+        "payment",
+        "receipt"
       ]
     },
     "path_documentCode": {
@@ -586,6 +729,10 @@
   "definitions": {
     "TransactionForGoodsIn": {
       "type": "object",
+      "required": [
+        "header",
+        "lines"
+      ],
       "properties": {
         "header": {
           "$ref": "#/definitions/HeaderForGoods"
@@ -601,6 +748,12 @@
     },
     "TransactionForGoodsOut": {
       "type": "object",
+      "required": [
+        "header",
+        "lines",
+        "calculatedTaxSummary",
+        "processingInfo"
+      ],
       "properties": {
         "header": {
           "$ref": "#/definitions/HeaderForGoods"
@@ -846,12 +999,11 @@
     "HeaderForGoods": {
       "type": "object",
       "required": [
-        "accountId",
-        "companyCode",
         "participants",
         "transactionType",
         "eDocCreatorType",
-        "companyLocation"
+        "companyLocation",
+        "messageType"
       ],
       "properties": {
         "messageType": {
@@ -899,7 +1051,7 @@
         "transactionType": {
           "type": "string",
           "enum": [
-            "Sales",
+            "Sale",
             "Purchase",
             "SalesReturn",
             "PurchaseReturn",
@@ -956,22 +1108,17 @@
           "enum": [
             "self",
             "other"
-          ]
+          ],
+          "default": "self"
         },
         "eDocCreatorPerspective": {
           "type": "boolean",
           "default": true,
           "description": "This Flag is used only when eDocCreatorType is other and the return show Taxes using eDocCreator perspective or self perspective."
         },
-        "entityCode": {
-          "type": "string",
-          "description": "This string is a code maintained by the client application and recorded in CUP to uniquely identify the party with whom the company (identified by companyCode) is transacting. It is unique within the context of a Company."
-        },
         "currency": {
           "type": "string",
-          "enum": [
-            "BRL"
-          ],
+          "default": "BRL",
           "description": "currency code"
         },
         "companyLocation": {
@@ -1009,7 +1156,8 @@
             1,
             2,
             3
-          ]
+          ],
+          "default": 0
         },
         "indPres": {
           "type": "string",
@@ -1071,7 +1219,7 @@
       "properties": {
         "lineCode": {
           "type": "integer",
-          "description": "This string is a unique identifier for this line in the transaction"
+          "description": "This is unique identifier for this line in the transaction"
         },
         "itemCode": {
           "type": "string",
@@ -1130,6 +1278,7 @@
             "use or consumption on demand by contract",
             "use or consumption on energy supplier establishment",
             "use or consumption of fuel transaction type exportation",
+            "use or consumption on services",
             "fixed assets",
             "resale export",
             "resale icms exempt",
@@ -1141,11 +1290,41 @@
         "processScenario": {
           "type": "string",
           "maxLength": 60,
-          "description": "Reference to process configurantion of this transaction, See ProcessScenario definition"
+          "description": "Reference to process configurantion of this transaction, See ProcessScenario definition\nthis property is used only if eDocCreator=self or  eDocCreator=others and eDocCreatorPerspective=true\n"
+        },
+        "operationTypeReceiptMap": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "Mapping table used to discover the CFOP when execute the Tax receipt in funciotn of CFOP Received and Item Type\nthis property is used only if eDocCreator=others and eDocCreatorPerspective=false\n"
+        },
+        "legalReason": {
+          "type": "object",
+          "description": "Legal Reason for this tax scenario",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Internal ID"
+            },
+            "name": {
+              "type": "string",
+              "description": "Short name to this message"
+            }
+          }
         },
         "cfop": {
           "type": "integer",
           "description": "Fiscal Operation Code of transport service"
+        },
+        "overwrite": {
+          "type": "string",
+          "enum": [
+            "all",
+            "cfop",
+            "proportional",
+            "no"
+          ],
+          "description": "- 'all' # THE SYSTEM GET ALL INFORMATIONS PASSED IN TRANSACTION\n- 'cfop' # THE SYSTEM DISCOVRE AND REPLACE ONLY CFOP\n- 'proportional' # THE SYSTEM DISCOVER CFOP AND AND USES TAX VALUES FROM REFERENCED TRANSACTION, PROPORTINAL BY QUANTITY\n- 'no' # DEFAULT THE SYSTEM WILL CALCULATED ALL TAXES\n",
+          "default": "no"
         },
         "hasStockImpact": {
           "type": "boolean",
@@ -1174,6 +1353,21 @@
           "type": "boolean",
           "default": true,
           "description": "The item value will compose the invoice total value."
+        },
+        "referencedItem": {
+          "type": "object",
+          "description": "order number, information used for B2B control process",
+          "properties": {
+            "refNFe": {
+              "type": "string",
+              "maxLength": 44,
+              "pattern": "[0-9]{44}"
+            },
+            "lineCode": {
+              "type": "integer",
+              "description": "This identifier for this line in the transaction"
+            }
+          }
         },
         "orderNumber": {
           "type": "string",
@@ -1330,7 +1524,6 @@
               },
               "registerDateDI": {
                 "type": "string",
-                "format": "date",
                 "description": "Register date of import declaration number, DI/DSI/DA/DRI-E (DI/DSI/DA/DRI-E)"
               },
               "clearanceSite": {
@@ -1345,7 +1538,6 @@
               },
               "clearanceDate": {
                 "type": "string",
-                "format": "date",
                 "description": "Clerance date"
               },
               "transportDIType": {
@@ -1491,7 +1683,20 @@
                   "$ref": "#/definitions/TaxByTypeTax"
                 },
                 "ipiReturned": {
-                  "$ref": "#/definitions/TaxByTypeTax"
+                  "allOf": [
+                    {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "calcBase": {
+                          "type": "number",
+                          "format": "double"
+                        }
+                      }
+                    }
+                  ]
                 },
                 "ii": {
                   "$ref": "#/definitions/TaxByTypeTax"
@@ -1735,7 +1940,6 @@
               },
               "date": {
                 "type": "string",
-                "format": "date",
                 "description": "Installment expiration date"
               },
               "grossValue": {
@@ -2069,7 +2273,11 @@
         },
         "subjectToSRF1234": {
           "type": "boolean",
-          "description": "Companies subject to follow same rules of Government entities (Instrução Normativa: SRF1234)"
+          "description": "Companies subject to follow same rules of Government entities (Instrução Normativa SRF1234)"
+        },
+        "subjectToPayrollTaxRelief": {
+          "type": "boolean",
+          "description": "Sujeito à desoneração de folha de pagamento."
         }
       }
     },
@@ -2083,7 +2291,7 @@
         "cityGovernment",
         "foreign"
       ],
-      "description": "Entity Type (business, individual, federal government, state government, city government foreign)"
+      "description": "Entity Type (business, individual, federal government, state government, city government, foreign)"
     },
     "StateEnum": {
       "type": "string",
@@ -2190,7 +2398,9 @@
         {
           "type": "object",
           "required": [
-            "zipcode"
+            "zipcode",
+            "cityCode",
+            "state"
           ],
           "properties": {
             "street": {
@@ -2307,7 +2517,9 @@
             {
               "type": "object",
               "required": [
-                "zipcode"
+                "zipcode",
+                "cityCode",
+                "state"
               ],
               "properties": {
                 "street": {
@@ -2723,12 +2935,10 @@
           "description": "This is a decimal type with 11 digits including 3 decimal positions."
         },
         "manufactotyDate": {
-          "type": "string",
-          "format": "date"
+          "type": "string"
         },
         "expirationDate": {
-          "type": "string",
-          "format": "date"
+          "type": "string"
         },
         "maxValueToEndUser": {
           "type": "number",
@@ -2884,6 +3094,38 @@
           "description": "Type of jurisdiction\n- 'City'\n- 'State'\n- 'Country'\n",
           "default": "Country"
         },
+        "taxImpact": {
+          "type": "object",
+          "properties": {
+            "impactOnFinalPrice": {
+              "type": "string",
+              "enum": [
+                "Add",
+                "Included",
+                "Subtracted",
+                "Informative"
+              ]
+            },
+            "impactOnNetAmount": {
+              "type": "string",
+              "enum": [
+                "Add",
+                "Included",
+                "Subtracted",
+                "Informative"
+              ]
+            },
+            "accounting": {
+              "type": "string",
+              "description": "Escrituração",
+              "enum": [
+                "liability",
+                "asset",
+                "none"
+              ]
+            }
+          }
+        },
         "taxType": {
           "type": "string",
           "enum": [
@@ -2906,6 +3148,7 @@
             "ipiReturned",
             "ii",
             "iof",
+            "aproxtribCity",
             "aproxtribState",
             "aproxtribFed",
             "aproxtrib"
@@ -2935,9 +3178,19 @@
           "format": "double",
           "description": "This decimal captures how much of the lineAmount was taxable by this tax"
         },
-        "exemptionCode": {
-          "type": "string",
-          "description": "This string is required if is exempt"
+        "legalReason": {
+          "type": "object",
+          "description": "Legal Reason for this tax scenario",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Internal ID"
+            },
+            "name": {
+              "type": "string",
+              "description": "Short name to this message"
+            }
+          }
         },
         "significantLocations": {
           "type": "array",
@@ -3341,6 +3594,9 @@
     },
     "SalesCalculatedTaxSummaryForService": {
       "type": "object",
+      "required": [
+        "taxByType"
+      ],
       "properties": {
         "numberOfLines": {
           "type": "integer",
@@ -3425,7 +3681,6 @@
         },
         "date": {
           "type": "string",
-          "format": "date-time",
           "description": "installment Due Date"
         },
         "grossValue": {
@@ -3474,14 +3729,7 @@
         },
         {
           "type": "object",
-          "required": [
-            "customerCode"
-          ],
           "properties": {
-            "customerCode": {
-              "type": "string",
-              "description": "This string is a code maintained by the client application and recorded in Customer Portal to uniquely identify the party with whom the company (identified by companyCode) is transacting. It is unique within the context of a Company."
-            },
             "purchaseOrderNumber": {
               "type": "string",
               "description": "The number of Purchase Order"
@@ -3546,23 +3794,11 @@
     "HeaderBaseInfo": {
       "type": "object",
       "required": [
-        "accountId",
-        "companyCode",
         "transactionType",
-        "currency",
         "transactionDate",
         "companyLocation"
       ],
       "properties": {
-        "accountId": {
-          "type": "string",
-          "description": "This string is a UUID issued by Avalara to identify the Avalara account that owns the company identified by the companyCode on the next line."
-        },
-        "companyCode": {
-          "type": "string",
-          "maxLength": 60,
-          "description": "This string is a code maintained by the client application to uniquely identify the company for which this transaction is being recorded. It is unique within the context of an Account. It will be limited to 60 characters when creating a Company"
-        },
         "transactionType": {
           "type": "string",
           "enum": [
@@ -3579,19 +3815,14 @@
         },
         "currency": {
           "type": "string",
-          "enum": [
-            "BRL"
-          ],
           "description": "currency code / transactions must be in Brazilian Reais \"BRL\""
         },
         "transactionDate": {
           "type": "string",
-          "format": "date",
           "description": "This string is the transaction date in ISO 8601 format (which may be different from the date the tax calculation is performed)"
         },
         "taxCalculationDate": {
           "type": "string",
-          "format": "date",
           "description": "accrual date, This string is the date, in ISO 8601 format, on which tax is to be calculated for this transaction (normally tax is calculated on the date the transaction is performed as captured in the transactionDate field). This is useful for layaways and other deferred transactions."
         },
         "companyLocation": {
@@ -3669,20 +3900,35 @@
           "type": "boolean",
           "description": "If Withholding ISS is required, independently the rules applied."
         },
-        "art": {
-          "type": "string",
-          "maxLength": 15,
-          "description": "technical note. Anota\\u00e7\\u00e3o de Responsabilidade T\\u00e9cnica-ART, estabelece que todos os contratos referentes à  execu\\u00e7\\u00e3o de servi\\u00e7os ou obras de Engenharia, Agronomia, Geologia, Geografia ou Meteorologia dever\\u00e3o ser objeto de anota\\u00e7\\u00e3o no Conselho Regional de Engenharia e Agronomia"
-        },
         "adminProcess": {
           "type": "string",
           "maxLength": 30,
           "description": "PROCESS NUMBER TO ISS SUSPENDED FOR ADMINISTRATIVE PROCESS"
         },
-        "buildCode": {
-          "type": "string",
-          "maxLength": 15,
-          "description": "Business code. Código da obra OBRA"
+        "build": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "maxLength": 15,
+              "description": "Business code. Código da obra OBRA"
+            },
+            "art": {
+              "type": "string",
+              "maxLength": 15,
+              "description": "technical note. Anota\\u00e7\\u00e3o de Responsabilidade T\\u00e9cnica-ART, estabelece que todos os contratos referentes à  execu\\u00e7\\u00e3o de servi\\u00e7os ou obras de Engenharia, Agronomia, Geologia, Geografia ou Meteorologia dever\\u00e3o ser objeto de anota\\u00e7\\u00e3o no Conselho Regional de Engenharia e Agronomia"
+            },
+            "cei": {
+              "type": "string",
+              "maxLength": 15,
+              "description": "Número CEI da Obra"
+            },
+            "number": {
+              "type": "string",
+              "maxLength": 15,
+              "description": "Número de Matrícula da Obra"
+            }
+          }
         }
       }
     },
@@ -3700,7 +3946,6 @@
         },
         "date": {
           "type": "string",
-          "format": "date",
           "description": "installment Due Date"
         },
         "grossValue": {
@@ -4029,7 +4274,7 @@
         },
         "itemCode": {
           "type": "string",
-          "description": "This string is a code maintained by the client application to uniquely identify a product or service. It will likely be a SKU and is required for SST states."
+          "description": "This string is a code maintained by the client application to uniquely identify a product or service. It will likely be a SKU."
         },
         "numberOfItems": {
           "type": "number",
@@ -4055,6 +4300,10 @@
           "type": "number",
           "format": "double",
           "description": "Unconditional discount"
+        },
+        "withLaborAssignment": {
+          "type": "boolean",
+          "description": "Service w/labor assignment\nServiço com cessão de mão de obra\n"
         },
         "taxDeductions": {
           "type": "object",
@@ -4169,11 +4418,6 @@
           "format": "double",
           "description": "This decimal captures how much of the lineAmount was taxable by this tax, calc base"
         },
-        "subtotalExempt": {
-          "type": "number",
-          "format": "double",
-          "description": "This decimal captures how much of the lineAmount was non-taxed. This is simply the line amount minus the taxable."
-        },
         "rate": {
           "type": "number",
           "format": "double",
@@ -4202,9 +4446,10 @@
             "BUYER",
             "TRANSACTION",
             "ITEM",
-            "TAX"
+            "TAX",
+            "NO_EXEMPTION"
           ],
-          "description": "This string with type of rule\n- 'SELLER'\n- 'BUYER'\n- 'TRANSACTION'\n- 'ITEM'\n- 'TAX'\n"
+          "description": "This string with type of rule\n- 'SELLER'\n- 'BUYER'\n- 'TRANSACTION'\n- 'ITEM'\n- 'TAX'\n- 'NO_EXEMPTION'\n"
         }
       }
     },
@@ -4365,14 +4610,7 @@
         },
         {
           "type": "object",
-          "required": [
-            "vendorCode"
-          ],
           "properties": {
-            "vendorCode": {
-              "type": "string",
-              "description": "This string is a code maintained by the client application to uniquely identify the party with whom the company (identified by companyCode) is transacting. It is unique within the context of an Account."
-            },
             "purchaseOrderNumber": {
               "type": "string",
               "description": "The number of Purchase Order"
@@ -4488,7 +4726,6 @@
         },
         "date": {
           "type": "string",
-          "format": "date",
           "description": "installment, Due Date"
         },
         "grossValue": {
@@ -4631,9 +4868,6 @@
     },
     "PurchaseLinesIn": {
       "type": "object",
-      "required": [
-        "itemCode"
-      ],
       "properties": {
         "lineCode": {
           "type": "integer",
@@ -4641,7 +4875,24 @@
         },
         "itemCode": {
           "type": "string",
-          "description": "This string is a code maintained by the client application to uniquely identify a product or service. It will likely be a SKU and is required for SST states."
+          "description": "This string is a code maintained by the client application to uniquely identify a product or service. It will likely be a SKU."
+        },
+        "agast": {
+          "type": "object",
+          "description": "This structure is mandatory when doesn't have itemCode (SKU), usually the companies doesn't have the services to buy mapped.\nOptionally teh service can be consumed sending serviceAgast and the service code on the company city\n",
+          "required": [
+            "serviceAgast"
+          ],
+          "properties": {
+            "serviceAgast": {
+              "type": "string",
+              "description": "Service Agast code for this ite, the Service AGAST code has Federal Jurisdiction"
+            },
+            "serviceCode": {
+              "type": "string",
+              "description": "Company city code service      \nWhen this information isn't available the rates for ISS are zero.\n"
+            }
+          }
         },
         "numberOfItems": {
           "type": "number",
@@ -4667,6 +4918,10 @@
           "type": "number",
           "format": "double",
           "description": "Unconditional discount"
+        },
+        "withLaborAssignment": {
+          "type": "boolean",
+          "description": "Service w/labor assignment\nServiço com cessão de mão de obra\n"
         },
         "useType": {
           "type": "string",
@@ -4772,11 +5027,6 @@
           "format": "double",
           "description": "This decimal captures how much of the lineAmount was taxable by this tax, calc base"
         },
-        "subtotalExempt": {
-          "type": "number",
-          "format": "double",
-          "description": "This decimal captures how much of the lineAmount was non-taxed. This is simply the line amount minus the taxable."
-        },
         "rate": {
           "type": "number",
           "format": "double",
@@ -4814,24 +5064,11 @@
     "PayRecHeader": {
       "type": "object",
       "required": [
-        "accountId",
-        "companyCode",
         "transactionType",
-        "currency",
         "transactionDate",
-        "vendorCode",
         "paymentMode"
       ],
       "properties": {
-        "accountId": {
-          "type": "string",
-          "description": "This string is a UUID issued by Avalara to identify the Avalara account that owns the company identified by the companyCode on the next line."
-        },
-        "companyCode": {
-          "type": "string",
-          "maxLength": 60,
-          "description": "This string is a code maintained by the client application to uniquely identify the company for which this transaction is being recorded. It is unique within the context of an Account. It will be limited to 60 characters when creating a Company"
-        },
         "transactionType": {
           "type": "string",
           "enum": [
@@ -4848,24 +5085,15 @@
         },
         "currency": {
           "type": "string",
-          "enum": [
-            "BRL"
-          ],
           "description": "currency code. 'BRL' for Brazilian Reais."
         },
         "transactionDate": {
           "type": "string",
-          "format": "date",
           "description": "This string is the transaction date in ISO 8601 format (which may be different from the date the tax calculation is performed)"
         },
         "taxCalculationDate": {
           "type": "string",
-          "format": "date",
           "description": "accrual date, This string is the date, in ISO 8601 format, on which tax is to be calculated for this transaction (normally tax is calculated on the date the transaction is performed as captured in the transactionDate field). This is useful for layaways and other deferred transactions."
-        },
-        "vendorCode": {
-          "type": "string",
-          "description": "This string is a code maintained by the client application to uniquely identify the party with whom the company (identified by companyCode) is transacting. It is unique within the context of an Account."
         },
         "paymentMode": {
           "type": "string",
@@ -5091,8 +5319,7 @@
         "goods": {
           "field": "header.transactionType",
           "rules": {
-            "Purchase": "/calculations/*?goods-purchase",
-            "_default": "/calculations/*?goods-sales"
+            "_default": "/calculations/*?goods"
           }
         },
         "_default": {

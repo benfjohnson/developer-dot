@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import PostBodyFormSection from './postBodyFormSection';
 
 const PostBodyFormItem = ({name, itemSchema, itemValue, endpointId, displayName, canRemove, onPostBodyInputChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, showExcludedPostBodyFields}) => {
@@ -133,16 +133,16 @@ const PostBodyFormItem = ({name, itemSchema, itemValue, endpointId, displayName,
 
 PostBodyFormItem.displayName = 'Post Body Item';
 PostBodyFormItem.propTypes = {
-    canRemove: React.PropTypes.bool.isRequired,
-    displayName: React.PropTypes.string.isRequired,
-    endpointId: React.PropTypes.number.isRequired,
-    itemSchema: React.PropTypes.object,
-    itemValue: React.PropTypes.any,
-    name: React.PropTypes.string.isRequired,
-    onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
-    onPostBodyInputChanged: React.PropTypes.func.isRequired,
-    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
-    showExcludedPostBodyFields: React.PropTypes.bool.isRequired
+    canRemove: PropTypes.bool.isRequired,
+    displayName: PropTypes.string.isRequired,
+    endpointId: PropTypes.number.isRequired,
+    itemSchema: PropTypes.object,
+    itemValue: PropTypes.any,
+    name: PropTypes.string.isRequired,
+    onAddItemToPostbodyCollection: PropTypes.func.isRequired,
+    onPostBodyInputChanged: PropTypes.func.isRequired,
+    onRemovePostbodyCollectionItem: PropTypes.func.isRequired,
+    showExcludedPostBodyFields: PropTypes.bool.isRequired
 };
 
 export default PostBodyFormItem;

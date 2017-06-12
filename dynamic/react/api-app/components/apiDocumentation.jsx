@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import url from 'url';
 import ReactMarkdown from 'react-markdown';
 import ApiDocumentationParam from './apiDocumentationParam';
@@ -46,7 +47,7 @@ const ApiDocumentation = ({endpoint}) => (
             </thead>
         </table>
         <h3 id='description'>{'Description'}</h3>
-        <ReactMarkdown source={endpoint.description} />
+        <ReactMarkdown source={endpoint.description || ''} />
         <h3 id='parameters'>{'Parameters'}</h3>
         <table className='styled-table'>
             <thead>
@@ -81,7 +82,7 @@ const ApiDocumentation = ({endpoint}) => (
 
 ApiDocumentation.displayName = 'API Documentation';
 ApiDocumentation.propTypes = {
-    endpoint: React.PropTypes.object
+    endpoint: PropTypes.object
 };
 
 export default ApiDocumentation;

@@ -1,6 +1,7 @@
 /* Renders a form to input data into an Avalara DevDot API Console */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import QueryOrPathParamsForm from './queryOrPathParamsForm';
 import PostBodyForm from './postBodyForm';
 import {hasExampleData} from '../helpers';
@@ -69,16 +70,16 @@ const ConsoleInputForm = ({endpoint, onFillConsoleSampleData, onSubmitConsoleReq
 
 ConsoleInputForm.displayName = 'Console Input Form';
 ConsoleInputForm.propTypes = {
-    endpoint: React.PropTypes.object,
-    onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
-    onFillConsoleSampleData: React.PropTypes.func.isRequired,
-    onPathParamChanged: React.PropTypes.func.isRequired,
-    onPostBodyInputChanged: React.PropTypes.func.isRequired,
-    onQueryParamChanged: React.PropTypes.func.isRequired,
-    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
-    onResetConsole: React.PropTypes.func.isRequired,
-    onSubmitConsoleRequest: React.PropTypes.func.isRequired,
-    onToggleShowExcludedPostBodyProps: React.PropTypes.func.isRequired
+    endpoint: PropTypes.object,
+    onAddItemToPostbodyCollection: PropTypes.func.isRequired,
+    onFillConsoleSampleData: PropTypes.func.isRequired,
+    onPathParamChanged: PropTypes.func.isRequired,
+    onPostBodyInputChanged: PropTypes.func.isRequired,
+    onQueryParamChanged: PropTypes.func.isRequired,
+    onRemovePostbodyCollectionItem: PropTypes.func.isRequired,
+    onResetConsole: PropTypes.func.isRequired,
+    onSubmitConsoleRequest: PropTypes.func.isRequired,
+    onToggleShowExcludedPostBodyProps: PropTypes.func.isRequired
 };
 
 export default ConsoleInputForm;

@@ -3,18 +3,22 @@ const assert = require('../helpers/assert');
 module.exports = {
     'baseURL': process.env.BASEURL ? process.env.BASEURL.replace(/\/$/, '') : 'http://localhost:4000',
     'waitTime': isNaN(parseInt(process.env.TIMEOUT, 10)) ? 5000 : parseInt(process.env.TIMEOUT, 10),
-    'before': function() {
+    'before': function(browser) {
         /* eslint-disable no-console */
         console.log('WaitTime set to', this.waitTime);
         console.log('BaseURL set to', this.baseURL);
         /* eslint-enable no-console */
+        browser.maximizeWindow();
+    },
+
+    'after': function(browser) {
+        browser.end();
     },
 
     'Get Started: AvaTax (verify number of endpoints)': function(browser) {
         const expectedNumberOfApiEndpoints = 2;
 
         browser
-            .maximizeWindow()
             .url(this.baseURL + '/avatax/get-started/')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
@@ -22,12 +26,10 @@ module.exports = {
                 /* eslint-disable no-invalid-this */
                 this.verify.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
                 /* eslint-enable no-invalid-this */
-            })
-            .end();
+            });
     },
     'Get Started: AvaTax (verify tabs)': function(browser) {
         browser
-            .maximizeWindow()
             .url(this.baseURL + '/avatax/get-started/')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
@@ -47,14 +49,12 @@ module.exports = {
                 /* eslint-disable no-invalid-this */
                 this.verify.equal(req.value, 'https://sandbox-rest.avatax.com/api/v2/addresses/resolve');
                 /* eslint-enable no-invalid-this */
-            })
-            .end();
+            });
     },
     'Get Started: AvaTax (ValidateanAddress, fill sample data)': function(browser) {
         const expectedResponseValidateAnAddress = {address: {line1: '123 Main Street', city: 'Irvine', region: 'CA', country: 'US', postalCode: '92615'}, validatedAddresses: [{addressType: 'UnknownAddressType', line1: '123 Main Street', line2: '', line3: '', city: 'Irvine', region: 'CA', country: 'US', postalCode: '92615', latitude: 33.657808, longitude: -117.968489}], coordinates: {latitude: 33.657808, longitude: -117.968489}, resolutionQuality: 'NotCoded', messages: [{summary: 'The address is not deliverable.', details: 'The physical location exists but there are no homes on this street. One reason might be railroad tracks or rivers running alongside this street, as they would prevent construction of homes in this location.', refersTo: 'Address', severity: 'Error', source: 'Avalara.AvaTax.Services.Address'}]};
 
         browser
-            .maximizeWindow()
             .url(this.baseURL + '/avatax/get-started/')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
@@ -82,8 +82,7 @@ module.exports = {
 
                 this.verify.equal(JSON.stringify(response), JSON.stringify(expectedResponseValidateAnAddress));
                 /* eslint-enable no-invalid-this */
-            })
-            .end();
+            });
     },
     'Get Started: AvaTax (CalculateTax, fill sample data)': function(browser) {
         /* eslint-disable quotes */
@@ -93,7 +92,6 @@ module.exports = {
         /* eslint-enable quote-props */
 
         browser
-            .maximizeWindow()
             .url(this.baseURL + '/avatax/get-started/')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
@@ -129,7 +127,6 @@ module.exports = {
                 this.assert.ok(Object.keys(response).length > 10,
                     'substantial amount of keys (> 10) in response json');
                 /* eslint-enable no-invalid-this */
-            })
-            .end();
+            });
     }
 };

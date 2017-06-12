@@ -8,7 +8,7 @@ disqus: 1
 ---
 Getting a tax calculation is the primary reason developers use the Avalara AvaTax Service. Whether you are just looking to get a tax rate to populate into a database or application field, or you need to utilize all of the reporting and filing functionality that AvaTax offers, GetTax is the starting point.
 
-The request for this method consists of sales document attributes, like date, customer id, addresses, and line items. Please see the <a href="/avatax/api-reference/tax/v1/">API reference</a> for a full listing of the available operations and attributes.
+The request for this method consists of sales document attributes, like date, customer id, addresses, and line items. Please see the <a href="/api-reference/avatax/rest/v1/">API reference</a> for a full listing of the available operations and attributes.
 <h3><a name="Items"></a>ItemCode, Description, and TaxCode</h3>
 On the document lines that you will pass to us in the GetTaxRequest, there are a few properties that allow you to identify your products or product categories - ItemCode, Description, and TaxCode.
 

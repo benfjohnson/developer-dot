@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import EndpointContainer from './endpointContainer';
 
@@ -18,7 +19,7 @@ const Endpoints = ({apiEndpoints}) => {
 
 Endpoints.displayName = 'All API Endpoints';
 Endpoints.propTypes = {
-    apiEndpoints: React.PropTypes.array.isRequired
+    apiEndpoints: PropTypes.array.isRequired
 };
 
 const AllEndpointsContainer = connect(mapStateToProps, {})(Endpoints);

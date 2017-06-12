@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import R from 'ramda';
 
 // TODO: Reuse the reducer version of this?
@@ -138,24 +139,24 @@ const ConsoleLiveData = ({action, highlightedInputs, path, request, response}) =
 
 ConsoleLiveData.displayName = 'Console Live Data';
 ConsoleLiveData.propTypes = {
-    action: React.PropTypes.string.isRequired,
-    highlightedInputs: React.PropTypes.arrayOf(React.PropTypes.shape({
-        name: React.PropTypes.string.isRequired,
-        description: React.PropTypes.string.isRequired,
-        field: React.PropTypes.string.isRequired,
-        in: React.PropTypes.string.isRequired,
-        value: React.PropTypes.string.isRequired,
-        enum: React.PropTypes.array
+    action: PropTypes.string.isRequired,
+    highlightedInputs: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        field: PropTypes.string.isRequired,
+        in: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
+        enum: PropTypes.array
     })),
-    path: React.PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
     /* Not required, as a GET might not require any input (e.g. LandedCost `validateCredentials` route) */
-    request: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array, React.PropTypes.string]),
+    request: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
     /* Not required, as a blank response might visually indicate that a request hasn't been sent yet */
-    response: React.PropTypes.shape({
-        status: React.PropTypes.string.isRequired,
-        statusMessage: React.PropTypes.string.isRequired,
-        body: React.PropTypes.oneOfType([
-            React.PropTypes.object, React.PropTypes.array
+    response: PropTypes.shape({
+        status: PropTypes.string.isRequired,
+        statusMessage: PropTypes.string.isRequired,
+        body: PropTypes.oneOfType([
+            PropTypes.object, PropTypes.array
         ]).isRequired
     })
 };

@@ -9,4 +9,4 @@ nav_links:
   - title: Overview
     path: /landedcost
   - title: API references
-    path: /landedcost/api-reference/v3
+    path: /api-reference/landedcost

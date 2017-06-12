@@ -1,61 +1,27 @@
-{% comment %}
-    Following if is a temporary fix for bootstrap affix "jumping" bug in chrome.
-    Should investigate a better solution when we have the time. -BJ
-{% endcomment %}
-{% if page.api_name == "Avatax REST API v2" %}
-    {% if page.tag_name %}
-        <div id='the-nav' class='nav-wrapper hidden-xs hidden-sm' data-spy='affix' data-offset-top='140' style='height: 100%; overflow-y: auto;'>
-    {% else %}
-        <div id='the-nav' class='nav-wrapper hidden-xs hidden-sm' style='height: 100%; overflow-y: auto;'>
-    {% endif %}
-{% else %}
-    <div id='the-nav' class='nav-wrapper hidden-xs hidden-sm' data-spy='affix' data-offset-top='140' style='height: 100%; overflow-y: auto;'>
-{% endif %}
+<div id='the-nav' class='nav-wrapper hidden-xs hidden-sm' style='height: 100%; overflow-y: auto;'>
     <ul class='api-ref-side-nav nav nav-pills nav-stacked'>
-        {% for api_console_hash in site.data.api_consoles %}
-            {% assign api_console = api_console_hash[1] %}
-            {% assign currApi = api_console.nav_link.title | downcase %}
-            {% assign apiName = page.api_name | downcase %}
-            {% if currApi == apiName %}
-                {% if api_console.nav_link.has_tags %}
-                    <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a></li>
-                    {% for tags_for_page_hash in site.data.api_tag_pages %}
-                        {% assign tags_for_page = tags_for_page_hash[1] %}
-                        {% if tags_for_page.api_name == api_console.nav_link.title %}
-                            {% for api_tag in tags_for_page.api_tags %}
-                                {% if api_tag.name == page.tag_name %}
-                                    <li style="padding-left: 10px;"><a href="#top">{{ api_tag.name }}</a>
-                                        <div id='bootstrap-scrollspy' style="padding-left:10px;">
-                                            <ul class='api-ref-side-nav-active nav nav-pills nav-stacked'>
-                                                {% for endpoint_link in page.endpoint_links %}
-                                                    <li><a style="overflow: hidden" href="{{ endpoint_link[0] }}">{{ endpoint_link[1] }}</a></li>
-                                                {% endfor %}
-                                            </ul>
-                                        </div>
-                                    </li>
-                                {% else %}
-                                    {% assign tag_path = api_console.nav_link.path | append: "/" | append: api_tag.name %}
-                                    <li style="padding-left: 10px;"><a href="{{ tag_path }}">{{ api_tag.name }}</a></li>
-                                {% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                {% else %}
-                    <li><a href="#top">{{ api_console.nav_link.title }}</a>
-                        <div id='bootstrap-scrollspy' style="padding-left:10px;">
-                            <ul class='api-ref-side-nav-active nav nav-pills nav-stacked'>
-                                {% for endpoint_link in page.endpoint_links %}
-                                <li><a style="overflow: hidden" href="{{ endpoint_link[0] }}">{{ endpoint_link[1] }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </li>
+        {% assign product = page.product %}
+        {% assign apiName = page.api_name %}
+
+        {% assign products = site.data.api_tag_pages %}
+        {% assign product_apis = products[product] %}
+
+        {% for product_api in product_apis %}
+            {% assign product_api_pretty = product_api[0] | replace: '_', ' ' %}
+            {% assign apiName_no_decimals = apiName | replace: '.', '' %}
+
+            {% assign allLinks = product_api[1] %}
+            {% assign baseLinks = allLinks.index %}
+
+            <li>
+                <a href="/{{baseLinks.home}}">{{product_api_pretty}}</a>
+                <!-- not quite sure how to do boolean algebra in liquid syntax -->
+                {% if apiName == product_api_pretty or apiName_no_decimals == product_api_pretty %}
+                    {% if page.homepage != true %}
+                        {% include api_reference_subnavigation.html tags=baseLinks allLinks=allLinks %}
+                    {% endif %}
                 {% endif %}
-            {% else %}
-                {% if page.product == api_console.product %}
-                    <li><a href="{{ api_console.nav_link.path }}">{{ api_console.nav_link.title }}</a></li>
-                {% endif %}
-            {% endif %}
+            </li>
         {% endfor %}
     </ul>
 </div>

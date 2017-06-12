@@ -1,30 +1,24 @@
 const assert = require('../helpers/assert');
+const {nav} = require('../helpers/api-reference/generalTests');
+
+const NUMAPIS = 6;
 
 module.exports = {
     'baseURL': process.env.BASEURL ? process.env.BASEURL.replace(/\/$/, '') : 'http://localhost:4000',
     'waitTime': isNaN(parseInt(process.env.TIMEOUT, 10)) ? 5000 : parseInt(process.env.TIMEOUT, 10),
-    'before': function() {
+    'before': function(browser) {
         /* eslint-disable no-console */
         console.log('WaitTime set to', this.waitTime);
         console.log('BaseURL set to', this.baseURL);
         /* eslint-enable no-console */
+
+        browser.maximizeWindow();
     },
 
-    'API Reference: AvaTax: REST v1 (verify number of endpoints)': function(browser) {
-        const expectedNumberOfApiEndpoints = 4;
-
-        browser
-            .maximizeWindow()
-            .url(this.baseURL + '/avatax/api-reference/tax/v1/')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
-
-            .elements('css selector', '.endpoint-summary', function(result) {
-                /* eslint-disable no-invalid-this */
-                this.assert.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
-                /* eslint-enable no-invalid-this */
-            })
-            .end();
+    'after': function(browser) {
+        browser.end();
     },
+
     'API Reference: AvaTax: REST v1 (getTax fill sample data)': function(browser) {
         /* eslint-disable quotes */
         /* eslint-disable quote-props */
@@ -33,9 +27,10 @@ module.exports = {
         /* eslint-enable quotes */
         /* eslint-enable quote-props */
 
+        const expectedNumberOfApiEndpoints = 4;
+
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/avatax/api-reference/tax/v1/')
+            .url(this.baseURL + '/api-reference/avatax/rest/v1/methods/getTax/')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .waitForElementVisible('#getTax-console', this.waitTime)
@@ -64,82 +59,91 @@ module.exports = {
                     "response for 'try it now' matches expected response");
                 /* eslint-enable no-invalid-this */
             })
-            .end();
+
+            .elements('css selector', '.endpoint-summary', function(result) {
+                /* eslint-disable no-invalid-this */
+                this.assert.equal(result.value.length, 1, 'expected 1 endpoints, received ' + result.value.length);
+                /* eslint-enable no-invalid-this */
+            })
+            .elements('css selector', nav.APIS, nav.check(browser.verify, NUMAPIS))
+            .elements('css selector', nav.TAGS, nav.check(browser.verify, expectedNumberOfApiEndpoints));
     },
     'API Reference: AvaTax: REST v2 (verify number of endpoints)': function(browser) {
         // NOTE: THESE NOW ALL EXIST ON SUB 'TAG' PAGES
-        const expectedNumberOfApiEndpoints = 0;
+        const expectedNumberOfApiEndpoints = 26;
+        const expectedNumberOfSubTags = 5;
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/avatax/api-reference/tax/v2/')
+            .url(this.baseURL + '/api-reference/avatax/rest/v2/methods/Accounts/AccountResetLicenseKey/')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .elements('css selector', '.endpoint-summary', function(result) {
                 /* eslint-disable no-invalid-this */
-                this.verify.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
+                this.verify.equal(result.value.length, 1, 'expected 1 endpoints, received ' + result.value.length);
                 /* eslint-enable no-invalid-this */
             })
-            .end();
+            .elements('css selector', nav.APIS, nav.check(browser.verify, NUMAPIS))
+            .elements('css selector', nav.TAGS, nav.check(browser.verify, expectedNumberOfApiEndpoints + expectedNumberOfSubTags))
+            .elements('css selector', nav.SUBTAGS, nav.check(browser.verify, expectedNumberOfSubTags));
     },
     'API Reference: AvaTax: SOAP (verify number of endpoints)': function(browser) {
         const expectedNumberOfApiEndpoints = 11;
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/avatax/api-reference/tax/soap/')
+            .url(this.baseURL + '/api-reference/avatax/soap/methods/postTax/')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .elements('css selector', '.endpoint-summary', function(result) {
                 /* eslint-disable no-invalid-this */
-                this.verify.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
+                this.verify.equal(result.value.length, 1, 'expected 1 endpoints, received ' + result.value.length);
                 /* eslint-enable no-invalid-this */
             })
-            .end();
+            .elements('css selector', nav.APIS, nav.check(browser.verify, NUMAPIS))
+            .elements('css selector', nav.TAGS, nav.check(browser.verify, expectedNumberOfApiEndpoints));
     },
     'API Reference: AvaTax: BatchSvc SOAP (verify number of endpoints)': function(browser) {
         const expectedNumberOfApiEndpoints = 9;
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/avatax/api-reference/batch/soap/')
+            .url(this.baseURL + '/api-reference/avatax/batch/soap/methods/batchFetch/')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .elements('css selector', '.endpoint-summary', function(result) {
                 /* eslint-disable no-invalid-this */
-                this.verify.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
+                this.verify.equal(result.value.length, 1, 'expected 1 endpoints, received ' + result.value.length);
                 /* eslint-enable no-invalid-this */
             })
-            .end();
+            .elements('css selector', nav.APIS, nav.check(browser.verify, NUMAPIS))
+            .elements('css selector', nav.TAGS, nav.check(browser.verify, expectedNumberOfApiEndpoints));
     },
     'API Reference: AvaTax: AccountSvc SOAP (verify number of endpoints)': function(browser) {
         const expectedNumberOfApiEndpoints = 2;
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/avatax/api-reference/account/soap/')
+            .url(this.baseURL + '/api-reference/avatax/account/soap/methods/isAuthorized/')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .elements('css selector', '.endpoint-summary', function(result) {
                 /* eslint-disable no-invalid-this */
-                this.verify.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
+                this.verify.equal(result.value.length, 1, 'expected 1 endpoints, received ' + result.value.length);
                 /* eslint-enable no-invalid-this */
             })
-            .end();
+            .elements('css selector', nav.APIS, nav.check(browser.verify, NUMAPIS))
+            .elements('css selector', nav.TAGS, nav.check(browser.verify, expectedNumberOfApiEndpoints));
     },
     'API Reference: AvaTax: Onboarding (verify number of endpoints)': function(browser) {
         const expectedNumberOfApiEndpoints = 8;
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/avatax/api-reference/onboarding/v1/')
+            .url(this.baseURL + '/api-reference/onboarding/methods/getAccount/')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .elements('css selector', '.endpoint-summary', function(result) {
                 /* eslint-disable no-invalid-this */
-                this.verify.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
+                this.verify.equal(result.value.length, 1, 'expected 1 endpoints, received ' + result.value.length);
                 /* eslint-enable no-invalid-this */
             })
-            .end();
+            .elements('css selector', nav.APIS, nav.check(browser.verify, NUMAPIS))
+            .elements('css selector', nav.TAGS, nav.check(browser.verify, expectedNumberOfApiEndpoints));
     }
 };

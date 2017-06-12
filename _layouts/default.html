@@ -44,7 +44,7 @@
 </head>
 {% assign post_count = site.posts|size %} {% if page.product %} {% assign product_name = page.product %} {% elsif layout.product %} {% assign product_name = layout.product %}{% else %} {% if page.api_name %} {% assign product_name = page.api_name %} {% endif %} {% endif %}
 
-<body id="top" data-spy="scroll" data-target="#bootstrap-scrollspy" data-product={{product_name}}>
+<body id="top" data-product={{product_name}}>
     <header>
         <div class="pageTitle">
             <a href="/">
@@ -141,6 +141,14 @@
                                     <h4>TaxDoc Monitor</h4>
                                     <ul class="pipe">
                                         {% for api_console_hash in site.data.api_consoles.taxdocs.nav_links %}
+                                        <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                    {% if site.data.api_consoles.validate.nav_links %}
+                                    <h4>Validate</h4>
+                                    <ul class="pipe">
+                                        {% for api_console_hash in site.data.api_consoles.validate.nav_links %}
                                         <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
                                         {% endfor %}
                                     </ul>

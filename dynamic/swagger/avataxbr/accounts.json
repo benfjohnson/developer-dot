@@ -15,10 +15,10 @@
   ],
   "basePath": "/v2",
   "paths": {
-    "/accounts/{accountId}/companies": {
+    "/accounts/companies": {
       "parameters": [
         {
-          "$ref": "#/parameters/path_accountId"
+          "$ref": "#/parameters/header_jwt"
         }
       ],
       "get": {
@@ -99,12 +99,7 @@
             "description": "Company Code",
             "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "companyCode": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/Company"
             }
           }
         ],
@@ -139,10 +134,10 @@
         }
       }
     },
-    "/accounts/{accountId}/companies/{companyId}": {
+    "/accounts/companies/{companyId}": {
       "parameters": [
         {
-          "$ref": "#/parameters/path_accountId"
+          "$ref": "#/parameters/header_jwt"
         },
         {
           "$ref": "#/parameters/path_companyId"
@@ -184,13 +179,12 @@
     }
   },
   "parameters": {
-    "path_accountId": {
-      "name": "accountId",
-      "in": "path",
-      "description": "Account ID",
+    "header_jwt": {
+      "name": "Authorization",
+      "in": "header",
+      "description": "Bearer {auth}",
       "required": true,
-      "type": "string",
-      "format": "uuid"
+      "type": "string"
     },
     "path_companyId": {
       "name": "companyId",
@@ -388,6 +382,10 @@
           "type": "boolean",
           "description": "ICMS Exempt when Tax Regime is Simplified because total gross revenue is bellow amount defined by state (see PARANÁ State)\nIsenção do ICMS no Simples Nacional para faixa de receita bruta\n"
         },
+        "subjectToPayrollTaxRelief": {
+          "type": "boolean",
+          "description": "Sujeito à desoneração de folha de pagamento."
+        },
         "configuration": {
           "type": "object",
           "properties": {
@@ -401,7 +399,6 @@
             },
             "certificateexpiration": {
               "type": "string",
-              "format": "date-time",
               "description": "expiration date of this certificate"
             },
             "logo": {
@@ -542,7 +539,7 @@
         "cityGovernment",
         "foreign"
       ],
-      "description": "Entity Type (business, individual, federal government, state government, city government foreign)"
+      "description": "Entity Type (business, individual, federal government, state government, city government, foreign)"
     },
     "FederalTaxRegime": {
       "type": "string",

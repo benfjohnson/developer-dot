@@ -15,112 +15,6 @@
   ],
   "basePath": "/v2",
   "paths": {
-    "/invoices/nfe/{key}": {
-      "parameters": [
-        {
-          "$ref": "#/parameters/header_jwt"
-        },
-        {
-          "$ref": "#/parameters/path_invoiceKey"
-        }
-      ],
-      "get": {
-        "operationId": "nfePrint",
-        "summary": "Retrieve Danfe",
-        "description": "Retrieve the Danfe\n",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/pdf"
-        ],
-        "tags": [
-          "Invoice NF-e DANFE"
-        ],
-        "responses": {
-          "200": {
-            "description": "NF-e DANFE",
-            "schema": {
-              "type": "file"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/400_BadRequest"
-          },
-          "401": {
-            "$ref": "#/responses/401_Unauthorized"
-          },
-          "403": {
-            "$ref": "#/responses/403_Forbidden"
-          },
-          "404": {
-            "$ref": "#/responses/404_NotFound"
-          },
-          "429": {
-            "$ref": "#/responses/429_TooManyRequests"
-          },
-          "500": {
-            "$ref": "#/responses/500_InternalServerError"
-          },
-          "503": {
-            "$ref": "#/responses/503_ServiceUnavailable"
-          }
-        }
-      }
-    },
-    "/invoices/nfce/{key}": {
-      "parameters": [
-        {
-          "$ref": "#/parameters/header_jwt"
-        },
-        {
-          "$ref": "#/parameters/path_invoiceKey"
-        }
-      ],
-      "get": {
-        "operationId": "nfcePrint",
-        "summary": "NFCe Danfe Print",
-        "description": "Retrieve the Danfe in NFCe format.\n",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/pdf"
-        ],
-        "tags": [
-          "Invoice NFC-e DANFE"
-        ],
-        "responses": {
-          "200": {
-            "description": "NFC-e DANFE",
-            "schema": {
-              "type": "file"
-            }
-          },
-          "400": {
-            "$ref": "#/responses/400_BadRequest"
-          },
-          "401": {
-            "$ref": "#/responses/401_Unauthorized"
-          },
-          "403": {
-            "$ref": "#/responses/403_Forbidden"
-          },
-          "404": {
-            "$ref": "#/responses/404_NotFound"
-          },
-          "429": {
-            "$ref": "#/responses/429_TooManyRequests"
-          },
-          "500": {
-            "$ref": "#/responses/500_InternalServerError"
-          },
-          "503": {
-            "$ref": "#/responses/503_ServiceUnavailable"
-          }
-        }
-      }
-    },
     "/invoices/sefaz": {
       "parameters": [
         {
@@ -132,10 +26,14 @@
         "summary": "Send an e-Invoice",
         "description": "Send a invoice to SEFAZ\n",
         "consumes": [
-          "application/json"
+          "application/json",
+          "application/xml",
+          "text/xml"
         ],
         "produces": [
-          "application/json"
+          "application/json",
+          "application/xml",
+          "text/xml"
         ],
         "tags": [
           "Invoice SEFAZ"
@@ -144,10 +42,10 @@
           {
             "name": "body",
             "in": "body",
-            "description": "Invoices",
+            "description": "Invoice",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/TransactionForSefazGoodsList"
+              "$ref": "#/definitions/TransactionForSefazGoods"
             }
           }
         ],
@@ -155,7 +53,7 @@
           "200": {
             "description": "Sefaz Out",
             "schema": {
-              "$ref": "#/definitions/SefazPostOut"
+              "$ref": "#/definitions/eInvoiceReturn"
             }
           },
           "400": {
@@ -201,7 +99,7 @@
             "description": "Disable Range e-Invoice",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/SefazDisableRangeIn"
+              "$ref": "#/definitions/SefazDisablementIn"
             }
           }
         ],
@@ -209,7 +107,7 @@
           "200": {
             "description": "Return Sefaz",
             "schema": {
-              "$ref": "#/definitions/SefazInvoiceBasicStatus"
+              "$ref": "#/definitions/eInvoiceReturn_Status"
             }
           },
           "400": {
@@ -262,7 +160,7 @@
           "200": {
             "description": "Invoice Data",
             "schema": {
-              "$ref": "#/definitions/SefazItGetOut"
+              "$ref": "#/definitions/eInvoiceReturn"
             }
           },
           "400": {
@@ -316,7 +214,7 @@
           "200": {
             "description": "Fix Letter Status",
             "schema": {
-              "$ref": "#/definitions/SefazInvoiceBasicStatus"
+              "$ref": "#/definitions/eInvoiceReturn_Status"
             }
           },
           "400": {
@@ -370,7 +268,7 @@
           "200": {
             "description": "Cancel Invoice Status",
             "schema": {
-              "$ref": "#/definitions/SefazInvoiceBasicStatus"
+              "$ref": "#/definitions/eInvoiceReturn_Status"
             }
           },
           "400": {
@@ -397,7 +295,7 @@
         }
       }
     },
-    "/invoices/sefaz/{key}/lookup": {
+    "/invoices/sefaz/{key}/pdf": {
       "parameters": [
         {
           "$ref": "#/parameters/header_jwt"
@@ -407,23 +305,20 @@
         }
       ],
       "get": {
-        "operationId": "retrieveInvoiceLookup",
-        "summary": "Retrieve invoice",
-        "description": "Retrieve the invoice",
-        "consumes": [
-          "application/json"
-        ],
+        "operationId": "retrieveSefazPDF",
+        "summary": "Retrieve DANFe",
+        "description": "Retrieve DANFe",
         "produces": [
-          "application/json"
+          "application/pdf"
         ],
         "tags": [
           "Invoice SEFAZ"
         ],
         "responses": {
           "200": {
-            "description": "Transaction Out",
+            "description": "DANFe",
             "schema": {
-              "$ref": "#/definitions/TransactionForSefazGoodsList"
+              "type": "file"
             }
           },
           "400": {
@@ -508,8 +403,8 @@
       ],
       "post": {
         "operationId": "sendInvoiceService",
-        "summary": "Send an e-Invoice",
-        "description": "Send a invoice\n",
+        "summary": "Send an e-Invoice Service",
+        "description": "Send a invoice",
         "consumes": [
           "application/json"
         ],
@@ -523,18 +418,170 @@
           {
             "name": "body",
             "in": "body",
-            "description": "Invoices",
+            "description": "Invoice",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/TransactionForServiceAbraList"
+              "$ref": "#/definitions/TransactionForNfse"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Service Out",
+            "description": "NFSe Return",
             "schema": {
-              "$ref": "#/definitions/ServiceAbraPostOut"
+              "$ref": "#/definitions/eInvoiceReturn"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      }
+    },
+    "/invoices/service/{serie}/{number}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        },
+        {
+          "$ref": "#/parameters/path_rpsSerie"
+        },
+        {
+          "$ref": "#/parameters/path_rpsNumber"
+        }
+      ],
+      "get": {
+        "operationId": "retrieveInvoiceService",
+        "summary": "Retrieve e-Invoice Service",
+        "description": "Retrieve the invoice",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "Invoice Service"
+        ],
+        "responses": {
+          "200": {
+            "description": "NFSe Return",
+            "schema": {
+              "$ref": "#/definitions/eInvoiceReturn"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "cancelInvoiceService",
+        "summary": "Cancel e-Invoice Service",
+        "description": "Cancel the invoice",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "Invoice Service"
+        ],
+        "responses": {
+          "200": {
+            "description": "NFSe Return",
+            "schema": {
+              "$ref": "#/definitions/eInvoiceReturn"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      }
+    },
+    "/invoices/service/{serie}/{number}/pdf": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        },
+        {
+          "$ref": "#/parameters/path_rpsSerie"
+        },
+        {
+          "$ref": "#/parameters/path_rpsNumber"
+        }
+      ],
+      "get": {
+        "operationId": "retrieveInvoicePDF",
+        "summary": "Retrieve PDF",
+        "description": "Retrieve PDF",
+        "produces": [
+          "application/pdf"
+        ],
+        "tags": [
+          "Invoice Service"
+        ],
+        "responses": {
+          "200": {
+            "description": "NFSe PDF",
+            "schema": {
+              "type": "file"
             }
           },
           "400": {
@@ -590,12 +637,10 @@
                   "type": "boolean"
                 },
                 "startDate": {
-                  "type": "string",
-                  "format": "date-time"
+                  "type": "string"
                 },
                 "finishDate": {
-                  "type": "string",
-                  "format": "date-time"
+                  "type": "string"
                 }
               }
             }
@@ -646,12 +691,10 @@
               "type": "object",
               "properties": {
                 "startDate": {
-                  "type": "string",
-                  "format": "date-time"
+                  "type": "string"
                 },
                 "finishDate": {
-                  "type": "string",
-                  "format": "date-time"
+                  "type": "string"
                 }
               }
             }
@@ -856,6 +899,21 @@
       "type": "string",
       "pattern": "^(\\d{44})$"
     },
+    "path_rpsSerie": {
+      "name": "serie",
+      "in": "path",
+      "description": "RPS Serie",
+      "required": true,
+      "type": "string"
+    },
+    "path_rpsNumber": {
+      "name": "number",
+      "in": "path",
+      "description": "RPS Number",
+      "required": true,
+      "type": "integer",
+      "format": "int64"
+    },
     "path_stateAbbr": {
       "name": "state",
       "in": "path",
@@ -895,85 +953,87 @@
     }
   },
   "definitions": {
-    "SefazPostOut": {
+    "eInvoiceReturn_Status": {
       "type": "object",
       "properties": {
-        "key": {
+        "desc": {
           "type": "string"
         },
-        "documentCode": {
+        "code": {
           "type": "string"
-        },
-        "status": {
-          "$ref": "#/definitions/SefazInvoiceStatus"
         }
       }
     },
-    "SefazDisableRangeIn": {
+    "eInvoiceReturn_Obj": {
       "type": "object",
       "properties": {
-        "companyLocation": {
-          "type": "string",
-          "description": "This string contains a previously configured company code which may also have codes needed for tax return purposes. These codes are maintained through the customer portal. Main company address identity"
+        "base64": {
+          "type": "string"
         },
-        "transactionModel": {
+        "link": {
+          "type": "string"
+        }
+      }
+    },
+    "eInvoiceReturn": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/eInvoiceReturn_Status"
+        },
+        "pdf": {
+          "$ref": "#/definitions/eInvoiceReturn_Obj"
+        },
+        "xml": {
+          "$ref": "#/definitions/eInvoiceReturn_Obj"
+        }
+      }
+    },
+    "SefazDisablementIn": {
+      "type": "object",
+      "required": [
+        "serie",
+        "init"
+      ],
+      "properties": {
+        "model": {
           "type": "string",
           "enum": [
-            "55",
-            "65"
-          ],
-          "description": "This string indicates the type of transaction for which tax should be calculated.\n- '55' # Nota Fiscal Eletrônica (NF-e)\n- '65' # Nota Fiscal Eletrônica ao-Consumidor Final (NFC-e)\n"
+            "NFe",
+            "NFCe"
+          ]
         },
-        "invoiceSerial": {
+        "serie": {
           "type": "integer",
           "description": "Invoice number, sequential unique by invoice serial (Número da nota fiscal)\n"
-        },
-        "year": {
-          "type": "number"
         },
         "message": {
           "type": "string",
           "maxLength": 255,
           "minLength": 15
         },
-        "invoiceNumberInit": {
+        "init": {
           "type": "number",
           "description": "First number of disable range.",
           "maxLength": 9
         },
-        "invoiceNumberEnd": {
+        "end": {
           "type": "number",
           "description": "Last number of disable range.",
           "maxLength": 9
         }
       }
     },
-    "SefazItGetOut": {
-      "type": "object",
-      "properties": {
-        "key": {
-          "type": "string",
-          "description": "Invoice Access Key"
-        },
-        "xml": {
-          "type": "string",
-          "description": "XML Signed",
-          "xml": {
-            "name": "nfeProc"
-          }
-        },
-        "status": {
-          "$ref": "#/definitions/SefazInvoiceStatus"
-        }
-      }
-    },
     "SefazItPutIn": {
       "type": "object",
+      "required": [
+        "code"
+      ],
       "properties": {
         "code": {
           "type": "string"
         },
-        "text": {
+        "message": {
           "type": "string",
           "maxLength": 1000
         }
@@ -989,73 +1049,11 @@
         }
       }
     },
-    "SefazInvoiceBasicStatus": {
-      "type": "object",
-      "properties": {
-        "code": {
-          "type": "string",
-          "pattern": "\\d{3}"
-        },
-        "desc": {
-          "type": "string"
-        }
-      }
-    },
-    "SefazInvoiceStatus": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/SefazInvoiceBasicStatus"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "protocol": {
-              "type": "string"
-            },
-            "rec": {
-              "type": "string"
-            },
-            "date": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "environment": {
-              "description": "- '1' # Ambiente de Produção\n- '2' # Ambiente de Homologação\n",
-              "type": "string",
-              "enum": [
-                "1",
-                "2"
-              ]
-            },
-            "appVersion": {
-              "type": "string"
-            }
-          }
-        }
-      ]
-    },
-    "ServiceAbraPostOut": {
-      "type": "object",
-      "properties": {
-        "code": {
-          "type": "string"
-        },
-        "xml": {
-          "type": "string"
-        }
-      }
-    },
-    "TransactionForSefazGoodsList": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/TransactionForSefazGoods"
-      }
-    },
     "TransactionForSefazGoods": {
       "type": "object",
       "properties": {
         "header": {
-          "$ref": "#/definitions/HeaderForGoods"
+          "$ref": "#/definitions/HeaderForSefazGoods"
         },
         "lines": {
           "type": "array",
@@ -1065,40 +1063,18 @@
           }
         },
         "calculatedTaxSummary": {
-          "$ref": "#/definitions/CalculatedTaxSummaryForGoods"
+          "$ref": "#/definitions/CalculatedTaxSummaryForSefazGoods"
         }
       }
     },
-    "TransactionForServiceAbraList": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/TransactionForServiceAbra"
-      }
-    },
-    "TransactionForServiceAbra": {
+    "TransactionForNfse": {
       "type": "object",
-      "required": [
-        "header",
-        "lines",
-        "calculatedTaxSummary",
-        "processingInfo"
-      ],
       "properties": {
         "header": {
-          "$ref": "#/definitions/SalesHeaderOut"
+          "$ref": "#/definitions/HeaderForNfse"
         },
-        "lines": {
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "$ref": "#/definitions/SalesLinesOut"
-          }
-        },
-        "calculatedTaxSummary": {
-          "$ref": "#/definitions/SalesCalculatedTaxSummaryForService"
-        },
-        "processingInfo": {
-          "$ref": "#/definitions/ProcessingInfo"
+        "line": {
+          "$ref": "#/definitions/LineForNfse"
         }
       }
     },
@@ -1153,33 +1129,13 @@
         }
       }
     },
-    "HeaderForGoods": {
+    "HeaderForSefazGoods": {
       "type": "object",
       "required": [
-        "accountId",
-        "companyCode",
         "participants",
-        "transactionType",
-        "eDocCreatorType",
         "companyLocation"
       ],
       "properties": {
-        "messageType": {
-          "type": "string",
-          "enum": [
-            "goods"
-          ],
-          "default": "goods"
-        },
-        "accountId": {
-          "type": "string",
-          "description": "This string is a UUID issued by Avalara to identify the Avalara account that owns the company identified by the companyCode on the next line."
-        },
-        "companyCode": {
-          "type": "string",
-          "maxLength": 60,
-          "description": "string is a code maintained by the client application to uniquely identify the company for which this transaction is being recorded. It is unique within the context of an Account. It will be limited to 60 characters when creating a Company"
-        },
         "documentCode": {
           "type": "string",
           "description": "This string is a code maintained by the client application to uniquely identify a document in the client's systems. It will typically be an invoice number, sales order, receipt number, returned merchandise authorization number, etc. When has this field, the transaction will be stored"
@@ -1205,22 +1161,6 @@
           "maxLength": 600,
           "minLength": 100,
           "description": "qr code printed on DANFE;"
-        },
-        "transactionType": {
-          "type": "string",
-          "enum": [
-            "Sales",
-            "Purchase",
-            "SalesReturn",
-            "PurchaseReturn",
-            "TransferReturn",
-            "Shipping",
-            "ShippingReturn",
-            "Transfer",
-            "ReceiptAdjustment",
-            "TransferAdjustment"
-          ],
-          "description": "This string indicates the type of transaction for which tax should be calculated."
         },
         "transactionModel": {
           "type": "string",
@@ -1261,27 +1201,9 @@
           "type": "string",
           "description": "Natureza da Opreração - 'Describe kind of this transaction, summary"
         },
-        "eDocCreatorType": {
-          "type": "string",
-          "enum": [
-            "self",
-            "other"
-          ]
-        },
-        "eDocCreatorPerspective": {
-          "type": "boolean",
-          "default": true,
-          "description": "This Flag is used only when eDocCreatorType is other and the return show Taxes using eDocCreator perspective or self perspective."
-        },
-        "entityCode": {
-          "type": "string",
-          "description": "This string is a code maintained by the client application and recorded in CUP to uniquely identify the party with whom the company (identified by companyCode) is transacting. It is unique within the context of a Company."
-        },
         "currency": {
           "type": "string",
-          "enum": [
-            "BRL"
-          ],
+          "default": "BRL",
           "description": "currency code"
         },
         "companyLocation": {
@@ -1319,7 +1241,8 @@
             1,
             2,
             3
-          ]
+          ],
+          "default": 0
         },
         "indPres": {
           "type": "string",
@@ -1368,21 +1291,401 @@
       }
     },
     "LineForSefazGoods": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/LineForGoods"
+      "type": "object",
+      "required": [
+        "lineCode",
+        "itemCode",
+        "numberOfItems",
+        "lineAmount",
+        "itemDescription",
+        "taxDetails"
+      ],
+      "properties": {
+        "lineCode": {
+          "type": "integer",
+          "description": "This is unique identifier for this line in the transaction"
         },
-        {
+        "itemCode": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "This string is a code maintained by the client application to uniquely identify a product or service. It will likely be a SKU and is required for SST states."
+        },
+        "avalaraGoodsAndServicesType": {
+          "type": "string",
+          "description": "AGAST CODE for itemCode"
+        },
+        "numberOfItems": {
+          "type": "number",
+          "format": "double",
+          "default": 1,
+          "description": "This decimal 11 integers and 1 to 4 decimals captures the number of individual items or units represented by this line. Digits after the decimal point are optional. This should always be positive. Quantity, default 1"
+        },
+        "returnedPercentageAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "when is return operation this field inform the percentage of returned itens. This decimal max 3 integers and 2 decimals, v >=0.00 and v <= 100.00"
+        },
+        "lineUnitPrice": {
+          "type": "number",
+          "format": "double",
+          "description": "This decimal 11 integers and 1 to 10 decimals captures the unit price of this line."
+        },
+        "lineAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "In its simplest form lineAmount = (item price * numberOfItems). If taxIncluded is 'true', lineAmount = (item price * numberOfItems + tax)."
+        },
+        "itemDescription": {
+          "type": "string",
+          "description": "This string captures the description of the item represented by this line, will be used LC 116"
+        },
+        "lineTaxedDiscount": {
+          "type": "number",
+          "format": "double",
+          "description": "Discount conditional, This decimal 13 integers and 0 to 2 decimals"
+        },
+        "lineUntaxedDiscount": {
+          "type": "number",
+          "format": "double",
+          "description": "discount unconditional, This decimal 13 integers and 0 to 2 decimals"
+        },
+        "operationTypeReceiptMap": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "Mapping table used to discover the CFOP when execute the Tax receipt in funciotn of CFOP Received and Item Type\nthis property is used only if eDocCreator=others and eDocCreatorPerspective=false\n"
+        },
+        "legalReason": {
           "type": "object",
+          "description": "Legal Reason for this tax scenario",
           "properties": {
-            "extend": {
-              "$ref": "#/definitions/AgastExtendForSefaz"
+            "id": {
+              "type": "string",
+              "description": "Internal ID"
+            },
+            "name": {
+              "type": "string",
+              "description": "Short name to this message"
             }
           }
+        },
+        "cfop": {
+          "type": "integer",
+          "description": "Fiscal Operation Code of transport service"
+        },
+        "hasStockImpact": {
+          "type": "boolean",
+          "description": "return if this transaction has stock impact for this process or CFOP"
+        },
+        "hasFinantialImpact": {
+          "type": "boolean",
+          "description": "return if this transaction has finantial impact for this process or CFOP"
+        },
+        "freightAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "This decimal 13 integers and 0 to 2 decimals"
+        },
+        "insuranceAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "This decimal 13 integers and 0 to 2 decimals"
+        },
+        "otherCostAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "This decimal 13 integers and 0 to 2 decimals"
+        },
+        "indTotType": {
+          "type": "boolean",
+          "default": true,
+          "description": "The item value will compose the invoice total value."
+        },
+        "referencedItem": {
+          "type": "object",
+          "description": "order number, information used for B2B control process",
+          "properties": {
+            "refNFe": {
+              "type": "string",
+              "maxLength": 44,
+              "pattern": "[0-9]{44}"
+            },
+            "lineCode": {
+              "type": "integer",
+              "description": "This identifier for this line in the transaction"
+            }
+          }
+        },
+        "orderNumber": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 15,
+          "description": "order number, information used for B2B control process"
+        },
+        "orderItemNumber": {
+          "type": "string",
+          "pattern": "[0-9]{1,6}",
+          "description": "number of the item from order number, information used for B2B control process"
+        },
+        "fciNumber": {
+          "type": "string",
+          "pattern": "[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}",
+          "description": "Gloal Unique identifier (Importation form)"
+        },
+        "recopiNumber": {
+          "type": "string",
+          "maxLength": 20,
+          "pattern": "[0-9]{20}",
+          "description": "RECOPI number"
+        },
+        "infAdProd": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "additional information about product (referenced standard, complementary info, etc)"
+        },
+        "vehicle": {
+          "$ref": "#/definitions/Vehicle"
+        },
+        "medicine": {
+          "$ref": "#/definitions/Medicine"
+        },
+        "weapon": {
+          "$ref": "#/definitions/Weapon"
+        },
+        "fuel": {
+          "$ref": "#/definitions/Fuel"
+        },
+        "entityIsIcmsSubstitute": {
+          "type": "boolean",
+          "description": "Inform that for this item the Entity referenced is ICMS Substitute"
+        },
+        "isTransportIcmsWithheld": {
+          "type": "boolean",
+          "description": "Inform that this item has ICMS withheld for transport value service."
+        },
+        "icmsTaxRelief": {
+          "type": "object",
+          "required": [
+            "reasonCode"
+          ],
+          "properties": {
+            "reasonCode": {
+              "type": "string",
+              "enum": [
+                "1",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "16"
+              ],
+              "description": "When item transaction subject to desoneration, this is the reason code\n- '1' # Táxi;\n- '3' # Produtor Agropecuário;\n- '4' # Frotista/Locadora;\n- '5' # Diplomático/Consular;\n- '6' # Utilitários e Motocicletas da Amazônia Ocidental e Áreas de Livre Comércio (Resolução 714/88 e 790/94 – CONTRAN e suas alterações);\n- '7' # SUFRAMA;\n- '8' # Venda a órgão Público;\n- '9' # Outros\n- '10' # Deficiente Condutor\n- '11' # Deficiente não condutor\n- '12' # Fomento agropecuário\n- '16' # Olimpíadas Rio 2016\n"
+            },
+            "taxBaseDiscount": {
+              "type": "number",
+              "format": "double",
+              "description": "ICMS Tax base rate discount  (desconto na base do ICMS referetne a desoneração)"
+            },
+            "taxAmount": {
+              "type": "number",
+              "format": "double",
+              "description": "Amount for Icms Relief (desoneração)"
+            }
+          }
+        },
+        "export": {
+          "description": "Exportation detail",
+          "type": "array",
+          "maxItems": 500,
+          "items": {
+            "type": "object",
+            "properties": {
+              "drawbackNumber": {
+                "type": "string",
+                "maxLength": 11,
+                "pattern": "[0-9]{0,11}"
+              },
+              "indExport": {
+                "type": "object",
+                "description": "indirect exportation",
+                "required": [
+                  "registerNumber",
+                  "accessKey",
+                  "quantity"
+                ],
+                "properties": {
+                  "registerNumber": {
+                    "type": "string",
+                    "maxLength": 12,
+                    "pattern": "[0-9]{0,12}",
+                    "description": "Exportation register number"
+                  },
+                  "accessKey": {
+                    "type": "string",
+                    "maxLength": 44,
+                    "pattern": "[0-9]{44}",
+                    "description": "invoice access key received to export"
+                  },
+                  "quantity": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "This decimal 11 integers and 0 to 4 decimals, quantity exported in real"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "di": {
+          "description": "Import declaration",
+          "type": "array",
+          "maxItems": 100,
+          "items": {
+            "type": "object",
+            "required": [
+              "diNumber",
+              "registerDateDI",
+              "clearanceSite",
+              "clearanceState",
+              "transportDIType",
+              "intermediateType",
+              "adi"
+            ],
+            "properties": {
+              "customsValue": {
+                "type": "number",
+                "format": "double",
+                "description": "customs value, valor aduaneiro (II Block of NFe)"
+              },
+              "diNumber": {
+                "type": "string",
+                "maxLength": 12,
+                "minLength": 1,
+                "description": "Import declaration number, DI/DSI/DA/DRI-E (DI/DSI/DA/DRI-E)"
+              },
+              "registerDateDI": {
+                "type": "string",
+                "description": "Register date of import declaration number, DI/DSI/DA/DRI-E (DI/DSI/DA/DRI-E)"
+              },
+              "clearanceSite": {
+                "type": "string",
+                "maxLength": 60,
+                "minLength": 1,
+                "description": "Clerance Site\nLocal do desembaraço aduaneiro\n"
+              },
+              "clearanceState": {
+                "$ref": "#/definitions/StateEnum",
+                "description": "Clerance Site State\nEstado onde ocorrreu o desembaraço aduaneiro\n"
+              },
+              "clearanceDate": {
+                "type": "string",
+                "description": "Clerance date"
+              },
+              "transportDIType": {
+                "description": "- '1' # Maritima\n- '2' # Fluvial\n- '3' # Lacustre\n- '4' # Aerea\n- '5' # Postal\n- '6' # Ferroviaria\n- '7' # Rodoviaria\n- '8' # Conduto\n- '9' # Meios Proprios\n- '10' # Entrada/Saida Ficta\n",
+                "type": "string",
+                "enum": [
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "7",
+                  "8",
+                  "9",
+                  "10"
+                ]
+              },
+              "afrmmValue": {
+                "type": "number",
+                "format": "double",
+                "description": "Aditional amount to freight to renew merchant marine, This decimal 13 integers and 2 decimals\n[Valor Adicional ao frete para renovação de marinha mercante]\n"
+              },
+              "intermediateType": {
+                "description": "- '1' # On One's Own [1-por conta propria]\n- '2' # On Behalf And Order [2-por conta e ordem]\n- '3' # Order [3-encomenda]\n",
+                "type": "string",
+                "enum": [
+                  "1",
+                  "2",
+                  "3"
+                ]
+              },
+              "buyerFederalTaxID": {
+                "type": "string",
+                "pattern": "[0-9]{14}",
+                "description": "Buyer federal tax id\nCNPJ do comprador ou encomendante\n"
+              },
+              "buyerState": {
+                "$ref": "#/definitions/StateEnum",
+                "description": "Buyer sate\nEstado do comprador ou encomendante\n"
+              },
+              "exporterCode": {
+                "type": "string",
+                "maxLength": 60,
+                "minLength": 1,
+                "description": "Exporter code"
+              },
+              "adi": {
+                "type": "array",
+                "maxItems": 100,
+                "description": "aditional import declaration",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "addNumber",
+                    "sequentialNumber",
+                    "manufacturerCode"
+                  ],
+                  "properties": {
+                    "addNumber": {
+                      "type": "integer",
+                      "description": "aditional sequence number (1 to 100)"
+                    },
+                    "sequentialNumber": {
+                      "type": "integer",
+                      "description": "sequential item number for this adi, sequence number (1 to 999)"
+                    },
+                    "manufacturerCode": {
+                      "type": "string",
+                      "maxLength": 60,
+                      "minLength": 1,
+                      "description": "Manufatorer erp internal code"
+                    },
+                    "adiDiscount": {
+                      "type": "number",
+                      "format": "double",
+                      "description": "This decimal 13 integers and 2 decimals, aditional adi discount"
+                    },
+                    "drawbackNumber": {
+                      "type": "string",
+                      "pattern": "[0-9]{0,11}",
+                      "minLength": 1,
+                      "description": "Drawback number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "taxDetails": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TaxDetailForSefaz"
+          }
+        },
+        "extend": {
+          "$ref": "#/definitions/AgastExtendForSefaz"
         }
-      ]
+      }
     },
-    "CalculatedTaxSummaryForGoods": {
+    "CalculatedTaxSummaryForSefazGoods": {
       "type": "object",
       "properties": {
         "numberOfLines": {
@@ -1418,67 +1721,67 @@
           "type": "object",
           "properties": {
             "icms": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "icmsSt": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "icmsStSd": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "icmsPartOwn": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "icmsPartDest": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "icmsDifaFCP": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "icmsDifaDest": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "icmsDifaRemet": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "icmsRf": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "icmsDeson": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "icmsCredsn": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "pis": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "pisSt": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "cofins": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "cofinsSt": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "ipi": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "ipiReturned": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "ii": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "iof": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "aproxtribState": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             },
             "aproxtribFed": {
-              "$ref": "#/definitions/TaxByTypeSummaryForGoods"
+              "$ref": "#/definitions/TaxByTypeSummaryForSefazGoods"
             }
           }
         }
@@ -1698,7 +2001,6 @@
               },
               "date": {
                 "type": "string",
-                "format": "date",
                 "description": "Installment expiration date"
               },
               "grossValue": {
@@ -2032,7 +2334,11 @@
         },
         "subjectToSRF1234": {
           "type": "boolean",
-          "description": "Companies subject to follow same rules of Government entities (Instrução Normativa: SRF1234)"
+          "description": "Companies subject to follow same rules of Government entities (Instrução Normativa SRF1234)"
+        },
+        "subjectToPayrollTaxRelief": {
+          "type": "boolean",
+          "description": "Sujeito à desoneração de folha de pagamento."
         }
       }
     },
@@ -2046,7 +2352,7 @@
         "cityGovernment",
         "foreign"
       ],
-      "description": "Entity Type (business, individual, federal government, state government, city government foreign)"
+      "description": "Entity Type (business, individual, federal government, state government, city government, foreign)"
     },
     "StateEnum": {
       "type": "string",
@@ -2153,7 +2459,9 @@
         {
           "type": "object",
           "required": [
-            "zipcode"
+            "zipcode",
+            "cityCode",
+            "state"
           ],
           "properties": {
             "street": {
@@ -2270,7 +2578,9 @@
             {
               "type": "object",
               "required": [
-                "zipcode"
+                "zipcode",
+                "cityCode",
+                "state"
               ],
               "properties": {
                 "street": {
@@ -2378,603 +2688,125 @@
         }
       }
     },
-    "LineForGoods": {
+    "TaxDetailForSefaz": {
       "type": "object",
-      "required": [
-        "lineCode",
-        "itemCode",
-        "numberOfItems",
-        "lineAmount",
-        "itemDescription",
-        "useType",
-        "processScenario"
-      ],
       "properties": {
-        "lineCode": {
-          "type": "integer",
-          "description": "This string is a unique identifier for this line in the transaction"
-        },
-        "itemCode": {
-          "type": "string",
-          "maxLength": 60,
-          "description": "This string is a code maintained by the client application to uniquely identify a product or service. It will likely be a SKU and is required for SST states."
-        },
-        "avalaraGoodsAndServicesType": {
-          "type": "string",
-          "description": "AGAST CODE for itemCode"
-        },
-        "numberOfItems": {
-          "type": "number",
-          "format": "double",
-          "default": 1,
-          "description": "This decimal 11 integers and 1 to 4 decimals captures the number of individual items or units represented by this line. Digits after the decimal point are optional. This should always be positive. Quantity, default 1"
-        },
-        "returnedPercentageAmount": {
-          "type": "number",
-          "format": "double",
-          "description": "when is return operation this field inform the percentage of returned itens. This decimal max 3 integers and 2 decimals, v >=0.00 and v <= 100.00"
-        },
-        "lineUnitPrice": {
-          "type": "number",
-          "format": "double",
-          "description": "This decimal 11 integers and 1 to 10 decimals captures the unit price of this line."
-        },
-        "lineAmount": {
-          "type": "number",
-          "format": "double",
-          "description": "In its simplest form lineAmount = (item price * numberOfItems). If taxIncluded is 'true', lineAmount = (item price * numberOfItems + tax)."
-        },
-        "itemDescription": {
-          "type": "string",
-          "description": "This string captures the description of the item represented by this line, will be used LC 116"
-        },
-        "lineTaxedDiscount": {
-          "type": "number",
-          "format": "double",
-          "description": "Discount conditional, This decimal 13 integers and 0 to 2 decimals"
-        },
-        "lineUntaxedDiscount": {
-          "type": "number",
-          "format": "double",
-          "description": "discount unconditional, This decimal 13 integers and 0 to 2 decimals"
-        },
-        "useType": {
+        "taxType": {
           "type": "string",
           "enum": [
-            "use or consumption",
-            "resale",
-            "agricultural production",
-            "production",
-            "use or consumption on business establishment",
-            "use or consumption on transporter service establishment",
-            "use or consumption on communication service establishment",
-            "use or consumption on demand by contract",
-            "use or consumption on energy supplier establishment",
-            "use or consumption of fuel transaction type exportation",
-            "fixed assets",
-            "resale export",
-            "resale icms exempt",
-            "resale buyer under the same icmsSt tax rule",
-            "transport of goods that don't need invoice (nf)"
+            "icms",
+            "icmsSt",
+            "icmsStSd",
+            "icmsPartOwn",
+            "icmsPartDest",
+            "icmsDifaFCP",
+            "icmsDifaDest",
+            "icmsDifaRemet",
+            "icmsRf",
+            "icmsDeson",
+            "icmsCredsn",
+            "pis",
+            "pisSt",
+            "cofins",
+            "cofinsSt",
+            "ipi",
+            "ipiReturned",
+            "ii",
+            "iof",
+            "aproxtribCity",
+            "aproxtribState",
+            "aproxtribFed",
+            "aproxtrib"
           ],
-          "description": "This is a enumeration folowing table"
+          "description": "Tax identificator"
         },
-        "processScenario": {
-          "type": "string",
-          "maxLength": 60,
-          "description": "Reference to process configurantion of this transaction, See ProcessScenario definition"
-        },
-        "cfop": {
-          "type": "integer",
-          "description": "Fiscal Operation Code of transport service"
-        },
-        "hasStockImpact": {
-          "type": "boolean",
-          "description": "return if this transaction has stock impact for this process or CFOP"
-        },
-        "hasFinantialImpact": {
-          "type": "boolean",
-          "description": "return if this transaction has finantial impact for this process or CFOP"
-        },
-        "freightAmount": {
+        "calcBase": {
           "type": "number",
           "format": "double",
-          "description": "This decimal 13 integers and 0 to 2 decimals"
+          "description": "This decimal captures how much of the lineAmount was taxable by this tax, calc base"
         },
-        "insuranceAmount": {
+        "rate": {
           "type": "number",
           "format": "double",
-          "description": "This decimal 13 integers and 0 to 2 decimals"
+          "description": "This decimal captures the tax rate for this tax.3.00 (3%)"
         },
-        "otherCostAmount": {
-          "type": "number",
-          "format": "double",
-          "description": "This decimal 13 integers and 0 to 2 decimals"
-        },
-        "indTotType": {
-          "type": "boolean",
-          "default": true,
-          "description": "The item value will compose the invoice total value."
-        },
-        "orderNumber": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 15,
-          "description": "order number, information used for B2B control process"
-        },
-        "orderItemNumber": {
-          "type": "string",
-          "pattern": "[0-9]{1,6}",
-          "description": "number of the item from order number, information used for B2B control process"
-        },
-        "fciNumber": {
-          "type": "string",
-          "pattern": "[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}",
-          "description": "Gloal Unique identifier (Importation form)"
-        },
-        "recopiNumber": {
-          "type": "string",
-          "maxLength": 20,
-          "pattern": "[0-9]{20}",
-          "description": "RECOPI number"
-        },
-        "infAdProd": {
-          "type": "string",
-          "maxLength": 500,
-          "description": "additional information about product (referenced standard, complementary info, etc)"
-        },
-        "vehicle": {
-          "$ref": "#/definitions/Vehicle"
-        },
-        "medicine": {
-          "$ref": "#/definitions/Medicine"
-        },
-        "weapon": {
-          "$ref": "#/definitions/Weapon"
-        },
-        "fuel": {
-          "$ref": "#/definitions/Fuel"
-        },
-        "entityIsIcmsSubstitute": {
-          "type": "boolean",
-          "description": "Inform that for this item the Entity referenced is ICMS Substitute"
-        },
-        "isTransportIcmsWithheld": {
-          "type": "boolean",
-          "description": "Inform that this item has ICMS withheld for transport value service."
-        },
-        "icmsTaxRelief": {
-          "type": "object",
-          "required": [
-            "reasonCode"
-          ],
-          "properties": {
-            "reasonCode": {
-              "type": "string",
-              "enum": [
-                "1",
-                "3",
-                "4",
-                "5",
-                "6",
-                "7",
-                "8",
-                "9",
-                "10",
-                "11",
-                "12",
-                "16"
-              ],
-              "description": "When item transaction subject to desoneration, this is the reason code\n- '1' # Táxi;\n- '3' # Produtor Agropecuário;\n- '4' # Frotista/Locadora;\n- '5' # Diplomático/Consular;\n- '6' # Utilitários e Motocicletas da Amazônia Ocidental e Áreas de Livre Comércio (Resolução 714/88 e 790/94 – CONTRAN e suas alterações);\n- '7' # SUFRAMA;\n- '8' # Venda a órgão Público;\n- '9' # Outros\n- '10' # Deficiente Condutor\n- '11' # Deficiente não condutor\n- '12' # Fomento agropecuário\n- '16' # Olimpíadas Rio 2016\n"
-            },
-            "taxBaseDiscount": {
-              "type": "number",
-              "format": "double",
-              "description": "ICMS Tax base rate discount  (desconto na base do ICMS referetne a desoneração)"
-            },
-            "taxAmount": {
-              "type": "number",
-              "format": "double",
-              "description": "Amount for Icms Relief (desoneração)"
-            }
-          }
-        },
-        "export": {
-          "description": "Exportation detail",
-          "type": "array",
-          "maxItems": 500,
-          "items": {
-            "type": "object",
-            "properties": {
-              "drawbackNumber": {
-                "type": "string",
-                "maxLength": 11,
-                "pattern": "[0-9]{0,11}"
-              },
-              "indExport": {
-                "type": "object",
-                "description": "indirect exportation",
-                "required": [
-                  "registerNumber",
-                  "accessKey",
-                  "quantity"
-                ],
-                "properties": {
-                  "registerNumber": {
-                    "type": "string",
-                    "maxLength": 12,
-                    "pattern": "[0-9]{0,12}",
-                    "description": "Exportation register number"
-                  },
-                  "accessKey": {
-                    "type": "string",
-                    "maxLength": 44,
-                    "pattern": "[0-9]{44}",
-                    "description": "invoice access key received to export"
-                  },
-                  "quantity": {
-                    "type": "number",
-                    "format": "double",
-                    "description": "This decimal 11 integers and 0 to 4 decimals, quantity exported in real"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "di": {
-          "description": "Import declaration",
-          "type": "array",
-          "maxItems": 100,
-          "items": {
-            "type": "object",
-            "required": [
-              "diNumber",
-              "registerDateDI",
-              "clearanceSite",
-              "clearanceState",
-              "transportDIType",
-              "intermediateType",
-              "adi"
-            ],
-            "properties": {
-              "customsValue": {
-                "type": "number",
-                "format": "double",
-                "description": "customs value, valor aduaneiro (II Block of NFe)"
-              },
-              "diNumber": {
-                "type": "string",
-                "maxLength": 12,
-                "minLength": 1,
-                "description": "Import declaration number, DI/DSI/DA/DRI-E (DI/DSI/DA/DRI-E)"
-              },
-              "registerDateDI": {
-                "type": "string",
-                "format": "date",
-                "description": "Register date of import declaration number, DI/DSI/DA/DRI-E (DI/DSI/DA/DRI-E)"
-              },
-              "clearanceSite": {
-                "type": "string",
-                "maxLength": 60,
-                "minLength": 1,
-                "description": "Clerance Site\nLocal do desembaraço aduaneiro\n"
-              },
-              "clearanceState": {
-                "$ref": "#/definitions/StateEnum",
-                "description": "Clerance Site State\nEstado onde ocorrreu o desembaraço aduaneiro\n"
-              },
-              "clearanceDate": {
-                "type": "string",
-                "format": "date",
-                "description": "Clerance date"
-              },
-              "transportDIType": {
-                "description": "- '1' # Maritima\n- '2' # Fluvial\n- '3' # Lacustre\n- '4' # Aerea\n- '5' # Postal\n- '6' # Ferroviaria\n- '7' # Rodoviaria\n- '8' # Conduto\n- '9' # Meios Proprios\n- '10' # Entrada/Saida Ficta\n",
-                "type": "string",
-                "enum": [
-                  "1",
-                  "2",
-                  "3",
-                  "4",
-                  "5",
-                  "6",
-                  "7",
-                  "8",
-                  "9",
-                  "10"
-                ]
-              },
-              "afrmmValue": {
-                "type": "number",
-                "format": "double",
-                "description": "Aditional amount to freight to renew merchant marine, This decimal 13 integers and 2 decimals\n[Valor Adicional ao frete para renovação de marinha mercante]\n"
-              },
-              "intermediateType": {
-                "description": "- '1' # On One's Own [1-por conta propria]\n- '2' # On Behalf And Order [2-por conta e ordem]\n- '3' # Order [3-encomenda]\n",
-                "type": "string",
-                "enum": [
-                  "1",
-                  "2",
-                  "3"
-                ]
-              },
-              "buyerFederalTaxID": {
-                "type": "string",
-                "pattern": "[0-9]{14}",
-                "description": "Buyer federal tax id\nCNPJ do comprador ou encomendante\n"
-              },
-              "buyerState": {
-                "$ref": "#/definitions/StateEnum",
-                "description": "Buyer sate\nEstado do comprador ou encomendante\n"
-              },
-              "exporterCode": {
-                "type": "string",
-                "maxLength": 60,
-                "minLength": 1,
-                "description": "Exporter code"
-              },
-              "adi": {
-                "type": "array",
-                "maxItems": 100,
-                "description": "aditional import declaration",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "addNumber",
-                    "sequentialNumber",
-                    "manufacturerCode"
-                  ],
-                  "properties": {
-                    "addNumber": {
-                      "type": "integer",
-                      "description": "aditional sequence number (1 to 100)"
-                    },
-                    "sequentialNumber": {
-                      "type": "integer",
-                      "description": "sequential item number for this adi, sequence number (1 to 999)"
-                    },
-                    "manufacturerCode": {
-                      "type": "string",
-                      "maxLength": 60,
-                      "minLength": 1,
-                      "description": "Manufatorer erp internal code"
-                    },
-                    "adiDiscount": {
-                      "type": "number",
-                      "format": "double",
-                      "description": "This decimal 13 integers and 2 decimals, aditional adi discount"
-                    },
-                    "drawbackNumber": {
-                      "type": "string",
-                      "pattern": "[0-9]{0,11}",
-                      "minLength": 1,
-                      "description": "Drawback number"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "calculatedTax": {
-          "type": "object",
-          "properties": {
-            "taxByType": {
-              "type": "object",
-              "properties": {
-                "icms": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsSt": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsStSd": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsPartOwn": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsPartDest": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsDifaFCP": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsDifaDest": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsDifaRemet": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsRf": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsDeson": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsCredsn": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "pis": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "pisSt": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "cofins": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "cofinsSt": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "ipi": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "ipiReturned": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "ii": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "iof": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "aproxtribState": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "aproxtribFed": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                }
-              }
-            },
-            "tax": {
-              "type": "number",
-              "format": "double"
-            },
-            "details": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/DetailsCalculatedTaxItem"
-              }
-            }
-          }
-        }
-      }
-    },
-    "AgastExtendForSefaz": {
-      "type": "object",
-      "properties": {
-        "hsCode": {
-          "type": "string",
-          "maxLength": 8,
-          "description": "harmonized code, NCM or LC 116"
-        },
-        "ex": {
-          "type": "integer",
-          "description": "hsCode Exception for IPI tax"
-        },
-        "cest": {
-          "type": "string",
-          "pattern": "[0-9]{7}",
-          "description": "tax substitution code - Codigo especificador da Substuicao Tributaria"
-        },
-        "cean": {
-          "type": "string",
-          "pattern": "[0-9]{0}|[0-9]{8}|[0-9]{12,14}",
-          "description": "GTIN NUMBER"
-        },
-        "nve": {
-          "type": "string",
-          "pattern": "[A-Z]{2}[0-9]{4}",
-          "description": "Nomenclatura de Valor aduaneio e Estatístico - NCM extension code"
-        },
-        "unit": {
-          "type": "string",
-          "maxLength": 6,
-          "description": "Sales Unit"
-        },
-        "unitTaxable": {
-          "type": "string",
-          "maxLength": 6,
-          "description": "Sales Taxable Unit"
-        },
-        "nFCI": {
-          "type": "string",
-          "pattern": "[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}",
-          "description": "Importation content form number (Número de controle da FCI - Ficha de Conteúdo de Importação)"
-        }
-      }
-    },
-    "DetailsCalculatedTaxItem": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/DetailsCalculatedTax"
-        },
-        {
-          "type": "object",
-          "description": "Details",
-          "properties": {
-            "source": {
-              "$ref": "#/definitions/CSTTableAEnum"
-            },
-            "cstB": {
-              "$ref": "#/definitions/CSTTableBEnum"
-            },
-            "cst": {
-              "type": "string"
-            },
-            "modBC": {
-              "type": "string"
-            },
-            "pMVA": {
-              "type": "number",
-              "format": "double",
-              "description": "Percent of Value-added margin (%)"
-            },
-            "pRedBC": {
-              "type": "number",
-              "format": "double",
-              "description": "calc base percent of discount"
-            },
-            "pBCOp": {
-              "type": "number",
-              "format": "double",
-              "description": "percent of calc base of own icms"
-            },
-            "ufst": {
-              "$ref": "#/definitions/StateEnum"
-            },
-            "calcMode": {
-              "$ref": "#/definitions/CalcModelEnum"
-            },
-            "legalTaxClass": {
-              "type": "integer",
-              "description": "Legal tax classificação for IPI (enquadramento tributário)"
-            },
-            "legalTaxClassDC": {
-              "type": "integer",
-              "description": "Legal tax classificação for IPI (enquadramento) for Drinks and Cigarettes"
-            },
-            "cnpjProd": {
-              "type": "string",
-              "pattern": "([!-ÿ]{0}|[!-ÿ]{5,20})?",
-              "description": "CNPJ/CPF of Sales Buyer, if CPF pattern is '[0-9]{11}' if CNPJ pattern is '[0-9]{14}'\nFederal tax ID of real manufacturer, nly for exportation\n"
-            },
-            "sealCode": {
-              "type": "string",
-              "maxLength": 60,
-              "description": "Seal Code for ipi tax control (código do selo para controle de IPI)"
-            },
-            "sealQuantity": {
-              "type": "string",
-              "pattern": "[0-9]{1,12}",
-              "description": "Seal Code for ipi tax control (código do selo para controle de IPI)"
-            },
-            "icmsInterPartRate": {
-              "type": "number",
-              "format": "double",
-              "description": "percent of icms apportionment between two states"
-            },
-            "icmsSesonReason": {
-              "$ref": "#/definitions/ICMSSesonReason"
-            },
-            "perQuantityReturned": {
-              "type": "number",
-              "format": "double",
-              "description": "percent of merchandise returned"
-            }
-          }
-        }
-      ]
-    },
-    "TaxByTypeTax": {
-      "type": "object",
-      "properties": {
         "tax": {
           "type": "number",
           "format": "double",
-          "description": "Tax amount. A negative amount identifies a tax withholding amount."
+          "description": "This decimal captures how much of the lineAmount was taxable by this tax"
+        },
+        "legalReason": {
+          "type": "string",
+          "description": "Legal Reason for this tax scenario"
+        },
+        "source": {
+          "$ref": "#/definitions/CSTTableAEnum"
+        },
+        "cstB": {
+          "$ref": "#/definitions/CSTTableBEnum"
+        },
+        "cst": {
+          "type": "string"
+        },
+        "modBC": {
+          "type": "string"
+        },
+        "pMVA": {
+          "type": "number",
+          "format": "double",
+          "description": "Percent of Value-added margin (%)"
+        },
+        "pRedBC": {
+          "type": "number",
+          "format": "double",
+          "description": "calc base percent of discount"
+        },
+        "pBCOp": {
+          "type": "number",
+          "format": "double",
+          "description": "percent of calc base of own icms"
+        },
+        "ufst": {
+          "$ref": "#/definitions/StateEnum"
+        },
+        "calcMode": {
+          "$ref": "#/definitions/CalcModelEnum"
+        },
+        "legalTaxClass": {
+          "type": "integer",
+          "description": "Legal tax classificação for IPI (enquadramento tributário)"
+        },
+        "legalTaxClassDC": {
+          "type": "integer",
+          "description": "Legal tax classificação for IPI (enquadramento) for Drinks and Cigarettes"
+        },
+        "cnpjProd": {
+          "type": "string",
+          "pattern": "([!-ÿ]{0}|[!-ÿ]{5,20})?",
+          "description": "CNPJ/CPF of Sales Buyer, if CPF pattern is '[0-9]{11}' if CNPJ pattern is '[0-9]{14}'\nFederal tax ID of real manufacturer, nly for exportation\n"
+        },
+        "sealCode": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "Seal Code for ipi tax control (código do selo para controle de IPI)"
+        },
+        "sealQuantity": {
+          "type": "string",
+          "pattern": "[0-9]{1,12}",
+          "description": "Seal Code for ipi tax control (código do selo para controle de IPI)"
+        },
+        "icmsInterPartRate": {
+          "type": "number",
+          "format": "double",
+          "description": "percent of icms apportionment between two states"
+        },
+        "icmsSesonReason": {
+          "$ref": "#/definitions/ICMSSesonReason"
+        },
+        "perQuantityReturned": {
+          "type": "number",
+          "format": "double",
+          "description": "percent of merchandise returned"
         }
       }
     },
@@ -3191,12 +3023,10 @@
           "description": "This is a decimal type with 11 digits including 3 decimal positions."
         },
         "manufactotyDate": {
-          "type": "string",
-          "format": "date"
+          "type": "string"
         },
         "expirationDate": {
-          "type": "string",
-          "format": "date"
+          "type": "string"
         },
         "maxValueToEndUser": {
           "type": "number",
@@ -3331,99 +3161,67 @@
         }
       }
     },
-    "DetailsCalculatedTax": {
+    "AgastExtendForSefaz": {
       "type": "object",
       "properties": {
-        "locationType": {
+        "hsCode": {
           "type": "string",
-          "description": "This string captures the applicable location type. Location used for calc. Buyer or Seller"
+          "maxLength": 8,
+          "description": "harmonized code, NCM or LC 116"
         },
-        "jurisdictionName": {
+        "ex": {
+          "type": "integer",
+          "description": "hsCode Exception for IPI tax"
+        },
+        "cest": {
           "type": "string",
-          "description": "Jurisdiction used for calctax amount"
+          "pattern": "[0-9]{7}",
+          "description": "tax substitution code - Codigo especificador da Substuicao Tributaria"
         },
-        "jurisdictionType": {
+        "cean": {
           "type": "string",
-          "enum": [
-            "City",
-            "State",
-            "Country"
-          ],
-          "description": "Type of jurisdiction\n- 'City'\n- 'State'\n- 'Country'\n",
-          "default": "Country"
+          "pattern": "[0-9]{0}|[0-9]{8}|[0-9]{12,14}",
+          "description": "GTIN NUMBER"
         },
-        "taxType": {
+        "nve": {
           "type": "string",
-          "enum": [
-            "icms",
-            "icmsSt",
-            "icmsStSd",
-            "icmsPartOwn",
-            "icmsPartDest",
-            "icmsDifaFCP",
-            "icmsDifaDest",
-            "icmsDifaRemet",
-            "icmsRf",
-            "icmsDeson",
-            "icmsCredsn",
-            "pis",
-            "pisSt",
-            "cofins",
-            "cofinsSt",
-            "ipi",
-            "ipiReturned",
-            "ii",
-            "iof",
-            "aproxtribState",
-            "aproxtribFed",
-            "aproxtrib"
-          ],
-          "description": "Tax identificator"
+          "pattern": "[A-Z]{2}[0-9]{4}",
+          "description": "Nomenclatura de Valor aduaneio e Estatístico - NCM extension code"
         },
-        "rateType": {
+        "unit": {
           "type": "string",
-          "description": "Name of configuration rate"
+          "maxLength": 6,
+          "description": "Sales Unit"
         },
-        "scenario": {
+        "unitTaxable": {
           "type": "string",
-          "description": "This string captures the transaction scenario used to calculate the tax for this tax type. Scenarios are specific to the tax type. This field provides information about how the tax engine interpreted the transaction information that was passed in."
+          "maxLength": 6,
+          "description": "Sales Taxable Unit"
         },
-        "subtotalTaxable": {
-          "type": "number",
-          "format": "double",
-          "description": "This decimal captures how much of the lineAmount was taxable by this tax, calc base"
-        },
-        "rate": {
-          "type": "number",
-          "format": "double",
-          "description": "This decimal captures the tax rate for this tax.3.00 (3%)"
-        },
-        "tax": {
-          "type": "number",
-          "format": "double",
-          "description": "This decimal captures how much of the lineAmount was taxable by this tax"
-        },
-        "exemptionCode": {
+        "nFCI": {
           "type": "string",
-          "description": "This string is required if is exempt"
+          "pattern": "[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}",
+          "description": "Importation content form number (Número de controle da FCI - Ficha de Conteúdo de Importação)"
         },
-        "significantLocations": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "This element captures the list of locations that contributed to the tax determination. for Service is Buyer and Seller Address"
-        },
-        "taxRuleType": {
+        "goal": {
           "type": "string",
           "enum": [
-            "SELLER",
-            "BUYER",
-            "TRANSACTION",
-            "ITEM",
-            "TAX"
+            "Normal",
+            "Complementary",
+            "Voided",
+            "Replacement",
+            "Return",
+            "Adjustment"
           ],
-          "description": "This string with type of rule"
+          "description": "- 'Normal' # Normal\n- 'Complementary' # Complemento de Valores\n- 'Voided' # Anulação\n- 'Replacement' # Substituto\n- 'Return' # Devolução ou retorno\n- 'Adjustment' # Ajuste\n"
+        },
+        "icmsSt": {
+          "type": "number",
+          "format": "double"
+        },
+        "ipi": {
+          "type": "number",
+          "format": "double"
         }
       }
     },
@@ -3522,7 +3320,7 @@
         "11"
       ]
     },
-    "TaxByTypeSummaryForGoods": {
+    "TaxByTypeSummaryForSefazGoods": {
       "type": "object",
       "description": "summary of all taxes",
       "properties": {
@@ -3535,452 +3333,172 @@
           "type": "number",
           "format": "double",
           "description": "sum of referenced tax value"
-        },
-        "jurisdictions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/TaxByTypeSummaryJurisdictionForGoods"
-          }
         }
       }
     },
-    "TaxByTypeSummaryJurisdictionForGoods": {
-      "properties": {
-        "jurisdictionName": {
-          "type": "string",
-          "description": "Jurisdiction used for calctax amount"
-        },
-        "jurisdictionType": {
-          "type": "string",
-          "enum": [
-            "City",
-            "State",
-            "Country"
-          ],
-          "description": "Type of jurisdiction\n- 'City'\n- 'State'\n- 'Country'\n"
-        },
-        "tax": {
-          "type": "number",
-          "format": "double",
-          "description": "sum of referenced tax value by jurisdiction"
-        }
-      }
-    },
-    "SalesHeaderOut": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/SalesHeaderIn"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "discriminationOut": {
-              "type": "string",
-              "maxLength": 2000,
-              "minLength": 1,
-              "description": "Invoice discrimination, it is discriminationIn plus automatic messages"
-            },
-            "xml": {
-              "type": "string",
-              "maxLength": 50000,
-              "description": "RPS XML or NFSe XML generated, when the client system doesn't have EDI with government then BR16 return RPS when transaction is created."
-            },
-            "ediSyncState": {
-              "type": "string",
-              "enum": [
-                "STORED",
-                "WAITING APPROVAL",
-                "AUTHORIZED",
-                "AUTHORIZED with NOTE",
-                "ERROR",
-                "CANCELED REPLACED",
-                "CANCELED",
-                "CANCELLATION REQUESTED"
-              ],
-              "description": "Service sales usually has a EDI integration with government to get Final document or Authorization. This is external process and the integration status is followed by this property.\n- 'STORED'\n- 'WAITING APPROVAL'\n- 'AUTHORIZED'\n- 'AUTHORIZED with NOTE'\n- 'ERROR'\n- 'CANCELED REPLACED'\n- 'CANCELED'\n- 'CANCELLATION REQUESTED'\n"
-            },
-            "payment": {
-              "type": "object",
-              "properties": {
-                "terms": {
-                  "$ref": "#/definitions/PaymentTerms"
-                },
-                "withholdingMode": {
-                  "$ref": "#/definitions/WithholdingMode",
-                  "description": "To avoid having to verify multiple attributes from a Invoice at the time of funds collection which subject to Tax Withholding, this attribute will allow a referenced Invoice to be quickly checked for withholdings during the cash transaction. This is an SALES.Transaction attribute to be consisted in the Tax Engine that can be used during the receivable process. The values are enumeration where each letter identify if that tax has been withheld PCC,xxx, PCx, PxC ..."
-                },
-                "installments": {
-                  "type": "array",
-                  "description": "installments",
-                  "items": {
-                    "$ref": "#/definitions/InstallmentComplete"
-                  }
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
-    "SalesLinesOut": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/SalesLinesIn"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "avalaraGoodsAndServicesType": {
-              "type": "string",
-              "description": "AGAST CODE for itemCode"
-            },
-            "lineNetValue": {
-              "type": "number",
-              "format": "double",
-              "description": "This decimal captures the total cost of this line. In its simplest form lineNetValue = (lineAmount - discountTaxable - sum of whithholdings)."
-            },
-            "cst": {
-              "type": "string",
-              "maxLength": 2,
-              "enum": [
-                "01",
-                "02",
-                "03",
-                "04",
-                "05",
-                "21",
-                "22",
-                "23",
-                "24",
-                "25",
-                "40"
-              ],
-              "description": "- '01' # ORIGIN MODE\n- '02' # ORIGIN MODE BUT EXEMPT\n- '03' # ORIGIN MODE BUT IMMUNE\n- '04' # ORIGIN MODE BUT SUSPENDED FOR LEGAL REASON\n- '05' # ORIGIN MODE BUT SUSPENDED FOR ADMINISTRATIVE REASON\n- '21' # DESTINATION MODE\n- '22' # DESTINATION MODE BUT EXEMPT\n- '23' # DESTINATION MODE BUT IMMUNE\n- '24' # DESTINATION MODE BUT SUSPENDED\n- '25' # DESTINATION MODE BUT SUSPENDED\n- '40' # FOREIGN IMMUNE MODE\n"
-            },
-            "cstRf": {
-              "type": "string",
-              "maxLength": 2,
-              "enum": [
-                "61",
-                "62",
-                "63",
-                "64",
-                "65",
-                "66",
-                "67",
-                "68",
-                "69",
-                "70",
-                "71",
-                "72"
-              ],
-              "description": "- '61' # WITHHOLD NORMAL MODE\n- '62' # WITHHOLD NORMAL MODE BUT EXEMPT\n- '63' # WITHHOLD NORMAL MODE BUT IMMUNE\n- '64' # WITHHOLD NORMAL MODE BUT SUSPENDED FOR LEGAL REASON\n- '65' # WITHHOLD NORMAL MODE BUT SUSPENDED FOR ADMINISTRATIVE REASON\n- '66' # WITHHOLD FORCED MODE\n- '67' # WITHHOLD FORCED MODE BUT EXEMPT\n- '68' # WITHHOLD FORCED MODE BUT IMMUNE\n- '69' # WITHHOLD FORCED MODE BUT SUSPENDED FOR LEGAL REASON\n- '70' # WITHHOLD FORCED MODE BUT SUSPENDED FOR ADMINISTRATIVE PROCESS\n- '71' # NO WITHHOLD MODE\n- '72' # NO WITHHOLD FOREIGN MODE\n"
-            },
-            "taxDeductions": {
-              "type": "object",
-              "properties": {
-                "iss": {
-                  "type": "number",
-                  "format": "double",
-                  "description": "Deduction amount not ISS taxable. Example Building material"
-                }
-              }
-            },
-            "calculatedTax": {
-              "$ref": "#/definitions/SalesCalculatedTax"
-            }
-          }
-        }
-      ]
-    },
-    "SalesCalculatedTaxSummaryForService": {
+    "HeaderForNfse": {
       "type": "object",
       "properties": {
-        "numberOfLines": {
-          "type": "integer",
-          "description": "Count of lines"
-        },
-        "subtotal": {
-          "type": "number",
-          "format": "double",
-          "description": "sum of all line tax attribute"
-        },
-        "totalTax": {
-          "type": "number",
-          "format": "double",
-          "description": "sum of all line lineAmount attribute"
-        },
-        "grandTotal": {
-          "type": "number",
-          "format": "double",
-          "description": "sum of all line lineAmount attribute - sum of all line tax attribute - sum of all line lineTaxedDiscount attribute"
-        },
-        "taxByType": {
-          "type": "object",
-          "description": "Object with summary of all taxes returned by engine",
-          "properties": {
-            "pisRf": {
-              "$ref": "#/definitions/TaxByTypeSummaryForService"
-            },
-            "cofinsRf": {
-              "$ref": "#/definitions/TaxByTypeSummaryForService"
-            },
-            "csllRf": {
-              "$ref": "#/definitions/TaxByTypeSummaryForService"
-            },
-            "irrf": {
-              "$ref": "#/definitions/TaxByTypeSummaryForService"
-            },
-            "inssRf": {
-              "$ref": "#/definitions/TaxByTypeSummaryForService"
-            },
-            "pis": {
-              "$ref": "#/definitions/TaxByTypeSummaryForService"
-            },
-            "cofins": {
-              "$ref": "#/definitions/TaxByTypeSummaryForService"
-            },
-            "csll": {
-              "$ref": "#/definitions/TaxByTypeSummaryForService"
-            },
-            "issRf": {
-              "$ref": "#/definitions/TaxByTypeSummaryForService"
-            },
-            "iss": {
-              "$ref": "#/definitions/TaxByTypeSummaryForService"
-            },
-            "aproxtribCity": {
-              "$ref": "#/definitions/TaxByTypeSummaryForService"
-            },
-            "aproxtribFed": {
-              "$ref": "#/definitions/TaxByTypeSummaryForService"
-            },
-            "irpj": {
-              "$ref": "#/definitions/TaxByTypeSummaryForService"
-            },
-            "inss": {
-              "$ref": "#/definitions/TaxByTypeSummaryForService"
-            }
-          }
-        }
-      }
-    },
-    "ProcessingInfo": {
-      "type": "object",
-      "properties": {
-        "versionId": {
-          "type": "string"
-        },
-        "duration": {
-          "type": "number",
-          "format": "double"
-        }
-      }
-    },
-    "InstallmentComplete": {
-      "type": "object",
-      "required": [
-        "documentNumber",
-        "date",
-        "grossValue"
-      ],
-      "properties": {
-        "documentNumber": {
-          "type": "string",
-          "description": "DOCNUMBER, ID OF THIS DOCUMENT FOR THIS transaction"
-        },
-        "date": {
-          "type": "string",
-          "format": "date-time",
-          "description": "installment Due Date"
-        },
-        "grossValue": {
-          "type": "number",
-          "format": "double",
-          "description": "Intallment amount, fraction of  ∑(lineAmount - lineTaxedDiscount)"
-        },
-        "netValue": {
-          "type": "number",
-          "format": "double",
-          "description": "net amount due for this installment, grossValue - ∑ (withhold amounts)"
-        },
-        "withholdingMode": {
-          "$ref": "#/definitions/WithholdingMode",
-          "description": "Inform if this payment is subject to Pis, Cofins or CSLL"
-        },
-        "withholdingPIS": {
-          "type": "number",
-          "format": "double",
-          "description": "calculated PIS-RF tax for this payment"
-        },
-        "withholdingCOFINS": {
-          "type": "number",
-          "format": "double",
-          "description": "calculated COFINS-RF tax for this payment"
-        },
-        "withholdingCSLL": {
-          "type": "number",
-          "format": "double",
-          "description": "calculated CSLL-RF tax for this payment"
-        }
-      }
-    },
-    "PaymentTerms": {
-      "type": "integer",
-      "enum": [
-        0,
-        1
-      ],
-      "description": "0 – cash pagamento à vista\n1 – on terms, pagamento à prazo;\n"
-    },
-    "SalesHeaderIn": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/HeaderBaseInfo"
-        },
-        {
-          "type": "object",
-          "required": [
-            "customerCode"
-          ],
-          "properties": {
-            "customerCode": {
-              "type": "string",
-              "description": "This string is a code maintained by the client application and recorded in Customer Portal to uniquely identify the party with whom the company (identified by companyCode) is transacting. It is unique within the context of a Company."
-            },
-            "purchaseOrderNumber": {
-              "type": "string",
-              "description": "The number of Purchase Order"
-            },
-            "rpsNumber": {
-              "type": "integer",
-              "description": "Provisional receipt services, sequencial number maintained by the client application, unique by serie"
-            },
-            "rpsSerie": {
-              "type": "string",
-              "description": "set name identifier for rps number sequency.",
-              "default": "0"
-            },
-            "discriminationIn": {
-              "type": "string",
-              "maxLength": 1000,
-              "minLength": 1,
-              "description": "Service discrimination, free description about service"
-            },
-            "entity": {
-              "$ref": "#/definitions/SalesEntity"
-            },
-            "payment": {
-              "type": "object",
-              "properties": {
-                "terms": {
-                  "$ref": "#/definitions/PaymentTerms"
-                },
-                "installments": {
-                  "type": "array",
-                  "description": "installments",
-                  "items": {
-                    "$ref": "#/definitions/SalesInstallmentIn"
-                  }
-                }
-              }
-            },
-            "taxesConfig": {
-              "$ref": "#/definitions/SalesTaxesConfig"
-            },
-            "defaultLocations": {
-              "$ref": "#/definitions/SalesDefaultLocations"
-            }
-          }
-        }
-      ]
-    },
-    "WithholdingMode": {
-      "type": "string",
-      "enum": [
-        "xxx",
-        "PCC",
-        "PCx",
-        "PxC",
-        "Pxx",
-        "xCC",
-        "xxC",
-        "xCx"
-      ],
-      "description": "Using the placing reference in PCC for PIS (P), COFINS (C) and COFINS (C).  x = tax is not subject to withholding. \n- 'xxx'\n- 'PCC'\n- 'PCx'\n- 'PxC'\n- 'Pxx'\n- 'xCC'\n- 'xxC'\n- 'xCx'\n"
-    },
-    "HeaderBaseInfo": {
-      "type": "object",
-      "required": [
-        "accountId",
-        "companyCode",
-        "transactionType",
-        "currency",
-        "transactionDate",
-        "companyLocation"
-      ],
-      "properties": {
-        "accountId": {
-          "type": "string",
-          "description": "This string is a UUID issued by Avalara to identify the Avalara account that owns the company identified by the companyCode on the next line."
-        },
-        "companyCode": {
-          "type": "string",
-          "maxLength": 60,
-          "description": "This string is a code maintained by the client application to uniquely identify the company for which this transaction is being recorded. It is unique within the context of an Account. It will be limited to 60 characters when creating a Company"
-        },
-        "transactionType": {
-          "type": "string",
-          "enum": [
-            "Sale",
-            "Purchase",
-            "Payment",
-            "Receipt"
-          ],
-          "description": "This string indicates the type of transaction for which tax should be calculated.\n- 'Sale'\n- 'Purchase'\n- 'Payment'\n- 'Receipt'\n"
-        },
         "documentCode": {
           "type": "string",
           "description": "This string is a code maintained by the client application to uniquely identify a document in the client's systems. It will typically be an invoice number, sales order, receipt number, returned merchandise authorization number, etc. When has this field, the transaction will be stored"
-        },
-        "currency": {
-          "type": "string",
-          "enum": [
-            "BRL"
-          ],
-          "description": "currency code / transactions must be in Brazilian Reais \"BRL\""
-        },
-        "transactionDate": {
-          "type": "string",
-          "format": "date",
-          "description": "This string is the transaction date in ISO 8601 format (which may be different from the date the tax calculation is performed)"
-        },
-        "taxCalculationDate": {
-          "type": "string",
-          "format": "date",
-          "description": "accrual date, This string is the date, in ISO 8601 format, on which tax is to be calculated for this transaction (normally tax is calculated on the date the transaction is performed as captured in the transactionDate field). This is useful for layaways and other deferred transactions."
         },
         "companyLocation": {
           "type": "string",
           "maxLength": 64,
           "description": "This string contains a previously configured company code which may also have codes needed for tax return purposes. These codes are maintained through the customer portal. Main company address identity"
+        },
+        "rpsNumber": {
+          "type": "integer",
+          "description": "Provisional receipt services, sequencial number maintained by the client application, unique by serie"
+        },
+        "rpsSerie": {
+          "type": "string",
+          "description": "set name identifier for rps number sequency.",
+          "default": "0"
+        },
+        "discriminationIn": {
+          "type": "string",
+          "maxLength": 1000,
+          "minLength": 1,
+          "description": "Service discrimination, free description about service"
+        },
+        "entity": {
+          "$ref": "#/definitions/EntityForNfse"
+        },
+        "defaultLocations": {
+          "$ref": "#/definitions/EntityLocationForNfse"
+        },
+        "payment": {
+          "type": "object",
+          "properties": {
+            "terms": {
+              "$ref": "#/definitions/PaymentTerms"
+            },
+            "installments": {
+              "type": "array",
+              "description": "installments",
+              "items": {
+                "$ref": "#/definitions/InstallmentCompleteForNfse"
+              }
+            }
+          }
         }
       }
     },
-    "SalesEntity": {
+    "LineForNfse": {
       "type": "object",
       "required": [
-        "type",
-        "taxRegime"
+        "itemCode"
       ],
+      "properties": {
+        "lineCode": {
+          "type": "integer",
+          "description": "This string is a unique identifier for this line in the transaction"
+        },
+        "itemCode": {
+          "type": "string",
+          "description": "This string is a code maintained by the client application to uniquely identify a product or service. It will likely be a SKU."
+        },
+        "numberOfItems": {
+          "type": "number",
+          "format": "double",
+          "default": 1,
+          "description": "This decimal captures the number of individual items or units represented by this line. Digits after the decimal point are optional. This should always be positive. Quantity, default 1"
+        },
+        "lineAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "This decimal captures the total cost of this line. In its simplest form lineAmount = (item price * numberOfItems)."
+        },
+        "itemDescription": {
+          "type": "string",
+          "description": "This string captures the description of the item represented by this line, will be used LC 116"
+        },
+        "lineTaxedDiscount": {
+          "type": "number",
+          "format": "double",
+          "description": "Conditional discount"
+        },
+        "lineUntaxedDiscount": {
+          "type": "number",
+          "format": "double",
+          "description": "Unconditional discount"
+        },
+        "withLaborAssignment": {
+          "type": "boolean",
+          "description": "Service w/labor assignment\nServiço com cessão de mão de obra\n"
+        },
+        "taxDeductions": {
+          "type": "object",
+          "properties": {
+            "iss": {
+              "type": "number",
+              "format": "double",
+              "description": "Deduction amount not taxable by ISS . Example constructions materials included in a service invoice"
+            }
+          }
+        },
+        "lineNetValue": {
+          "type": "number",
+          "format": "double",
+          "description": "This decimal captures the total cost of this line. In its simplest form lineNetValue = (lineAmount - discountTaxable - sum of whithholdings)."
+        },
+        "cst": {
+          "type": "string",
+          "maxLength": 2,
+          "enum": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "40"
+          ],
+          "description": "- '01' # ORIGIN MODE\n- '02' # ORIGIN MODE BUT EXEMPT\n- '03' # ORIGIN MODE BUT IMMUNE\n- '04' # ORIGIN MODE BUT SUSPENDED FOR LEGAL REASON\n- '05' # ORIGIN MODE BUT SUSPENDED FOR ADMINISTRATIVE REASON\n- '21' # DESTINATION MODE\n- '22' # DESTINATION MODE BUT EXEMPT\n- '23' # DESTINATION MODE BUT IMMUNE\n- '24' # DESTINATION MODE BUT SUSPENDED\n- '25' # DESTINATION MODE BUT SUSPENDED\n- '40' # FOREIGN IMMUNE MODE\n"
+        },
+        "cstRf": {
+          "type": "string",
+          "maxLength": 2,
+          "enum": [
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71",
+            "72"
+          ],
+          "description": "- '61' # WITHHOLD NORMAL MODE\n- '62' # WITHHOLD NORMAL MODE BUT EXEMPT\n- '63' # WITHHOLD NORMAL MODE BUT IMMUNE\n- '64' # WITHHOLD NORMAL MODE BUT SUSPENDED FOR LEGAL REASON\n- '65' # WITHHOLD NORMAL MODE BUT SUSPENDED FOR ADMINISTRATIVE REASON\n- '66' # WITHHOLD FORCED MODE\n- '67' # WITHHOLD FORCED MODE BUT EXEMPT\n- '68' # WITHHOLD FORCED MODE BUT IMMUNE\n- '69' # WITHHOLD FORCED MODE BUT SUSPENDED FOR LEGAL REASON\n- '70' # WITHHOLD FORCED MODE BUT SUSPENDED FOR ADMINISTRATIVE PROCESS\n- '71' # NO WITHHOLD MODE\n- '72' # NO WITHHOLD FOREIGN MODE\n"
+        },
+        "taxDetails": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TaxDetailForNfse"
+          }
+        },
+        "extend": {
+          "$ref": "#/definitions/AgastExtendForNfse"
+        }
+      }
+    },
+    "EntityForNfse": {
+      "type": "object",
       "properties": {
         "name": {
           "type": "string",
           "maxLength": 60,
           "description": "SERVICE BUYER NAME OFFICIAL"
-        },
-        "type": {
-          "$ref": "#/definitions/EntityType"
         },
         "email": {
           "type": "string",
@@ -4012,496 +3530,123 @@
           "pattern": "[0-9]{6,14}",
           "description": "Entity Phone"
         },
-        "taxRegime": {
-          "$ref": "#/definitions/FederalTaxRegime"
-        },
-        "specialTaxRegime": {
-          "type": "string",
-          "enum": [
-            "MEM",
-            "EST",
-            "SPR",
-            "COP",
-            "MEI",
-            "MPP"
-          ],
-          "description": "Entity Special Tax Regime \n- 'MEM' # Microempresa municipal\n- 'EST' # Estimativa\n- 'SPR' # Sociedade de profissionais\n- 'COP' # Cooperativa\n- 'MEI' # Microempresário Individual (MEI)\n- 'MPP' # Microempresário e Empresa de Pequeno Porte (ME EPP)\n"
-        },
-        "subjectToSRF1234": {
-          "type": "boolean",
-          "description": "Companies subject to rule follow same rule of Government"
-        },
-        "requiredWithholdingISS": {
-          "type": "boolean",
-          "description": "If Withholding ISS is required, independently the rules applied."
-        },
-        "art": {
-          "type": "string",
-          "maxLength": 15,
-          "description": "technical note. Anota\\u00e7\\u00e3o de Responsabilidade T\\u00e9cnica-ART, estabelece que todos os contratos referentes à  execu\\u00e7\\u00e3o de servi\\u00e7os ou obras de Engenharia, Agronomia, Geologia, Geografia ou Meteorologia dever\\u00e3o ser objeto de anota\\u00e7\\u00e3o no Conselho Regional de Engenharia e Agronomia"
-        },
         "adminProcess": {
           "type": "string",
           "maxLength": 30,
           "description": "PROCESS NUMBER TO ISS SUSPENDED FOR ADMINISTRATIVE PROCESS"
         },
-        "buildCode": {
-          "type": "string",
-          "maxLength": 15,
-          "description": "Business code. Código da obra OBRA"
+        "build": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string",
+              "maxLength": 15,
+              "description": "Business code. Código da obra OBRA"
+            },
+            "art": {
+              "type": "string",
+              "maxLength": 15,
+              "description": "technical note. Anota\\u00e7\\u00e3o de Responsabilidade T\\u00e9cnica-ART, estabelece que todos os contratos referentes à  execu\\u00e7\\u00e3o de servi\\u00e7os ou obras de Engenharia, Agronomia, Geologia, Geografia ou Meteorologia dever\\u00e3o ser objeto de anota\\u00e7\\u00e3o no Conselho Regional de Engenharia e Agronomia"
+            },
+            "cei": {
+              "type": "string",
+              "maxLength": 15,
+              "description": "Número CEI da Obra"
+            },
+            "number": {
+              "type": "string",
+              "maxLength": 15,
+              "description": "Número de Matrícula da Obra"
+            }
+          }
         }
       }
     },
-    "SalesInstallmentIn": {
+    "EntityLocationForNfse": {
       "type": "object",
       "required": [
-        "documentNumber",
-        "date",
-        "grossValue"
+        "zipcode"
       ],
       "properties": {
-        "documentNumber": {
+        "street": {
           "type": "string",
-          "description": "DOCNUMBER, ID OF THIS DOCUMENT FOR THIS transaction"
+          "maxLength": 60,
+          "description": "Street Name"
         },
+        "neighborhood": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "Neighborhood Name"
+        },
+        "zipcode": {
+          "type": "string",
+          "description": "Zip Code"
+        },
+        "cityCode": {
+          "type": "string",
+          "pattern": "[0-9]{7}|0",
+          "description": "City Code",
+          "default": "0"
+        },
+        "cityName": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "City Name"
+        },
+        "state": {
+          "type": "string",
+          "description": "State Code",
+          "pattern": "^([A-Z]{2,3})$"
+        },
+        "countryCode": {
+          "type": "string",
+          "pattern": "[0-9]{1,4}",
+          "description": "Country Code",
+          "default": "0"
+        },
+        "country": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Use ISO 3166-1 alpha-3 codes",
+          "pattern": "^([A-Z]{3})$"
+        },
+        "number": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "House number"
+        },
+        "complement": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "Any other information about the address (Room, Suite, Floor, etc))."
+        }
+      }
+    },
+    "InstallmentCompleteForNfse": {
+      "type": "object",
+      "properties": {
         "date": {
           "type": "string",
-          "format": "date",
           "description": "installment Due Date"
         },
-        "grossValue": {
+        "netAmount": {
           "type": "number",
           "format": "double",
-          "description": "Intallment value, fraction of  ∑(lineAmount - lineTaxedDiscount)"
+          "description": "Net amount due for this installment, grossValue - ∑ (withhold amounts)"
         }
       }
     },
-    "SalesTaxesConfig": {
-      "type": "object",
-      "properties": {
-        "accruableCOFINSTaxation": {
-          "type": "string",
-          "enum": [
-            "T",
-            "N",
-            "Z",
-            "E",
-            "H",
-            "S"
-          ],
-          "description": "There are cases where both Seller, Buyer and items are taxable but a special situation still exists that forces the transaction to be exempt specially for PIS and COFINS.  This attribute will allow users to identify such scenarios and trigger the exemption in spite of all other settings.\n- 'T' # TAXABLE\n- 'N' # NOT TAXABLE\n- 'Z' # TAXABLE WITH RATE=0.00\n- 'E' # EXEMPT\n- 'H' # SUSPENDED\n- 'S' # SPECIFIC RATE\n"
-        },
-        "accruableCSLLTaxation": {
-          "type": "string",
-          "enum": [
-            "T",
-            "E"
-          ],
-          "description": "There are cases where both Seller, Buyer and items are taxable but a special situation still exists that forces the transaction to be CSLL exempt.  This attribute will allow users to identify such scenarios and trigger the exemption in spite of all other settings. \n- T TAXABLE\n- E EXEMPT\n"
-        },
-        "accruablePISTaxation": {
-          "type": "string",
-          "enum": [
-            "T",
-            "N",
-            "Z",
-            "E",
-            "H",
-            "S"
-          ],
-          "description": "There are cases where both Seller, Buyer and items are taxable but a special situation still exists that forces the transaction to be exempt specially for PIS and COFINS.  This attribute will allow users to identify such scenarios and trigger the exemption in spite of all other settings. \n- 'T' # TAXABLE\n- 'N' # NOT TAXABLE\n- 'Z' # TAXABLE WITH RATE=0.00\n- 'E' # EXEMPT\n- 'H' # SUSPENDED\n- 'S' # SPECIFIC RATE\n"
-        },
-        "accruableCOFINSExempCodeTaxation": {
-          "type": "string",
-          "pattern": "[0-9]{3}",
-          "description": "This is a code available by Receita Federal for reason of the exemption, When Code is 999 the User system need send the custom reason to Exemption"
-        },
-        "accruablePISExempCodeTaxation": {
-          "type": "string",
-          "pattern": "[0-9]{3}",
-          "description": "This is a code available by Receita Federal for reason of the exemption, When Code is 999 the User system need send the custom reason to Exemption"
-        },
-        "withholdingCOFINS": {
-          "type": "boolean",
-          "description": "Support Buyer Tax Liability identifier for Federal Withholding Taxes. Each buyer may be subject/liable to withhold the following taxes independent to one another. The seller must be able to inform which Tax impacts the transaction based on a direct equivalency in the service item accrual. i.e. (The service item must be taxed by a given tax and the buyer must liable for the same tax withholding in order for the transaction to be taxable). To differentiate from the accrued taxes under the same acronyms the withholding taxes are followed by WH (this is a convention created for the sake of understanding and communicating the requirements. If false spite of all other settings."
-        },
-        "withholdingCSLL": {
-          "type": "boolean",
-          "description": "Support Buyer Tax Liability identifier for Federal Withholding Taxes. Each buyer may be subject/liable to withhold the following taxes independent to one another. The seller must be able to inform which Tax impacts the transaction based on a direct equivalency in the service item accrual. i.e. (The service item must be taxed by a given tax and the buyer must liable for the same tax withholding in order for the transaction to be taxable). To differentiate from the accrued taxes under the same acronyms the withholding taxes are followed by WH (this is a convention created for the sake of understanding and communicating the requirements. If false spite of all other settings."
-        },
-        "withholdingIRRF": {
-          "type": "boolean",
-          "description": "Support Buyer Tax Liability identifier for Federal Withholding Taxes. Each buyer may be subject/liable to withhold the following taxes independent to one another. The seller must be able to inform which Tax impacts the transaction based on a direct equivalency in the service item accrual. i.e. (The service item must be taxed by a given tax and the buyer must liable for the same tax withholding in order for the transaction to be taxable). To differentiate from the accrued taxes under the same acronyms the withholding taxes are followed by WH (this is a convention created for the sake of understanding and communicating the requirements. If false spite of all other settings."
-        },
-        "withholdingPIS": {
-          "type": "boolean",
-          "description": "Support Buyer Tax Liability identifier for Federal Withholding Taxes. Each buyer may be subject/liable to withhold the following taxes independent to one another. The seller must be able to inform which Tax impacts the transaction based on a direct equivalency in the service item accrual. i.e. (The service item must be taxed by a given tax and the buyer must liable for the same tax withholding in order for the transaction to be taxable). To differentiate from the accrued taxes under the same acronyms the withholding taxes are followed by WH (this is a convention created for the sake of understanding and communicating the requirements. If false spite of all other settings."
-        },
-        "withholdIRRFExemptReasonTaxation": {
-          "type": "string",
-          "description": "When property withholdingIRRF is false is mandatory inform the reason"
-        }
-      }
-    },
-    "SalesDefaultLocations": {
-      "type": "object",
-      "description": "This element contains a dictionary of locations such as the origin and destination addresses to be associated with this transaction. There can only be one location of a given purpose in the dictionary.",
-      "properties": {
-        "serviceRendered": {
-          "$ref": "#/definitions/ServiceRendered"
-        }
-      }
-    },
-    "FederalTaxRegime": {
-      "type": "string",
+    "PaymentTerms": {
+      "type": "integer",
       "enum": [
-        "realProfit",
-        "estimatedProfit",
-        "simplified",
-        "simplifiedOverGrossthreshold",
-        "simplifiedEntrepreneur",
-        "notApplicable",
-        "individual"
+        0,
+        1
       ],
-      "description": "- Federal tax regime\n- realProfit - REAL PROFIT LUCRO REAL\n- estimatedProfit - ESTIMATED PROFIT / LUCRO PRESUMIDO\n- simplified - SIMPLIFIED - OPTANTE TO SIMPLES\n- simplifiedOverGrossthreshold - OPTANTE DO SIMPLES COM LIMITE DE GROSS REVENUE\n- simplifiedEntrepreneur - SIMPLIFIED ENTREPRENEUR / MEI MICRO EMPREENDEDOR INDIVIDUAL \n- notApplicable - Not Applicable 1 \n- individual - INDIVIDUAL / INDIVIDUO\n"
+      "description": "0 – cash pagamento à vista\n1 – on terms, pagamento à prazo;\n"
     },
-    "ServiceRendered": {
-      "type": "object",
-      "description": "Address where the rendered service.",
-      "properties": {
-        "address": {
-          "$ref": "#/definitions/SimpleAddress"
-        }
-      }
-    },
-    "SimpleAddress": {
-      "title": "Address",
-      "anyOf": [
-        {
-          "type": "object",
-          "required": [
-            "line1",
-            "line2",
-            "line3",
-            "zipcode",
-            "country"
-          ],
-          "properties": {
-            "line1": {
-              "type": "string",
-              "maxLength": 60,
-              "description": "Address"
-            },
-            "line2": {
-              "type": "string",
-              "maxLength": 60,
-              "description": "Number"
-            },
-            "line3": {
-              "type": "string",
-              "maxLength": 60,
-              "description": "District"
-            },
-            "city": {
-              "type": "string",
-              "maxLength": 60
-            },
-            "zipcode": {
-              "type": "string",
-              "description": "Zip Code"
-            },
-            "state": {
-              "type": "string",
-              "description": "State Code",
-              "pattern": "^([A-Z]{2,3})$"
-            },
-            "country": {
-              "type": "string",
-              "maxLength": 3,
-              "description": "Use ISO 3166-1 alpha-3 codes"
-            }
-          }
-        },
-        {
-          "type": "object",
-          "required": [
-            "line1",
-            "line2",
-            "line3",
-            "zipcode",
-            "country"
-          ],
-          "properties": {
-            "line1": {
-              "type": "string",
-              "maxLength": 60,
-              "description": "Address"
-            },
-            "line2": {
-              "type": "string",
-              "maxLength": 60,
-              "description": "Number"
-            },
-            "line3": {
-              "type": "string",
-              "maxLength": 60,
-              "description": "District"
-            },
-            "city": {
-              "type": "string",
-              "maxLength": 60
-            },
-            "zipcode": {
-              "type": "string",
-              "pattern": "^(\\d{8}|\\d{5}\\-\\d{3})$",
-              "description": "Brazilian Zip Code"
-            },
-            "state": {
-              "$ref": "#/definitions/StateEnum"
-            },
-            "country": {
-              "type": "string",
-              "maxLength": 3,
-              "description": "Use ISO 3166-1 alpha-3 codes",
-              "default": "BRA"
-            }
-          }
-        },
-        {
-          "title": "Address",
-          "anyOf": [
-            {
-              "type": "object",
-              "required": [
-                "line1",
-                "line2",
-                "line3",
-                "zipcode",
-                "country"
-              ],
-              "properties": {
-                "line1": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "Address"
-                },
-                "line2": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "Number"
-                },
-                "line3": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "District"
-                },
-                "city": {
-                  "type": "string",
-                  "maxLength": 60
-                },
-                "zipcode": {
-                  "type": "string",
-                  "description": "Zip Code"
-                },
-                "state": {
-                  "type": "string",
-                  "description": "State Code",
-                  "pattern": "^([A-Z]{2,3})$"
-                },
-                "country": {
-                  "type": "string",
-                  "maxLength": 3,
-                  "description": "Use ISO 3166-1 alpha-3 codes"
-                }
-              }
-            },
-            {
-              "type": "object",
-              "required": [
-                "line1",
-                "line2",
-                "line3",
-                "zipcode",
-                "country"
-              ],
-              "properties": {
-                "line1": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "Address"
-                },
-                "line2": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "Number"
-                },
-                "line3": {
-                  "type": "string",
-                  "maxLength": 60,
-                  "description": "District"
-                },
-                "city": {
-                  "type": "string",
-                  "maxLength": 60
-                },
-                "zipcode": {
-                  "type": "string",
-                  "pattern": "^(\\d{8}|\\d{5}\\-\\d{3})$",
-                  "description": "Brazilian Zip Code"
-                },
-                "state": {
-                  "$ref": "#/definitions/StateEnum"
-                },
-                "country": {
-                  "type": "string",
-                  "maxLength": 3,
-                  "description": "Use ISO 3166-1 alpha-3 codes",
-                  "default": "BRA"
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-    "SalesCalculatedTax": {
+    "TaxDetailForNfse": {
       "type": "object",
       "properties": {
-        "taxByType": {
-          "$ref": "#/definitions/SalesTaxByType"
-        },
-        "tax": {
-          "type": "number",
-          "format": "double",
-          "description": "Sum of tax type not VAT (Value Added Tax)"
-        },
-        "details": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SalesTaxByTypeDetail"
-          }
-        }
-      }
-    },
-    "SalesLinesIn": {
-      "type": "object",
-      "required": [
-        "itemCode"
-      ],
-      "properties": {
-        "lineCode": {
-          "type": "integer",
-          "description": "This string is a unique identifier for this line in the transaction"
-        },
-        "itemCode": {
-          "type": "string",
-          "description": "This string is a code maintained by the client application to uniquely identify a product or service. It will likely be a SKU and is required for SST states."
-        },
-        "numberOfItems": {
-          "type": "number",
-          "format": "double",
-          "default": 1,
-          "description": "This decimal captures the number of individual items or units represented by this line. Digits after the decimal point are optional. This should always be positive. Quantity, default 1"
-        },
-        "lineAmount": {
-          "type": "number",
-          "format": "double",
-          "description": "This decimal captures the total cost of this line. In its simplest form lineAmount = (item price * numberOfItems)."
-        },
-        "itemDescription": {
-          "type": "string",
-          "description": "This string captures the description of the item represented by this line, will be used LC 116"
-        },
-        "lineTaxedDiscount": {
-          "type": "number",
-          "format": "double",
-          "description": "Conditional discount"
-        },
-        "lineUntaxedDiscount": {
-          "type": "number",
-          "format": "double",
-          "description": "Unconditional discount"
-        },
-        "taxDeductions": {
-          "type": "object",
-          "properties": {
-            "iss": {
-              "type": "number",
-              "format": "double",
-              "description": "Deduction amount not taxable by ISS . Example constructions materials included in a service invoice"
-            }
-          }
-        }
-      }
-    },
-    "SalesTaxByType": {
-      "type": "object",
-      "description": "Object with summary of all taxes returned by engine",
-      "properties": {
-        "pisRf": {
-          "$ref": "#/definitions/TaxByTypeTax"
-        },
-        "cofinsRf": {
-          "$ref": "#/definitions/TaxByTypeTax"
-        },
-        "csllRf": {
-          "$ref": "#/definitions/TaxByTypeTax"
-        },
-        "irrf": {
-          "$ref": "#/definitions/TaxByTypeTax"
-        },
-        "inssRf": {
-          "$ref": "#/definitions/TaxByTypeTax"
-        },
-        "pis": {
-          "$ref": "#/definitions/TaxByTypeTax"
-        },
-        "cofins": {
-          "$ref": "#/definitions/TaxByTypeTax"
-        },
-        "csll": {
-          "$ref": "#/definitions/TaxByTypeTax"
-        },
-        "issRf": {
-          "$ref": "#/definitions/TaxByTypeTax"
-        },
-        "iss": {
-          "$ref": "#/definitions/TaxByTypeTax"
-        },
-        "aproxtribCity": {
-          "$ref": "#/definitions/TaxByTypeTax"
-        },
-        "aproxtribFed": {
-          "$ref": "#/definitions/TaxByTypeTax"
-        },
-        "irpj": {
-          "$ref": "#/definitions/TaxByTypeTax"
-        },
-        "inss": {
-          "$ref": "#/definitions/TaxByTypeTax"
-        }
-      }
-    },
-    "SalesTaxByTypeDetail": {
-      "type": "object",
-      "properties": {
-        "locationType": {
-          "type": "string",
-          "description": "This string captures the applicable location type. Location used for calc. Buyer or Seller"
-        },
-        "jurisdictionName": {
-          "type": "string",
-          "description": "Jurisdiction used for calctax amount"
-        },
-        "jurisdictionType": {
-          "type": "string",
-          "enum": [
-            "City",
-            "State",
-            "Country"
-          ],
-          "description": "Type of jurisdiction\n- 'City'\n- 'State'\n- 'Country'\n"
-        },
         "taxType": {
           "type": "string",
           "enum": [
@@ -4522,23 +3667,10 @@
           ],
           "description": "Tax identificator\n- 'aproxtribCity'\n- 'aproxtribFed'\n- 'pis'\n- 'pisRf'\n- 'cofins'\n- 'cofinsRf'\n- 'csll'\n- 'csllRf'\n- 'irrf'\n- 'inss'\n- 'inssRf'\n- 'iss'\n- 'issRf'\n- 'irpj'\n"
         },
-        "rateType": {
-          "type": "string",
-          "description": "Name of configuration rate"
-        },
-        "scenario": {
-          "type": "string",
-          "description": "This string captures the transaction scenario used to calculate the tax for this tax type. Scenarios are specific to the tax type. This field provides information about how the tax engine interpreted the transaction information that was passed in."
-        },
-        "subtotalTaxable": {
+        "calcBase": {
           "type": "number",
           "format": "double",
           "description": "This decimal captures how much of the lineAmount was taxable by this tax, calc base"
-        },
-        "subtotalExempt": {
-          "type": "number",
-          "format": "double",
-          "description": "This decimal captures how much of the lineAmount was non-taxed. This is simply the line amount minus the taxable."
         },
         "rate": {
           "type": "number",
@@ -4549,67 +3681,20 @@
           "type": "number",
           "format": "double",
           "description": "This decimal captures how much of the lineAmount was taxable by this tax"
-        },
-        "exemptionCode": {
-          "type": "string",
-          "description": "This string is required if is exempt"
-        },
-        "significantLocations": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "This element captures the list of locations that contributed to the tax determination. for BR16 Service is Buyer and Seller Address"
-        },
-        "taxRuleType": {
-          "type": "string",
-          "enum": [
-            "SELLER",
-            "BUYER",
-            "TRANSACTION",
-            "ITEM",
-            "TAX"
-          ],
-          "description": "This string with type of rule\n- 'SELLER'\n- 'BUYER'\n- 'TRANSACTION'\n- 'ITEM'\n- 'TAX'\n"
         }
       }
     },
-    "TaxByTypeSummaryForService": {
+    "AgastExtendForNfse": {
       "type": "object",
-      "description": "summary of all taxes",
       "properties": {
-        "tax": {
-          "type": "number",
-          "format": "double",
-          "description": "sum of referenced tax value"
-        },
-        "jurisdictions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/TaxByTypeSummaryJurisdiction"
-          }
-        }
-      }
-    },
-    "TaxByTypeSummaryJurisdiction": {
-      "properties": {
-        "jurisdictionName": {
+        "hsCode": {
           "type": "string",
-          "description": "Jurisdiction used for calctax amount"
+          "maxLength": 8,
+          "description": "harmonized code, LC 116"
         },
-        "jurisdictionType": {
-          "type": "string",
-          "enum": [
-            "City",
-            "State",
-            "Country"
-          ],
-          "description": "Type of jurisdiction\n- 'City'\n- 'State'\n- 'Country'\n"
-        },
-        "tax": {
-          "type": "number",
-          "format": "double",
-          "description": "sum of referenced tax value by jurisdiction"
+        "issDueatDestination": {
+          "type": "boolean",
+          "description": "for service items with City Jurisdiction, inform where the ISS tax is due"
         }
       }
     }

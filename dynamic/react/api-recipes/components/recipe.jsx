@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ConsoleLiveData from '../../shared/components/consoleLiveData';
 import RecipeForm from './recipeForm';
 import {replaceStringPlaceholders, buildQueryString} from '../../shared/helpers';
@@ -37,9 +38,9 @@ const Recipe = (props) => {
 
 Recipe.displayName = 'Recipe API Console';
 Recipe.propTypes = {
-    onInputChange: React.PropTypes.func.isRequired,
-    onSubmitRequest: React.PropTypes.func.isRequired,
-    recipe: React.PropTypes.object.isRequired
+    onInputChange: PropTypes.func.isRequired,
+    onSubmitRequest: PropTypes.func.isRequired,
+    recipe: PropTypes.object.isRequired
 };
 
 export default Recipe;

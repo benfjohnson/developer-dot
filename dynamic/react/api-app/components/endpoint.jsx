@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ApiConsole from '../../shared/components/apiConsole';
 import ApiDocumentation from './apiDocumentation';
 import EndpointExamples from './endpointExamples';
@@ -8,7 +9,7 @@ const replaceSpaces = (str) => str.replace(/\s/g, '');
 
 // Give our endpoint an id based on its name for our clientside routing in jekyll
 const EndPointComponent = ({endpoint, apiType, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleShowExcludedPostBodyProps}) => (
-    <div>
+    <div className={'endpoint-summary'}>
         <ApiDocumentation endpoint={endpoint} />
         <br />
         {apiType === 'REST' ?
@@ -16,11 +17,6 @@ const EndPointComponent = ({endpoint, apiType, onFillConsoleSampleData, onSubmit
                 <div className={'try-it-now-header'} data-target={`#${replaceSpaces(endpoint.operationId)}-console-body`} data-toggle={'collapse'} id={`${replaceSpaces(endpoint.operationId)}-console`} onClick={
                     () => {
                         $(`#${replaceSpaces(endpoint.operationId)}-console-icon`).toggleClass('rotate');
-                        const intervalId = setInterval(() => {
-                            $('#the-nav').affix('checkPosition');
-                        }, 20);
-
-                        setTimeout(() => clearInterval(intervalId), 350);
                     }
                 }>
                     <div className={'documentation-expand-icon'} id={`${replaceSpaces(endpoint.operationId)}-console-icon`} style={{display: 'inline-block', marginRight: '5px'}}>
@@ -39,53 +35,53 @@ const EndPointComponent = ({endpoint, apiType, onFillConsoleSampleData, onSubmit
 EndPointComponent.displayName = 'Api Endpoint';
 
 EndPointComponent.propTypes = {
-    apiType: React.PropTypes.oneOf(['REST', 'SOAP']).isRequired,
-    endpoint: React.PropTypes.shape({
-        id: React.PropTypes.number.isRequired,
-        name: React.PropTypes.string.isRequired,
-        description: React.PropTypes.string.isRequired,
-        curl: React.PropTypes.string.isRequired,
-        sampleAuthHeader: React.PropTypes.string,
-        path: React.PropTypes.string.isRequired,
-        action: React.PropTypes.string.isRequired,
-        queryString: React.PropTypes.objectOf(
-            React.PropTypes.shape({
-                description: React.PropTypes.string,
-                example: React.PropTypes.any,
-                required: React.PropTypes.bool,
-                value: React.PropTypes.any.isRequired
+    apiType: PropTypes.oneOf(['REST', 'SOAP']).isRequired,
+    endpoint: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string,
+        curl: PropTypes.string.isRequired,
+        sampleAuthHeader: PropTypes.string,
+        path: PropTypes.string.isRequired,
+        action: PropTypes.string.isRequired,
+        queryString: PropTypes.objectOf(
+            PropTypes.shape({
+                description: PropTypes.string,
+                example: PropTypes.any,
+                required: PropTypes.bool,
+                value: PropTypes.any.isRequired
             })
         ),
-        pathParams: React.PropTypes.objectOf(
-            React.PropTypes.shape({
-                description: React.PropTypes.string,
-                example: React.PropTypes.any,
-                required: React.PropTypes.bool,
-                value: React.PropTypes.any.isRequired
+        pathParams: PropTypes.objectOf(
+            PropTypes.shape({
+                description: PropTypes.string,
+                example: PropTypes.any,
+                required: PropTypes.bool,
+                value: PropTypes.any.isRequired
             })
         ),
-        postBody: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
-        requestSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
-        responseSchema: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
-        showExcludedPostBodyFields: React.PropTypes.bool.isRequired,
-        apiResponse: React.PropTypes.shape({
-            status: React.PropTypes.string.isRequired,
-            statusMessage: React.PropTypes.string.isRequired,
-            body: React.PropTypes.oneOfType([
-                React.PropTypes.object, React.PropTypes.array
+        postBody: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+        requestSchema: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+        responseSchema: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+        showExcludedPostBodyFields: PropTypes.bool.isRequired,
+        apiResponse: PropTypes.shape({
+            status: PropTypes.string.isRequired,
+            statusMessage: PropTypes.string.isRequired,
+            body: PropTypes.oneOfType([
+                PropTypes.object, PropTypes.array
             ]).isRequired
         })
     }).isRequired,
-    onAddItemToPostbodyCollection: React.PropTypes.func.isRequired,
-    onFillConsoleSampleData: React.PropTypes.func.isRequired,
-    onPathParamChanged: React.PropTypes.func.isRequired,
-    onPostBodyInputChanged: React.PropTypes.func.isRequired,
-    onQueryParamChanged: React.PropTypes.func.isRequired,
-    onRemovePostbodyCollectionItem: React.PropTypes.func.isRequired,
-    onResetConsole: React.PropTypes.func.isRequired,
-    onSubmitConsoleRequest: React.PropTypes.func.isRequired,
-    onToggleShowExcludedPostBodyProps: React.PropTypes.func.isRequired,
-    sampleContentType: React.PropTypes.array
+    onAddItemToPostbodyCollection: PropTypes.func.isRequired,
+    onFillConsoleSampleData: PropTypes.func.isRequired,
+    onPathParamChanged: PropTypes.func.isRequired,
+    onPostBodyInputChanged: PropTypes.func.isRequired,
+    onQueryParamChanged: PropTypes.func.isRequired,
+    onRemovePostbodyCollectionItem: PropTypes.func.isRequired,
+    onResetConsole: PropTypes.func.isRequired,
+    onSubmitConsoleRequest: PropTypes.func.isRequired,
+    onToggleShowExcludedPostBodyProps: PropTypes.func.isRequired,
+    sampleContentType: PropTypes.array
 };
 
 export default EndPointComponent;

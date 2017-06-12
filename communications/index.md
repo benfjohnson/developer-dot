@@ -17,7 +17,7 @@ doctype: overview
     <h4 class="text-left">The Communications Tax API provides communications tax calculation using
         information provided by jurisdiction codes, NPANXX, address and ZIP codes,
         supporting thousands of taxing jurisdictions, including country state/province, county,
-        city and special taxing jurisdiction levels.    
+        city and special taxing jurisdiction levels.
     </h4>
     <h3 class="h1p" class="text-left text-colorchange">The Communications Tax API's are web services</h3>
     <p class="text-left">This service is the external programmatic interface into the Avalara Communications tax engine. It provides a platform-independent mechanism for obtaining tax calculation information.</p>
@@ -42,7 +42,7 @@ doctype: overview
             </div>
             <div class="col-md-7 col-md-offset-5 padding-top">
                 <ul class="pipe">
-                    <li><a href="api-reference/saas/soap">API references</a></li>
+                    <li><a href="/api-reference/communications/afc">API references</a></li>
                 </ul>
             </div>
             <div class="col-md-7 col-md-offset-5 padding-top">

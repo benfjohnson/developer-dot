@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import PropTypes from 'prop-types';
 
 const ApiDocumentationParam = ({params, type}) => (
     <tbody>
 
-        {Object.keys(params || {}).map((param) => {
-            return (<tr>
+        {Object.keys(params || {}).map((param, i) => {
+            return (<tr key={i}>
                 <td>{type}</td>
                 <td>{param}</td>
                 <td>
@@ -13,7 +14,7 @@ const ApiDocumentationParam = ({params, type}) => (
                     {', '}
                     {params[param].fieldType}
                 </td>
-                <td><ReactMarkdown source={params[param].description} /></td>
+                <td><ReactMarkdown source={params[param].description || ''} /></td>
             </tr>);
         })}
     </tbody>
@@ -21,8 +22,8 @@ const ApiDocumentationParam = ({params, type}) => (
 
 ApiDocumentationParam.displayName = 'API Documentation';
 ApiDocumentationParam.propTypes = {
-    params: React.PropTypes.object,
-    type: React.PropTypes.string
+    params: PropTypes.object,
+    type: PropTypes.string
 };
 
 export default ApiDocumentationParam;

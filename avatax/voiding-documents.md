@@ -151,4 +151,4 @@ Now that we've run through a couple of example requests using the REST API, here
 	</table>
 </div>
 
-Further reference on the request/response parameters can be found <a href="http://developer.avalara.com/avatax/api-reference/tax/v2/Transactions/#ApiV2CompaniesByCompanyCodeTransactionsByTransactionCodeVoidPost"> in our API references.</a>
+Further reference on the request/response parameters can be found <a href="http://developer.avalara.com/api-reference/avatax/rest/v2/Transactions/#ApiV2CompaniesByCompanyCodeTransactionsByTransactionCodeVoidPost"> in our API references.</a>

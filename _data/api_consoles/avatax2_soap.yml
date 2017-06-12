@@ -2,7 +2,7 @@
 swagger_path: avatax/soap.yaml
 nav_link:
     title: Avatax SOAP API
-    path: /avatax/api-reference/tax/soap
+    path: /api-reference/avatax/soap
 product: avaTax
 endpoint_hashes:
     - name: Calculate Tax and Record a Document

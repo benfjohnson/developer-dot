@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const PostmanCollection = ({apiType, appLoaded, auth, onAuthKeyChange, postmanCollection}) => {
     if (apiType !== 'REST') {
@@ -29,7 +30,7 @@ const PostmanCollection = ({apiType, appLoaded, auth, onAuthKeyChange, postmanCo
                     {Object.keys(auth.params).map((param, i) => (
                         <fieldset className={'form-group'} key={i}>
                             <label className={'api-label-text'}>{param}</label>
-                            <input className={'form-control'} onChange={onAuthKeyChange.bind(null, param)} type={'password'} value={auth.params[param]} />
+                            <input className={'form-control auth-input'} onChange={onAuthKeyChange.bind(null, param)} type={'password'} value={auth.params[param]} />
                         </fieldset>
                     ))}
                 </form>
@@ -41,39 +42,39 @@ const PostmanCollection = ({apiType, appLoaded, auth, onAuthKeyChange, postmanCo
 
 PostmanCollection.displayName = 'Postman Collection';
 PostmanCollection.propTypes = {
-    apiType: React.PropTypes.string.isRequired,
-    appLoaded: React.PropTypes.bool.isRequired,
-    auth: React.PropTypes.shape({
-        formula: React.PropTypes.string.isRequired,
-        params: React.PropTypes.objectOf(React.PropTypes.string.isRequired)
+    apiType: PropTypes.string.isRequired,
+    appLoaded: PropTypes.bool.isRequired,
+    auth: PropTypes.shape({
+        formula: PropTypes.string.isRequired,
+        params: PropTypes.objectOf(PropTypes.string.isRequired)
     }),
-    onAuthKeyChange: React.PropTypes.func.isRequired,
-    postmanCollection: React.PropTypes.shape({
-        info: React.PropTypes.shape({
+    onAuthKeyChange: PropTypes.func.isRequired,
+    postmanCollection: PropTypes.shape({
+        info: PropTypes.shape({
             /* eslint-disable camelcase */
-            _postman_id: React.PropTypes.string.isRequired,
+            _postman_id: PropTypes.string.isRequired,
             /* eslint-enable camelcase */
-            description: React.PropTypes.string,
-            name: React.PropTypes.string.isRequired,
-            schema: React.PropTypes.string.isRequired
+            description: PropTypes.string,
+            name: PropTypes.string.isRequired,
+            schema: PropTypes.string.isRequired
         }).isRequired,
-        item: React.PropTypes.arrayOf(React.PropTypes.shape({
-            name: React.PropTypes.string.isRequired,
-            request: React.PropTypes.shape({
-                body: React.PropTypes.shape({
-                    mode: React.PropTypes.oneOf(['raw', 'formdata']).isRequired,
-                    raw: React.PropTypes.string,
-                    formdata: React.PropTypes.array
+        item: PropTypes.arrayOf(PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            request: PropTypes.shape({
+                body: PropTypes.shape({
+                    mode: PropTypes.oneOf(['raw', 'formdata']).isRequired,
+                    raw: PropTypes.string,
+                    formdata: PropTypes.array
                 }).isRequired,
-                description: React.PropTypes.string,
-                header: React.PropTypes.arrayOf(React.PropTypes.shape({
-                    key: React.PropTypes.string.isRequired,
-                    value: React.PropTypes.string.isRequired
+                description: PropTypes.string,
+                header: PropTypes.arrayOf(PropTypes.shape({
+                    key: PropTypes.string.isRequired,
+                    value: PropTypes.string.isRequired
                 })).isRequired,
-                method: React.PropTypes.oneOf(['get', 'GET', 'put', 'PUT', 'post', 'POST', 'delete', 'DELETE']).isRequired,
-                url: React.PropTypes.string.isRequired
+                method: PropTypes.oneOf(['get', 'GET', 'put', 'PUT', 'post', 'POST', 'delete', 'DELETE', 'head', 'HEAD']).isRequired,
+                url: PropTypes.string.isRequired
             }).isRequired,
-            response: React.PropTypes.array
+            response: PropTypes.array
         })).isRequired
     }).isRequired
 };

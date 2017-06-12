@@ -6002,7 +6002,7 @@ describe('apiApp Reducer', () => {
             /* eslint-disable quote-props */
             const state = {
                 "apiName": "AvaTax REST API",
-                "apiDescription": "The AvaTax REST API exposes the most commonly used available for interacting with the AvaTax service, allowing calculation of tax, modification of documents, and validation of addresses. If you're unsure of which API to use, a full comparison of the differences between the functionality provided by our REST and SOAP interfaces is documented [here](/avatax/soap-or-rest).\nThe [SOAP API reference](/avatax/api-reference/tax/soap/) is also available.",
+                "apiDescription": "The AvaTax REST API exposes the most commonly used available for interacting with the AvaTax service, allowing calculation of tax, modification of documents, and validation of addresses. If you're unsure of which API to use, a full comparison of the differences between the functionality provided by our REST and SOAP interfaces is documented [here](/avatax/soap-or-rest).\nThe [SOAP API reference](/api-reference/avatax/soap/) is also available.",
                 "appLoaded": true,
                 "apiType": "REST",
                 "sampleAuthHeader": "Basic aHR0cHdhdGNoOmY=",
@@ -7211,7 +7211,7 @@ describe('apiApp Reducer', () => {
                     "info": {
                         "name": "AvaTax REST API",
                         "_postman_id": "1234",
-                        "description": "The AvaTax REST API exposes the most commonly used available for interacting with the AvaTax service, allowing calculation of tax, modification of documents, and validation of addresses. If you're unsure of which API to use, a full comparison of the differences between the functionality provided by our REST and SOAP interfaces is documented [here](/avatax/soap-or-rest).\nThe [SOAP API reference](/avatax/api-reference/tax/soap/) is also available.",
+                        "description": "The AvaTax REST API exposes the most commonly used available for interacting with the AvaTax service, allowing calculation of tax, modification of documents, and validation of addresses. If you're unsure of which API to use, a full comparison of the differences between the functionality provided by our REST and SOAP interfaces is documented [here](/avatax/soap-or-rest).\nThe [SOAP API reference](/api-reference/avatax/soap/) is also available.",
                         "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
                     },
                     "item": [

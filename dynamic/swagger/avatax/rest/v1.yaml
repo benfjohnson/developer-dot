@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   description: "The AvaTax REST API exposes the most commonly used available for interacting with the AvaTax service, allowing calculation of tax, modification of documents, and validation of addresses. If you're unsure of which API to use, a full comparison of the differences between the functionality provided by our REST and SOAP interfaces is documented [here](/avatax/soap-or-rest).
   
-  The [SOAP API reference](/avatax/api-reference/tax/soap/) is also available."
+  The [SOAP API reference](/api-reference/avatax/soap/) is also available."
   
   version: '1.0'
   title: AvaTax REST API
@@ -89,7 +89,7 @@ paths:
   '/tax/{latitude},{longitude}/get':
     get:
       summary: Estimate Tax
-      description: 'Retrieves tax rate details for the supplied geographic coordinates and sale amount. Since the REST API does not provide an explicit ping function, this method can also be used to test connectivity to the service. If you would like an XML response, use the URL `/1.0/tax/{latitude},{longitude}/get.xml` and specify the request header `Content-Type: text/xml`.'
+      description: 'Retrieves tax rate details for the supplied geographic coordinates and sale amount. Since the REST API does not provide an explicit ping function, this method can also be used to test connectivity to the service. If you would like an XML response, use the URL `/1.0/tax/<latitude>,<longitude>/get.xml` and specify the request header `Content-Type: text/xml`.'
       operationId: estimateTax
       parameters:
         - in: path

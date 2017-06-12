@@ -3,11 +3,19 @@
     <h2 id="description">Description</h2>
     <p>{{include.model.description | markdownify}}</p>
 {% endif %}
-<!--
-TODO(DX-347): split into sub task from this ticket
-<h2 id="references">References</h2>
-<p>This model is used in the following APIs:</p>
--->
+
+{% unless include.model['x-methods-used-in'] == empty %}
+    <h2 id="references">References</h2>
+    <p>This model is used in the following APIs:</p>
+    <ul>
+    {% for method in include.model['x-methods-used-in'] %}
+        <li>
+            <a href='../../methods/{{method}}'>{{method}}</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endunless %}
+
 <ul class="normal"></ul>
 <h2 id="fields">Fields</h2>
 

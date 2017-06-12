@@ -1,29 +1,37 @@
 const assert = require('../helpers/assert');
+const {nav} = require('../helpers/api-reference/generalTests');
+
+const NUMAPIS = 1;
 
 module.exports = {
     'baseURL': process.env.BASEURL ? process.env.BASEURL.replace(/\/$/, '') : 'http://localhost:4000',
     'waitTime': isNaN(parseInt(process.env.TIMEOUT, 10)) ? 5000 : parseInt(process.env.TIMEOUT, 10),
-    'before': function() {
+    'before': function(browser) {
         /* eslint-disable no-console */
         console.log('WaitTime set to', this.waitTime);
         console.log('BaseURL set to', this.baseURL);
         /* eslint-enable no-console */
+        browser.maximizeWindow();
+    },
+
+    'after': function(browser) {
+        browser.end();
     },
 
     'API Reference: LandedCost (verify number of endpoints)': function(browser) {
         const expectedNumberOfApiEndpoints = 9;
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/landedcost/api-reference/v3/')
+            .url(this.baseURL + '/api-reference/landedcost/methods/units/')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .elements('css selector', '.endpoint-summary', function(result) {
                 /* eslint-disable no-invalid-this */
-                this.assert.equal(result.value.length, expectedNumberOfApiEndpoints, 'expected ' + expectedNumberOfApiEndpoints + ' endpoints, received ' + result.value.length);
+                this.assert.equal(result.value.length, 1, 'expected 1 endpoints, received ' + result.value.length);
                 /* eslint-enable no-invalid-this */
             })
-            .end();
+            .elements('css selector', nav.APIS, nav.check(browser.verify, NUMAPIS))
+            .elements('css selector', nav.TAGS, nav.check(browser.verify, expectedNumberOfApiEndpoints));
     },
     'API Reference: LandedCost: validateCreds': function(browser) {
         const expectedResponse = {
@@ -31,8 +39,7 @@ module.exports = {
         };
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/landedcost/api-reference/v3/')
+            .url(this.baseURL + '/api-reference/landedcost/methods/validateCreds/')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .waitForElementVisible('#validateCreds-console', this.waitTime)
@@ -49,8 +56,7 @@ module.exports = {
 
                 this.assert.equal(JSON.stringify(response), JSON.stringify(expectedResponse));
                 /* eslint-enable no-invalid-this */
-            })
-            .end();
+            });
     },
     'API Reference: LandedCost: calculate (fill sample data)': function(browser) {
         const expectedRequest = {
@@ -242,8 +248,7 @@ module.exports = {
         };
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/landedcost/api-reference/v3/')
+            .url(this.baseURL + '/api-reference/landedcost/methods/calculate')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .waitForElementVisible('#calculate-console', this.waitTime)
@@ -270,8 +275,7 @@ module.exports = {
                 response.date = undefined;
                 this.assert.equal(JSON.stringify(response), JSON.stringify(expectedResponse));
                 /* eslint-enable no-invalid-this */
-            })
-            .end();
+            });
     },
     'API Reference: LandedCost: rates (fill sample data)': function(browser) {
         const expectedRequest = [
@@ -337,8 +341,7 @@ module.exports = {
         ];
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/landedcost/api-reference/v3/')
+            .url(this.baseURL + '/api-reference/landedcost/methods/rates')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .waitForElementVisible('#rates-console', this.waitTime)
@@ -363,8 +366,7 @@ module.exports = {
 
                 this.assert.equal(JSON.stringify(response), JSON.stringify(expectedResponse));
                 /* eslint-enable no-invalid-this */
-            })
-            .end();
+            });
     },
     'API Reference: LandedCost: units (fill sample data)': function(browser) {
         const expectedRequest = [
@@ -397,8 +399,7 @@ module.exports = {
         ];
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/landedcost/api-reference/v3/')
+            .url(this.baseURL + '/api-reference/landedcost/methods/units')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .waitForElementVisible('#units-console', this.waitTime)
@@ -425,15 +426,13 @@ module.exports = {
                 this.assert.ok(assert.deepEqual(response, expectedResponse),
                     "response for 'try it now' matches expected response");
                 /* eslint-enable no-invalid-this */
-            })
-            .end();
+            });
     },
     'API Reference: LandedCost: getCountries': function(browser) {
         const expectedResponse = {destination: [{code: 'AX', name: 'Aland', system: 'TARIC'}, {code: 'AR', name: 'Argentina', system: 'MCN'}, {code: 'AW', name: 'Aruba', system: 'CTAW'}, {code: 'AU', name: 'Australia', system: 'HTISC'}, {code: 'AT', name: 'Austria', system: 'TARIC'}, {code: 'BH', name: 'Bahrain', system: 'UCTGCC'}, {code: 'BD', name: 'Bangladesh', system: 'CTBD'}, {code: 'BB', name: 'Barbados', system: 'CETCC'}, {code: 'BY', name: 'Belarus', system: 'UCTEEU'}, {code: 'BE', name: 'Belgium', system: 'TARIC'}, {code: 'BM', name: 'Bermuda', system: 'BCT'}, {code: 'BO', name: 'Bolivia', system: 'CETCAN'}, {code: 'BR', name: 'Brazil', system: 'MCN'}, {code: 'BG', name: 'Bulgaria', system: 'TARIC'}, {code: 'CA', name: 'Canada', system: 'CTCA'}, {code: 'KY', name: 'Cayman Islands', system: 'CTKY'}, {code: 'IO', name: 'Chagos Islands', system: 'TARIC'}, {code: 'CL', name: 'Chile', system: 'CTCL'}, {code: 'CN', name: 'China', system: 'TSCN'}, {code: 'CX', name: 'Christmas Island', system: 'HTISC'}, {code: 'CC', name: 'Cocos Islands', system: 'HTISC'}, {code: 'CO', name: 'Colombia', system: 'CETCAN'}, {code: 'CR', name: 'Costa Rica', system: 'CTCACU'}, {code: 'HR', name: 'Croatia', system: 'TARIC'}, {code: 'CY', name: 'Cyprus', system: 'TARIC'}, {code: 'CZ', name: 'Czech', system: 'TARIC'}, {code: 'DK', name: 'Denmark', system: 'TARIC'}, {code: 'DO', name: 'Dominican Republic', system: 'CETDO'}, {code: 'EC', name: 'Ecuador', system: 'CETCAN'}, {code: 'EG', name: 'Egypt', system: 'COMESA'}, {code: 'SV', name: 'El Salvador', system: 'CTCACU'}, {code: 'EE', name: 'Estonia', system: 'TARIC'}, {code: 'FI', name: 'Finland', system: 'TARIC'}, {code: 'FR', name: 'France', system: 'TARIC'}, {code: 'DE', name: 'Germany', system: 'TARIC'}, {code: 'GH', name: 'Ghana', system: 'HSCTGH'}, {code: 'GR', name: 'Greece', system: 'TARIC'}, {code: 'GP', name: 'Guadeloupe', system: 'TARIC'}, {code: 'GT', name: 'Guatemala', system: 'CTCACU'}, {code: 'GG', name: 'Guernsey', system: 'TARIC'}, {code: 'GF', name: 'Guiana', system: 'TARIC'}, {code: 'HN', name: 'Honduras', system: 'CTCACU'}, {code: 'HK', name: 'Hong Kong', system: 'HKSAR'}, {code: 'HU', name: 'Hungary', system: 'TARIC'}, {code: 'IS', name: 'Iceland', system: 'CTIS'}, {code: 'IN', name: 'India', system: 'CTIN'}, {code: 'ID', name: 'Indonesia', system: 'AHTN'}, {code: 'IE', name: 'Ireland', system: 'TARIC'}, {code: 'IL', name: 'Israel', system: 'CTIL'}, {code: 'IT', name: 'Italy', system: 'TARIC'}, {code: 'JM', name: 'Jamaica', system: 'CETCC'}, {code: 'JP', name: 'Japan', system: 'TSJP'}, {code: 'JE', name: 'Jersey', system: 'TARIC'}, {code: 'JO', name: 'Jordan', system: 'CTJO'}, {code: 'KZ', name: 'Kazakhstan', system: 'UCTEEU'}, {code: 'KW', name: 'Kuwait', system: 'UCTGCC'}, {code: 'KG', name: 'Kyrgyzstan', system: 'UCTEEU'}, {code: 'LV', name: 'Latvia', system: 'TARIC'}, {code: 'LB', name: 'Lebanon', system: 'HSCTLB'}, {code: 'LI', name: 'Liechtenstein', system: 'CTCH'}, {code: 'LT', name: 'Lithuania', system: 'TARIC'}, {code: 'LU', name: 'Luxembourg', system: 'TARIC'}, {code: 'MO', name: 'Macao', system: 'CTMO'}, {code: 'MY', name: 'Malaysia', system: 'AHTN'}, {code: 'MT', name: 'Malta', system: 'TARIC'}, {code: 'IM', name: 'Mann', system: 'TARIC'}, {code: 'MQ', name: 'Martinique', system: 'TARIC'}, {code: 'MX', name: 'Mexico', system: 'CTMX'}, {code: 'MC', name: 'Monaco', system: 'TARIC'}, {code: 'MA', name: 'Morocco', system: 'CTMA'}, {code: 'NL', name: 'Netherlands', system: 'TARIC'}, {code: 'NZ', name: 'New Zealand', system: 'TSNZ'}, {code: 'NG', name: 'Nigeria', system: 'CTNG'}, {code: 'NF', name: 'Norfolk Island', system: 'HTISC'}, {code: 'NO', name: 'Norway', system: 'HSNO'}, {code: 'OM', name: 'Oman', system: 'UCTGCC'}, {code: 'PK', name: 'Pakistan', system: 'CTPK'}, {code: 'PA', name: 'Panama', system: 'ITPA'}, {code: 'PY', name: 'Paraguay', system: 'MCN'}, {code: 'PE', name: 'Peru', system: 'CETCAN'}, {code: 'PH', name: 'Philippines', system: 'AHTN'}, {code: 'PL', name: 'Poland', system: 'TARIC'}, {code: 'PT', name: 'Portugal', system: 'TARIC'}, {code: 'PR', name: 'Puerto Rico', system: 'HTS'}, {code: 'QA', name: 'Qatar', system: 'UCTGCC'}, {code: 'RE', name: 'Reunion', system: 'TARIC'}, {code: 'RO', name: 'Romania', system: 'TARIC'}, {code: 'RU', name: 'Russia', system: 'UCTEEU'}, {code: 'LC', name: 'Saint Lucia', system: 'CARICOM'}, {code: 'SM', name: 'San Marino', system: 'TARIC'}, {code: 'SA', name: 'Saudi Arabia', system: 'UCTGCC'}, {code: 'RS', name: 'Serbia', system: 'HNCTRS'}, {code: 'SG', name: 'Singapore', system: 'STCCED'}, {code: 'SK', name: 'Slovakia', system: 'TARIC'}, {code: 'SI', name: 'Slovenia', system: 'TARIC'}, {code: 'ZA', name: 'South Africa', system: 'SACU'}, {code: 'KR', name: 'South Korea', system: 'HTSKR'}, {code: 'ES', name: 'Spain', system: 'TARIC'}, {code: 'LK', name: 'Sri Lanka', system: 'CTLK'}, {code: 'SE', name: 'Sweden', system: 'TARIC'}, {code: 'CH', name: 'Switzerland', system: 'CTCH'}, {code: 'TW', name: 'Taiwan', system: 'CTCN'}, {code: 'TJ', name: 'Tajikistan', system: 'UCTEEU'}, {code: 'TH', name: 'Thailand', system: 'AHTN'}, {code: 'TT', name: 'Trinidad and Tobago', system: 'CETCC'}, {code: 'TR', name: 'Turkey', system: 'TARIC'}, {code: 'UA', name: 'Ukraine', system: 'CTUA'}, {code: 'AE', name: 'United Arab Emirates', system: 'UCTGCC'}, {code: 'GB', name: 'United Kingdom', system: 'TARIC'}, {code: 'US', name: 'United States', system: 'HTS'}, {code: 'UY', name: 'Uruguay', system: 'MCN'}, {code: 'VE', name: 'Venezuela', system: 'MCN'}, {code: 'VN', name: 'Viet Nam', system: 'AHTN'}, {code: null, name: null, system: 'CTBO'}, {code: null, name: null, system: 'CTKH'}, {code: null, name: null, system: 'CTCO'}, {code: null, name: null, system: 'CTID'}, {code: null, name: null, system: 'CTPE'}, {code: null, name: null, system: 'CTPH'}, {code: null, name: null, system: 'CTTH'}], source: [{code: null, name: null, system: 'CTBO'}, {code: null, name: null, system: 'CTKH'}, {code: null, name: null, system: 'CTCO'}, {code: null, name: null, system: 'CTID'}, {code: null, name: null, system: 'CTPE'}, {code: null, name: null, system: 'CTPH'}, {code: null, name: null, system: 'CTTH'}, {code: 'AX', name: 'Aland', system: 'TARIC'}, {code: 'AR', name: 'Argentina', system: 'MCN'}, {code: 'AW', name: 'Aruba', system: 'CTAW'}, {code: 'AT', name: 'Austria', system: 'TARIC'}, {code: 'BH', name: 'Bahrain', system: 'UCTGCC'}, {code: 'BD', name: 'Bangladesh', system: 'CTBD'}, {code: 'BB', name: 'Barbados', system: 'CETCC'}, {code: 'BY', name: 'Belarus', system: 'UCTEEU'}, {code: 'BE', name: 'Belgium', system: 'TARIC'}, {code: 'BM', name: 'Bermuda', system: 'BCT'}, {code: 'BO', name: 'Bolivia', system: 'CETCAN'}, {code: 'BR', name: 'Brazil', system: 'MCN'}, {code: 'BG', name: 'Bulgaria', system: 'TARIC'}, {code: 'CA', name: 'Canada', system: 'CTCA'}, {code: 'KY', name: 'Cayman Islands', system: 'CTKY'}, {code: 'IO', name: 'Chagos Islands', system: 'TARIC'}, {code: 'CL', name: 'Chile', system: 'CTCL'}, {code: 'CN', name: 'China', system: 'TSCN'}, {code: 'CO', name: 'Colombia', system: 'CETCAN'}, {code: 'CR', name: 'Costa Rica', system: 'CTCACU'}, {code: 'HR', name: 'Croatia', system: 'TARIC'}, {code: 'CY', name: 'Cyprus', system: 'TARIC'}, {code: 'CZ', name: 'Czech', system: 'TARIC'}, {code: 'DK', name: 'Denmark', system: 'TARIC'}, {code: 'DO', name: 'Dominican Republic', system: 'CETDO'}, {code: 'EC', name: 'Ecuador', system: 'CETCAN'}, {code: 'EG', name: 'Egypt', system: 'COMESA'}, {code: 'SV', name: 'El Salvador', system: 'CTCACU'}, {code: 'EE', name: 'Estonia', system: 'TARIC'}, {code: 'FI', name: 'Finland', system: 'TARIC'}, {code: 'FR', name: 'France', system: 'TARIC'}, {code: 'DE', name: 'Germany', system: 'TARIC'}, {code: 'GH', name: 'Ghana', system: 'HSCTGH'}, {code: 'GR', name: 'Greece', system: 'TARIC'}, {code: 'GP', name: 'Guadeloupe', system: 'TARIC'}, {code: 'GT', name: 'Guatemala', system: 'CTCACU'}, {code: 'GG', name: 'Guernsey', system: 'TARIC'}, {code: 'GF', name: 'Guiana', system: 'TARIC'}, {code: 'HN', name: 'Honduras', system: 'CTCACU'}, {code: 'HK', name: 'Hong Kong', system: 'HKSAR'}, {code: 'HU', name: 'Hungary', system: 'TARIC'}, {code: 'IS', name: 'Iceland', system: 'CTIS'}, {code: 'IN', name: 'India', system: 'CTIN'}, {code: 'ID', name: 'Indonesia', system: 'AHTN'}, {code: 'IE', name: 'Ireland', system: 'TARIC'}, {code: 'IL', name: 'Israel', system: 'CTIL'}, {code: 'IT', name: 'Italy', system: 'TARIC'}, {code: 'JM', name: 'Jamaica', system: 'CETCC'}, {code: 'JP', name: 'Japan', system: 'TSJP'}, {code: 'JE', name: 'Jersey', system: 'TARIC'}, {code: 'JO', name: 'Jordan', system: 'CTJO'}, {code: 'KZ', name: 'Kazakhstan', system: 'UCTEEU'}, {code: 'KW', name: 'Kuwait', system: 'UCTGCC'}, {code: 'KG', name: 'Kyrgyzstan', system: 'UCTEEU'}, {code: 'LV', name: 'Latvia', system: 'TARIC'}, {code: 'LB', name: 'Lebanon', system: 'HSCTLB'}, {code: 'LI', name: 'Liechtenstein', system: 'CTCH'}, {code: 'LT', name: 'Lithuania', system: 'TARIC'}, {code: 'LU', name: 'Luxembourg', system: 'TARIC'}, {code: 'MO', name: 'Macao', system: 'CTMO'}, {code: 'MY', name: 'Malaysia', system: 'AHTN'}, {code: 'MT', name: 'Malta', system: 'TARIC'}, {code: 'IM', name: 'Mann', system: 'TARIC'}, {code: 'MQ', name: 'Martinique', system: 'TARIC'}, {code: 'MX', name: 'Mexico', system: 'CTMX'}, {code: 'MC', name: 'Monaco', system: 'TARIC'}, {code: 'MA', name: 'Morocco', system: 'CTMA'}, {code: 'NL', name: 'Netherlands', system: 'TARIC'}, {code: 'NZ', name: 'New Zealand', system: 'TSNZ'}, {code: 'NG', name: 'Nigeria', system: 'CTNG'}, {code: 'NO', name: 'Norway', system: 'HSNO'}, {code: 'OM', name: 'Oman', system: 'UCTGCC'}, {code: 'PK', name: 'Pakistan', system: 'CTPK'}, {code: 'PA', name: 'Panama', system: 'ITPA'}, {code: 'PY', name: 'Paraguay', system: 'MCN'}, {code: 'PE', name: 'Peru', system: 'CETCAN'}, {code: 'PH', name: 'Philippines', system: 'AHTN'}, {code: 'PL', name: 'Poland', system: 'TARIC'}, {code: 'PT', name: 'Portugal', system: 'TARIC'}, {code: 'QA', name: 'Qatar', system: 'UCTGCC'}, {code: 'RE', name: 'Reunion', system: 'TARIC'}, {code: 'RO', name: 'Romania', system: 'TARIC'}, {code: 'RU', name: 'Russia', system: 'UCTEEU'}, {code: 'LC', name: 'Saint Lucia', system: 'CARICOM'}, {code: 'SM', name: 'San Marino', system: 'TARIC'}, {code: 'SA', name: 'Saudi Arabia', system: 'UCTGCC'}, {code: 'RS', name: 'Serbia', system: 'HNCTRS'}, {code: 'SK', name: 'Slovakia', system: 'TARIC'}, {code: 'SI', name: 'Slovenia', system: 'TARIC'}, {code: 'ZA', name: 'South Africa', system: 'SACU'}, {code: 'KR', name: 'South Korea', system: 'HTSKR'}, {code: 'ES', name: 'Spain', system: 'TARIC'}, {code: 'LK', name: 'Sri Lanka', system: 'CTLK'}, {code: 'SE', name: 'Sweden', system: 'TARIC'}, {code: 'CH', name: 'Switzerland', system: 'CTCH'}, {code: 'TW', name: 'Taiwan', system: 'CTCN'}, {code: 'TJ', name: 'Tajikistan', system: 'UCTEEU'}, {code: 'TH', name: 'Thailand', system: 'AHTN'}, {code: 'TT', name: 'Trinidad and Tobago', system: 'CETCC'}, {code: 'TR', name: 'Turkey', system: 'TARIC'}, {code: 'UA', name: 'Ukraine', system: 'CTUA'}, {code: 'AE', name: 'United Arab Emirates', system: 'UCTGCC'}, {code: 'GB', name: 'United Kingdom', system: 'TARIC'}, {code: 'US', name: 'United States', system: 'HTSB'}, {code: 'UY', name: 'Uruguay', system: 'MCN'}, {code: 'VE', name: 'Venezuela', system: 'MCN'}, {code: 'VN', name: 'Viet Nam', system: 'AHTN'}]};
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/landedcost/api-reference/v3/')
+            .url(this.baseURL + '/api-reference/landedcost/methods/Getcountrieslistings_')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .waitForElementVisible('#Getcountrieslistings_-console', this.waitTime)
@@ -449,8 +448,7 @@ module.exports = {
                 this.assert.ok(assert.deepEqual(response, expectedResponse),
                     "response for 'try it now' matches expected response");
                 /* eslint-enable no-invalid-this */
-            })
-            .end();
+            });
     },
     'API Reference: LandedCost: getSystems (fill sample data)': function(browser) {
         const expectedRequest = "curl -X GET -H 'Accept: application/json' http://sandbox.landedcost.api.avalara.com/v2/systems?source=FR&destination=US";
@@ -464,8 +462,7 @@ module.exports = {
         };
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/landedcost/api-reference/v3/')
+            .url(this.baseURL + '/api-reference/landedcost/methods/GettheSystemforaCountry_')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .waitForElementVisible('#GettheSystemforaCountry_-console', this.waitTime)
@@ -488,8 +485,7 @@ module.exports = {
 
                 this.assert.equal(JSON.stringify(response), JSON.stringify(expectedResponse));
                 /* eslint-enable no-invalid-this */
-            })
-            .end();
+            });
     },
     'API Reference: LandedCost: getHsCodeTrees (fill sample data)': function(browser) {
         const expectedRequest = "curl -X GET -H 'Accept: application/json' http://sandbox.landedcost.api.avalara.com/v2/browse?system=TARIC&parent=TARIC_0102";
@@ -507,8 +503,7 @@ module.exports = {
         ];
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/landedcost/api-reference/v3/')
+            .url(this.baseURL + '/api-reference/landedcost/methods/Get_BrowseHSData_')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .waitForElementVisible('#Get_BrowseHSData_-console', this.waitTime)
@@ -531,8 +526,7 @@ module.exports = {
 
                 this.assert.equal(JSON.stringify(response), JSON.stringify(expectedResponse));
                 /* eslint-enable no-invalid-this */
-            })
-            .end();
+            });
     },
     'API Reference: LandedCost: getHsCodeDetailsWithRates (fill sample data)': function(browser) {
         const expectedRequest = "curl -X GET -H 'Accept: application/json' http://sandbox.landedcost.api.avalara.com/v2/hscodes?code=01022940&system=CTCA&destination=CA&source=MX";
@@ -574,8 +568,7 @@ module.exports = {
         ];
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/landedcost/api-reference/v3/')
+            .url(this.baseURL + '/api-reference/landedcost/methods/GetRateDetails_')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .waitForElementVisible('#GetRateDetails_-console', this.waitTime)
@@ -599,8 +592,7 @@ module.exports = {
                 this.assert.ok(assert.deepEqual(response, expectedResponse),
                     "request for 'try it now' matches expected request");
                 /* eslint-enable no-invalid-this */
-            })
-            .end();
+            });
     },
     'API Reference: LandedCost: getHsCodeDetails (fill sample data)': function(browser) {
         const expectedRequest = "curl -X GET -H 'Accept: application/json' http://sandbox.landedcost.api.avalara.com/v2/hscodes/TARIC/010229?fullpath=true";
@@ -638,8 +630,7 @@ module.exports = {
         ];
 
         browser
-            .maximizeWindow()
-            .url(this.baseURL + '/landedcost/api-reference/v3/')
+            .url(this.baseURL + '/api-reference/landedcost/methods/GetRateData_')
             .waitForElementVisible('[data-reactroot]', this.waitTime)
 
             .waitForElementVisible('#GetRateData_-console', this.waitTime)
@@ -663,7 +654,6 @@ module.exports = {
                 this.assert.ok(assert.deepEqual(response, expectedResponse),
                     "request for 'try it now' matches expected request");
                 /* eslint-enable no-invalid-this */
-            })
-            .end();
+            });
     }
 };

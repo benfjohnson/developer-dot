@@ -23,8 +23,7 @@
                 "acceptSslCerts": true
             },
             "exclude": [
-                "helpers",
-                "exclude"
+                "helpers"
             ]
         },
         "chrome": {
@@ -33,11 +32,7 @@
             },
             "screenshots": {
                 "path": "_test/browser/_results/screenshots/FAIL/chrome"
-            },
-            "exclude": [
-                "exclude",
-                "ff"
-            ]
+            }
         }
     }
 }

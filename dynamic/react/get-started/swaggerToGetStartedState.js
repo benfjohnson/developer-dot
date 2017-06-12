@@ -5,8 +5,10 @@ import path from 'path';
 export default (filename, callback) => {
     const parser = new SwaggerParser();
 
-    parser.dereference(path.join(__dirname, '..', '..', '..', 'public', 'data', filename)).then((swaggerDoc) => {
-        const getStartedState = parseSwaggerUi(swaggerDoc, null).apiEndpoints;
+    Promise.all([
+        parser.dereference(path.join(__dirname, '..', '..', '..', 'public', 'data', filename))
+    ]).then((swaggerDocs) => {
+        const getStartedState = parseSwaggerUi(swaggerDocs[0], swaggerDocs[0], null).apiEndpoints;
 
         callback(getStartedState);
     }).catch((error) => {

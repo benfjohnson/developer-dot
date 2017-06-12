@@ -35,10 +35,10 @@ html, body {
         background-color: $Darkest-blue;
         border-color: white;
         //according to JIRA DX-277 --> no corner-radius on this style
-        //border-radius: 4px; 
+        //border-radius: 4px;
         color: white;
         font-family: 'source sans pro bold', Helvetica, Arial, sans-serif;
-        font-size: 18px; 
+        font-size: 18px;
         line-height: 1.5;
         letter-spacing: .035em;
         padding: ($grid-gutter-width / 2) ($grid-gutter-width);
@@ -67,7 +67,7 @@ html, body {
         margin: 0 0 10px 0;
     }*/
 
-    
+
 }
 
 .bg-map {
@@ -137,7 +137,7 @@ margin-bottom:33px;
 }
 
 .text-colorchange {
-color: $Medium-grey; 
+color: $Medium-grey;
 }
 
 .breadcrumbs {
@@ -280,8 +280,8 @@ header {
             &.home li.home,
             &.apis li.apis,
             &.certification li.certification,
-            &.resources li.resources , 
-            &.sdk li.sdk, 
+            &.resources li.resources ,
+            &.sdk li.sdk,
             &.tests li.tests{
                 background-color: $Darker-Ava-orange;
             }
@@ -386,7 +386,7 @@ header {
                 }
                 input[type="checkbox"] {
                     border: 16px solid $Rule-grey;
-                    font-size: 16px;   
+                    font-size: 16px;
                 }
             }
         }
@@ -465,7 +465,7 @@ footer {
             Since we place the social icons as background-images, it makes them hard to manipulate
             such as changing the fill color on hover/click. That being said, quick-fix for right now
             is just to target a 'new' .svg with the correct color. Doesn't seem efficient, but does
-            the job until a better solution is found. Tried everything from svg:hover, .class:hover, 
+            the job until a better solution is found. Tried everything from svg:hover, .class:hover,
             a:hover, etc - doesn't seem to work
         */
 
@@ -483,7 +483,7 @@ footer {
         .facebook a {
             @extend .icon;
             background-image: url(/public/images/devdot/FacebookIcon.svg);
-            
+
             &:hover {
                 background-image: url(/public/images/devdot/FacebookIconHover.svg);
             }
@@ -513,7 +513,7 @@ footer {
                 background-image: url(/public/images/devdot/YoutubeIconClick.svg);
             }
         }
-        
+
     }
 
     .legal {
@@ -575,7 +575,7 @@ footer {
     }
 
     .github-icon a:active span {
-        background-image: url(/public/images/devdot/GitHubIconClick.svg);    
+        background-image: url(/public/images/devdot/GitHubIconClick.svg);
     }
 
     &.navbar {

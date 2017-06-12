@@ -1,0 +1,16 @@
+<div style="padding-left:10px;">
+    <ul class='api-ref-side-nav-active nav nav-pills nav-stacked sub-nav'>
+        {% for tag in include.tags %}
+            {% assign main_tag = tag[0] %}
+            {% assign tag_href = tag[1] %}
+            {% assign sub_tags = include.allLinks[main_tag] %}
+
+            {% if main_tag != 'home' %}
+                <li><a style="overflow: hidden" href="{{tag_href}}">{{main_tag}}</a></li>
+                {% if page.tag_name != blank and main_tag == page.tag_name and include.already_recursed != true %}
+                    {% include api_reference_subnavigation.html tags=sub_tags already_recursed=true %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
