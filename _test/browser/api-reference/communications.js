@@ -48,7 +48,7 @@ module.exports = {
             .elements('css selector', nav.TAGS, nav.check(browser.verify, expectedNumberOfApiEndpoints));
     },
     'API Reference: Communications: REST (verify number of endpoints)': function(browser) {
-        const expectedNumberOfApiEndpoints = 27;
+        const expectedNumberOfApiEndpoints = 28;
 
         browser
             .url(this.baseURL + '/api-reference/communications/afc-rest/methods/ApiV1CalculateAdjustmentsPost/')
