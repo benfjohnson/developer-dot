@@ -25,7 +25,8 @@ info:
     name: Trustfile API Support
     url: trustfile.com
     email: api@trustfile.com
-host: api.trustfile.avalara.com
+host: stable-api.trustfile.avalara.com
+x-production-host: api.trustfile.avalara.com
 basePath: /v3
 produces:
   - application/json
