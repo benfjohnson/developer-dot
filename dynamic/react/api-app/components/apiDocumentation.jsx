@@ -5,15 +5,35 @@ import ReactMarkdown from 'react-markdown';
 import ApiDocumentationParam from './apiDocumentationParam';
 import ApiDocModelLink from './apiDocModelLink';
 
+const UrlHelper = ({endpoint}) => {
+    if (endpoint.productionPath) {
+        return (
+            <span>
+                <tr>
+                    <th>{'URL (SANDBOX)'}</th>
+                    <td>{endpoint.path}</td>
+                </tr>
+                <tr>
+                    <th>{'URL (PRODUCTION)'}</th>
+                    <td>{endpoint.productionPath}</td>
+                </tr>
+            </span>
+        );
+    }
+
+    return (
+        <tr>
+            <th>{'URL'}</th>
+            <td>{endpoint.path}</td>
+        </tr>
+    );
+};
+
 const ApiDocumentation = ({endpoint}) => (
     <div>
         <h1 id={endpoint.operationId}>{endpoint.operationId}</h1>
         <table className='styled-table'>
             <thead>
-                <tr>
-                    <th>{'API'}</th>
-                    <td>{endpoint.operationId}</td>
-                </tr>
                 <tr>
                     <th>{'Purpose'}</th>
                     <td>{endpoint.name}</td>
@@ -26,10 +46,7 @@ const ApiDocumentation = ({endpoint}) => (
                     <th>{'REST Path'}</th>
                     <td>{decodeURI(url.parse(endpoint.path).pathname)}</td>
                 </tr>
-                <tr>
-                    <th>{'URL'}</th>
-                    <td>{endpoint.path}</td>
-                </tr>
+                <UrlHelper endpoint={endpoint} />
                 <tr>
                     <th>{'Query String'}</th>
                     <td>{(endpoint.queryString) ? '?' : ''}{Object.keys(endpoint.queryString || {}).join('&')}</td>
@@ -84,5 +101,10 @@ ApiDocumentation.displayName = 'API Documentation';
 ApiDocumentation.propTypes = {
     endpoint: PropTypes.object
 };
+UrlHelper.displayName = 'Url Helper';
+UrlHelper.propTypes = {
+    endpoint: PropTypes.object
+};
+
 
 export default ApiDocumentation;
