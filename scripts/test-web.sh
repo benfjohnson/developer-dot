@@ -7,11 +7,10 @@ set -e
 jekyllTrap="echo 'Killing jekyll...' && pkill -f jekyll"
 trap "$jekyllTrap" ERR INT
 
-if [[ "$@" == *"--skip-initial-build"* ]]; then
-    bundle exec jekyll serve --detach --skip-initial-build
-else
-    bundle exec jekyll serve --detach
+if [[ "$@" != *"--skip-initial-build"* ]]; then
+    bundle exec jekyll build
 fi
+bundle exec jekyll serve --detach --skip-initial-build
 
 if [[ "$@" != *"--skip-npm-build"* ]]; then
     npm run build
