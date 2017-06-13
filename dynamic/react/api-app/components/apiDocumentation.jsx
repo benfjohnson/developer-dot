@@ -101,6 +101,7 @@ ApiDocumentation.displayName = 'API Documentation';
 ApiDocumentation.propTypes = {
     endpoint: PropTypes.object
 };
+UrlHelper.displayName = 'Url Helper';
 UrlHelper.propTypes = {
     endpoint: PropTypes.object
 };
