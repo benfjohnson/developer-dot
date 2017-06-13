@@ -3,8 +3,6 @@ version: "2"
 services:
   selenium:
     image: selenium/standalone-chrome
-    ports:
-      - "4444:4444"
     command: [/usr/local/bin/selenium.sh]
     volumes:
       - ./scripts:/usr/local/bin
@@ -12,8 +10,6 @@ services:
 
   server:
     image: jeremycraigmartinez/devdot
-    ports:
-      - "4000:4000"
     command: [npm, run, test-web, --, --ci-test, --skip-initial-build,  --skip-npm-build]
     volumes:
       - ./:/app
