@@ -48,6 +48,7 @@ const saveMethodsIndex = (apiName, saveRoot, product, linksArray, methodSubsetNa
         return `${accum}
 <tr>
     <td><a href="/${encodeURIComponent(l.link)}">${l.name}</a></td>
+    <td>{{"${l.summary || ''}"}}</td>
     <td>{{"${(l.description || '').replace(/"/g, "'")}" | markdownify}}</td>
 </tr>`;
     }, '');
@@ -74,6 +75,7 @@ ${(!methodSubsetName) ? 'homepage: true' : ''}
     <thead>
         <tr>
             <th>Method</th>
+            <th>Purpose</th>
             <th>Summary</th>
         </tr>
     </thead>
@@ -195,7 +197,8 @@ ${(disqus) ? '{% include disqus.html %}' : ''}`
                             return {
                                 link: createEndpointUrl(apiPath, ep.operationId, tag),
                                 name: ep.operationId,
-                                description: ep.description
+                                description: ep.description,
+                                summary: ep.name
                             };
                         });
 
@@ -213,6 +216,7 @@ ${(disqus) ? '{% include disqus.html %}' : ''}`
                         return {
                             link: createEndpointUrl(apiPath, ep.operationId),
                             name: ep.operationId,
+                            summary: ep.name,
                             description: ep.description
                         };
                     });
