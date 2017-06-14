@@ -95,7 +95,6 @@ export default (api, apiWithRefs, rootPath) => {
         tagMap: api['x-group-by-tags'] ? {} : null,
         apiName: api.info.title,
         apiDescription: api.info.description,
-        appLoaded: false,
         apiType: api['x-ApiType'] || 'SOAP',
         sampleAuthHeader: api['x-sample-auth-header'] || null,
         sampleContentType: api.consumes || null

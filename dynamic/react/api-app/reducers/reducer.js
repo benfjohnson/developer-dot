@@ -3,8 +3,6 @@ import actionTypes from '../../shared/actionTypes';
 
 export default (state = {}, action) => {
     switch (action.type) {
-    case actionTypes.APP_LOADED:
-        return {...state, appLoaded: true};
     case actionTypes.AUTH_KEY_CHANGED:
         // Update auth header for each request in pmCollection:
         const params = {...state.auth.params, [action.keyName]: action.inputVal};

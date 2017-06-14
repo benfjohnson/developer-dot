@@ -8,7 +8,6 @@ import {Provider} from 'react-redux';
 import reducer from './reducers/reducer';
 
 import App from './app';
-import actionTypes from '../shared/actionTypes';
 
 const logger = createLogger();
 
@@ -18,16 +17,9 @@ const initialState = typeof window !== 'undefined' ? window.__INITIAL_STATE__ : 
 
 const store = process.env.NODE_ENV !== 'production' ? createStore(reducer, initialState, applyMiddleware(logger)) : createStore(reducer, initialState);
 
-/*
- * Initially render our app on the client to sync it with our server-render.
- * Once rendered, emit an APP_LOADED action so we can do browser-specific behavior.
- * This lets us create a 'Download POSTMAN' button using browser APIs without our client/server
- * isomorphic React getting out of sync (no way to access URL or Blob APIs on the server)!
- */
 render(
     <Provider store={store}>
         <App />
     </Provider>,
-     document.getElementById('api-console'),
-     () => store.dispatch({type: actionTypes.APP_LOADED})
+     document.getElementById('api-console')
 );
