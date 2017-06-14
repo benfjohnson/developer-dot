@@ -2,11 +2,11 @@ import {connect} from 'react-redux';
 import actions from '../../shared/actions';
 import EndpointComponent from '../components/endpoint';
 import {replaceStringPlaceholders, reduceParamsToKeyValuePair, submitApiRequest, submitProxiedRequest} from '../../shared/helpers';
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     return {
         apiType: state.apiType,
         sampleContentType: state.sampleContentType,
-        endpoint: ownProps.endpoint
+        endpoint: state.apiEndpoint
     };
 };
 

@@ -40,12 +40,9 @@ export default (state = {}, action) => {
     case actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION:
     case actionTypes.REMOVE_ITEM_FROM_POST_BODY_COLLECTION:
     case actionTypes.TOGGLE_SHOW_EXCLUDED_POST_BODY_PROPS:
-        return {...state, apiEndpoints: state.apiEndpoints.map((endpoint) => {
-            if (endpoint.id === action.endpointId) {
-                return apiConsoleReducer(endpoint, action);
-            }
-            return endpoint;
-        })};
+        const newApiEndpoint = apiConsoleReducer(state.apiEndpoint, action);
+
+        return {...state, apiEndpoint: newApiEndpoint};
     default:
         return state;
     }

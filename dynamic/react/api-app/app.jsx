@@ -1,31 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import AllEndpointsContainer from './containers/allEndpointsContainer';
+import EndpointContainer from './containers/endpointContainer';
 import DownloadPostmanCollection from './containers/downloadPostmanCollection';
 import ApiDescription from './components/apiDescription';
 import {connect} from 'react-redux';
 
-const App = ({isEmpty}) => (
+const App = ({hasEndpoint}) => (
     <div>
-        {isEmpty ?
+        {!hasEndpoint ?
             <div>
                 <ApiDescription />
                 <DownloadPostmanCollection />
             </div> :
-            <AllEndpointsContainer />
+            <EndpointContainer />
         }
         <br />
     </div>
 );
 
-const mapStateToProps = (state) => ({
-    isEmpty: state.apiEndpoints.length === 0
-});
+const mapStateToProps = (state) => {
+    return {
+        isEmpty: state.apiEndpoints.length === 0,
+        endpoint: state.apiEndpoint || null,
+        hasEndpoint: Boolean(state.apiEndpoint)
+    };
+};
 
 App.displayName = 'App';
 App.propTypes = {
-    isEmpty: PropTypes.bool
+    endpoint: PropTypes.object,
+    hasEndpoint: PropTypes.bool
 };
 
 export default connect(mapStateToProps)(App);

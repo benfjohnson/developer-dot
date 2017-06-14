@@ -1,15 +1,8 @@
 import path from 'path';
-import React from 'react';
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
-import reducer from './react/api-app/reducers/reducer';
 import SwaggerParser from 'swagger-parser';
-import App from './react/api-app/app';
-import {renderToString} from 'react-dom/server';
 import parseSwaggerUi from './parseSwaggerUI';
 import mkdirp from 'mkdirp';
 import fs from 'fs';
-
 
 // extraExtension just to write index.html for static pages
 const saveToFs = (folder, file, html) => {
@@ -29,14 +22,7 @@ const saveToFs = (folder, file, html) => {
 };
 
 const saveStaticPage = (tagName, apiPath, buildHtmlFunc, state, disqus = true) => {
-    const store = createStore(reducer, state);
-
-    const staticHtml = renderToString(
-        <Provider store={store}>
-            <App />
-        </Provider>
-    );
-    const html = buildHtmlFunc(tagName, staticHtml, state, disqus);
+    const html = buildHtmlFunc(tagName, state, disqus);
     const savePath = path.join(__dirname, '..', apiPath);
     const saveFolder = savePath.substring(0, savePath.lastIndexOf('/'));
 
@@ -124,7 +110,7 @@ export default (fileName, apiName, apiPath, product) => {
                     throw new Error('Error parsing swaggerDoc');
                 }
 
-                const buildHtml = (tagName, reactHtml, initialState, disqus) => {
+                const buildHtml = (tagName, initialState, disqus) => {
                     const endpointLinks = initialState.apiEndpoints.reduce((accum, endpt) => `${accum}["#${endpt.operationId.replace(/\s/g, '')}", "${endpt.name}"],\n`, '');
 
                     return (
@@ -142,7 +128,7 @@ endpoint_links: [
     ${endpointLinks}
 ]
 ---
-<div id="api-console">${reactHtml}</div>
+<div id="api-console"></div>
 <script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
 <script src="/public/js/api-bundle.js"></script>
 
@@ -204,8 +190,10 @@ ${(disqus) ? '{% include disqus.html %}' : ''}`
 
                         saveMethodsIndex(apiName, `${apiPath}/methods/${tag}`, product, apiEndpointLinks, tag);
 
-                        staticState.apiEndpoints.filter((ep) => operationIdsForTag.indexOf(ep.operationId) !== -1).forEach((ep) => {
-                            const singleEndpointStaticState = {...staticState, apiEndpoints: [ep]};
+                        const endpointsForTag = staticState.apiEndpoints.filter((ep) => operationIdsForTag.indexOf(ep.operationId) !== -1);
+
+                        endpointsForTag.forEach((ep) => {
+                            const singleEndpointStaticState = {...staticState, apiEndpoint: ep, apiEndpoints: endpointsForTag};
                             const singleEndpointPath = createEndpointUrl(apiPath, ep.operationId, tag);
 
                             saveStaticPage(tag, singleEndpointPath, buildHtml, singleEndpointStaticState);
@@ -224,7 +212,7 @@ ${(disqus) ? '{% include disqus.html %}' : ''}`
                     saveMethodsIndex(apiName, `${apiPath}/methods`, product, apiEndpointLinks);
 
                     staticState.apiEndpoints.forEach((ep) => {
-                        const singleEndpointStaticState = {...staticState, apiEndpoints: [ep]};
+                        const singleEndpointStaticState = {...staticState, apiEndpoint: ep};
                         const singleEndpointPath = createEndpointUrl(apiPath, ep.operationId);
 
                         // Normal case, just save a single API pages
