@@ -4,7 +4,7 @@ title: A New REST v2 API For AvaTax
 date: 2016-10-03 17:00
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, announcements]
 product: blog
 doctype: blog
 disqus: 1

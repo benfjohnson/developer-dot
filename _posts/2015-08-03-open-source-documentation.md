@@ -4,7 +4,7 @@ title: Open Source Documentation
 date: 2015-08-03 09:24
 author: anya.stettler
 comments: true
-categories: [Sales Tax APIs]
+categories: [older]
 product: blog
 doctype: blog
 ---

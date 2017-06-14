@@ -5,7 +5,7 @@ description: Ways to improve the performance of your tax calculation software
 date: 2017-04-19 12:00
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, howto]
 product: blog
 doctype: blog
 disqus: 1
