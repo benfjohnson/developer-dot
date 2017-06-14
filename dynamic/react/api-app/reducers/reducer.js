@@ -29,6 +29,12 @@ export default (state = {}, action) => {
             };
         });
         return {...state, auth: auth};
+
+    case actionTypes.USER_PROFILE_FETCHED:
+        const userProfile = action.user || null;
+
+        return {...state, userProfile};
+
     case actionTypes.RESET_CONSOLE:
     case actionTypes.SUBMIT_DONE:
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:

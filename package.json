@@ -5,7 +5,7 @@
   "scripts": {
     "build": "bash ./scripts/build.sh",
     "dev": "bash ./scripts/dev.sh",
-    "jekyll": "bundle exec jekyll serve",
+    "jekyll": "bundle exec jekyll serve --incremental",
     "docker-build": "docker build -t devdot . && docker run --rm -v \"$(pwd)\":/app -p 4000:4000 -ti devdot npm i",
     "docker-run": "docker run -v \"$(pwd)\":/app -p 4000:4000 -ti devdot bash -c \"npm run dev & npm run jekyll\"",
     "docker-selenium": "docker run --rm -v \"$(pwd)/scripts\":/usr/local/bin -p 4444:4444 -ti selenium/standalone-chrome /usr/local/bin/selenium.sh",
@@ -52,5 +52,8 @@
     "watch": "^0.19.2",
     "watchify": "^3.6.1",
     "whatwg-fetch": "^1.0.0"
+  },
+  "dependencies": {
+    "oidc-client": "^1.3.0"
   }
 }

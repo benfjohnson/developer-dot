@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ConsoleInputForm from './consoleInputForm';
 import ConsoleLiveData from './consoleLiveData';
+import userManager from '../user-manager';
 
 // Helper that determines what part of the endpoint is shown in the `Request` input of
 // the ConsoleLiveData component
@@ -16,16 +17,21 @@ const getRequest = (endpoint) => {
 
 const ApiConsole = (props) => {
     return (
-        <div className={'row api-console'}>
-            <div className={'col-md-4 col-xs-12 api-console-form-wrapper'}>
-                <ConsoleInputForm {...props} />
-            </div>
-            <div className={'col-md-8 col-xs-12 api-console-output'}>
-                <ConsoleLiveData
-                    action={props.endpoint.action}
-                    path={props.endpoint.path}
-                    request={getRequest(props.endpoint)}
-                    response={props.endpoint.apiResponse} />
+        <div>
+            <button onClick={() => {
+                userManager.signinRedirect();
+            }} style={{float: 'right'}}>{'Authorize'}</button>
+            <div className={'row api-console'}>
+                <div className={'col-md-4 col-xs-12 api-console-form-wrapper'}>
+                    <ConsoleInputForm {...props} />
+                </div>
+                <div className={'col-md-8 col-xs-12 api-console-output'}>
+                    <ConsoleLiveData
+                        action={props.endpoint.action}
+                        path={props.endpoint.path}
+                        request={getRequest(props.endpoint)}
+                        response={props.endpoint.apiResponse} />
+                </div>
             </div>
         </div>
     );

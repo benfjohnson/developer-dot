@@ -21,7 +21,6 @@ const App = ({hasEndpoint}) => (
 
 const mapStateToProps = (state) => {
     return {
-        isEmpty: state.apiEndpoints.length === 0,
         endpoint: state.apiEndpoint || null,
         hasEndpoint: Boolean(state.apiEndpoint)
     };
