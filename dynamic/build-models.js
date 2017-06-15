@@ -84,7 +84,6 @@ api_name: ${apiName}
 nav: apis
 product: ${product}
 doctype: api_references
-endpoint_links: []
 ---
 
 {% assign name = "${def}" %}
