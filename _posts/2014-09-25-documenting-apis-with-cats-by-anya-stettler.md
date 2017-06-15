@@ -4,7 +4,7 @@ title: Documenting APIs (with cats) by Anya Stettler
 date: 2014-09-25 10:38
 author: lokeuei
 comments: true
-categories: [apiworld, best practices, Development, documenting apis, presentation, Presentations, talk]
+categories: [older]
 product: blog
 doctype: blog
 ---

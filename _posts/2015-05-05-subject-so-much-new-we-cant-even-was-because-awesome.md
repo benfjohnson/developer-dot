@@ -4,7 +4,7 @@ title: "Subject: So Much New We Can't Even (was: Because Awesome)"
 date: 2015-05-05 09:00
 author: greg.bulmash
 comments: true
-categories: [Uncategorized]
+categories: [older]
 product: blog
 doctype: blog
 imgsrc: /public/images/blog/headshot-279x300.jpg

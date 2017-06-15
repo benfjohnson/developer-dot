@@ -4,7 +4,7 @@ title: Wacky Sales Tax Facts #2
 date: 2015-07-22 09:00
 author: lokeuei
 comments: true
-categories: [bizarre, hoisington, jurisdiction, kansas, sales tax, Sales Tax APIs, small, subway, weird]
+categories: [older]
 product: avaTax
 doctype: blog
 imgsrc: /public/images/blog/Screen-Shot-2015-07-21-at-2.38.32-PM.png

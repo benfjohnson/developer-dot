@@ -4,7 +4,7 @@ title: Loke as in Joke
 date: 2015-05-19 09:00
 author: lokeuei
 comments: true
-categories: [avalara, developer relations, employee, hello, introduction, loke tan, Sales Tax APIs, team]
+categories: [older]
 product: blog
 doctype: blog
 imagesrc: /public/images/blog/Loke-Saber-257x300.jpg

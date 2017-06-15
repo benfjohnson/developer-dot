@@ -4,7 +4,7 @@ title: Avalara AvaTax API Demo
 date: 2012-07-16 12:56
 author: avalara
 comments: true
-categories: [api, demo, Sales Tax APIs, sales tax service, video]
+categories: [older]
 product: avaTax
 doctype: blog
 imgsrc: /public/images/blog/avatax-api-demo-video-550x304.png
