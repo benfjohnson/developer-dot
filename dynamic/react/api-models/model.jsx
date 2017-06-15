@@ -39,8 +39,8 @@ const Model = ({m, name}) => (
                 </tr>
             </thead>
             {m.properties ?
-                <tbody>{Object.keys(m.properties).map((key, i) => <ModelProperty key={i} name={key} prop={m.properties[key]} requiredProps={m.required} />)}</tbody> :
-                <tbody><ModelProperty name={name} prop={m} requiredProps={m.required} /></tbody>
+                <tbody>{Object.keys(m.properties).map((key, i) => <ModelProperty key={i} modelName={name} name={key} prop={m.properties[key]} requiredProps={m.required} />)}</tbody> :
+                <tbody><ModelProperty modelName={name} name={name} prop={m} requiredProps={m.required} /></tbody>
             }
         </table>
         {m.example ?

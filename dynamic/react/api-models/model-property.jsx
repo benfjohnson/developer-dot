@@ -1,5 +1,4 @@
 import React from 'react';
-import {ModelPropertyType} from 'prop-types';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 
@@ -38,7 +37,7 @@ const BuildLinkOrType = ({modelName, p, propName}) => {
             return (
                 <div>
                     <a href={`../enums/${modelName} > ${propName}`}>{propName}</a><br/>
-                    Enum<br/>
+                    {'Enum'}<br/>
                 </div>
             );
         }
@@ -47,14 +46,14 @@ const BuildLinkOrType = ({modelName, p, propName}) => {
 };
 
 BuildLinkOrType.displayName = 'Build Link or Type';
-BuildLinkOrType.propTypes = {p: ModelPropertyType};
+BuildLinkOrType.propTypes = {modelName: PropTypes.string, p: PropTypes.object, propName: PropTypes.string};
 
-const ModelProperty = ({name, prop, requiredProps = []}) => {
+const ModelProperty = ({modelName, name, prop, requiredProps = []}) => {
     return (
         <tr>
             <td>{name}</td>
             <td>
-                <BuildLinkOrType p={prop} />
+                <BuildLinkOrType modelName={modelName} p={prop} propName={name} />
                 <span>{requiredProps.includes('name') ? 'Required' : 'Optional'}<br/></span>
                 {prop.readOnly ? <span>{'Read Only'}<br/></span> : null}
                 {prop.hasOwnProperty('maxLength') ? <span>{`Max Length: ${prop.maxLength}`}<br/></span> : null}
@@ -77,8 +76,9 @@ const ModelProperty = ({name, prop, requiredProps = []}) => {
 
 ModelProperty.displayName = 'Model Property';
 ModelProperty.propTypes = {
+    modelName: PropTypes.string,
     name: PropTypes.string,
-    prop: ModelPropertyType,
+    prop: PropTypes.object,
     requiredProps: PropTypes.arrayOf(PropTypes.string)
 };
 

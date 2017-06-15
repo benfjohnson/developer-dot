@@ -34,7 +34,5 @@ const ModelType = {
 };
 
 export {
-    SwaggerType,
-    ModelPropertyType,
     ModelType
 };
