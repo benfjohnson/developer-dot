@@ -13,6 +13,11 @@ html, body {
     overflow-x: hidden;
 }
 
+html {
+    min-height: 100%;
+    position: relative;
+}
+
 .mouse {
     cursor: pointer;
 }
@@ -399,6 +404,13 @@ footer {
     // padding: $grid-gutter-width;
     padding: 20px 20px 20px 20px;
 
+    overflow: hidden;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    max-height: 150px;
+
     a {
         color: $Darkest-blue;
         font-family: 'apertura regular';
@@ -580,6 +592,16 @@ footer {
 
     &.navbar {
         margin-bottom: 0;
+    }
+}
+
+@media (max-width : 500px) {
+    footer {
+        max-height: 250px;
+    }
+
+    .container-fluid {
+        margin-bottom: 250px;
     }
 }
 
