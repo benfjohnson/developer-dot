@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {ModelType} from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import ModelProperty from './model-property';
 
@@ -9,7 +9,7 @@ const Model = ({m, name}) => (
         {m.description ?
             <div>
                 <h2 id='description'>{'Description'}</h2>
-                <p><ReactMarkdown source={m.description} /></p>
+                <ReactMarkdown source={m.description} />
             </div> : null
         }
         {m['x-methods-used-in'].length ?
@@ -17,9 +17,9 @@ const Model = ({m, name}) => (
                 <h2 id='references'>{'References'}</h2>
                 <p>{'This model is used in the following APIs:'}</p>
                 <ul>
-                    {m['x-methods-used-in'].map((method) => {
+                    {m['x-methods-used-in'].map((method, i) => {
                         return (
-                            <li>
+                            <li key={i}>
                                 <a href={`../../methods/${method}`}>{method}</a>
                             </li>
                         );
@@ -38,12 +38,10 @@ const Model = ({m, name}) => (
                     <th>{'Summary'}</th>
                 </tr>
             </thead>
-            <tbody>
-                {m.properties ?
-                    Object.keys(m.properties).map((key) => <ModelProperty name={key} prop={m.properties[key]} requiredProps={m.required} />) :
-                    <ModelProperty name={name} prop={m} requiredProps={m.required} />
-                }
-            </tbody>
+            {m.properties ?
+                <tbody>{Object.keys(m.properties).map((key, i) => <ModelProperty key={i} name={key} prop={m.properties[key]} requiredProps={m.required} />)}</tbody> :
+                <tbody><ModelProperty name={name} prop={m} requiredProps={m.required} /></tbody>
+            }
         </table>
         {m.example ?
             <div>
@@ -53,5 +51,8 @@ const Model = ({m, name}) => (
         }
     </div>
 );
+
+Model.displayName = 'Model';
+Model.propTypes = ModelType;
 
 export default Model;

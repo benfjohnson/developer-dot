@@ -85,9 +85,9 @@ doctype: api_references
 <div id='react-root'></div>
 <script>
     window.PAGE_MODEL = ${JSON.stringify(defs[def])};
-    window.MODEL_NAME = def;
+    window.MODEL_NAME = '${def}';
 </script>
-<script src='public/js/render-model.js'></script>
+<script src='/public/js/render-model-bundle.js'></script>
 
 {% include disqus.html %}`;
 

@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import Model from './model';
 import React from 'react';
 import {render} from 'react-dom';

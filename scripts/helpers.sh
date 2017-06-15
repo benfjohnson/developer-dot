@@ -49,6 +49,5 @@ init() {
     git clean -dxf --exclude='**/node_modules' --exclude='**/tmp'
     transpile_sass
     build_pages build-all-pages.js
-    browserify_bundle "dynamic/react/api-models/index.js" "public/js/render-model.js"
     build_pages build-models.js
 }
