@@ -60,9 +60,9 @@ const ApiDocumentation = ({endpoint}) => (
                     <th>{'Summary'}</th>
                 </tr>
             </thead>
-            <ApiDocumentationParam params={endpoint.pathParams} type={'UriPath'} />
-            <ApiDocumentationParam params={endpoint.headerParams} type={'Header'} />
-            <ApiDocumentationParam params={endpoint.queryString} type={'QueryString'} />
+            <ApiDocumentationParam currentOperation={endpoint.operationId} params={endpoint.pathParams} type={'UriPath'} />
+            <ApiDocumentationParam currentOperation={endpoint.operationId} params={endpoint.headerParams} type={'Header'} />
+            <ApiDocumentationParam currentOperation={endpoint.operationId} params={endpoint.queryString} type={'QueryString'} />
             {endpoint.requestSchemaWithRefs ?
                 <tbody>
                     <tr>

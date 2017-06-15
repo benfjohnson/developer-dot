@@ -4,6 +4,7 @@ import yaml from 'js-yaml';
 import mkdirp from 'mkdirp';
 import SWAGGER_CONFIG from './SWAGGER_CONFIG';
 import {buildDefinitions} from './build-models-helpers';
+import {buildEnumFromModel} from './build-enums';
 
 const dataDir = `${__dirname}/../_data/swagger`;
 
@@ -96,6 +97,8 @@ endpoint_links: []
 
 {% include disqus.html %}`;
 
+        buildEnumFromModel({dir, apiName, product, def}, defs[def]);
+
         fs.writeFile(`${dir}/${def}.html`, html, function(err) {
             if (err) {
                 console.log(err);
@@ -148,7 +151,7 @@ fs.symlink(swagPath, dataPath, function() {
 
             buildHtml(newFilename, allDefinitions, name, product);
         } catch (e) {
-            console.log(`\x1b[31mFailed to write ${key} models \x1b[0m`);
+            console.log(`\x1b[31mFailed to write ${key} models: ${e} \x1b[0m`);
             // Some Swagger_Config files don't exist, or are missing definitions to parse
             // Skip these!
         }
