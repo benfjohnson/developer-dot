@@ -4,7 +4,7 @@ title: Updates to REST tax/get POST with 13.3. release
 date: 2013-04-15 23:45
 author: anya.stettler
 comments: true
-categories: [Sales Tax APIs]
+categories: [older]
 product: avaTax
 doctype: blog
 ---

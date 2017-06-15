@@ -4,7 +4,7 @@ title: Developer Testimonial
 date: 2013-07-18 21:00
 author: julia.king
 comments: true
-categories: [Sales Tax APIs]
+categories: [older]
 product: certification
 doctype: blog
 ---

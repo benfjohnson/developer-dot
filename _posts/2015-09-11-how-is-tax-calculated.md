@@ -4,7 +4,7 @@ title: How is tax calculated?
 date: 2015-09-11 09:53
 author: anya.stettler
 comments: true
-categories: [Sales Tax APIs]
+categories: [older]
 product: avaTax
 doctype: blog
 imgsrc: /public/images/blog/shutterstock_310565729.jpg

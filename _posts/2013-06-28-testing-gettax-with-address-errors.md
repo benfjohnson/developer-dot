@@ -4,7 +4,7 @@ title: Testing Address Errors
 date: 2013-06-28 18:57
 author: seanrust
 comments: true
-categories: [Sales Tax APIs]
+categories: [older]
 product: avaTax
 doctype: blog
 ---

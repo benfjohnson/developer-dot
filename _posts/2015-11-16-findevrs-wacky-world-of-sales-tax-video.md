@@ -4,7 +4,7 @@ title: FinDEVr's Wacky World of Sales Tax Video
 date: 2015-11-16 09:00
 author: lokeuei
 comments: true
-categories: [Presentations, Sales Tax APIs]
+categories: [older]
 product: avaTax
 doctype: blog
 imgsrc: /public/images/blog/Screen-Shot-2015-11-09-at-2.26.01-PM.png

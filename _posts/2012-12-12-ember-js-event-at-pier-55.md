@@ -4,7 +4,7 @@ title: Ember.js event at Pier 55
 date: 2012-12-12 15:32
 author: ben.macfarlane
 comments: true
-categories: [Development, ember, emberjs, meetup, pier 55, seattle, tom dale, video, yehuda katz]
+categories: [older]
 product: blog
 doctype: blog
 ---

@@ -5,7 +5,7 @@ description: Release Notes for the April 2017 update to the AvaTax REST v2 API.
 date: 2017-03-30 16:00
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, patch notes]
 product: blog
 doctype: blog
 disqus: 1

@@ -1,16 +1,10 @@
-const assert = require('../helpers/assert');
-const {nav} = require('../helpers/api-reference/generalTests');
+const deepEqual = require('../helpers/deepEqual');
 
 const NUMAPIS = 1;
+const expectedNumberOfApiEndpoints = 9;
 
 module.exports = {
-    'baseURL': process.env.BASEURL ? process.env.BASEURL.replace(/\/$/, '') : 'http://localhost:4000',
-    'waitTime': isNaN(parseInt(process.env.TIMEOUT, 10)) ? 5000 : parseInt(process.env.TIMEOUT, 10),
     'before': function(browser) {
-        /* eslint-disable no-console */
-        console.log('WaitTime set to', this.waitTime);
-        console.log('BaseURL set to', this.baseURL);
-        /* eslint-enable no-console */
         browser.maximizeWindow();
     },
 
@@ -19,19 +13,9 @@ module.exports = {
     },
 
     'API Reference: LandedCost (verify number of endpoints)': function(browser) {
-        const expectedNumberOfApiEndpoints = 9;
-
         browser
-            .url(this.baseURL + '/api-reference/landedcost/methods/units/')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
-
-            .elements('css selector', '.endpoint-summary', function(result) {
-                /* eslint-disable no-invalid-this */
-                this.assert.equal(result.value.length, 1, 'expected 1 endpoints, received ' + result.value.length);
-                /* eslint-enable no-invalid-this */
-            })
-            .elements('css selector', nav.APIS, nav.check(browser.verify, NUMAPIS))
-            .elements('css selector', nav.TAGS, nav.check(browser.verify, expectedNumberOfApiEndpoints));
+            .initialize(browser.globals.baseURL + '/api-reference/landedcost/methods/units/')
+            .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
     },
     'API Reference: LandedCost: validateCreds': function(browser) {
         const expectedResponse = {
@@ -39,23 +23,16 @@ module.exports = {
         };
 
         browser
-            .url(this.baseURL + '/api-reference/landedcost/methods/validateCreds/')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
+            .initialize(browser.globals.baseURL + '/api-reference/landedcost/methods/validateCreds/')
+            .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
 
-            .waitForElementVisible('#validateCreds-console', this.waitTime)
-            .click('#validateCreds-console')
-            .waitForElementVisible('#validateCreds-console-body', this.waitTime)
+        browser.page.endpointSummary()
+            .navigateTo('#validateCreds-console')
+            .navigateTo('#validateCreds-console-body .submit')
 
-            .click('#validateCreds-console-body .submit')
-            .waitForElementVisible('#validateCreds-console-body .api-console-output .code-snippet span:first-of-type', this.waitTime)
-            .getText('#validateCreds-console-body .api-console-output .code-snippet', function(res) {
-                /* eslint-disable no-invalid-this */
-                const response = JSON.parse(res.value);
-
-                response.Timestamp = undefined;
-
-                this.assert.equal(JSON.stringify(response), JSON.stringify(expectedResponse));
-                /* eslint-enable no-invalid-this */
+            .getConsoleText('validateCreds', 'responseConsole-GET', function(res) {
+                browser.assert.ok(deepEqual(res, expectedResponse),
+                    "request for 'try it now' matches expected request");
             });
     },
     'API Reference: LandedCost: calculate (fill sample data)': function(browser) {
@@ -248,33 +225,23 @@ module.exports = {
         };
 
         browser
-            .url(this.baseURL + '/api-reference/landedcost/methods/calculate')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
+            .initialize(browser.globals.baseURL + '/api-reference/landedcost/methods/calculate')
+            .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
 
-            .waitForElementVisible('#calculate-console', this.waitTime)
-            .click('#calculate-console')
-            .waitForElementVisible('#calculate-console-body', this.waitTime)
+        browser.page.endpointSummary()
+            .navigateTo('#calculate-console')
+            .navigateTo('#calculate-console-body .fill-sample-data')
 
-            .click('#calculate-console-body .fill-sample-data')
-            .waitForElementVisible('#calculate-console-body .console-req-container .code-snippet span:first-of-type', this.waitTime)
-            .getText('#calculate-console-body .console-req-container .code-snippet', function(req) {
-                /* eslint-disable no-invalid-this */
-                const request = JSON.parse(req.value);
-
-                request.date = undefined;
-                this.assert.equal(JSON.stringify(request), JSON.stringify(expectedRequest));
-                /* eslint-enable no-invalid-this */
+            .getConsoleText('calculate', 'requestConsole', function(req) {
+                browser.assert.ok(deepEqual(req, expectedRequest),
+                    "request for 'try it now' matches expected request");
             })
 
             .click('#calculate-console-body .submit')
-            .waitForElementVisible('#calculate-console-body .console-res-container .code-snippet span:first-of-type', this.waitTime)
-            .getText('#calculate-console-body .console-res-container .code-snippet', function(res) {
-                /* eslint-disable no-invalid-this */
-                const response = JSON.parse(res.value);
 
-                response.date = undefined;
-                this.assert.equal(JSON.stringify(response), JSON.stringify(expectedResponse));
-                /* eslint-enable no-invalid-this */
+            .getConsoleText('calculate', 'responseConsole', function(res) {
+                browser.assert.ok(deepEqual(res, expectedResponse),
+                    "request for 'try it now' matches expected request");
             });
     },
     'API Reference: LandedCost: rates (fill sample data)': function(browser) {
@@ -341,31 +308,23 @@ module.exports = {
         ];
 
         browser
-            .url(this.baseURL + '/api-reference/landedcost/methods/rates')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
+            .initialize(browser.globals.baseURL + '/api-reference/landedcost/methods/rates')
+            .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
 
-            .waitForElementVisible('#rates-console', this.waitTime)
-            .click('#rates-console')
-            .waitForElementVisible('#rates-console-body', this.waitTime)
+        browser.page.endpointSummary()
+            .navigateTo('#rates-console')
+            .navigateTo('#rates-console-body .fill-sample-data')
 
-            .click('#rates-console-body .fill-sample-data')
-            .waitForElementVisible('#rates-console-body .console-req-container .code-snippet span:first-of-type', this.waitTime)
-            .getText('#rates-console-body .console-req-container .code-snippet', function(req) {
-                /* eslint-disable no-invalid-this */
-                const request = JSON.parse(req.value);
-
-                this.assert.equal(JSON.stringify(request), JSON.stringify(expectedRequest));
-                /* eslint-enable no-invalid-this */
+            .getConsoleText('rates', 'requestConsole', function(req) {
+                browser.assert.ok(deepEqual(req, expectedRequest),
+                    "request for 'try it now' matches expected request");
             })
 
             .click('#rates-console-body .submit')
-            .waitForElementVisible('#rates-console-body .console-res-container .code-snippet span:first-of-type', this.waitTime)
-            .getText('#rates-console-body .console-res-container .code-snippet', function(res) {
-                /* eslint-disable no-invalid-this */
-                const response = JSON.parse(res.value);
 
-                this.assert.equal(JSON.stringify(response), JSON.stringify(expectedResponse));
-                /* eslint-enable no-invalid-this */
+            .getConsoleText('rates', 'responseConsole', function(res) {
+                browser.assert.ok(deepEqual(res, expectedResponse),
+                    "request for 'try it now' matches expected request");
             });
     },
     'API Reference: LandedCost: units (fill sample data)': function(browser) {
@@ -399,55 +358,39 @@ module.exports = {
         ];
 
         browser
-            .url(this.baseURL + '/api-reference/landedcost/methods/units')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
+            .initialize(browser.globals.baseURL + '/api-reference/landedcost/methods/units')
+            .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
 
-            .waitForElementVisible('#units-console', this.waitTime)
-            .click('#units-console')
-            .waitForElementVisible('#units-console-body', this.waitTime)
+        browser.page.endpointSummary()
+            .navigateTo('#units-console')
+            .navigateTo('#units-console-body .fill-sample-data')
 
-            .click('#units-console-body .fill-sample-data')
-            .waitForElementVisible('#units-console-body .console-req-container .code-snippet span:first-of-type', this.waitTime)
-            .getText('#units-console-body .console-req-container .code-snippet', function(req) {
-                /* eslint-disable no-invalid-this */
-                const request = JSON.parse(req.value);
-
-                this.assert.ok(assert.deepEqual(request, expectedRequest),
+            .getConsoleText('units', 'requestConsole', function(req) {
+                browser.assert.ok(deepEqual(req, expectedRequest),
                     "request for 'try it now' matches expected request");
-                /* eslint-enable no-invalid-this */
             })
 
             .click('#units-console-body .submit')
-            .waitForElementVisible('#units-console-body .console-res-container .code-snippet span:first-of-type', this.waitTime)
-            .getText('#units-console-body .console-res-container .code-snippet', function(res) {
-                /* eslint-disable no-invalid-this */
-                const response = JSON.parse(res.value);
 
-                this.assert.ok(assert.deepEqual(response, expectedResponse),
-                    "response for 'try it now' matches expected response");
-                /* eslint-enable no-invalid-this */
+            .getConsoleText('units', 'responseConsole', function(res) {
+                browser.assert.ok(deepEqual(res, expectedResponse),
+                    "request for 'try it now' matches expected request");
             });
     },
     'API Reference: LandedCost: getCountries': function(browser) {
         const expectedResponse = {destination: [{code: 'AX', name: 'Aland', system: 'TARIC'}, {code: 'AR', name: 'Argentina', system: 'MCN'}, {code: 'AW', name: 'Aruba', system: 'CTAW'}, {code: 'AU', name: 'Australia', system: 'HTISC'}, {code: 'AT', name: 'Austria', system: 'TARIC'}, {code: 'BH', name: 'Bahrain', system: 'UCTGCC'}, {code: 'BD', name: 'Bangladesh', system: 'CTBD'}, {code: 'BB', name: 'Barbados', system: 'CETCC'}, {code: 'BY', name: 'Belarus', system: 'UCTEEU'}, {code: 'BE', name: 'Belgium', system: 'TARIC'}, {code: 'BM', name: 'Bermuda', system: 'BCT'}, {code: 'BO', name: 'Bolivia', system: 'CETCAN'}, {code: 'BR', name: 'Brazil', system: 'MCN'}, {code: 'BG', name: 'Bulgaria', system: 'TARIC'}, {code: 'CA', name: 'Canada', system: 'CTCA'}, {code: 'KY', name: 'Cayman Islands', system: 'CTKY'}, {code: 'IO', name: 'Chagos Islands', system: 'TARIC'}, {code: 'CL', name: 'Chile', system: 'CTCL'}, {code: 'CN', name: 'China', system: 'TSCN'}, {code: 'CX', name: 'Christmas Island', system: 'HTISC'}, {code: 'CC', name: 'Cocos Islands', system: 'HTISC'}, {code: 'CO', name: 'Colombia', system: 'CETCAN'}, {code: 'CR', name: 'Costa Rica', system: 'CTCACU'}, {code: 'HR', name: 'Croatia', system: 'TARIC'}, {code: 'CY', name: 'Cyprus', system: 'TARIC'}, {code: 'CZ', name: 'Czech', system: 'TARIC'}, {code: 'DK', name: 'Denmark', system: 'TARIC'}, {code: 'DO', name: 'Dominican Republic', system: 'CETDO'}, {code: 'EC', name: 'Ecuador', system: 'CETCAN'}, {code: 'EG', name: 'Egypt', system: 'COMESA'}, {code: 'SV', name: 'El Salvador', system: 'CTCACU'}, {code: 'EE', name: 'Estonia', system: 'TARIC'}, {code: 'FI', name: 'Finland', system: 'TARIC'}, {code: 'FR', name: 'France', system: 'TARIC'}, {code: 'DE', name: 'Germany', system: 'TARIC'}, {code: 'GH', name: 'Ghana', system: 'HSCTGH'}, {code: 'GR', name: 'Greece', system: 'TARIC'}, {code: 'GP', name: 'Guadeloupe', system: 'TARIC'}, {code: 'GT', name: 'Guatemala', system: 'CTCACU'}, {code: 'GG', name: 'Guernsey', system: 'TARIC'}, {code: 'GF', name: 'Guiana', system: 'TARIC'}, {code: 'HN', name: 'Honduras', system: 'CTCACU'}, {code: 'HK', name: 'Hong Kong', system: 'HKSAR'}, {code: 'HU', name: 'Hungary', system: 'TARIC'}, {code: 'IS', name: 'Iceland', system: 'CTIS'}, {code: 'IN', name: 'India', system: 'CTIN'}, {code: 'ID', name: 'Indonesia', system: 'AHTN'}, {code: 'IE', name: 'Ireland', system: 'TARIC'}, {code: 'IL', name: 'Israel', system: 'CTIL'}, {code: 'IT', name: 'Italy', system: 'TARIC'}, {code: 'JM', name: 'Jamaica', system: 'CETCC'}, {code: 'JP', name: 'Japan', system: 'TSJP'}, {code: 'JE', name: 'Jersey', system: 'TARIC'}, {code: 'JO', name: 'Jordan', system: 'CTJO'}, {code: 'KZ', name: 'Kazakhstan', system: 'UCTEEU'}, {code: 'KW', name: 'Kuwait', system: 'UCTGCC'}, {code: 'KG', name: 'Kyrgyzstan', system: 'UCTEEU'}, {code: 'LV', name: 'Latvia', system: 'TARIC'}, {code: 'LB', name: 'Lebanon', system: 'HSCTLB'}, {code: 'LI', name: 'Liechtenstein', system: 'CTCH'}, {code: 'LT', name: 'Lithuania', system: 'TARIC'}, {code: 'LU', name: 'Luxembourg', system: 'TARIC'}, {code: 'MO', name: 'Macao', system: 'CTMO'}, {code: 'MY', name: 'Malaysia', system: 'AHTN'}, {code: 'MT', name: 'Malta', system: 'TARIC'}, {code: 'IM', name: 'Mann', system: 'TARIC'}, {code: 'MQ', name: 'Martinique', system: 'TARIC'}, {code: 'MX', name: 'Mexico', system: 'CTMX'}, {code: 'MC', name: 'Monaco', system: 'TARIC'}, {code: 'MA', name: 'Morocco', system: 'CTMA'}, {code: 'NL', name: 'Netherlands', system: 'TARIC'}, {code: 'NZ', name: 'New Zealand', system: 'TSNZ'}, {code: 'NG', name: 'Nigeria', system: 'CTNG'}, {code: 'NF', name: 'Norfolk Island', system: 'HTISC'}, {code: 'NO', name: 'Norway', system: 'HSNO'}, {code: 'OM', name: 'Oman', system: 'UCTGCC'}, {code: 'PK', name: 'Pakistan', system: 'CTPK'}, {code: 'PA', name: 'Panama', system: 'ITPA'}, {code: 'PY', name: 'Paraguay', system: 'MCN'}, {code: 'PE', name: 'Peru', system: 'CETCAN'}, {code: 'PH', name: 'Philippines', system: 'AHTN'}, {code: 'PL', name: 'Poland', system: 'TARIC'}, {code: 'PT', name: 'Portugal', system: 'TARIC'}, {code: 'PR', name: 'Puerto Rico', system: 'HTS'}, {code: 'QA', name: 'Qatar', system: 'UCTGCC'}, {code: 'RE', name: 'Reunion', system: 'TARIC'}, {code: 'RO', name: 'Romania', system: 'TARIC'}, {code: 'RU', name: 'Russia', system: 'UCTEEU'}, {code: 'LC', name: 'Saint Lucia', system: 'CARICOM'}, {code: 'SM', name: 'San Marino', system: 'TARIC'}, {code: 'SA', name: 'Saudi Arabia', system: 'UCTGCC'}, {code: 'RS', name: 'Serbia', system: 'HNCTRS'}, {code: 'SG', name: 'Singapore', system: 'STCCED'}, {code: 'SK', name: 'Slovakia', system: 'TARIC'}, {code: 'SI', name: 'Slovenia', system: 'TARIC'}, {code: 'ZA', name: 'South Africa', system: 'SACU'}, {code: 'KR', name: 'South Korea', system: 'HTSKR'}, {code: 'ES', name: 'Spain', system: 'TARIC'}, {code: 'LK', name: 'Sri Lanka', system: 'CTLK'}, {code: 'SE', name: 'Sweden', system: 'TARIC'}, {code: 'CH', name: 'Switzerland', system: 'CTCH'}, {code: 'TW', name: 'Taiwan', system: 'CTCN'}, {code: 'TJ', name: 'Tajikistan', system: 'UCTEEU'}, {code: 'TH', name: 'Thailand', system: 'AHTN'}, {code: 'TT', name: 'Trinidad and Tobago', system: 'CETCC'}, {code: 'TR', name: 'Turkey', system: 'TARIC'}, {code: 'UA', name: 'Ukraine', system: 'CTUA'}, {code: 'AE', name: 'United Arab Emirates', system: 'UCTGCC'}, {code: 'GB', name: 'United Kingdom', system: 'TARIC'}, {code: 'US', name: 'United States', system: 'HTS'}, {code: 'UY', name: 'Uruguay', system: 'MCN'}, {code: 'VE', name: 'Venezuela', system: 'MCN'}, {code: 'VN', name: 'Viet Nam', system: 'AHTN'}, {code: null, name: null, system: 'CTBO'}, {code: null, name: null, system: 'CTKH'}, {code: null, name: null, system: 'CTCO'}, {code: null, name: null, system: 'CTID'}, {code: null, name: null, system: 'CTPE'}, {code: null, name: null, system: 'CTPH'}, {code: null, name: null, system: 'CTTH'}], source: [{code: null, name: null, system: 'CTBO'}, {code: null, name: null, system: 'CTKH'}, {code: null, name: null, system: 'CTCO'}, {code: null, name: null, system: 'CTID'}, {code: null, name: null, system: 'CTPE'}, {code: null, name: null, system: 'CTPH'}, {code: null, name: null, system: 'CTTH'}, {code: 'AX', name: 'Aland', system: 'TARIC'}, {code: 'AR', name: 'Argentina', system: 'MCN'}, {code: 'AW', name: 'Aruba', system: 'CTAW'}, {code: 'AT', name: 'Austria', system: 'TARIC'}, {code: 'BH', name: 'Bahrain', system: 'UCTGCC'}, {code: 'BD', name: 'Bangladesh', system: 'CTBD'}, {code: 'BB', name: 'Barbados', system: 'CETCC'}, {code: 'BY', name: 'Belarus', system: 'UCTEEU'}, {code: 'BE', name: 'Belgium', system: 'TARIC'}, {code: 'BM', name: 'Bermuda', system: 'BCT'}, {code: 'BO', name: 'Bolivia', system: 'CETCAN'}, {code: 'BR', name: 'Brazil', system: 'MCN'}, {code: 'BG', name: 'Bulgaria', system: 'TARIC'}, {code: 'CA', name: 'Canada', system: 'CTCA'}, {code: 'KY', name: 'Cayman Islands', system: 'CTKY'}, {code: 'IO', name: 'Chagos Islands', system: 'TARIC'}, {code: 'CL', name: 'Chile', system: 'CTCL'}, {code: 'CN', name: 'China', system: 'TSCN'}, {code: 'CO', name: 'Colombia', system: 'CETCAN'}, {code: 'CR', name: 'Costa Rica', system: 'CTCACU'}, {code: 'HR', name: 'Croatia', system: 'TARIC'}, {code: 'CY', name: 'Cyprus', system: 'TARIC'}, {code: 'CZ', name: 'Czech', system: 'TARIC'}, {code: 'DK', name: 'Denmark', system: 'TARIC'}, {code: 'DO', name: 'Dominican Republic', system: 'CETDO'}, {code: 'EC', name: 'Ecuador', system: 'CETCAN'}, {code: 'EG', name: 'Egypt', system: 'COMESA'}, {code: 'SV', name: 'El Salvador', system: 'CTCACU'}, {code: 'EE', name: 'Estonia', system: 'TARIC'}, {code: 'FI', name: 'Finland', system: 'TARIC'}, {code: 'FR', name: 'France', system: 'TARIC'}, {code: 'DE', name: 'Germany', system: 'TARIC'}, {code: 'GH', name: 'Ghana', system: 'HSCTGH'}, {code: 'GR', name: 'Greece', system: 'TARIC'}, {code: 'GP', name: 'Guadeloupe', system: 'TARIC'}, {code: 'GT', name: 'Guatemala', system: 'CTCACU'}, {code: 'GG', name: 'Guernsey', system: 'TARIC'}, {code: 'GF', name: 'Guiana', system: 'TARIC'}, {code: 'HN', name: 'Honduras', system: 'CTCACU'}, {code: 'HK', name: 'Hong Kong', system: 'HKSAR'}, {code: 'HU', name: 'Hungary', system: 'TARIC'}, {code: 'IS', name: 'Iceland', system: 'CTIS'}, {code: 'IN', name: 'India', system: 'CTIN'}, {code: 'ID', name: 'Indonesia', system: 'AHTN'}, {code: 'IE', name: 'Ireland', system: 'TARIC'}, {code: 'IL', name: 'Israel', system: 'CTIL'}, {code: 'IT', name: 'Italy', system: 'TARIC'}, {code: 'JM', name: 'Jamaica', system: 'CETCC'}, {code: 'JP', name: 'Japan', system: 'TSJP'}, {code: 'JE', name: 'Jersey', system: 'TARIC'}, {code: 'JO', name: 'Jordan', system: 'CTJO'}, {code: 'KZ', name: 'Kazakhstan', system: 'UCTEEU'}, {code: 'KW', name: 'Kuwait', system: 'UCTGCC'}, {code: 'KG', name: 'Kyrgyzstan', system: 'UCTEEU'}, {code: 'LV', name: 'Latvia', system: 'TARIC'}, {code: 'LB', name: 'Lebanon', system: 'HSCTLB'}, {code: 'LI', name: 'Liechtenstein', system: 'CTCH'}, {code: 'LT', name: 'Lithuania', system: 'TARIC'}, {code: 'LU', name: 'Luxembourg', system: 'TARIC'}, {code: 'MO', name: 'Macao', system: 'CTMO'}, {code: 'MY', name: 'Malaysia', system: 'AHTN'}, {code: 'MT', name: 'Malta', system: 'TARIC'}, {code: 'IM', name: 'Mann', system: 'TARIC'}, {code: 'MQ', name: 'Martinique', system: 'TARIC'}, {code: 'MX', name: 'Mexico', system: 'CTMX'}, {code: 'MC', name: 'Monaco', system: 'TARIC'}, {code: 'MA', name: 'Morocco', system: 'CTMA'}, {code: 'NL', name: 'Netherlands', system: 'TARIC'}, {code: 'NZ', name: 'New Zealand', system: 'TSNZ'}, {code: 'NG', name: 'Nigeria', system: 'CTNG'}, {code: 'NO', name: 'Norway', system: 'HSNO'}, {code: 'OM', name: 'Oman', system: 'UCTGCC'}, {code: 'PK', name: 'Pakistan', system: 'CTPK'}, {code: 'PA', name: 'Panama', system: 'ITPA'}, {code: 'PY', name: 'Paraguay', system: 'MCN'}, {code: 'PE', name: 'Peru', system: 'CETCAN'}, {code: 'PH', name: 'Philippines', system: 'AHTN'}, {code: 'PL', name: 'Poland', system: 'TARIC'}, {code: 'PT', name: 'Portugal', system: 'TARIC'}, {code: 'QA', name: 'Qatar', system: 'UCTGCC'}, {code: 'RE', name: 'Reunion', system: 'TARIC'}, {code: 'RO', name: 'Romania', system: 'TARIC'}, {code: 'RU', name: 'Russia', system: 'UCTEEU'}, {code: 'LC', name: 'Saint Lucia', system: 'CARICOM'}, {code: 'SM', name: 'San Marino', system: 'TARIC'}, {code: 'SA', name: 'Saudi Arabia', system: 'UCTGCC'}, {code: 'RS', name: 'Serbia', system: 'HNCTRS'}, {code: 'SK', name: 'Slovakia', system: 'TARIC'}, {code: 'SI', name: 'Slovenia', system: 'TARIC'}, {code: 'ZA', name: 'South Africa', system: 'SACU'}, {code: 'KR', name: 'South Korea', system: 'HTSKR'}, {code: 'ES', name: 'Spain', system: 'TARIC'}, {code: 'LK', name: 'Sri Lanka', system: 'CTLK'}, {code: 'SE', name: 'Sweden', system: 'TARIC'}, {code: 'CH', name: 'Switzerland', system: 'CTCH'}, {code: 'TW', name: 'Taiwan', system: 'CTCN'}, {code: 'TJ', name: 'Tajikistan', system: 'UCTEEU'}, {code: 'TH', name: 'Thailand', system: 'AHTN'}, {code: 'TT', name: 'Trinidad and Tobago', system: 'CETCC'}, {code: 'TR', name: 'Turkey', system: 'TARIC'}, {code: 'UA', name: 'Ukraine', system: 'CTUA'}, {code: 'AE', name: 'United Arab Emirates', system: 'UCTGCC'}, {code: 'GB', name: 'United Kingdom', system: 'TARIC'}, {code: 'US', name: 'United States', system: 'HTSB'}, {code: 'UY', name: 'Uruguay', system: 'MCN'}, {code: 'VE', name: 'Venezuela', system: 'MCN'}, {code: 'VN', name: 'Viet Nam', system: 'AHTN'}]};
 
         browser
-            .url(this.baseURL + '/api-reference/landedcost/methods/Getcountrieslistings_')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
+            .initialize(browser.globals.baseURL + '/api-reference/landedcost/methods/Getcountrieslistings_')
+            .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
 
-            .waitForElementVisible('#Getcountrieslistings_-console', this.waitTime)
-            .click('#Getcountrieslistings_-console')
-            .waitForElementVisible('#Getcountrieslistings_-console-body', this.waitTime)
+        browser.page.endpointSummary()
+            .navigateTo('#Getcountrieslistings_-console')
+            .navigateTo('#Getcountrieslistings_-console-body .submit')
 
-            .click('#Getcountrieslistings_-console-body .submit')
-            .waitForElementVisible('#Getcountrieslistings_-console-body .api-console-output .code-snippet span:first-of-type', this.waitTime)
-            .getText('#Getcountrieslistings_-console-body .api-console-output .code-snippet', function(res) {
-                /* eslint-disable no-invalid-this */
-                const response = JSON.parse(res.value);
-
-                this.assert.ok(assert.deepEqual(response, expectedResponse),
-                    "response for 'try it now' matches expected response");
-                /* eslint-enable no-invalid-this */
+            .getConsoleText('Getcountrieslistings_', 'responseConsole-GET', function(res) {
+                browser.assert.ok(deepEqual(res, expectedResponse),
+                    "request for 'try it now' matches expected request");
             });
     },
     'API Reference: LandedCost: getSystems (fill sample data)': function(browser) {
@@ -462,15 +405,14 @@ module.exports = {
         };
 
         browser
-            .url(this.baseURL + '/api-reference/landedcost/methods/GettheSystemforaCountry_')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
+            .initialize(browser.globals.baseURL + '/api-reference/landedcost/methods/GettheSystemforaCountry_')
 
-            .waitForElementVisible('#GettheSystemforaCountry_-console', this.waitTime)
+            .waitForElementVisible('#GettheSystemforaCountry_-console')
             .click('#GettheSystemforaCountry_-console')
-            .waitForElementVisible('#GettheSystemforaCountry_-console-body', this.waitTime)
+            .waitForElementVisible('#GettheSystemforaCountry_-console-body')
 
             .click('#GettheSystemforaCountry_-console-body .fill-sample-data')
-            .waitForElementVisible('#GettheSystemforaCountry_-console-body .console-req-container .code-snippet-code-text', this.waitTime)
+            .waitForElementVisible('#GettheSystemforaCountry_-console-body .console-req-container .code-snippet-code-text')
             .getText('#GettheSystemforaCountry_-console-body .console-req-container .code-snippet-code-text', function(req) {
                 /* eslint-disable no-invalid-this */
                 this.assert.equal(req.value, expectedRequest);
@@ -478,7 +420,7 @@ module.exports = {
             })
 
             .click('#GettheSystemforaCountry_-console-body .submit')
-            .waitForElementVisible('#GettheSystemforaCountry_-console-body .console-res-container .code-snippet span:first-of-type', this.waitTime)
+            .waitForElementVisible('#GettheSystemforaCountry_-console-body .console-res-container .code-snippet span:first-of-type')
             .getText('#GettheSystemforaCountry_-console-body .console-res-container .code-snippet', function(res) {
                 /* eslint-disable no-invalid-this */
                 const response = JSON.parse(res.value);
@@ -503,15 +445,14 @@ module.exports = {
         ];
 
         browser
-            .url(this.baseURL + '/api-reference/landedcost/methods/Get_BrowseHSData_')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
+            .initialize(browser.globals.baseURL + '/api-reference/landedcost/methods/Get_BrowseHSData_')
 
-            .waitForElementVisible('#Get_BrowseHSData_-console', this.waitTime)
+            .waitForElementVisible('#Get_BrowseHSData_-console')
             .click('#Get_BrowseHSData_-console')
-            .waitForElementVisible('#Get_BrowseHSData_-console-body', this.waitTime)
+            .waitForElementVisible('#Get_BrowseHSData_-console-body')
 
             .click('#Get_BrowseHSData_-console-body .fill-sample-data')
-            .waitForElementVisible('#Get_BrowseHSData_-console-body .console-req-container .code-snippet-code-text', this.waitTime)
+            .waitForElementVisible('#Get_BrowseHSData_-console-body .console-req-container .code-snippet-code-text')
             .getText('#Get_BrowseHSData_-console-body .console-req-container .code-snippet-code-text', function(req) {
                 /* eslint-disable no-invalid-this */
                 this.assert.equal(req.value, expectedRequest);
@@ -519,7 +460,7 @@ module.exports = {
             })
 
             .click('#Get_BrowseHSData_-console-body .submit')
-            .waitForElementVisible('#Get_BrowseHSData_-console-body .console-res-container .code-snippet span:first-of-type', this.waitTime)
+            .waitForElementVisible('#Get_BrowseHSData_-console-body .console-res-container .code-snippet span:first-of-type')
             .getText('#Get_BrowseHSData_-console-body .console-res-container .code-snippet', function(res) {
                 /* eslint-disable no-invalid-this */
                 const response = JSON.parse(res.value);
@@ -568,15 +509,14 @@ module.exports = {
         ];
 
         browser
-            .url(this.baseURL + '/api-reference/landedcost/methods/GetRateDetails_')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
+            .initialize(browser.globals.baseURL + '/api-reference/landedcost/methods/GetRateDetails_')
 
-            .waitForElementVisible('#GetRateDetails_-console', this.waitTime)
+            .waitForElementVisible('#GetRateDetails_-console')
             .click('#GetRateDetails_-console')
-            .waitForElementVisible('#GetRateDetails_-console-body', this.waitTime)
+            .waitForElementVisible('#GetRateDetails_-console-body')
 
             .click('#GetRateDetails_-console-body .fill-sample-data')
-            .waitForElementVisible('#GetRateDetails_-console-body .console-req-container .code-snippet-code-text', this.waitTime)
+            .waitForElementVisible('#GetRateDetails_-console-body .console-req-container .code-snippet-code-text')
             .getText('#GetRateDetails_-console-body .console-req-container .code-snippet-code-text', function(req) {
                 /* eslint-disable no-invalid-this */
                 this.assert.equal(req.value, expectedRequest);
@@ -584,12 +524,12 @@ module.exports = {
             })
 
             .click('#GetRateDetails_-console-body .submit')
-            .waitForElementVisible('#GetRateDetails_-console-body .console-res-container .code-snippet span:first-of-type', this.waitTime)
+            .waitForElementVisible('#GetRateDetails_-console-body .console-res-container .code-snippet span:first-of-type')
             .getText('#GetRateDetails_-console-body .console-res-container .code-snippet', function(res) {
                 /* eslint-disable no-invalid-this */
                 const response = JSON.parse(res.value);
 
-                this.assert.ok(assert.deepEqual(response, expectedResponse),
+                this.assert.ok(deepEqual(response, expectedResponse),
                     "request for 'try it now' matches expected request");
                 /* eslint-enable no-invalid-this */
             });
@@ -630,15 +570,14 @@ module.exports = {
         ];
 
         browser
-            .url(this.baseURL + '/api-reference/landedcost/methods/GetRateData_')
-            .waitForElementVisible('[data-reactroot]', this.waitTime)
+            .initialize(browser.globals.baseURL + '/api-reference/landedcost/methods/GetRateData_')
 
-            .waitForElementVisible('#GetRateData_-console', this.waitTime)
+            .waitForElementVisible('#GetRateData_-console')
             .click('#GetRateData_-console')
-            .waitForElementVisible('#GetRateData_-console-body', this.waitTime)
+            .waitForElementVisible('#GetRateData_-console-body')
 
             .click('#GetRateData_-console-body .fill-sample-data')
-            .waitForElementVisible('#GetRateData_-console-body .console-req-container .code-snippet-code-text', this.waitTime)
+            .waitForElementVisible('#GetRateData_-console-body .console-req-container .code-snippet-code-text')
             .getText('#GetRateData_-console-body .console-req-container .code-snippet-code-text', function(req) {
                 /* eslint-disable no-invalid-this */
                 this.assert.equal(req.value, expectedRequest);
@@ -646,12 +585,12 @@ module.exports = {
             })
 
             .click('#GetRateData_-console-body .submit')
-            .waitForElementVisible('#GetRateData_-console-body .console-res-container .code-snippet span:first-of-type', this.waitTime)
+            .waitForElementVisible('#GetRateData_-console-body .console-res-container .code-snippet span:first-of-type')
             .getText('#GetRateData_-console-body .console-res-container .code-snippet', function(res) {
                 /* eslint-disable no-invalid-this */
                 const response = JSON.parse(res.value);
 
-                this.assert.ok(assert.deepEqual(response, expectedResponse),
+                this.assert.ok(deepEqual(response, expectedResponse),
                     "request for 'try it now' matches expected request");
                 /* eslint-enable no-invalid-this */
             });

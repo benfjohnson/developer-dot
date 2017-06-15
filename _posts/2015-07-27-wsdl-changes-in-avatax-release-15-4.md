@@ -4,7 +4,7 @@ title: WSDL Changes in AvaTax release 15.4
 date: 2015-07-27 11:38
 author: lokeuei
 comments: true
-categories: [15.4, avatax, changes, field, release note, sdk, updates, wsdl]
+categories: [older]
 product: avaTax
 doctype: blog
 ---

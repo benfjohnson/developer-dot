@@ -5,7 +5,7 @@ description: How does Avalara publish updates to its AvaTax products?
 date: 2017-02-07 17:00
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax]
 product: blog
 doctype: blog
 disqus: 1

@@ -4,7 +4,7 @@ title: "Developing With Sales Tax: Should I Tax It?"
 date: 2012-03-20 15:15
 author: steven.dunston
 comments: true
-categories: [Development, exempt status, nexus, sales tax, taxability]
+categories: [older]
 product: avaTax
 doctype: blog
 imgsrc: /public/images/blog/sales-tax-logic1.png

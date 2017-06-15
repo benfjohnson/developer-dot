@@ -4,7 +4,7 @@ title: Avalara AvaTax with Stripe.js
 date: 2014-06-05 17:15
 author: anya.stettler
 comments: true
-categories: [Sales Tax APIs]
+categories: [older]
 product: avaTax
 doctype: blog
 imgsrc: /public/images/blog/Ecomm-with-stripe.png

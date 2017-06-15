@@ -4,7 +4,7 @@ title: "Take a REST for sales tax: Easy and free tax rates for developers"
 date: 2015-01-13 09:00
 author: lokeuei
 comments: true
-categories: [api, json, Launches, lookup, rates, rest, sales tax, Sales Tax APIs, tax rates]
+categories: [older]
 product: avaTax
 doctype: blog
 ---

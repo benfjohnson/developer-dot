@@ -16,18 +16,15 @@ function deepEqualVerbose(_a, _b) {
     }
 }
 
-module.exports = {
-    deepEqual: function(a, b) {
-        const isEqual = _.isEqual(
-            _(a).omitBy(_.isUndefined).omitBy(_.isNil).value(),
-            _(b).omitBy(_.isUndefined).omitBy(_.isNil).value()
-        );
+module.exports = function deepEqual(a, b) {
+    const isEqual = _.isEqual(
+        _(a).omitBy(_.isUndefined).omitBy(_.isNil).value(),
+        _(b).omitBy(_.isUndefined).omitBy(_.isNil).value()
+    );
 
-        if (!isEqual) {
-            deepEqualVerbose(a, b);
-        }
+    if (!isEqual) {
+        deepEqualVerbose(a, b);
+    }
 
-        return isEqual;
-    },
-    deepEqualVerbose: deepEqualVerbose
+    return isEqual;
 };

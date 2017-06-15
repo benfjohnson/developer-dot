@@ -4,7 +4,7 @@ title: Wacky Sales Tax Facts #3 - Fun with Food
 date: 2015-08-24 11:21
 author: lokeuei
 comments: true
-categories: [apis, bagel, bizarre, food, new york, rules, sales, Sales Tax APIs, tax, weird]
+categories: [older]
 product: avaTax
 doctype: blog
 imgsrc: /public/images/blog/Screen-Shot-2015-08-18-at-2.03.49-PM.png

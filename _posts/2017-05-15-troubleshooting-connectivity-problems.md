@@ -5,7 +5,7 @@ description: Ways to diagnose problems with connecting to AvaTax
 date: 2017-05-15 12:00
 author: Charlie Morrisette
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, howto, troubleshooting]
 product: blog
 doctype: blog
 disqus: 1

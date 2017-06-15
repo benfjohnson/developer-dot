@@ -23,7 +23,7 @@ const buildExternalLink = (link, isArray = false) => {
 buildExternalLink.displayName = 'Build External Link';
 
 // Either returns a link to another Model page or "format" information
-const BuildLinkOrType = ({p}) => {
+const BuildLinkOrType = ({modelName, p, propName}) => {
     switch (p.type) {
     case 'object':
     case undefined:
@@ -37,8 +37,8 @@ const BuildLinkOrType = ({p}) => {
         if (p.enum) {
             return (
                 <div>
-                    {'Enum:'}<br/>
-                    {p.enum.map((val, i) => <span key={i}>&nbsp;&nbsp;&nbsp;{val}<br/></span>)}
+                    <a href={`../enums/${modelName} > ${propName}`}>{propName}</a><br/>
+                    Enum<br/>
                 </div>
             );
         }

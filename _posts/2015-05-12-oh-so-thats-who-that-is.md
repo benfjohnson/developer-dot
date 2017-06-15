@@ -4,7 +4,7 @@ title: Oh so that's who that is
 date: 2015-05-12 09:54
 author: anya.stettler
 comments: true
-categories: [Sales Tax APIs]
+categories: [older]
 product: blog
 doctype: blog
 imgsrc: /public/images/blog/IMG_1053-195x300.jpeg

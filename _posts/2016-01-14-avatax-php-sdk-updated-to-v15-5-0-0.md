@@ -4,7 +4,7 @@ title: AvaTax PHP SDK updated to v15.5.0.0
 date: 2016-01-14 14:29
 author: lokeuei
 comments: true
-categories: [api, avatax, php, Sales Tax APIs, sdk, soap, updated, v15.5.0.0, wsdl]
+categories: [older]
 product: avaTax
 doctype: blog
 ---

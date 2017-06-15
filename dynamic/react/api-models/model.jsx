@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import ModelProperty from './model-property';
 
 const Model = ({m, name}) => (
-    <div>
+    <div className='model-summary' id={name}>
         <h1>{name}</h1>
         {m.description ?
             <div>

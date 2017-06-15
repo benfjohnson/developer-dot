@@ -4,7 +4,7 @@ title: Reflecting MDET
 date: 2013-05-07 21:07
 author: anya.stettler
 comments: true
-categories: [Sales Tax APIs]
+categories: [older]
 product: avaTax
 doctype: blog
 ---

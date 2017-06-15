@@ -4,7 +4,7 @@ title: Using our C# SOAP Libs with TLS 1.2
 date: 2015-12-23 13:03
 author: greg.bulmash
 comments: true
-categories: [Sales Tax APIs]
+categories: [older]
 product: avaTax
 doctype: blog
 ---

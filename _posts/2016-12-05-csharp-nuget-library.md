@@ -4,7 +4,7 @@ title: AvaTax.NET client library available on NuGet
 date: 2016-12-05 11:00
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, sdk]
 product: blog
 doctype: blog
 disqus: 1

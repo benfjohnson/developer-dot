@@ -4,7 +4,7 @@ title: Batched Transactions in REST v2
 date: 2016-10-24 11:00
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, howto]
 product: blog
 doctype: blog
 disqus: 1
