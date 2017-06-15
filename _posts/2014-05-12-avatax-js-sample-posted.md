@@ -4,7 +4,7 @@ title: AvaTax.js sample posted!
 date: 2014-05-12 20:37
 author: anya.stettler
 comments: true
-categories: [Sales Tax APIs]
+categories: [older]
 product: avaTax
 doctype: blog
 ---

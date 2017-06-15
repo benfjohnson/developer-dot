@@ -4,7 +4,7 @@ title: Weekly Developer Open-House Chats
 date: 2015-08-06 14:26
 author: lokeuei
 comments: true
-categories: [best practice, chat, discussion, open house, Q&amp;A, sales tax, Sales Tax APIs, troubleshooting]
+categories: [older]
 product: avaTax
 doctype: blog
 imgsrc: /public/images/blog/Sticker-DevAndTaxes_Hangouts_600w.jpg

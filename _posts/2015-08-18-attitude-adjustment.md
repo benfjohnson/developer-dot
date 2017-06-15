@@ -4,7 +4,7 @@ title: Attitude Adjustment
 date: 2015-08-18 14:55
 author: anya.stettler
 comments: true
-categories: [Sales Tax APIs]
+categories: [older]
 product: avaTax
 doctype: blog
 ---

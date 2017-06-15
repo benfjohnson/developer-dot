@@ -4,7 +4,7 @@ title: Avalara @ Developer Week San Francisco (February 7-11)
 date: 2015-01-30 12:34
 author: lokeuei
 comments: true
-categories: [api, developer week, developers, Development, event, hackathon, Launches, Presentations, tax rates, Workshop]
+categories: [older]
 product: blog
 doctype: blog
 imgsrc: /public/images/blog/Screen-Shot-2015-01-30-at-12.26.38-PM.png

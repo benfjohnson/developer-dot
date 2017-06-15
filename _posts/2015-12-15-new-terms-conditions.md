@@ -4,7 +4,7 @@ title: New Terms and Conditions
 date: 2015-12-15 17:55
 author: anya.stettler
 comments: true
-categories: [Sales Tax APIs]
+categories: [older]
 product: avaTax
 doctype: blog
 ---

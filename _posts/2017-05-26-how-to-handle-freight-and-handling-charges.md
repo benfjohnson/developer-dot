@@ -5,7 +5,7 @@ description: How to incorporate shipping and handling charges in your tax reques
 date: 2017-05-26 12:00
 author: Bob Erdman
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, shipping, howto]
 product: blog
 doctype: blog
 disqus: 1

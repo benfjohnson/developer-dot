@@ -4,7 +4,7 @@ title: "Developing With Sales Tax: What's the Rate?"
 date: 2012-03-06 15:50
 author: steven.dunston
 comments: true
-categories: [api, Development, rate table, sales tax, zip code]
+categories: [older]
 product: avaTax
 doctype: blog
 ---

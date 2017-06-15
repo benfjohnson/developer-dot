@@ -5,7 +5,7 @@ description: Try out AvaTax for free today!
 date: 2017-03-02 14:00
 author: Ted Spence
 comments: true
-categories: [Sales Tax APIs]
+categories: [avatax, free tax rates]
 product: blog
 doctype: blog
 disqus: 1

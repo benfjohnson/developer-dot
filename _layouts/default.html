@@ -159,14 +159,14 @@
                     </li>
                     <li class="sdk dropdown dropdown-large hidden-xs">
                         <a class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">SDK</span> <b class="caret"></b></a>
-                        <ul class="dropdown-menu dropdown-menu-large"> 
+                        <ul class="dropdown-menu dropdown-menu-large">
                             <li {% if page.url == "/avatax/get-started" %}class="active"{% endif %}><a href="/avatax/get-started">Get Started with AvaTax</a></li>
                             <br/>
                             <li><a href="/sdk/">The AvaTax SDK</a></li>
                             <li><a href="/sdk/soap">SOAP SDK</a></li>
-                            <br/>		
-                            <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-DotNet-SDK#installing-the-dotnet-sdk">Install C# SDK via NuGet</a></li>		
-                            <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK#installing-the-jre-sdk">Install JRE SDK via Maven</a></li>		
+                            <br/>
+                            <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-DotNet-SDK#installing-the-dotnet-sdk">Install C# SDK via NuGet</a></li>
+                            <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK#installing-the-jre-sdk">Install JRE SDK via Maven</a></li>
                             <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-PHP-SDK#installing-the-php-sdk">Install PHP SDK via Composer</a></li>
                             <li><a target="_blank" href="https://github.com/avadev/AvaTax-REST-V2-Ruby-SDK">Install Ruby SDK via RubyGems</a></li>
                         </ul>
@@ -176,14 +176,14 @@
                     <!--
                     <li class="tests dropdown dropdown-large hidden-xs">
                         <a class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">Tests</span> <b class="caret"></b></a>
-                        
+
                         <ul class="dropdown-menu dropdown-menu-large">
-                            
-                            <li><a href="/tests/self-test">Avalara Self-Test Tool</a></li> 
+
+                            <li><a href="/tests/self-test">Avalara Self-Test Tool</a></li>
                             <li><a href="/tests/testing-your-integration/">Avalara Test Cases</a></li>
                         </ul>
                     </li> -->
-                    
+
                     <li class="certification dropdown dropdown-large hidden-xs">
                         <a class="dropdown-toggel" data-toggle="dropdown"><span class="text-uppercase">Become Certified</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-large">
@@ -245,19 +245,19 @@
         {%if page.nav == 'sdk' %} {% include sdk_breadcrumb.html %}
         <section class="row padding-sides half">
             <nav class="col-md-3">
-                {% include sdk_navigation.html %} 
+                {% include sdk_navigation.html %}
             </nav>
             <main class="col-md-9 small-no-padding">{{ content }}</main>
         </section>
         {% elsif page.nav == "certification" and page.product != "avaTax" and page.doctype != 'overview' %} {% include certification_breadcrumb.html %}
         <section class="row padding-sides half">
             <nav class="col-md-3">
-                {% include certification_navigation.html %} 
+                {% include certification_navigation.html %}
             </nav>
             <main class="col-md-9 small-no-padding">{{ content }}</main>
         </sectiion>
-        
-<!-- removing this until we get approval on the self-test link -->      
+
+<!-- removing this until we get approval on the self-test link -->
         {% elsif page.nav == 'tests' %}
         <section class="row padding-sides half">
 <!--
@@ -268,14 +268,14 @@
 -->
             <main class="col-md-9 small-no-padding">{{ content }}</main>
         </section>
-    
+
         {% elsif page.nav == 'certification' and page.product == "avaTax" %} {% include ava_certification_breadcrumbs.html %}
         <section class="row padding-sides half">
             <nav class="col-md-3">
                {% include ava_certification_navigation.html %}
                 </nav>
             <main class="col-md-9 small-no-padding">{{ content }}</main>
-        </section> 
+        </section>
         {% elsif page.nav == 'apis' %} {%if page.doctype != 'overview' %} {% include api_breadcrumb.html %} {%endif%} {% if page.doctype == 'api_references' or page.doctype == 'use_cases' %}
         <section class="row padding-sides{% if page.doctype == 'use_cases' or page.doctype == 'sdks' %} half{% endif %}">
             <nav class="col-md-3">
@@ -301,7 +301,7 @@
         </section>
         {% endif %}
     </div>
-    <footer class="navbar navbar-default">
+    <footer>
         <ul class="global">
             <li><a href="https://www.avalara.com/"><span class="icon-sphere"></span>Avalara.com</a></li>
             <li><a href="https://help.avalara.com/"><span class="icon-help"></span>Help Center</a></li>
@@ -319,8 +319,8 @@
         %} {% endif %} {% unless githubpath contains '/blog/page' %}
 
         {% endunless %}
-        
-        
+
+
         <ul class="legal">
             <li>&copy; 2016 Avalara, Inc. All rights reserved</li>
             <li><a href="https://www.avalara.com/site-terms/">Terms of use</a></li>
@@ -329,7 +329,7 @@
 
         <ul class="github">
             <li class="social github-icon"><a href="{{githubpath}}"><span>GH</span> Edit this page on GitHub</a></li>
-            
+
         </ul>
     </footer>
 

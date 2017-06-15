@@ -4,7 +4,7 @@ title: Handling Java SSL Certificate Exception
 date: 2013-07-12 22:32
 author: timothy.longley
 comments: true
-categories: [Sales Tax APIs]
+categories: [older]
 product: avaTax
 doctype: blog
 ---
