@@ -46,6 +46,18 @@ const saveStaticPage = (tagName, apiPath, buildHtmlFunc, state, apiInfo, disqus 
 };
 
 const saveMethodsIndex = (apiName, saveRoot, product, linksArray, methodSubsetName) => {
+    function compare(a, b) {
+        if (a.name.toLowerCase() < b.name.toLowerCase()) {
+            return -1;
+        }
+        if (a.name.toLowerCase() > b.name.toLowerCase()) {
+            return 1;
+        }
+        return 0;
+    }
+
+    linksArray.sort(compare);
+
     const linksHtml = linksArray.reduce((accum, l) => {
         return `${accum}
 <tr>
