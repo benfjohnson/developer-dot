@@ -95,6 +95,7 @@
 
         &:not(:first-child) {
             background: white;
+            padding: 3.5px 7.5px 3.5px 7.5px;
 
             h4 {
                 color: $Darkest-grey;
@@ -106,9 +107,6 @@
             padding-left: 0;
         }
 
-        & .api-console-input-section:first-of-type {
-            @extend .resetIndentation;
-        }
         & .api-console-input-section .api-console-input-section {
             @extend .resetIndentation;
         }
