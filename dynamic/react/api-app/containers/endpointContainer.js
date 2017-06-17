@@ -6,6 +6,7 @@ const mapStateToProps = (state) => {
     return {
         apiType: state.apiType,
         sampleContentType: state.sampleContentType,
+        userProfile: state.userProfile,
         endpoint: state.apiEndpoint
     };
 };

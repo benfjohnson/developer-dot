@@ -1,7 +1,10 @@
 _site
 node_modules
 
-**/api-reference/
+**/api-reference/*
+!api-reference/signin-oidc.html
+!api-reference/signout-oidc.html
+
 !expected/**/api-reference
 
 public/css/style.css*

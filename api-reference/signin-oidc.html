@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div>Redirecting...</div>
+        <script src='../public/js/oidc-client.js'></script>
+        <script>
+            Oidc.Log.logger = console;
+            new Oidc.UserManager().signinRedirectCallback().then(() => {
+                window.location = sessionStorage['redirectUrl'] || window.location.origin;
+            });
+        </script>
+    </body>
+</html>

@@ -18,9 +18,18 @@ const getRequest = (endpoint) => {
 const ApiConsole = (props) => {
     return (
         <div>
-            <button onClick={() => {
-                userManager.signinRedirect();
-            }} style={{float: 'right'}}>{'Authorize'}</button>
+            {props.userProfile ?
+                <button className={'btn btn-secondary'} onClick={() => {
+                    sessionStorage.devdotRedirectUrl = window.location.href;
+                    userManager.signoutRedirect();
+                }} style={{margin: '8px'}}>{'Logout'}</button> :
+                <button className={'btn btn-primary'} onClick={() => {
+                    sessionStorage.devdotRedirectUrl = window.location.href;
+                    userManager.signinRedirect();
+                }} style={{margin: '8px'}}>{'Authorize'}
+                </button>
+            }
+
             <div className={'row api-console'}>
                 <div className={'col-md-4 col-xs-12 api-console-form-wrapper'}>
                     <ConsoleInputForm {...props} />
