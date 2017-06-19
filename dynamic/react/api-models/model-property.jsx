@@ -63,10 +63,10 @@ const ModelProperty = ({modelName, name, prop, requiredProps = []}) => {
                 <ReactMarkdown source={prop.description} />
                 {prop.example && prop.type !== 'array' ?
                     <span>
-                        <br /><br />
+                        <br />
                         <b>{'Example:'}</b>
                         <br />
-                        <pre className='highlight'>{prop.example}</pre>
+                        <pre className='highlight'>{typeof prop.example !== 'object' ? prop.example : JSON.stringify(prop.example, null, 4).replace(/'/g, '')}</pre>
                     </span> : null
                 }
             </td>
