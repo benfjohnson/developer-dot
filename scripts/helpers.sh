@@ -47,6 +47,10 @@ build_pages() {
 init() {
     set -x
     git clean -dxf --exclude='**/node_modules' --exclude='**/tmp'
+
+    # link own project in node_modules for easier require/import statements
+    ln -s ../ node_modules/devdot
+
     transpile_sass
     build_pages build-all-pages.js
     build_pages build-models.js

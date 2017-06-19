@@ -50,7 +50,7 @@ highlighter: rouge
 future: true
 
 # Exclude non-site files
-exclude: [node_modules, dynamic, LICENSE, README.md, package.json, s3_website.yml, Gemfile, Gemfile.lock, _test]
+exclude: [node_modules, dynamic, LICENSE, README.md, package.json, s3_website.yml, Gemfile, Gemfile.lock, _test, scripts]
 
 # Use the kramdown Markdown renderer
 markdown: kramdown

@@ -82,7 +82,7 @@ module.exports = {
     'Get Started: AvaTax (CalculateTax, fill sample data)': function(browser) {
         /* eslint-disable quotes */
         /* eslint-disable quote-props */
-        const expectedRequestCalcTax = {"type": "SalesInvoice", "companyCode": "DEFAULT", "date": "2017-05-16T00:00:00-07:00", "customerCode": "ABC", "purchaseOrderNo": "2017-05-16-001", "addresses": {"singleLocation": {"line1": "123 Main Street", "city": "Irvine", "region": "CA", "country": "US", "postalCode": "92615"}}, "lines": [{"number": "1", "quantity": 1, "amount": 100, "taxCode": "PS081282", "itemCode": "Y0001", "description": "Yarn"}], "commit": true, "currencyCode": "USD", "description": "Yarn"};
+        const expectedRequestCalcTax = {"type": "SalesInvoice", "companyCode": "DEFAULT", "date": "2017-05-16", "customerCode": "ABC", "purchaseOrderNo": "2017-05-16-001", "addresses": {"singleLocation": {"line1": "123 Main Street", "city": "Irvine", "region": "CA", "country": "US", "postalCode": "92615"}}, "lines": [{"number": "1", "quantity": 1, "amount": 100, "taxCode": "PS081282", "itemCode": "Y0001", "description": "Yarn"}], "commit": true, "currencyCode": "USD", "description": "Yarn"};
         /* eslint-enable quotes */
         /* eslint-enable quote-props */
 
