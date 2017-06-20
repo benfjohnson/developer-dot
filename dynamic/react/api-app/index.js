@@ -4,7 +4,7 @@ import {render} from 'react-dom';
 import {createStore, applyMiddleware} from 'redux';
 import createLogger from 'redux-logger';
 import {Provider} from 'react-redux';
-import userManager from '../shared/user-manager';
+import userManager from './user-manager';
 
 import Oidc from 'oidc-client';
 
