@@ -12,6 +12,12 @@ export default {
             }
         };
     },
+    consoleLoadingAnimation: (endpointId) => {
+        return {
+            type: actionTypes.SUBMIT_STARTED,
+            endpointId: endpointId
+        };
+    },
     queryParamChanged: (newValue, paramName, endpointId) => {
         return {
             type: actionTypes.QUERY_STRING_CHANGED,

@@ -1821,6 +1821,7 @@ describe('Shared Reducers', () => {
             /* eslint-enable quotes */
 
             expectedState.apiResponse = apiResponse;
+            expectedState.apiConsoleLoading = false;
 
             it('returns expected state for apiResponse', () => {
                 expect(apiConsoleReducer(state, action)).to.eql(expectedState);

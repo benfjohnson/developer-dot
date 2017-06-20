@@ -118,11 +118,15 @@ export default (state, action) => {
         newState.curl = buildCurl(newState.sampleAuthHeader, newState);
         newState.apiResponse = undefined;
         break;
+    case actionTypes.SUBMIT_STARTED:
+        newState.apiConsoleLoading = true;
+        break;
     case actionTypes.SUBMIT_DONE:
         newState.apiResponse = action.apiResponse;
         if (action.error) {
             newState.error = action.error;
         }
+        newState.apiConsoleLoading = false;
         break;
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
         newState = fillOrRemoveSampleData(newState);

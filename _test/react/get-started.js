@@ -703,6 +703,7 @@ describe('getStarted Reducer', () => {
         /* eslint-enable quotes */
 
         expectedState[0].apiResponse = apiResponse;
+        expectedState[0].apiConsoleLoading = false;
 
         it('returns expected state for apiResponse', () => {
             expect(reducer(state, action)).to.eql(expectedState);

@@ -108,7 +108,7 @@ const syntaxHighlight = (jsonObj, highlightedFields) => {
     return highlightPunctuation(json);
 };
 
-const ConsoleLiveData = ({action, highlightedInputs, path, request, response}) => {
+const ConsoleLiveData = ({action, highlightedInputs, consoleLoading, path, request, response}) => {
     return (
         <div>
             <h5 className={'console-output-header'}>{'API Endpoint'}</h5>
@@ -124,12 +124,12 @@ const ConsoleLiveData = ({action, highlightedInputs, path, request, response}) =
                             </div>
                             <div className={'col-md-6 console-res-container'}>
                                 <h5 className={'console-output-header'}>{'Response'}</h5>
-                                <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: response ? syntaxHighlight(response.body) : ' '}} /></div>
+                                <div className={'code-snippet'}>{consoleLoading ? <div className={'loading-pulse'}></div> : <pre dangerouslySetInnerHTML={{__html: response ? syntaxHighlight(response.body) : ' '}} />}</div>
                             </div>
                         </div> :
                         <div>
                             <h5 className={'console-output-header'}>{'Response'}</h5>
-                            <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: response ? syntaxHighlight(response.body) : ' '}} /></div>
+                            <div className={'code-snippet'}>{consoleLoading ? <div className={'loading-pulse'}></div> : <pre dangerouslySetInnerHTML={{__html: response ? syntaxHighlight(response.body) : ' '}} />}</div>
                             {/* eslint-enable react/no-danger */}
                         </div>
                     }
@@ -140,6 +140,7 @@ const ConsoleLiveData = ({action, highlightedInputs, path, request, response}) =
 ConsoleLiveData.displayName = 'Console Live Data';
 ConsoleLiveData.propTypes = {
     action: PropTypes.string.isRequired,
+    consoleLoading: PropTypes.bool.isRequired,
     highlightedInputs: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,

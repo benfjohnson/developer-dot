@@ -33,6 +33,7 @@ export default (state = {}, action) => {
         return {...state, auth: auth};
     case actionTypes.RESET_CONSOLE:
     case actionTypes.SUBMIT_DONE:
+    case actionTypes.SUBMIT_STARTED:
     case actionTypes.FILL_REQUEST_SAMPLE_DATA:
     case actionTypes.QUERY_STRING_CHANGED:
     case actionTypes.PATH_PARAM_CHANGED:

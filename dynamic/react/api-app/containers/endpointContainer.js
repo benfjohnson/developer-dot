@@ -40,6 +40,9 @@ const mapDispatchToProps = (dispatch) => {
 
                 apiRequest = submitApiRequest.bind(null, url, endpoint.action, postBody);
             }
+            // Show Animation here until promise or isLoading comes back or w/e
+            dispatch(actions.consoleLoadingAnimation(endpoint.id));
+
             apiRequest()
             .then((apiResponse) => {
                 dispatch(actions.submitConsoleRequest(endpoint.id, apiResponse.body, apiResponse.status, apiResponse.statusMessage));

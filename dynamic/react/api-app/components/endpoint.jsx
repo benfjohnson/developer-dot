@@ -25,7 +25,7 @@ const EndPointComponent = ({endpoint, apiType, onFillConsoleSampleData, onSubmit
                     <h5 className={'clickable'} style={{display: 'inline-block'}}>{'Try ' + endpoint.name + ' now!'}</h5>
                 </div>
                 <div className={'collapse'} id={`${replaceSpaces(endpoint.operationId)}-console-body`}>
-                    <ApiConsole endpoint={endpoint} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest} onToggleShowExcludedPostBodyProps={onToggleShowExcludedPostBodyProps} showExcludedPostBodyFields={endpoint.showExcludedPostBodyFields}/>
+                    <ApiConsole endpoint={endpoint} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest} onToggleShowExcludedPostBodyProps={onToggleShowExcludedPostBodyProps} showExcludedPostBodyFields={endpoint.showExcludedPostBodyFields} />
                 </div>
             </div> : null}
             <EndpointExamples endpoint={endpoint} />

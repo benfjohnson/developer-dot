@@ -132,7 +132,8 @@ export default (api, apiWithRefs, rootPath) => {
                     action: action,
                     sampleAuthHeader: swaggerData.sampleAuthHeader,
                     // Determines whether or not we show API console input fields for params in the 'x-excludedProperties' array in Swagger
-                    showExcludedPostBodyFields: false
+                    showExcludedPostBodyFields: false,
+                    apiConsoleLoading: false
                 };
 
                 if (api['x-production-host']) {

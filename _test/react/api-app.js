@@ -19362,6 +19362,7 @@ describe('apiApp Reducer', () => {
         /* eslint-enable quotes */
 
         expectedState.apiEndpoints[1].apiResponse = apiResponse;
+        expectedState.apiEndpoints[1].apiConsoleLoading = false;
 
         it('returns expected state for apiResponse', () => {
             expect(reducer(state, action)).to.eql(expectedState);
