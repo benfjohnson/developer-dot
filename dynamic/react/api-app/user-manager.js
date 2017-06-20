@@ -7,7 +7,7 @@ const userManagerConfig = {
     redirect_uri: window.location.origin + '/api-reference/signin-oidc',
     post_logout_redirect_uri: window.location.origin + '/api-reference/signout-oidc',
     response_type: 'id_token token',
-    scope: 'openid avatax avatax_api'
+    scope: 'openid profile avatax avatax_api'
 };
 
 /* eslint-enable camelcase */

@@ -11,10 +11,13 @@ const ApiDocumentation = ({endpoint, userProfile}) => (
         <div className='endpoint-header'>
             <h1 id={endpoint.operationId}>{endpoint.operationId}</h1>
             {userProfile ?
-                <button className={'btn btn-secondary'} onClick={() => {
-                    sessionStorage.devdotRedirectUrl = window.location.href;
-                    userManager.signoutRedirect();
-                }} style={{margin: '8px'}}>{'Logout'}</button> :
+                <span>
+                    <span>{`Welcome, ${userProfile.profile.given_name} ${userProfile.profile.family_name}!`}</span>
+                    <button className={'btn btn-secondary'} onClick={() => {
+                        sessionStorage.devdotRedirectUrl = window.location.href;
+                        userManager.signoutRedirect();
+                    }} style={{margin: '8px'}}>{'Logout'}</button>
+                </span> :
                 <button className={'btn btn-primary'} onClick={() => {
                     sessionStorage.devdotRedirectUrl = window.location.href;
                     userManager.signinRedirect();

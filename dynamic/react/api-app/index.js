@@ -11,9 +11,6 @@ import Oidc from 'oidc-client';
 import reducer from './reducers/reducer';
 import App from './app';
 
-// TODO: Determine here if we're in the Auth "callback" route,
-// and if so, create userManager and do a signinRedirectCallback thingy!
-
 const logger = createLogger();
 
 /* eslint-disable no-underscore-dangle */

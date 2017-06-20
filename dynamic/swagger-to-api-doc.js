@@ -208,7 +208,7 @@ ${(disqus) ? '{% include disqus.html %}' : ''}`
                         const endpointsForTag = staticState.apiEndpoints.filter((ep) => operationIdsForTag.indexOf(ep.operationId) !== -1);
 
                         endpointsForTag.forEach((ep) => {
-                            const singleEndpointStaticState = {...staticState, apiEndpoint: ep, apiEndpoints: endpointsForTag};
+                            const singleEndpointStaticState = {...staticState, apiEndpoints: [ep]};
                             const singleEndpointPath = createEndpointUrl(apiPath, ep.operationId, tag);
 
                             saveStaticPage(tag, singleEndpointPath, buildHtml, singleEndpointStaticState, {apiName, product});
@@ -227,7 +227,7 @@ ${(disqus) ? '{% include disqus.html %}' : ''}`
                     saveMethodsIndex(apiName, `${apiPath}/methods`, product, apiEndpointLinks);
 
                     staticState.apiEndpoints.forEach((ep) => {
-                        const singleEndpointStaticState = {...staticState, apiEndpoint: ep};
+                        const singleEndpointStaticState = {...staticState, apiEndpoints: [ep]};
                         const singleEndpointPath = createEndpointUrl(apiPath, ep.operationId);
 
                         // Normal case, just save a single API pages
