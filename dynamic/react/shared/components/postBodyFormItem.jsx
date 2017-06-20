@@ -15,6 +15,12 @@ const PostBodyFormItem = ({name, itemSchema, itemValue, endpointId, displayName,
         return (
             <div className={'form-group'}>
                 <label className={'api-label-text'} htmlFor={uid}>{displayName}</label>
+                {itemSchema.description ?
+                    <a className='console-tool-tip' dataPlacement='top' dataToggle='tooltip' title={itemSchema.description}>
+                        &nbsp;&nbsp;&nbsp;
+                        <i className='glyphicon glyphicon-info-sign'/>
+                    </a> : null
+                }
                 {canRemove ?
                     <div
                         className={'clickable'}

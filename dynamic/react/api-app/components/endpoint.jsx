@@ -17,6 +17,7 @@ const EndPointComponent = ({endpoint, apiType, onFillConsoleSampleData, onSubmit
                 <div className={'try-it-now-header'} data-target={`#${replaceSpaces(endpoint.operationId)}-console-body`} data-toggle={'collapse'} id={`${replaceSpaces(endpoint.operationId)}-console`} onClick={
                     () => {
                         $(`#${replaceSpaces(endpoint.operationId)}-console-icon`).toggleClass('rotate');
+                        $('.console-tool-tip').tooltip();
                     }
                 }>
                     <div className={'documentation-expand-icon'} id={`${replaceSpaces(endpoint.operationId)}-console-icon`} style={{display: 'inline-block', marginRight: '5px'}}>
