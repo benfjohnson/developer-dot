@@ -168,7 +168,13 @@ const fillOrRemoveSampleData = (endpointState, remove = false) => {
     }
 
     if (endpointState.postBody) {
-        endpointState.postBody = remove ? buildInitialPostBodyData(endpointState.requestSchema, endpointState.showExcludedPostBodyFields) : fillPostBodySampleData(endpointState.requestSchema, endpointState.showExcludedPostBodyFields);
+        if (remove) {
+            endpointState.postBody = buildInitialPostBodyData(endpointState.requestSchema, endpointState.showExcludedPostBodyFields);
+        } else if (endpointState.requestSchemaExample) {
+            endpointState.postBody = endpointState.requestSchemaExample;
+        } else {
+            endpointState.postBody = fillPostBodySampleData(endpointState.requestSchema, endpointState.showExcludedPostBodyFields);
+        }
     }
 
     return endpointState;
