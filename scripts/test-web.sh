@@ -42,7 +42,9 @@ if ! $isCI ; then
 fi
 
 # run nightwatch tests
-_test/browser/nightwatch --config _test/browser/nightwatch.json $nightwatchENV
+OAUTH_EMAIL=$AI_OAUTH_EMAIL OAUTH_PASSWORD=$AI_OAUTH_PASSWORD _test/browser/nightwatch \
+    --config _test/browser/nightwatch.json \
+    $nightwatchENV
 
 # since script is ending naturally, traps will not be invoked
 # teardown jekyll and selenium here
