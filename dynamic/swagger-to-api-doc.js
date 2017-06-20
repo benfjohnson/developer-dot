@@ -138,13 +138,15 @@ ${tagName ? `tag_name: ${tagName}` : ''}
 nav: apis
 product: ${product}
 doctype: api_references
-modelsPath: api-reference/${fileName.substr(0, fileName.lastIndexOf('.'))}/models
 endpoint_links: [
     ${endpointLinks}
 ]
 ---
 <div id="api-console"></div>
-<script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>
+<script>
+    window.modelsPath = 'api-reference/${fileName.substr(0, fileName.lastIndexOf('.'))}/models';
+    window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
+</script>
 <script src="/public/js/api-bundle.js"></script>
 
 ${(disqus) ? '{% include disqus.html %}' : ''}`
