@@ -23,6 +23,12 @@ const QueryOrPathParamsForm = ({endpoint, paramType, params, onInputChange, onSu
                 return (
                     <div className={'form-group'} key={i}>
                         <label className={'api-label-text'} htmlFor={`${endpoint.id}-qs-${i}`}>{key}</label>
+                        {params[key].description ?
+                            <a className='console-tool-tip' dataPlacement='top' dataToggle='tooltip' title={params[key].description}>
+                                &nbsp;&nbsp;&nbsp;
+                                <i className='glyphicon glyphicon-info-sign'/>
+                            </a> : null
+                        }
                         {params[key].enum && params[key].enum.length ?
                             <select
                                 className={'form-control'}
