@@ -19,9 +19,12 @@ const App = ({isEmpty}) => (
     </div>
 );
 
-const mapStateToProps = (state) => ({
-    isEmpty: state.apiEndpoints.length === 0
-});
+const mapStateToProps = (state) => {
+    return {
+        endpoint: state.apiEndpoint || null,
+        isEmpty: state.apiEndpoints.length === 0
+    };
+};
 
 App.displayName = 'App';
 App.propTypes = {

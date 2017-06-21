@@ -32,7 +32,7 @@ if ! $isCI ; then
     java \
         -Dwebdriver.chrome.driver=_test/browser/_bin/chromedriver \
         -Dselenium.LOGGER.level=OFF \
-        -jar _test/browser/_bin/selenium-server-standalone-2.53.0.jar &
+        -jar _test/browser/_bin/selenium.jar &
     seleniumPID=$!
     echo $seleniumPID
 
@@ -42,7 +42,9 @@ if ! $isCI ; then
 fi
 
 # run nightwatch tests
-_test/browser/nightwatch --config _test/browser/nightwatch.json $nightwatchENV
+_test/browser/nightwatch \
+    --config _test/browser/nightwatch.json \
+    $nightwatchENV
 
 # since script is ending naturally, traps will not be invoked
 # teardown jekyll and selenium here

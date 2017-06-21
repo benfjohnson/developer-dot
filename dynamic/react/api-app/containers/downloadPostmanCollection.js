@@ -5,7 +5,6 @@ import PostmanCollection from '../components/postmanCollection';
 const mapStateToProps = (state) => {
     return {
         apiType: state.apiType,
-        appLoaded: state.appLoaded,
         auth: state.auth,
         postmanCollection: state.postmanCollection
     };

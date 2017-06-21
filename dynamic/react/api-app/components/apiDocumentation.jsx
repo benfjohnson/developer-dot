@@ -4,10 +4,27 @@ import url from 'url';
 import ReactMarkdown from 'react-markdown';
 import ApiDocumentationParam from './apiDocumentationParam';
 import ApiDocModelLink from './apiDocModelLink';
+import userManager from '../user-manager';
 
-const ApiDocumentation = ({endpoint}) => (
+const ApiDocumentation = ({endpoint, userProfile}) => (
     <div>
-        <h1 id={endpoint.operationId}>{endpoint.operationId}</h1>
+        <div className='endpoint-header'>
+            <h1 id={endpoint.operationId}>{endpoint.operationId}</h1>
+            {userProfile ?
+                <span style={{display: 'none'}}>
+                    <span>{`Welcome, ${userProfile.profile.given_name} ${userProfile.profile.family_name}!`}</span>
+                    <button className={'btn btn-secondary'} onClick={() => {
+                        sessionStorage.devdotRedirectUrl = window.location.href;
+                        userManager.signoutRedirect();
+                    }} style={{margin: '8px'}}>{'Logout'}</button>
+                </span> :
+                <button className={'btn btn-primary'} onClick={() => {
+                    sessionStorage.devdotRedirectUrl = window.location.href;
+                    userManager.signinRedirect();
+                }} style={{margin: '8px', display: 'none'}}>{'Authorize'}
+                </button>
+            }
+        </div>
         <table className='styled-table'>
             <thead>
                 <tr>
@@ -84,7 +101,8 @@ const ApiDocumentation = ({endpoint}) => (
 
 ApiDocumentation.displayName = 'API Documentation';
 ApiDocumentation.propTypes = {
-    endpoint: PropTypes.object
+    endpoint: PropTypes.object,
+    userProfile: PropTypes.object
 };
 
 export default ApiDocumentation;

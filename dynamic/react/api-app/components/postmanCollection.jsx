@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PostmanCollection = ({apiType, appLoaded, auth, onAuthKeyChange, postmanCollection}) => {
+const PostmanCollection = ({apiType, auth, onAuthKeyChange, postmanCollection}) => {
     if (apiType !== 'REST') {
         return null;
     }
@@ -10,12 +10,12 @@ const PostmanCollection = ({apiType, appLoaded, auth, onAuthKeyChange, postmanCo
 
     const json = JSON.stringify(postmanCollection);
 
-    const blob = (appLoaded && typeof Blob !== 'undefined') ? new Blob([json], {type: 'application/json'}) : null;
+    const blob = (typeof Blob !== 'undefined') ? new Blob([json], {type: 'application/json'}) : null;
 
-    const url = (appLoaded && typeof URL !== 'undefined') ? URL.createObjectURL(blob) : null;
+    const url = (typeof URL !== 'undefined') ? URL.createObjectURL(blob) : null;
 
     const clickHandler = () => {
-        if (appLoaded && typeof window !== 'undefined' && typeof window.navigator.msSaveOrOpenBlob !== 'undefined') {
+        if (typeof window !== 'undefined' && typeof window.navigator.msSaveOrOpenBlob !== 'undefined') {
             window.navigator.msSaveOrOpenBlob(blob, fileName);
             return false;
         }
@@ -43,7 +43,6 @@ const PostmanCollection = ({apiType, appLoaded, auth, onAuthKeyChange, postmanCo
 PostmanCollection.displayName = 'Postman Collection';
 PostmanCollection.propTypes = {
     apiType: PropTypes.string.isRequired,
-    appLoaded: PropTypes.bool.isRequired,
     auth: PropTypes.shape({
         formula: PropTypes.string.isRequired,
         params: PropTypes.objectOf(PropTypes.string.isRequired)

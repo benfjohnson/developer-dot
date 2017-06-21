@@ -8,7 +8,6 @@ import {Provider} from 'react-redux';
 import reducer from './reducers/reducer';
 
 import App from './containers/app';
-import actionTypes from '../shared/actionTypes';
 
 import swaggerToGetStartedState from './swaggerToGetStartedState';
 
@@ -21,7 +20,6 @@ swaggerToGetStartedState('avatax-subset.json', (appState) => {
         <Provider store={store}>
             <App />
         </Provider>,
-        document.getElementById('react-root'),
-        () => store.dispatch({type: actionTypes.APP_LOADED})
+        document.getElementById('react-root')
     );
 });
