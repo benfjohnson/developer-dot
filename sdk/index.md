@@ -71,6 +71,12 @@ Avalara maintains and publishes SDKs for our current REST v2 API for the followi
             <td></td>
             <td><a href="https://github.com/avadev/AvaTax-REST-V2-Apex-SDK">AvaTax-REST-V2-Apex-SDK</a></td>
         </tr>
+        <tr>
+            <td>IBM I RPG</td>
+            <td></td>
+            <td></td>
+            <td><a href="https://github.com/avadev/AvaTax-REST-V2-RPGLE-SDK">AvaTax-REST-V2-RPGLE-SDK</a></td>
+        </tr>
     </tbody>
     </table>
 </div>
