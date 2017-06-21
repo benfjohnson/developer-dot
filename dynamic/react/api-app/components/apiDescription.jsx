@@ -13,7 +13,7 @@ const mapStateToProps = (state) => (
 const ApiDescRender = ({apiName, apiDescription}) => (
     <div className={'api-summary'}>
         <h1>{apiName}</h1>
-        <ReactMarkdown source={apiDescription || ''} />
+        <ReactMarkdown className={'markdown-description'} source={apiDescription || ''} />
         <h2>{'Api Reference'}</h2>
         <p>{'Full reference for this API is available on the developer site:'}</p>
         <ul>

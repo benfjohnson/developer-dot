@@ -19,7 +19,7 @@ const ApiDocumentationParam = ({params, type, currentOperation}) => (
                     {', '}
                     {(params[param].enum) ? 'Enum' : params[param].fieldType}
                 </td>
-                <td><ReactMarkdown source={params[param].description || ''} /></td>
+                <td><ReactMarkdown className={'markdown-description'} source={params[param].description || ''} /></td>
             </tr>);
         })}
     </tbody>
