@@ -1,4 +1,10 @@
-import {replaceStringPlaceholders, reduceParamsToKeyValuePair, buildQueryString, fillPostBodySampleData, fillOrRemoveRequestParamSampleData} from '../shared/helpers';
+import {
+    replaceStringPlaceholders,
+    reduceParamsToKeyValuePair,
+    buildQueryString,
+    fillPostBodySampleData,
+    fillOrRemoveRequestParamSampleData
+} from '../shared/helpers';
 
 const buildAuth = (authFormula) => {
     // Grab all auth variables out of authFormula str (should be in <> brackets)
@@ -7,9 +13,9 @@ const buildAuth = (authFormula) => {
     if (!authFormula) {
         auth = null;
     } else {
-        const authParams = authFormula.match(/<\w+>/g).map((key) => key.substring(1, key.length - 1)).reduce((accum, key) => (
-                {...accum, [key]: ''}
-        ), {});
+        const authParams = authFormula.match(/<\w+>/g).map((key) => key.substring(1, key.length - 1)).reduce((accum, key) => ({...accum,
+            [key]: ''
+        }), {});
 
         auth = {
             formula: authFormula,
@@ -46,6 +52,8 @@ const buildPostmanCollection = (appState) => {
             response: []
         };
 
+        const newRaw = JSON.stringify(endpoint.requestSchemaExample || fillPostBodySampleData(endpoint.requestSchema, endpoint.showExcludedPostBodyFields));
+
         if (endpoint.requestSchema) {
             baseRequest.request.header.push({
                 key: 'Content-Type',
@@ -53,7 +61,7 @@ const buildPostmanCollection = (appState) => {
             });
             baseRequest.request.body = {
                 mode: 'raw',
-                raw: JSON.stringify(fillPostBodySampleData(endpoint.requestSchema, endpoint.showExcludedPostBodyFields))
+                raw: newRaw
             };
         } else {
             baseRequest.request.body = {
@@ -76,4 +84,7 @@ const buildPostmanCollection = (appState) => {
     return postmanCollection;
 };
 
-export {buildPostmanCollection, buildAuth};
+export {
+    buildPostmanCollection,
+    buildAuth
+};
