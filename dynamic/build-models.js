@@ -73,10 +73,6 @@ const writeHtml = function(dir, defs, product, fields, apiName) {
     writeDirectoryIndex(dir, defs, product, apiName);
 
     Object.keys(defs).forEach((def) => {
-        let prettyJson = JSON.stringify(defs[def].example, null, 4);
-
-        prettyJson = (prettyJson) ? prettyJson.replace(/'/g, '') : prettyJson;
-
         const html = `---
 layout: default
 title: "API Console"
@@ -85,15 +81,14 @@ api_name: ${apiName}
 nav: apis
 product: ${product}
 doctype: api_references
-endpoint_links: []
 ---
 
-{% assign name = "${def}" %}
-{% assign path = "${dir}" %}
-{% assign model_ = site.data.swagger${fields}[name] %}
-{% assign ep = '${prettyJson}' %}
-
-{% include models.html name=name path=path ${(prettyJson) ? 'examplePretty=ep' : ''} model=model_ %}
+<div id='react-root'></div>
+<script>
+    window.PAGE_MODEL = ${JSON.stringify(defs[def])};
+    window.MODEL_NAME = '${def}';
+</script>
+<script src='/public/js/render-model-bundle.js'></script>
 
 {% include disqus.html %}`;
 

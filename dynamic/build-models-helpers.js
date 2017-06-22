@@ -129,7 +129,7 @@ function hashNewDefinitions(definition, name, accum, allDefs) {
 
         // array definition needs to be flattened:
         accum[`${name}Item`] = hashNewDefinitions(arr, `${name}Item`, accum, allDefs);
-        accum[name] = {items: {$ref: `#/definitions/${name}Item`}};
+        accum[name] = {type: 'array', items: {$ref: `#/definitions/${name}Item`}};
         return accum;
     }
 
