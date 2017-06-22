@@ -28,6 +28,7 @@ module.exports = {
     'Get Started: AvaTax (verify tabs)': function(browser) {
         browser
             .initialize(browser.globals.baseURL + '/avatax/get-started/')
+            .execute("document.querySelectorAll('.consoleScroll, .reqScroll, .respScroll').forEach(e => e.style.overflow = 'auto')")
 
             .waitForElementVisible('#CalculateTaxtab')
             .click('#CalculateTaxtab')
@@ -52,6 +53,7 @@ module.exports = {
 
         browser
             .initialize(browser.globals.baseURL + '/avatax/get-started/')
+            .execute("document.querySelectorAll('.consoleScroll, .reqScroll, .respScroll').forEach(e => e.style.overflow = 'auto')")
 
             .waitForElementVisible('#ValidateanAddresstab')
             .click('#ValidateanAddresstab')
@@ -88,6 +90,7 @@ module.exports = {
 
         browser
             .initialize(browser.globals.baseURL + '/avatax/get-started/')
+            .execute("document.querySelectorAll('.consoleScroll, .reqScroll, .respScroll').forEach(e => e.style.overflow = 'auto')")
 
             .waitForElementVisible('#CalculateTaxtab')
             .click('#CalculateTaxtab')

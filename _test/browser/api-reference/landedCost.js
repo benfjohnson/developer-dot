@@ -510,6 +510,7 @@ module.exports = {
 
         browser
             .initialize(browser.globals.baseURL + '/api-reference/landedcost/methods/GetRateDetails_')
+            .execute("document.querySelectorAll('.consoleScroll, .reqScroll, .respScroll').forEach(e => e.style.overflow = 'auto')")
 
             .waitForElementVisible('#GetRateDetails_-console')
             .click('#GetRateDetails_-console')
@@ -571,6 +572,7 @@ module.exports = {
 
         browser
             .initialize(browser.globals.baseURL + '/api-reference/landedcost/methods/GetRateData_')
+            .execute("document.querySelectorAll('.consoleScroll, .reqScroll, .respScroll').forEach(e => e.style.overflow = 'auto')")
 
             .waitForElementVisible('#GetRateData_-console')
             .click('#GetRateData_-console')

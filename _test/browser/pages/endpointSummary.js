@@ -13,6 +13,8 @@ const endpointSummary = {
                 const consoleBody = `#${method}-console-body ${this.elements[type].selector}`;
                 const firstText = `${consoleBody} ${this.elements.consoleText.selector}`;
 
+                // incase console's overflow is hidden, nightwatch cannot see it
+                this.api.execute("document.querySelectorAll('.consoleScroll, .reqScroll, .respScroll').forEach(e => e.style.overflow = 'auto')");
                 this
                     .waitForElementVisible(firstText, this.api.globals.waitTime)
                     .api.getText(consoleBody, function(res) {

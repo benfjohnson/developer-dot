@@ -39,30 +39,11 @@ const ConsoleInputForm = ({endpoint, onFillConsoleSampleData, onSubmitConsoleReq
                     {'Reset'}
                     </span>
             </div>
-        {endpoint.pathParams ? <QueryOrPathParamsForm endpoint={endpoint} onInputChange={onPathParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'PATH'} params={endpoint.pathParams}/> : null}
-        {endpoint.queryString ? <QueryOrPathParamsForm endpoint={endpoint} onInputChange={onQueryParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
-        {endpoint.requestSchema ? <PostBodyForm endpoint={endpoint} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onPostBodyInputChanged={onPostBodyInputChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onSubmitConsoleRequest={onSubmitConsoleRequest} onToggleShowExcludedPostBodyProps={onToggleShowExcludedPostBodyProps} /> : null}
-        {endpoint.requestSchema ?
-            <div style={{marginBottom: '10px'}}>
-                <button
-                    className='btn btn-primary'
-                    onClick={
-                        (e) => {
-                            e.preventDefault();
-                            onSubmitConsoleRequest(endpoint);
-                        }
-                    }
-                    type={'button'}
-                >
-                {'Submit'}
-                </button>
-                <span
-                    className='m-l-1 hdr-btn-adj-text clickable'
-                    onClick={onResetConsole.bind(null, endpoint.id)}
-                    type='reset'>
-                    {'Reset'}
-                </span>
-            </div> : null}
+            <div className={'consoleScroll'}>
+                {endpoint.pathParams ? <QueryOrPathParamsForm endpoint={endpoint} onInputChange={onPathParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'PATH'} params={endpoint.pathParams}/> : null}
+                {endpoint.queryString ? <QueryOrPathParamsForm endpoint={endpoint} onInputChange={onQueryParamChanged} onSubmitConsoleRequest={onSubmitConsoleRequest} paramType={'QUERY_STRING'} params={endpoint.queryString}/> : null}
+                {endpoint.requestSchema ? <PostBodyForm endpoint={endpoint} name={endpoint.name.toLowerCase() + '_' + endpoint.action} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onPostBodyInputChanged={onPostBodyInputChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onSubmitConsoleRequest={onSubmitConsoleRequest} onToggleShowExcludedPostBodyProps={onToggleShowExcludedPostBodyProps} /> : null}
+            </div>
             <div style={{background: 'blue', height: 'auto'}} />
         </div>
     );

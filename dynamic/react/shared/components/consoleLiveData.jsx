@@ -120,16 +120,16 @@ const ConsoleLiveData = ({action, highlightedInputs, consoleLoading, path, reque
                             <div className={'col-md-6 console-req-container'}>
                                 <h5 className={'console-output-header'}>{'Request'}</h5>
                                 {/* eslint-disable react/no-danger */}
-                                {typeof request === 'object' || Array.isArray(request) ? <div className={'code-snippet'}><pre dangerouslySetInnerHTML={{__html: syntaxHighlight(request, highlightedInputs ? highlightedInputs.map((f) => f.field) : null)}} /></div> : <div className={'code-snippet code-snippet-code-text'} dangerouslySetInnerHTML={{__html: highlightQueryOrPathParams(request, highlightedInputs)}} />}
+                                {typeof request === 'object' || Array.isArray(request) ? <div className={'code-snippet reqScroll'}><pre dangerouslySetInnerHTML={{__html: syntaxHighlight(request, highlightedInputs ? highlightedInputs.map((f) => f.field) : null)}} /></div> : <div className={'code-snippet code-snippet-code-text reqScroll'} dangerouslySetInnerHTML={{__html: highlightQueryOrPathParams(request, highlightedInputs)}} />}
                             </div>
                             <div className={'col-md-6 console-res-container'}>
                                 <h5 className={'console-output-header'}>{'Response'}</h5>
-                                <div className={'code-snippet'}>{consoleLoading ? <div className={'loading-pulse'}></div> : <pre dangerouslySetInnerHTML={{__html: response ? syntaxHighlight(response.body) : ' '}} />}</div>
+                                <div className={'code-snippet respScroll'}>{consoleLoading ? <div className={'loading-pulse'} /> : <pre dangerouslySetInnerHTML={{__html: response ? syntaxHighlight(response.body) : ' '}} />}</div>
                             </div>
                         </div> :
                         <div>
                             <h5 className={'console-output-header'}>{'Response'}</h5>
-                            <div className={'code-snippet'}>{consoleLoading ? <div className={'loading-pulse'}></div> : <pre dangerouslySetInnerHTML={{__html: response ? syntaxHighlight(response.body) : ' '}} />}</div>
+                            <div className={'code-snippet respScroll'}>{consoleLoading ? <div className={'loading-pulse'} /> : <pre dangerouslySetInnerHTML={{__html: response ? syntaxHighlight(response.body) : ' '}} />}</div>
                             {/* eslint-enable react/no-danger */}
                         </div>
                     }

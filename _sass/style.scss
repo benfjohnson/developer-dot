@@ -760,3 +760,19 @@ footer {
     padding-top: 10px;
     padding-bottom: 10030px;
 }
+
+.consoleScroll {
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.reqScroll, .respScroll {
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.consoleScroll:hover, .reqScroll:hover, .respScroll:hover,
+.consoleScroll:focus, .reqScroll:focus, .respScroll:focus,
+.consoleScroll:active, .reqScroll:active, .respScroll:active {
+    overflow: auto;
+}
