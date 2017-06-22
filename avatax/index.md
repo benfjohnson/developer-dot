@@ -11,7 +11,7 @@ doctype: overview
     <h1 class="h1p">Real-time tax calculation for financial applications</h1>
     <h1>Try free for 30 days with an Avalara AvaTax sandbox account</h1>
   </div>
-  <div class="col-xs-offset-2 col-xs-8 text-center btn-callout"><a href="/avatax/signup" role="button">Get an Avalara AvaTax sandbox</a></div>
+  <div class="col-xs-offset-2 col-xs-8 text-center btn-callout"><a href="/avatax/signup" role="button">Get a Free Trial Account Now</a></div>
 </div>
 <div class="row border-top padding-top">
   <div class="col-md-8 col-md-offset-2 text-center">
