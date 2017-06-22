@@ -1,25 +1,28 @@
 <ul class = "api-ref-side-nav nav nav-pills nav-stacked hidden-xs hidden-sm">
     <h4>Categories</h4>
     <h5>
-    <li {% if page.url=="/blog/" %}class="active" {% endif %}>
-        <a class="capitalize" href="/blog/">All</a>
-    </li>
-
-    {% for category in site.categories %}
-        {% if category[1].size != 1 %}
-            {% assign a = category[0] | downcase %}
-            {% assign p = page.title | downcase %}
-            <li {% if p == a %}class="active"{% endif %} >
-                {% assign cate = category[0] | replace: ' ', '-' %}
+        <li {% if page.url=="/blog/" %}class="active" {% endif %}>
+            <a class="capitalize" href="/blog/">All</a>
+        </li>
+        {% assign sortedCategories = site.categories | sort %}
+        {% for category in sortedCategories %} 
+            {% if category[1].size != 1 %} 
+                {% assign a = category[0] | downcase %} 
+                {% assign p = page.title | downcase %}
+                <li {% if p==a %}class="active" {% endif %}>
+                {% assign cate = category[0] | replace: ' ', '-' %} 
                 {% if category[0] == "api" or category[0] == "sdk" or category[0] == "rest" %}
-                    <a class="text-uppercase" href="/blog/{{ cate | downcase}}/">{{ category[0] }}</a>
-                {% else %}
-                    <a class="capitalize" href="/blog/{{ cate | downcase}}/">{{ category[0] }}</a>
+                     <a class="text-uppercase" href="/blog/{{ cate | downcase}}/">{{ category[0] }}</a> 
+                {% elsif category[0] != "older" %}
+                    <a class="capitalize" href="/blog/{{ cate | downcase}}/">{{ category[0] }}</a> 
                 {% endif %}
+                </li>
+            {% endif %}        
+        {% endfor %}
 
-            </li>
-        {% endif %}
-    {% endfor %}
+        <li {% if page.url=="/blog/" %}class="active" {% endif %}>
+            <a class="capitalize" href="/blog/older">Older</a>
+        </li>
     </h5>
 </ul>
 <div class="sm-section-nav dropdown visible-xs-block visible-sm-block">
