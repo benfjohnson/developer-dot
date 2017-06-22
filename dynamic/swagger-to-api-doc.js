@@ -75,7 +75,7 @@ ${(!methodSubsetName) ? 'homepage: true' : ''}
 <table class="styled-table">
     <thead>
         <tr>
-            <th>Method</th>
+            <th>${saveRoot === 'api-reference/avatax/rest/v2/methods' ? 'Categories' : 'Method'}</th>
             <th>Purpose</th>
             <th>Summary</th>
         </tr>
