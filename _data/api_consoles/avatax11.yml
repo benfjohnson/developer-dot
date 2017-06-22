@@ -20,7 +20,7 @@ nav_links:
     path: /avatax
   - title: Use cases
     path: /avatax/use-cases
-  - title: API references
+  - title: API reference
     path: /api-reference/avatax/rest/v2
   - title: Set up your sandbox
     path: /avatax/get-started

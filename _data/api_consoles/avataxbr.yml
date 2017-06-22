@@ -8,7 +8,7 @@ product: avaTaxBr
 nav_links:
   - title: Overview
     path: /avataxbr
-  - title: API references
+  - title: API reference
     path: /api-reference/avataxbr/accounts
   - title: Clients
     path: /avataxbr/clients

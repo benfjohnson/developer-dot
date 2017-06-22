@@ -13,7 +13,7 @@
         <ul class="pipe">
             <li><span class="text-uppercase">{{section}} API</span>s</li>
             <li class="text-uppercase"><a href="/{{ page.product | downcase }}">Avalara {{page.product}}</a></li>
-            <li class="text-uppercase">{{page.doctype | replace : '_', ' '}}</li>
+            <li class="text-uppercase">{{page.doctype | replace : '_', ' ' | replace : 'api references', 'api reference'}}</li>
         </ul>
     </div>
 </div>

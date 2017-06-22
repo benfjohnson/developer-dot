@@ -8,5 +8,5 @@ product: landedcost
 nav_links:
   - title: Overview
     path: /landedcost
-  - title: API references
+  - title: API reference
     path: /api-reference/landedcost

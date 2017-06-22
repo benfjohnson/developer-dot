@@ -20,5 +20,5 @@ nav_links:
     path: /avatax
   - title: Use cases
     path: /avatax/use-cases
-  - title: API references
+  - title: API reference
     path: /api-reference/avatax/rest/v2

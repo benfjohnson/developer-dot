@@ -15,5 +15,5 @@ endpoint_hashes:
 nav_links:
   - title: Overview
     path: /trustfile
-  - title: API references
+  - title: API reference
     path: /api-reference/trustfile/api

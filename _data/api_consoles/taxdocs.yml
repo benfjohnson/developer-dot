@@ -8,5 +8,5 @@ product: taxdocs
 nav_links:
   - title: Overview
     path: /taxdocs
-  - title: API references
+  - title: API reference
     path: /api-reference/taxdocs/transactions

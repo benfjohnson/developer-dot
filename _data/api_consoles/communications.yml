@@ -35,5 +35,5 @@ endpoint_hashes:
 nav_links:
   - title: Overview
     path: /communications
-  - title: API references
+  - title: API reference
     path: /api-reference/communications/afc-rest

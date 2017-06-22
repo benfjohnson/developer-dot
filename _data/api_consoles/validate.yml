@@ -8,5 +8,5 @@ product: validate
 nav_links:
   - title: Overview
     path: /validate
-  - title: API references
+  - title: API reference
     path: /api-reference/validate/transactions-api
