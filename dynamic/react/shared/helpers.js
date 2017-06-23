@@ -221,7 +221,7 @@ const submitProxiedRequest = (endpoint) => {
  * Given the above inputs, determines if an AWS proxy key is needed to auth the API request
  * The correct key is requested if so, and returns a promise which will yield the API request results
  */
-const submitApiRequest = (url, action, postBody = null) => {
+const submitApiRequest = (url, action, postBody = null, userProfile = null) => {
     const req = {
         method: action,
         headers: {}
@@ -230,6 +230,9 @@ const submitApiRequest = (url, action, postBody = null) => {
     if (postBody) {
         req.headers['Content-Type'] = 'application/json';
         req.body = JSON.stringify(postBody);
+    }
+    if (userProfile) {
+        req.headers.Authorization = `${userProfile.token_type} ${userProfile.access_token}`;
     }
     return fetch(url, req)
     .then((rawApiRes) => {

@@ -76,6 +76,11 @@ export default {
             endpointId: endpointId
         };
     },
+    toggleAiForRequest: () => {
+        return {
+            type: actionTypes.TOGGLE_AI_CREDS_FOR_CONSOLE_REQUEST
+        };
+    },
     toggleShowExcludedPostBodyProps: (endpointId) => {
         return {
             type: actionTypes.TOGGLE_SHOW_EXCLUDED_POST_BODY_PROPS,

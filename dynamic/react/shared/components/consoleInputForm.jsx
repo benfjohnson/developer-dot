@@ -6,7 +6,7 @@ import QueryOrPathParamsForm from './queryOrPathParamsForm';
 import PostBodyForm from './postBodyForm';
 import {hasExampleData} from '../helpers';
 
-const ConsoleInputForm = ({endpoint, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleShowExcludedPostBodyProps}) => {
+const ConsoleInputForm = ({endpoint, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleShowExcludedPostBodyProps, userProfile}) => {
     return (
         <div>
             <div>
@@ -25,7 +25,7 @@ const ConsoleInputForm = ({endpoint, onFillConsoleSampleData, onSubmitConsoleReq
                         onClick={
                             (e) => {
                                 e.preventDefault();
-                                onSubmitConsoleRequest(endpoint);
+                                onSubmitConsoleRequest(endpoint, userProfile);
                             }
                         }
                         type={'button'}
@@ -60,7 +60,8 @@ ConsoleInputForm.propTypes = {
     onRemovePostbodyCollectionItem: PropTypes.func.isRequired,
     onResetConsole: PropTypes.func.isRequired,
     onSubmitConsoleRequest: PropTypes.func.isRequired,
-    onToggleShowExcludedPostBodyProps: PropTypes.func.isRequired
+    onToggleShowExcludedPostBodyProps: PropTypes.func.isRequired,
+    userProfile: PropTypes.object
 };
 
 export default ConsoleInputForm;

@@ -51,6 +51,11 @@ export default (state = {}, action) => {
             }
             return endpoint;
         })};
+    case actionTypes.TOGGLE_AI_CREDS_FOR_CONSOLE_REQUEST:
+        if (state.userProfile) {
+            state.userProfile.toggled = !state.userProfile.toggled;
+        }
+        return state;
     default:
         return state;
     }
