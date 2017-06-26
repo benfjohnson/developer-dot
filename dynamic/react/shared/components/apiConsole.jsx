@@ -24,6 +24,10 @@ const ApiConsole = (props) => {
                 <ConsoleLiveData
                     action={props.endpoint.action}
                     consoleLoading={props.endpoint.apiConsoleLoading}
+                    endpoint={props.endpoint}
+                    onConsoleToggledFreeEdit={props.onConsoleToggledFreeEdit}
+                    onConsoleToggledReadOnly={props.onConsoleToggledReadOnly}
+                    onRequestChanged={props.onRequestChanged}
                     onToggleAiForRequest={props.onToggleAiForRequest}
                     path={props.endpoint.path}
                     request={getRequest(props.endpoint)}
@@ -71,11 +75,14 @@ ApiConsole.propTypes = {
         showExcludedPostBodyFields: PropTypes.bool.isRequired
     }).isRequired,
     onAddItemToPostbodyCollection: PropTypes.func.isRequired,
+    onConsoleToggledFreeEdit: PropTypes.func.isRequired,
+    onConsoleToggledReadOnly: PropTypes.func.isRequired,
     onFillConsoleSampleData: PropTypes.func.isRequired,
     onPathParamChanged: PropTypes.func.isRequired,
     onPostBodyInputChanged: PropTypes.func.isRequired,
     onQueryParamChanged: PropTypes.func.isRequired,
     onRemovePostbodyCollectionItem: PropTypes.func.isRequired,
+    onRequestChanged: PropTypes.func.isRequired,
     onResetConsole: PropTypes.func.isRequired,
     onSubmitConsoleRequest: PropTypes.func.isRequired,
     onToggleAiForRequest: PropTypes.func.isRequest,

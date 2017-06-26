@@ -42,6 +42,31 @@ export default {
             endpointId: endpointId
         };
     },
+    requestChanged: (endpointId, newValue) => {
+        return {
+            type: actionTypes.REQUEST_CHANGED,
+            endpointId: endpointId,
+            newValue: newValue
+        };
+    },
+    consoleToggledReadOnly: (endpointId) => {
+        return {
+            type: actionTypes.CONSOLE_TOGGLED_READ_ONLY,
+            endpointId: endpointId
+        };
+    },
+    consoleToggledFreeEdit: (endpointId) => {
+        return {
+            type: actionTypes.CONSOLE_TOGGLED_FREE_EDIT,
+            endpointId: endpointId
+        };
+    },
+    consoleError: (endpointId) => {
+        return {
+            type: actionTypes.CONSOLE_ERROR,
+            endpointId: endpointId
+        };
+    },
     addItemToPostbodyCollection: (paramName, endpointId, itemSchema) => {
         return {
             type: actionTypes.ADD_ITEM_TO_POST_BODY_COLLECTION,

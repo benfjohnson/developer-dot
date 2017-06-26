@@ -108,7 +108,55 @@ const syntaxHighlight = (jsonObj, highlightedFields) => {
     return highlightPunctuation(json);
 };
 
-const ConsoleLiveData = ({action, highlightedInputs, consoleLoading, onToggleAiForRequest, path, request, response, userProfile}) => {
+const PostHelper = ({action, endpoint, highlightedInputs, onConsoleToggledFreeEdit, onConsoleToggledReadOnly, onRequestChanged, request}) => {
+    if (action === 'post' && (typeof request === 'object' || Array.isArray(request))) {
+        return (
+            <div>
+                <ul className={'nav nav-tabs'} id={'console-tabs'}>
+                    <li className={'nav'} id={'FE'}><a data-toggle={'tab'} href={'#console_input_freeEdit'} onClick={() => {
+                        onConsoleToggledFreeEdit(endpoint.id);
+                    }}><i className={'glyphicon glyphicon-pencil'}/>{' Editor'}</a></li>
+                    <li className={'nav active'} id={'RO'}><a data-toggle={'tab'} href={'#console_input_readOnly'} onClick={() => {
+                        onConsoleToggledReadOnly(endpoint.id);
+                    }}><i className={'glyphicon'}/>{'Console'}</a></li>
+                </ul>
+                <div className={'tab-content'}>
+                    <div className={'code-snippet code-snippet-tabcontent reqScroll active'} id={'console_input_readOnly'}><pre dangerouslySetInnerHTML={{__html: syntaxHighlight(request, highlightedInputs ? highlightedInputs.map((f) => f.field) : null)}} /></div>
+                    <div className={'code-snippet code-snippet-tabcontent reqScroll'} id={'console_input_freeEdit'}><textarea className={'code-snipet-console'} id={'console_input'} onChange={() => {
+                        onRequestChanged(endpoint.id, document.getElementById('console_input').value);
+                    }} value={endpoint.requestInput} /></div>
+                </div>
+            </div>
+        );
+    } else if (typeof request === 'object' || Array.isArray(request)) {
+        return (
+            <div className={'code-snippet reqScroll'} id={'console_input'}><pre dangerouslySetInnerHTML={{__html: syntaxHighlight(request, highlightedInputs ? highlightedInputs.map((f) => f.field) : null)}} /></div>
+        );
+    }
+    return (
+        <div className={'code-snippet code-snippet-code-text reqScroll'} dangerouslySetInnerHTML={{__html: highlightQueryOrPathParams(request, highlightedInputs)}} />
+    );
+};
+
+PostHelper.displayName = 'Console Helper';
+PostHelper.propTypes = {
+    action: PropTypes.string.isRequired,
+    endpoint: PropTypes.object.isRequired,
+    highlightedInputs: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        field: PropTypes.string.isRequired,
+        in: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
+        enum: PropTypes.array
+    })),
+    onConsoleToggledFreeEdit: PropTypes.func.isRequired,
+    onConsoleToggledReadOnly: PropTypes.func.isRequired,
+    onRequestChanged: PropTypes.func.isRequired,
+    request: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string])
+};
+
+const ConsoleLiveData = ({action, consoleLoading, endpoint, highlightedInputs, onConsoleToggledFreeEdit, onConsoleToggledReadOnly, onRequestChanged, onToggleAiForRequest, path, request, response, userProfile}) => {
     return (
         <div>
             <h5 className={'console-output-header'}>
@@ -128,10 +176,21 @@ const ConsoleLiveData = ({action, highlightedInputs, consoleLoading, onToggleAiF
                             <div className={'col-md-6 console-req-container'}>
                                 <h5 className={'console-output-header'}>{'Request'}</h5>
                                 {/* eslint-disable react/no-danger */}
-                                {typeof request === 'object' || Array.isArray(request) ? <div className={'code-snippet reqScroll'}><pre dangerouslySetInnerHTML={{__html: syntaxHighlight(request, highlightedInputs ? highlightedInputs.map((f) => f.field) : null)}} /></div> : <div className={'code-snippet code-snippet-code-text reqScroll'} dangerouslySetInnerHTML={{__html: highlightQueryOrPathParams(request, highlightedInputs)}} />}
+                                <PostHelper action={action}
+                                    endpoint={endpoint}
+                                    highlightedInputs={highlightedInputs}
+                                    onConsoleToggledFreeEdit={onConsoleToggledFreeEdit}
+                                    onConsoleToggledReadOnly={onConsoleToggledReadOnly}
+                                    onRequestChanged={onRequestChanged}
+                                    request={request}
+                                />
                             </div>
                             <div className={'col-md-6 console-res-container'}>
                                 <h5 className={'console-output-header'}>{'Response'}</h5>
+                                {endpoint.consoleError ?
+                                    <div className={'json_error'}>
+                                        <h5>{'Incorrect JSON format'}</h5>
+                                    </div> : null}
                                 <div className={'code-snippet respScroll'}>{consoleLoading ? <div className={'loading-pulse'} /> : <pre dangerouslySetInnerHTML={{__html: response ? syntaxHighlight(response.body) : ' '}} />}</div>
                             </div>
                         </div> :
@@ -149,6 +208,7 @@ ConsoleLiveData.displayName = 'Console Live Data';
 ConsoleLiveData.propTypes = {
     action: PropTypes.string.isRequired,
     consoleLoading: PropTypes.bool.isRequired,
+    endpoint: PropTypes.object.isRequired,
     highlightedInputs: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
@@ -157,6 +217,9 @@ ConsoleLiveData.propTypes = {
         value: PropTypes.string.isRequired,
         enum: PropTypes.array
     })),
+    onConsoleToggledFreeEdit: PropTypes.func.isRequired,
+    onConsoleToggledReadOnly: PropTypes.func.isRequired,
+    onRequestChanged: PropTypes.func.isRequired,
     onToggleAiForRequest: PropTypes.func.isRequest,
     path: PropTypes.string.isRequired,
     /* Not required, as a GET might not require any input (e.g. LandedCost `validateCredentials` route) */
