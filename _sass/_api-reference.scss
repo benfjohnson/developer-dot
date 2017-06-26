@@ -97,21 +97,19 @@ h2, h3 {
 
 .try-it-now-header {
     display: inline-block;
-    color: $Darkest-blue;
+    color: $Ava-orange;
     cursor: pointer;
     font-size: 18px;
-    margin-top: 5px;
-    margin-bottom: 20px;
 
     div.documentation-expand-icon {
-        fill: $Darkest-blue;
+        fill: $Ava-orange;
     }
 
     &:hover {
-        color: $Ava-blue;
+        color: $Darker-Ava-orange;
 
         div.documentation-expand-icon {
-            fill: $Ava-blue;
+            fill: $Darker-Ava-orange;
         }
     }
 }

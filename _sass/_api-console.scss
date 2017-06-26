@@ -160,6 +160,14 @@ h5.console-output-header {
     text-decoration: none;
 }
 
+.try-it-now-header .clickable {
+    color: $Ava-orange;
+}
+
+.try-it-now-header .clickable:hover {
+    color: $Darker-Ava-orange;
+}
+
 .api-console-section-header {
     display: inline-block;
     margin-top: 0;
