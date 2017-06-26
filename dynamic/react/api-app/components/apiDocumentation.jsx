@@ -67,35 +67,39 @@ const ApiDocumentation = ({endpoint, userProfile}) => (
         </table>
         <h3 id='description'>{'Description'}</h3>
         <ReactMarkdown className={'markdown-description'} source={endpoint.description || ''} />
-        <h3 id='parameters'>{'Parameters'}</h3>
-        <table className='styled-table'>
-            <thead>
-                <tr>
-                    <th>{'Location'}</th>
-                    <th>{'Parameter'}</th>
-                    <th>{'Attributes'}</th>
-                    <th>{'Summary'}</th>
-                </tr>
-            </thead>
-            <ApiDocumentationParam currentOperation={endpoint.operationId} params={endpoint.pathParams} type={'UriPath'} />
-            <ApiDocumentationParam currentOperation={endpoint.operationId} params={endpoint.headerParams} type={'Header'} />
-            <ApiDocumentationParam currentOperation={endpoint.operationId} params={endpoint.queryString} type={'QueryString'} />
-            {endpoint.requestSchemaWithRefs ?
-                <tbody>
-                    <tr>
-                        <td>{'RequestBody'}</td>
-                        <td>{'Model'}</td>
-                        <td>
-                            <ApiDocModelLink refSchema={endpoint.requestSchemaWithRefs} />
-                        </td>
-                        <td>
-                            {endpoint.requestSchemaWithRefs.description || null}
-                        </td>
-                    </tr>
-                </tbody> :
-                null
-            }
-        </table>
+        {(endpoint.pathParams || endpoint.headerParams || endpoint.queryString || endpoint.requestSchemaWithRefs) ?
+            <div>
+                <h3 id='parameters'>{'Parameters'}</h3>
+                <table className='styled-table'>
+                    <thead>
+                        <tr>
+                            <th>{'Location'}</th>
+                            <th>{'Parameter'}</th>
+                            <th>{'Attributes'}</th>
+                            <th>{'Summary'}</th>
+                        </tr>
+                    </thead>
+                    <ApiDocumentationParam currentOperation={endpoint.operationId} params={endpoint.pathParams} type={'UriPath'} />
+                    <ApiDocumentationParam currentOperation={endpoint.operationId} params={endpoint.headerParams} type={'Header'} />
+                    <ApiDocumentationParam currentOperation={endpoint.operationId} params={endpoint.queryString} type={'QueryString'} />
+                    {endpoint.requestSchemaWithRefs ?
+                        <tbody>
+                            <tr>
+                                <td>{'RequestBody'}</td>
+                                <td>{'Model'}</td>
+                                <td>
+                                    <ApiDocModelLink refSchema={endpoint.requestSchemaWithRefs} />
+                                </td>
+                                <td>
+                                    {endpoint.requestSchemaWithRefs.description || null}
+                                </td>
+                            </tr>
+                        </tbody> :
+                        null
+                    }
+                </table>
+            </div> : null
+        }
     </div>
 );
 
