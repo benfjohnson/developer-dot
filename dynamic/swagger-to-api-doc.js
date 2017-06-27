@@ -62,7 +62,7 @@ const saveMethodsIndex = (apiName, saveRoot, product, linksArray, methodSubsetNa
 
     const table = `---
 layout: default
-title: "API Console"
+title: "${methodSubsetName ? `${methodSubsetName} - ` : ''}${apiName}"
 api_console: 1
 api_name: ${apiName}
 nav: apis
@@ -126,12 +126,20 @@ export default (fileName, apiName, apiPath, product) => {
                 }
 
                 const buildHtml = (tagName, initialState, disqus) => {
-                    const endpointLinks = initialState.apiEndpoints.reduce((accum, endpt) => `${accum}["#${endpt.operationId.replace(/\s/g, '')}", "${endpt.name}"],\n`, '');
+                    const endpoint = initialState.apiEndpoints.length ? initialState.apiEndpoints[0] : null;
+                    const endpointLinks = endpoint ?
+                        `["#${endpoint.operationId.replace(/\s/g, '')}", "${endpoint.name}"],\n` : '';
 
                     return (
                         `---
 layout: default
-title: "API Console"
+${endpoint ?
+`
+title: "${endpoint.operationId} | ${apiName}"
+${endpoint.name ? `ogdescription: "${(endpoint.name).replace(/"/g, "'")}"` : ''}
+` :
+`title: "${apiName}"`
+}
 api_console: 1
 api_name: ${apiName}
 ${tagName ? `tag_name: ${tagName}` : ''}

@@ -8,15 +8,16 @@
     <meta name="robots" content="index,follow" /> {% endif %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ site.title }}{% if page.title %} : {{ page.title }}{% endif %}</title>
-    <meta name="description" content="{{ site.subtitle }}">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}Developer Avalara</title>
 
-    <meta property="og:title" content="Home" />
+    {% assign default_desc = "API solutions for end-to-end tax compliance" %}
+    <meta name="description" content="{{ default_desc }}">
+
+    <meta property="og:title" content="{{ page.ogtitle | default:page.title }} | Avalara" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://developer.avalara.com/" />
     <meta property="og:site_name" content="Avalara Developer Network" />
-    <meta property="og:description" content="Avalara AvaTax Accurate and easy sales tax calculation Automatically tie your non-taxable transactions directly to the correct exemption or reseller certificate. Determine accurate taxability & duties for millions of products and services in over 100 countries."
-    />
+    <meta property="og:description" content="{{ page.ogdescription | default:default_desc }}"/>
 
     <link rel="apple-touch-icon" sizes="57x57" href="/public/images/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/public/images/favicon/apple-icon-60x60.png">

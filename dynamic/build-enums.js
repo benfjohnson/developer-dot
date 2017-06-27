@@ -52,9 +52,11 @@ function titleLinks(parent, name) {
 }
 
 function appendEnum(info, attr) {
+    const enumName = attr['x-enum-type'] || info.name;
     const html = `---
 layout: default
-title: "API Console"
+title: "${enumName} | ${info.apiName}"
+${(attr.description) ? `ogdescription: "${(attr.description || '').replace(/"/g, "'")}"` : ''}
 api_console: 1
 api_name: ${info.apiName}
 nav: apis

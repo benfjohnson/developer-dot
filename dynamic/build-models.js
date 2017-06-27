@@ -23,7 +23,7 @@ const loadFile = function(file) {
 const writeDirectoryIndex = function(dir, defs, product, apiName) {
     let table = `---
 layout: default
-title: "API Console"
+title: "${apiName}"
 api_console: 1
 api_name: ${apiName}
 nav: apis
@@ -75,7 +75,8 @@ const writeHtml = function(dir, defs, product, fields, apiName) {
     Object.keys(defs).forEach((def) => {
         const html = `---
 layout: default
-title: "API Console"
+title: "${def} | ${apiName}"
+${defs[def].description ? `ogdescription: "${(defs[def].description).replace(/"/g, "'")}"` : ''}
 api_console: 1
 api_name: ${apiName}
 nav: apis
