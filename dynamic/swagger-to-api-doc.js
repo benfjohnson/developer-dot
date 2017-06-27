@@ -130,6 +130,8 @@ export default (fileName, apiName, apiPath, product) => {
                     const endpointLinks = endpoint ?
                         `["#${endpoint.operationId.replace(/\s/g, '')}", "${endpoint.name}"],\n` : '';
 
+                    initialState.tagName = tagName;
+
                     return (
                         `---
 layout: default

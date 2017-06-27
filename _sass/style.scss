@@ -780,3 +780,11 @@ footer {
 .consoleScroll:active, .reqScroll:active, .respScroll:active {
     overflow: auto;
 }
+
+.v2Links {
+    margin: 15px 0 0 0;
+
+    p {
+        margin: 0;
+    }
+}

@@ -21,6 +21,7 @@ const App = ({isEmpty}) => (
 
 const mapStateToProps = (state) => {
     return {
+        tagName: state.tagName,
         endpoint: state.apiEndpoint || null,
         isEmpty: state.apiEndpoints.length === 0
     };

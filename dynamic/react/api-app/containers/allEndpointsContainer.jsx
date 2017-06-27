@@ -5,14 +5,15 @@ import EndpointContainer from './endpointContainer';
 
 const mapStateToProps = (state) => {
     return {
-        apiEndpoints: state.apiEndpoints
+        apiEndpoints: state.apiEndpoints,
+        tagName: state.tagName
     };
 };
 
-const Endpoints = ({apiEndpoints}) => {
+const Endpoints = ({apiEndpoints, tagName}) => {
     return (
         <div>
-            {apiEndpoints.map((endpoint, i) => <EndpointContainer endpoint={endpoint} key={i} />)}
+            {apiEndpoints.map((endpoint, i) => <EndpointContainer endpoint={endpoint} tagName={tagName} key={i} />)}
         </div>
     );
 };

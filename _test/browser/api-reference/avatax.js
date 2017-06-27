@@ -94,5 +94,14 @@ module.exports = {
         browser
             .initialize(browser.globals.baseURL + '/api-reference/onboarding/methods/getAccount/')
             .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
+    },
+    'API Console: AvaTax: REST v2 Swagger Links': function(browser) {
+        const endpointUrl = `${browser.globals.baseURL}/api-reference/avatax/rest/v2/methods/Companies/CompanyInitialize/`;
+
+        browser
+            .initialize(endpointUrl)
+            .navigateTo('#CompanyInitialize-console')
+            .assert.elementNumTimes('.v2Links > a', 2, 'Assert 2 Swagger UI Links')
+            .navigateToUrl('.v2Links > a', '#Companies_CompanyInitialize', /Companies\/CompanyInitialize/);
     }
 };
