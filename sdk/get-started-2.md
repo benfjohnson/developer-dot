@@ -3,17 +3,17 @@ layout: page
 title: Get Started
 product: avaTax
 doctype: documentation
-nav: avaTax
+nav: sdk
 avaform: 1
 ---
 <div class="half">
   <h2>Four simple steps to getting started in calculating sales tax with our REST API</h2>
   <strong>If you already have an Avalara AvaTax account</strong> and want to dive into the details, a good place to start is our <a href="/blog/2013/11/11/introduction-to-the-avalara-avatax-api">Introduction to the Avalara AvaTax API</a>.
   <h4><img src="/public/images/blog/orange-box-1-sm.png" alt="1" /> Try the API</h4>
-  Want to know how the API looks? Make some requests with the tool below. See how different inputs produce different tax calcluation results, and see what kind of tax information you can expect to get back.
+  Want to know how the API looks? Make some requests to either <a href="/api-reference/avatax/rest/v2/methods/Transactions/CreateTransaction/"> Calculate Tax</a> or <a href="/api-reference/avatax/rest/v2/methods/Addresses/ResolveAddress/">Validate an Address</a>. See how different inputs produce different tax calcluation results, and see what kind of tax information you can expect to get back.
 </div>
 
-{% include get-started-console.html %}
+<!--{% include get-started-console.html %}-->
 
 <h4 id="signup"><img src="/public/images/blog/orange-box-2-sm.png" alt="2" /> Create an AvaTax Account</h4>
 
@@ -29,7 +29,7 @@ To calculate tax correctly, we'll need to know a few things about your company. 
 
 <h4><img src="/public/images/blog/orange-box-4-sm.png" alt="4" /> Calculate Tax</h4>
 
-Your next step is to calculate tax online using the interactive <a target="_blank" href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Transactions/CreateTransaction">AvaTax API reference page</a>.  If you want to sell $100 worth of Yarn at a retail location in Irvine, California, here's what your transaction would look like:
+Your next step is to calculate tax online using the interactive <a target="_blank" href="/api-reference/avatax/rest/v2/methods/Transactions/CreateTransaction/">AvaTax API reference page</a>.  If you want to sell $100 worth of Yarn at a retail location in Irvine, California, here's what your transaction would look like:
 
 ```json
 {
@@ -56,7 +56,7 @@ Your next step is to calculate tax online using the interactive <a target="_blan
 }
 ```
 
-You can copy and paste this text into the `model` parameter box on the <a target="_blank" href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Transactions/CreateTransaction">CreateTransaction</a> API call, then click `Try it out!`.  If you get an `Authorization Incomplete` error, click the `Authorize` button on the top right hand corner of the page and fill out your credentials, then try creating the transaction again.  
+You can copy and paste this text into the `model` parameter box on the <a target="_blank" href="/api-reference/avatax/rest/v2/methods/Transactions/CreateTransaction/">CreateTransaction</a> API call, then click `Try it out!`.  If you get an `Authorization Incomplete` error, click the `Authorize` button on the top right hand corner of the page and fill out your credentials, then try creating the transaction again.  
 
 Mixed in along with all the diagnostic information, you'll see this data in the result:
 
@@ -103,6 +103,6 @@ We're really proud of the world-leading AvaTax platform, and we hope you'll have
     <li>Read our <a href="/blog">Developer Blog</a> for up-to-date news and articles about the great features of AvaTax</li>
     <li>Ready to upgrade to a production account?  Please <a href="https://www.avalara.com/contact-us/?referrer=&lastReferrer=developer.avalara.com">contact the sales department</a> anytime and we'll be happy to help you out.</li>
     <li>Want to develop a certified connector?  Visit our <a href="/certification/">Certified Avalara Integration</a> page today and get started!</li>
-    <li>Want more information about all the great API features in AvaTax?  Visit the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html">online AvaTax API reference</a> now!</li>
+    <li>Want more information about all the great API features in AvaTax?  Visit the <a href="/api-reference/avatax/rest/v2/">online AvaTax API reference</a> now!</li>
     <li>Have a question about the API, or want to share your success story?  Visit the <a href="https://community.avalara.com/avalara">AvaTax Developer Community</a> and ask questions and share tips and tricks with other developers from around the world!</li>
 </ul>

@@ -1,7 +1,6 @@
 {
     "src_folders": [
-        "_test/browser/api-reference",
-        "_test/browser/get-started"
+        "_test/browser/api-reference"
     ],
     "output_folder": "_test/browser/_results",
     "custom_commands_path": "_test/browser/helpers",
