@@ -243,6 +243,24 @@
         </nav>
     </header>
     <div class="container-fluid {{page.doctype}}">
+        {% if page.nav=="home" %}
+        <div class="recent-blog-posts" id="recentPosts">
+            <button class="btn btn-seconndary pull-right" onClick="{document.getElementById('recentPosts').style.display='none';}"><i class="glyphicon glyphicon-remove"></i> Close</button>
+            <h1>What's new</h1>
+            <p class="whats-new"><a href="https://register.gotowebinar.com/register/5947594126538791426?elqTrackId=e3a2e452fc7b40918335a242e5a41a39&elqaid=2376&elqat=2">Sign up</a> for our next upcoming developer webinar on July 18th!</p>
+            <h2>Recent Blog Posts</h2>
+            {% for post in site.posts limit:4 %}
+            <div class="col-md-3">
+                <div class="blog-preview recent-posts">
+                    <div class="gradient"></div>
+                    <h5><a href="{{ post.url }}">{{ post.title }}</a></h5>
+                    <h6>{{ post.subtitle }}</h6>
+                    <p class="byline">By {{post.author}} | {{ post.date | date: "%B %d, %Y"}}</p>
+                </div>
+            </div>  
+            {% endfor %}
+        </div>
+        {% endif %}
         {%if page.nav == 'sdk' %} {% include sdk_breadcrumb.html %}
         <section class="row padding-sides half">
             <nav class="col-md-3">

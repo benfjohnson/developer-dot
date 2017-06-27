@@ -56,6 +56,11 @@
     }
 }
 
+.recent-posts {
+    height: 100px;
+    margin-top: 0px;
+}
+
 .blog-pagination {
     @extend .pipe;
     @extend .padding-bottom;
@@ -90,5 +95,37 @@ body {
 .byline {
     font-size: 14px;
     color: $Darkest-grey;
+}
+
+.recent-blog-posts {
+    background-color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    
+    h2 {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        margin-top: 0px;
+        margin-bottom:0px;
+    }
+
+    h1 {
+        padding-left: 15px;
+        margin-top: 0px;
+        padding-top: 10px;
+    }
+
+    p.whats-new {
+        padding-left: 15px;
+        size: 15px;
+        font-size: 20px;
+    }
+
+    button {
+        color:#027fad;
+        background-color: #fff;
+    }
 }
 
