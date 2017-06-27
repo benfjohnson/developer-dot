@@ -67,6 +67,22 @@ module.exports = {
         navigationBar
             .assert.elementNumTimes('@subtags', expectedNumberOfSubTags, 'navigationBar');
     },
+    'API Reference: AvaTax: REST v2 - API Console for ListNexusByCountryAndRegion': function(browser) {
+        const expectedResponse = {'@recordsetCount': 1, 'value': [{id: 42192, companyId: 1, country: 'US', region: 'WA', jurisTypeId: 'STA', jurisCode: '53', jurisName: 'WASHINGTON', shortName: 'WA', signatureCode: '', stateAssignedNo: '', nexusTypeId: 'SalesOrSellersUseTax', hasLocalNexus: false, hasPermanentEstablishment: true, streamlinedSalesTax: true, createdDate: '2005-12-21T21:15:41.78', createdUserId: 0, modifiedDate: '2005-12-21T21:15:41.78', modifiedUserId: 0, nexusTaxTypeGroup: 'SalesAndUse'}]};
+
+        browser
+            .initialize(browser.globals.baseURL + '/api-reference/avatax/rest/v2/methods/Definitions/ListNexusByCountryAndRegion/');
+
+        browser.page.endpointSummary()
+            .navigateTo('#ListNexusByCountryAndRegion-console')
+            .setValue('.api-console .form-group:nth-child(2) input', 'US')
+            .setValue('.api-console .form-group:nth-child(3) input', 'WA')
+            .click('#ListNexusByCountryAndRegion-console-body .submit')
+            .getConsoleText('ListNexusByCountryAndRegion', 'responseConsole', function(res) {
+                browser.assert.ok(deepEqual(res, expectedResponse),
+                    "response for 'try it now' matches expected response");
+            });
+    },
     'API Reference: AvaTax: SOAP (verify number of endpoints)': function(browser) {
         expectedNumberOfApiEndpoints = 11;
 
