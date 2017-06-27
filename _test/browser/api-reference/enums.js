@@ -25,21 +25,18 @@ module.exports = {
 
     'Enums: REST v2: Models - Request Body': function(browser) {
         const modelURL = `${browser.globals.baseURL}/api-reference/avatax/rest/v2/models/AccountModel/`;
-        const enumURL = `${browser.globals.baseURL}/api-reference/avatax/rest/v2/models/enums/AccountModel%20>%20accountStatusId/`;
-        const attr = 'accountStatusId';
+        const enumURL = `${browser.globals.baseURL}/api-reference/avatax/rest/v2/models/enums/AccountStatusId/`;
+        const attr = 'AccountStatusId';
 
         browser
             .initialize(modelURL, '.model-summary')
-            .navigateToUrl(`.model-summary a[href~="${attr}"]`, '.enum-summary', enumURL);
+            .navigateToUrl(`.model-summary a[href="../enums/${attr}"]`, '.enum-summary', enumURL);
 
         browser.page.enums()
             .pageIsValid(attr, 'Request Parameter Enum', 'The current status of this account.', 4)
             .getText('main table tbody tr:nth-child(2) td:nth-child(2)', function(element) {
                 browser.assert.ok(element.value.length > 0);
             });
-
-        browser
-            .navigateToUrl('h1 a', '.model-summary', modelURL);
     },
 
     'Enums: REST v2: Methods - Path Parameter': function(browser) {
@@ -53,9 +50,6 @@ module.exports = {
 
         browser.page.enums()
             .pageIsValid(attr, 'Path Parameter Enum', 'The transaction type to retrieve', 11);
-
-        browser
-            .navigateToUrl('h1 a', '.endpoint-summary', methodURL);
     },
 
     'Enums: REST v1: Models - Path Parameter': function(browser) {

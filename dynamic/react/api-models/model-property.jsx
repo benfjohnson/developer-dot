@@ -34,9 +34,12 @@ const BuildLinkOrType = ({modelName, p, propName}) => {
             return <span>{p.format}<br/></span>;
         }
         if (p.enum) {
+            const href = p['x-enum-type'] || `${modelName} > ${propName}`;
+            const text = p['x-enum-type'] || propName;
+
             return (
                 <div>
-                    <a href={`../enums/${modelName} > ${propName}`}>{propName}</a><br/>
+                    <a href={`../enums/${href}`}>{text}</a><br/>
                     {'Enum'}<br/>
                 </div>
             );
