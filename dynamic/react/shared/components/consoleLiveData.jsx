@@ -186,7 +186,8 @@ const ConsoleLiveData = ({action, consoleLoading, endpoint, highlightedInputs, o
                                 />
                             </div>
                             <div className={'col-md-6 console-res-container'}>
-                                <h5 className={'console-output-header'}>{'Response'}</h5>
+                                {action === 'post' ? <h5 className={'console-output-header response-post'}>{'Response'}</h5> :
+                                <h5 className={'console-output-header'}>{'Response'}</h5>}
                                 {endpoint.consoleError ?
                                     <div className={'json_error'}>
                                         <h5>{'Incorrect JSON format'}</h5>
