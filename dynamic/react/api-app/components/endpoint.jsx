@@ -10,7 +10,7 @@ const replaceSpaces = (str) => str.replace(/\s/g, '');
 // Give our endpoint an id based on its name for our clientside routing in jekyll
 const EndPointComponent = ({endpoint, apiType, onConsoleToggledFreeEdit, onConsoleToggledReadOnly, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onRequestChanged, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleAiForRequest, onToggleShowExcludedPostBodyProps, tagName, userProfile}) => (
     <div className={'endpoint-summary'}>
-        <ApiDocumentation endpoint={endpoint} userProfile={userProfile} />
+        <ApiDocumentation endpoint={endpoint} />
         <br />
         {apiType === 'REST' ?
             <div>

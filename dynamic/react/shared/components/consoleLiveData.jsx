@@ -6,6 +6,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import R from 'ramda';
+import userManager from '../../api-app/user-manager';
 
 // TODO: Reuse the reducer version of this?
 const getPropertyName = (name) => {
@@ -162,10 +163,24 @@ const ConsoleLiveData = ({action, consoleLoading, endpoint, highlightedInputs, o
             <h5 className={'console-output-header'}>
                 <span>{'API Endpoint'}</span>
                 {userProfile ?
-                    <span className={'pull-right'}>
-                        {'Use token'}&nbsp;
+                    <span className={'pull-right'} style={{display: 'none'}}>
+                        {`Use ${userProfile.profile.given_name} ${userProfile.profile.family_name} credentials`}&nbsp;
                         <input className={'toggle-ai-creds'} onClick={onToggleAiForRequest} type={'checkbox'} value={''} />
-                    </span> : null
+                        &nbsp;{'|'}&nbsp;
+                        <span>
+                            <button className={'ai-authorize btn-lg btn btn-secondary'} onClick={() => {
+                                sessionStorage.devdotRedirectUrl = window.location.href;
+                                userManager.signoutRedirect();
+                            }}>{'Logout'}</button>
+                        </span>
+                    </span> :
+                    <span className={'pull-right'} style={{display: 'none'}}>
+                        <button className={'ai-authorize btn-lg btn btn-primary'} onClick={() => {
+                            sessionStorage.devdotRedirectUrl = window.location.href;
+                            userManager.signinRedirect();
+                        }}>{'Authorize'}
+                        </button>
+                    </span>
                 }
             </h5>
                 <div className={'code-snippet-plaintext'}>{path}</div>
@@ -233,7 +248,7 @@ ConsoleLiveData.propTypes = {
             PropTypes.object, PropTypes.array
         ]).isRequired
     }),
-    userProfile: PropTypes.bool.isRequired
+    userProfile: PropTypes.object.isRequired
 };
 
 export default ConsoleLiveData;

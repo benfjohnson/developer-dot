@@ -32,7 +32,7 @@ const ApiConsole = (props) => {
                     path={props.endpoint.path}
                     request={getRequest(props.endpoint)}
                     response={props.endpoint.apiResponse}
-                    userProfile={Boolean(props.userProfile)} />
+                    userProfile={props.userProfile} />
             </div>
         </div>
     );
