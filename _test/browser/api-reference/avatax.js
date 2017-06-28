@@ -67,18 +67,18 @@ module.exports = {
         navigationBar
             .assert.elementNumTimes('@subtags', expectedNumberOfSubTags, 'navigationBar');
     },
-    'API Reference: AvaTax: REST v2 - API Console for ListNexusByCountryAndRegion': function(browser) {
-        const expectedResponse = {'@recordsetCount': 1, 'value': [{id: 42192, companyId: 1, country: 'US', region: 'WA', jurisTypeId: 'STA', jurisCode: '53', jurisName: 'WASHINGTON', shortName: 'WA', signatureCode: '', stateAssignedNo: '', nexusTypeId: 'SalesOrSellersUseTax', hasLocalNexus: false, hasPermanentEstablishment: true, streamlinedSalesTax: true, createdDate: '2005-12-21T21:15:41.78', createdUserId: 0, modifiedDate: '2005-12-21T21:15:41.78', modifiedUserId: 0, nexusTaxTypeGroup: 'SalesAndUse'}]};
+    'API Reference: AvaTax: REST v2 - API Console for ResolveAddressPost': function(browser) {
+        const expectedResponse = {address: {textCase: 'Upper', line1: '123 Main Street', city: 'Irvine', region: 'CA', country: 'US', postalCode: '92615'}, validatedAddresses: [{addressType: 'UnknownAddressType', line1: '123 Main Street', line2: '', line3: '', city: 'Irvine', region: 'CA', country: 'US', postalCode: '92615', latitude: 33.657808, longitude: -117.968489}], coordinates: {latitude: 33.657808, longitude: -117.968489}, resolutionQuality: 'NotCoded', messages: [{summary: 'The address is not deliverable.', details: 'The physical location exists but there are no homes on this street. One reason might be railroad tracks or rivers running alongside this street, as they would prevent construction of homes in this location.', refersTo: 'Address', severity: 'Error', source: 'Avalara.AvaTax.Services.Address'}]};
 
         browser
-            .initialize(browser.globals.baseURL + '/api-reference/avatax/rest/v2/methods/Definitions/ListNexusByCountryAndRegion/');
+            .initialize(browser.globals.baseURL + '/api-reference/avatax/rest/v2/methods/Addresses/ResolveAddressPost/');
 
         browser.page.endpointSummary()
-            .navigateTo('#ListNexusByCountryAndRegion-console')
-            .setValue('.api-console .form-group:nth-child(2) input', 'US')
-            .setValue('.api-console .form-group:nth-child(3) input', 'WA')
-            .click('#ListNexusByCountryAndRegion-console-body .submit')
-            .getConsoleText('ListNexusByCountryAndRegion', 'responseConsole', function(res) {
+            .navigateTo('#ResolveAddressPost-console')
+            .navigateTo('#ResolveAddressPost-console-body .fill-sample-data')
+            .click('#ResolveAddressPost-console-body .submit')
+
+            .getConsoleText('ResolveAddressPost', 'responseConsole', function(res) {
                 browser.assert.ok(deepEqual(res, expectedResponse),
                     "response for 'try it now' matches expected response");
             });
