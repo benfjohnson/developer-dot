@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Avalara Developer"
+ogtitle: "Home"
 disqus: 0
 nav: home
 ---
@@ -56,7 +56,7 @@ nav: home
           <div class="col-sm-2 col-sm-offset-2 col-md-offset-2 col-md-2 text-center">
             <a href="/avatax"><img src="/public/images/devdot/DevDotSvgGAssets_BarCode.svg" height="100" alt="sales and sellers use tax" /></a>
             <a href="/avatax"><h4 class="visible-xs-block">Sales tax and sellers use tax<br /><br /></h4></a>
-          </div>          
+          </div>
           <div class="col-sm-2 col-sm-offset-1 col-md-offset-1 col-md-2 text-center">
             <a href="/landedcost"><img src="/public/images/devdot/DevDotSvgGAssets_ShippingCrate.svg" height="100" alt="Overseas selling and value-added tax (VAT)"/></a>
             <a href="/landedcost"><h4 class="visible-xs-block">Overseas selling and value-added tax (VAT)<br /><br /></h4>

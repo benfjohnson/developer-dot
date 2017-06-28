@@ -8,12 +8,13 @@
     <meta name="robots" content="index,follow" /> {% endif %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}Developer Avalara</title>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}Avalara Developer</title>
 
     {% assign default_desc = "API solutions for end-to-end tax compliance" %}
     <meta name="description" content="{{ default_desc }}">
 
-    <meta property="og:title" content="{{ page.ogtitle | default:page.title }} | Avalara" />
+    {% assign ogtitle = page.ogtitle | default:page.title %}
+    <meta property="og:title" content="{% if ogtitle %}{{ogtitle}} | {% endif %}Avalara Developer" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://developer.avalara.com/" />
     <meta property="og:site_name" content="Avalara Developer Network" />
@@ -257,7 +258,7 @@
                     <h6>{{ post.subtitle }}</h6>
                     <p class="byline">By {{post.author}} | {{ post.date | date: "%B %d, %Y"}}</p>
                 </div>
-            </div>  
+            </div>
             {% endfor %}
         </div>
         {% endif %}
