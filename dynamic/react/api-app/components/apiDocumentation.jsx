@@ -1,9 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import url from 'url';
 import ReactMarkdown from 'react-markdown';
 import ApiDocumentationParam from './apiDocumentationParam';
 import ApiDocModelLink from './apiDocModelLink';
+
+
+function getPath(path) {
+    let sandboxPath = path;
+
+    sandboxPath = sandboxPath.replace(/{/g, '<code>{');
+    sandboxPath = sandboxPath.replace(/}/g, '}</code>');
+    return sandboxPath;
+}
+
 
 const ApiDocumentation = ({endpoint}) => (
     <div>
@@ -21,32 +30,29 @@ const ApiDocumentation = ({endpoint}) => (
                     <td>{endpoint.action.toUpperCase()}</td>
                 </tr>
                 <tr>
-                    <th>{'REST Path'}</th>
-                    <td>{decodeURI(url.parse(endpoint.path).pathname)}</td>
-                </tr>
-                <tr>
                     <th>{(endpoint.productionPath) ? 'URL (SANDBOX)' : 'URL'}</th>
-                    <td>{endpoint.path}</td>
+                    <td dangerouslySetInnerHTML= {{__html: getPath(endpoint.path)}}/>
                 </tr>
                 {(endpoint.productionPath) ?
                     <tr>
                         <th>{'URL (PRODUCTION)'}</th>
-                        <td>{endpoint.productionPath}</td>
+                        <td dangerouslySetInnerHTML= {{__html: getPath(endpoint.productionPath)}}/>
                     </tr> : null
                 }
+                {(endpoint.queryString) ?
                 <tr>
                     <th>{'Query String'}</th>
                     <td>{(endpoint.queryString) ? '?' : ''}{Object.keys(endpoint.queryString || {}).join('&')}</td>
+                </tr> : null}
+                <tr>
+                    <th>{'Content-Type'}</th>
+                    <td>{endpoint.produces.join(', ')}</td>
                 </tr>
                 <tr>
                     <th>{'Response Type'}</th>
                     <td>
                         <ApiDocModelLink refSchema={endpoint.responseSchemaWithRefs} />
                     </td>
-                </tr>
-                <tr>
-                    <th>{'Content-Type'}</th>
-                    <td>{endpoint.produces.join(', ')}</td>
                 </tr>
             </thead>
         </table>
