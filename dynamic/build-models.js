@@ -49,12 +49,15 @@ endpoint_links: []
         if (def.indexOf(' > ') !== -1) {
             return;
         }
+        let model = def;
 
-        table = `${table}
-        <tr>
-            <td><a href="${encodeURIComponent(def)}">${def}</a></td>
-            <td>{{"${(defs[def].description || '').replace(/"/g, "'")}" | markdownify}}</td>
-        </tr>`;
+        if (!model.includes('FetchResult')) {
+            table = `${table}
+            <tr>
+                <td><a href="${encodeURIComponent(def)}">${def}</a></td>
+                <td>{{"${(defs[def].description || '').replace(/"/g, "'")}" | markdownify}}</td>
+            </tr>`;
+        }
     });
 
     table = `${table}
