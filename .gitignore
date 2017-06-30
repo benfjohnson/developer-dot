@@ -1,9 +1,13 @@
 _site
 node_modules
 
-**/api-reference
-!api-reference/signin-oidc.html
-!api-reference/signout-oidc.html
+api-reference/*
+
+!api-reference/signin-oidc
+!api-reference/signin-oidc/index.html
+
+!api-reference/signout-oidc
+!api-reference/signout-oidc/index.html
 
 !expected/**/api-reference
 
