@@ -162,25 +162,29 @@ const ConsoleLiveData = ({action, consoleLoading, endpoint, highlightedInputs, o
         <div>
             <h5 className={'console-output-header'}>
                 <span>{'API Endpoint'}</span>
-                {userProfile ?
-                    <span className={'pull-right'}>
-                        {`Use ${userProfile.profile.given_name} ${userProfile.profile.family_name} credentials`}&nbsp;
-                        <input className={'toggle-ai-creds'} onClick={onToggleAiForRequest} type={'checkbox'} value={''} />
-                        &nbsp;{'|'}&nbsp;
-                        <span>
-                            <button className={'ai-authorize btn-lg btn btn-secondary'} onClick={() => {
-                                sessionStorage.devdotRedirectUrl = window.location.href;
-                                userManager.signoutRedirect();
-                            }}>{'Logout'}</button>
-                        </span>
-                    </span> :
-                    <span className={'pull-right'}>
-                        <button className={'ai-authorize btn-lg btn btn-primary'} onClick={() => {
-                            sessionStorage.devdotRedirectUrl = window.location.href;
-                            userManager.signinRedirect();
-                        }}>{'Authorize'}
-                        </button>
-                    </span>
+                {endpoint.path.includes('https://sandbox-rest.avatax.com/api/v2') ?
+                    <span>
+                        {userProfile ?
+                            <span className={'pull-right'}>
+                                {`Use ${userProfile.profile.given_name} ${userProfile.profile.family_name} credentials`}&nbsp;
+                                <input className={'toggle-ai-creds'} onClick={onToggleAiForRequest} type={'checkbox'} value={''} />
+                                &nbsp;{'|'}&nbsp;
+                                <span>
+                                    <button className={'ai-authorize btn-lg btn btn-secondary'} onClick={() => {
+                                        sessionStorage.devdotRedirectUrl = window.location.href;
+                                        userManager.signoutRedirect();
+                                    }}>{'Logout'}</button>
+                                </span>
+                            </span> :
+                            <span className={'pull-right'}>
+                                <button className={'ai-authorize btn-lg btn btn-primary'} onClick={() => {
+                                    sessionStorage.devdotRedirectUrl = window.location.href;
+                                    userManager.signinRedirect();
+                                }}>{'Authorize'}
+                                </button>
+                            </span>
+                        }
+                    </span> : null
                 }
             </h5>
                 <div className={'code-snippet-plaintext'}>{path}</div>
