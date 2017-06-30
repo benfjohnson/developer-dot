@@ -25,7 +25,7 @@ const CodeSample = ({endpoint, example, title, type}) => {
             <h3 className={'clickable'} style={{display: 'inline-block'}}>{title}</h3>
           </div>
           <div className={'collapse'} id={`${replaceSpaces(endpoint.operationId)}-console-body-${type}`}>
-            <pre className='highlight' style={{overflow: 'scroll', height: '400px', marginTop: '10px'}}>
+            <pre className='highlight code-example-content'>
               {example}
             </pre>
           </div>
