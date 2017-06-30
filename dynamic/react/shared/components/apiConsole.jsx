@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ConsoleInputForm from './consoleInputForm';
 import ConsoleLiveData from './consoleLiveData';
+import userManager from '../../api-app/user-manager';
 
 // Helper that determines what part of the endpoint is shown in the `Request` input of
 // the ConsoleLiveData component
@@ -15,24 +16,44 @@ const getRequest = (endpoint) => {
 };
 
 const ApiConsole = (props) => {
+    userManager.events.addAccessTokenExpired(function() {
+        document.getElementById('tokenExpirationAlert').style.display = 'block';
+
+        setTimeout(function() {
+            $('#tokenExpirationAlert').fadeOut();
+        }, 60000);
+        userManager.removeUser()
+        .then(function() {
+            props.onAccessTokenExpiration();
+        });
+    });
     return (
-        <div className={'row api-console'}>
-            <div className={'col-md-4 col-xs-12 api-console-form-wrapper'}>
-                <ConsoleInputForm {...props} />
+        <div>
+            <div className={'alert alert-warning alert-dismissible'} id={'tokenExpirationAlert'} style={{display: 'none'}}>
+                <strong>{'Warning!'}</strong>
+                <span>{' Access token has expired. Log out and login again to renew.'}</span>
+                <button aria-label={'Close'} className={'close'} data-dismiss={'alert'} type={'button'}>
+                    <span aria-hidden={'true'}>{'×'}</span>
+                </button>
             </div>
-            <div className={'col-md-8 col-xs-12 api-console-output'}>
-                <ConsoleLiveData
-                    action={props.endpoint.action}
-                    consoleLoading={props.endpoint.apiConsoleLoading}
-                    endpoint={props.endpoint}
-                    onConsoleToggledFreeEdit={props.onConsoleToggledFreeEdit}
-                    onConsoleToggledReadOnly={props.onConsoleToggledReadOnly}
-                    onRequestChanged={props.onRequestChanged}
-                    onToggleAiForRequest={props.onToggleAiForRequest}
-                    path={props.endpoint.path}
-                    request={getRequest(props.endpoint)}
-                    response={props.endpoint.apiResponse}
-                    userProfile={props.userProfile} />
+            <div className={'row api-console'}>
+                <div className={'col-md-4 col-xs-12 api-console-form-wrapper'}>
+                    <ConsoleInputForm {...props} />
+                </div>
+                <div className={'col-md-8 col-xs-12 api-console-output'}>
+                    <ConsoleLiveData
+                        action={props.endpoint.action}
+                        consoleLoading={props.endpoint.apiConsoleLoading}
+                        endpoint={props.endpoint}
+                        onConsoleToggledFreeEdit={props.onConsoleToggledFreeEdit}
+                        onConsoleToggledReadOnly={props.onConsoleToggledReadOnly}
+                        onRequestChanged={props.onRequestChanged}
+                        onToggleAiForRequest={props.onToggleAiForRequest}
+                        path={props.endpoint.path}
+                        request={getRequest(props.endpoint)}
+                        response={props.endpoint.apiResponse}
+                        userProfile={props.userProfile} />
+                </div>
             </div>
         </div>
     );

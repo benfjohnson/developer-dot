@@ -8,7 +8,7 @@ import ExpanderIcon from './expanderIcon';
 const replaceSpaces = (str) => str.replace(/\s/g, '');
 
 // Give our endpoint an id based on its name for our clientside routing in jekyll
-const EndPointComponent = ({endpoint, apiType, onConsoleToggledFreeEdit, onConsoleToggledReadOnly, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onRequestChanged, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleAiForRequest, onToggleShowExcludedPostBodyProps, tagName, userProfile}) => (
+const EndPointComponent = ({endpoint, apiType, onAccessTokenExpiration, onConsoleToggledFreeEdit, onConsoleToggledReadOnly, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onRequestChanged, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleAiForRequest, onToggleShowExcludedPostBodyProps, tagName, userProfile}) => (
     <div className={'endpoint-summary'}>
         <ApiDocumentation endpoint={endpoint} />
         <br />
@@ -26,7 +26,23 @@ const EndPointComponent = ({endpoint, apiType, onConsoleToggledFreeEdit, onConso
                     <h3 className={'clickable'} style={{display: 'inline-block'}}>{'Try ' + endpoint.operationId + ' now!'}</h3>
                 </div>
                 <div className={'collapse'} id={`${replaceSpaces(endpoint.operationId)}-console-body`}>
-                    <ApiConsole endpoint={endpoint} onAddItemToPostbodyCollection={onAddItemToPostbodyCollection} onConsoleToggledFreeEdit={onConsoleToggledFreeEdit} onConsoleToggledReadOnly={onConsoleToggledReadOnly} onFillConsoleSampleData={onFillConsoleSampleData} onPathParamChanged={onPathParamChanged} onPostBodyInputChanged={onPostBodyInputChanged} onQueryParamChanged={onQueryParamChanged} onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem} onRequestChanged={onRequestChanged} onResetConsole={onResetConsole} onSubmitConsoleRequest={onSubmitConsoleRequest} onToggleAiForRequest={onToggleAiForRequest} onToggleShowExcludedPostBodyProps={onToggleShowExcludedPostBodyProps} showExcludedPostBodyFields={endpoint.showExcludedPostBodyFields} userProfile={userProfile} />
+                    <ApiConsole endpoint={endpoint}
+                                onAccessTokenExpiration={onAccessTokenExpiration}
+                                onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
+                                onConsoleToggledFreeEdit={onConsoleToggledFreeEdit}
+                                onConsoleToggledReadOnly={onConsoleToggledReadOnly}
+                                onFillConsoleSampleData={onFillConsoleSampleData}
+                                onPathParamChanged={onPathParamChanged}
+                                onPostBodyInputChanged={onPostBodyInputChanged}
+                                onQueryParamChanged={onQueryParamChanged}
+                                onRemovePostbodyCollectionItem={onRemovePostbodyCollectionItem}
+                                onRequestChanged={onRequestChanged}
+                                onResetConsole={onResetConsole}
+                                onSubmitConsoleRequest={onSubmitConsoleRequest}
+                                onToggleAiForRequest={onToggleAiForRequest}
+                                onToggleShowExcludedPostBodyProps={onToggleShowExcludedPostBodyProps}
+                                showExcludedPostBodyFields={endpoint.showExcludedPostBodyFields}
+                                userProfile={userProfile} />
                     {(endpoint.path.includes('api/v2')) ?
                         <div className={'v2Links'}>
                             <p>Advanced:</p>

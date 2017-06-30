@@ -60,6 +60,8 @@ export default (state = {}, action) => {
             state.userProfile.toggled = !state.userProfile.toggled;
         }
         return state;
+    case actionTypes.ACCESS_TOKEN_EXPIRATION:
+        return {...state, userProfile: null};
     default:
         return state;
     }

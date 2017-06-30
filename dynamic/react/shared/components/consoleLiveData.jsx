@@ -163,7 +163,7 @@ const ConsoleLiveData = ({action, consoleLoading, endpoint, highlightedInputs, o
             <h5 className={'console-output-header'}>
                 <span>{'API Endpoint'}</span>
                 {userProfile ?
-                    <span className={'pull-right'} style={{display: 'none'}}>
+                    <span className={'pull-right'}>
                         {`Use ${userProfile.profile.given_name} ${userProfile.profile.family_name} credentials`}&nbsp;
                         <input className={'toggle-ai-creds'} onClick={onToggleAiForRequest} type={'checkbox'} value={''} />
                         &nbsp;{'|'}&nbsp;
@@ -174,7 +174,7 @@ const ConsoleLiveData = ({action, consoleLoading, endpoint, highlightedInputs, o
                             }}>{'Logout'}</button>
                         </span>
                     </span> :
-                    <span className={'pull-right'} style={{display: 'none'}}>
+                    <span className={'pull-right'}>
                         <button className={'ai-authorize btn-lg btn btn-primary'} onClick={() => {
                             sessionStorage.devdotRedirectUrl = window.location.href;
                             userManager.signinRedirect();
@@ -248,7 +248,7 @@ ConsoleLiveData.propTypes = {
             PropTypes.object, PropTypes.array
         ]).isRequired
     }),
-    userProfile: PropTypes.object.isRequired
+    userProfile: PropTypes.object
 };
 
 export default ConsoleLiveData;

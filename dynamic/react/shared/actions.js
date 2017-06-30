@@ -1,6 +1,11 @@
 import actionTypes from './actionTypes';
 
 export default {
+    accessTokenExpiration: () => {
+        return {
+            type: actionTypes.ACCESS_TOKEN_EXPIRATION
+        };
+    },
     submitConsoleRequest: (endpointId, responseBody, status, statusMessage) => {
         return {
             type: actionTypes.SUBMIT_DONE,
