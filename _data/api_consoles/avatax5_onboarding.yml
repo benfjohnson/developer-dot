@@ -4,6 +4,7 @@ nav_link:
     title: Onboarding API
     path: /avatax/api-reference/onboarding/v1
 product: avaTax
+older_api: true
 endpoint_hashes:
     - name: createAccount
       link: '/#createAccount'

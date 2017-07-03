@@ -1,0 +1,25 @@
+<div style="padding-left:10px;">
+    <ul class='api-ref-side-nav-active nav nav-pills nav-stacked sub-nav'>
+            {% assign products = site.data.api_tag_pages %}
+            {% assign product_apis = products["avaTax"] %}
+
+            {% for product_api in product_apis %}
+                {% assign product_api_pretty = product_api[0] | replace: '_', ' ' %}
+                {% assign apiName_no_decimals = apiName | replace: '.', '' %}
+
+                {% assign allLinks = product_api[1] %}
+                {% assign baseLinks = allLinks.index %}
+                {% if product_api_pretty != "Avatax SOAP API" and product_api_pretty != "Avatax REST API v2" %}
+                    <li>
+                        <a href="/{{baseLinks.home}}">{{product_api_pretty}}</a>
+                        <!-- not quite sure how to do boolean algebra in liquid syntax -->
+                        {% if apiName == product_api_pretty or apiName_no_decimals == product_api_pretty %}
+                            {% if page.homepage != true %}
+                                {% include api_reference_subnavigation.html tags=baseLinks allLinks=allLinks %}
+                            {% endif %}
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+    </ul>
+</div>

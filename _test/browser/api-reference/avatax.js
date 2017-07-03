@@ -1,6 +1,6 @@
 const deepEqual = require('../helpers/deepEqual');
 
-const NUMAPIS = 6;
+const NUMAPIS = 3;
 let expectedNumberOfApiEndpoints;
 let navigationBar;
 
@@ -22,7 +22,7 @@ module.exports = {
         /* eslint-enable quotes */
         /* eslint-enable quote-props */
 
-        expectedNumberOfApiEndpoints = 4;
+        expectedNumberOfApiEndpoints = 8;
 
         browser
             .initialize(browser.globals.baseURL + '/api-reference/avatax/rest/v1/methods/getTax/')
@@ -45,7 +45,7 @@ module.exports = {
     },
     'API Reference: AvaTax: REST v2 (verify number of endpoints)': function(browser) {
         // NOTE: THESE NOW ALL EXIST ON SUB 'TAG' PAGES
-        expectedNumberOfApiEndpoints = 26;
+        expectedNumberOfApiEndpoints = 30;
         const expectedNumberOfSubTags = 5;
 
         const expectedRequest = {accountId: 123456789, confirmResetLicenseKey: true};
@@ -84,28 +84,28 @@ module.exports = {
             });
     },
     'API Reference: AvaTax: SOAP (verify number of endpoints)': function(browser) {
-        expectedNumberOfApiEndpoints = 11;
+        expectedNumberOfApiEndpoints = 15;
 
         browser
             .initialize(browser.globals.baseURL + '/api-reference/avatax/soap/methods/postTax/')
             .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
     },
     'API Reference: AvaTax: BatchSvc SOAP (verify number of endpoints)': function(browser) {
-        expectedNumberOfApiEndpoints = 9;
+        expectedNumberOfApiEndpoints = 13;
 
         browser
             .initialize(browser.globals.baseURL + '/api-reference/avatax/batch/soap/methods/batchFetch/')
             .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
     },
     'API Reference: AvaTax: AccountSvc SOAP (verify number of endpoints)': function(browser) {
-        expectedNumberOfApiEndpoints = 2;
+        expectedNumberOfApiEndpoints = 6;
 
         browser
             .initialize(browser.globals.baseURL + '/api-reference/avatax/account/soap/methods/isAuthorized/')
             .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
     },
     'API Reference: AvaTax: Onboarding (verify number of endpoints)': function(browser) {
-        expectedNumberOfApiEndpoints = 8;
+        expectedNumberOfApiEndpoints = 12;
 
         browser
             .initialize(browser.globals.baseURL + '/api-reference/onboarding/methods/getAccount/')

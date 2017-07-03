@@ -5,6 +5,7 @@ nav_link:
     title: Avatax AccountSvc SOAP API
     path: /avatax/api-reference/account/soap
 product: avaTax
+older_api: true
 endpoint_hashes:
     - name: Test service connectivity
       link: '/#ping'

@@ -12,16 +12,36 @@
 
             {% assign allLinks = product_api[1] %}
             {% assign baseLinks = allLinks.index %}
-
-            <li>
-                <a href="/{{baseLinks.home}}">{{product_api_pretty}}</a>
-                <!-- not quite sure how to do boolean algebra in liquid syntax -->
-                {% if apiName == product_api_pretty or apiName_no_decimals == product_api_pretty %}
-                    {% if page.homepage != true %}
-                        {% include api_reference_subnavigation.html tags=baseLinks allLinks=allLinks %}
-                    {% endif %}
+            {% if product == "avaTax" %}
+                {% if product_api_pretty=="Avatax REST API v2" or product_api_pretty=="Avatax SOAP API" %}
+                    <li>
+                        <a href="/{{baseLinks.home}}">{{product_api_pretty}}</a>
+                        <!-- not quite sure how to do boolean algebra in liquid syntax -->
+                        {% if apiName == product_api_pretty or apiName_no_decimals == product_api_pretty %}
+                            {% if page.homepage != true %}
+                                {% include api_reference_subnavigation.html tags=baseLinks allLinks=allLinks %}
+                            {% endif %}
+                        {% endif %}
+                    </li>
                 {% endif %}
-            </li>
+            {% else %}
+                <li>
+                    <a href="/{{baseLinks.home}}">{{product_api_pretty}}</a>
+                    <!-- not quite sure how to do boolean algebra in liquid syntax -->
+                    {% if apiName == product_api_pretty or apiName_no_decimals == product_api_pretty %}
+                        {% if page.homepage != true %}
+                            {% include api_reference_subnavigation.html tags=baseLinks allLinks=allLinks %}
+                        {% endif %}
+                    {% endif %}
+                </li>
+            {% endif %}
         {% endfor %}
+
+        {% if product == "avaTax" %}
+        <li class="older-api">
+            Older APIs
+            {% include older_api_reference_navigation.html %}
+        </li>
+        {% endif %}
     </ul>
 </div>

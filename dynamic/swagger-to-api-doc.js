@@ -59,12 +59,12 @@ const saveMethodsIndex = (apiName, saveRoot, product, linksArray, methodSubsetNa
     linksArray.map((l) => {
         endpointLinks[l.name] = `/${l.link}`;
     });
-
     const table = `---
 layout: default
 title: "${methodSubsetName ? `${methodSubsetName} - ` : ''}${apiName}"
 api_console: 1
 api_name: ${apiName}
+${product === 'avaTax' && (apiName !== 'Avatax REST API v2' || apiName !== 'Avatax SOAP API') ? 'old_api: true' : ''}
 nav: apis
 product: ${product}
 doctype: api_references

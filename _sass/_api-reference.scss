@@ -147,10 +147,12 @@ h2, h3 {
     }
 }
 
-.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover, .older-api {
     background: white;
     color: $Ava-orange;
 }
+
+
 
 .hidden {
     display: none;

@@ -4,6 +4,7 @@ nav_link:
     title: Avatax BatchSvc SOAP API
     path: /avatax/api-reference/batch/soap
 product: avaTax
+older_api: true
 endpoint_hashes:
     - name: Save a batch
       link: '/#batchSave'
