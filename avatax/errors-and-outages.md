@@ -12,23 +12,23 @@ Although Avalara outages have been historically infrequent and short in duration
 Avalara does not queue transactions when the web service is down. Unless a connection is made to the web service, you will only receive an HTTP 500 - Internal Server Error message which means you have lost connection to the AvaTax Web Service and your local system needs to track invoices until the web service is restored.
 
 Consideration must then be given to how you will report taxes back to the customers and/ or users during the outage, as the solution sets used are wide and diverse depending on the ERP / Shopping Cart system. When weighing your options, you should consult your company's tax accountant or attorney. Common solutions are:
-<ul>
+<ul class="normal">
 	<li> Prevent orders from being completed until service is restored and tax is calculated dynamically (e.g. not allow invoices to be posted in an ERP).</li>
 	<li>Use a fallback method of calculation and then "make up" the difference when service is restored.</li>
 </ul>
 Fallback methods may include:
-<ul>
+<ul class="normal">
 	<li>A rate that is higher than any jurisdiction in which you charge tax (e.g. 12%)</li>
 	<li>A 0% rate</li>
 	<li>A local rate table that gives an estimate by state or zip code.</li>
 </ul>
 Once service is restored, the tax can be transmitted to AvaTax using one of the following calculation methods:
-<ul>
+<ul class="normal">
 	<li>Use a tax override of TaxAmount to reflect the estimated tax.</li>
 	<li>Use TaxIncluded to back-calculate the correct tax amount from the total (including estimated tax) charged to the customer.</li>
 	<li>Allow AvaTax to recalculate the tax amount, and absorb any additional payment of taxes.</li>
 </ul>
-Transactions can be loaded with the <a href="getTax">standard calculation method</a> or by using our <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/060_Managing_Transactions/030_Importing_Transactions">batch import functionality directly in the Admin Console</a>.
+Transactions can be loaded with the standard calculation method or by using our <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/060_Managing_Transactions/030_Importing_Transactions">batch import functionality directly in the Admin Console</a>.
 <h2>Messages and Errors</h2>
 Understanding and taking appropriate action on error messages is critical to the successful implementation of a custom SDK connector. The errors and warnings that result from web service calls will guide the receiver to the most logical problem resolution path.
 
@@ -65,7 +65,7 @@ on the server in order to send the exception information back to the client,
 or turn on tracing as per the Microsoft .NET Framework 3.0 SDK documentation and inspect the server trace logs.
 {% endhighlight %}
 ...is returned frequently when one of the following has occurred:
-<ul>
+<ul class="normal">
 	<li>There is a malformed data element (SOAP) being passed in the GetTax call, for example the date 10/01/2010 vs. 2010-10-01 or DocType= salesinvoice vs. SalesInvoice.</li>
 	<li>There is a network / internal (local service) interruption preventing the web service call to contact the AvaTax web service.</li>
 	<li>There is a configuration problem with your adapter host settings.</li>

@@ -26,22 +26,26 @@ That's it!  No magic.  Here's how to construct an authentication token for AvaTa
 
 <div class="mobile-table">
     <table class="styled-table">
-        <tr>
-            <th>Task</th>
-            <th>Result</th>
-        </tr>
-        <tr>
-            <td>Start with the word "Basic" followed by username and password.</td>
-            <td><pre>Basic username:password</pre></td>
-        </tr>
-        <tr>
-            <td>Replace "username" with your username, and "password" with your password.</td>
-            <td><pre>Basic bob@example.org:bobspasswordgoeshere</pre></td>
-        </tr>
-        <tr>
-            <td>Now use your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> to encode the right hand side of the string.</td>
-            <td><pre>Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl</pre></td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Start with the word "Basic" followed by username and password.</td>
+                <td><pre>Basic username:password</pre></td>
+            </tr>
+            <tr>
+                <td>Replace "username" with your username, and "password" with your password.</td>
+                <td><pre>Basic bob@example.org:bobspasswordgoeshere</pre></td>
+            </tr>
+            <tr>
+                <td>Now use your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> to encode the right hand side of the string.</td>
+                <td><pre>Basic Ym9iQGV4YW1wbGUub3JnOmJvYnNwYXNzd29yZGdvZXNoZXJl</pre></td>
+            </tr>
+        </tbody>
     </table>
 </div>
 
@@ -85,22 +89,26 @@ To authenticate using a license key, here's how you construct your authorization
 
 <div class="mobile-table">
     <table class="styled-table">
-        <tr>
-            <th>Task</th>
-            <th>Result</th>
-        </tr>
-        <tr>
-            <td>Start with the word "Basic" followed by accountid and licensekey.</td>
-            <td><pre>Basic accountid:licensekey</pre></td>
-        </tr>
-        <tr>
-            <td>Replace "accountid" with your account ID number, and "licensekey" with the license key you generated above.</td>
-            <td><pre>Basic 123456789:123456789ABCDEF123456789ABCDEF</pre></td>
-        </tr>
-        <tr>
-            <td>Now use your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> to encode the right hand side of the string.</td>
-            <td><pre>Basic MTIzNDU2Nzg5OjEyMzQ1Njc4OUFCQ0RFRjEyMzQ1Njc4OUFCQ0RFRg==</pre></td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Start with the word "Basic" followed by accountid and licensekey.</td>
+                <td><pre>Basic accountid:licensekey</pre></td>
+            </tr>
+            <tr>
+                <td>Replace "accountid" with your account ID number, and "licensekey" with the license key you generated above.</td>
+                <td><pre>Basic 123456789:123456789ABCDEF123456789ABCDEF</pre></td>
+            </tr>
+            <tr>
+                <td>Now use your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> to encode the right hand side of the string.</td>
+                <td><pre>Basic MTIzNDU2Nzg5OjEyMzQ1Njc4OUFCQ0RFRjEyMzQ1Njc4OUFCQ0RFRg==</pre></td>
+            </tr>
+        </tbody>
     </table>
 </div>
 

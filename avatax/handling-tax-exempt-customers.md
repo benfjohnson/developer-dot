@@ -9,27 +9,27 @@ disqus: 1
 <h2>Handling sales tax exempt customers in your integration</h2>
 Depending on how you store your customer information, there are several ways you can manage your customer’s exempt status. Here are all of the methods available, arranged in order of detail capability.
 <h3>Directly in the GetTaxRequest</h3>
-<ul>
+<ul class="normal">
 	<li>ExemptionNo
-<ul>
+<ul class="normal">
 	<li>You can find this in the GetTaxRequest at the document and line level. Sending any value in this field will flag the transaction as exempt. This may be the easiest of the methods, but it doesn't provide any backing information to explain the exemption in an audit. That would need to be managed manually by the user.</li>
 </ul>
 </li>
 	<li>CustomerUsageType (Entity/Use Codes)
-<ul>
+<ul class="normal">
 	<li>This is also available in the GetTaxRequest at the document and line levels. It allows you to exempt a transaction by passing a pre-coded exemption reason (see values below), or you can create custom reasons with <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/051_Select_AvaTax_System_Tax_Codes/Add_Tax_Rules?origin=deflection#Add_an_exempt_entity_tax_rule">custom rules in the admin console</a>. This at least provides a way of explaining the reason for the exemption, but any certificates will still be managed manually by the user.</li>
 </ul>
 </li>
 </ul>
 <h3>Automating Certificate Management</h3>
-<ul>
+<ul class="normal">
 	<li>AvaTax Exemption Certificate Management System (ECMS)
-<ul>
+<ul class="normal">
 	<li>This is a certificate management tool available to all customers on the Admin Console. Certificates are imported to the admin console directly as placeholder records for a real certificate maintained by you on file. Certificates are matched to the CustomerCode in the GetTaxRequests, and transactions are exempted where appropriate.</li>
 </ul>
 </li>
 	<li><a href="/certcapture/">Avalara CertCapture API</a>
-<ul>
+<ul class="normal">
 	<li>This is an add-on product that independently manages your exemption certificates. It allows you to store certificate images, send certificate requests to your customers (individually or in batches), and allows your customers to fill out certificate information directly through a wizard which results in an actual certificate. Certificates are matched to customer codes (and states applicable, and date ranges) on GetTaxRequests, and transactions are exempted where appropriate. This is not automatically included with AvaTax and would need to be purchased separately.</li>
 </ul>
 </li>

@@ -8,7 +8,7 @@ disqus: 1
 ---
 <h2>Configuring Proxy Server Settings</h2>
 Our web service uses the standard SSL (secure socket layer) on port 443 with the addresses:
-<ul>
+<ul class="normal">
 	<li>https://development.avalara.net for development, and</li>
 	<li>https://avatax.avalara.net for production</li>
 </ul>
@@ -31,13 +31,13 @@ What needs to be done:
 networkaddress.cache.ttl and networkaddress.cache.negative.ttl are not typically set Java properties. They are security related properties that can be set in one of two ways:
 <ol>
 	<li>Edit the $JAVA_HOME/jre/lib/security/java.security by changing the value of the networkaddress cache properties in the file.
-<ul>
+<ul class="normal">
 	<li>The advantage of this solution is that it is a non-programmatic solution.</li>
 	<li>The disadvantage is that since JVMs are global resources, used by multiple applications, the setting may not work well in applications that have consumed the adapter classes.</li>
 </ul>
 </li>
 	<li>Use java.security.Security.setProperty(“propertyname”, “value”) to programmatically set the property.
-<ul>
+<ul class="normal">
 	<li>The advantage is that other applications using the same JVM are not affected.</li>
 	<li>The disadvantage of this solution is that it is a programmatic solution.</li>
 </ul>

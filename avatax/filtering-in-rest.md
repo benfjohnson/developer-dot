@@ -31,42 +31,46 @@ Here's a list of filters supported in REST v2:
 
 <div class="mobile-table">
     <table class="styled-table">
-        <tr>
-            <th>Filter</th>
-            <th>Symbol</th>
-            <th>Example</th>
-        </tr>
-        <tr>
-            <td>Equals (EQ or =)</td>
-            <td>EQ or =</td>
-            <td><pre>isActive eq true</pre></td>
-        </tr>
-        <tr>
-            <td>Greater Than</td>
-            <td>GT or &gt;</td>
-            <td><pre>taxDate gt '2016-01-01'</pre></td>
-        </tr>
-        <tr>
-            <td>Greater Than Or Equal</td>
-            <td>GE or &gt;=</td>
-            <td><pre>id ge 123</pre></td>
-        </tr>
-        <tr>
-            <td>Not Equal</td>
-            <td>NE or &lt;&gt; or !=</td>
-            <td><pre>id ne 123</pre></td>
-        </tr>
-        <tr>
-            <td>Less Than</td>
-            <td>LT or &lt;</td>
-            <td><pre>id lt 123</pre></td>
-        </tr>
-        <tr>
-            <td>Less Than Or Equal</td>
-            <td>LE or &lt;=</td>
-            <td><pre>id le 123</pre></td>
-        </tr>
-    <table>
+        <thead>
+            <tr>
+                <th>Filter</th>
+                <th>Symbol</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Equals (EQ or =)</td>
+                <td>EQ or =</td>
+                <td><pre>isActive eq true</pre></td>
+            </tr>
+            <tr>
+                <td>Greater Than</td>
+                <td>GT or &gt;</td>
+                <td><pre>taxDate gt '2016-01-01'</pre></td>
+            </tr>
+            <tr>
+                <td>Greater Than Or Equal</td>
+                <td>GE or &gt;=</td>
+                <td><pre>id ge 123</pre></td>
+            </tr>
+            <tr>
+                <td>Not Equal</td>
+                <td>NE or &lt;&gt; or !=</td>
+                <td><pre>id ne 123</pre></td>
+            </tr>
+            <tr>
+                <td>Less Than</td>
+                <td>LT or &lt;</td>
+                <td><pre>id lt 123</pre></td>
+            </tr>
+            <tr>
+                <td>Less Than Or Equal</td>
+                <td>LE or &lt;=</td>
+                <td><pre>id le 123</pre></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 <h2>Avalara-Specific Filters</h2>
@@ -74,42 +78,46 @@ Here's a list of filters supported in REST v2:
 The following filters are not defined in the Microsoft standard, but are available in the Avalara REST v2 API:
 <div class="mobile-table">
     <table class="styled-table">
-        <tr>
-            <th>Filter</th>
-            <th>Example</th>
-            <th>Notes</th>
-        </tr>
-        <tr>
-            <td>Between</td>
-            <td><pre>amount between 10 and 20</pre></td>
-            <td>Matches all records greater than or equal to the first value, plus all records less than the second value.</td>
-        </tr>
-        <tr>
-            <td>In</td>
-            <td><pre>id in (123, 456, 789)</pre></td>
-            <td>Matches all records whose value is the same as one of the items in the list.</td>
-        </tr>
-        <tr>
-            <td>Contains</td>
-            <td><pre>name contains 'Bob'</pre></td>
-            <td>Matches all records whose value contains the specified filter string.  To represent an apostrophe, use two apostrophe characters in a row, for example <span class="highlight-rouge">'Bob''s Hardware'</span>.</td>
-        </tr>
-        <tr>
-            <td>StartsWith</td>
-            <td><pre>name startswith 'Bob'</pre></td>
-            <td>Matches all records whose value begins with the specified filter string.  To represent an apostrophe, use two apostrophe characters in a row, for example <span class="highlight-rouge">'Bob''s Hardware'</span>.</td>
-        </tr>
-        <tr>
-            <td>EndsWith</td>
-            <td><pre>name endswith 'Bob'</pre></td>
-            <td>Matches all records whose value ends with the specified filter string.  To represent an apostrophe, use two apostrophe characters in a row, for example <span class="highlight-rouge">'Bob''s Hardware'</span>.</td>
-        </tr>
-        <tr>
-            <td>Is Null / Is Not Null</td>
-            <td><pre>ref1 is null</pre></td>
-            <td>Matches all records where the field's null flag is a specific value.</td>
-        </tr>
-    <table>
+        <thead>
+            <tr>
+                <th>Filter</th>
+                <th>Example</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Between</td>
+                <td><pre>amount between 10 and 20</pre></td>
+                <td>Matches all records greater than or equal to the first value, plus all records less than the second value.</td>
+            </tr>
+            <tr>
+                <td>In</td>
+                <td><pre>id in (123, 456, 789)</pre></td>
+                <td>Matches all records whose value is the same as one of the items in the list.</td>
+            </tr>
+            <tr>
+                <td>Contains</td>
+                <td><pre>name contains 'Bob'</pre></td>
+                <td>Matches all records whose value contains the specified filter string.  To represent an apostrophe, use two apostrophe characters in a row, for example <span class="highlight-rouge">'Bob''s Hardware'</span>.</td>
+            </tr>
+            <tr>
+                <td>StartsWith</td>
+                <td><pre>name startswith 'Bob'</pre></td>
+                <td>Matches all records whose value begins with the specified filter string.  To represent an apostrophe, use two apostrophe characters in a row, for example <span class="highlight-rouge">'Bob''s Hardware'</span>.</td>
+            </tr>
+            <tr>
+                <td>EndsWith</td>
+                <td><pre>name endswith 'Bob'</pre></td>
+                <td>Matches all records whose value ends with the specified filter string.  To represent an apostrophe, use two apostrophe characters in a row, for example <span class="highlight-rouge">'Bob''s Hardware'</span>.</td>
+            </tr>
+            <tr>
+                <td>Is Null / Is Not Null</td>
+                <td><pre>ref1 is null</pre></td>
+                <td>Matches all records where the field's null flag is a specific value.</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 <h2>Conjunctions</h2>

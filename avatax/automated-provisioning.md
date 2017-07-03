@@ -33,7 +33,7 @@ If a merchant wants to upgrade from a free trial account to a full account, or t
 When provisioning customer accounts with the onboarding API, you must perform various provisioning steps in a specific order.
 <h4>Request 1: /accounts</h4>
 The first request in the workflow creates a single account with:
-<ul>
+<ul class="normal">
 	<li>one Account Admin-level user</li>
 	<li>one default company profile</li>
 	<li>one defined location</li>
