@@ -520,6 +520,145 @@
           }
         }
       }
+    },
+    "/agasts/service-equivalent": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        }
+      ],
+      "get": {
+        "operationId": "getAgastServiceEquivalent",
+        "summary": "Find Equivalent AGAST",
+        "description": "This operation returns List of IssConfService from City To that have same Service Agast of serviceCodeFrom if cityFrom and serviceCodeFrom.\nIf not Mapped return List with zero elements.\n",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "City IBGE Code - From",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "City IBGE Code - To",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "service",
+            "in": "query",
+            "description": "Service Code in City From",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AGAST Service"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/AgastServiceOperations"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      }
+    },
+    "/agasts/service-lc116": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        }
+      ],
+      "get": {
+        "operationId": "getAgastServiceLC116",
+        "summary": "Find AGAST by LC116",
+        "description": "This operation returns List of IssConfService from city to that have Service Agast with LC116 informed code.\n",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "city",
+            "in": "query",
+            "description": "City IBGE Code",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "description": "LC116 Code",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AGAST Service"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/AgastServiceOperations"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      }
     }
   },
   "parameters": {
@@ -726,6 +865,58 @@
         }
       ]
     },
+    "AgastServiceOperations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/AgastServiceOperations_Item"
+      }
+    },
+    "AgastServiceOperations_Item": {
+      "type": "object",
+      "properties": {
+        "serviceCode": {
+          "type": "string",
+          "description": "Service Code in City"
+        },
+        "cityCode": {
+          "type": "integer",
+          "format": "int64",
+          "description": "City Code (IBGE)"
+        },
+        "agastCode": {
+          "type": "string",
+          "description": "AGAST Code"
+        },
+        "hsCode": {
+          "type": "string",
+          "maxLength": 8,
+          "description": "harmonized code, NCM or LC 116"
+        },
+        "description": {
+          "type": "string",
+          "description": "Service description"
+        },
+        "issWhOriginUnregSeller": {
+          "type": "boolean"
+        },
+        "issDueatDestination": {
+          "type": "boolean",
+          "description": "for service items with City Jurisdiction, inform where the ISS tax is due"
+        },
+        "subjectPayrollTaxRelief": {
+          "type": "boolean",
+          "description": "Item subjecto to Payroll Tax Relief\nItem sujeto à desoneraçãode folha de pagamento\n"
+        },
+        "subjectToINSS": {
+          "type": "boolean",
+          "description": "Item subjecto to INSS\nItem sujeto à INSS\n"
+        },
+        "customCompany": {
+          "type": "boolean",
+          "description": "Custom AGAST"
+        }
+      }
+    },
     "ValidationError": {
       "type": "object",
       "properties": {
@@ -869,6 +1060,14 @@
           "items": {
             "$ref": "#/definitions/TaxTypeRate"
           }
+        },
+        "notes": {
+          "type": "string",
+          "description": "Free-form text for optionally adding any comment on this."
+        },
+        "taxAdviserCode": {
+          "type": "string",
+          "description": "This adds a purely informational information about the source of TaxAdviser imported data."
         }
       }
     },

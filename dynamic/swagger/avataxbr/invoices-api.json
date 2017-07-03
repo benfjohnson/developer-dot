@@ -214,7 +214,7 @@
           "200": {
             "description": "Fix Letter Status",
             "schema": {
-              "$ref": "#/definitions/eInvoiceReturn_Status"
+              "$ref": "#/definitions/eInvoiceReturn_PDF"
             }
           },
           "400": {
@@ -266,7 +266,71 @@
         ],
         "responses": {
           "200": {
-            "description": "Cancel Invoice Status",
+            "description": "Invoice Status",
+            "schema": {
+              "$ref": "#/definitions/eInvoiceReturn_Status"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      }
+    },
+    "/invoices/sefaz/{key}/manifest": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        },
+        {
+          "$ref": "#/parameters/path_invoiceKey"
+        }
+      ],
+      "post": {
+        "operationId": "manifestInvoice",
+        "summary": "Manifest invoice",
+        "description": "Manifest the invoice",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "Invoice SEFAZ"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Manifest Message",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SefazItManifestIn"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Invoice Status",
             "schema": {
               "$ref": "#/definitions/eInvoiceReturn_Status"
             }
@@ -975,6 +1039,17 @@
         }
       }
     },
+    "eInvoiceReturn_PDF": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/eInvoiceReturn_Status"
+        },
+        "pdf": {
+          "$ref": "#/definitions/eInvoiceReturn_Obj"
+        }
+      }
+    },
     "eInvoiceReturn": {
       "type": "object",
       "properties": {
@@ -1049,8 +1124,33 @@
         }
       }
     },
+    "SefazItManifestIn": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "- '210200' # 'Confirmacao da Operacao',\n- '210210' # 'Ciencia da Operacao',\n- '210220' # 'Desconhecimento da Operacao',\n- '210240' # 'Operacao nao Realizada'\n",
+          "enum": [
+            "210200",
+            "210210",
+            "210220",
+            "210240"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 255,
+          "minLength": 15
+        }
+      }
+    },
     "TransactionForSefazGoods": {
       "type": "object",
+      "required": [
+        "header",
+        "lines",
+        "calculatedTaxSummary"
+      ],
       "properties": {
         "header": {
           "$ref": "#/definitions/HeaderForSefazGoods"
@@ -1687,6 +1787,10 @@
     },
     "CalculatedTaxSummaryForSefazGoods": {
       "type": "object",
+      "required": [
+        "subtotal",
+        "taxByType"
+      ],
       "properties": {
         "numberOfLines": {
           "type": "integer",
@@ -3322,12 +3426,15 @@
     },
     "TaxByTypeSummaryForSefazGoods": {
       "type": "object",
+      "required": [
+        "tax"
+      ],
       "description": "summary of all taxes",
       "properties": {
-        "calcbase": {
+        "calcBase": {
           "type": "number",
           "format": "double",
-          "description": "sum of all lines calcbase"
+          "description": "sum of all lines calcBase"
         },
         "tax": {
           "type": "number",

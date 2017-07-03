@@ -562,7 +562,7 @@
           {
             "name": "IcmsConfState",
             "in": "body",
-            "description": "The pet JSON you want to post",
+            "description": "IcmsConfState",
             "schema": {
               "$ref": "#/definitions/IcmsConfByState"
             },
@@ -744,7 +744,7 @@
         }
       ],
       "get": {
-        "summary": "retrive list of ICMS.",
+        "summary": "retrieve list of ICMS.",
         "operationId": "getIcmsListSearch",
         "description": "This operation return ICMS configurations that match with parameters queries\n",
         "parameters": [
@@ -1493,6 +1493,12 @@
             "in": "query",
             "type": "string",
             "description": "Performs text search.\n"
+          },
+          {
+            "name": "referenceCode",
+            "in": "query",
+            "type": "string",
+            "description": "Filters by reference code."
           }
         ],
         "responses": {
@@ -1630,12 +1636,29 @@
       "required": true,
       "type": "string"
     },
+    "header_listLimit": {
+      "name": "X-Pagination-Limit",
+      "in": "header",
+      "description": "The per page limit. Currently set to 10 but subject to change at any time (max 100).",
+      "type": "integer",
+      "format": "int32",
+      "default": 10,
+      "minimum": 5
+    },
     "path_cityCode": {
       "name": "cityCode",
       "in": "path",
       "description": "City Code",
       "required": true,
       "type": "number"
+    },
+    "path_agastCode": {
+      "name": "code",
+      "in": "path",
+      "description": "Agast Code",
+      "required": true,
+      "type": "string",
+      "maxLength": 60
     },
     "path_serviceCode": {
       "name": "serviceCode",
@@ -1942,7 +1965,7 @@
         "serviceCode"
       ],
       "properties": {
-        "companyCode": {
+        "companyId": {
           "type": "string",
           "description": "Company code for custom AGAST, standard AGAST does't use this code."
         },
@@ -1954,10 +1977,6 @@
           "description": "City Code (IBGE)",
           "type": "integer",
           "format": "int64"
-        },
-        "agastServiceCode": {
-          "description": "Service Agast Code in this City",
-          "type": "string"
         },
         "serviceCode": {
           "description": "Service Code in City",
@@ -2737,6 +2756,19 @@
         "state": {
           "$ref": "#/definitions/StateEnum"
         },
+        "icmsCSTInterstate": {
+          "type": "string",
+          "enum": [
+            "T",
+            "E",
+            "H",
+            "D",
+            "N",
+            "O",
+            "OZ"
+          ],
+          "description": "The CST inform if the interstate operation is taxable or not taxable and  when not taxable inform type\n- 'T' # TAXABLE 00-Tributada\n- 'E' # EXEMPT 40-Isenta\n- 'H' # SUSPENDED 50-Suspensão\n- 'D' # DEFERMENT 51-Diferimento\n- 'N' # NO TAXABLE 41-Nao tributada\n- 'O' # OTHER 90-Outras\n- 'OZ' # OTHER AND ZERO VALUES 90-Outras\n"
+        },
         "icmsCST": {
           "type": "string",
           "enum": [
@@ -2748,7 +2780,7 @@
             "O",
             "OZ"
           ],
-          "description": "On sales process inform the CST hat the item linked to this configuration is subject to for the own ICMS\n- 'T' # TAXABLE 00-Tributada\n- 'E' # EXEMPT 40-Isenta\n- 'H' # SUSPENDED 50-Suspensão\n- 'D' # DEFERMENT 51-Diferimento\n- 'N' # NO TAXABLE 41-Nao tributada\n- 'O' # OTHER 90-Outras\n- 'OZ' # OTHER AND ZERO VALUES 90-Outras\n"
+          "description": "The CST inform f this item is taxable or not taxable no target state and when not taxable inform type\n- 'T' # TAXABLE 00-Tributada\n- 'E' # EXEMPT 40-Isenta\n- 'H' # SUSPENDED 50-Suspensão\n- 'D' # DEFERMENT 51-Diferimento\n- 'N' # NO TAXABLE 41-Nao tributada\n- 'O' # OTHER 90-Outras\n- 'OZ' # OTHER AND ZERO VALUES 90-Outras\n"
         },
         "calcMode": {
           "type": "string",

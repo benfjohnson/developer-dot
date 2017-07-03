@@ -1,7 +1,0 @@
-# AVATAX BRAZIL
-
-swagger_path: avataxbr/index.json
-nav_link:
-    title: Auth
-    path: /avataxbr/api-reference/tax/v2/auth
-product: avaTaxBr

@@ -183,734 +183,572 @@
       }
     },
     "HeaderForGoods": {
-      "type": "object",
-      "required": [
-        "participants",
-        "transactionType",
-        "eDocCreatorType",
-        "companyLocation",
-        "messageType"
-      ],
-      "properties": {
-        "messageType": {
-          "type": "string",
-          "enum": [
-            "goods"
-          ],
-          "default": "goods"
+      "allOf": [
+        {
+          "$ref": "#/definitions/HeaderForGoodsBase"
         },
-        "accountId": {
-          "type": "string",
-          "description": "This string is a UUID issued by Avalara to identify the Avalara account that owns the company identified by the companyCode on the next line."
-        },
-        "companyCode": {
-          "type": "string",
-          "maxLength": 60,
-          "description": "string is a code maintained by the client application to uniquely identify the company for which this transaction is being recorded. It is unique within the context of an Account. It will be limited to 60 characters when creating a Company"
-        },
-        "documentCode": {
-          "type": "string",
-          "description": "This string is a code maintained by the client application to uniquely identify a document in the client's systems. It will typically be an invoice number, sales order, receipt number, returned merchandise authorization number, etc. When has this field, the transaction will be stored"
-        },
-        "participants": {
-          "description": "List of transaction participants, Seller, Buyer, Carrier",
-          "type": "object",
-          "properties": {
-            "entity": {
-              "$ref": "#/definitions/EntityForGoods"
-            },
-            "transporter": {
-              "$ref": "#/definitions/EntityForGoods"
-            }
-          }
-        },
-        "nfAccessKey": {
-          "type": "string",
-          "description": "This is the public NF id. With this number is possible get invoice information directly from government."
-        },
-        "nfceQrCode": {
-          "type": "string",
-          "maxLength": 600,
-          "minLength": 100,
-          "description": "qr code printed on DANFE;"
-        },
-        "transactionType": {
-          "type": "string",
-          "enum": [
-            "Sale",
-            "Purchase",
-            "SalesReturn",
-            "PurchaseReturn",
-            "TransferReturn",
-            "Shipping",
-            "ShippingReturn",
-            "Transfer",
-            "ReceiptAdjustment",
-            "TransferAdjustment"
-          ],
-          "description": "This string indicates the type of transaction for which tax should be calculated."
-        },
-        "transactionModel": {
-          "type": "string",
-          "enum": [
-            "01",
-            "1B",
-            "02",
-            "2D",
-            "2E",
-            "04",
-            "06",
-            "07",
-            "08",
-            "8B",
-            "09",
-            "10",
-            "11",
-            "13",
-            "14",
-            "15",
-            "16",
-            "18",
-            "21",
-            "22",
-            "26",
-            "27",
-            "28",
-            "29",
-            "55",
-            "57",
-            "59",
-            "60",
-            "65"
-          ],
-          "description": "- '01' # Nota Fiscal 1/1A\n- '1B' # Nota Fiscal Avulsa\n- '02' # Nota Fiscal de Venda a-Consumidor\n- '2D' # Cupom Fiscal\n- '2E' # Cupom Fiscal-Bilhete de Passagem\n- '04' # Nota Fiscal de Produtor\n- '06' # Nota Fiscal/Conta de Energia Elétrica\n- '07' # Nota Fiscal de Serviço de Transporte\n- '08' # Conhecimento de Transporte Rodoviário de-Cargas\n- '8B' # Conhecimento de Transporte de-Cargas Avulso\n- '09' # Conhecimento de Transporte Aquaviário de-Cargas\n- '10' # Conhecimento Aéreo\n- '11' # Conhecimento de Transporte Ferroviário de-Cargas\n- '13' # Bilhete de Passagem Rodoviário\n- '14' # Bilhete de Passagem Aquaviário\n- '15' # Bilhete de Passagem e-Nota de-Bagagem\n- '16' # Bilhete de Passagem Ferroviário\n- '18' # Resumo de Movimento Diário\n- '21' # Nota Fiscal de Serviço de-Comunicação\n- '22' # Nota Fiscal de Serviço de Telecomunicação\n- '26' # Conhecimento de Transporte Multimodal de-Cargas\n- '27' # Nota Fiscal De Transporte Ferroviário De-Carga\n- '28' # Nota Fiscal/Conta de Fornecimento de Gás-Canalizado\n- '29' # Nota Fiscal/Conta de Fornecimento de Água-Canalizada\n- '55' # Nota Fiscal Eletrônica (NF-e)\n- '57' # Conhecimento de Transporte Eletrônico (CT-e)\n- '59' # Cupom Fiscal Eletrônico (CF-e-SAT)\n- '60' # Cupom Fiscal Eletrônico (CF-e-ECF)\n- '65' # Nota Fiscal Eletrônica ao-Consumidor Final (NFC-e)\n"
-        },
-        "transactionClass": {
-          "type": "string",
-          "description": "Natureza da Opreração - 'Describe kind of this transaction, summary"
-        },
-        "eDocCreatorType": {
-          "type": "string",
-          "enum": [
-            "self",
-            "other"
-          ],
-          "default": "self"
-        },
-        "eDocCreatorPerspective": {
-          "type": "boolean",
-          "default": true,
-          "description": "This Flag is used only when eDocCreatorType is other and the return show Taxes using eDocCreator perspective or self perspective."
-        },
-        "currency": {
-          "type": "string",
-          "default": "BRL",
-          "description": "currency code"
-        },
-        "companyLocation": {
-          "type": "string",
-          "description": "This string contains a previously configured company code which may also have codes needed for tax return purposes. These codes are maintained through the customer portal. Main company address identity"
-        },
-        "transactionDate": {
-          "type": "string",
-          "description": "This string is the transaction date in ISO 8601 format, create transaction date"
-        },
-        "shippingDate": {
-          "type": "string",
-          "description": "This string is the transaction date in ISO 8601 format, when products were shipped, can be empty or absent"
-        },
-        "additionalInfo": {
-          "$ref": "#/definitions/AdditionalInformation"
-        },
-        "tpImp": {
-          "type": "string",
-          "description": "how the document will be printed\n- '0' # without DANFE;\n- '1' # DANFe Letter;\n- '2' # DANFe Landscape;\n- '3' # DANFe Simplified;\n- '4' # DANFe NFC-e;\n- '5' # DANFe NFC-e e-mail\n",
-          "enum": [
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"
-          ]
-        },
-        "idDest": {
-          "description": "This indicator inform transaction target place, when is AUTOMATIC the company address and entity address are analyzed to identify type of transaction target place\n1- same state; 2 - interstate; 3-with exterior. Exist some cases where is necessary force this situation like when buyer from another state buy something in loco, the address are from different states, but transaction no. \nIdentificador de Local de destino da operação, na opção AUTOMATIC endereços da Companhia e da entidade destino são analisados para\nsaber se é uma operação dentro do mesmo estado, interestadual ou com o exterior. Há situações onde é necessário forçar este indicador como por exemplo \nQuando uma pessoa com endereço em outro estado, compra uma mercadoria de forma presencial, é uma operação interna apesar dos endereços dos envolvidos estarem em estados distintos.\n- 0 # AUTOMATIC - DEFAULT\n- 1 # Interna;\n- 2 # Interestadual;\n- 3 # Exterior)\n",
-          "type": "integer",
-          "enum": [
-            0,
-            1,
-            2,
-            3
-          ],
-          "default": 0
-        },
-        "indPres": {
-          "type": "string",
-          "description": "Presence indicator\n- '0' # Not applicable\n- '1' # Presential;\n- '2' # Remote, internet;\n- '3' # Remote, phone;\n- '4' # NFC-e home delivery;\n- '9' # Remote, others\n",
-          "enum": [
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "9"
-          ]
-        },
-        "invoiceNumber": {
-          "type": "integer",
-          "description": "Invoice number, sequential unique by invoice serial (Número da nota fiscal)"
-        },
-        "invoiceSerial": {
-          "type": "integer",
-          "description": "Invoice number, sequential unique by invoice serial (Número da nota fiscal)\n"
-        },
-        "defaultLocations": {
-          "$ref": "#/definitions/DefaultLocations"
-        },
-        "transport": {
-          "description": "Shipment",
-          "$ref": "#/definitions/Transport"
-        },
-        "nfRef": {
-          "description": "Transactions or other invoices referenced",
-          "type": "array",
-          "maxItems": 500,
-          "items": {
-            "$ref": "#/definitions/NRef"
-          }
-        },
-        "payment": {
-          "$ref": "#/definitions/Payment"
-        },
-        "purchaseInfo": {
-          "$ref": "#/definitions/PurchaseInfo"
-        },
-        "export": {
-          "$ref": "#/definitions/ExportInfo"
-        }
-      }
-    },
-    "LineForGoods": {
-      "type": "object",
-      "required": [
-        "lineCode",
-        "itemCode",
-        "numberOfItems",
-        "lineAmount",
-        "itemDescription",
-        "useType",
-        "processScenario"
-      ],
-      "properties": {
-        "lineCode": {
-          "type": "integer",
-          "description": "This is unique identifier for this line in the transaction"
-        },
-        "itemCode": {
-          "type": "string",
-          "maxLength": 60,
-          "description": "This string is a code maintained by the client application to uniquely identify a product or service. It will likely be a SKU and is required for SST states."
-        },
-        "avalaraGoodsAndServicesType": {
-          "type": "string",
-          "description": "AGAST CODE for itemCode"
-        },
-        "numberOfItems": {
-          "type": "number",
-          "format": "double",
-          "default": 1,
-          "description": "This decimal 11 integers and 1 to 4 decimals captures the number of individual items or units represented by this line. Digits after the decimal point are optional. This should always be positive. Quantity, default 1"
-        },
-        "returnedPercentageAmount": {
-          "type": "number",
-          "format": "double",
-          "description": "when is return operation this field inform the percentage of returned itens. This decimal max 3 integers and 2 decimals, v >=0.00 and v <= 100.00"
-        },
-        "lineUnitPrice": {
-          "type": "number",
-          "format": "double",
-          "description": "This decimal 11 integers and 1 to 10 decimals captures the unit price of this line."
-        },
-        "lineAmount": {
-          "type": "number",
-          "format": "double",
-          "description": "In its simplest form lineAmount = (item price * numberOfItems). If taxIncluded is 'true', lineAmount = (item price * numberOfItems + tax)."
-        },
-        "itemDescription": {
-          "type": "string",
-          "description": "This string captures the description of the item represented by this line, will be used LC 116"
-        },
-        "lineTaxedDiscount": {
-          "type": "number",
-          "format": "double",
-          "description": "Discount conditional, This decimal 13 integers and 0 to 2 decimals"
-        },
-        "lineUntaxedDiscount": {
-          "type": "number",
-          "format": "double",
-          "description": "discount unconditional, This decimal 13 integers and 0 to 2 decimals"
-        },
-        "useType": {
-          "type": "string",
-          "enum": [
-            "use or consumption",
-            "resale",
-            "agricultural production",
-            "production",
-            "use or consumption on business establishment",
-            "use or consumption on transporter service establishment",
-            "use or consumption on communication service establishment",
-            "use or consumption on demand by contract",
-            "use or consumption on energy supplier establishment",
-            "use or consumption of fuel transaction type exportation",
-            "use or consumption on services",
-            "fixed assets",
-            "resale export",
-            "resale icms exempt",
-            "resale buyer under the same icmsSt tax rule",
-            "transport of goods that don't need invoice (nf)"
-          ],
-          "description": "This is a enumeration folowing table"
-        },
-        "processScenario": {
-          "type": "string",
-          "maxLength": 60,
-          "description": "Reference to process configurantion of this transaction, See ProcessScenario definition\nthis property is used only if eDocCreator=self or  eDocCreator=others and eDocCreatorPerspective=true\n"
-        },
-        "operationTypeReceiptMap": {
-          "type": "string",
-          "maxLength": 60,
-          "description": "Mapping table used to discover the CFOP when execute the Tax receipt in funciotn of CFOP Received and Item Type\nthis property is used only if eDocCreator=others and eDocCreatorPerspective=false\n"
-        },
-        "legalReason": {
-          "type": "object",
-          "description": "Legal Reason for this tax scenario",
-          "properties": {
-            "id": {
-              "type": "string",
-              "description": "Internal ID"
-            },
-            "name": {
-              "type": "string",
-              "description": "Short name to this message"
-            }
-          }
-        },
-        "cfop": {
-          "type": "integer",
-          "description": "Fiscal Operation Code of transport service"
-        },
-        "overwrite": {
-          "type": "string",
-          "enum": [
-            "all",
-            "cfop",
-            "proportional",
-            "no"
-          ],
-          "description": "- 'all' # THE SYSTEM GET ALL INFORMATIONS PASSED IN TRANSACTION\n- 'cfop' # THE SYSTEM DISCOVRE AND REPLACE ONLY CFOP\n- 'proportional' # THE SYSTEM DISCOVER CFOP AND AND USES TAX VALUES FROM REFERENCED TRANSACTION, PROPORTINAL BY QUANTITY\n- 'no' # DEFAULT THE SYSTEM WILL CALCULATED ALL TAXES\n",
-          "default": "no"
-        },
-        "hasStockImpact": {
-          "type": "boolean",
-          "description": "return if this transaction has stock impact for this process or CFOP"
-        },
-        "hasFinantialImpact": {
-          "type": "boolean",
-          "description": "return if this transaction has finantial impact for this process or CFOP"
-        },
-        "freightAmount": {
-          "type": "number",
-          "format": "double",
-          "description": "This decimal 13 integers and 0 to 2 decimals"
-        },
-        "insuranceAmount": {
-          "type": "number",
-          "format": "double",
-          "description": "This decimal 13 integers and 0 to 2 decimals"
-        },
-        "otherCostAmount": {
-          "type": "number",
-          "format": "double",
-          "description": "This decimal 13 integers and 0 to 2 decimals"
-        },
-        "indTotType": {
-          "type": "boolean",
-          "default": true,
-          "description": "The item value will compose the invoice total value."
-        },
-        "referencedItem": {
-          "type": "object",
-          "description": "order number, information used for B2B control process",
-          "properties": {
-            "refNFe": {
-              "type": "string",
-              "maxLength": 44,
-              "pattern": "[0-9]{44}"
-            },
-            "lineCode": {
-              "type": "integer",
-              "description": "This identifier for this line in the transaction"
-            }
-          }
-        },
-        "orderNumber": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 15,
-          "description": "order number, information used for B2B control process"
-        },
-        "orderItemNumber": {
-          "type": "string",
-          "pattern": "[0-9]{1,6}",
-          "description": "number of the item from order number, information used for B2B control process"
-        },
-        "fciNumber": {
-          "type": "string",
-          "pattern": "[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}",
-          "description": "Gloal Unique identifier (Importation form)"
-        },
-        "recopiNumber": {
-          "type": "string",
-          "maxLength": 20,
-          "pattern": "[0-9]{20}",
-          "description": "RECOPI number"
-        },
-        "infAdProd": {
-          "type": "string",
-          "maxLength": 500,
-          "description": "additional information about product (referenced standard, complementary info, etc)"
-        },
-        "vehicle": {
-          "$ref": "#/definitions/Vehicle"
-        },
-        "medicine": {
-          "$ref": "#/definitions/Medicine"
-        },
-        "weapon": {
-          "$ref": "#/definitions/Weapon"
-        },
-        "fuel": {
-          "$ref": "#/definitions/Fuel"
-        },
-        "entityIsIcmsSubstitute": {
-          "type": "boolean",
-          "description": "Inform that for this item the Entity referenced is ICMS Substitute"
-        },
-        "isTransportIcmsWithheld": {
-          "type": "boolean",
-          "description": "Inform that this item has ICMS withheld for transport value service."
-        },
-        "icmsTaxRelief": {
+        {
           "type": "object",
           "required": [
-            "reasonCode"
+            "participants",
+            "transactionType"
           ],
           "properties": {
-            "reasonCode": {
+            "messageType": {
               "type": "string",
               "enum": [
-                "1",
-                "3",
-                "4",
-                "5",
-                "6",
-                "7",
-                "8",
-                "9",
-                "10",
-                "11",
-                "12",
-                "16"
+                "goods"
               ],
-              "description": "When item transaction subject to desoneration, this is the reason code\n- '1' # Táxi;\n- '3' # Produtor Agropecuário;\n- '4' # Frotista/Locadora;\n- '5' # Diplomático/Consular;\n- '6' # Utilitários e Motocicletas da Amazônia Ocidental e Áreas de Livre Comércio (Resolução 714/88 e 790/94 – CONTRAN e suas alterações);\n- '7' # SUFRAMA;\n- '8' # Venda a órgão Público;\n- '9' # Outros\n- '10' # Deficiente Condutor\n- '11' # Deficiente não condutor\n- '12' # Fomento agropecuário\n- '16' # Olimpíadas Rio 2016\n"
+              "default": "goods"
             },
-            "taxBaseDiscount": {
-              "type": "number",
-              "format": "double",
-              "description": "ICMS Tax base rate discount  (desconto na base do ICMS referetne a desoneração)"
+            "documentCode": {
+              "type": "string",
+              "description": "This string is a code maintained by the client application to uniquely identify a document in the client's systems. It will typically be an invoice number, sales order, receipt number, returned merchandise authorization number, etc. When has this field, the transaction will be stored"
             },
-            "taxAmount": {
-              "type": "number",
-              "format": "double",
-              "description": "Amount for Icms Relief (desoneração)"
-            }
-          }
-        },
-        "export": {
-          "description": "Exportation detail",
-          "type": "array",
-          "maxItems": 500,
-          "items": {
-            "type": "object",
-            "properties": {
-              "drawbackNumber": {
-                "type": "string",
-                "maxLength": 11,
-                "pattern": "[0-9]{0,11}"
-              },
-              "indExport": {
-                "type": "object",
-                "description": "indirect exportation",
-                "required": [
-                  "registerNumber",
-                  "accessKey",
-                  "quantity"
-                ],
-                "properties": {
-                  "registerNumber": {
-                    "type": "string",
-                    "maxLength": 12,
-                    "pattern": "[0-9]{0,12}",
-                    "description": "Exportation register number"
-                  },
-                  "accessKey": {
-                    "type": "string",
-                    "maxLength": 44,
-                    "pattern": "[0-9]{44}",
-                    "description": "invoice access key received to export"
-                  },
-                  "quantity": {
-                    "type": "number",
-                    "format": "double",
-                    "description": "This decimal 11 integers and 0 to 4 decimals, quantity exported in real"
-                  }
+            "participants": {
+              "description": "List of transaction participants, Seller, Buyer, Carrier",
+              "type": "object",
+              "properties": {
+                "entity": {
+                  "$ref": "#/definitions/EntityForGoods"
+                },
+                "transporter": {
+                  "$ref": "#/definitions/EntityForGoods"
                 }
               }
+            },
+            "nfAccessKey": {
+              "type": "string",
+              "description": "This is the public NF id. With this number is possible get invoice information directly from government."
+            },
+            "nfceQrCode": {
+              "type": "string",
+              "maxLength": 600,
+              "minLength": 100,
+              "description": "qr code printed on DANFE;"
+            },
+            "transactionType": {
+              "type": "string",
+              "enum": [
+                "Sale",
+                "Purchase",
+                "SalesReturn",
+                "PurchaseReturn",
+                "TransferReturn",
+                "Shipping",
+                "ShippingReturn",
+                "Transfer",
+                "ReceiptAdjustment",
+                "TransferAdjustment"
+              ],
+              "description": "This string indicates the type of transaction for which tax should be calculated."
+            },
+            "transactionModel": {
+              "type": "string",
+              "enum": [
+                "01",
+                "1B",
+                "02",
+                "2D",
+                "2E",
+                "04",
+                "06",
+                "07",
+                "08",
+                "8B",
+                "09",
+                "10",
+                "11",
+                "13",
+                "14",
+                "15",
+                "16",
+                "18",
+                "21",
+                "22",
+                "26",
+                "27",
+                "28",
+                "29",
+                "55",
+                "57",
+                "59",
+                "60",
+                "65"
+              ],
+              "description": "- '01' # Nota Fiscal 1/1A\n- '1B' # Nota Fiscal Avulsa\n- '02' # Nota Fiscal de Venda a-Consumidor\n- '2D' # Cupom Fiscal\n- '2E' # Cupom Fiscal-Bilhete de Passagem\n- '04' # Nota Fiscal de Produtor\n- '06' # Nota Fiscal/Conta de Energia Elétrica\n- '07' # Nota Fiscal de Serviço de Transporte\n- '08' # Conhecimento de Transporte Rodoviário de-Cargas\n- '8B' # Conhecimento de Transporte de-Cargas Avulso\n- '09' # Conhecimento de Transporte Aquaviário de-Cargas\n- '10' # Conhecimento Aéreo\n- '11' # Conhecimento de Transporte Ferroviário de-Cargas\n- '13' # Bilhete de Passagem Rodoviário\n- '14' # Bilhete de Passagem Aquaviário\n- '15' # Bilhete de Passagem e-Nota de-Bagagem\n- '16' # Bilhete de Passagem Ferroviário\n- '18' # Resumo de Movimento Diário\n- '21' # Nota Fiscal de Serviço de-Comunicação\n- '22' # Nota Fiscal de Serviço de Telecomunicação\n- '26' # Conhecimento de Transporte Multimodal de-Cargas\n- '27' # Nota Fiscal De Transporte Ferroviário De-Carga\n- '28' # Nota Fiscal/Conta de Fornecimento de Gás-Canalizado\n- '29' # Nota Fiscal/Conta de Fornecimento de Água-Canalizada\n- '55' # Nota Fiscal Eletrônica (NF-e)\n- '57' # Conhecimento de Transporte Eletrônico (CT-e)\n- '59' # Cupom Fiscal Eletrônico (CF-e-SAT)\n- '60' # Cupom Fiscal Eletrônico (CF-e-ECF)\n- '65' # Nota Fiscal Eletrônica ao-Consumidor Final (NFC-e)\n"
+            },
+            "transactionClass": {
+              "type": "string",
+              "description": "Natureza da Opreração - 'Describe kind of this transaction, summary"
+            },
+            "currency": {
+              "type": "string",
+              "default": "BRL",
+              "description": "currency code"
+            },
+            "shippingDate": {
+              "type": "string",
+              "description": "This string is the transaction date in ISO 8601 format, when products were shipped, can be empty or absent"
+            },
+            "additionalInfo": {
+              "$ref": "#/definitions/AdditionalInformation"
+            },
+            "tpImp": {
+              "type": "string",
+              "description": "how the document will be printed\n- '0' # without DANFE;\n- '1' # DANFe Letter;\n- '2' # DANFe Landscape;\n- '3' # DANFe Simplified;\n- '4' # DANFe NFC-e;\n- '5' # DANFe NFC-e e-mail\n",
+              "enum": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5"
+              ]
+            },
+            "idDest": {
+              "description": "This indicator inform transaction target place, when is AUTOMATIC the company address and entity address are analyzed to identify type of transaction target place\n1- same state; 2 - interstate; 3-with exterior. Exist some cases where is necessary force this situation like when buyer from another state buy something in loco, the address are from different states, but transaction no. \nIdentificador de Local de destino da operação, na opção AUTOMATIC endereços da Companhia e da entidade destino são analisados para\nsaber se é uma operação dentro do mesmo estado, interestadual ou com o exterior. Há situações onde é necessário forçar este indicador como por exemplo \nQuando uma pessoa com endereço em outro estado, compra uma mercadoria de forma presencial, é uma operação interna apesar dos endereços dos envolvidos estarem em estados distintos.\n- 0 # AUTOMATIC - DEFAULT\n- 1 # Interna;\n- 2 # Interestadual;\n- 3 # Exterior)\n",
+              "type": "integer",
+              "enum": [
+                0,
+                1,
+                2,
+                3
+              ],
+              "default": 0
+            },
+            "indPres": {
+              "type": "string",
+              "description": "Presence indicator\n- '0' # Not applicable\n- '1' # Presential;\n- '2' # Remote, internet;\n- '3' # Remote, phone;\n- '4' # NFC-e home delivery;\n- '9' # Remote, others\n",
+              "enum": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "9"
+              ]
+            },
+            "invoiceNumber": {
+              "type": "integer",
+              "description": "Invoice number, sequential unique by invoice serial (Número da nota fiscal)"
+            },
+            "invoiceSerial": {
+              "type": "integer",
+              "description": "Invoice number, sequential unique by invoice serial (Número da nota fiscal)\n"
+            },
+            "transport": {
+              "description": "Shipment",
+              "$ref": "#/definitions/Transport"
+            },
+            "payment": {
+              "$ref": "#/definitions/Payment"
+            },
+            "purchaseInfo": {
+              "$ref": "#/definitions/PurchaseInfo"
+            },
+            "export": {
+              "$ref": "#/definitions/ExportInfo"
             }
           }
+        }
+      ]
+    },
+    "LineForGoods": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/LineForGoodsBase"
         },
-        "di": {
-          "description": "Import declaration",
-          "type": "array",
-          "maxItems": 100,
-          "items": {
-            "type": "object",
-            "required": [
-              "diNumber",
-              "registerDateDI",
-              "clearanceSite",
-              "clearanceState",
-              "transportDIType",
-              "intermediateType",
-              "adi"
-            ],
-            "properties": {
-              "customsValue": {
-                "type": "number",
-                "format": "double",
-                "description": "customs value, valor aduaneiro (II Block of NFe)"
-              },
-              "diNumber": {
-                "type": "string",
-                "maxLength": 12,
-                "minLength": 1,
-                "description": "Import declaration number, DI/DSI/DA/DRI-E (DI/DSI/DA/DRI-E)"
-              },
-              "registerDateDI": {
-                "type": "string",
-                "description": "Register date of import declaration number, DI/DSI/DA/DRI-E (DI/DSI/DA/DRI-E)"
-              },
-              "clearanceSite": {
-                "type": "string",
-                "maxLength": 60,
-                "minLength": 1,
-                "description": "Clerance Site\nLocal do desembaraço aduaneiro\n"
-              },
-              "clearanceState": {
-                "$ref": "#/definitions/StateEnum",
-                "description": "Clerance Site State\nEstado onde ocorrreu o desembaraço aduaneiro\n"
-              },
-              "clearanceDate": {
-                "type": "string",
-                "description": "Clerance date"
-              },
-              "transportDIType": {
-                "description": "- '1' # Maritima\n- '2' # Fluvial\n- '3' # Lacustre\n- '4' # Aerea\n- '5' # Postal\n- '6' # Ferroviaria\n- '7' # Rodoviaria\n- '8' # Conduto\n- '9' # Meios Proprios\n- '10' # Entrada/Saida Ficta\n",
-                "type": "string",
-                "enum": [
-                  "1",
-                  "2",
-                  "3",
-                  "4",
-                  "5",
-                  "6",
-                  "7",
-                  "8",
-                  "9",
-                  "10"
-                ]
-              },
-              "afrmmValue": {
-                "type": "number",
-                "format": "double",
-                "description": "Aditional amount to freight to renew merchant marine, This decimal 13 integers and 2 decimals\n[Valor Adicional ao frete para renovação de marinha mercante]\n"
-              },
-              "intermediateType": {
-                "description": "- '1' # On One's Own [1-por conta propria]\n- '2' # On Behalf And Order [2-por conta e ordem]\n- '3' # Order [3-encomenda]\n",
-                "type": "string",
-                "enum": [
-                  "1",
-                  "2",
-                  "3"
-                ]
-              },
-              "buyerFederalTaxID": {
-                "type": "string",
-                "pattern": "[0-9]{14}",
-                "description": "Buyer federal tax id\nCNPJ do comprador ou encomendante\n"
-              },
-              "buyerState": {
-                "$ref": "#/definitions/StateEnum",
-                "description": "Buyer sate\nEstado do comprador ou encomendante\n"
-              },
-              "exporterCode": {
-                "type": "string",
-                "maxLength": 60,
-                "minLength": 1,
-                "description": "Exporter code"
-              },
-              "adi": {
-                "type": "array",
-                "maxItems": 100,
-                "description": "aditional import declaration",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "addNumber",
-                    "sequentialNumber",
-                    "manufacturerCode"
-                  ],
-                  "properties": {
-                    "addNumber": {
-                      "type": "integer",
-                      "description": "aditional sequence number (1 to 100)"
-                    },
-                    "sequentialNumber": {
-                      "type": "integer",
-                      "description": "sequential item number for this adi, sequence number (1 to 999)"
-                    },
-                    "manufacturerCode": {
-                      "type": "string",
-                      "maxLength": 60,
-                      "minLength": 1,
-                      "description": "Manufatorer erp internal code"
-                    },
-                    "adiDiscount": {
-                      "type": "number",
-                      "format": "double",
-                      "description": "This decimal 13 integers and 2 decimals, aditional adi discount"
-                    },
-                    "drawbackNumber": {
-                      "type": "string",
-                      "pattern": "[0-9]{0,11}",
-                      "minLength": 1,
-                      "description": "Drawback number"
+        {
+          "type": "object",
+          "required": [
+            "itemDescription"
+          ],
+          "properties": {
+            "avalaraGoodsAndServicesType": {
+              "type": "string",
+              "description": "AGAST CODE for itemCode"
+            },
+            "returnedPercentageAmount": {
+              "type": "number",
+              "format": "double",
+              "description": "when is return operation this field inform the percentage of returned itens. This decimal max 3 integers and 2 decimals, v >=0.00 and v <= 100.00"
+            },
+            "itemDescription": {
+              "type": "string",
+              "description": "This string captures the description of the item represented by this line, will be used LC 116"
+            },
+            "legalReason": {
+              "type": "object",
+              "description": "Legal Reason for this tax scenario",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Internal ID"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Short name to this message"
+                }
+              }
+            },
+            "cfop": {
+              "type": "integer",
+              "description": "Fiscal Operation Code of transport service"
+            },
+            "overwrite": {
+              "type": "string",
+              "enum": [
+                "all",
+                "cfop",
+                "proportional",
+                "no"
+              ],
+              "description": "- 'all' # THE SYSTEM GET ALL INFORMATIONS PASSED IN TRANSACTION\n- 'cfop' # THE SYSTEM DISCOVRE AND REPLACE ONLY CFOP\n- 'proportional' # THE SYSTEM DISCOVER CFOP AND AND USES TAX VALUES FROM REFERENCED TRANSACTION, PROPORTINAL BY QUANTITY\n- 'no' # DEFAULT THE SYSTEM WILL CALCULATED ALL TAXES\n",
+              "default": "no"
+            },
+            "hasStockImpact": {
+              "type": "boolean",
+              "description": "return if this transaction has stock impact for this process or CFOP"
+            },
+            "hasFinantialImpact": {
+              "type": "boolean",
+              "description": "return if this transaction has finantial impact for this process or CFOP"
+            },
+            "indTotType": {
+              "type": "boolean",
+              "default": true,
+              "description": "The item value will compose the invoice total value."
+            },
+            "referencedItem": {
+              "type": "object",
+              "description": "order number, information used for B2B control process",
+              "properties": {
+                "refNFe": {
+                  "type": "string",
+                  "maxLength": 44,
+                  "pattern": "[0-9]{44}"
+                },
+                "lineCode": {
+                  "type": "integer",
+                  "description": "This identifier for this line in the transaction"
+                }
+              }
+            },
+            "orderNumber": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 15,
+              "description": "order number, information used for B2B control process"
+            },
+            "orderItemNumber": {
+              "type": "string",
+              "pattern": "[0-9]{1,6}",
+              "description": "number of the item from order number, information used for B2B control process"
+            },
+            "fciNumber": {
+              "type": "string",
+              "pattern": "[A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12}",
+              "description": "Gloal Unique identifier (Importation form)"
+            },
+            "recopiNumber": {
+              "type": "string",
+              "maxLength": 20,
+              "pattern": "[0-9]{20}",
+              "description": "RECOPI number"
+            },
+            "infAdProd": {
+              "type": "string",
+              "maxLength": 500,
+              "description": "additional information about product (referenced standard, complementary info, etc)"
+            },
+            "vehicle": {
+              "$ref": "#/definitions/Vehicle"
+            },
+            "medicine": {
+              "$ref": "#/definitions/Medicine"
+            },
+            "weapon": {
+              "$ref": "#/definitions/Weapon"
+            },
+            "fuel": {
+              "$ref": "#/definitions/Fuel"
+            },
+            "export": {
+              "description": "Exportation detail",
+              "type": "array",
+              "maxItems": 500,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "drawbackNumber": {
+                    "type": "string",
+                    "maxLength": 11,
+                    "pattern": "[0-9]{0,11}"
+                  },
+                  "indExport": {
+                    "type": "object",
+                    "description": "indirect exportation",
+                    "required": [
+                      "registerNumber",
+                      "accessKey",
+                      "quantity"
+                    ],
+                    "properties": {
+                      "registerNumber": {
+                        "type": "string",
+                        "maxLength": 12,
+                        "pattern": "[0-9]{0,12}",
+                        "description": "Exportation register number"
+                      },
+                      "accessKey": {
+                        "type": "string",
+                        "maxLength": 44,
+                        "pattern": "[0-9]{44}",
+                        "description": "invoice access key received to export"
+                      },
+                      "quantity": {
+                        "type": "number",
+                        "format": "double",
+                        "description": "This decimal 11 integers and 0 to 4 decimals, quantity exported in real"
+                      }
                     }
                   }
                 }
               }
-            }
-          }
-        },
-        "calculatedTax": {
-          "type": "object",
-          "properties": {
-            "taxByType": {
-              "type": "object",
-              "properties": {
-                "icms": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsSt": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsStSd": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsPartOwn": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsPartDest": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsDifaFCP": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsDifaDest": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsDifaRemet": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsRf": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsDeson": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "icmsCredsn": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "pis": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "pisSt": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "cofins": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "cofinsSt": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "ipi": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "ipiReturned": {
-                  "allOf": [
-                    {
-                      "$ref": "#/definitions/TaxByTypeTax"
-                    },
-                    {
+            },
+            "di": {
+              "description": "Import declaration",
+              "type": "array",
+              "maxItems": 100,
+              "items": {
+                "type": "object",
+                "required": [
+                  "diNumber",
+                  "registerDateDI",
+                  "clearanceSite",
+                  "clearanceState",
+                  "transportDIType",
+                  "intermediateType",
+                  "adi"
+                ],
+                "properties": {
+                  "customsValue": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "customs value, valor aduaneiro (II Block of NFe)"
+                  },
+                  "diNumber": {
+                    "type": "string",
+                    "maxLength": 12,
+                    "minLength": 1,
+                    "description": "Import declaration number, DI/DSI/DA/DRI-E (DI/DSI/DA/DRI-E)"
+                  },
+                  "registerDateDI": {
+                    "type": "string",
+                    "description": "Register date of import declaration number, DI/DSI/DA/DRI-E (DI/DSI/DA/DRI-E)"
+                  },
+                  "clearanceSite": {
+                    "type": "string",
+                    "maxLength": 60,
+                    "minLength": 1,
+                    "description": "Clerance Site\nLocal do desembaraço aduaneiro\n"
+                  },
+                  "clearanceState": {
+                    "$ref": "#/definitions/StateEnum",
+                    "description": "Clerance Site State\nEstado onde ocorrreu o desembaraço aduaneiro\n"
+                  },
+                  "clearanceDate": {
+                    "type": "string",
+                    "description": "Clerance date"
+                  },
+                  "transportDIType": {
+                    "description": "- '1' # Maritima\n- '2' # Fluvial\n- '3' # Lacustre\n- '4' # Aerea\n- '5' # Postal\n- '6' # Ferroviaria\n- '7' # Rodoviaria\n- '8' # Conduto\n- '9' # Meios Proprios\n- '10' # Entrada/Saida Ficta\n",
+                    "type": "string",
+                    "enum": [
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6",
+                      "7",
+                      "8",
+                      "9",
+                      "10"
+                    ]
+                  },
+                  "afrmmValue": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "Aditional amount to freight to renew merchant marine, This decimal 13 integers and 2 decimals\n[Valor Adicional ao frete para renovação de marinha mercante]\n"
+                  },
+                  "intermediateType": {
+                    "description": "- '1' # On One's Own [1-por conta propria]\n- '2' # On Behalf And Order [2-por conta e ordem]\n- '3' # Order [3-encomenda]\n",
+                    "type": "string",
+                    "enum": [
+                      "1",
+                      "2",
+                      "3"
+                    ]
+                  },
+                  "buyerFederalTaxID": {
+                    "type": "string",
+                    "pattern": "[0-9]{14}",
+                    "description": "Buyer federal tax id\nCNPJ do comprador ou encomendante\n"
+                  },
+                  "buyerState": {
+                    "$ref": "#/definitions/StateEnum",
+                    "description": "Buyer sate\nEstado do comprador ou encomendante\n"
+                  },
+                  "exporterCode": {
+                    "type": "string",
+                    "maxLength": 60,
+                    "minLength": 1,
+                    "description": "Exporter code"
+                  },
+                  "adi": {
+                    "type": "array",
+                    "maxItems": 100,
+                    "description": "aditional import declaration",
+                    "items": {
                       "type": "object",
+                      "required": [
+                        "addNumber",
+                        "sequentialNumber",
+                        "manufacturerCode"
+                      ],
                       "properties": {
-                        "calcBase": {
+                        "addNumber": {
+                          "type": "integer",
+                          "description": "aditional sequence number (1 to 100)"
+                        },
+                        "sequentialNumber": {
+                          "type": "integer",
+                          "description": "sequential item number for this adi, sequence number (1 to 999)"
+                        },
+                        "manufacturerCode": {
+                          "type": "string",
+                          "maxLength": 60,
+                          "minLength": 1,
+                          "description": "Manufatorer erp internal code"
+                        },
+                        "adiDiscount": {
                           "type": "number",
-                          "format": "double"
+                          "format": "double",
+                          "description": "This decimal 13 integers and 2 decimals, aditional adi discount"
+                        },
+                        "drawbackNumber": {
+                          "type": "string",
+                          "pattern": "[0-9]{0,11}",
+                          "minLength": 1,
+                          "description": "Drawback number"
                         }
                       }
                     }
-                  ]
-                },
-                "ii": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "iof": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "aproxtribState": {
-                  "$ref": "#/definitions/TaxByTypeTax"
-                },
-                "aproxtribFed": {
-                  "$ref": "#/definitions/TaxByTypeTax"
+                  }
                 }
               }
             },
-            "tax": {
-              "type": "number",
-              "format": "double"
-            },
-            "details": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/DetailsCalculatedTaxItem"
+            "calculatedTax": {
+              "type": "object",
+              "properties": {
+                "taxByType": {
+                  "type": "object",
+                  "properties": {
+                    "icms": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "icmsSt": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "icmsStSd": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "icmsPartOwn": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "icmsPartDest": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "icmsDifaFCP": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "icmsDifaDest": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "icmsDifaRemet": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "icmsRf": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "icmsDeson": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "icmsCredsn": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "pis": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "pisSt": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "cofins": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "cofinsSt": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "ipi": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "ipiReturned": {
+                      "allOf": [
+                        {
+                          "$ref": "#/definitions/TaxByTypeTax"
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "calcBase": {
+                              "type": "number",
+                              "format": "double"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "ii": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "iof": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "aproxtribState": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    },
+                    "aproxtribFed": {
+                      "$ref": "#/definitions/TaxByTypeTax"
+                    }
+                  }
+                },
+                "tax": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "details": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/DetailsCalculatedTaxItem"
+                  }
+                }
               }
             }
           }
         }
-      }
+      ]
     },
     "Address": {
       "title": "Address",
@@ -1213,6 +1051,59 @@
       ],
       "description": "State Abreviation:\n- 'AC'\n- 'AL'\n- 'AP'\n- 'AM'\n- 'BA'\n- 'CE'\n- 'DF'\n- 'ES'\n- 'GO'\n- 'MA'\n- 'MT'\n- 'MS'\n- 'MG'\n- 'PA'\n- 'PB'\n- 'PR'\n- 'PE'\n- 'PI'\n- 'RJ'\n- 'RN'\n- 'RS'\n- 'RO'\n- 'RR'\n- 'SC'\n- 'SP'\n- 'SE'\n- 'TO'\n"
     },
+    "HeaderForGoodsBase": {
+      "type": "object",
+      "required": [
+        "eDocCreatorType",
+        "companyLocation"
+      ],
+      "properties": {
+        "participants": {
+          "description": "List of transaction participants, Seller, Buyer, Carrier",
+          "type": "object",
+          "properties": {
+            "entity": {
+              "$ref": "#/definitions/EntityForGoods"
+            },
+            "transporter": {
+              "$ref": "#/definitions/EntityForGoods"
+            }
+          }
+        },
+        "eDocCreatorType": {
+          "type": "string",
+          "enum": [
+            "self",
+            "other"
+          ],
+          "default": "self"
+        },
+        "eDocCreatorPerspective": {
+          "type": "boolean",
+          "default": true,
+          "description": "This Flag is used only when eDocCreatorType is other and the return show Taxes using eDocCreator perspective or self perspective."
+        },
+        "companyLocation": {
+          "type": "string",
+          "description": "This string contains a previously configured company code which may also have codes needed for tax return purposes. These codes are maintained through the customer portal. Main company address identity"
+        },
+        "transactionDate": {
+          "type": "string",
+          "description": "This string is the transaction date in ISO 8601 format, create transaction date"
+        },
+        "defaultLocations": {
+          "$ref": "#/definitions/DefaultLocations"
+        },
+        "nfRef": {
+          "description": "Transactions or other invoices referenced",
+          "type": "array",
+          "maxItems": 500,
+          "items": {
+            "$ref": "#/definitions/NRef"
+          }
+        }
+      }
+    },
     "EntityForGoods": {
       "allOf": [
         {
@@ -1228,148 +1119,6 @@
           }
         }
       ]
-    },
-    "NRef": {
-      "description": "Referenced Invoices\nThe invoice can be one of this types,\n- 'refNFe - Eletronic Invoice'\n- 'refCTE - Transport Invoice'\n- 'refECF - Reatail Cupom'\n- 'refNF  - Invoice model 1 or 1A'\n- 'refFarmerNF - farmer invoice'\n",
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "refNFe",
-            "refCTE",
-            "refECF",
-            "refNF",
-            "refFarmerNF"
-          ]
-        },
-        "refNFe": {
-          "type": "string",
-          "maxLength": 44,
-          "pattern": "[0-9]{44}"
-        },
-        "refCTe": {
-          "type": "string",
-          "maxLength": 44,
-          "pattern": "[0-9]{44}"
-        },
-        "refECF": {
-          "type": "object",
-          "required": [
-            "nECF",
-            "nCOO",
-            "modECF"
-          ],
-          "properties": {
-            "nECF": {
-              "description": "ECF Sequential number that generated Cupom attached to NFe\ninformar o número de ordem seqüencial do ECF que emitiu o Cupom Fiscal vinculado à NF-e\n",
-              "type": "string",
-              "pattern": "[0-9]{1,3}"
-            },
-            "nCOO": {
-              "description": "Operational counter number attached to NFe\nInformar o Número do Contador de Ordem de Operação - COO vinculado à NF-e\n",
-              "type": "string",
-              "pattern": "[0-9]{1,6}"
-            },
-            "modECF": {
-              "description": "Fiscal document model\n- '2B' # coupon tax not ECF\n- '2C' # PDV coupon tax\n- '2D' # ECF coupon tax\n",
-              "type": "string",
-              "enum": [
-                "2B",
-                "2C",
-                "2D"
-              ]
-            }
-          }
-        },
-        "refNF": {
-          "type": "object",
-          "required": [
-            "stateCd",
-            "yymm",
-            "federalTaxId",
-            "serie",
-            "number"
-          ],
-          "properties": {
-            "stateCd": {
-              "description": "State code of fiscal Document creator",
-              "$ref": "#/definitions/StateEnum"
-            },
-            "yymm": {
-              "description": "year and month of fiscal document creation",
-              "type": "string",
-              "pattern": "[0-9]{2}[0]{1}[1-9]{1}|[0-9]{2}[1]{1}[0-2]{1}"
-            },
-            "federalTaxId": {
-              "description": "fiscal document creator federalTaxId",
-              "type": "string",
-              "pattern": "[0-9]{14}"
-            },
-            "serie": {
-              "description": "fiscal document serie",
-              "type": "string",
-              "pattern": "0|[1-9]{1}[0-9]{0,2}"
-            },
-            "number": {
-              "description": "fiscal document number",
-              "type": "string",
-              "pattern": "[1-9]{1}[0-9]{0,8}"
-            }
-          }
-        },
-        "refFarmerNF": {
-          "type": "object",
-          "required": [
-            "stateCd",
-            "yymm",
-            "federalTaxId",
-            "stateTaxId",
-            "model",
-            "serie",
-            "number"
-          ],
-          "properties": {
-            "stateCd": {
-              "description": "State code of fiscal Document creator, farmer",
-              "$ref": "#/definitions/StateEnum"
-            },
-            "yymm": {
-              "description": "year and month of fiscal document creation",
-              "type": "string",
-              "pattern": "[0-9]{2}[0]{1}[1-9]{1}|[0-9]{2}[1]{1}[0-2]{1}"
-            },
-            "federalTaxId": {
-              "description": "fiscal document creator farmer federalTaxId",
-              "type": "string",
-              "pattern": "[0-9]{14}"
-            },
-            "stateTaxId": {
-              "description": "fiscal document creator, farmer stateTaxId",
-              "type": "string",
-              "pattern": "[0-9]{14}"
-            },
-            "model": {
-              "description": "Document Fiscal model\n- '04' # FARMER DOCUMENT\n- '01' # DETACHED DOCUMENT - AVULSO\n",
-              "type": "string",
-              "enum": [
-                "04",
-                "01"
-              ]
-            },
-            "serie": {
-              "description": "fiscal document serie",
-              "type": "string",
-              "pattern": "0|[1-9]{1}[0-9]{0,2}"
-            },
-            "number": {
-              "description": "fiscal document number",
-              "type": "string",
-              "pattern": "[1-9]{1}[0-9]{0,8}"
-            }
-          }
-        }
-      }
     },
     "Payment": {
       "type": "object",
@@ -1552,27 +1301,6 @@
         }
       }
     },
-    "DefaultLocations": {
-      "type": "object",
-      "description": "This element contains a dictionary of locations such as the origin and destination addresses to be associated with this transaction. These locations may be overridden within each line item. The key for each location in the dictionary is the location 'purpose'. Valid locations purposes are 'ShipFrom', 'ShipTo', 'POS', 'POM', 'POO', 'BillingLocation', 'CallPlaced', 'CallReceived', 'ServiceRendered', 'POA' and 'FirstUse'. There can only be one location of a given purpose in the dictionary.",
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/EntityLocation"
-        },
-        "company": {
-          "$ref": "#/definitions/EntityLocation"
-        },
-        "transporter": {
-          "$ref": "#/definitions/EntityLocation"
-        },
-        "deliveryLocation": {
-          "$ref": "#/definitions/EntityLocation"
-        },
-        "pickupLocation": {
-          "$ref": "#/definitions/EntityLocation"
-        }
-      }
-    },
     "Transport": {
       "required": [
         "modFreight"
@@ -1687,6 +1415,169 @@
               }
             }
           }
+        }
+      }
+    },
+    "NRef": {
+      "description": "Referenced Invoices\nThe invoice can be one of this types,\n- 'refNFe - Eletronic Invoice'\n- 'refCTE - Transport Invoice'\n- 'refECF - Reatail Cupom'\n- 'refNF  - Invoice model 1 or 1A'\n- 'refFarmerNF - farmer invoice'\n",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "refNFe",
+            "refCTE",
+            "refECF",
+            "refNF",
+            "refFarmerNF"
+          ]
+        },
+        "refNFe": {
+          "type": "string",
+          "maxLength": 44,
+          "pattern": "[0-9]{44}"
+        },
+        "refCTe": {
+          "type": "string",
+          "maxLength": 44,
+          "pattern": "[0-9]{44}"
+        },
+        "refECF": {
+          "type": "object",
+          "required": [
+            "nECF",
+            "nCOO",
+            "modECF"
+          ],
+          "properties": {
+            "nECF": {
+              "description": "ECF Sequential number that generated Cupom attached to NFe\ninformar o número de ordem seqüencial do ECF que emitiu o Cupom Fiscal vinculado à NF-e\n",
+              "type": "string",
+              "pattern": "[0-9]{1,3}"
+            },
+            "nCOO": {
+              "description": "Operational counter number attached to NFe\nInformar o Número do Contador de Ordem de Operação - COO vinculado à NF-e\n",
+              "type": "string",
+              "pattern": "[0-9]{1,6}"
+            },
+            "modECF": {
+              "description": "Fiscal document model\n- '2B' # coupon tax not ECF\n- '2C' # PDV coupon tax\n- '2D' # ECF coupon tax\n",
+              "type": "string",
+              "enum": [
+                "2B",
+                "2C",
+                "2D"
+              ]
+            }
+          }
+        },
+        "refNF": {
+          "type": "object",
+          "required": [
+            "stateCd",
+            "yymm",
+            "federalTaxId",
+            "serie",
+            "number"
+          ],
+          "properties": {
+            "stateCd": {
+              "description": "State code of fiscal Document creator",
+              "$ref": "#/definitions/StateEnum"
+            },
+            "yymm": {
+              "description": "year and month of fiscal document creation",
+              "type": "string",
+              "pattern": "[0-9]{2}[0]{1}[1-9]{1}|[0-9]{2}[1]{1}[0-2]{1}"
+            },
+            "federalTaxId": {
+              "description": "fiscal document creator federalTaxId",
+              "type": "string",
+              "pattern": "[0-9]{14}"
+            },
+            "serie": {
+              "description": "fiscal document serie",
+              "type": "string",
+              "pattern": "0|[1-9]{1}[0-9]{0,2}"
+            },
+            "number": {
+              "description": "fiscal document number",
+              "type": "string",
+              "pattern": "[1-9]{1}[0-9]{0,8}"
+            }
+          }
+        },
+        "refFarmerNF": {
+          "type": "object",
+          "required": [
+            "stateCd",
+            "yymm",
+            "federalTaxId",
+            "stateTaxId",
+            "model",
+            "serie",
+            "number"
+          ],
+          "properties": {
+            "stateCd": {
+              "description": "State code of fiscal Document creator, farmer",
+              "$ref": "#/definitions/StateEnum"
+            },
+            "yymm": {
+              "description": "year and month of fiscal document creation",
+              "type": "string",
+              "pattern": "[0-9]{2}[0]{1}[1-9]{1}|[0-9]{2}[1]{1}[0-2]{1}"
+            },
+            "federalTaxId": {
+              "description": "fiscal document creator farmer federalTaxId",
+              "type": "string",
+              "pattern": "[0-9]{14}"
+            },
+            "stateTaxId": {
+              "description": "fiscal document creator, farmer stateTaxId",
+              "type": "string",
+              "pattern": "[0-9]{14}"
+            },
+            "model": {
+              "description": "Document Fiscal model\n- '04' # FARMER DOCUMENT\n- '01' # DETACHED DOCUMENT - AVULSO\n",
+              "type": "string",
+              "enum": [
+                "04",
+                "01"
+              ]
+            },
+            "serie": {
+              "description": "fiscal document serie",
+              "type": "string",
+              "pattern": "0|[1-9]{1}[0-9]{0,2}"
+            },
+            "number": {
+              "description": "fiscal document number",
+              "type": "string",
+              "pattern": "[1-9]{1}[0-9]{0,8}"
+            }
+          }
+        }
+      }
+    },
+    "DefaultLocations": {
+      "type": "object",
+      "description": "This element contains a dictionary of locations such as the origin and destination addresses to be associated with this transaction. These locations may be overridden within each line item. The key for each location in the dictionary is the location 'purpose'. Valid locations purposes are 'ShipFrom', 'ShipTo', 'POS', 'POM', 'POO', 'BillingLocation', 'CallPlaced', 'CallReceived', 'ServiceRendered', 'POA' and 'FirstUse'. There can only be one location of a given purpose in the dictionary.",
+      "properties": {
+        "entity": {
+          "$ref": "#/definitions/EntityLocation"
+        },
+        "company": {
+          "$ref": "#/definitions/EntityLocation"
+        },
+        "transporter": {
+          "$ref": "#/definitions/EntityLocation"
+        },
+        "deliveryLocation": {
+          "$ref": "#/definitions/EntityLocation"
+        },
+        "pickupLocation": {
+          "$ref": "#/definitions/EntityLocation"
         }
       }
     },
@@ -2065,6 +1956,145 @@
           "type": "string",
           "maxLength": 20,
           "description": "Cargo Transport National Register, Registro Nacional de Transportador de Carga (ANTT)"
+        }
+      }
+    },
+    "LineForGoodsBase": {
+      "type": "object",
+      "required": [
+        "lineCode",
+        "itemCode",
+        "numberOfItems",
+        "lineAmount",
+        "useType",
+        "processScenario"
+      ],
+      "properties": {
+        "lineCode": {
+          "type": "integer",
+          "description": "This is unique identifier for this line in the transaction"
+        },
+        "itemCode": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "This string is a code maintained by the client application to uniquely identify a product or service. It will likely be a SKU and is required for SST states."
+        },
+        "numberOfItems": {
+          "type": "number",
+          "format": "double",
+          "default": 1,
+          "description": "This decimal 11 integers and 1 to 4 decimals captures the number of individual items or units represented by this line. Digits after the decimal point are optional. This should always be positive. Quantity, default 1"
+        },
+        "lineUnitPrice": {
+          "type": "number",
+          "format": "double",
+          "description": "This decimal 11 integers and 1 to 10 decimals captures the unit price of this line."
+        },
+        "lineAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "In its simplest form lineAmount = (item price * numberOfItems). If taxIncluded is 'true', lineAmount = (item price * numberOfItems + tax)."
+        },
+        "lineTaxedDiscount": {
+          "type": "number",
+          "format": "double",
+          "description": "Discount conditional, This decimal 13 integers and 0 to 2 decimals"
+        },
+        "lineUntaxedDiscount": {
+          "type": "number",
+          "format": "double",
+          "description": "discount unconditional, This decimal 13 integers and 0 to 2 decimals"
+        },
+        "useType": {
+          "type": "string",
+          "enum": [
+            "use or consumption",
+            "resale",
+            "agricultural production",
+            "production",
+            "use or consumption on business establishment",
+            "use or consumption on transporter service establishment",
+            "use or consumption on communication service establishment",
+            "use or consumption on demand by contract",
+            "use or consumption on energy supplier establishment",
+            "use or consumption of fuel transaction type exportation",
+            "use or consumption on services",
+            "fixed assets",
+            "resale export",
+            "resale icms exempt",
+            "resale buyer under the same icmsSt tax rule",
+            "transport of goods that don't need invoice (nf)"
+          ],
+          "description": "This is a enumeration folowing table"
+        },
+        "processScenario": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "Reference to process configurantion of this transaction, See ProcessScenario definition\nthis property is used only if eDocCreator=self or  eDocCreator=others and eDocCreatorPerspective=true\n"
+        },
+        "operationTypeReceiptMap": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "Mapping table used to discover the CFOP when execute the Tax receipt in funciotn of CFOP Received and Item Type\nthis property is used only if eDocCreator=others and eDocCreatorPerspective=false\n"
+        },
+        "freightAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "This decimal 13 integers and 0 to 2 decimals"
+        },
+        "insuranceAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "This decimal 13 integers and 0 to 2 decimals"
+        },
+        "otherCostAmount": {
+          "type": "number",
+          "format": "double",
+          "description": "This decimal 13 integers and 0 to 2 decimals"
+        },
+        "entityIsIcmsSubstitute": {
+          "type": "boolean",
+          "description": "Inform that for this item the Entity referenced is ICMS Substitute"
+        },
+        "isTransportIcmsWithheld": {
+          "type": "boolean",
+          "description": "Inform that this item has ICMS withheld for transport value service."
+        },
+        "icmsTaxRelief": {
+          "type": "object",
+          "required": [
+            "reasonCode"
+          ],
+          "properties": {
+            "reasonCode": {
+              "type": "string",
+              "enum": [
+                "1",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "16"
+              ],
+              "description": "When item transaction subject to desoneration, this is the reason code\n- '1' # Táxi;\n- '3' # Produtor Agropecuário;\n- '4' # Frotista/Locadora;\n- '5' # Diplomático/Consular;\n- '6' # Utilitários e Motocicletas da Amazônia Ocidental e Áreas de Livre Comércio (Resolução 714/88 e 790/94 – CONTRAN e suas alterações);\n- '7' # SUFRAMA;\n- '8' # Venda a órgão Público;\n- '9' # Outros\n- '10' # Deficiente Condutor\n- '11' # Deficiente não condutor\n- '12' # Fomento agropecuário\n- '16' # Olimpíadas Rio 2016\n"
+            },
+            "taxBaseDiscount": {
+              "type": "number",
+              "format": "double",
+              "description": "ICMS Tax base rate discount  (desconto na base do ICMS referetne a desoneração)"
+            },
+            "taxAmount": {
+              "type": "number",
+              "format": "double",
+              "description": "Amount for Icms Relief (desoneração)"
+            }
+          }
         }
       }
     },

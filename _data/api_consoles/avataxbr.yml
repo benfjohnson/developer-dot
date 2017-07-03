@@ -3,12 +3,12 @@
 swagger_path: avataxbr/index.json
 nav_link:
     title: Transactions
-    path: /avataxbr/api-reference/tax/v2/transactions
+    path: /avataxbr/api-reference/tax/v2/transactions-api
 product: avaTaxBr
 nav_links:
   - title: Overview
     path: /avataxbr
-  - title: API reference
-    path: /api-reference/avataxbr/accounts
+  - title: API Reference
+    path: /api-reference/avataxbr/transactions-api
   - title: Clients
     path: /avataxbr/clients

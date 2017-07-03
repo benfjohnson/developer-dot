@@ -74,55 +74,55 @@ export default {
         path: 'trustfile/api-reference/connector-management/v3',
         product: 'trustFile'
     },
-    'avataxbr/accounts.json': {
-        name: 'Avatax Brazil REST API - Accounts',
-        path: 'avataxbr/api-reference/tax/v2/accounts',
+    'avataxbr/auth.json': {
+        name: 'Auth',
+        path: 'avataxbr/api-reference/tax/v2',
         product: 'avaTaxBr'
     },
-    'avataxbr/addresses.json': {
-        name: 'Avatax Brazil REST API - Addresses',
+    'avataxbr/addresses-api.json': {
+        name: 'Addresses',
         path: 'avataxbr/api-reference/tax/v2/addresses',
         product: 'avaTaxBr'
     },
-    'avataxbr/agast.json': {
-        name: 'Avatax Brazil REST API - Agasts',
+    'avataxbr/agast-api.json': {
+        name: 'Agasts',
         path: 'avataxbr/api-reference/tax/v2/agast',
         product: 'avaTaxBr'
     },
-    'avataxbr/calculations.json': {
-        name: 'Avatax Brazil REST API - Tax Calculations',
+    'avataxbr/calculations-api.json': {
+        name: 'Tax Calculations',
         path: 'avataxbr/api-reference/tax/v2/calculations',
         product: 'avaTaxBr'
     },
-    'avataxbr/companies.json': {
-        name: 'Avatax Brazil REST API - Companies',
+    'avataxbr/companies-api.json': {
+        name: 'Companies',
         path: 'avataxbr/api-reference/tax/v2/companies',
         product: 'avaTaxBr'
     },
-    'avataxbr/invoices.json': {
-        name: 'Avatax Brazil REST API - E-Invoices',
+    'avataxbr/invoices-api.json': {
+        name: 'E-Invoices',
         path: 'avataxbr/api-reference/tax/v2/invoices',
         product: 'avaTaxBr'
     },
-    'avataxbr/taxconf.json': {
-        name: 'Avatax Brazil REST API - Tax Configurations',
+    'avataxbr/taxconf-api.json': {
+        name: 'Tax Configurations',
         path: 'avataxbr/api-reference/tax/v2/taxconf',
         product: 'avaTaxBr'
     },
-    'avataxbr/transactions.json': {
-        name: 'Avatax Brazil REST API - Transactions',
+    'avataxbr/transactions-api.json': {
+        name: 'Transactions',
         path: 'avataxbr/api-reference/tax/v2/transactions',
         product: 'avaTaxBr'
     },
-    'taxdocs/transactions.json': {
-        name: 'TaxDoc Monitor REST API',
-        path: 'taxdocs/api-reference/',
-        product: 'taxdocs'
+    'avataxbr/tax-compliance-api.json': {
+        name: 'Compliance',
+        path: 'avataxbr/api-reference/tax/v2/compliance',
+        product: 'avaTaxBr'
     },
-    'validate/transactions-api.json': {
-        name: 'Validate REST API',
-        path: 'api-reference/validate/transactions-api',
-        product: 'validate'
+    'avataxbr/tax-docs-monitor-api.json': {
+        name: 'Documents',
+        path: 'avataxbr/api-reference/tax/v2/documents',
+        product: 'avaTaxBr'
     }
     /* ,
     'avataxbr/index.json': {

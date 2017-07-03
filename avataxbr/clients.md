@@ -8,7 +8,7 @@ doctype: overview
 
 <div class="row bg-map">
   <div class="col-md-8 col-md-offset-2 text-center">
-    <h1 class="h1p">AvaTax Brazil Brazil</h1>
+    <h1 class="h1p">AvaTax Brazil</h1>
   </div>
 </div>
 <div class="row border-top padding-top padding-bottom">
