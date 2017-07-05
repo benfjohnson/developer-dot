@@ -106,6 +106,7 @@ export default (api, apiWithRefs, rootPath) => {
          */
         tagMap: api['x-group-by-tags'] ? {} : null,
         apiName: api.info.title,
+        version: api['x-avalara-version'],
         apiDescription: api.info.description,
         apiType: api['x-ApiType'] || 'SOAP',
         sampleAuthHeader: api['x-sample-auth-header'] || null,
