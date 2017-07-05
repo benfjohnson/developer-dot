@@ -72,7 +72,7 @@ ${attr['x-enum-type'] ?
 titleLinks(info.def, enumName)}
 
 <div class="enum-summary">
-    <h2>${info.enumType}</h2>
+    <h5>${info.enumType}</h5>
 
     ${(attr.description) ? `
     <h2 id="description">Description</h2>
@@ -110,7 +110,7 @@ function buildEnumFromModel(info, model) {
     Object.keys(props).forEach((prop) => {
         if (props[prop].enum) {
             info.name = prop;
-            info.enumType = 'Request Parameter Enum';
+            info.enumType = 'Request Body Parameter - Enum';
             appendEnum(info, props[prop]);
         }
     });
@@ -132,10 +132,10 @@ function buildEnumFromMethod(info, method) {
         };
 
         params = endpoint.pathParams || {};
-        info.enumType = 'Path Parameter Enum';
+        info.enumType = 'URL Path Parameter - Enum';
         Object.keys(params).forEach(doit);
         params = endpoint.queryString || {};
-        info.enumType = 'Query String Enum';
+        info.enumType = 'Query String Parameter - Enum';
         Object.keys(params).forEach(doit);
     });
 }

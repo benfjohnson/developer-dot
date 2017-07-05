@@ -1,7 +1,7 @@
 const enumSummary = {
     elements: {
         description: 'main h2#description + p',
-        enumType: 'main h2',
+        enumType: 'main h5',
         valueTable: 'main table tbody tr'
     },
 

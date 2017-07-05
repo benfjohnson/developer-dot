@@ -48,8 +48,17 @@ const ApiDocumentation = ({endpoint}) => (
                     <th>{'Content-Type'}</th>
                     <td>{endpoint.produces.join(', ')}</td>
                 </tr>
+                {endpoint.requestSchemaWithRefs ?
+                    <tr>
+                        <th>{'Request Body'}</th>
+                        <td>
+                            <ApiDocModelLink refSchema={endpoint.requestSchemaWithRefs} />
+                        </td>
+                    </tr> :
+                    null
+                }
                 <tr>
-                    <th>{'Response Type'}</th>
+                    <th>{'Response Body'}</th>
                     <td>
                         <ApiDocModelLink refSchema={endpoint.responseSchemaWithRefs} />
                     </td>

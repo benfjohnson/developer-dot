@@ -33,7 +33,7 @@ const Model = ({m, name}) => (
         <table className='styled-table'>
             <thead>
                 <tr>
-                    <th>{'Parameters'}</th>
+                    <th>{'Field Name'}</th>
                     <th>{'Attributes'}</th>
                     <th>{'Summary'}</th>
                 </tr>

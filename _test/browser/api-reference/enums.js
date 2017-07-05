@@ -17,7 +17,7 @@ module.exports = {
             .navigateToUrl(`.endpoint-summary a[href~="${attr}"]`, '.enum-summary', enumURL);
 
         browser.page.enums()
-            .pageIsValid(attr, 'Query String Enum', 'selectable text case for address validation', 2);
+            .pageIsValid(attr, 'Query String Parameter - Enum', 'selectable text case for address validation', 2);
 
         browser
             .navigateToUrl('h1 a', '.endpoint-summary', methodURL);
@@ -33,7 +33,7 @@ module.exports = {
             .navigateToUrl(`.model-summary a[href="../enums/${attr}"]`, '.enum-summary', enumURL);
 
         browser.page.enums()
-            .pageIsValid(attr, 'Request Parameter Enum', 'The current status of this account.', 4)
+            .pageIsValid(attr, 'Request Body Parameter - Enum', 'The current status of this account.', 4)
             .getText('main table tbody tr:nth-child(2) td:nth-child(2)', function(element) {
                 browser.assert.ok(element.value.length > 0);
             });
@@ -49,7 +49,7 @@ module.exports = {
             .navigateToUrl(`.endpoint-summary a[href~="${attr}"]`, '.enum-summary', enumURL);
 
         browser.page.enums()
-            .pageIsValid(attr, 'Path Parameter Enum', 'The transaction type to retrieve', 11);
+            .pageIsValid(attr, 'URL Path Parameter - Enum', 'The transaction type to retrieve', 11);
     },
 
     'Enums: REST v1: Models - Path Parameter': function(browser) {
@@ -64,7 +64,7 @@ module.exports = {
         // description is not present on this page
         browser.page.enums()
             .assert.containsText('h1', attr)
-            .assert.containsText('@enumType', 'Request Parameter Enum')
+            .assert.containsText('@enumType', 'Request Body Parameter - Enum')
             .assert.elementNumTimes('@valueTable', 5, 'enums')
             .api.element('css selector', 'main h2#description + p', function(element) {
                 browser.assert.equal(element.error,
@@ -89,7 +89,7 @@ module.exports = {
         // description is not present on this page
         browser.page.enums()
             .assert.containsText('h1', attr)
-            .assert.containsText('@enumType', 'Request Parameter Enum')
+            .assert.containsText('@enumType', 'Request Body Parameter - Enum')
             .assert.elementNumTimes('@valueTable', 57, 'enums')
             .api.element('css selector', 'main h2#description + p', function(element) {
                 browser.assert.equal(element.error,
