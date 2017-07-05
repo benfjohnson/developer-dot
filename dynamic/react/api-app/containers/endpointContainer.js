@@ -25,7 +25,6 @@ const mapDispatchToProps = (dispatch) => {
             * Otherwise, just use the path specified as `host` in Swagger file
             */
             // Api Reference has complex pathParam/queryString structure (example, fieldType, etc.)
-            // Just want key value pairs that our recipes use
             if (endpoint.consoleViewFreeEdit && endpoint.consoleError) {
                 dispatch(actions.consoleError(endpoint.id));
             } else {
@@ -35,7 +34,6 @@ const mapDispatchToProps = (dispatch) => {
                 if (endpoint.proxy &&
                     !(userProfile && userProfile.toggled)) {
                     // Api Reference has complex pathParam/queryString structure (example, fieldType, etc.)
-                    // Just want key value pairs that our recipes use
                     apiRequest = submitProxiedRequest.bind(null, {
                         proxy: endpoint.proxy,
                         action: endpoint.action,

@@ -1,63 +1,10 @@
 /* Component to render a simple API description, request, and response
  * Features dark color scheme and JSON syntax highlighting
- * Note that the `highlightedInputs` prop is optional and currently only used by the recipe app
  */
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import R from 'ramda';
 import userManager from '../../api-app/user-manager';
-
-// TODO: Reuse the reducer version of this?
-const getPropertyName = (name) => {
-    if (name.indexOf('[') !== -1) {
-        // accessing an array element
-        const index = parseInt(name.substring(1, name.length - 1), 10);
-
-        if (isNaN(index)) {
-            throw new Error(`Bad call to accessPropertyByName in recipeForm.js\nExpected: [<int>]\nReceived: ${name}`);
-        }
-        return index;
-    }
-
-    return name;
-};
-
-const highlightQueryOrPathParams = (requestString, highlightedInputs) => {
-    if (!highlightedInputs) {
-        return requestString;
-    }
-    let retString = requestString;
-
-    highlightedInputs.filter((i) => i.in === 'queryString' || i.in === 'pathParams').forEach((input) => {
-        const rgx = input.in === 'queryString' ? new RegExp(`${input.field}=.+`) : new RegExp(`{${input.field}}|${input.value || '888FAIL888'}`);
-
-        retString = retString.replace(rgx, `<span class="highlighted-field">${retString.match(rgx)}</span>`);
-    });
-    return retString;
-};
-
-const addHighlightPlaceholderToPostBody = (propertyPath, data) => {
-    const propNameArray = propertyPath.split(':');
-    const newData = {...data};
-    let currDataSlice = newData;
-
-    propNameArray.forEach((propName, i) => {
-        /* Have to check if accessor is the last */
-        if (i === propNameArray.length - 1) {
-            // TODO: This may error if using an array of primitive values as recipe input
-            // Maybe there's a better way? -BJ
-            const highlightPropVal = currDataSlice[getPropertyName(propName)] + '__HIGHLIGHT__';
-
-            delete currDataSlice[getPropertyName(propName)];
-            currDataSlice[getPropertyName(propName) + '__HIGHLIGHT__'] = highlightPropVal;
-        } else {
-            currDataSlice = currDataSlice[getPropertyName(propName)];
-        }
-    });
-
-    return newData;
-};
 
 const highlightPunctuation = (str) => {
     return str.replace(/"[^"]*"|([{}\[\],])/g, (m, group1) => {
@@ -68,21 +15,10 @@ const highlightPunctuation = (str) => {
         return '<span class="punctuation">' + m + '</span>';
     });
 };
-const syntaxHighlight = (jsonObj, highlightedFields) => {
+
+const syntaxHighlight = (jsonObj) => {
     // Need to prevent changes to our postBody we want to stringify don't affect actual postBody
-    let jsonObjCopy;
-
-    if (highlightedFields) {
-        jsonObjCopy = R.clone(jsonObj);
-        // put highlight keyword in property name?
-        highlightedFields.forEach((field) => {
-            jsonObjCopy = addHighlightPlaceholderToPostBody(field, jsonObjCopy);
-        });
-    } else {
-        jsonObjCopy = jsonObj;
-    }
-
-    let json = JSON.stringify(jsonObjCopy, null, 2);
+    let json = JSON.stringify(jsonObj, null, 2);
 
     json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -109,7 +45,7 @@ const syntaxHighlight = (jsonObj, highlightedFields) => {
     return highlightPunctuation(json);
 };
 
-const PostHelper = ({action, endpoint, highlightedInputs, onConsoleToggledFreeEdit, onConsoleToggledReadOnly, onRequestChanged, request}) => {
+const PostHelper = ({action, endpoint, onConsoleToggledFreeEdit, onConsoleToggledReadOnly, onRequestChanged, request}) => {
     if (action === 'post' && (typeof request === 'object' || Array.isArray(request))) {
         return (
             <div>
@@ -122,7 +58,7 @@ const PostHelper = ({action, endpoint, highlightedInputs, onConsoleToggledFreeEd
                     }}><i className={'glyphicon'}/>{'Console'}</a></li>
                 </ul>
                 <div className={'tab-content'}>
-                    <div className={'code-snippet code-snippet-tabcontent reqScroll active'} id={'console_input_readOnly'}><pre dangerouslySetInnerHTML={{__html: syntaxHighlight(request, highlightedInputs ? highlightedInputs.map((f) => f.field) : null)}} /></div>
+                    <div className={'code-snippet code-snippet-tabcontent reqScroll active'} id={'console_input_readOnly'}><pre dangerouslySetInnerHTML={{__html: syntaxHighlight(request)}} /></div>
                     <div className={'code-snippet code-snippet-tabcontent reqScroll'} id={'console_input_freeEdit'}><textarea className={'code-snipet-console'} id={'console_input'} onChange={() => {
                         onRequestChanged(endpoint.id, document.getElementById('console_input').value);
                     }} value={endpoint.requestInput} /></div>
@@ -131,11 +67,11 @@ const PostHelper = ({action, endpoint, highlightedInputs, onConsoleToggledFreeEd
         );
     } else if (typeof request === 'object' || Array.isArray(request)) {
         return (
-            <div className={'code-snippet reqScroll'} id={'console_input'}><pre dangerouslySetInnerHTML={{__html: syntaxHighlight(request, highlightedInputs ? highlightedInputs.map((f) => f.field) : null)}} /></div>
+            <div className={'code-snippet reqScroll'} id={'console_input'}><pre dangerouslySetInnerHTML={{__html: syntaxHighlight(request)}} /></div>
         );
     }
     return (
-        <div className={'code-snippet code-snippet-code-text reqScroll'} dangerouslySetInnerHTML={{__html: highlightQueryOrPathParams(request, highlightedInputs)}} />
+        <div className={'code-snippet code-snippet-code-text reqScroll'} dangerouslySetInnerHTML={{__html: request}} />
     );
 };
 
@@ -143,21 +79,13 @@ PostHelper.displayName = 'Console Helper';
 PostHelper.propTypes = {
     action: PropTypes.string.isRequired,
     endpoint: PropTypes.object.isRequired,
-    highlightedInputs: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        field: PropTypes.string.isRequired,
-        in: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired,
-        enum: PropTypes.array
-    })),
     onConsoleToggledFreeEdit: PropTypes.func.isRequired,
     onConsoleToggledReadOnly: PropTypes.func.isRequired,
     onRequestChanged: PropTypes.func.isRequired,
     request: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string])
 };
 
-const ConsoleLiveData = ({action, consoleLoading, endpoint, highlightedInputs, onConsoleToggledFreeEdit, onConsoleToggledReadOnly, onRequestChanged, onToggleAiForRequest, path, request, response, userProfile}) => {
+const ConsoleLiveData = ({action, consoleLoading, endpoint, onConsoleToggledFreeEdit, onConsoleToggledReadOnly, onRequestChanged, onToggleAiForRequest, path, request, response, userProfile}) => {
     return (
         <div>
             <h5 className={'console-output-header'}>
@@ -197,7 +125,6 @@ const ConsoleLiveData = ({action, consoleLoading, endpoint, highlightedInputs, o
                                 {/* eslint-disable react/no-danger */}
                                 <PostHelper action={action}
                                     endpoint={endpoint}
-                                    highlightedInputs={highlightedInputs}
                                     onConsoleToggledFreeEdit={onConsoleToggledFreeEdit}
                                     onConsoleToggledReadOnly={onConsoleToggledReadOnly}
                                     onRequestChanged={onRequestChanged}
@@ -229,14 +156,6 @@ ConsoleLiveData.propTypes = {
     action: PropTypes.string.isRequired,
     consoleLoading: PropTypes.bool.isRequired,
     endpoint: PropTypes.object.isRequired,
-    highlightedInputs: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        field: PropTypes.string.isRequired,
-        in: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired,
-        enum: PropTypes.array
-    })),
     onConsoleToggledFreeEdit: PropTypes.func.isRequired,
     onConsoleToggledReadOnly: PropTypes.func.isRequired,
     onRequestChanged: PropTypes.func.isRequired,
