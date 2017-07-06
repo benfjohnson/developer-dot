@@ -13,7 +13,7 @@ AvaTax gives you fast and up-to-date sales tax calculation based on geo-location
 
 Our REST API provides the power of Avalara's calculation engine to your application. Three advantages of using our REST API, which supports both JSON and XML message formats:
 
-<ul>
+<ul class="normal">
 	<li>Quick and flexible interface</li>
 	<li>Code easily with query strings</li>
 	<li>No need for internal server</li>

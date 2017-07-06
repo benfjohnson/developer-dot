@@ -9,15 +9,15 @@ product: avaTax
 doctype: blog
 ---
 The next AvaTax release (15.4) scheduled for August 5th 2015 will include some minor WSDL changes to include a few additional parameters. We do not foresee any impact to your code but we wanted everyone to be aware of this change in case it might. Here are the details :
-<ul>
+<ul class="normal">
 	<li><strong>AccountSvc WSDL</strong> has the following new attributes:
-<ul>
+<ul class="normal">
 	<li>HasPermanentEstablishment – A Boolean parameter</li>
 	<li>IsSellerImporterOfRecord – A Boolean parameter</li>
 </ul>
 </li>
 	<li><strong>TaxSvc WSDL</strong> has the following change
-<ul>
+<ul class="normal">
 	<li>IsSellerImporterOfRecord – A Boolean parameter</li>
 </ul>
 </li>

@@ -56,7 +56,7 @@ nav: certification
 		<li>AvaTax collects Location Code and Tax Code information, generates requested tax content, and sends response, response can be packaged</li>
 		</ul>
 	<li>File format – CSV b. XML </li>
-		<ul>
+		<ul class="normal">
 		<li>AvaTax integration un-packages tax content in response, and consumes tax content for local tax calculation</li>
 		<li>Merchant adds new brick & mortar store location, and can request tax content selectively for one or more Location Codes</li>
 		</ul>
@@ -64,111 +64,127 @@ nav: certification
 </ol>
 
 <h3>Tax Content Request - Disconnected</h3>
-<div class="row">
-<div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
-<div class="col-xs-3">Function</div>
-<div class="col-xs-8">Comment</div>
-</div>
-<div class="row">
-<div class="col-xs-1">R</div>
-<div class="col-xs-3">Send API tax content request with required data elements.</div>
-<div class="col-xs-8">
-	<ul>
-		<li>Company Code</li>
-		<li>Tax Codes</li>
-		<li>Location Codes</li>
-	</ul>
-</div>
-</div>
-<div class="row">
-<div class="col-xs-1">R</div>
-<div class="col-xs-3">Capture Tax Content response and transform content into application compatible format.</div>
-<div class="col-xs-8"><p>The transformation requirement mandates making the Tax Content response, in either CSV or XML format, and convert it into the import-ready format for tax content, including</p>
-	<ul>
-		<li>Transform Tax Jurisdiction content to application tax schedule/tax item format.</li>
-		<li>Transform Tax Rate content to application tax schedule/tax item format.</li>
-		<li>Transform Tax Code content to application product/service taxability format.</li>
-	</ul>
-</div>
-</div>
-<div class="row">
-<div class="col-xs-1">R</div>
-<div class="col-xs-3">Load application-compatible tax content into application and distribute to store locations.</div>
-<div class="col-xs-8">Suggest leveraging existing application import and distribution functionality when available.</div>
-</div>
-<div class="row">
-<div class="col-xs-1">R</div>
-<div class="col-xs-3">Store AvaTax Location Codes associated with merchant's brick & mortar sites in application.</div>
-<div class="col-xs-8">Location Codes retrieved by integration for use in Tax Content request.</div>
-</div>
-<div class="row">
-<div class="col-xs-1">R</div>
-<div class="col-xs-3">Store AvaTax Tax Codes selected by merchant in application.</div>
-<div class="col-xs-8">Tax Codes retreived by integration for use in Tax Content request.</div>
-</div>
-<div class="row">
-<div class="col-xs-1">R</div>
-<div class="col-xs-3">Schedule Tax Content Request Job</div>
-<div class="col-xs-8">Suggest leveraging existing application scheduling functionality when available.</div>
-</div>
+<table class="styled-table">
+	<thead>
+		<tr>
+			<th>Required</th>
+			<th>Function</th>
+			<th>Comment</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>R</td>
+			<td>Send API tax content request with required data elements.</td>
+			<td>
+				<ul class="normal">
+					<li>Company Code</li>
+					<li>Tax Codes</li>
+					<li>Location Codes</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>R</td>
+			<td>Capture Tax Content response and transform content into application compatible format.</td>
+			<td>
+				<p>The transformation requirement mandates making the Tax Content response, in either CSV or XML format, and convert it into the import-ready format for tax content, including</p>
+				<ul class="normal">
+					<li>Transform Tax Jurisdiction content to application tax schedule/tax item format.</li>
+					<li>Transform Tax Rate content to application tax schedule/tax item format.</li>
+					<li>Transform Tax Code content to application product/service taxability format.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>R</td>
+			<td>Load application-compatible tax content into application and distribute to store locations.</td>
+			<td>Suggest leveraging existing application import and distribution functionality when available.</td>
+		</tr>
+		<tr>
+			<td>R</td>
+			<td>Store AvaTax Location Codes associated with merchant's brick & mortar sites in application.</td>
+			<td>Location Codes retrieved by integration for use in Tax Content request.</td>
+		</tr>
+		<tr>
+			<td>R</td>
+			<td>Store AvaTax Tax Codes selected by merchant in application.</td>
+			<td>Tax Codes retreived by integration for use in Tax Content request.</td>
+		</tr>
+		<tr>
+			<td>R</td>
+			<td>Schedule Tax Content Request Job</td>
+			<td>Suggest leveraging existing application scheduling functionality when available.</td>
+		</tr>
+	</tbody>
+</table>
+
 <h3>Transaction Upload - Disconnected</h3>
-<div class="row">
-<div class="col-xs-1">Required</div>
-<div class="col-xs-3">Function</div>
-<div class="col-xs-8">Comment</div>
-</div>
-<div class="row">
-<div class="col-xs-1">R</div>
-<div class="col-xs-3">Capture complete sales transaction and transform into AvaTax transaction import format.</div>
-<div class="col-xs-8">The following link provides comprehensive set of information concerning AvaTax transaction import - <a href="htts://help.avalara.com/000_Avalara_AvaTax/Manage_Transactions/Add_or_Import_Transactions">Add or Import Transactions</a></div>
-</div>
-<div class="row">
-<div class="col-xs-1">R</div>
-<div class="col-xs-3">Submit transaction import file to AvaTax service for upload.</div>
-<div class="col-xs-8">
-	<ul>
-		<li><a href="/api-reference/tax/v2/Batches/">Use Avalara Batch Services API</a></li>
-		<li><a href="/api-reference/tax/v2/Locations/">Location Code required</a></li>
-		<li>Lane Code Required</li>
-		<li>Provide error handling capability</li>
-	</ul>
-</div>
-</div>
-<div class="row">
-<div class="col-xs-1"></div>
-<div class="col-xs-3"></div>
-<div class="col-xs-8"></div>
-</div>
-<div class="row">
-<div class="col-xs-1">R</div>
-<div class="col-xs-3">Schedule transaction upload job.</div>
-<div class="col-xs-8">Suggest leveraging existing application scheduling functionality when available.</div>
-</div>
+<table class="styled-table">
+	<thead>
+		<tr>
+			<th>Required</th>
+			<th>Function</th>
+			<th>Comment</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>R</td>
+			<td>Capture complete sales transaction and transform into AvaTax transaction import format.</td>
+			<td>The following link provides comprehensive set of information concerning AvaTax transaction import - <a href="htts://help.avalara.com/000_Avalara_AvaTax/Manage_Transactions/Add_or_Import_Transactions">Add or Import Transactions</a></td>
+		</tr>
+		<tr>
+			<td>R</td>
+			<td>Submit transaction import file to AvaTax service for upload.</td>
+			<td>
+				<ul class="normal">
+					<li><a href="/api-reference/tax/v2/Batches/">Use Avalara Batch Services API</a></li>
+					<li><a href="/api-reference/tax/v2/Locations/">Location Code required</a></li>
+					<li>Lane Code Required</li>
+					<li>Provide error handling capability</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>R</td>
+			<td>Schedule transaction upload job.</td>
+			<td>Suggest leveraging existing application scheduling functionality when available.</td>
+		</tr>
+	</tbody>
+</table>
+
 <h3>Tax Calculation Tests - Disconnected</h3>
 <p>Note: These are functional tests of the applicaitonstax calculation abilities using AvaTax content.</p>
-<div class="row">
-<div class="col-xs-1">Required</div>
-<div class="col-xs-3">Function</div>
-<div class="col-xs-8">Comment</div>
-</div>
-<div class="row">
-<div class="col-xs-1">R</div>
-<div class="col-xs-3">Calculate Tax applying tax threshold.</div>
-<div class="col-xs-8">
-	<ul>
-		<li>New York apparel - Tax Code PC040100 - $110 single item threshold.</li>
-		<li>Massachusetts apparel - Tax Code PC040100 - $175 single item threshold.</li>
-	</ul>
-</div>
-</div>
-<div class="row">
-<div class="col-xs-1">R</div>
-<div class="col-xs-3">Calculate tax applying tax cap.</div>
-<div class="col-xs-8">Florida $5,000 county surcharge cap - Tax Code P0000000.</div>
-</div>
-<div class="row padding-bottom">
-<div class="col-xs-1">R</div>
-<div class="col-xs-3">Calculate tax applying tiered tax.</div>
-<div class="col-xs-8">Tennessee $1,600/$3,200 tiers - Tax Code P0000000.</div>
-</div>
-</div>
+<table class="styled-table">
+	<thead>
+		<tr>
+			<th>Required</th>
+			<th>Function</th>
+			<th>Comment</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>R</td>
+			<td>Calculate Tax applying tax threshold.</td>
+			<td>
+				<ul class="normal">
+					<li>New York apparel - Tax Code PC040100 - $110 single item threshold.</li>
+					<li>Massachusetts apparel - Tax Code PC040100 - $175 single item threshold.</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>R</td>
+			<td>Calculate tax applying tax cap.</td>
+			<td>Florida $5,000 county surcharge cap - Tax Code P0000000.</td>
+		</tr>
+		<tr>
+			<td>R</td>
+			<td>Calculate tax applying tiered tax.</td>
+			<td>Tennessee $1,600/$3,200 tiers - Tax Code P0000000.</td>
+		</tr>
+	</tbody>
+</table>
+

@@ -42,7 +42,7 @@ Sales tax is a <a href="http://www.taxrates.com/wiki/Consumption_tax">consumptio
 A buyer with an exemption must have an exemption certificate from the state of record, and your tax system will need to record their status if you want to avoid some uncomfortable questions from your friendly state auditor.
 <h3>The Calculation</h3>
 If any of the three components of a transaction are ineligible, then the tax rate is zero:
-<ul>
+<ul class="normal">
 	<li>The seller must be required to collect in that state</li>
 	<li>The product must be taxable in that jurisdiction</li>
 	<li>The buyer must not have exempt status</li>

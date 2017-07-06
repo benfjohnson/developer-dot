@@ -16,7 +16,7 @@ The improvement can be clearly seen in our internal latency metrics for typical 
 <img src="/public/images/blog/Picture1.png" width="977" height="535" alt="internal latency chart" />
 
 The problem is certainly tractable as long as it’s approached in an organized and planned fashion and you have a great team behind the work.  However, there are three key factors to success which I regard highly during these initiatives.  In short, these are:
-<ul>
+<ul class="normal">
 	<li>Teamwork: without everyone pulling in the same direction, improvements made by one engineer are quickly lost in the mix of getting new things done and growing feature set with the demands of the business and your customers.</li>
 	<li>Patient Iteration: set up development processes that manage performance for you. Don’t shortcut and rely on crunching the numbers manually and doing manual analysis.  Set up your engineering infrastructure in such a way that everyone shares in the ebb and flow of performance numbers on a daily basis and can understand the impact of their own work directly on system performance.</li>
 	<li>A Single Master: lastly, making sure you don’t have components or aspects of your architecture that are serving two masters. For instance, having a single database serving two components that must be optimized for both read and write operations can quickly become a saga of loss and gain, push and pull. I’ll go into more examples later in this post.</li>

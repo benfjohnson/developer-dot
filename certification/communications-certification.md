@@ -21,13 +21,15 @@ Depending on the scope of your integration and your business practice, your test
 will vary. For development partners, many of these are requirements for certification. If
 you were to give us a full functionality demo, here's what we'd like to see.
 
-<div class="mobile-table">
 <table class="styled-table">
+<thead>
 <tr>
-<td><strong>Use Case</strong></td>
-<td><strong>Expected Outcome</strong></td>
-<td><strong>Demonstrate</strong></td>
+<th>Use Case</th>
+<th>Expected Outcome</th>
+<th>Demonstrate</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td> Validate ability to asociate materials/products to AFC Transaction Service type pair (T/S pair). </td>
 <td> You should be able to run a transaction with valid AFC T/S pair. </td>
@@ -173,5 +175,5 @@ you were to give us a full functionality demo, here's what we'd like to see.
 Display error code
 </td>
 </tr>
+</tbody>
 </table>
-</div>

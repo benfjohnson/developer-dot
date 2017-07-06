@@ -27,14 +27,14 @@ nav: tests
 				<td>Pull up the AvaTax Administration panel/page in your application</td>
 				<td>
 					Administrative user should be able to view/modify:
-					<ul>
+					<ul class="normal">
 						<li>AvaTax Account Number</li>
 						<li>AvaTax License Key</li>
 						<li>Service URL (will they be connecting to our development or production environment?)</li>
 						<li>AvaTax Company Code</li>
 					</ul>
 					They should also be able to:
-					<ul>
+					<ul class="normal">
 						<li>Disable AvaTax tax calculation (independently of address validation)</li>
 						<li>Disable AvaTax address validation (independently of tax calculation) altogether, or by country</li>
 						<li>Make a test connection to the AvaTax service using account credentials, but independent of tax calculation and address validation.</li>
@@ -49,7 +49,7 @@ nav: tests
 				<td>Look at the touch points in your customer record</td>
 				<td>
 					You should be able to identify:
-					<ul>
+					<ul class="normal">
 						<li>What will be transmitted to AvaTax as the CustomerCode</li>
 						<li>Which addresses (if any) on the customer record will be used for tax calculation, and how they can be validated</li>
 						<li>How the customer can be marked as tax exempt</li>
@@ -62,7 +62,7 @@ nav: tests
 				<td>Look at the touch points in your item record (inventory maintenance)</td>
 				<td>
 					You should be able to identify:
-					<ul>
+					<ul class="normal">
 						<li>What will be transmitted to AvaTax as the Item Code</li>
 						<li>What will be transmitted to AvaTax as the Item Description</li>
 						<li>How the item taxability is controlled (what will be transmitted to AvaTax as <a href="http://taxcode.avatax.avalara.com/">Tax Code</a>)</li>
@@ -73,7 +73,7 @@ nav: tests
 			<tr>
 				<td>Run a test transaction with more than one line, where each line has more than one quantity.</td>
 				<td>
-					<ul>
+					<ul class="normal">
 						<li>Depending on your integration scope, the transaction should be saved to the AvaTax Admin Console</li>
 						<li>The lines should transmit the specified quantity</li>
 						<li>The lines should show extended amount</li>
@@ -95,7 +95,7 @@ nav: tests
 				<td>Process a partial return (for a taxable customer, and then a tax exempt customer), and then another partial return associated with the same order/invoice.</td>
 				<td>
 					The return should be recorded on the AvaTax Admin Console with the following:
-					<ul>
+					<ul class="normal">
 						<li>Negative (extended) amounts, and positive quantities reflecting the returned quantities and amounts, thus calculating negative liability</li>
 						<li>Document Date of the date when the return was processed, but a Tax Date that reflects the date of the original invoice (note: this is not possible in the REST API v1)</li>
 						<li>Shipping charges (etc.) should be recorded on this transaction (or not) as per business practice</li>
@@ -130,9 +130,9 @@ nav: tests
 </div>
     <h4>Tax Compliance Edge Cases:</h4>
     <p>Sales tax calculation can create a number of different interesting edge cases. Make sure your connector's calculation agrees with a calculation on the Admin Console for the following use cases:</p>
-    <ul>
+    <ul class="normal">
         <li>An order with some taxable items (with no tax code, or a taxable tax code), some nontaxable items(using tax code NT, or another nontaxable code), and a shipping line (using tax code FR)
-            <ul>
+            <ul class="normal">
                 <li>In California, the shipping line should be nontaxable</li>
                 <li>In Alabama, the shipping line should be taxable</li>
                 <li>In Arkansas, the shipping line should be partially taxable</li>

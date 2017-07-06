@@ -26,7 +26,7 @@ Okay, now let's get down to brass tacks. You have a customer who is buying thing
 ** The wizard URL is just www.vcert.com/&lt;certificate-request-id&gt;, where the certificate request ID is the unique request identifier returned in the Org-Requests POST response. Note that if a customer already has an open certificate request, Org-Requests POST will return an error, and that existing request ID can be retrieved with Org-Requests GET.
 
 This workflow will cover the following starting cases:
-<ul>
+<ul class="normal">
 	<li>The customer record does not yet exist.</li>
 	<li>The customer record exists, but has no certificates and no open certificate request.</li>
 	<li>The customer record exists and has an open certificate request.</li>

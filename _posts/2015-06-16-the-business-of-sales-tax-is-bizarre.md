@@ -27,7 +27,7 @@ Each of these jurisdictions are marked by boundaries which aren't "geometric" pe
 <img src="/public/images/blog/jurisdictions1.jpg" alt="jurisdictions" width="500" />
 
 As you can see
-<ul>
+<ul class="normal">
 	<li>Taxing Jurisdiction #1 for Arapahoe County has a tax rate of 3.25% for a generic tangible personal property item.</li>
 	<li>Taxing Jurisdiction #2 for the Aurora City District has an additional 3.75% tax rate added to the State's rate to bring it up to a total of  7.0%.</li>
 	<li>Taxing Jurisdiction #3 on the other hand, covers only a small squarish area that has an additional 1% tax for the Greater Denver area for a total of 8.0%.</li>

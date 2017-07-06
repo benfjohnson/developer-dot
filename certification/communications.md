@@ -8,43 +8,47 @@ doctype: integration_checklists
 <h2>Certified for Avalara AvaTax for Communications</h2>
 <p>Certification for Avalara AFC requires the delivery of all functional requirements shown below.</p>
 <h3 id="CertifiedforAvalaraAFC-AFCGeneral">AFC General</h3>
-<div class="row">
-    <div class="col-xs-1">R<span class="hidden-xs">equired</span></div>
-    <div class="col-xs-3">Function</div>
-    <div class="col-xs-8">Comment</div>
-</div>
-<div class="row">
-    <div class="col-xs-1">R</div>
-    <div class="col-xs-3">AvaTax for Comms Configuration</div>
-    <div class="col-xs-8">Allow customer to configure the following: username/password, company code Ensure password is properly secured using encryption.</div>
-</div>
-<div class="row">
-    <div class="col-xs-1">R</div>
-    <div class="col-xs-3">AvaTax for Comms Test Connection button</div>
-    <div class="col-xs-8">Tests the connection to the AvaTax for Comms service and verifies credentials.  This allows for troubleshooting.</div>
-</div>
-<div class="row">
-    <div class="col-xs-1">R</div>
-    <div class="col-xs-3">Tax Calculation - Disable tax calculation option</div>
-    <div class="col-xs-8">The user must have an option to turn on or off the AvaTax for Comms Calculation service independent of any other Avalara product</div>
-</div>
-<div class="row">
-    <div class="col-xs-1">R</div>
-    <div class="col-xs-3">User Implementation Guide</div>
-    <div class="col-xs-8">User Implementation Guid should contain screenshots and information allowing the end user to configure for AvaTax for Comms including where credentials, company code, and transaction/service pairs can be mapped.</div>
-</div>
-<div class="row">
-    <div class="col-xs-1">R</div>
-    <div class="col-xs-3">Enable logging</div>
-    <div class="col-xs-8">Enables detailed AvaTax for Comms logging.  Information captured is round-trip time and complete xml for request/response.</div>
-</div>
-<div class="row">
-    <div class="col-xs-1">R</div>
-    <div class="col-xs-3">Demonstrate and document installation of software</div>
-    <div class="col-xs-8">Customers should have an easy and trouble free installation of software</div>
-</div>
-
-
+<table class="styled-table">
+	<thead>
+		<tr>
+			<th>Required</th>
+			<th>Function</th>
+			<th>Comment</th>
+		</tr>
+	</thead>
+	<tbody>
+        <tr>
+            <td>R</td>
+            <td>AvaTax for Comms Configuration</td>
+            <td>Allow customer to configure the following: username/password, company code Ensure password is properly secured using encryption.</td>
+        </tr>
+        <tr>
+            <td>R</td>
+            <td>AvaTax for Comms Test Connection button</td>
+            <td>Tests the connection to the AvaTax for Comms service and verifies credentials.  This allows for troubleshooting.</td>
+        </tr>
+        <tr>
+            <td>R</td>
+            <td>Tax Calculation - Disable tax calculation option</td>
+            <td>he user must have an option to turn on or off the AvaTax for Comms Calculation service independent of any other Avalara product</td>
+        </tr>
+        <tr>
+            <td>R</td>
+            <td>User Implementation Guide</td>
+            <td>User Implementation Guid should contain screenshots and information allowing the end user to configure for AvaTax for Comms including where credentials, company code, and transaction/service pairs can be mapped.</td>
+        </tr>
+        <tr>
+            <td>R</td>
+            <td>Enable logging</td>
+            <td>Enables detailed AvaTax for Comms logging.  Information captured is round-trip time and complete xml for request/response.</td>
+        </tr>
+        <tr>
+            <td>R</td>
+            <td>Demonstrate and document installation of software</td>
+            <td>Customers should have an easy and trouble free installation of software</td>
+        </tr>
+    </tbody>
+</table>
 
 
 <h3 id="CertifiedforAvalaraAFC-AFCAPI">AFC API</h3>
