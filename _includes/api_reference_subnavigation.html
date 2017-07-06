@@ -5,7 +5,9 @@
             {% assign tag_href = tag[1] %}
             {% assign sub_tags = include.allLinks[main_tag] %}
 
-            {% if main_tag != 'home' %}
+            {% if main_tag == 'Models' %}
+            <li><a style="color:#ff6600; overflow: hidden;" href="{{tag_href}}">{{main_tag}}</a></li>
+            {% elsif main_tag != 'home' %}
                 <li><a style="overflow: hidden" href="{{tag_href}}">{{main_tag}}</a></li>
                 {% if page.tag_name != blank and main_tag == page.tag_name and include.already_recursed != true %}
                     {% include api_reference_subnavigation.html tags=sub_tags already_recursed=true %}

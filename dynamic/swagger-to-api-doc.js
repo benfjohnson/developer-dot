@@ -42,16 +42,23 @@ const saveMethodsIndex = (apiName, saveRoot, product, linksArray, methodSubsetNa
         }
         return 0;
     }
-
     linksArray.sort(compare);
-
+    if (!methodSubsetName) {
+        linksArray.push({
+            link: `${path.dirname(saveRoot)}/models`,
+            name: 'Models'
+        });
+    }
     const linksHtml = linksArray.reduce((accum, l) => {
-        return `${accum}
+        if (l.name !== 'Models') {
+            return `${accum}
 <tr>
     <td><a href="/${encodeURIComponent(l.link)}">${l.name}</a></td>
     <td>{{"${l.summary || ''}"}}</td>
     <td class='markdown-description'>{{"${(l.description || '').replace(/"/g, "'")}" | markdownify}}</td>
 </tr>`;
+        }
+        return `${accum}`;
     }, '');
 
     const endpointLinks = {home: path.dirname(saveRoot)};

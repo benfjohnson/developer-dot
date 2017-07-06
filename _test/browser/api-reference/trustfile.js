@@ -11,21 +11,21 @@ module.exports = {
     },
 
     'API Reference: TrustFile: Core (verify number of endpoints)': function(browser) {
-        expectedNumberOfApiEndpoints = 3;
+        expectedNumberOfApiEndpoints = 4;
 
         browser
             .initialize(browser.globals.baseURL + '/api-reference/trustfile/api/methods/GetItems/')
             .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
     },
     'API Reference: TrustFile: Provisioning (verify number of endpoints)': function(browser) {
-        expectedNumberOfApiEndpoints = 1;
+        expectedNumberOfApiEndpoints = 2;
 
         browser
             .initialize(browser.globals.baseURL + '/api-reference/trustfile/app/methods/PostCompanySignup/')
             .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
     },
     'API Reference: TrustFile: Connector (verify number of endpoints)': function(browser) {
-        expectedNumberOfApiEndpoints = 13;
+        expectedNumberOfApiEndpoints = 14;
 
         browser
             .initialize(browser.globals.baseURL + '/api-reference/trustfile/connector-microservice/methods/GetConnections/')

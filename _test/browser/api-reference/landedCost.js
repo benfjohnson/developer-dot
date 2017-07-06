@@ -1,7 +1,7 @@
 const deepEqual = require('../helpers/deepEqual');
 
 const NUMAPIS = 1;
-const expectedNumberOfApiEndpoints = 9;
+const expectedNumberOfApiEndpoints = 10;
 
 module.exports = {
     'before': function(browser) {

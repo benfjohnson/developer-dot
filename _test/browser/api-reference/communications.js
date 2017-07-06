@@ -11,21 +11,21 @@ module.exports = {
     },
 
     'API Reference: Communications: SOAP (verify number of endpoints)': function(browser) {
-        expectedNumberOfApiEndpoints = 41;
+        expectedNumberOfApiEndpoints = 42;
 
         browser
             .initialize(browser.globals.baseURL + '/api-reference/communications/afc/methods/CalcAdjWithFipsCode/')
             .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
     },
     'API Reference: Communications: Geocoding SOAP (verify number of endpoints)': function(browser) {
-        expectedNumberOfApiEndpoints = 4;
+        expectedNumberOfApiEndpoints = 5;
 
         browser
             .initialize(browser.globals.baseURL + '/api-reference/communications/afc-geo/methods/GeocodeLatLong/')
             .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
     },
     'API Reference: Communications: REST (verify number of endpoints)': function(browser) {
-        expectedNumberOfApiEndpoints = 28;
+        expectedNumberOfApiEndpoints = 29;
 
         browser
             .initialize(browser.globals.baseURL + '/api-reference/communications/afc-rest/methods/ApiV1CalculateAdjustmentsPost/')
