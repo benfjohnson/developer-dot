@@ -66,7 +66,7 @@ An example of the incorrect result and updated result is shown here:
 {
   "lines": [
     {
-      "sourcing": "Mixed", 
+      "sourcing": "Mixed",
       "details": [
         {
           "sourcing": "Destination"
@@ -85,7 +85,7 @@ More information on the Point-Of-Sale data API is available on <a href="http://d
 
 <h3>API Documentation Updates</h3>
 
-The <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html">automatically generated API documentation for AvaTax</a> has been updated with comments and explanations for each API call.  These explanations can help guide you through unfamiliar APIs and explain how they are intended to be used.
+The <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/">automatically generated API documentation for AvaTax</a> has been updated with comments and explanations for each API call.  These explanations can help guide you through unfamiliar APIs and explain how they are intended to be used.
 
 <h3>GET /api/v2/definitions/countries</h3>
 
@@ -128,7 +128,7 @@ Sample results are below:
 <h3>Improved JSON formatting error messages</h3>
 
 For users who are hand-authoring JSON documents to transmit to AvaTax, the 2.16.12 release will provide detailed error messages about which part of your JSON payload could not be parsed, plus an explanation of why it could not be recognized.
- 
+
 <h3>Bugfixes and Improvements</h3>
 
 <ul class="normal">

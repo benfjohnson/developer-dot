@@ -37,8 +37,8 @@ All AvaTax APIs will attempt to resolve an address as closely as possible.  Howe
 In general, you should provide at least the following information to an AvaTax API:
 
 <ul class="normal">
-    <li>Country code (see <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Definitions/ListCountries">/api/v2/definitions/countries</a> for a full list)</li>
+    <li>Country code (see <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Definitions/ListCountries/">/api/v2/definitions/countries</a> for a full list)</li>
     <li>Postal Code</li>
 </ul>
 
-If you are unable to provide full information, you may want to use the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Addresses/ResolveAddress">Address Resolution API</a> first to check if the address can be identified.
+If you are unable to provide full information, you may want to use the <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Addresses/ResolveAddress/">Address Resolution API</a> first to check if the address can be identified.

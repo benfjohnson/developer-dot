@@ -17,7 +17,7 @@ Interested in learning more about Avalara's suite of tax products and services? 
 
 In my time at Avalara, I've developed a deep appreciation for the researchers, analysts, and professionals who make up our team.  Tax is a complicated subject, and it takes a lot of effort to design a tax software suite that provides as much automation as Avalara's AvaTax suite.  At every step of the way, Avalara has challenged the industry to become automated, reliable, predictable, and easy to use.  I've been fortunate enough to play a part in this process, and I've benefited from the ability to work with a world-class team of people.
 
-You are invited to join me and other tax professionals at [CRUSH AUSTIN 2017](http://www.crushaustin.com/), where you'll be able to mingle and ask questions during educational sessions, informal one-on-one meetings, and social events with key decision-makers.  You can learn about tax compliance, discover new technologies, and learn about ways to improve your transaction management and tax compliance processes.  
+You are invited to join me and other tax professionals at [CRUSH AUSTIN 2017](http://www.crushaustin.com/), where you'll be able to mingle and ask questions during educational sessions, informal one-on-one meetings, and social events with key decision-makers.  You can learn about tax compliance, discover new technologies, and learn about ways to improve your transaction management and tax compliance processes.
 
 <a href="https://www.crushaustin.com/events/crush-2017/registration-bcf77473dc7b409c91dfb1274d8b5a33.aspx"><img src="/public/images/blog/crush-austin.jpg" alt="Avalara CRUSH AUSTIN 2017" height="150" width = "400" /></a>
 
@@ -25,7 +25,7 @@ You are invited to join me and other tax professionals at [CRUSH AUSTIN 2017](ht
 
 This conference is a great opportunity for you to meet, learn, and share.  We want to hear about the challenges that face your business, and how AvaTax can grow and adapt to make your work easier.  Since every customer's story is unique, we are eager to meet with you and discuss how AvaTax can help streamline your compliance processes.
 
-I learn so much from customers directly on the [Avalara Community Forums](https://community.avalara.com/avalara) every day - this conference is a great opportunity to bring developers together and really discuss how to improve the AvaTax API.  Based on your feedback from last year, we resolved to dramatically increase and upgrade our level of [developer documentation](https://sandbox-rest.avatax.com/swagger/ui/index.html); this year, we want to hear from all of you where we should focus our next round of improvements. 
+I learn so much from customers directly on the [Avalara Community Forums](https://community.avalara.com/avalara) every day - this conference is a great opportunity to bring developers together and really discuss how to improve the AvaTax API.  Based on your feedback from last year, we resolved to dramatically increase and upgrade our level of [developer documentation](https://developer.avalara.com/api-reference/avatax/rest/v2/); this year, we want to hear from all of you where we should focus our next round of improvements.
 
 <h3>New! Developer Track</h3>
 

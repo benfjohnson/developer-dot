@@ -21,7 +21,7 @@ This monthly release schedule is at the core of our development team's <a href="
 
 <h2>Patch Notes</h2>
 
-Shortly after we begin our monthly release, I begin drafting notes from all of the developers on our team into a preliminary set of patch notes for the release.  These notes are very rough - and they often are very different than the patch notes you see on our blog site.  We internally review and identify all the positive (and negative!) outcomes involved in each project.  We identify all the things that need to be solved before a feature can be safely launched, and how we can extend our test suite to encompass all the new work we plan to deliver.  
+Shortly after we begin our monthly release, I begin drafting notes from all of the developers on our team into a preliminary set of patch notes for the release.  These notes are very rough - and they often are very different than the patch notes you see on our blog site.  We internally review and identify all the positive (and negative!) outcomes involved in each project.  We identify all the things that need to be solved before a feature can be safely launched, and how we can extend our test suite to encompass all the new work we plan to deliver.
 
 Since all our work requires lots of design, validation, testing, and documentation, it's normal for the scope of a release to change over time.  As we get closer to the release date and our scope becomes clear, we write customer-oriented patch notes and publish them about two to three weeks before the release date.  These patch notes are written for a target audience of AvaTax developers and they help communicate what's changing and how it affects them.  Whenever possible, we list changes to each endpoint explicitly.  For reference, here's a few of our recent release patch notes:
 
@@ -38,7 +38,7 @@ By the time our patch notes are ready to go out the door, we are already hard at
 
 We launch our features this way because it allows us to maintain our incredible stack of over 30,000 quality assurance test cases across the entire AvaTax suite of products.  We maintain dozens of internal servers that handle specific quality assurance functions, and we use continuous integration to deploy each change to these servers throughout the month.  All throughout the month, our quality assurance team monitors development work, feedback from account managers, and posts on the community site to identify new test cases we can implement.
 
-Every release is launched on the Sandbox environment a few days before it is deployed to production.  This allows some customers to use Sandbox as a way to preview upcoming features and test their software against each pre-release version of AvaTax.  Any customer with an active AvaTax subscription can <a href="https://help.avalara.com/kb/001/How_do_I_get_access_to_our_development%2F%2Fsandbox_account%3F">obtain a Sandbox account</a> and test on that environment themselves.  
+Every release is launched on the Sandbox environment a few days before it is deployed to production.  This allows some customers to use Sandbox as a way to preview upcoming features and test their software against each pre-release version of AvaTax.  Any customer with an active AvaTax subscription can <a href="https://help.avalara.com/kb/001/How_do_I_get_access_to_our_development%2F%2Fsandbox_account%3F">obtain a Sandbox account</a> and test on that environment themselves.
 
 The Sandbox environment has the same software and content that exists in AvaTax Production, but it stores your transactions in a different location.  Because of this separation of data, you can use Sandbox to try out new code and new connectors without worrying that your test data will appear on a tax return!  For this reason, we do not make available a "Sandbox" version of Avalara's managed returns service; we don't want there to be any confusion about whether test data will be filed.
 
@@ -48,7 +48,7 @@ After each release has launched to Sandbox and been available for testing for a 
 
 <h2>Updates to our SDK libraries</h2>
 
-Avalara maintains a number of SDK libraries for commonly used programming languages.  Each of these SDK libraries is automatically updated each month with the latest interfaces and documentation.  Each software development kit is automatically generated each month based on the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html">official Swagger documentation for REST v2</a>, and many of them are available in package management systems like NuGet or Maven.  The current list of SDKs available is here:
+Avalara maintains a number of SDK libraries for commonly used programming languages.  Each of these SDK libraries is automatically updated each month with the latest interfaces and documentation.  Each software development kit is automatically generated each month based on the <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/">official API documentation for REST v2</a>, and many of them are available in package management systems like NuGet or Maven.  The current list of SDKs available is here:
 
 <div class="mobile-table">
   <table class="styled-table">

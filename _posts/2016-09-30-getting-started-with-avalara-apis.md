@@ -40,7 +40,7 @@ After installing the Postman application, I was able to see that to send any req
 
 Using those credentials in Postman, clicking on authorization, and selecting the Basic Auth option I filled in my username and password so Postman could generate an authorization header by encoding that information into a base64 representation.
 
-After clicking the button to update request, filling in the header automatically, I was able to start making calls to the API. The [Swagger Documentation](https://sandbox-rest.avatax.com/swagger/ui/index.html) contains a list of resources that can be exercised by the API, each of which can be expanded to obtain the various request endpoints along with examples and errors.
+After clicking the button to update request, filling in the header automatically, I was able to start making calls to the API. The [API Documentation](https://developer.avalara.com/api-reference/avatax/rest/v2/) contains a list of resources that can be exercised by the API, each of which can be expanded to obtain the various request endpoints along with examples and errors.
 
 Notice that when you expand these options they are filled with variations of the basic CRUD methods I mentioned before. Postman allows you to generate requests for each of these specific methods by simply choosing the correct HTTP verb, entering the URL, and providing proper Headers and Body text as needed. Fortunately there is also an option to try it out directly from the documentation itself though it does not save requests like Postman does and I was going for repeatability.
 
@@ -168,7 +168,7 @@ Content-Type: application/json
 }
 ```
 
-At this point I was just hoping nobody saw my continuous stream of errors. When I finally figured out what goes in the body section of the request based on those error message summaries, both Postman and the API happily produced an error free 200 response found in the next code block.  
+At this point I was just hoping nobody saw my continuous stream of errors. When I finally figured out what goes in the body section of the request based on those error message summaries, both Postman and the API happily produced an error free 200 response found in the next code block.
 
 #### request
 

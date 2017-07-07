@@ -16,7 +16,7 @@ For today's blog post, I will walk you through the Address Validation functional
 
 <h3>Validate a Partial Address</h3>
 
-We'll begin by using the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Addresses/ResolveAddress">ResolveAddress</a> endpoint to validate an incomplete address.  Let's say your salesperson was on the phone with a customer, and they took down all the necessary information, but for some reason they forgot to write down the postal code.  They provided you with this address:
+We'll begin by using the <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Addresses/ResolveAddress/">ResolveAddress</a> endpoint to validate an incomplete address.  Let's say your salesperson was on the phone with a customer, and they took down all the necessary information, but for some reason they forgot to write down the postal code.  They provided you with this address:
 
 <ul class="normal">
     <li>1000 Main Street, Irvine, CA</li>

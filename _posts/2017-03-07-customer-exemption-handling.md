@@ -14,8 +14,8 @@ avaform: 1
 
 You're all set to build an integration into AvaTax for your client when they bring up another facet of their business with you not previously mentioned: They need to properly calculate for the tax exempt clients as well.
 
-As luck would have it, there are various ways AvaTax on its own can handle exemptions, so look no further! 
- 
+As luck would have it, there are various ways AvaTax on its own can handle exemptions, so look no further!
+
 <h2>Exempt vs. Non-taxable</h2>
 
 So, can you just mark certain transactions or line items non-taxable?
@@ -37,7 +37,7 @@ Let's look at a few different ways you can mark a product exempt or non-taxable.
 
 If you've received a copy of your customer's exemption certificate, let's record that correctly in AvaTax.  We begin by attaching the customer's exemption certificate number into the transaction, in the `exemptionNo` field.
 
-Here's what it looks like: 
+Here's what it looks like:
 
 ```json
 {
@@ -136,7 +136,7 @@ One caveat to note:  The use of the ExemptionNo field works by designating the E
 
 The second way that we'll go over making a transaction exempt is to use the `customerUsageType` field.  This field contains a code that can be used to designate the reason for a particular sale being exempt.  Each entity use code stands for a different exemption reason, the logic of which can be found in our [exemption reason documentation](https://help.avalara.com/000_Avalara_AvaTax/Exempt_Customers_from_Sales_Tax/Exemption_Reason_Matrices_for_US_and_Canada).
 
-You can browse through the full list of entity usage codes by calling the [ListEntityUseCode API](https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Definitions/ListEntityUseCodes), `GET /api/v2/definitions/entityusecodes`.  This API produces a list of codes indicating codes your customer can select; it's designed to help you populate a dropdown box so your users can choose whether they are requesting a specific exemption.  Here's an example of the values that you can choose from:
+You can browse through the full list of entity usage codes by calling the [ListEntityUseCode API](https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Definitions/ListEntityUseCodes/), `GET /api/v2/definitions/entityusecodes`.  This API produces a list of codes indicating codes your customer can select; it's designed to help you populate a dropdown box so your users can choose whether they are requesting a specific exemption.  Here's an example of the values that you can choose from:
 
 ```json
 {
@@ -351,11 +351,11 @@ And yet despite this the response indicates that the total amount is exempt:
   "modifiedDate": "2017-03-06T03:34:38.643",
   "modifiedUserId": 270,
 ```
-  
+
 <h2>So which should I use?</h2>
 
 It's actually a deceptively complicated answer, which is why the best practice is to allow your prospective client to use any of these methods through your integration.
 
-There can be some clients whose business needs as far as exemption go are fairly simple, thus only the `exemptionNo` field is required. However there can be others with more complicated scenarios and a diverse customer base whose reasons for exemption span the gamut. Due to the complicated nature of tax, and in the interest of giving your integration a fighting chance to meet the needs of all kinds of business, it's best practice to take into account all the methods we can handle an exempt sale when building your integration. 
+There can be some clients whose business needs as far as exemption go are fairly simple, thus only the `exemptionNo` field is required. However there can be others with more complicated scenarios and a diverse customer base whose reasons for exemption span the gamut. Due to the complicated nature of tax, and in the interest of giving your integration a fighting chance to meet the needs of all kinds of business, it's best practice to take into account all the methods we can handle an exempt sale when building your integration.
 
 -- Aaron Robles, Partner Launch Team

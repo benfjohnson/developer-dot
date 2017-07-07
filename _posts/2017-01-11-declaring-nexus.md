@@ -58,7 +58,7 @@ There are also a few United States specific data fields that you should consider
 
 <h3>How can I determine which nexus is right?</h3>
 
-I can't help you determine which Nexus to declare, but I can help you by showing which jurisdictions have nexus for an address!  In the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Definitions/ListNexusByAddress">Nexus Definitions API</a>, `/api/v2/definitions/nexus/byaddress`, you can provide a physical or mailing address and AvaTax will tell you the list of all nexus choices for that address!  Here's what the API call looks like:
+I can't help you determine which Nexus to declare, but I can help you by showing which jurisdictions have nexus for an address!  In the <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Definitions/ListNexusByAddress/">Nexus Definitions API</a>, `/api/v2/definitions/nexus/byaddress`, you can provide a physical or mailing address and AvaTax will tell you the list of all nexus choices for that address!  Here's what the API call looks like:
 
 `GET https://sandbox-rest.avatax.com/api/v2/definitions/nexus/byaddress?line1=123%20Main%20Street&city=Irvine&region=CA&postalCode=92615&country=US`
 
@@ -90,11 +90,11 @@ I can't help you determine which Nexus to declare, but I can help you by showing
 }
 ```
 
-This response tells us the list of governmental entities that have jurisdiction over the address "123 Main Street, Irvine, CA 92615".  If you are opening a business in that location, in most cases, you would need to declare nexus for all jurisdictions returned via this API.  If, instead of using AvaTax's Nexus Definitions API, you would like to browse a list of available nexus yourself, you can do that using one of the other <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#/Definitions">informational Nexus APIs</a>.
+This response tells us the list of governmental entities that have jurisdiction over the address "123 Main Street, Irvine, CA 92615".  If you are opening a business in that location, in most cases, you would need to declare nexus for all jurisdictions returned via this API.  If, instead of using AvaTax's Nexus Definitions API, you would like to browse a list of available nexus yourself, you can do that using one of the other <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Definitions/">informational Nexus APIs</a>.
 
 <h3>How do I declare nexus?</h3>
 
-Once you've made the decision as to where you wish to declare nexus, you can then call the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Nexus/CreateNexus">Create Nexus API</a>, `POST /api/v2/companies/123/nexus`, to create these nexus definition objects.  Since you already have seen how to fetch objects from the nexus-by-address or list-nexus APIs, you can simply take the objects you retrieved from that function and pass them to the Create Nexus API.
+Once you've made the decision as to where you wish to declare nexus, you can then call the <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Nexus/CreateNexus/">Create Nexus API</a>, `POST /api/v2/companies/123/nexus`, to create these nexus definition objects.  Since you already have seen how to fetch objects from the nexus-by-address or list-nexus APIs, you can simply take the objects you retrieved from that function and pass them to the Create Nexus API.
 
 When creating a nexus, make sure you choose the following fields:
 
@@ -135,6 +135,6 @@ Here's what the nexus declaration API call looks like:
 ]
 ```
 
-You've now declared nexus in a new jurisdiction!  This nexus takes effect on the dates you have specified, and AvaTax will now automatically calculate tax for that jurisdiction.  
+You've now declared nexus in a new jurisdiction!  This nexus takes effect on the dates you have specified, and AvaTax will now automatically calculate tax for that jurisdiction.
 
 --Ted Spence, Director, AvaTax Core Engine

@@ -299,7 +299,7 @@ But what if you only want to include a couple of Locations or Tax Codes? Or mayb
 }
 ```
 
-Or, even easier, you can request the data file for one location at a time using the [individual location point-of-sale data API](https://sandbox-rest/swagger/ui/index.html#!/Locations/BuildPointOfSaleDataFile):
+Or, even easier, you can request the data file for one location at a time using the [individual location point-of-sale data API](https://developer.avalara.com/api-reference/avatax/rest/v2/methods/TaxContent/BuildTaxContentFileForLocation/):
 
 `GET /api/v2/companies/12345/locations/56789/pointofsaledata`
 

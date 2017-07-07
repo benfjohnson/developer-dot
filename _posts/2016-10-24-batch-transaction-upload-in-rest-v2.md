@@ -54,7 +54,7 @@ For our next step, we need to convert this into a JSON request.
 
 <h2>Building our JSON Request</h2>
 
-In order to upload a batch, you need to know two things: First, the AccountID of your account, and second, the CompanyID of the company you want to upload this transaction for.  The easiest way to do this is to <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Companies/ApiV2CompaniesGet">list all companies in your account</a>, and copy those values off that result.  Here's how you do it:
+In order to upload a batch, you need to know two things: First, the AccountID of your account, and second, the CompanyID of the company you want to upload this transaction for.  The easiest way to do this is to <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Companies/QueryCompanies/">list all companies in your account</a>, and copy those values off that result.  Here's how you do it:
 
 ```
 GET /api/v2/companies
@@ -128,7 +128,7 @@ The end result should now look like this:
 Now, our next step is to create this batch file in AvaTax REST v2.  Here's how we do that:
 
 <ul class="normal">
-    <li>Launch the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Batches/ApiV2CompaniesByCompanyIdBatchesPost">Batch Creation API</a> in REST v2</li>
+    <li>Launch the <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Batches/CreateBatches/">Batch Creation API</a> in REST v2</li>
     <li>In the <b>models</b> box, paste your JSON snippet from above.</li>
     <li>In the <b>companyId</b> box, type the company ID you selected above.</li>
     <li>In the <b>Authorization</b> box, type in your AvaTax API credentials.</li>
@@ -165,9 +165,9 @@ First, note that the batch you just created is in status "Waiting".  That means 
 
 <h2>Checking on the Status of your Batch</h2>
 
-We'll continue by fetching our batch back from the server.  Launch the <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Batches/ApiV2CompaniesByCompanyIdBatchesByIdGet">Batch GET API</a> and type in your company ID and the batch ID you got back from your Batch Create API call.  The result you'll get back will either still say <code class="highlight-rouge">"status": "Waiting"</code>, or it will say <code class="highlight-rouge">"Completed"</code> or <code class="highlight-rouge">"Errors"</code>.  If the batch is still <code class="highlight-rouge">"Waiting"</a>, you'll just want to keep checking back periodically to see when it has finished.
+We'll continue by fetching our batch back from the server.  Launch the <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Batches/GetBatch/">Batch GET API</a> and type in your company ID and the batch ID you got back from your Batch Create API call.  The result you'll get back will either still say <code class="highlight-rouge">"status": "Waiting"</code>, or it will say <code class="highlight-rouge">"Completed"</code> or <code class="highlight-rouge">"Errors"</code>.  If the batch is still <code class="highlight-rouge">"Waiting"</a>, you'll just want to keep checking back periodically to see when it has finished.
 
-If you received back a result - whether that result is success or whether errors occurred - you will also see something new in the result: a "Batch Results" file, which will have the resulting tax amounts.  
+If you received back a result - whether that result is success or whether errors occurred - you will also see something new in the result: a "Batch Results" file, which will have the resulting tax amounts.
 
 <h2>How do I process my results?</h2>
 

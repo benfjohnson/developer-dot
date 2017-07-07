@@ -12,9 +12,9 @@ disqus: 1
 
 <h2>AvaTax at 12 Years of Age</h2>
 
-Avalara's world-class tax API, originally launched in 2004, has by now helped thousands of businesses all across the world make great strides in automating tax compliance.  We've processed billions of transactions and filed millions of tax returns using AvaTax technology since those tiny beginnings.  
+Avalara's world-class tax API, originally launched in 2004, has by now helped thousands of businesses all across the world make great strides in automating tax compliance.  We've processed billions of transactions and filed millions of tax returns using AvaTax technology since those tiny beginnings.
 
-The secret to Avalara's success is constant innovation.  The AvaTax API, connectors, and services you use today have been under continuous development since Avalara was 
+The secret to Avalara's success is constant innovation.  The AvaTax API, connectors, and services you use today have been under continuous development since Avalara was
 founded.  As AvaTax adds features, we've outgrown our original SOAP and XML implementation, and we've decided to deliver a new and fresh API to our partners and customers.
 
 Over the past decade, REST has come to dominate the marketplace for API design due to its simplicity, readability, and compatibility with the HTTP object/verb terminology.  With less overhead than XML and better support across modern languages, Javascript Object Notation (JSON) has become the universally accepted standard for object serialization.  Avalara is today announcing a new API that will eventually support all AvaTax features and functionality using simple, friendly, REST standards.
@@ -38,7 +38,7 @@ These features, along with some Avalara-specific extensions, are included in the
 
 Over the coming weeks, we will gradually be rolling out the new API to our sandbox platform for customer previews, and you'll start seeing more documentation and tutorials appear on the Avalara developer website.  You'll see new pages, like the <a href="http://developer.avalara.com/avatax/errors">list of all error messages built into REST v2</a>, which will start to introduce all the features of the new service.  You'll see pages like the new REST v2 Postman Collection, a selection of sample API calls you can use to practice your development.
 
-For those of you who like to try it out yourself, <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html">the new AvaTax REST API comes with full Swagger-compatible API documentation</a> - you can call any API directly online in the friendly user interface.  Swagger is rapidly becoming the industry standard for API documentation; and we think you'll agree that it can make even a complex API much easier to approach.
+For those of you who like to try it out yourself, <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/">the new AvaTax REST API comes with full Swagger-compatible API documentation</a> - you can call any API directly online in the friendly user interface.  Swagger is rapidly becoming the industry standard for API documentation; and we think you'll agree that it can make even a complex API much easier to approach.
 
 <h2>Compatibility and Interoperability</h2>
 

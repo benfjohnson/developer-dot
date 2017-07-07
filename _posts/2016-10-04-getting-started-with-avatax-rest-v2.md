@@ -41,7 +41,7 @@ So in a moment or two, you should receive an email from support@avalara.com with
 
 <h2>Listing All My Companies</h2>
 
-As Bob's Artisan Pottery store, we will need to begin by adding a "Company" record to keep track of our sales.  Since Avalara works for all companies both small and large, you can use the AvaTax API whether you have a single corporate entity or whether you manage lots of different registered businesses.  Let's start by listing all the companies defined in this account.In AvaTax, we list companies by calling <a href="https://sandbox-rest.avatax.com/api/v2/companies">https://sandbox-rest.avatax.com/api/v2/companies</a> - but we need to authenticate against the API.  In order to do this, we need to add a basic authentication header to our web request.  Let's start by creating our basic authentication header.  If you're writing code, your programming language likely supports Base64 encoding directly.  Here's how to construct the basic authentication header in C# - most other programming languages work the same way:
+As Bob's Artisan Pottery store, we will need to begin by adding a "Company" record to keep track of our sales.  Since Avalara works for all companies both small and large, you can use the AvaTax API whether you have a single corporate entity or whether you manage lots of different registered businesses.  Let's start by listing all the companies defined in this account.In AvaTax, we list companies by calling <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Companies/CreateCompanies/">https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Companies/CreateCompanies/</a> - but we need to authenticate against the API.  In order to do this, we need to add a basic authentication header to our web request.  Let's start by creating our basic authentication header.  If you're writing code, your programming language likely supports Base64 encoding directly.  Here's how to construct the basic authentication header in C# - most other programming languages work the same way:
 
 ```csharp
 	string combined = String.Format("{0}:{1}", username, password);
@@ -77,11 +77,11 @@ If you'd like to type along with me without using a programming language, we can
 Of course, to make this work, you'll have to use your username and password instead of Bob McExample's information.  Once you've completed your basic authentication header, let's make an API call to list companies:
 
 <ul class="normal">
-<li>Launch the <b>List Companies</b> API by clicking this URL: <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Companies/ApiV2CompaniesGet">https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Companies/ApiV2CompaniesGet</a></li>
+<li>Launch the <b>List Companies</b> API by clicking this URL: <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Companies/QueryCompanies/">https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Companies/QueryCompanies/</a></li>
 <li>In the <b>Authorization</b> field, type in your basic authentication header from above.</li>
 <li>Finally, click the <b>Try It</b> button on the page.  Here's the result you should get:</li>
 </ul>
-	
+
 ```json
 {
   "@recordsetCount": 0,
@@ -134,7 +134,7 @@ Once you've gathered this information, we create a request that looks like this:
 Our next step is to create this company object using the REST API.  Here's how:
 
 <ul class="normal">
-<li>Launch the Company Initialization API by clicking this link: <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Companies/ApiV2CompaniesInitializePost">Company Initialization</a></li>
+<li>Launch the Company Initialization API by clicking this link: <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Companies/CompanyInitialize/">Company Initialization</a></li>
 <li>In the <b>Authorization</b> field, fill in the same credentials you typed in earlier.</li>
 <li>In the <b>Model</b> text box, copy and paste the information about the company above.</li>
 <li>Click <b>Try It</b></li>
@@ -199,7 +199,7 @@ If we sold two separate mugs and a vase in a single order, the transaction might
 Alright, we've defined our transaction - let's go ahead and calculate the tax!
 
 <ul class="normal">
-<li>Launch the online Create Transaction API by clicking this link: <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Transactions/ApiV2TransactionsCreatePost">Create Transaction</a></li>
+<li>Launch the online Create Transaction API by clicking this link: <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Transactions/CreateTransaction/">Create Transaction</a></li>
 <li>Tax transactions must be calculated using your account's license key.  In the <b>Authorization</b> field, we'll need to type in credentials using your AccountId as the username and your license key as the password.  You can build this authorization string using your favorite <a href="https://www.google.com/webhp#q=base64+encoding">Base64 encoding program</a> just as we did earlier; then paste the result into the Authorization field.  It should look like this: <pre>Basic MTIzNDU2Nzg5OkxJQ0VOU0VLRVk=</pre></li>
 <li>In the <b>Model</b> text box, copy and paste the transaction we built above.</li>
 <li>Click <b>Try It</b></li>
@@ -209,7 +209,7 @@ The information you'll get back is rather large.  You'll receive back a full com
 
 <h2>Next Steps</h2>
 
-There's a lot more you can do with AvaTax.  You can integrate accounting systems; you can keep track of sales orders and convert them to invoices later; you can set up some customers as exempt, and you can set up nexus in more than one location at a time.  AvaTax is ready to support all the functionality you need for a fully featured tax platform - want to know more?  Contact your account representative today! 
+There's a lot more you can do with AvaTax.  You can integrate accounting systems; you can keep track of sales orders and convert them to invoices later; you can set up some customers as exempt, and you can set up nexus in more than one location at a time.  AvaTax is ready to support all the functionality you need for a fully featured tax platform - want to know more?  Contact your account representative today!
 
 
 --Ted Spence, Director, AvaTax Core Engine

@@ -37,7 +37,7 @@ This article is about the February 2017 monthly update to the AvaTax REST v2 API
 
 Avalara is pleased to announce the freely available REST v2 TaxRates API!  The TaxRates API provides basic tax functionality for no cost.
 
-You also now have available an API that creates a [free 30-day trial of AvaTax Professional](https://sandbox-rest.avatax.com/swagger/ui/index.html#!/Free/RequestFreeTrial).  This free trial account comes with no obligations and allows you to experiment with a fully featured version of Avalara AvaTax.  After 30 days, you may continue to use the free TaxRates API or you can upgrade to a full account.
+You also now have available an API that creates a [free 30-day trial of AvaTax Professional](https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Free/RequestFreeTrial/).  This free trial account comes with no obligations and allows you to experiment with a fully featured version of Avalara AvaTax.  After 30 days, you may continue to use the free TaxRates API or you can upgrade to a full account.
 
 For more information on using the free TaxRates API, please see [Estimating Tax with REST v2](http://developer.avalara.com/blog/2016/11/04/estimating-tax-with-rest-v2/).
 
@@ -67,7 +67,7 @@ The managed returns APIs are available by invitation only.
 
 <h2>Friendly Authentication in Swagger</h2>
 
-We have updated to the latest release of [Swagger UI](https://sandbox-rest.avatax.com/swagger/ui/index.html)!  You can tell we upgraded because the new color is Orange.  One great side effect of the latest update is that we now support browser-based authentication both via Avalara Identity and username/password credentials!  Here's how it will work.
+We have updated to the latest release of [API Documentation](https://developer.avalara.com/api-reference/avatax/rest/v2/)!  You can tell we upgraded because the new color is Orange.  One great side effect of the latest update is that we now support browser-based authentication both via Avalara Identity and username/password credentials!  Here's how it will work.
 
 First, you click the `Authorize` button in the top right of the API reference screen.
 
@@ -77,7 +77,7 @@ Next, you can choose to either authenticate via OAuth 2.0 or Username/Password:
 
 <img src="/public/images/blog/oauth-popup.png" alt="OAuth Pop Up" height="270" width="278" />
 
-We recommend authenticating via OAuth 2.0, since it works using a unique bearer token that is valid for 30 minutes at a time.  This token is automatically transmitted from Avalara Identity to the API server under a secure channel, so you can experiment with the swagger API without having to encode your username and password into a Base64 string.  
+We recommend authenticating via OAuth 2.0, since it works using a unique bearer token that is valid for 30 minutes at a time.  This token is automatically transmitted from Avalara Identity to the API server under a secure channel, so you can experiment with the swagger API without having to encode your username and password into a Base64 string.
 
 When you click the OAuth 2.0 link, you'll redirect to Avalara Identity, the new universal sign-on page for Avalara products:
 

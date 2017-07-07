@@ -61,7 +61,7 @@ If you are seeing this error message, it indicates that you failed to pass in a 
 Common troubleshooting:
 
 <ul class="normal">
-<li>Try making your request via <a href="https://www.getpostman.com/">Postman</a>, <a href="https://curl.haxx.se/">CURL</a>, or our <a href="https://sandbox-rest.avatax.com/swagger/ui/index.html">online Swagger API reference</a>.  Examine closely how each one works and see whether you are providing the same request body in your code.</li>
+<li>Try making your request via <a href="https://www.getpostman.com/">Postman</a>, <a href="https://curl.haxx.se/">CURL</a>, or our <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/">online Swagger API reference</a>.  Examine closely how each one works and see whether you are providing the same request body in your code.</li>
 <li>In the AvaTax REST API, you must provide data in JSON format.  Did you provide the object in JSON format?</li>
 <li>In JSON, you must provide arrays using the square brackets [ ] and you must provide objects using curly brackets { }.  Did you use the correct brackets?</li>
 <li>Compare your data against the example API object documented in swagger.  Do you see any differences between the object you uploaded and the example?</li>

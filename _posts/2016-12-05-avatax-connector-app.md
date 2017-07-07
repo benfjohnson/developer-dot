@@ -14,7 +14,7 @@ imgsrc: /public/images/blog/DevDot_ResetLisenceKey.png
 # Using The REST API To Build a Connector
 
 Avalara’s new [REST API
-v2 ](https://sandbox-rest.avatax.com/swagger/ui/index.html)now offers a
+v2 ](https://developer.avalara.com/api-reference/avatax/rest/v2/)now offers a
 wide variety of functionality for integrating ERP systems with AvaTax.
 In the new REST API, you can now add companies, estimate tax on the fly,
 validate addresses, and more! For today’s article, we will focus on
@@ -67,7 +67,7 @@ private static HttpBasicAuthenticator GetAuthentication()
         return null;
     HttpBasicAuthenticator a = new HttpBasicAuthenticator(AccountNumber,APIKey);
         return a;
-}         
+}
 ```
 Now that we have the ability to get our authentication from the
 configuration file, let’s write some very small helper functions to
@@ -192,7 +192,7 @@ public class InvoiceModel
    public string Code { get; set; } //TransactionCode
    public string CompanyCode { get; set; }
    public string Type { get; set; }
-   public string CustomerCode { get; set; }          
+   public string CustomerCode { get; set; }
 
 }
 ```
@@ -252,10 +252,10 @@ public class Items
    public string Description { get; set; }
    public double Quantity { get; set; }
    public double Discount { get; set; }
-   public double Amount { get; set; }    
+   public double Amount { get; set; }
 
    //response
-   public double Tax { get; set; }         
+   public double Tax { get; set; }
 }
 ```
 
@@ -271,7 +271,7 @@ public ActionResult Index(string txtShipFrom, string txtShipTo, string txtOrderO
     {
         //Validate addresses
         i.Addresses = new Addresses();
-        i.Addresses.ShipFrom = GetAddressFormat(txtShipFrom);               
+        i.Addresses.ShipFrom = GetAddressFormat(txtShipFrom);
         ValidateAddress(ref i.Addresses.ShipFrom);
 
         i.Addresses.ShipTo = GetAddressFormat(txtShipTo);
@@ -321,7 +321,7 @@ public ActionResult Index(string txtShipFrom, string txtShipTo, string txtOrderO
         ViewBag.OrderOrigin = "2511 Laguna Blvd, Elk Grove, CA, US, 95758";
         ViewBag.OrderAcceptance = "100 Market Street, San Francisco, CA, US";
         return View();
-    }  
+    }
 }
 ```
 
