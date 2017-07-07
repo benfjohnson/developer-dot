@@ -1,13 +1,5 @@
 # EXCISE v5.18
-swagger_path: excise/5_18_0.yaml
+
 nav_link:
     title: Excise v5.18.0
     path: /excise/api-reference/tax-determination/v5_18_0
-product: excise
-endpoint_hashes:
-    - name: Login
-      link: '/#login'
-    - name: Logout
-      link: '/#logout'
-    - name: Process Transactions
-      link: '/#processTransactions'

@@ -1,33 +1,5 @@
 # TRUSTFILE CONNECTOR
-swagger_path: trustfile/connector-microservice/swagger.yaml
+
 nav_link:
     title: Trustfile - Connector
     path: /trustfile/api-reference/connector-management/v3
-product: trustFile
-endpoint_hashes:
-    - name: Get list of Connections
-      link: '/#GetConnections'
-    - name: Creates a connection
-      link: '/#PostConnection'
-    - name: Determine if connection with connectionId exists
-      link: '/#HeadConnectionDetail'
-    - name: Get information about connection
-      link: '/#GetConnectionDetail'
-    - name: Update the connection with the given connectionId
-      link: '/#PutConnection'
-    - name: Delete a connection
-      link: '/#DeleteConnection'
-    - name: Get activity logs for connection
-      link: '/#GetConnectionActivities'
-    - name: Authenticate with connection
-      link: '/#GetConnectionAuthenticate'
-    - name: Get status of the connector
-      link: '/#GetConnector'
-    - name: Enable/Disable connector
-      link: '/#PutConnector'
-    - name: Get connector errors
-      link: '/#GetErrors'
-    - name: Retrieve items that have errors or are malformed
-      link: '/#GetBadItems'
-    - name: Get health and availability of connector
-      link: '/#GetConnectorHealth'

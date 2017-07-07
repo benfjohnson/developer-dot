@@ -132,11 +132,11 @@ html {
             font-family: 'source sans pro light', sans serif;
             padding: 0 1em;
         }
-        &:last-child:after, .no-separator {
+        // Current fix for main navigation -- will need to be changed again if/when navigation categories have more than 3 links
+        &:last-child:after, .no-separator, &:nth-child(3):after {
             content: "";
             padding: 0;
         }
-
     }
 }
 

@@ -27,9 +27,9 @@ doctype: overview
             <img src="/public/images/Avalara_logo.svg" alt="Avalara">
             <span>AvaTax</span>
          </div>
-        {% if site.data.api_consoles.avatax1.nav_links %}
+        {% if site.data.api_consoles.avatax11.nav_links %}
           <ul class="pipe padding-bottom">
-          {% for api_console_hash in site.data.api_consoles.avatax1.nav_links %}
+          {% for api_console_hash in site.data.api_consoles.avatax11.nav_links %}
               <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
           {% endfor %}
           </ul>
@@ -116,7 +116,7 @@ doctype: overview
     <div class="col-md-12">
         <h1><a name="returns-filing"></a>Returns and Filing APIs</h1>
     </div>
-    <div class="col-md-7 col-md-offset-3">    
+    <div class="col-md-7 col-md-offset-3">
         <h2>Prepare and file AvaTax-integrated returns</h2>
         <p>Avalara Returns is a fully-managed solution that incorporates a Treasury solution for simple payment, guaranteed on-time filing, audit support, and notice management. There are currently no APIs available for Avalara Returns – data is populated from AvaTax transactions and returns are managed by the merchant through the provided Customer Portal. <a href="http://www.avalara.com/products/returns/">Learn more about Avalara Returns</a>.
         </p>

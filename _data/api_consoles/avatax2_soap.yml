@@ -1,29 +1,5 @@
 # AVATAX SOAP
-swagger_path: avatax/soap.yaml
+
 nav_link:
     title: Avatax SOAP API
     path: /api-reference/avatax/soap
-product: avaTax
-endpoint_hashes:
-    - name: Calculate Tax and Record a Document
-      link: '/#getTax'
-    - name: Post a Document
-      link: '/#postTax'
-    - name: Commit a Document
-      link: '/#commitTax'
-    - name: Void a Document
-      link: '/#cancelTax'
-    - name: Adjust a Document
-      link: '/#adjustTax'
-    - name: Retrieve a Document
-      link: '/#getTaxHistory'
-    - name: Test service connectivity
-      link: '/#ping'
-    - name: Test authorized operations
-      link: '/#isAuthorized'
-    - name: DEPRECATED Change payment date
-      link: '/#applyPayment'
-    - name: DEPRECATED Mark documents as Reconciled
-      link: '/#reconcileTaxHistory'
-    - name: Validate an Address
-      link: '/#validateAddress'

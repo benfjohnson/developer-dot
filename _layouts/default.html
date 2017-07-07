@@ -73,10 +73,10 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <h2>Tax calculation</h2>
-                                    {% if site.data.api_consoles.avatax1.nav_links %}
+                                    {% if site.data.api_consoles.avatax11.nav_links %}
                                     <h4>Avalara AvaTax</h4>
                                     <ul class="pipe">
-                                        {% for api_console_hash in site.data.api_consoles.avatax1.nav_links %}
+                                        {% for api_console_hash in site.data.api_consoles.avatax11.nav_links %}
                                         <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
                                         {% endfor %}
                                         <br/>
@@ -318,9 +318,23 @@
             <li class="linkedin"><a href="https://www.linkedin.com/company/avalara">LinkedIn</a></li>
             <li class="youtube"><a href="https://www.youtube.com/user/Avalara1">Youtube</a></li>
         </ul>
-        {% if page.api_console == 1 %} {% for api_console_hash in site.data.api_consoles %} {% assign api_console = api_console_hash[1] %} {% assign api_console_path = api_console.nav_link.path | remove_first: '/' %} {% if page.path contains api_console_path
-        %} {% assign githubpath = api_console.swagger_path | prepend: 'https://github.com/Avalara/developer-dot/edit/master/dynamic/swagger/' %} {% endif %} {% endfor %} {% else %} {% assign githubpath = page.path | prepend: 'https://github.com/Avalara/developer-dot/edit/master/'
-        %} {% endif %} {% unless githubpath contains '/blog/page' %}
+        {% if page.api_console == 1 %}
+            {% for api_console_hash in site.data.api_consoles %}
+                {% assign api_console = api_console_hash[1] %}
+                {% assign api_console_path = api_console.nav_link.path | remove_first: '/' %}
+                {% if page.path contains api_console_path %}
+                    {% for config in site.data.SWAGGER_CONFIG %}
+                        {% if config[1].name == page.api_name %}
+                            {% assign swagger_path = config[0] %}
+                        {% endif %}
+                    {% endfor %}
+                    {% assign githubpath = swagger_path | prepend: 'https://github.com/Avalara/developer-dot/edit/master/dynamic/swagger/' %}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            {% assign githubpath = page.path | prepend: 'https://github.com/Avalara/developer-dot/edit/master/' %}
+        {% endif %}
+        {% unless githubpath contains '/blog/page' %}
 
         {% endunless %}
 

@@ -1,15 +1,5 @@
 # COMMUNICATIONS GEOCODER
-swagger_path: communications/afc-geo.yaml
+
 nav_link:
     title: Communications SOAP Geocoding
     path: /communications/api-reference/geocode/soap
-product: communications
-endpoint_hashes:
-    - name: Geocode Address
-      link: '/#GeocodeAddress'
-    - name: Geocode Lat Long
-      link: '/#GeocodeLatLong'
-    - name: Geocode All Matches
-      link: '/#GeocodeAllMatches'
-    - name: Get Server Time
-      link: '/#GetServerTime'

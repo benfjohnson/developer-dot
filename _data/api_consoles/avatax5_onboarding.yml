@@ -1,24 +1,6 @@
 # ONBOARDING
-swagger_path: onboarding/v1.yaml
 nav_link:
     title: Onboarding API
     path: /avatax/api-reference/onboarding/v1
-product: avaTax
 older_api: true
-endpoint_hashes:
-    - name: createAccount
-      link: '/#createAccount'
-    - name: getAccount
-      link: '/#getAccount'
-    - name: createCompany
-      link: '/#createCompany'
-    - name: getCompany
-      link: '/#getCompany'
-    - name: createLocations
-      link: '/#createLocations'
-    - name: getLocation
-      link: '/#getLocation'
-    - name: createNexus
-      link: '/#createNexus'
-    - name: getNexus
-      link: '/#getNexus'
+

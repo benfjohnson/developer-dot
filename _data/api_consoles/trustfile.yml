@@ -1,17 +1,7 @@
 # TRUSTFILE
-swagger_path: trustfile/api.trustfile/swagger.yaml
 nav_link:
     title: Trustfile - Core
     path: /trustfile/api-reference/core/v3
-product: trustFile
-endpoint_hashes:
-  - name: Post items
-    link: '/#PostItems'
-  - name: Retrieve items by itemId for the given connectionId
-    link: '/#GetItems'
-  - name: Retrieve connectionId information
-    link: '/#GetCompanies'
-
 nav_links:
   - title: Overview
     path: /trustfile

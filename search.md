@@ -45,7 +45,7 @@ permalink: /search/
                 </div>
             </div>
         </div>
-    </form>    
+    </form>
     <div class="row padding-bottom">
         <div class="col-md-12">
             <div id="search-results"></div>

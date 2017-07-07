@@ -1,9 +1,5 @@
 # TRUSTFILE PROVISIONING
-swagger_path: trustfile/app.trustfile/swagger.yaml
+
 nav_link:
     title: Trustfile - Provisioning
     path: /trustfile/api-reference/provisioning/v3
-product: trustFile
-endpoint_hashes:
-    - name: Company signup via API POST
-      link: '/#PostCompanySignup'

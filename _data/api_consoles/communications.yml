@@ -1,36 +1,8 @@
 # COMMUNICATIONS
-swagger_path: communications/afc.yaml
+
 nav_link:
     title: Communications SOAP
     path: /api-reference/communications/afc
-product: communications
-endpoint_hashes:
-    - name: NpaNxxToPCode
-      link: '/#NpaNxxToPCode'
-    - name: Get Tax Rates
-      link: '/#GetTaxRates'
-    - name: Get Address
-      link: '/#GetAddress'
-    - name: Get Version
-      link: '/#GetVersion'
-    - name: Calc Taxes With PCode
-      link: '/#CalcTaxesWithPCode'
-    - name: Calc Adj With NpaNxx
-      link: '/#CalcAdjWithNpaNxx'
-    - name: Calc Reverse Adj With Fips Code
-      link: '/#CalcReverseAdjWithFipsCode'
-    - name: Calc Pro Rated Taxes
-      link: '/#CalcProRatedTaxes'
-    - name: Calc Jurisdiction
-      link: '/#CalcJurisdiction'
-    - name: Calc Taxes With Overrides
-      link: '/#CalcTaxesWithOverrides'
-    - name: Calc Taxes In Cust Mode
-      link: '/#CalcTaxesInCustMode'
-    - name: Begin Customer Batch
-      link: '/#BeginCustomerBatch'
-    - name: Calc Cust Adj
-      link: '/#CalcCustAdj'
 
 nav_links:
   - title: Overview

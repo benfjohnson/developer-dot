@@ -29,6 +29,7 @@ dynamic/swagger/**/models.json
 
 _data/swagger
 _data/api_tag_pages
+_data/SWAGGER_CONFIG.json
 models
 
 .vscode

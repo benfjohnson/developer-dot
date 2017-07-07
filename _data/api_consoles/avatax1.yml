@@ -1,25 +1,5 @@
 # AVATAX
-
-swagger_path: avatax/rest.yaml
 nav_link:
     title: Avatax REST API
     path: /api-reference/avatax/rest/v1
-product: avaTax
 older_api: true
-endpoint_hashes:
-    - name: Calculate Tax and Record a Document
-      link: '/#getTax'
-    - name: Void a Document
-      link: '/#cancelTax'
-    - name: Estimate Tax
-      link: '/#estimateTax'
-    - name: Validate an Address
-      link: '/#validateAddress'
-
-nav_links:
-  - title: Overview
-    path: /avatax
-  - title: Use cases
-    path: /avatax/use-cases
-  - title: API reference
-    path: /api-reference/avatax/rest/v2

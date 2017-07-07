@@ -1,26 +1,6 @@
 # AVATAX BatchSvc SOAP
-swagger_path: avatax/batchsvc.yaml
 nav_link:
     title: Avatax BatchSvc SOAP API
     path: /avatax/api-reference/batch/soap
-product: avaTax
 older_api: true
-endpoint_hashes:
-    - name: Save a batch
-      link: '/#batchSave'
-    - name: Retrieve a batch
-      link: '/#batchFetch'
-    - name: Retrieve a file from a batch
-      link: '/#batchFileFetch'
-    - name: Delete a batch
-      link: '/#batchDelete'
-    - name: Process a batch
-      link: '/#batchProcess'
-    - name: Save a batch file
-      link: '/#batchFileSave'
-    - name: Delete a batch file
-      link: '/#batchFileDelete'
-    - name: Test service connectivity
-      link: '/#ping'
-    - name: Test authorized operations
-      link: '/#isAuthorized'
+
