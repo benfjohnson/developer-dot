@@ -108,7 +108,7 @@ const ConsoleLiveData = ({action, consoleLoading, endpoint, onConsoleToggledFree
                                 <button className={'ai-authorize btn-lg btn btn-primary'} onClick={() => {
                                     sessionStorage.devdotRedirectUrl = window.location.href;
                                     userManager.signinRedirect();
-                                }}>{'Authorize'}
+                                }}>{'Use AvaTax Credentials'}
                                 </button>
                             </span>
                         }
