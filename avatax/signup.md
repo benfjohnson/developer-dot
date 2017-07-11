@@ -6,7 +6,7 @@ doctype: documentation
 avaform: 1
 ---
 
-<h4 id="signup">Sign up for a Sandbox Account</h4>
+<h4 id="signup">Sign up for an AvaTax Sandbox Account</h4>
 
 <div class="half">
 <ul>
