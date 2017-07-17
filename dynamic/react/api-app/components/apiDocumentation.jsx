@@ -67,6 +67,17 @@ const ApiDocumentation = ({endpoint}) => (
         </table>
         <h3 id='description'>{'Description'}</h3>
         <ReactMarkdown className={'markdown-description'} source={endpoint.description || ''} />
+        {window.relevantBlogPosts ?
+        <div>
+            <h3>{'Relevant Blog Posts:'}</h3>
+            <ul className={'normal'}>
+                {
+                    Object.keys(window.relevantBlogPosts).map(function(key) {
+                        return <li><a href={window.relevantBlogPosts[key].url}>{window.relevantBlogPosts[key].title}</a></li>;
+                    })
+                }
+            </ul>
+        </div> : null}
         {(endpoint.pathParams || endpoint.headerParams || endpoint.queryString || endpoint.requestSchemaWithRefs) ?
             <div>
                 <h3 id='parameters'>{'Parameters'}</h3>

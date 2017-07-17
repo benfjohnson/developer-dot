@@ -22,6 +22,44 @@ const saveToFs = (folder, file, html) => {
     });
 };
 
+const buildBlogMap = (endpoint) => {
+    const blogPath = path.join(__dirname, '..', '_posts');
+    const files = fs.readdirSync(blogPath);
+    let blogMap = [];
+
+    if (endpoint) {
+        const opId = endpoint.operationId;
+
+        for (let j = 0; j < files.length; j++) {
+            const data = fs.readFileSync(path.join(blogPath, files[j]));
+            const frontMatter = String(data).split('---');
+            const dataByLine = frontMatter[1].split('\n');
+            const blogObj = {};
+            let blogUrl = files[j].slice(0, files[j].length - 3);
+            const blogUrlSplit = blogUrl.split('-');
+
+            blogUrl = '/blog/' + blogUrlSplit[0] + '/' + blogUrlSplit[1] + '/' + blogUrlSplit[2];
+            blogUrl += '/' + blogUrlSplit[3];
+            for (let k = 4; k < blogUrlSplit.length; k++) {
+                blogUrl += '-' + blogUrlSplit[k];
+            }
+            blogObj.url = blogUrl;
+            for (let i = 0; i < dataByLine.length; i++) {
+                if (dataByLine[i].includes('title')) {
+                    const titleLine = dataByLine[i].substring(dataByLine[i].indexOf(':') + 1);
+
+                    blogObj.title = titleLine;
+                } else if (dataByLine[i].includes('relevantapiemthods') && dataByLine[i].includes(opId)) {
+                    blogMap.push(blogObj);
+                    break;
+                }
+            }
+        }
+        return blogMap;
+    }
+    return null;
+};
+
 const saveStaticPage = (tagName, apiPath, buildHtmlFunc, state, apiInfo, disqus = true) => {
     const html = buildHtmlFunc(tagName, state, disqus);
     const savePath = path.join(__dirname, '..', apiPath);
@@ -125,6 +163,7 @@ export default (fileName, apiName, apiPath, product) => {
 
                 try {
                     staticState = parseSwaggerUi(...swaggerDocs, swaggerPath);
+                    buildBlogMap(staticState.apiEndpoints);
                 } catch (e) {
                     /* eslint-disable no-console */
                     console.log('Error parsing swaggerDoc', e);
@@ -134,11 +173,14 @@ export default (fileName, apiName, apiPath, product) => {
 
                 const buildHtml = (tagName, initialState, disqus) => {
                     const endpoint = initialState.apiEndpoints.length ? initialState.apiEndpoints[0] : null;
+
+                    const blog = buildBlogMap(endpoint);
+
                     const endpointLinks = endpoint ?
                         `["#${endpoint.operationId.replace(/\s/g, '')}", "${endpoint.name}"],\n` : '';
 
                     initialState.tagName = tagName;
-
+/* eslint-disable quotes */
                     return (
                         `---
 layout: default
@@ -161,14 +203,16 @@ endpoint_links: [
 ---
 <div id="api-console"></div>
 <script>
+    ${blog && blog.length > 0 ? `window.relevantBlogPosts = ${JSON.stringify(blog)};` : ``}
     window.modelsPath = 'api-reference/${fileName.substr(0, fileName.lastIndexOf('.'))}/models';
     window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
 </script>
-<script src="/public/js/api-bundle.js"></script>
+<script src='/public/js/api-bundle.js'></script>
 
 ${(disqus) ? '{% include disqus.html %}' : ''}`
                     );
                 };
+/* eslint-enable quotes */
 
                 // Save our root documentation page, with Postman Collection download link,
                 // API name/description, and links to models and methods documentation!
