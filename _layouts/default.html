@@ -253,7 +253,7 @@
             </nav>
             <main class="col-md-9 small-no-padding">{{ content }}</main>
         </section>
-        {% elsif page.nav == "certification" and page.product != "avaTax" and page.doctype != 'overview' %} {% include certification_breadcrumb.html %}
+        {% elsif page.nav == "certification" and page.doctype != 'overview' %}{% include certification_breadcrumb.html %} 
         <section class="row padding-sides half">
             <nav class="col-md-3">
                 {% include certification_navigation.html %}
@@ -270,14 +270,6 @@
                 {% include tests_navigation.html %}
             </nav>
 -->
-            <main class="col-md-9 small-no-padding">{{ content }}</main>
-        </section>
-
-        {% elsif page.nav == 'certification' and page.product == "avaTax" %} {% include ava_certification_breadcrumbs.html %}
-        <section class="row padding-sides half">
-            <nav class="col-md-3">
-               {% include ava_certification_navigation.html %}
-                </nav>
             <main class="col-md-9 small-no-padding">{{ content }}</main>
         </section>
         {% elsif page.nav == 'apis' %} {%if page.doctype != 'overview' %} {% include api_breadcrumb.html %} {%endif%} {% if page.doctype == 'api_references' or page.doctype == 'use_cases' %}

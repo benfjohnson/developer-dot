@@ -1,5 +1,27 @@
 <ul class = "api-ref-side-nav nav nav-pills nav-stacked hidden-xs hidden-sm">
-    <li {% if page.url == "/certification/avatax/" %}class="active"{% endif %}><a href="/certification/avatax/">Avalara AvaTax</a></li>
+    <li {% if page.url == "/certification/avatax/" %}class="active"{% endif %}><a href="/certification/avatax/">Avalara AvaTax</a>
+        {% if page.product == "avaTax" %}
+            <div style="padding-left:10px;">
+                <ul class = "api-ref-side-nav nav nav-pills nav-stacked hidden-xs hidden-sm">
+                    <li {% if page.url=="/certification/avatax/address-validation/" %}class="active" {% endif %}>
+                    <a href="/certification/avatax/address-validation">Calculation with Avalara AvaTax and Address Validation</a>
+                    </li>      
+                    <li {% if page.url=="/certification/avatax/returns/" %} class="active" {% endif %}>
+                        <a href="/certification/avatax/returns">Calculation with Avalara AvaTax and Returns</a>
+                    </li>          
+                    <li {% if page.url=="/certification/avatax/global/" %} class="active" {% endif %}>
+                        <a href="/certification/avatax/global">Calculation with Avalara AvaTax for Global Calculations</a>
+                    </li>           
+                    <li {% if page.url=="/certification/avatax/use-tax/" %} class="active" {% endif %}>
+                        <a href="/certification/avatax/use-tax">Calculation with Avalara AvaTax for Use Tax</a>
+                    </li>          
+                    <li {% if page.url=="/certification/avatax/pos/" %} class="active" {% endif %}>
+                        <a href="/certification/avatax/pos">Calculation with Avalara AvaTax for Point of Sale</a>
+                    </li>
+                </ul>
+            </div>
+        {% endif %}
+    </li>
     <li {% if page.url == "/certification/communications-certification/" %}class="active"{% endif %}><a href="/certification/communications-certification/">Avalara Communications</a></li>
     <li {% if page.url == "/certification/excise/" %}class="active"{% endif %}><a href="/certification/excise/">Avalara Excise</a></li>
     <li {% if page.url == "/certification/certcapture/" %}class="active"{% endif %}><a href="/certification/certcapture/">Avalara CertCapture</a></li>
