@@ -20,8 +20,9 @@ const ConsoleInputForm = ({endpoint, onFillConsoleSampleData, onSubmitConsoleReq
                 </span> : null}
             </div>
             <div style={{marginBottom: '10px'}}>
-                    <button
+                <button
                         className='btn btn-primary submit'
+                        disabled={Boolean(endpoint.consoleError)}
                         onClick={
                             (e) => {
                                 e.preventDefault();
@@ -29,8 +30,7 @@ const ConsoleInputForm = ({endpoint, onFillConsoleSampleData, onSubmitConsoleReq
                             }
                         }
                         type={'button'}
-                    >
-                        {'Submit'}
+                    > {'Submit'}
                     </button>
                     <span
                         className='m-l-1 clickable hdr-btn-adj-text'

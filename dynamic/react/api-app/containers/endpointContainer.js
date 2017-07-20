@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => {
             * Otherwise, just use the path specified as `host` in Swagger file
             */
             // Api Reference has complex pathParam/queryString structure (example, fieldType, etc.)
-            if (endpoint.consoleViewFreeEdit && endpoint.consoleError) {
+            if (endpoint.consoleError) {
                 dispatch(actions.consoleError(endpoint.id));
             } else {
                 // create either a proxied or normal API request
@@ -65,12 +65,6 @@ const mapDispatchToProps = (dispatch) => {
         },
         onRequestChanged: (endpointId, newValue) => {
             dispatch(actions.requestChanged(endpointId, newValue));
-        },
-        onConsoleToggledReadOnly: (endpointId) => {
-            dispatch(actions.consoleToggledReadOnly(endpointId));
-        },
-        onConsoleToggledFreeEdit: (endpointId) => {
-            dispatch(actions.consoleToggledFreeEdit(endpointId));
         },
         onResetConsole: (endpointId) => {
             dispatch(actions.resetConsole(endpointId));

@@ -232,7 +232,7 @@ module.exports = {
             .navigateTo('#calculate-console')
             .navigateTo('#calculate-console-body .fill-sample-data')
 
-            .getConsoleText('calculate', 'requestConsole', function(req) {
+            .getConsoleText('calculate', 'requestConsolePOST', function(req) {
                 browser.assert.ok(deepEqual(req, expectedRequest),
                     "request for 'try it now' matches expected request");
             })
@@ -315,7 +315,7 @@ module.exports = {
             .navigateTo('#rates-console')
             .navigateTo('#rates-console-body .fill-sample-data')
 
-            .getConsoleText('rates', 'requestConsole', function(req) {
+            .getConsoleText('rates', 'requestConsolePOST', function(req) {
                 browser.assert.ok(deepEqual(req, expectedRequest),
                     "request for 'try it now' matches expected request");
             })
@@ -365,7 +365,7 @@ module.exports = {
             .navigateTo('#units-console')
             .navigateTo('#units-console-body .fill-sample-data')
 
-            .getConsoleText('units', 'requestConsole', function(req) {
+            .getConsoleText('units', 'requestConsolePOST', function(req) {
                 browser.assert.ok(deepEqual(req, expectedRequest),
                     "request for 'try it now' matches expected request");
             })

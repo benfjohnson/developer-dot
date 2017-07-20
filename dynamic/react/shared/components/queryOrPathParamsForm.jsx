@@ -18,7 +18,6 @@ const QueryOrPathParamsForm = ({endpoint, paramType, params, onInputChange, onSu
                 onSubmitConsoleRequest(endpoint);
             }
         }>
-        <fieldset disabled={Boolean(endpoint.consoleViewFreeEdit)}>
             <h4 className={'api-console-section-header'}>{paramType === PARAM_TYPES.QUERY_STRING ? 'Query String' : 'Path Parameters'}</h4>
             {Object.keys(params).map((key, i) => {
                 return (
@@ -56,7 +55,6 @@ const QueryOrPathParamsForm = ({endpoint, paramType, params, onInputChange, onSu
                     </div>
                 );
             })}
-        </fieldset>
         <input style={{display: 'none'}} type={'submit'} value={'submit'}/>
         </form>
         </div>

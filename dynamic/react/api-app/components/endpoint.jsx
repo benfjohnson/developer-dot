@@ -8,7 +8,7 @@ import ExpanderIcon from './expanderIcon';
 const replaceSpaces = (str) => str.replace(/\s/g, '');
 
 // Give our endpoint an id based on its name for our clientside routing in jekyll
-const EndPointComponent = ({endpoint, apiType, onAccessTokenExpiration, onConsoleToggledFreeEdit, onConsoleToggledReadOnly, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onRequestChanged, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleAiForRequest, onToggleShowExcludedPostBodyProps, tagName, userProfile}) => (
+const EndPointComponent = ({endpoint, apiType, onAccessTokenExpiration, onFillConsoleSampleData, onSubmitConsoleRequest, onPostBodyInputChanged, onResetConsole, onRequestChanged, onQueryParamChanged, onPathParamChanged, onAddItemToPostbodyCollection, onRemovePostbodyCollectionItem, onToggleAiForRequest, onToggleShowExcludedPostBodyProps, tagName, userProfile}) => (
     <div className={'endpoint-summary'}>
         <ApiDocumentation endpoint={endpoint} />
         <br />
@@ -29,8 +29,6 @@ const EndPointComponent = ({endpoint, apiType, onAccessTokenExpiration, onConsol
                     <ApiConsole endpoint={endpoint}
                                 onAccessTokenExpiration={onAccessTokenExpiration}
                                 onAddItemToPostbodyCollection={onAddItemToPostbodyCollection}
-                                onConsoleToggledFreeEdit={onConsoleToggledFreeEdit}
-                                onConsoleToggledReadOnly={onConsoleToggledReadOnly}
                                 onFillConsoleSampleData={onFillConsoleSampleData}
                                 onPathParamChanged={onPathParamChanged}
                                 onPostBodyInputChanged={onPostBodyInputChanged}
@@ -97,8 +95,6 @@ EndPointComponent.propTypes = {
         })
     }).isRequired,
     onAddItemToPostbodyCollection: PropTypes.func.isRequired,
-    onConsoleToggledFreeEdit: PropTypes.func.isRequired,
-    onConsoleToggledReadOnly: PropTypes.func.isRequired,
     onFillConsoleSampleData: PropTypes.func.isRequired,
     onPathParamChanged: PropTypes.func.isRequired,
     onPostBodyInputChanged: PropTypes.func.isRequired,

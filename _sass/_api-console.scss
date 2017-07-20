@@ -45,41 +45,6 @@
     }
 }
 
-.code-snippet-tabcontent {
-    border: 1px solid #71e4ff;
-    padding: 10px;
-    padding-top: 0px;
-    margin: 10px;
-    margin-top: 0px;
-    overflow: auto;
-    background: $Darkest-grey;
-    display: none;
-    .string {
-        color: #71e4ff;
-    }
-    .number {
-        color: #fc88ff;
-    }
-    .boolean {
-        color: #fc88ff;
-    }
-    .null {
-        color: #fc88ff;
-    }
-    .key {
-        color: #8fffa7;
-    }
-    .punctuation {
-        color: #fceb51;
-    }
-}
-
-.code-snipet-console {
-    height: 300px;
-    width: 100%;
-    resize: none;
-}
-
 .nav>a {
     color: white;
 }
@@ -102,17 +67,25 @@
 }
 
 .code-snippet-code-text,
-.code-snippet-tabcontent textarea {
+.code-snippet textarea {
     color: #8fffa7;
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     font-size: 13px;
 }
 
 .code-snippet pre,
-.code-snippet-tabcontent pre,
-.code-snippet-tabcontent textarea {
+.code-snippet textarea {
     background: $Darkest-grey;
     border: none;
+}
+
+.code-snippet textarea {
+    height: 300px;
+    width: 100%;
+    resize: none;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    outline: none;
 }
 
 .hdr-btn-adj-text {
