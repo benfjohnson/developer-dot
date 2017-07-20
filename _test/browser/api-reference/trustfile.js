@@ -18,7 +18,7 @@ module.exports = {
             .apiReference.methods.layout(NUMAPIS, expectedNumberOfApiEndpoints);
     },
     'API Reference: TrustFile: Provisioning (verify number of endpoints)': function(browser) {
-        expectedNumberOfApiEndpoints = 2;
+        expectedNumberOfApiEndpoints = 3;
 
         browser
             .initialize(browser.globals.baseURL + '/api-reference/trustfile/app/methods/PostCompanySignup/')

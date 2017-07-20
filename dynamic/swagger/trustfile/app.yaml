@@ -1,7 +1,7 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
-  version: "3.0.0"
-  title: TrustFile Provisioning API
+  version: 3.0.0
+  title: Provisioning users
   description: |
     Signup endpoints for TrustFile.  Provision users via API to be called using connectors.
 
@@ -9,15 +9,10 @@ info:
     Test this endpoint @ https://stable.trustfile.avalara.com
 
     #### Security:
-    Authorization is done through header param
-
-    ```
-    Authorization: Bearer connectorToTFToken
-    ```
+    Authentication/Auth header is required for either endpoint
 
     #### CORS:
     Access-Control-Allow-Headers: X-Requested-With
-
   contact:
     name: Trustfile API Support
     url: trustfile.com
@@ -25,8 +20,8 @@ info:
 host: app.trustfile.avalara.com
 basePath: /v4
 schemes:
+  - http
   - https
-x-ApiType: SOAP
 consumes:
   - application/json
 produces:
@@ -38,32 +33,63 @@ securityDefinitions:
     name: Authorization
     description: Key should be 'Bearer ' followed by the connectorToTFToken
 paths:
+  /company:
+    get:
+      tags:
+        - Api
+      operationId: GetCompany
+      summary: 'Get Company via API GET '
+      description: |
+        * Data is expected as query string.
+        * A message with the status will be sent back based on the data provided.
+      parameters:
+        - name: email
+          in: query
+          description: The Email address that needs to be searched.
+          required: true
+          type: string
+      security:
+        - Authorization: []
+      responses:
+        '200':
+          description: Get Company successful response
+          schema:
+            type: object
+            example:
+              success: 'true'
+              message: User already exists
+            properties:
+              success:
+                type: boolean
+              message:
+                type: string
+        '400':
+          description: Get Company failure response
+          schema:
+            type: object
+            example:
+              success: 'false'
+              error: No email address provided
+            properties:
+              success:
+                type: boolean
+              error:
+                type: string
   /company/signup:
     post:
       tags:
         - Api
       operationId: PostCompanySignup
-      summary: Company Signup
-      description: >
+      summary: Company signup via API POST
+      description: |
         * All data is expected in the request body in a flat JSON format.
-
         * User Fields: email firstName lastName
-
-        * Company fields: companyName companyPhone companyLine1
-        companyLine2 companyLine3 companyCity companyZip companyState
-        companyCountry
-
-        * transactionType
-
+        * Company fields: companyName companyPhone companyLine1 companyLine2 companyLine3 companyCity companyZip companyState companyCountry
+        * transactionType 
         * License purchase fields: totalPrice paymentId
-
-        * Optional Lead fields: campaignId lsmr integratorId salesUserId
-        salesUserEmail
-
+        * Optional Lead fields: campaignId lsmr integratorId salesUserId salesUserEmail
         * The new user will receive an email to set their password
-
-        * Company token will be passed upon successful provisioning of the company
-
+        * company token will be passed upon successful provisioning of the company
       parameters:
         - in: body
           name: body
@@ -75,21 +101,20 @@ paths:
               - email
               - companyName
             example:
-              "email": "test.me@gmail.com"
-              "firstName": "firstname"
-              "lastName": "lastname"
-              "companyPhone": "4258776015"
-              "companyName": "Best Company Ever"
-              "companyLine1": "street address"
-              "companyCity": "city"
-              "companyZip": "98101"
-              "companyState": "WA"
-              "campaignId": "2"
-              "transactionType": "purchase"
-              "license": {
-                "totalPrice": 3600,
-                "paymentId": "123456789"
-              }
+              email: test.me@gmail.com
+              firstName: firstname
+              lastName: lastname
+              companyPhone: '4258776015'
+              companyName: Best Company Ever
+              companyLine1: street address
+              companyCity: city
+              companyZip: '98101'
+              companyState: WA
+              campaignId: '2'
+              transactionType: purchase
+              license:
+                totalPrice: 3600
+                paymentId: '123456789'
             properties:
               email:
                 type: string
@@ -134,14 +159,21 @@ paths:
                   paymentId:
                     type: string
                   totalPrice:
-                    type: string
+                    type: integer
       security:
         - Authorization: []
       responses:
         '200':
-          description: "Company creation successful response"
+          description: Company creation successful response
           schema:
             type: object
+            example:
+              status: Success
+              notification:
+                message: Account Created.
+                options:
+                  level: success
+              companyToken: d89c8c1d-6de2-4b3a-958b-74b674e3b823
             properties:
               status:
                 type: string
@@ -155,12 +187,14 @@ paths:
                     properties:
                       level:
                         type: string
+              companyToken:
+                type: string
         '400':
-          description: "Company creation failure response"
+          description: Company creation failure response
           schema:
             type: object
             example:
-              status: 'Failed'
+              status: Failed
               notification:
                 message: There was a problem creating your account. Account could not be created.
                 options:
@@ -168,7 +202,7 @@ paths:
             properties:
               status:
                 type: string
-                description: "Failed"
+                description: Failed
               notification:
                 type: object
                 properties:
