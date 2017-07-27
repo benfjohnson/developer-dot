@@ -49,7 +49,7 @@ const buildBlogMap = (endpoint) => {
                     const titleLine = dataByLine[i].substring(dataByLine[i].indexOf(':') + 1);
 
                     blogObj.title = titleLine;
-                } else if (dataByLine[i].includes('relevantapiemthods') && dataByLine[i].includes(opId)) {
+                } else if (dataByLine[i].includes('relevantapimethods') && dataByLine[i].includes(opId)) {
                     blogMap.push(blogObj);
                     break;
                 }
