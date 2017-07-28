@@ -15,7 +15,6 @@ const PostBodyForm = (props) => (
                 props.onSubmitConsoleRequest(props.endpoint);
             }
         }>
-            <fieldset disabled={Boolean(props.endpoint.consoleViewFreeEdit)}>
                 <PostBodyFormItem
                             canRemove={false}
                             displayName={'Post Body'}
@@ -27,7 +26,6 @@ const PostBodyForm = (props) => (
                             onPostBodyInputChanged={props.onPostBodyInputChanged}
                             onRemovePostbodyCollectionItem={props.onRemovePostbodyCollectionItem}
                             showExcludedPostBodyFields={props.endpoint.showExcludedPostBodyFields} />
-            </fieldset>
             <input style={{display: 'none'}} type={'submit'} value={'submit'}/>
         </form>
     </div>
@@ -50,7 +48,6 @@ PostBodyForm.propTypes = {
         sampleAuthHeader: PropTypes.string,
         path: PropTypes.string.isRequired,
         action: PropTypes.string.isRequired,
-        consoleViewFreeEdit: PropTypes.bool.isRequired,
         queryString: PropTypes.objectOf(
             PropTypes.shape({
                 description: PropTypes.string,

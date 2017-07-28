@@ -32,7 +32,7 @@ module.exports = {
             .navigateTo('#getTax-console')
             .navigateTo('#getTax-console-body .fill-sample-data')
 
-            .getConsoleText('getTax', 'requestConsole', function(req) {
+            .getConsoleText('getTax', 'requestConsolePOST', function(req) {
                 browser.assert.ok(deepEqual(req, expectedRequest),
                     "request for 'try it now' matches expected request");
             })
@@ -59,7 +59,7 @@ module.exports = {
             .navigateTo('#AccountResetLicenseKey-console')
             .navigateTo('#AccountResetLicenseKey-console-body .fill-sample-data')
 
-            .getConsoleText('AccountResetLicenseKey', 'requestConsole', function(req) {
+            .getConsoleText('AccountResetLicenseKey', 'requestConsolePOST', function(req) {
                 browser.assert.ok(deepEqual(req, expectedRequest),
                     "request for 'try it now' matches expected request");
             });

@@ -117,9 +117,8 @@ export default (state, action) => {
         newState.qsPath = buildQueryString(reduceParamsToKeyValuePair(newState.queryString));
         newState.curl = buildCurl(newState.sampleAuthHeader, newState);
         newState.apiResponse = undefined;
-        if (newState.consoleViewFreeEdit) {
-            newState.requestInput = '{}';
-        }
+        newState.requestInput = '{}';
+        newState.consoleError = false;
         break;
     case actionTypes.SUBMIT_STARTED:
         newState.apiConsoleLoading = true;
@@ -163,6 +162,8 @@ export default (state, action) => {
         }
 
         updateDataAtProperty(action.postBodyParamName, castedValue, newState.postBody);
+        newState.consoleError = false;
+        newState.requestInput = JSON.stringify(newState.postBody, null, 2);
         break;
     case actionTypes.REQUEST_CHANGED:
         newState.requestInput = action.newValue;
@@ -172,15 +173,6 @@ export default (state, action) => {
         } catch (e) {
             newState.consoleError = true;
         }
-        break;
-    case actionTypes.CONSOLE_TOGGLED_READ_ONLY:
-        newState.consoleViewFreeEdit = false;
-        newState.consoleError = false;
-        newState.requestInput = undefined;
-        break;
-    case actionTypes.CONSOLE_TOGGLED_FREE_EDIT:
-        newState.consoleViewFreeEdit = true;
-        newState.requestInput = JSON.stringify(newState.postBody, null, 2);
         break;
     case actionTypes.CONSOLE_ERROR:
         newState.consoleError = true;

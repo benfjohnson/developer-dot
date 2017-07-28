@@ -45,25 +45,21 @@ const syntaxHighlight = (jsonObj) => {
     return highlightPunctuation(json);
 };
 
-const PostHelper = ({action, endpoint, onConsoleToggledFreeEdit, onConsoleToggledReadOnly, onRequestChanged, request}) => {
+const PostHelper = ({action, endpoint, onRequestChanged, request}) => {
     if (action === 'post' && (typeof request === 'object' || Array.isArray(request))) {
         return (
-            <div>
-                <ul className={'nav nav-tabs'} id={'console-tabs'}>
-                    <li className={'nav'} id={'FE'}><a data-toggle={'tab'} href={'#console_input_freeEdit'} onClick={() => {
-                        onConsoleToggledFreeEdit(endpoint.id);
-                    }}><i className={'glyphicon glyphicon-pencil'}/>{' Editor'}</a></li>
-                    <li className={'nav active'} id={'RO'}><a data-toggle={'tab'} href={'#console_input_readOnly'} onClick={() => {
-                        onConsoleToggledReadOnly(endpoint.id);
-                    }}><i className={'glyphicon'}/>{'Console'}</a></li>
-                </ul>
-                <div className={'tab-content'}>
-                    <div className={'code-snippet code-snippet-tabcontent reqScroll active'} id={'console_input_readOnly'}><pre dangerouslySetInnerHTML={{__html: syntaxHighlight(request)}} /></div>
-                    <div className={'code-snippet code-snippet-tabcontent reqScroll'} id={'console_input_freeEdit'}><textarea className={'code-snipet-console'} id={'console_input'} onChange={() => {
-                        onRequestChanged(endpoint.id, document.getElementById('console_input').value);
-                    }} value={endpoint.requestInput} /></div>
-                </div>
-            </div>
+            <div className={'code-snippet reqScroll'}><textarea id={'console_input'} onChange={() => {
+                onRequestChanged(endpoint.id, document.getElementById('console_input').value);
+            }} onKeyDown ={(e) => {
+                if (e.keyCode === 9) {
+                    e.preventDefault();
+                    const text = document.getElementById('console_input');
+                    const s = text.selectionStart;
+
+                    text.value = text.value.substring(0, text.selectionStart) + ' ' + ' ' + text.value.substring(text.selectionEnd);
+                    text.selectionEnd = s + 2;
+                }
+            }} value={endpoint.requestInput} /></div>
         );
     } else if (typeof request === 'object' || Array.isArray(request)) {
         return (
@@ -79,13 +75,11 @@ PostHelper.displayName = 'Console Helper';
 PostHelper.propTypes = {
     action: PropTypes.string.isRequired,
     endpoint: PropTypes.object.isRequired,
-    onConsoleToggledFreeEdit: PropTypes.func.isRequired,
-    onConsoleToggledReadOnly: PropTypes.func.isRequired,
     onRequestChanged: PropTypes.func.isRequired,
     request: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string])
 };
 
-const ConsoleLiveData = ({action, consoleLoading, endpoint, onConsoleToggledFreeEdit, onConsoleToggledReadOnly, onRequestChanged, onToggleAiForRequest, path, request, response, userProfile}) => {
+const ConsoleLiveData = ({action, consoleLoading, endpoint, onRequestChanged, onToggleAiForRequest, path, request, response, userProfile}) => {
     return (
         <div>
             <h5 className={'console-output-header'}>
@@ -121,19 +115,16 @@ const ConsoleLiveData = ({action, consoleLoading, endpoint, onConsoleToggledFree
                     {request ?
                         <div className={'row'} style={{marginBottom: '8px'}}>
                             <div className={'col-md-6 console-req-container'}>
-                                <h5 className={'console-output-header'}>{'Request'}</h5>
+                                <h5 className={'console-output-header'}>{'Request '}{action === 'post' ? <i className={'glyphicon glyphicon-pencil'}/> : null}</h5>
                                 {/* eslint-disable react/no-danger */}
                                 <PostHelper action={action}
                                     endpoint={endpoint}
-                                    onConsoleToggledFreeEdit={onConsoleToggledFreeEdit}
-                                    onConsoleToggledReadOnly={onConsoleToggledReadOnly}
                                     onRequestChanged={onRequestChanged}
                                     request={request}
                                 />
                             </div>
                             <div className={'col-md-6 console-res-container'}>
-                                {action === 'post' ? <h5 className={'console-output-header response-post'}>{'Response'}</h5> :
-                                <h5 className={'console-output-header'}>{'Response'}</h5>}
+                                <h5 className={'console-output-header'}>{'Response'}</h5>
                                 {endpoint.consoleError ?
                                     <div className={'json_error'}>
                                         <h5>{'Incorrect JSON format'}</h5>
@@ -156,8 +147,6 @@ ConsoleLiveData.propTypes = {
     action: PropTypes.string.isRequired,
     consoleLoading: PropTypes.bool.isRequired,
     endpoint: PropTypes.object.isRequired,
-    onConsoleToggledFreeEdit: PropTypes.func.isRequired,
-    onConsoleToggledReadOnly: PropTypes.func.isRequired,
     onRequestChanged: PropTypes.func.isRequired,
     onToggleAiForRequest: PropTypes.func.isRequest,
     path: PropTypes.string.isRequired,

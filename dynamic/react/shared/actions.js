@@ -54,18 +54,6 @@ export default {
             newValue: newValue
         };
     },
-    consoleToggledReadOnly: (endpointId) => {
-        return {
-            type: actionTypes.CONSOLE_TOGGLED_READ_ONLY,
-            endpointId: endpointId
-        };
-    },
-    consoleToggledFreeEdit: (endpointId) => {
-        return {
-            type: actionTypes.CONSOLE_TOGGLED_FREE_EDIT,
-            endpointId: endpointId
-        };
-    },
     consoleError: (endpointId) => {
         return {
             type: actionTypes.CONSOLE_ERROR,

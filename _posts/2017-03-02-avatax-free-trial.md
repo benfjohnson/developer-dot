@@ -2,6 +2,7 @@
 layout: post
 title: Free TaxRates API
 description: Try out AvaTax for free today!
+relevantapimethods: RequestFreeTrial, TaxRatesByAddress, TaxRatesByPostalCode
 date: 2017-03-02 14:00
 author: Ted Spence
 comments: true
