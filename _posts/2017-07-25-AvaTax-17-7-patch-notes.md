@@ -23,15 +23,23 @@ This article is about the July 2017 monthly update to the AvaTax REST v2 API.
         <tr>
             <td>Sandbox</td>
             <td><a href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></td>
-            <td>2017-07-25</td>
+            <td>2017-07-31</td>
         </tr>
         <tr>
             <td>Production</td>
             <td><a href="https://rest.avatax.com">https://rest.avatax.com</a></td>
-            <td>2017-07-31</td>
+            <td>2017-08-02</td>
         </tr>
     </table>
 </div>
+
+<i>UPDATE 2017-07-31 - An additional feature was added to this release and the date was adjusted to 2017-08-02.</i>
+
+<h3>New "SummaryOnly" Option for CreateTransaction</h3>
+
+The [CreateTransaction API](https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Transactions/CreateTransaction/) returns all tax and metadata about a transaction - which can be daunting when you only want to put the correct tax amount on a receipt.  In order to help customers manage a smaller data set, we have introduced a new option: `$include=SummaryOnly`.  
+
+When you add this new option to your `CreateTransaction` API call, you will receive less metadata in your API call result, but still get everything necessary to print an accurate tax total on your invoice or receipt.
 
 <h3>New Filtering Options for Definitions API</h3>
 
@@ -42,6 +50,7 @@ To use this feature, please look at the developer guide pages for each API to se
 <h3>Other Bugfixes and Improvements</h3>
 
 <ul class="normal">
+    <li>Additional performance improvements</li>
     <li>Bug fixes for filing calendars with quarterly frequencies</li>
     <li>Improved date handling for filing calendars</li>
     <li>Users can now request license keys with account activate API</li>
