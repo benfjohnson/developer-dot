@@ -2,13 +2,15 @@
   "swagger": "2.0",
   "info": {
     "title": "AvaTax Brazil",
-    "description": "The Avatax-Brazil API exposes the most commonly services available for interacting\nwith the AvaTax-Brazil services, allowing calculation of taxes, issuing electronic\ninvoice documents and modifying existing transactions when allowed by tax authorities.\nThis API is exclusively for use by business with a physical presence in Brazil.\n",
+    "description": "The Avatax-Brazil API exposes the most commonly services available for interacting with the AvaTax-Brazil services, allowing calculation of taxes, issuing electronic invoice documents and modifying existing transactions when allowed by tax authorities.  This API is exclusively for use by business with a physical presence in Brazil.",
     "version": "1.0"
   },
   "host": "avataxbr-sandbox.avalarabrasil.com.br",
-  "x-swagger-namespace": "DB",
   "schemes": [
     "http"
+  ],
+  "consumes": [
+    "application/json"
   ],
   "produces": [
     "application/json"
@@ -73,7 +75,13 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "post": {
         "operationId": "insertDocument",
@@ -126,62 +134,6 @@
           }
         }
       }
-    }
-  },
-  "parameters": {
-    "header_jwt": {
-      "name": "Authorization",
-      "in": "header",
-      "description": "Bearer {auth}",
-      "required": true,
-      "type": "string"
-    },
-    "query_documentType": {
-      "name": "documentType",
-      "in": "query",
-      "description": "Document Type",
-      "type": "string",
-      "required": true,
-      "enum": [
-        "SERVICO",
-        "MERCADORIA",
-        "TRANSPORTE"
-      ]
-    },
-    "query_startDate": {
-      "name": "startDate",
-      "in": "query",
-      "description": "The start date in range",
-      "type": "string",
-      "required": true,
-      "maxLength": 10
-    },
-    "query_endDate": {
-      "name": "endDate",
-      "in": "query",
-      "description": "The end date in range",
-      "type": "string",
-      "required": true,
-      "maxLength": 10
-    },
-    "query_documentSubType": {
-      "name": "subType",
-      "in": "query",
-      "description": "Document Sub-type",
-      "type": "string",
-      "required": true,
-      "enum": [
-        "ENTRADA",
-        "EMISSAO"
-      ]
-    },
-    "query_federalTaxId": {
-      "name": "federalTaxId",
-      "in": "query",
-      "description": "CNPJ/CPF of Sales Buyer, if CPF pattern is '[0-9]{11}' if CNPJ pattern is '[0-9]{14}",
-      "type": "string",
-      "required": true,
-      "pattern": "([!-ÿ]{0}|[!-ÿ]{5,20})?"
     }
   },
   "responses": {
@@ -262,6 +214,62 @@
       "schema": {
         "$ref": "#/definitions/Message"
       }
+    }
+  },
+  "parameters": {
+    "header_jwt": {
+      "name": "Authorization",
+      "in": "header",
+      "description": "Bearer {auth}",
+      "required": true,
+      "type": "string"
+    },
+    "query_documentType": {
+      "name": "documentType",
+      "in": "query",
+      "description": "Document Type",
+      "type": "string",
+      "required": true,
+      "enum": [
+        "SERVICO",
+        "MERCADORIA",
+        "TRANSPORTE"
+      ]
+    },
+    "query_startDate": {
+      "name": "startDate",
+      "in": "query",
+      "description": "The start date in range",
+      "type": "string",
+      "required": true,
+      "maxLength": 10
+    },
+    "query_endDate": {
+      "name": "endDate",
+      "in": "query",
+      "description": "The end date in range",
+      "type": "string",
+      "required": true,
+      "maxLength": 10
+    },
+    "query_documentSubType": {
+      "name": "subType",
+      "in": "query",
+      "description": "Document Sub-type",
+      "type": "string",
+      "required": true,
+      "enum": [
+        "ENTRADA",
+        "EMISSAO"
+      ]
+    },
+    "query_federalTaxId": {
+      "name": "federalTaxId",
+      "in": "query",
+      "description": "CNPJ/CPF of Sales Buyer, if CPF pattern is '[0-9]{11}' if CNPJ pattern is '[0-9]{14}",
+      "type": "string",
+      "required": true,
+      "pattern": "([!-ÿ]{0}|[!-ÿ]{5,20})?"
     }
   },
   "definitions": {
@@ -345,5 +353,6 @@
         }
       }
     }
-  }
+  },
+  "x-swagger-namespace": "BR"
 }

@@ -3,17 +3,19 @@
   "info": {
     "title": "AvaTax Brazil",
     "description": "The Avatax-Brazil API exposes the most commonly services available for interacting with the AvaTax-Brazil services, allowing calculation of taxes, issuing electronic invoice documents and modifying existing transactions when allowed by tax authorities.  This API is exclusively for use by business with a physical presence in Brazil.",
-    "version": "0.9.0"
+    "version": "1.0"
   },
   "host": "avataxbr-sandbox.avalarabrasil.com.br",
-  "x-swagger-namespace": "SV",
   "schemes": [
     "http"
   ],
-  "basePath": "/v2",
+  "consumes": [
+    "application/json"
+  ],
   "produces": [
     "application/json"
   ],
+  "basePath": "/v2",
   "paths": {
     "/transactions?goods": {
       "parameters": [
@@ -320,13 +322,10 @@
         }
       }
     },
-    "/transactions/service/{transactionType}": {
+    "/transactions/service": {
       "parameters": [
         {
           "$ref": "#/parameters/header_jwt"
-        },
-        {
-          "$ref": "#/parameters/path_transactionType_service"
         }
       ],
       "get": {
@@ -338,6 +337,11 @@
         ],
         "produces": [
           "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/query_transactionType_service"
+          }
         ],
         "tags": [
           "Services Transactions"
@@ -370,13 +374,10 @@
         }
       }
     },
-    "/transactions/service/{transactionType}/{documentCode}": {
+    "/transactions/service/{documentCode}": {
       "parameters": [
         {
           "$ref": "#/parameters/header_jwt"
-        },
-        {
-          "$ref": "#/parameters/path_transactionType_service"
         },
         {
           "$ref": "#/parameters/path_documentCode"
@@ -423,13 +424,10 @@
         }
       }
     },
-    "/transactions/service/{transactionType}/{documentCode}/void": {
+    "/transactions/service/{documentCode}/void": {
       "parameters": [
         {
           "$ref": "#/parameters/header_jwt"
-        },
-        {
-          "$ref": "#/parameters/path_transactionType_service"
         },
         {
           "$ref": "#/parameters/path_documentCode"
@@ -475,35 +473,158 @@
           }
         }
       }
-    }
-  },
-  "parameters": {
-    "header_jwt": {
-      "name": "Authorization",
-      "in": "header",
-      "description": "Bearer {auth}",
-      "required": true,
-      "type": "string"
     },
-    "path_transactionType_service": {
-      "name": "transactionType",
-      "in": "path",
-      "description": "Transaction Type (sale, purchase, receipts or payment)",
-      "required": true,
-      "type": "string",
-      "enum": [
-        "sale",
-        "purchase",
-        "payment",
-        "receipt"
-      ]
+    "/transactions/goods": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        }
+      ],
+      "get": {
+        "operationId": "retrieveGoodsTransactions",
+        "summary": "Retrieve goods transactions",
+        "description": "Retrieve a list of transactions.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/query_transactionType_goods"
+          }
+        ],
+        "tags": [
+          "Goods Transactions"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of transaction"
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      }
     },
-    "path_documentCode": {
-      "name": "documentCode",
-      "in": "path",
-      "description": "Document Code",
-      "required": true,
-      "type": "string"
+    "/transactions/goods/{documentCode}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        },
+        {
+          "$ref": "#/parameters/path_documentCode"
+        }
+      ],
+      "get": {
+        "operationId": "singleGoodsTransaction",
+        "summary": "Retrieve goods transactions",
+        "description": "Retrieve a specific transaction.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "Goods Transactions"
+        ],
+        "responses": {
+          "200": {
+            "description": "List of transaction"
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      }
+    },
+    "/transactions/goods/{documentCode}/void": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        },
+        {
+          "$ref": "#/parameters/path_documentCode"
+        }
+      ],
+      "put": {
+        "operationId": "goodsTransactionVoid",
+        "summary": "Void Transaction",
+        "description": "Request to cancel a Invoice and if authorized, cancel a transaction.\n",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "tags": [
+          "Goods Transactions"
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/responses/204_NoContent"
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      }
     }
   },
   "responses": {
@@ -551,6 +672,64 @@
       "schema": {
         "$ref": "#/definitions/Message"
       }
+    },
+    "201_Created": {
+      "description": "Success.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "uuid"
+          }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "header_jwt": {
+      "name": "Authorization",
+      "in": "header",
+      "description": "Bearer {auth}",
+      "required": true,
+      "type": "string"
+    },
+    "path_documentCode": {
+      "name": "documentCode",
+      "in": "path",
+      "description": "Document Code",
+      "required": true,
+      "type": "string"
+    },
+    "query_transactionType_goods": {
+      "name": "type",
+      "in": "query",
+      "description": "Transaction Type",
+      "type": "string",
+      "enum": [
+        "sale",
+        "purchase",
+        "sales-return",
+        "purchase-return",
+        "transfer-return",
+        "shipping",
+        "shipping-return",
+        "transfer",
+        "receipt-adjustment",
+        "transfer-adjustment"
+      ]
+    },
+    "query_transactionType_service": {
+      "name": "type",
+      "in": "query",
+      "description": "Transaction Type (sale, purchase, receipts or payment)",
+      "type": "string",
+      "enum": [
+        "sale",
+        "purchase",
+        "payment",
+        "receipt"
+      ]
     }
   },
   "definitions": {
@@ -694,6 +873,12 @@
     },
     "PaymentTransactionOut": {
       "type": "object",
+      "required": [
+        "header",
+        "lines",
+        "calculatedTaxSummary",
+        "processingInfo"
+      ],
       "properties": {
         "header": {
           "$ref": "#/definitions/PayRecHeader"
@@ -886,6 +1071,7 @@
             },
             "transactionModel": {
               "type": "string",
+              "default": "55",
               "enum": [
                 "01",
                 "1B",
@@ -1382,7 +1568,7 @@
                 "details": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/DetailsCalculatedTaxItem"
+                    "$ref": "#/definitions/DetailsCalculatedTaxGoods_Item"
                   }
                 }
               }
@@ -1875,8 +2061,7 @@
             },
             "stateTaxId": {
               "description": "fiscal document creator, farmer stateTaxId",
-              "type": "string",
-              "pattern": "[0-9]{14}"
+              "type": "string"
             },
             "model": {
               "description": "Document Fiscal model\n- '04' # FARMER DOCUMENT\n- '01' # DETACHED DOCUMENT - AVULSO\n",
@@ -1959,7 +2144,6 @@
         },
         "stateTaxId": {
           "type": "string",
-          "pattern": "[0-9]{2,14}|ISENTO",
           "description": "State Tax ID"
         },
         "suframa": {
@@ -2404,7 +2588,8 @@
             "use or consumption on demand by contract",
             "use or consumption on energy supplier establishment",
             "use or consumption of fuel transaction type exportation",
-            "use or consumption on services",
+            "use or consumption on services subject to iss",
+            "use or consumption on services subject to icms",
             "fixed assets",
             "resale export",
             "resale icms exempt",
@@ -2484,10 +2669,10 @@
         }
       }
     },
-    "DetailsCalculatedTaxItem": {
+    "DetailsCalculatedTaxGoods_Item": {
       "allOf": [
         {
-          "$ref": "#/definitions/DetailsCalculatedTax"
+          "$ref": "#/definitions/DetailsCalculatedTaxGoods"
         },
         {
           "type": "object",
@@ -2755,7 +2940,7 @@
         "maxOccupantsQuantity": {
           "type": "string",
           "maxLength": 3,
-          "format": "[0-9]{1,3}",
+          "pattern": "[0-9]{1,3}",
           "description": "max number of sit occupants"
         },
         "restrictionType": {
@@ -2930,7 +3115,7 @@
         }
       }
     },
-    "DetailsCalculatedTax": {
+    "DetailsCalculatedTaxGoods": {
       "type": "object",
       "properties": {
         "locationType": {
@@ -2952,36 +3137,7 @@
           "default": "Country"
         },
         "taxImpact": {
-          "type": "object",
-          "properties": {
-            "impactOnFinalPrice": {
-              "type": "string",
-              "enum": [
-                "Add",
-                "Included",
-                "Subtracted",
-                "Informative"
-              ]
-            },
-            "impactOnNetAmount": {
-              "type": "string",
-              "enum": [
-                "Add",
-                "Included",
-                "Subtracted",
-                "Informative"
-              ]
-            },
-            "accounting": {
-              "type": "string",
-              "description": "Escrituração",
-              "enum": [
-                "liability",
-                "asset",
-                "none"
-              ]
-            }
-          }
+          "$ref": "#/definitions/DetailsCalculatedTaxImpact"
         },
         "taxType": {
           "type": "string",
@@ -3147,6 +3303,20 @@
       ],
       "description": "Use to determined how the tax is applicable and calculated. It may define and exemption, a tax base reduction, identify that a special rate is applicable (not the rate itself).\n- '00' # Taxed in its totality\n- '10' # Taxed and subject to tax substitution (ICMS ST)\n- '20' # Taxed with Tax Base Reduction\n- '30' # Exempt /Not Taxed and subject to tax Substitution (ICMS#ST)\n- '40' # Tax Exempt\n- '41' # Not Taxed\n- '50' # Taxes Suspended\n- '51' # Taxes Diferred\n- '60' # ICMS Tax already collected through Substituition (ICMS ST)\n- '70' # Taxed with Tax Base Reduction and subject to Tax Subsititution (ICMS ST)\n- '90' # Others\n"
     },
+    "DetailsCalculatedTaxImpact": {
+      "type": "object",
+      "properties": {
+        "impactOnFinalPrice": {
+          "$ref": "#/definitions/DetailsTaxImpactEnum"
+        },
+        "impactOnNetAmount": {
+          "$ref": "#/definitions/DetailsTaxImpactEnum"
+        },
+        "accounting": {
+          "$ref": "#/definitions/DetailsTaxAccountingEnum"
+        }
+      }
+    },
     "ICMSSesonReason": {
       "description": "- '0' # NO ICMS TAX RELIEF\n- '1' # TAXI\n- '3' # AGRICULTURAL PRODUCTION\n- '4' # FLEET OWNERS\n- '5' # DIPLOMATIC MISSIONS\n- '6' # VEHICLE AND MOTORCICLE OF FREE ZONE AREA AND OCIDENTAL AMAZON\n- '7' # SUFRAMA\n- '8' # SALES TO GOVERNMENT\n- '9' # OTHERS\n- '10' # DISABLED PERSON DRIVER\n- '11' # DISABLED PERSON NOT DRIVER\n",
       "type": "string",
@@ -3162,6 +3332,24 @@
         "9",
         "10",
         "11"
+      ]
+    },
+    "DetailsTaxImpactEnum": {
+      "type": "string",
+      "enum": [
+        "Add",
+        "Included",
+        "Subtracted",
+        "Informative"
+      ]
+    },
+    "DetailsTaxAccountingEnum": {
+      "type": "string",
+      "description": "Escrituração",
+      "enum": [
+        "liability",
+        "asset",
+        "none"
       ]
     },
     "CalculatedTaxSummaryForGoods": {
@@ -3721,7 +3909,6 @@
         },
         "stateTaxId": {
           "type": "string",
-          "pattern": "[0-9]{2,14}|ISENTO",
           "description": "State Tax ID"
         },
         "suframa": {
@@ -4114,7 +4301,7 @@
         "details": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SalesTaxByTypeDetail"
+            "$ref": "#/definitions/DetailsCalculatedTaxServiceSales"
           }
         }
       }
@@ -4222,7 +4409,7 @@
         }
       }
     },
-    "SalesTaxByTypeDetail": {
+    "DetailsCalculatedTaxServiceSales": {
       "type": "object",
       "properties": {
         "locationType": {
@@ -4241,6 +4428,9 @@
             "Country"
           ],
           "description": "Type of jurisdiction\n- 'City'\n- 'State'\n- 'Country'\n"
+        },
+        "taxImpact": {
+          "$ref": "#/definitions/DetailsCalculatedTaxImpact"
         },
         "taxType": {
           "type": "string",
@@ -4528,7 +4718,6 @@
         },
         "stateTaxId": {
           "type": "string",
-          "pattern": "[0-9]{2,14}|ISENTO",
           "description": "State Tax ID"
         },
         "suframa": {
@@ -4718,7 +4907,7 @@
         "details": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/PurchaseTaxByTypeDetail"
+            "$ref": "#/definitions/DetailsCalculatedTaxServicePurchase"
           }
         }
       }
@@ -4835,7 +5024,7 @@
         }
       }
     },
-    "PurchaseTaxByTypeDetail": {
+    "DetailsCalculatedTaxServicePurchase": {
       "type": "object",
       "properties": {
         "locationType": {
@@ -4854,6 +5043,9 @@
             "Country"
           ],
           "description": "Type of jurisdiction\n- 'City'\n- 'State'\n- 'Country'\n"
+        },
+        "taxImpact": {
+          "$ref": "#/definitions/DetailsCalculatedTaxImpact"
         },
         "taxType": {
           "type": "string",
@@ -5168,6 +5360,7 @@
       ]
     }
   },
+  "x-swagger-namespace": "BR",
   "x-swagger-erouter-validation-rules": {
     "/transactions/*": {
       "in": "body",
