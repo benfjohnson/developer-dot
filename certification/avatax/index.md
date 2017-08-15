@@ -10,11 +10,11 @@ nav: certification
 <p><img src="/public/images/blog/Avalara_CERTIFIED-150x25-01.png" alt="Avalara Certified" /></p>
 <p>
 An integration can be issued for any of the following feature subsets in addition to a basic calculation certification:<br />
-To have your integration <a href="/certification">Certified by Avalara</a>, we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax with your application.  To be Certified for Avalara AvaTax, all of the items with an R beside them listed below are the required elements that must be present in your integration.
+To have your integration Certified by Avalara, we have outlined the areas of integration that are necessary to ensure a stable and robust customer experience using AvaTax with your application.  To be Certified for Avalara AvaTax, all of the items with an R beside them listed below are the required elements that must be present in your integration.
 </p>
 <blockquote><strong>Note: </strong>Address validation is a requirement for certification, however we don’t require you to use our address validation service.</blockquote>
 <p>For more information about the benefits of certification, check out our <a href="/certification">Certification Guide</a>.</p>
-<h2>Certified for Avalara AvaTax<a name="CertifiedForAvalaraAvaTax"></a></h2>
+<h2>Certified for Avalara AvaTax for Sales Tax<a name="CertifiedForAvalaraAvaTax"></a></h2>
 <p>Certification for Avalara AvaTax requires the delivery of all functional requirements shown below.</p>
 <h3>Avalara AvaTax Administration &amp; Utilities Integration</h3>
 <p>The AvaTax Administration section provides the user with configuration, setup and utility functions necessary to administer the AvaTax sales tax calculation and address validation functions. Note that these items cannot be examined on a analysis of your data performed by AvaTax support staff.</p>

@@ -11,7 +11,6 @@ Consuming sales tax related services can be considered mission-critical, especia
 
 Avalara’s Server Status can be viewed publicly at <a href="http://status.avalara.com">http://status.avalara.com</a>. This page outlines the availability of the service, current performance in terms of response time and a historical view of the availability for the past week.
 
-<iframe src="http://status.avalara.com" width="100%" height="350"></iframe><br />
 
 Avalara is committed to providing a minimum service uptime of 99.5%. Certain interested customers can purchase a higher Service Level Agreement if they need a higher commitment to ensuring service availability. You can contact your assigned Avalara Account Manager for further information.
 <h3>Network Latency</h3>

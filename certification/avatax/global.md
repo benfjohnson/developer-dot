@@ -6,7 +6,7 @@ doctype: integration_checklists
 nav: certification
 ---
 <div class="half">
-<h2>AvaTax with Global Checklist</h2>
+<h2>AvaTax with Global (VAT/GST) Checklist</h2>
 <p>Certification for Avalara AvaTax with Global requires the delivery of all functional requirements shown below.</p>
 
 <h3>AvaTax Administration &amp; Utilities Integration</h3>

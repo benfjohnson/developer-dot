@@ -3,11 +3,14 @@
         {% if page.product == "avaTax" %}
             <div style="padding-left:10px;">
                 <ul class = "api-ref-side-nav nav nav-pills nav-stacked hidden-xs hidden-sm">
+                    <li {% if page.url=="/certification/avatax/" %}class="active" {% endif %}>
+                    <a href="/certification/avatax/">Calculation with Avalara AvaTax for Sales Tax</a>
+                    </li>      
                     <li {% if page.url=="/certification/avatax/address-validation/" %}class="active" {% endif %}>
                     <a href="/certification/avatax/address-validation">Calculation with Avalara AvaTax and Address Validation</a>
                     </li>      
                     <li {% if page.url=="/certification/avatax/returns/" %} class="active" {% endif %}>
-                        <a href="/certification/avatax/returns">Calculation with Avalara AvaTax and Returns</a>
+                        <a href="/certification/avatax/returns">Calculation with Avalara AvaTax and Refunds</a>
                     </li>          
                     <li {% if page.url=="/certification/avatax/global/" %} class="active" {% endif %}>
                         <a href="/certification/avatax/global">Calculation with Avalara AvaTax for Global Calculations</a>
