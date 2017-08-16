@@ -2,13 +2,15 @@
   "swagger": "2.0",
   "info": {
     "title": "AvaTax Brazil",
-    "description": "The Avatax-Brazil API exposes the most commonly services available for interacting \nwith the AvaTax-Brazil services, allowing calculation of taxes, issuing electronic\ninvoice documents and modifying existing transactions when allowed by tax authorities.\nThis API is exclusively for use by business with a physical presence in Brazil.\n",
+    "description": "The Avatax-Brazil API exposes the most commonly services available for interacting with the AvaTax-Brazil services, allowing calculation of taxes, issuing electronic invoice documents and modifying existing transactions when allowed by tax authorities.  This API is exclusively for use by business with a physical presence in Brazil.",
     "version": "1.0"
   },
   "host": "avataxbr-sandbox.avalarabrasil.com.br",
-  "x-swagger-namespace": "DB",
   "schemes": [
     "http"
+  ],
+  "consumes": [
+    "application/json"
   ],
   "produces": [
     "application/json"
@@ -121,6 +123,13 @@
         "tags": [
           "Company"
         ],
+        "summary": "Delete Company",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "204": {
             "$ref": "#/responses/204_NoContent"
@@ -222,7 +231,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return all locations\n",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "post": {
         "operationId": "createLocation",
@@ -319,7 +335,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return location\n",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "put": {
         "operationId": "updateLocation",
@@ -378,6 +401,13 @@
         "tags": [
           "Company Location"
         ],
+        "summary": "Delete location",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "204": {
             "$ref": "#/responses/204_NoContent"
@@ -410,13 +440,6 @@
       "parameters": [
         {
           "$ref": "#/parameters/header_jwt"
-        },
-        {
-          "name": "text",
-          "in": "query",
-          "description": "Text query",
-          "type": "string",
-          "maxLength": 40
         }
       ],
       "get": {
@@ -440,6 +463,62 @@
           },
           {
             "$ref": "#/parameters/query_textQuery"
+          },
+          {
+            "name": "wh.PIS",
+            "in": "query",
+            "description": "Filters Agasts which withhold (or not) CSLL.",
+            "type": "string",
+            "enum": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "name": "hscode",
+            "in": "query",
+            "description": "Fiscal Classification query.",
+            "type": "string"
+          },
+          {
+            "name": "wh.COFINS",
+            "in": "query",
+            "description": "Filters Agasts which withhold (or not) COFINS.",
+            "type": "string",
+            "enum": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "name": "wh.CSLL",
+            "in": "query",
+            "description": "Filters Agasts which withhold (or not) CSLL.",
+            "type": "string",
+            "enum": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "name": "wh.IRRF",
+            "in": "query",
+            "description": "Filters Agasts which withhold (or not) IRRF.",
+            "type": "string",
+            "enum": [
+              "0",
+              "1"
+            ]
+          },
+          {
+            "name": "wh.INSS",
+            "in": "query",
+            "description": "Filters Agasts which withhold (or not) INSS.",
+            "type": "string",
+            "enum": [
+              "0",
+              "1"
+            ]
           }
         ],
         "tags": [
@@ -491,7 +570,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return custom agast configurations that match ...",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "post": {
         "operationId": "createCompanyAgastService",
@@ -597,7 +683,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return custom agast configurations that match ...",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "put": {
         "operationId": "updateCompanyAgastService",
@@ -655,6 +748,13 @@
         "description": "Delete Company Agast",
         "tags": [
           "Company AGAST Service"
+        ],
+        "summary": "Delete Company Agast",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "204": {
@@ -717,7 +817,41 @@
             "$ref": "#/parameters/query_agastParent"
           },
           {
-            "$ref": "#/parameters/query_textQuery"
+            "name": "hscode",
+            "in": "query",
+            "description": "Fiscal Classification query.",
+            "type": "string"
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "description": "Text query",
+            "type": "string",
+            "maxLength": 40
+          },
+          {
+            "name": "cest",
+            "in": "query",
+            "description": "Filter CEST (text query).",
+            "type": "string"
+          },
+          {
+            "name": "cestexact",
+            "in": "query",
+            "description": "Filter CEST (exact).",
+            "type": "string"
+          },
+          {
+            "name": "initialvalidity",
+            "in": "query",
+            "description": "Initial validity as ISO Date.",
+            "type": "string"
+          },
+          {
+            "name": "finalvalidity",
+            "in": "query",
+            "description": "Final validity as ISO Date.",
+            "type": "string"
           }
         ],
         "tags": [
@@ -769,7 +903,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return custom agast configurations that match ...",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "post": {
         "operationId": "createCompanyAgastGoods",
@@ -875,7 +1016,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return custom agast configurations that match ...",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "put": {
         "operationId": "updateCompanyAgastGoods",
@@ -933,6 +1081,13 @@
         "description": "Delete Company Agast",
         "tags": [
           "Company AGAST Goods"
+        ],
+        "summary": "Delete Company Agast",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "204": {
@@ -1035,7 +1190,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return custom agast configurations that match ...",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "post": {
         "operationId": "createCompanyTaxes",
@@ -1132,7 +1294,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return custom agast configurations that match ...",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "put": {
         "operationId": "updateCompanyTaxes",
@@ -1190,6 +1359,13 @@
         "description": "Delete Company Tax",
         "tags": [
           "Company Tax Rates"
+        ],
+        "summary": "Delete Company Tax",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "204": {
@@ -1304,7 +1480,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return custom agast configurations that match ...",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "post": {
         "operationId": "createItem",
@@ -1412,6 +1595,7 @@
             }
           }
         ],
+        "summary": "Change the code of a given item.\n",
         "responses": {
           "204": {
             "$ref": "#/responses/204_NoContent"
@@ -1491,7 +1675,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return custom agast configurations that match ...",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "put": {
         "operationId": "updateItem",
@@ -1549,6 +1740,13 @@
         "description": "Delete Item",
         "tags": [
           "Company Item (Goods)"
+        ],
+        "summary": "Delete Item",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "204": {
@@ -1663,7 +1861,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return custom agast configurations that match ...",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "post": {
         "operationId": "createItemService",
@@ -1768,7 +1973,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return custom agast configurations that match ...",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "put": {
         "operationId": "updateItemService",
@@ -1826,6 +2038,13 @@
         "description": "Delete Item - Service",
         "tags": [
           "Company Item (Service)"
+        ],
+        "summary": "Delete Item - Service",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "204": {
@@ -1928,7 +2147,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return custom ICMS configurations that match  ...",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "post": {
         "operationId": "createICMS",
@@ -2025,7 +2251,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return custom ICMS configurations that match  ...",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "put": {
         "operationId": "updateCompanyIcmsConfByState",
@@ -2083,6 +2316,13 @@
         "description": "Delete ICMS Config",
         "tags": [
           "Company ICMS"
+        ],
+        "summary": "Delete ICMS Config",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "204": {
@@ -2195,7 +2435,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return custom process configurations that mat ...",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "post": {
         "operationId": "createCompanyProcessScenario",
@@ -2224,6 +2471,251 @@
         "responses": {
           "201": {
             "$ref": "#/responses/201_Created"
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      }
+    },
+    "/companies/entities": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        }
+      ],
+      "get": {
+        "operationId": "getCompanyEntities",
+        "description": "Returns List of Vendors and Customers for this Company.",
+        "tags": [
+          "Company Entity"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/EntityEntryList"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        },
+        "summary": "Returns List of Vendors and Customers for this Company.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "post": {
+        "operationId": "createCompanyEntity",
+        "description": "Update Entity (Vendor or Customer)",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Transaction Message",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CompanyEntity"
+            }
+          }
+        ],
+        "tags": [
+          "Company Entity"
+        ],
+        "summary": "Update Entity (Vendor or Customer)",
+        "responses": {
+          "201": {
+            "$ref": "#/responses/201_Created"
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      }
+    },
+    "/companies/entities/{federalTaxId}": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/header_jwt"
+        },
+        {
+          "$ref": "#/parameters/path_federalTaxId"
+        }
+      ],
+      "get": {
+        "operationId": "getCompanyEntity",
+        "description": "Entity Info (Vendor or Customer)",
+        "tags": [
+          "Company Entity"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/CompanyEntity"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        },
+        "summary": "Entity Info (Vendor or Customer)",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "put": {
+        "operationId": "updateCompanyEntity",
+        "description": "Update Entity (Vendor or Customer)",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Transaction Message",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CompanyEntity"
+            }
+          }
+        ],
+        "tags": [
+          "Company Entity"
+        ],
+        "summary": "Update Entity (Vendor or Customer)",
+        "responses": {
+          "204": {
+            "$ref": "#/responses/204_NoContent"
+          },
+          "400": {
+            "$ref": "#/responses/400_BadRequest"
+          },
+          "401": {
+            "$ref": "#/responses/401_Unauthorized"
+          },
+          "403": {
+            "$ref": "#/responses/403_Forbidden"
+          },
+          "404": {
+            "$ref": "#/responses/404_NotFound"
+          },
+          "429": {
+            "$ref": "#/responses/429_TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/responses/500_InternalServerError"
+          },
+          "503": {
+            "$ref": "#/responses/503_ServiceUnavailable"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "deleteCompanyEntity",
+        "description": "Delete Entity  (Vendor or Customer)",
+        "tags": [
+          "Company Entity"
+        ],
+        "summary": "Delete Entity  (Vendor or Customer)",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/responses/204_NoContent"
           },
           "400": {
             "$ref": "#/responses/400_BadRequest"
@@ -2292,7 +2784,14 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "This operation return custom process configurations that mat ...",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
       },
       "put": {
         "operationId": "updateCompanyProcessScenario",
@@ -2350,6 +2849,13 @@
         "description": "Delete Company Process",
         "tags": [
           "Company Process"
+        ],
+        "summary": "Delete Company Process",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
         ],
         "responses": {
           "204": {
@@ -2446,7 +2952,8 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "If it still not exists, uploads a new Certificate file for t ..."
       },
       "put": {
         "operationId": "updateCompanyServiceCertificate",
@@ -2509,7 +3016,8 @@
           "503": {
             "$ref": "#/responses/503_ServiceUnavailable"
           }
-        }
+        },
+        "summary": "Updates an existing certificate file for this company.\nSend  ..."
       },
       "get": {
         "operationId": "getCompanyServiceCertificate",
@@ -2528,9 +3036,13 @@
             "description": "Use this parameter to check the existence of the file without downloading it."
           }
         ],
+        "summary": "Gets an existing certificate file for this company.\n",
+        "consumes": [
+          "application/json"
+        ],
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Successful responseget"
           },
           "400": {
             "$ref": "#/responses/400_BadRequest"
@@ -2561,9 +3073,16 @@
         "tags": [
           "Company Files"
         ],
+        "summary": "Deletes a company file store.\n",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
-          "200": {
-            "description": "Successful response"
+          "204": {
+            "$ref": "#/responses/204_NoContent"
           },
           "400": {
             "$ref": "#/responses/400_BadRequest"
@@ -2590,6 +3109,86 @@
       }
     }
   },
+  "responses": {
+    "200_SuccessList": {
+      "description": "Success response",
+      "headers": {
+        "X-Pagination-Current-Page": {
+          "description": "The current page. Defaults to 1.",
+          "type": "number"
+        },
+        "X-Pagination-Limit": {
+          "description": "The per page limit. Currently set to 10 but subject to change at any time (max 100).",
+          "type": "number"
+        },
+        "X-Pagination-Total-Pages": {
+          "description": "The total number of pages in the result set. Use this along with X-Pagination-Current-Page to determine if there are any remaining pages/records to be retrieved.",
+          "type": "number"
+        },
+        "X-Pagination-Total-Count": {
+          "description": "The total number of records across all pages.",
+          "type": "number"
+        }
+      }
+    },
+    "201_Created": {
+      "description": "Success.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "uuid"
+          }
+        }
+      }
+    },
+    "204_NoContent": {
+      "description": "Success."
+    },
+    "400_BadRequest": {
+      "description": "The request was invalid or cannot be otherwise served.",
+      "schema": {
+        "$ref": "#/definitions/ValidationError"
+      }
+    },
+    "401_Unauthorized": {
+      "description": "Authentication credentials were missing or incorrect.",
+      "schema": {
+        "$ref": "#/definitions/Message"
+      }
+    },
+    "403_Forbidden": {
+      "description": "The request is understood, but it has been refused or access is not allowed.",
+      "schema": {
+        "$ref": "#/definitions/Message"
+      }
+    },
+    "404_NotFound": {
+      "description": "The URI requested is invalid or the resource requested does not exists.",
+      "schema": {
+        "$ref": "#/definitions/Message"
+      }
+    },
+    "429_TooManyRequests": {
+      "description": "The request cannot be served due to the application’s rate limit having been exhausted for the resource.",
+      "schema": {
+        "$ref": "#/definitions/Message"
+      }
+    },
+    "500_InternalServerError": {
+      "description": "Something is broken.",
+      "schema": {
+        "$ref": "#/definitions/Message"
+      }
+    },
+    "503_ServiceUnavailable": {
+      "description": "The server is up, but overloaded with requests. Try again later.",
+      "schema": {
+        "$ref": "#/definitions/Message"
+      }
+    }
+  },
   "parameters": {
     "header_jwt": {
       "name": "Authorization",
@@ -2612,6 +3211,14 @@
       "required": true,
       "type": "string",
       "maxLength": 60
+    },
+    "path_federalTaxId": {
+      "name": "federalTaxId",
+      "in": "path",
+      "pattern": "([!-ÿ]{0}|[!-ÿ]{5,20})?",
+      "description": "CNPJ/CPF of Sales Buyer, if CPF pattern is '[0-9]{11}' if CNPJ pattern is '[0-9]{14}'",
+      "required": true,
+      "type": "string"
     },
     "path_itemCode": {
       "name": "code",
@@ -2719,8 +3326,7 @@
       "name": "text",
       "in": "query",
       "description": "Performs text search.",
-      "type": "string",
-      "maxLength": 40
+      "type": "string"
     },
     "header_AvaTypeGoods": {
       "name": "Avalara-Product-Type",
@@ -2767,87 +3373,7 @@
       "name": "X-Pagination-Sort",
       "in": "header",
       "type": "string",
-      "format": "-?\\w+"
-    }
-  },
-  "responses": {
-    "200_SuccessList": {
-      "description": "Success response",
-      "headers": {
-        "X-Pagination-Current-Page": {
-          "description": "The current page. Defaults to 1.",
-          "type": "number"
-        },
-        "X-Pagination-Limit": {
-          "description": "The per page limit. Currently set to 10 but subject to change at any time (max 100).",
-          "type": "number"
-        },
-        "X-Pagination-Total-Pages": {
-          "description": "The total number of pages in the result set. Use this along with X-Pagination-Current-Page to determine if there are any remaining pages/records to be retrieved.",
-          "type": "number"
-        },
-        "X-Pagination-Total-Count": {
-          "description": "The total number of records across all pages.",
-          "type": "number"
-        }
-      }
-    },
-    "201_Created": {
-      "description": "Success.",
-      "schema": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "uuid"
-          }
-        }
-      }
-    },
-    "204_NoContent": {
-      "description": "Success."
-    },
-    "400_BadRequest": {
-      "description": "The request was invalid or cannot be otherwise served.",
-      "schema": {
-        "$ref": "#/definitions/ValidationError"
-      }
-    },
-    "401_Unauthorized": {
-      "description": "Authentication credentials were missing or incorrect.",
-      "schema": {
-        "$ref": "#/definitions/Message"
-      }
-    },
-    "403_Forbidden": {
-      "description": "The request is understood, but it has been refused or access is not allowed.",
-      "schema": {
-        "$ref": "#/definitions/Message"
-      }
-    },
-    "404_NotFound": {
-      "description": "The URI requested is invalid or the resource requested does not exists.",
-      "schema": {
-        "$ref": "#/definitions/Message"
-      }
-    },
-    "429_TooManyRequests": {
-      "description": "The request cannot be served due to the application’s rate limit having been exhausted for the resource.",
-      "schema": {
-        "$ref": "#/definitions/Message"
-      }
-    },
-    "500_InternalServerError": {
-      "description": "Something is broken.",
-      "schema": {
-        "$ref": "#/definitions/Message"
-      }
-    },
-    "503_ServiceUnavailable": {
-      "description": "The server is up, but overloaded with requests. Try again later.",
-      "schema": {
-        "$ref": "#/definitions/Message"
-      }
+      "pattern": "-?\\w+"
     }
   },
   "definitions": {
@@ -3368,7 +3894,6 @@
             },
             "stateTaxId": {
               "type": "string",
-              "pattern": "^(\\d{9,14}|ISENTO)$",
               "description": "state tax id for this location"
             },
             "secondaryStateTaxId": {
@@ -3377,8 +3902,7 @@
                 "type": "object",
                 "properties": {
                   "stateTaxId": {
-                    "type": "string",
-                    "pattern": "^(\\d{9,14}|ISENTO)$"
+                    "type": "string"
                   },
                   "state": {
                     "$ref": "#/definitions/StateEnum"
@@ -3416,6 +3940,135 @@
           }
         }
       ]
+    },
+    "Entity": {
+      "type": "object",
+      "required": [
+        "type",
+        "federalTaxId"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Entity name, official name (Razão Social)"
+        },
+        "role": {
+          "description": "- 'transporter'\n- 'sender' # REMETENTE\n- 'dispatcher' # EXPEDITOR\n- 'receiver' # RECEIVER\n- 'addressee' # DESTINATÁRIO\n- 'other' # OUTRO\n",
+          "type": "string",
+          "enum": [
+            "transporter",
+            "sender",
+            "dispatcher",
+            "receiver",
+            "addressee",
+            "other"
+          ]
+        },
+        "type": {
+          "$ref": "#/definitions/EntityType"
+        },
+        "federalTaxId": {
+          "type": "string",
+          "pattern": "([!-ÿ]{0}|[!-ÿ]{5,20})?",
+          "description": "CNPJ/CPF of Sales Buyer, if CPF pattern is '[0-9]{11}' if CNPJ pattern is '[0-9]{14}'"
+        },
+        "cityTaxId": {
+          "type": "string",
+          "maxLength": 15,
+          "description": "City Tax ID"
+        },
+        "stateTaxId": {
+          "type": "string",
+          "description": "State Tax ID"
+        },
+        "suframa": {
+          "type": "string",
+          "pattern": "[0-9]{8,9}",
+          "description": "Suframa ID"
+        },
+        "phone": {
+          "type": "string",
+          "pattern": "[0-9]{6,14}",
+          "description": "Entity Phone"
+        },
+        "taxRegime": {
+          "type": "string",
+          "enum": [
+            "realProfit",
+            "estimatedProfit",
+            "simplified",
+            "simplifiedOverGrossthreshold",
+            "simplifiedEntrepreneur",
+            "notApplicable",
+            "individual"
+          ]
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "Entity Email"
+        },
+        "subjectToSRF1234": {
+          "type": "boolean",
+          "description": "Companies subject to follow same rules of Government entities (Instrução Normativa SRF1234)"
+        },
+        "subjectToPayrollTaxRelief": {
+          "type": "boolean",
+          "description": "Sujeito à desoneração de folha de pagamento."
+        }
+      }
+    },
+    "EntityLocation": {
+      "title": "Entity Full Address",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Address"
+        },
+        {
+          "title": "Location",
+          "type": "object",
+          "properties": {
+            "federalTaxId": {
+              "type": "string",
+              "pattern": "([!-ÿ]{0}|[!-ÿ]{5,20})?",
+              "description": "CNPJ/CPF of Sales Buyer, if CPF pattern is '[0-9]{11}' if CNPJ pattern is '[0-9]{14}'"
+            }
+          }
+        },
+        {
+          "title": "Entity Full Address"
+        }
+      ]
+    },
+    "CompanyEntity": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        },
+        {
+          "$ref": "#/definitions/EntityLocation"
+        }
+      ]
+    },
+    "EntityEntry": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Entity name, official name (Razão Social)"
+        },
+        "federalTaxId": {
+          "type": "string",
+          "pattern": "([!-ÿ]{0}|[!-ÿ]{5,20})?",
+          "description": "CNPJ/CPF of Sales Buyer, if CPF pattern is '[0-9]{11}' if CNPJ pattern is '[0-9]{14}'"
+        }
+      }
+    },
+    "EntityEntryList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/EntityEntry"
+      }
     },
     "ValidationError": {
       "type": "object",
@@ -3765,6 +4418,7 @@
         "INSS_RF",
         "INSS_AR",
         "IRRF",
+        "IRRF_GOVERNMENT",
         "PIS",
         "PIS_RF",
         "PIS_RP",
@@ -3824,10 +4478,6 @@
         "name": {
           "type": "string",
           "description": "Short name to this message"
-        },
-        "legalCode": {
-          "type": "string",
-          "description": "this field inform the official code number"
         },
         "showInInvoice": {
           "type": "string",
@@ -3986,12 +4636,7 @@
       "type": "object",
       "properties": {
         "IRRF": {
-          "type": "boolean"
-        },
-        "IRRFLegalReason": {
-          "type": "string",
-          "maxLength": 60,
-          "description": "reference id to TaxLegalReason"
+          "$ref": "#/definitions/AgastService_WithholdIRRF"
         },
         "INSSSubjectPayrollTaxRelief": {
           "type": "boolean",
@@ -4064,6 +4709,27 @@
         }
       }
     },
+    "AgastService_WithholdIRRF": {
+      "type": "object",
+      "properties": {
+        "business": {
+          "type": "boolean"
+        },
+        "businessLegalReason": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "reference id to TaxLegalReason"
+        },
+        "government": {
+          "type": "boolean"
+        },
+        "governmentLegalReason": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "reference id to TaxLegalReason"
+        }
+      }
+    },
     "IcmsConfByState": {
       "type": "object",
       "required": [
@@ -4092,13 +4758,13 @@
           "type": "string",
           "description": "date when this configuration values expire"
         },
-        "inactive": {
-          "type": "boolean",
-          "description": "set this configuration to Inactive"
-        },
         "subjectToST": {
           "type": "boolean",
           "description": "inform that the item linked to this configuration is subject to ICMS ST on this state"
+        },
+        "inactive": {
+          "type": "boolean",
+          "description": "set this configuration to Inactive"
         },
         "icmsCST": {
           "type": "string",
@@ -4444,6 +5110,10 @@
               "type": "boolean",
               "description": "inform that the configuration process overwrites the cfop configuration."
             },
+            "eDocCreatorReference": {
+              "type": "boolean",
+              "description": "Identify  the reference place to calc.\nIdentificar o local de referencia de cálculo.\n"
+            },
             "cfops": {
               "type": "array",
               "items": {
@@ -4760,6 +5430,10 @@
         "serviceCode": {
           "type": "string",
           "description": "The service code which this item is registered at the target city.\nThe \"tax behavior\" of this item at the target city may be checked and set through\nthe `taxconf/iss/{cityCode}/{serviceCode}` service. (ISSConfService)\n"
+        },
+        "isCustom": {
+          "type": "boolean",
+          "description": "Indicates this is a company-scoped, custom config."
         }
       }
     },
@@ -5006,6 +5680,7 @@
       ]
     }
   },
+  "x-swagger-namespace": "BR",
   "x-swagger-erouter-validation-rules": {
     "/companies/agasts/*": {
       "in": "header",
