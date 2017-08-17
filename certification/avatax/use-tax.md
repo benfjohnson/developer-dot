@@ -63,7 +63,7 @@ Upon completion of the purchase of Avalara services and the activation of its Av
 		<tr>
 			<td>R<span class="hidden-xs">equired</span></td>
 			<td>Tax Calculation service Control</td>
-			<td>Provide a singluar control in the dialog window to enable/disable Use Tax calculation</td>
+			<td>Provide a singular control in the dialog window to enable/disable Use Tax calculation</td>
 		</tr>
 		<tr>
 			<td>R<span class="hidden-xs">equired</span></td>
@@ -73,7 +73,7 @@ Upon completion of the purchase of Avalara services and the activation of its Av
 		<tr>
 			<td>Suggested</td>
 			<td>Avalara Admin Console/Portal Link</td>
-			<td>Proive a link to the Avalara portal</td>
+			<td>Provide a link to the Avalara portal</td>
 		</tr>
 		
 	</tbody>
@@ -184,7 +184,7 @@ The user accesses the Item Master in the application to create a new item record
 		<tr>
 			<td>Required</td>
 			<td>Item/SKU</td>
-			<td>Provie an attribute to associate an Avalara Tax Code to an item/SKU. Overrides default Tax Code at item/product group level</td>
+			<td>Provide an attribute to associate an Avalara Tax Code to an item/SKU. Overrides default Tax Code at item/product group level</td>
 		</tr>
 		<tr>
 			<td>Suggested</td>
@@ -352,7 +352,7 @@ The user begins the procurement/account payable process.
 			</li>	
 			<li>The user saves the purchase invoice
 				<ul class="normal">
-					<li>In advance of the purchase invoice save withing the application, an AvaTax tax calculation call is made capturing the data elements required for tax calculation, and finalized the user designated amount (above).</li>
+					<li>In advance of the purchase invoice save within the application, an AvaTax tax calculation call is made capturing the data elements required for tax calculation, and finalized the user designated amount (above).</li>
 				</ul>
 			</li>
 			<li>The user posts the purchase invoice in the application.
@@ -467,7 +467,7 @@ The user begins the procurement/account payable process.
 		</tr>
 		<tr>
 			<td>Suggested</td>
-			<td>Send optinoal line (detail) level data elements</td>
+			<td>Send optional line (detail) level data elements</td>
 			<td>
 				<ul class="normal">
 					<li>Revenue Account
@@ -497,7 +497,7 @@ The user begins the procurement/account payable process.
 <p>the process to determine use tax owed by the buying company include:</p>
 
 <ul class="normal">
-	<li>Calculation/assessment of the potential use tax liability on the purchase invoice, using the following key data elements(not a complete list):
+	<li>Calculation/assessment of the potential use tax liability on the purchase invoice, using the following key data elements (not a complete list):
 		<ul class="normal">
 			<li>Document/Tax Date - Date the purchase invoice is recognized as a financial liability</li>
 			<li>Amount - Financial amount, by line on the purchase invoice</li>
@@ -546,7 +546,7 @@ The user begins the procurement/account payable process.
 					</li>
 					<li>Override assessed tax, user may choose to override tax assessed
 						<ul class="normal">
-							<li>Typically a fringe case</li>
+							<li>Typically, a fringe case</li>
 						</ul>
 					</li>
 				</ul>
