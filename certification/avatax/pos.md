@@ -188,3 +188,20 @@ nav: certification
 	</tbody>
 </table>
 
+<h3>Tax Calculation Failover - Connected to Disconnected</h3>
+<table class="styled-table">
+	<thead>
+		<tr>
+			<th>Required</th>
+			<th>Function</th>
+			<th>Comment</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>R</td>
+			<td>Automatically revert to disconnected mode when online tax service is unavailable.</td>
+			<td>When transacting in a connected mode, and the online tax service becomes unavailable, automatically revert to disconnected calculation mode or alert the user to take action.</td>
+		</tr>
+	</tbody>
+</table>
