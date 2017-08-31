@@ -84,7 +84,11 @@ const ConsoleLiveData = ({action, consoleLoading, endpoint, onRequestChanged, on
         <div>
             <h5 className={'console-output-header'}>
                 <span>{'API Endpoint'}</span>
-                {endpoint.path.includes('https://sandbox-rest.avatax.com/api/v2') ?
+                {
+                    /* TODO: Add this conditional span back in once we've fixed our AI integration! */
+                    /* endpoint.path.includes('https://sandbox-rest.avatax.com/api/v2') ? */
+                }
+                {undefined ?
                     <span>
                         {userProfile ?
                             <span className={'pull-right'}>
