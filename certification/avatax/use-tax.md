@@ -131,9 +131,9 @@ The user accesses the Vendor master in Financials to create a new vendor record.
 			<td>Identify unique reference to vendor (Vendor ID< Vendor Number, etc.) in the Customer/Vendor Code API parameter.</td>
 		</tr>
 		<tr>
-			<td>Suggested</td>
+			<td>Conditional</td>
 			<td>Exemption Number</td>
-			<td>Provide functionality to assign the buyer's exemption number to the vendor, indicating all purchases from this vendor are exempt.</td>
+			<td>When vendor record has a dedicated exemption number field on the vendor record and/or its address records, provide functionality to assign the buyer's exemption number to the vendor, indicating purchases made from this vendor and/or to one of the buyer's ship-to0 addresses are exempt.</td>
 		</tr>
 		<tr>
 			<td>Suggested</td>
@@ -179,7 +179,7 @@ The user accesses the Item Master in the application to create a new item record
 		<tr>
 			<td>Required</td>
 			<td>Item/Product Group</td>
-			<td>Provide an attribute to associate an Avalara Tax Code to item/product group category. Becomes default Tax Code for all items/SKUs in the group</td>
+			<td>Provide an attribute to associate an Avalara Tax Code to item group/product group/commodity code category. Becomes default Tax Code for all items/SKUs in the category.</td>
 		</tr>
 		<tr>
 			<td>Required</td>
@@ -256,6 +256,7 @@ The user begins the procurement/account payable process.
 					<li>If the user has a logistics solution to provide an automated estimation of the freight charge it is executed at this point in the order entry process.</li>
 				</ul>
 			</li>
+			<li>The user records an Entity/Use Code on line(s) requiring exemption from sales tax, either using an Avalara system or custom Entity/Use Code.</li>
 			<li>The user has an on-demand option to request an AvaTax use tax calculation in advance of saving the purchase order to preview the tax calculation.</li>
 			<li>The user saves the purchase order.
 				<ul class="normal">
@@ -276,6 +277,7 @@ The user begins the procurement/account payable process.
 			</li>	
 			<li>The shipped product or delivered service items are recorded.</li>
 			<li>The user enters the final shipping/freight charge from the purchase invoice.</li>
+			<li>The user records an Entity/Use Code on line(s) requiring exemption from use tax, either using an Avalara system or custom Entity/Use Code.</li>
 			<li>The user identifies and breaks out vendor-charged sales tax.</li>
 			<li>The user has an on-demand option to request an AvaTax use tax calculation in advance of saving the purchase invoice to preview the tax calculation.
 				<ul class="normal">
@@ -386,7 +388,6 @@ The user begins the procurement/account payable process.
 					<li>Destination Address</li>
 					<li>Origin Address</li>
 					<li>Exemption Number</li>
-					<li>Entity/Use Code (aka CustomerUsageType)</li>
 					<li>Location Code</li>
 				</ul>
 			</td>
@@ -402,6 +403,7 @@ The user begins the procurement/account payable process.
 					<li>Quantity</li>
 					<li>Amount (Extended)</li>
 					<li>Tax Code</li>
+					<li>Entity/Use Code</li>
 				</ul>
 			</td>
 		</tr>
