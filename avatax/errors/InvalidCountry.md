@@ -21,6 +21,7 @@ The country code you provided is not recognized as a valid ISO 3166 country code
       "code": "InvalidCountry",
       "number": 125,
       "message": "The country '-0-' is not a recognized country code.",
+      "description": "Please use the `ListCountries` API to identify a list of ISO 3166 countries and codes.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/InvalidCountry",
       "severity": "Error"

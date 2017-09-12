@@ -21,6 +21,7 @@ You attempted to create a filing calendar for a return that is not recognized by
       "code": "ReturnNameNotFound",
       "number": 122,
       "message": "The form named '-0-' cannot be found.",
+      "description": "Please use the ListTaxAuthorityForms API to identify the list of relevant forms.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/ReturnNameNotFound",
       "severity": "Error"

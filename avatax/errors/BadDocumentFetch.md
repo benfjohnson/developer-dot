@@ -21,6 +21,7 @@ This error indicates that you have provided an incorrect "$include" value to the
       "code": "BadDocumentFetch",
       "number": 400,
       "message": "The document fetch command was incorrect.",
+      "description": "Please review the documentation for this API call.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/BadDocumentFetch",
       "severity": "Error"

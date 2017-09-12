@@ -20,7 +20,8 @@ You attempted to modify an object but you provided an object that matches a diff
     {
       "code": "IncorrectPathError",
       "number": 139,
-      "message": "You attempted to update the model at URL '-0-', but the model you supplied belongs to URL '-1-'.",
+      "message": "Attempt to update object with the wrong URL.",
+      "description": "You attempted to update the model at URL '-0-', but the model you supplied belongs to URL '-1-'.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/IncorrectPathError",
       "severity": "Error"

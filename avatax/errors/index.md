@@ -540,6 +540,26 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>The EcmsOverrideCode value you supplied conflicts with a system-defined code.</td>
 		</tr>		
         <tr>
+			<td>172</td>
+			<td><a href="AccountDoesNotExist">AccountDoesNotExist</a></td>
+			<td>You attempted to modify an account that does not exist.</td>
+		</tr>		
+        <tr>
+			<td>173</td>
+			<td><a href="InvalidTaxType">InvalidTaxType</a></td>
+			<td>You specified a tax type that does not exist.</td>
+		</tr>		
+        <tr>
+			<td>174</td>
+			<td><a href="IncorrectFieldValue">IncorrectFieldValue</a></td>
+			<td>You attempted to call the Reporting API with an incorrect field value.</td>
+		</tr>		
+        <tr>
+			<td>175</td>
+			<td><a href="LeadingOrTrailingException">LeadingOrTrailingException</a></td>
+			<td>The value you provided in the `$filter` parameter was incorrect.</td>
+		</tr>		
+        <tr>
 			<td>200</td>
 			<td><a href="BatchSalesAuditMustBeZippedError">BatchSalesAuditMustBeZippedError</a></td>
 			<td>Sales audit files must be uploaded in ZIP or RAR formats.</td>
@@ -555,6 +575,21 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>You uploaded a batch file with an incorrect file type.</td>
 		</tr>		
         <tr>
+			<td>203</td>
+			<td><a href="BatchCannotSaveBatchFile">BatchCannotSaveBatchFile</a></td>
+			<td>AvaTax cannot save the batch file.</td>
+		</tr>		
+        <tr>
+			<td>204</td>
+			<td><a href="BatchCannotGetBatchFile">BatchCannotGetBatchFile</a></td>
+			<td>Batch file could not be found.</td>
+		</tr>		
+        <tr>
+			<td>205</td>
+			<td><a href="BatchCannotDeleteBatchFile">BatchCannotDeleteBatchFile</a></td>
+			<td>Batch file deletion is not allowed.</td>
+		</tr>		
+        <tr>
 			<td>250</td>
 			<td><a href="PointOfSaleFileSize">PointOfSaleFileSize</a></td>
 			<td>The Point-Of-Sale API cannot build this file dynamically.</td>
@@ -563,6 +598,16 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>251</td>
 			<td><a href="PointOfSaleSetup">PointOfSaleSetup</a></td>
 			<td>Invalid parameter provided in the Point-Of-Sale file request.</td>
+		</tr>		
+        <tr>
+			<td>252</td>
+			<td><a href="InvalidInputDate">InvalidInputDate</a></td>
+			<td>You attempted to set a date value that must be within a range, but your value was outside of the range.</td>
+		</tr>		
+        <tr>
+			<td>253</td>
+			<td><a href="RequestedFileNotExist">RequestedFileNotExist</a></td>
+			<td>The TaxRate content file for the date you specified does not exist.</td>
 		</tr>		
         <tr>
 			<td>300</td>
@@ -668,16 +713,6 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>602</td>
 			<td><a href="InvitationOnly">InvitationOnly</a></td>
 			<td>You attempted to contact an API that is available by invitation only.</td>
-		</tr>		
-        <tr>
-			<td>604</td>
-			<td><a href="ZTBListConnectorFail">ZTBListConnectorFail</a></td>
-			<td>The Zero Touch Buying service did not respond in a timely manner.</td>
-		</tr>		
-        <tr>
-			<td>605</td>
-			<td><a href="ZTBCreateSubscriptionsFail">ZTBCreateSubscriptionsFail</a></td>
-			<td>The Zero Touch Buying service did not respond in a timely manner.</td>
 		</tr>		
         <tr>
 			<td>606</td>
@@ -805,6 +840,76 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>Exemption certificates cannot be modified using the Company API.</td>
 		</tr>		
         <tr>
+			<td>1202</td>
+			<td><a href="CertCaptureFieldValidationError">CertCaptureFieldValidationError</a></td>
+			<td>You called an exemption certificate API with an invalid value.</td>
+		</tr>		
+        <tr>
+			<td>1203</td>
+			<td><a href="CertCaptureError">CertCaptureError</a></td>
+			<td>The Avalara CertCapture service reported an error during the API call.</td>
+		</tr>		
+        <tr>
+			<td>1204</td>
+			<td><a href="MissingRequiredFields">MissingRequiredFields</a></td>
+			<td>A certificate must have either a filename, a PDF file attachment, or one JPG image for each page in the certificate.</td>
+		</tr>		
+        <tr>
+			<td>1205</td>
+			<td><a href="CertCaptureNotConfiguredError">CertCaptureNotConfiguredError</a></td>
+			<td>Your company has not been configured for exemption certificates.</td>
+		</tr>		
+        <tr>
+			<td>1206</td>
+			<td><a href="AddRelationshipsError">AddRelationshipsError</a></td>
+			<td>The certificate system could not link the two objects as requested.</td>
+		</tr>		
+        <tr>
+			<td>1207</td>
+			<td><a href="MissingExposureZone">MissingExposureZone</a></td>
+			<td>Avalara's Certificate service requires that all certificates have one exposure zone.</td>
+		</tr>		
+        <tr>
+			<td>1208</td>
+			<td><a href="ConflictingExposureZone">ConflictingExposureZone</a></td>
+			<td>Exposure zones must have unique names.</td>
+		</tr>		
+        <tr>
+			<td>1209</td>
+			<td><a href="MissingFieldToCreateExposureZone">MissingFieldToCreateExposureZone</a></td>
+			<td>Avalara's Certificates service requires extra information to create an exposure zone.</td>
+		</tr>		
+        <tr>
+			<td>1210</td>
+			<td><a href="MissingExemptReason">MissingExemptReason</a></td>
+			<td>A certificate must have an exemption reason.</td>
+		</tr>		
+        <tr>
+			<td>1211</td>
+			<td><a href="InvalidExemptReason">InvalidExemptReason</a></td>
+			<td>The exemption reason you specified cannot be found.</td>
+		</tr>		
+        <tr>
+			<td>1212</td>
+			<td><a href="InvalidCertCaptureOperation">InvalidCertCaptureOperation</a></td>
+			<td>The Certificate service was unable to parse a filter parameter in your query.</td>
+		</tr>		
+        <tr>
+			<td>1213</td>
+			<td><a href="ConflictingFields">ConflictingFields</a></td>
+			<td>A certificate must have be stored in only one format: filename, PDF, or images.</td>
+		</tr>		
+        <tr>
+			<td>1214</td>
+			<td><a href="InvalidPdfOrImageFile">InvalidPdfOrImageFile</a></td>
+			<td>You provided a value in the PDF or image file fields, but the value was empty.</td>
+		</tr>		
+        <tr>
+			<td>1215</td>
+			<td><a href="InvalidCoverLetterTitle">InvalidCoverLetterTitle</a></td>
+			<td>THe cover letter you specified for this CertExpress invitation was not found.</td>
+		</tr>		
+        <tr>
 			<td>1300</td>
 			<td><a href="TransactionNotCancelled">TransactionNotCancelled</a></td>
 			<td>A multi-company transaction was partially created.</td>
@@ -818,4 +923,24 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>1302</td>
 			<td><a href="OnlyTaxDateOverrideIsAllowed">OnlyTaxDateOverrideIsAllowed</a></td>
 			<td>Multi-company transactions may only override tax dates.</td>
+		</tr>		
+        <tr>
+			<td>1400</td>
+			<td><a href="CommsConfigClientIdMissing">CommsConfigClientIdMissing</a></td>
+			<td>You attempted to call a Communications tax API, but your client ID value is missing.</td>
+		</tr>		
+        <tr>
+			<td>1401</td>
+			<td><a href="CommsConfigClientIdBadValue">CommsConfigClientIdBadValue</a></td>
+			<td>The Avalara Communications Client ID value associated with your account is invalid.</td>
+		</tr>		
+        <tr>
+			<td>1402</td>
+			<td><a href="BizTechCustomerAccountFailure">BizTechCustomerAccountFailure</a></td>
+			<td>The Avalara business technology service could not create the account you requested.</td>
+		</tr>		
+        <tr>
+			<td>1403</td>
+			<td><a href="BizTechOpportunityCreationFailure">BizTechOpportunityCreationFailure</a></td>
+			<td>The Avalara business technology service could not find the opportunity you specified.</td>
 		</tr></tbody></table>
