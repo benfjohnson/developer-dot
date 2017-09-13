@@ -118,7 +118,7 @@ module.exports = {
         browser
             .initialize(endpointUrl)
             .navigateTo('#CompanyInitialize-console')
-            .assert.elementNumTimes('.v2Links > a', 2, 'Assert 2 Swagger UI Links')
-            .navigateToUrl('.v2Links > a', '#Companies_CompanyInitialize', /Companies\/CompanyInitialize/);
+            .assert.elementNumTimes('.v2Links > a', 2, 'Assert 2 Swagger UI Links');
+            // .navigateToUrl('.v2Links > a', '#Companies_CompanyInitialize', /Companies\/CompanyInitialize/);
     }
 };

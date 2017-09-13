@@ -14,8 +14,19 @@ layout: default
                     {% if page.subtitle %}<small>{{ page.subtitle }}</small>{% endif %}
                 </h4>
                     {{ content }}
-
                 </main>
+        </div>
+    {% elsif page.doctype =='dev_guide' %}
+        <div class="row padding-sides half">
+            <nav class="col-md-3">
+                {% include dev-guide_navigation.html %}
+            </nav>
+            <main class="col-md-9 small-no-padding">
+                <h1>{{ page.title }}
+                    {% if page.subtitle %}<small>{{ page.subtitle }}</small>{% endif %}
+                </h1>
+                {{ content }}
+            </main>
         </div>
     {% else %}
     <h1>{{ page.title }}

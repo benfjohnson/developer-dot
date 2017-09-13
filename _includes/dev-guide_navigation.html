@@ -1,0 +1,120 @@
+<div id='the-nav' class='nav wrapper hidden-xs hidden-sm dev-guide-nav' style='height: 100%; overflow-y:auto;'>
+    <h3>Chapters</h3>
+    <ol>
+        <li {% if page.url=="/avatax/dev-guide/connecting-to-avatax/" %}class="active" {% endif %}><a href="/avatax/dev-guide/getting-started-with-avatax/">Getting Started with AvaTax</a>
+            {% if page.chapter=="getting-started-with-avatax" %}
+            <ol>
+                <li><a href="/avatax/dev-guide/getting-started-with-avatax/connecting-to-avatax/">Connecting to the API</a></li>
+                <li><a href="/avatax/dev-guide/getting-started-with-avatax/authentication-in-avatax/">Authentication</a></li>
+                <li><a href="/avatax/dev-guide/getting-started-with-avatax/troubleshooting/">Troubleshooting</a></li>
+                <li><a href="/avatax/dev-guide/getting-started-with-avatax/configure-your-avatax-account/">Configure Your Account</a></li>
+                <li><a href="/avatax/dev-guide/getting-started-with-avatax/chapter-summary/">Chapter Summary</a></li>
+            </ol>
+            {% endif %}
+        </li>
+        <li {% if page.url=="/avatax/dev-guide/transactions/" %}class="active" {% endif %}><a href="/avatax/dev-guide/transactions/">Transactions</a>
+        {% if page.chapter=="transactions" %}
+            <ol>
+                <li><a href="/avatax/dev-guide/transactions/simple-transaction/">A Simple Transaction</a></li>
+                <li><a href="/avatax/dev-guide/transactions/invoice-lines/">Invoice Lines</a></li>
+                <li><a href="/avatax/dev-guide/transactions/should-i-commit/">Should I commit?</a></li>
+                <li><a href="/avatax/dev-guide/transactions/document-types/">Document Types</a></li>            
+                <li><a href="/avatax/dev-guide/transactions/chapter-summary/">Chapter Summary</a></li>
+            </ol>
+            {% endif %}</li>
+        <li {% if page.url=="/avatax/dev-guide/customizing-transaction/" %}class="active" {% endif %}><a href="/avatax/dev-guide/customizing-transaction/">Customizing Your Transactions</a>
+            {% if page.chapter=="customizing-transaction" %}
+            <ol>
+                <li><a href="/avatax/dev-guide/customizing-transaction/address-types/">Using Address Types</a></li>
+                <li><a href="/avatax/dev-guide/customizing-transaction/using-reference-fields/">Using Reference Fields</a></li>
+                <li><a href="/avatax/dev-guide/customizing-transaction/chapter-summary/">Chapter Summary</a></li>
+            </ol>
+            {% endif %}
+        </li>
+        <li {% if page.url=="/avatax/dev-guide/reconciliation/" %}class="active" {% endif %}><a href="/avatax/dev-guide/reconciliation/">Reconciliation</a>
+            {% if page.chapter=="reconciliation" %}
+            <ol>
+                <li><a href="/avatax/dev-guide/reconciliation/committing-a-transaction">Committing a Transaction</a></li>
+                <li><a href="/avatax/dev-guide/reconciliation/modifying-a-transaction">Modifying a Transaction</a></li>
+                <li><a href="/avatax/dev-guide/reconciliation/chapter-summary">Chapter Summary</a></li>
+            </ol>
+            {% endif %}
+        </li>
+        <li {% if page.url=="/avatax/dev-guide/product-taxability/" %}class="active" {% endif %}><a href="/avatax/dev-guide/product-taxability/">Product Taxability</a>
+            {% if page.chapter=="product-taxability" %}
+            <ol>
+                <li><a href="/avatax/dev-guide/product-taxability/finding-a-tax-code/">Finding a Tax Code</a></li>
+                <li><a href="/avatax/dev-guide/product-taxability/taxcodes-and-exemptions/">TaxCodes and Exemptions</a></li>
+                <li><a href="/avatax/dev-guide/product-taxability/mapping-items-to-tax-code/">Mapping Items to TaxCodes</a></li>
+                <li><a href="/avatax/dev-guide/product-taxability/chapter-summary/">Chapter Summary</a></li>
+            </ol>
+            {% endif %}
+        </li>
+        <li {% if page.url=="/avatax/dev-guide/discounts-and-overrides/" %}class="active" {% endif %}><a href="/avatax/dev-guide/discounts-and-overrides/">Discounts and Overrides</a>
+            {% if page.chapter=="discounts-and-overrides" %}
+            <ol>
+                <li><a href="/avatax/dev-guide/discounts-and-overrides/overrides/">Tax Overrides</a></li>
+                <li><a href="/avatax/dev-guide/discounts-and-overrides/discounts/">Discounting a Transaction</a></li>
+                <li><a href="/avatax/dev-guide/discounts-and-overrides/chapter-summary/">Chapter Summary</a></li>
+            </ol>
+            {% endif %}
+        </li>
+        <li {% if page.url=="/avatax/dev-guide/shipping-and-handling/" %}class="active" {% endif %}><a href="/avatax/dev-guide/shipping-and-handling/">Shipping and Handling</a>
+            {% if page.chapter=="shipping-and-handling" %}
+            <ol>
+                <li><a href="/avatax/dev-guide/shipping-and-handling/taxability-of-shipping-charges/">Taxability of Shipping Charges</a></li>
+                <li><a href="/avatax/dev-guide/shipping-and-handling/taxability-of-handling-charges/">Taxability of Handling Charges</a></li>
+                <li><a href="/avatax/dev-guide/shipping-and-handling/chapter-summary/">Chapter Summary</a></li>
+            </ol>
+            {% endif %}
+        </li> 
+        <li {% if page.url=="/avatax/dev-guide/exemptions/" %}class="active" {% endif %}><a href="/avatax/dev-guide/exemptions/">Exemptions</a>
+            {% if page.chapter=="exemptions" %}
+            <ol>
+                <li><a href="/avatax/dev-guide/exemptions/reasons-tax-can-be-zero/">Reasons Tax Can Be Zero</a></li>
+                <li><a href="/avatax/dev-guide/exemptions/exemption-certificate/">Exemption Certificate</a></li>
+                <li><a href="/avatax/dev-guide/exemptions/exemptions-for-usage/">Exemptions for Usage</a></li>
+                <li><a href="/avatax/dev-guide/exemptions/chapter-summary/">Chapter Summary</a></li>
+            </ol>
+            {% endif %}
+        </li>
+        <li {% if page.url=="/avatax/dev-guide/locations/" %}class="active" {% endif %}><a href="/avatax/dev-guide/locations/">Locations</a>
+            {% if page.chapter=="locations" %}
+            <ol>
+                <li><a href="/avatax/dev-guide/locations/location-based-reporting/">About Location Based Reporting</a></li>
+                <li><a href="/avatax/dev-guide/locations/using-locations/">Using Locations</a></li>
+                <li><a href="/avatax/dev-guide/locations/chapter-summary">Chapter Summary</a></li>
+            </ol>
+            {% endif %}
+        </li>
+        <li {% if page.url=="/avatax/dev-guide/consumer-use-tax/" %}class="active" {% endif %}><a href="/avatax/dev-guide/consumer-use-tax/">Consumer Use Tax</a>
+            {% if page.chapter=="consumer-use-tax" %}
+            <ol>
+                <li><a href="/avatax/dev-guide/consumer-use-tax/consumer-and-seller-use-tax/">Consumer and Sellers Use Tax</a></li>
+                <li><a href="/avatax/dev-guide/consumer-use-tax/putting-it-all-together/">Putting It All Together</a></li>
+                <li><a href="/avatax/dev-guide/consumer-use-tax/chapter-summary">Chapter Summary</a></li>
+            </ol>
+            {% endif %}
+        </li>
+        <li {% if page.url=="/avatax/dev-guide/calculating-tax-offline/" %}class="active" {% endif %}><a href="/avatax/dev-guide/calculating-tax-offline/">Calculating Tax Offline</a>
+            {% if page.chapter=="calculating-tax-offline" %}
+            <ol>
+                <li><a href="/avatax/dev-guide/calculating-tax-offline/detecting-a-dropped-connection">Detecting a Dropped Connection</a></li>
+                <li><a href="/avatax/dev-guide/calculating-tax-offline/retry-or-fallback/">Retry or Fallback</a></li>
+                <li><a href="/avatax/dev-guide/calculating-tax-offline/reconcile-transactions-after-outage/">Reconcile Transactions After Outage</a></li>
+                <li><a href="/avatax/dev-guide/calculating-tax-offline/chapter-summary/">Chapter Summary</a></li>
+            </ol>
+            {% endif %}
+        </li>
+    </ol>
+    <!--
+    <h3>Appendices</h3>
+    <ul>
+        <li {% if page.url=="/avatax/dev-guide/appendix-batch-files/" %}class="active" {% endif %}><a href="/avatax/dev-guide/appendix-batch-files/">Appendix: Batch Files</a></li>
+        <li {% if page.url=="/avatax/dev-guide/appendix-business-development/" %}class="active" {% endif %}><a href="/avatax/dev-guide/appendix-business-development/">Appendix: Business Developement</a></li>
+        <li {% if page.url=="/avatax/dev-guide/appendix-cloud-connect/" %}class="active" {% endif %}><a href="/avatax/dev-guide/appendix-cloud-connect/">Appendix: Cloud Connect</a></li>
+        <li {% if page.url=="/avatax/dev-guide/appendix-global-taxes/" %}class="active" {% endif %}><a href="/avatax/dev-guide/appendix-global-taxes/">Appendix: Global Taxes</a></li>
+    </ul> -->
+
+   <!-- <h3><a href="/avatax/dev-guide/glossary/">Glossary</a></h3> -->
+</div>
