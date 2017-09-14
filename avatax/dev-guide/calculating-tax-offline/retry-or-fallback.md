@@ -9,7 +9,7 @@ disqus: 1
 ---
 
 <ul class="pager">
-  <li class="previous"><a href="/avatax/dev-guide/calculating-tax-offline/detecting-a-dropped-connection"><i class="glyphicon glyphicon-chevron-left"></i>Previous Chapter</a></li>
+  <li class="previous"><a href="/avatax/dev-guide/calculating-tax-offline/detecting-a-dropped-connection"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
   <li class="next"><a href="/avatax/dev-guide/calculating-tax-offline/reconcile-transactions-after-outage/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>
 
@@ -104,6 +104,6 @@ Whatever approach you select, please be aware that the cardinal rule of tax audi
 Next, let's look at how you can reconcile a transaction after your outage is resolved and you are back online.
 
 <ul class="pager">
-  <li class="previous"><a href="/avatax/dev-guide/calculating-tax-offline/detecting-a-dropped-connection"><i class="glyphicon glyphicon-chevron-left"></i>Previous Chapter</a></li>
+  <li class="previous"><a href="/avatax/dev-guide/calculating-tax-offline/detecting-a-dropped-connection"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
   <li class="next"><a href="/avatax/dev-guide/calculating-tax-offline/reconcile-transactions-after-outage/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>

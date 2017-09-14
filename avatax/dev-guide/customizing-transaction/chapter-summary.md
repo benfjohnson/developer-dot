@@ -9,7 +9,7 @@ disqus: 1
 ---
 
 <ul class="pager">
-  <li class="previous"><a href="/avatax/dev-guide/customizing-transaction/user-reference-fields/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
+  <li class="previous"><a href="/avatax/dev-guide/customizing-transaction/using-reference-fields/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
   <li class="next"><a href="/avatax/dev-guide/reconciliation/">Next Chapter<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>
 
@@ -63,6 +63,6 @@ Tests that are in this chapter:
 These items will come into play in later chapters and are critical in expanding the capabilities of your integration.  Though not all accounting systems allow full use of certain fields and properties, developers are free to use the ones we make available to fit the needs of end users and customers.
 
 <ul class="pager">
-  <li class="previous"><a href="/avatax/dev-guide/customizing-transaction/user-reference-fields/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
+  <li class="previous"><a href="/avatax/dev-guide/customizing-transaction/using-reference-fields/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
   <li class="next"><a href="/avatax/dev-guide/reconciliation/">Next Chapter<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>

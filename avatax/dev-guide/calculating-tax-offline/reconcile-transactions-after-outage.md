@@ -9,7 +9,7 @@ disqus: 1
 ---
 
 <ul class="pager">
-  <li class="previous"><a href="/avatax/dev-guide/calculating-tax-offline/retry-or-fallback/"><i class="glyphicon glyphicon-chevron-left"></i>Previous Chapter</a></li>
+  <li class="previous"><a href="/avatax/dev-guide/calculating-tax-offline/retry-or-fallback/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
   <li class="next"><a href="/avatax/dev-guide/calculating-tax-offline/chapter-summary/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>
 
@@ -103,6 +103,6 @@ Here's how this task works:
 You have now enabled your software to respond gracefully to a temporary outage in connectivity, and to prepare your transaction correctly.
 
 <ul class="pager">
-  <li class="previous"><a href="/avatax/dev-guide/calculating-tax-offline/retry-or-fallback/"><i class="glyphicon glyphicon-chevron-left"></i>Previous Chapter</a></li>
+  <li class="previous"><a href="/avatax/dev-guide/calculating-tax-offline/retry-or-fallback/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
   <li class="next"><a href="/avatax/dev-guide/calculating-tax-offline/chapter-summary/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>

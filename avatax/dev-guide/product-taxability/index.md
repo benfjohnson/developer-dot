@@ -8,7 +8,7 @@ nav: apis
 disqus: 1
 ---
 <ul class="pager">
-  <li class="previous"><a href="/avatax/dev-guide/reconciliation/chapter-summary/"><i class="glyphicon glyphicon-chevron-left"></i>Previous Chapter</a></li>
+  <li class="previous"><a href="/avatax/dev-guide/reconciliation/"><i class="glyphicon glyphicon-chevron-left"></i>Previous Chapter</a></li>
   <li class="next"><a href="/avatax/dev-guide/product-taxability/finding-a-tax-code/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>
 Now that you've learned all the ins and outs of a transaction, let's discuss how to handle more complex types of tax.  When certain types of products are taxed at different rates, how does AvaTax know which rate to use?
@@ -26,6 +26,6 @@ Inside AvaTax, these <code>TaxCodes</code> have built in logic to represent the 
 
 In this chapter, you'll learn how to find the appropriate tax code for your product, and how to use that tax code correctly in an AvaTax transaction.
 <ul class="pager">
-  <li class="previous"><a href="/avatax/dev-guide/reconciliation/chapter-summary/"><i class="glyphicon glyphicon-chevron-left"></i>Previous Chapter</a></li>
+  <li class="previous"><a href="/avatax/dev-guide/reconciliation/"><i class="glyphicon glyphicon-chevron-left"></i>Previous Chapter</a></li>
   <li class="next"><a href="/avatax/dev-guide/product-taxability/finding-a-tax-code/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>

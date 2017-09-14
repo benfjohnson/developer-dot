@@ -9,7 +9,7 @@ disqus: 1
 ---
 
 <ul class="pager">
-  <li class="previous"><a href="/avatax/dev-guide/calculating-tax-offline/"><i class="glyphicon glyphicon-chevron-left"></i>Previous Chapter</a></li>
+  <li class="previous"><a href="/avatax/dev-guide/calculating-tax-offline/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
   <li class="next"><a href="/avatax/dev-guide/calculating-tax-offline/retry-or-fallback/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>
 
@@ -75,6 +75,6 @@ We recommend that your application should select an appropriate timeout value fo
 Now that you've simulated a timeout in your application, the next step is to decide whether to retry your transaction or fallback to a default tax rate calculation.
 
 <ul class="pager">
-  <li class="previous"><a href="/avatax/dev-guide/calculating-tax-offline/"><i class="glyphicon glyphicon-chevron-left"></i>Previous Chapter</a></li>
+  <li class="previous"><a href="/avatax/dev-guide/calculating-tax-offline/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
   <li class="next"><a href="/avatax/dev-guide/calculating-tax-offline/retry-or-fallback/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>

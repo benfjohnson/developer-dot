@@ -9,7 +9,7 @@ disqus: 1
 ---
 
 <ul class="pager">
-  <li class="previous"><a href="/avatax/dev-guide/customizing-transaction/document-level/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
+  <li class="previous"><a href="/avatax/dev-guide/customizing-transaction/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
   <li class="next"><a href="/avatax/dev-guide/customizing-transaction/using-reference-fields/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>
 
@@ -302,6 +302,6 @@ Most developers instinctively understand the meaning of the address types <code>
 If you are operating a retail point of presence, and you are physically selling goods and services in person, you can instead opt to use the <code>SingleLocation</code> address type.  When you use <code>SingleLocation</code>, you are asserting that only one address was ever involved in the transaction.
 
 <ul class="pager">
-  <li class="previous"><a href="/avatax/dev-guide/customizing-transaction/document-level/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
+  <li class="previous"><a href="/avatax/dev-guide/customizing-transaction/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
   <li class="next"><a href="/avatax/dev-guide/customizing-transaction/using-reference-fields/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>
