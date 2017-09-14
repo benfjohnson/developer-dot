@@ -1,0 +1,126 @@
+---
+layout: page
+title: chapter.section - section title
+product: avaTax
+doctype: dev_guide
+chapter: chapter_name
+nav: apis
+disqus: 1
+---
+
+<ul class="pager">
+#this should say previous chapter if it is the index page of the chapter
+  <li class="previous"><a href="/avatax/dev-guide/CHAPTER/SECTION/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
+#this should say next chapter if it is a chapter summary
+  <li class="next"><a href="/avatax/dev-guide/CHAPTER/SECTION/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+</ul>
+
+# if creating a link in the text use
+<a href="LINK" class="dev-guide-link">Link</a>
+
+# if creating a list, use
+<ul class="dev-guide-list">
+    <li></li>
+</ul>
+
+# if creating a certification requirements:
+# only put the certified connectors within the box --> the reccommended connector, custom integration, etc, goes underneath in plan txt (use <h4> heading)
+
+<div class="dev-guide-certification">
+    <div class="dev-guide-certification-heading">Certification Requirements</div>
+    <div class="dev-guide-certification-content">
+        AvaTax Certified Connectors must allow for a clear and concise CustomerCode value to be consumed by the AvaTax Service.
+        Typically this is an account name, customer name, or email address on file for the customer.
+        The connector must show the following:
+        <ul class="dev-guide-list">
+            <li>A CustomerCode field for the invoice</li>
+            <li>Ability to look up a customer in a dropdown list using the CertCapture federated customer-lookup API</li>
+            <li>Ability to add a new customer on the fly (user can input customer number, name, mailing address, ship-to-zones, and email address)</li>
+            <li>View and Update customer record</li>
+            <li>Ability to list active exemption certificates for a customer (show at a minimum exempt state, exempt reason, expiration date)</li>
+            <li>Ability to view an exemption certificate</li>
+        </ul>
+    </div>
+</div>
+
+# if creating a test: format
+# all the text underneath shoul always be in bullet point format (no numbered lists)
+# the id=test# # should increase as we add more tests per section --> used to link back to in the chapter summary
+
+<div class="dev-guide-test" id="test1">
+    <div class="dev-guide-test-heading">Test Case - 8.1.1</div>
+    <div class="dev-guide-test-content">
+        <h4>Set Up</h4>
+        <ul class="dev-guide-list">
+            <li>Your DEVGUIDE company should have nexus in Washington State, but not in Rhode Island.</li>
+            <li>In your connector, create the following transaction:</li>
+                <ul class="dev-guide-list">
+                    <li>Transaction Type: SalesInvoice</li>
+                    <li>Transaction Code: Chapter-8-Test-1</li>
+                    <li>Document Date: 2017-06-15</li>
+                    <li>Addresses:</li>
+                    <ul class="dev-guide-list">
+                        <li>SingleLocation</li>
+                        <li>468 Angell Street, Providence, RI 02906</li>
+                    </ul>
+                    <li>Line #1</li>
+                    <ul class="dev-guide-list">
+                        <li>Amount: 100</li>
+                        <li>TaxCode: P0000000</li>
+                    </ul>
+                </ul>
+            <li>Calculate tax for your transaction using AvaTax.</li>
+        </ul>
+
+        <h4>Assertions</h4>
+        <ul class="dev-guide-list">
+            <li>The tax for line 1 should be $0.00.</li>
+            <li>The Taxable amount for line 1 should be $0.00. </li>
+            <li>The Exempt amount for line 1 should be $100.00.</li>
+        </ul>
+
+        <div class="dev-guide-dropdown">
+            <input id="checkbox_toggle" type="checkbox" />
+            <i id="icon-up" class="glyphicon glyphicon-chevron-down"></i><i id="icon-down" class="glyphicon glyphicon-chevron-right"></i>
+            <label for="checkbox_toggle"><h4>Expected API Call</h4></label>
+            <ul class="dev-guide-dropdown-content">
+                <li>
+                    <pre>
+        {
+            "type": "SalesInvoice",
+            "code": "Chapter-8-Test-1",
+            "companyCode": "DEVGUIDE",
+            "date": "2017-06-15",
+            "customerCode": "ABC",
+            "addresses": {
+                "singleLocation": {
+                    "line1": "468 Angell Street",
+                    "city": "Providence",
+                    "region": "RI",
+                    "country": "US", 
+                    "postalCode": "02906"
+                }
+            },
+            "lines": [
+                {
+                    "number": "1",
+                    "amount": 100,
+                    "taxCode": "P0000000"
+                }
+            ]
+        }
+                    </pre>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<ul class="pager">
+#this should say previous chapter if it is he index page of the chapter
+  <li class="previous"><a href="/avatax/dev-guide/CHAPTER/SECTION/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
+#this should say next chapter if it is a chapter summary
+  <li class="next"><a href="/avatax/dev-guide/CHAPTER/SECTION/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+</ul>
