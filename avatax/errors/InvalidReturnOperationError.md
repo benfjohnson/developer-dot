@@ -21,7 +21,7 @@ You attempted to modify a tax filing return that has been approved.
       "code": "InvalidReturnOperationError",
       "number": 151,
       "message": "-0- cannot be changed on an approved return.",
-      "description": "You are not allow to modify the return after it has been approved.",
+      "description": "You are not allowed to modify a return after it has been approved.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/InvalidReturnOperationError",
       "severity": "Error"

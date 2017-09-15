@@ -20,7 +20,8 @@ Reserved for future use.
     {
       "code": "BrazilValidationError",
       "number": 127,
-      "message": "The value '-0-' must be one of the following values for Brazil: -1-.",
+      "message": "Brazil tax field value invalid",
+      "description": "The field '-0-' must be one of the following values for Brazil: -1-.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/BrazilValidationError",
       "severity": "Error"

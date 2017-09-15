@@ -20,7 +20,8 @@ You attempted to create a document with a code that matches an existing transact
     {
       "code": "DocumentCodeConflict",
       "number": 303,
-      "message": "Two documents exist for the company '-0-' with the document code '-1-'.  Please void one of them using its ID number.",
+      "message": "Cannot uniquely identify document",
+      "description": "Two documents exist for the company '-0-' with the document code '-1-'.  Please void one of them using its ID number.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/DocumentCodeConflict",
       "severity": "Error"

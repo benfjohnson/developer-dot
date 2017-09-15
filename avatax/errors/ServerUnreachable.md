@@ -20,7 +20,8 @@ One of the servers in the Avalara AvaTax API cluster is unreachable and your API
     {
       "code": "ServerUnreachable",
       "number": 500,
-      "message": "The AvaTax API server is currently unable to reach the data service.  Please check https://status.avalara.com/ for more information.",
+      "message": "AvaTax server unable to reach data services",
+      "description": "This error has been logged and reported to Avalara system administrators.  No action is required.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/ServerUnreachable",
       "severity": "Error"

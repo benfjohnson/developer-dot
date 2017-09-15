@@ -21,6 +21,7 @@ Indicates that there is a server configuration problem with one of the servers i
       "code": "ServerConfiguration",
       "number": 1,
       "message": "The AvaTax API Server has a configuration error.",
+      "description": "This error has been logged and reported to Avalara system administrators.  No action is required.",
       "faultCode": "Server",
       "helpLink": "http://developer.avalara.com/avatax/errors/ServerConfiguration",
       "severity": "Error"

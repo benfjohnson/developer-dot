@@ -20,7 +20,8 @@ Reserved for future use.
     {
       "code": "BrazilPisCofinsError",
       "number": 129,
-      "message": "JurisCode must be PIS/COFINS for Cumulative and NonCumulative.",
+      "message": "Brazil tax value mismatch",
+      "description": "JurisCode must be PIS/COFINS for Cumulative and NonCumulative.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/BrazilPisCofinsError",
       "severity": "Error"

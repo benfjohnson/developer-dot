@@ -1,0 +1,133 @@
+
+.dev-guide-nav {
+    ol {
+      counter-reset: item;
+      list-style-type: decimal;
+      padding-left: 20px;
+  
+      li { 
+        display: block;
+        text-indent: -20px;
+      }
+      li.dev-hidden {
+        visibility: hidden;
+        line-height: 0px;
+      }
+  
+      li:before { 
+        content: counters(item, ".") "  "; 
+        counter-increment: item;
+      }
+  
+    }
+  }
+  
+  .dev-guide-link {
+    color: #ff6600;
+  }
+  
+  .dev-guide-bold {
+    color: #337ab7;
+  }
+  
+  ul.dev-guide-list {
+      padding-left: 20px;
+      list-style-type: disc;
+  }
+  
+  
+  .dev-guide-certification {
+    .dev-guide-certification-heading {
+      background-color: #ff6600;
+      color:#fff;
+      font-size: 35px;
+      text-align: center;
+      line-height: 45px;
+      display: block;
+      a {
+        color: white;
+      }
+    }
+    .dev-guide-certification-content {
+      padding: 10px 10px 10px 10px;
+      margin: 10px 10px 10px 10px;
+      color: #72767e;
+      display: block;
+    }
+      border-style: solid;
+      border-width: 8px;
+      border-color: #ff6600;
+      margin: 5px 5px 5px 5px;
+  
+      h3 {
+        margin-top: 10px;
+        width: 100%;
+      }
+      
+  }
+  
+  .dev-guide-test {
+    .dev-guide-test-heading {
+      background-color: #027fad;
+      color:#fff;
+      font-size: 35px;
+      text-align: center;
+      line-height: 45px;
+    }
+  
+    .dev-guide-test-content {
+      padding: 10px 10px 10px 10px;
+      margin: 10px 10px 10px 10px;
+    }
+    border-style: solid;
+    border-width: 8px;
+    border-color: #027fad;
+    color: #fff;
+    background-color: #919195;
+    h4 {
+      color: #494e58;
+    } 
+    a {
+      text-decoration: underline;
+      color: #494e58;
+    }
+    input[type=checkbox] {
+      display: none;
+    }
+    ul.dev-guide-dropdown-content  {
+      display: none;
+    }
+    i#icon-down {
+      color: #494e58;
+      display: inline;
+    }
+    i#icon-up {
+      display: none;
+    }
+    input[type=checkbox]:checked ~ ul.dev-guide-dropdown-content {
+      display: block;
+    }
+    input[type=checkbox]:checked ~ i#icon-up {
+      color: #494e58;
+      display: inline;
+    }
+    input[type=checkbox]:checked ~ i#icon-down {
+      display: none;
+    }
+  }
+  
+  .dev-guide-pic {
+    width: 100%;
+  }
+  
+  .credits-title {
+    color: #ff6600;
+    font-style: italic;
+  }
+
+  .credits-name {
+    font-size: 18px;
+  }
+  
+  
+  

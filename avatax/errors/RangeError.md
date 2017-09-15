@@ -20,8 +20,8 @@ You attempted to set a value that must be within a range, but your value was out
     {
       "code": "RangeError",
       "number": 6,
-      "message": "-1- is expected to be between -2- and -3-.",
-      "description": "-0-",
+      "message": "Field -1- is out of bounds.",
+      "description": "-1- is expected to be between -2- and -3-.",
       "faultCode": "Client",
       "helpLink": "http://developer.avalara.com/avatax/errors/RangeError",
       "severity": "Error"
@@ -32,4 +32,4 @@ You attempted to set a value that must be within a range, but your value was out
 
 ## Explanation
 
-AvaTax requires the value of this field to be within the defined parameters.  Please review the data you attempted to upload and correct it so that it is within the specified value.
+AvaTax requires the value of this field to be within the defined parameters.  Please review the data you attempted to upload and correct it so that it is within the specified range.
