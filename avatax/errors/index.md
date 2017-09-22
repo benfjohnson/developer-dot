@@ -560,6 +560,11 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>The value you provided in the `$filter` parameter was incorrect.</td>
 		</tr>		
         <tr>
+			<td>176</td>
+			<td><a href="NotEnoughAddressesInfo">NotEnoughAddressesInfo</a></td>
+			<td>A tax transaction must have both an origin and a destination address.</td>
+		</tr>		
+        <tr>
 			<td>200</td>
 			<td><a href="BatchSalesAuditMustBeZippedError">BatchSalesAuditMustBeZippedError</a></td>
 			<td>Sales audit files must be uploaded in ZIP or RAR formats.</td>
@@ -685,6 +690,16 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>Temporary documents cannot be fetched from the API.</td>
 		</tr>		
         <tr>
+			<td>316</td>
+			<td><a href="TimeoutRequested">TimeoutRequested</a></td>
+			<td>You requested a timeout error from the AvaTax API.</td>
+		</tr>		
+        <tr>
+			<td>317</td>
+			<td><a href="InvalidAddress">InvalidAddress</a></td>
+			<td>The address you provided was incomplete.</td>
+		</tr>		
+        <tr>
 			<td>400</td>
 			<td><a href="BadDocumentFetch">BadDocumentFetch</a></td>
 			<td>This error indicates that you have provided an incorrect "$include" value to the GET /api/v2/companies/{0}/transactions endpoint.</td>
@@ -728,6 +743,11 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>608</td>
 			<td><a href="AvalaraIdentityApiError">AvalaraIdentityApiError</a></td>
 			<td>A server configuration problem has been detected.</td>
+		</tr>		
+        <tr>
+			<td>609</td>
+			<td><a href="InvalidIPAddress">InvalidIPAddress</a></td>
+			<td>Your IP address has not been approved.</td>
 		</tr>		
         <tr>
 			<td>700</td>
@@ -943,4 +963,9 @@ Also see [SOAP Error Codes](/avatax/common-errors) for error messages defined in
 			<td>1403</td>
 			<td><a href="BizTechOpportunityCreationFailure">BizTechOpportunityCreationFailure</a></td>
 			<td>The Avalara business technology service could not find the opportunity you specified.</td>
+		</tr>		
+        <tr>
+			<td>1404</td>
+			<td><a href="AccountInNewStatusException">AccountInNewStatusException</a></td>
+			<td>You may not obtain a license key until you have accepted Avalara's terms and conditions.</td>
 		</tr></tbody></table>
