@@ -42,7 +42,7 @@ doctype: overview
             </div>
             <div class="col-md-7 col-md-offset-5 padding-top">
                 <ul class="pipe">
-                    <li><a href="/api-reference/communications/afc">API references</a></li>
+                    <li><a href="/api-reference/communications/afc-rest">API references</a></li>
                 </ul>
             </div>
             <div class="col-md-7 col-md-offset-5 padding-top">
