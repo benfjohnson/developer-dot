@@ -12,16 +12,23 @@ disqus: 1
   <li class="next"><a href="/avatax/dev-guide/getting-started-with-avatax/authentication-in-avatax/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>
 
-Avalara provides free trial accounts you can use to begin developing against AvaTax. This trial account will allow you to use advanced AvaTax functionality in the U.S. and Canada only, in an environment called Sandbox.  You can begin by <a class="dev-guide-link" href="https://developer.avalara.com/avatax/get-started/">signing up for a free AvaTax 30-day sandbox account online</a>, or you can <a class="dev-guide-link" href="https://www.avalara.com/contact-us/?referrer=&lastReferrer=developer.avalara.com&sessionId=1499692719266">contact sales</a> to purchase a production account.  Once your 30-day trial is up, you can continue using your account through our <a class="dev-guide-link" href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Free/">Free API</a> methods. 
+To get started, you'll need an AvaTax account.  Avalara provides free trial accounts you can use to begin developing against AvaTax. This trial account will allow you to use advanced AvaTax functionality in the U.S. and Canada in an environment called Sandbox.  You can begin by <a class="dev-guide-link" href="https://developer.avalara.com/avatax/get-started/">signing up for a free 30-day AvaTax sandbox account online</a>, or you can <a class="dev-guide-link" href="https://www.avalara.com/contact-us/">contact sales</a> to purchase a production account.  Once your 30-day trial is up, you can continue using our <a class="dev-guide-link" href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Free/">Free TaxRates API</a> or <a href="https://www.avalara.com/contact-us/">contact sales to upgrade to a full account</a>. 
 
-You will need to add company profile and tax profile information to calculate sales tax. Because this is a sandbox, you can experiment all you like and your test data will be kept separate from your production accounts.
+<h3>The AvaTax Website</h3>
 
-When your account is provisioned, you will notice that Avalara also provides a <a class="dev-guide-link" href="https://admin-development.avalara.net/">website</a> where you can log on and administer your account.  For information about account administration features, please visit the <a class="dev-guide-link" href="https://help.avalara.com/">Avalara Help Center</a> for setup assistance and other guides and documentation.
+When your account is provisioned, you will receive an email inviting you to log onto the <a class="dev-guide-link" href="https://admin-development.avalara.net/">AvaTax website for sandbox</a>.  You should begin by visiting this website and following the helpful walkthrough steps to set up an account and configure its <a href="https://help.avalara.com/0075_Video_Studio/Sales_Tax_Basics%3A_What_Is_My_Tax_Profile%3F">tax profile</a>.  A tax profile helps AvaTax to know where your company does business and where you have <b>nexus</b>.  
+
+It's important to understand the concept of <a href="https://help.avalara.com/0075_Video_Studio/Sales_Tax_Basics%3A_What_Is_Nexus%3F">nexus</a>.  You can think of it as "a list of places where I must collect tax;" but this is an important concept for all AvaTax developers.  If you do not declare any nexus, your account will not calculate any tax - this topic is covered in more detail in <a href="https://developer.avalara.com/avatax/dev-guide/exemptions/reasons-tax-can-be-zero">Chapter 8.1 - Reasons Tax Can Be Zero</a>.
+
+If you are building an AvaTax integration for your company, you'll probably need to work with your tax team to ensure that your account and tax profile are set up correctly before you start developing software.  If you forget to set up a tax profile, you may find that your tax calculations keep coming back with a rate of zero, because the tax profile doesn't require you to collect tax!
+
+If you're building an integration to an accounting system or storefront system - a <b>connector</b> - the companies that purchase your connector will need to set up their own tax profile.  This means that you can develop your software without having to know anything about your customers' tax profile.  As long as you follow the <a href="https://developer.avalara.com/certification/avatax">AvaTax certification guidelines</a> in this developer guide, a customer that purchases your connector will be able to set up their own tax profiles and get accurate tax results.
 
 <h3>What is Sandbox?</h3>
-Avalara provides two different environments for AvaTax: Sandbox and Production.  Each environment is completely separate, and each has its own credentials.  If you have a Sandbox account, you cannot use that to log onto Production, and vice versa.
 
-When you receive credentials for AvaTax, it's important to take note of the environment for the credentials.  Many customers have tried to log on to Production using their Sandbox credentials, or vice versa - leading to lots of confusion!
+Next, let's explain what we mean by <b>Sandbox</b>.  Avalara provides two different environments for AvaTax: Sandbox and Production.  Each environment is completely separate, and each has its own credentials.  If you have a Sandbox account, you cannot use that account to log onto Production; and vice versa.
+
+When you receive credentials for AvaTax, it's important to write down the account's environment name.  We keep Sandbox and Production credentials separate to help you test your software in Sandbox without the risk of accidentally affecting production data.  You may want to share your sandbox credentials with deveopers, and reserve production credentials for accountants.  Keeping accounts separate does occasionally cause confusion, but it helps avoid the risk of reporting test data to a tax authority.
 
 Let's spend a few minutes explaining how Sandbox and Production relate to each other.
 
@@ -46,7 +53,7 @@ Let's spend a few minutes explaining how Sandbox and Production relate to each o
                 <td><a class="dev-guide-link" href="https://admin-avatax.avalara.net">https://admin-avatax.avalara.net</a></td>
             </tr>
             <tr>
-                <td>TaxContent</td>
+                <td>Tax Content</td>
                 <td>Always kept up to date</td>
                 <td>Always kept up to date</td>
             </tr>
@@ -68,7 +75,7 @@ Let's spend a few minutes explaining how Sandbox and Production relate to each o
             <tr>
                 <td>Tax Filing</td>
                 <td>Sandbox data is never reported to a tax authority; so you can test your transactions without worrying about accidentally reporting transactions.</td>
-                <td>Transactions that are marked "Committed" in production can be reported on a tax filing using the Avalara Managed Returns Service.</td>
+                <td>Transactions that are marked <code>Committed</code> in production can be reported on a tax filing using the Avalara Managed Returns Service.</td>
             </tr>
             <tr>
                 <td>Updates</td>
@@ -79,8 +86,9 @@ Let's spend a few minutes explaining how Sandbox and Production relate to each o
     </table>
 </div>
 
-For more information on Sandbox and the AvaTax release schedule, please read <a class="dev-guide-link" href="/blog/2017/02/07/the-avatax-release-schedule/">The AvaTax Release Schedule</a>.  
+<br />
 
+For more information on Sandbox and the AvaTax release schedule, please read <a class="dev-guide-link" href="/blog/2017/02/07/the-avatax-release-schedule/">The AvaTax Release Schedule</a>.  
 
 <h3>AvaTax Software Development Kit</h3>
 
@@ -106,7 +114,7 @@ The AvaTax SDK is fully open source, and you can download the source code for a 
                 <td><a class="dev-guide-link" href="https://github.com/avadev/AvaTax-REST-V2-DotNet-SDK?referrer=&lastReferrer=developer.avalara.com&sessionId=1502456322024">AvaTax-REST-V2-DotNet-SDK</a></td>
             </tr>
             <tr>
-                <td>Java</td>
+                <td>Java / Scala / JRE</td>
                 <td>
                     <a href="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11?referrer=&lastReferrer=developer.avalara.com&sessionId=1502456322024"><img src="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg?style=plastic"/></a>
                     <a href="https://oss.sonatype.org/#nexus-search;gav~net.avalara.avatax~avatax-rest-v2-api-java_2.11~2.17.3.48-SNAPSHOT~~?referrer=&lastReferrer=developer.avalara.com&sessionId=1502456322024"><img src="https://img.shields.io/badge/Sonatype%20Snapshots-2.17.3.48--SNAPSHOT-blue.svg?style=plastic"/></a>
@@ -118,7 +126,7 @@ The AvaTax SDK is fully open source, and you can download the source code for a 
             </tr>
             <tr>
                 <td>JavaScript</td>
-                <td><img src="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg?style=plastic"/></td>
+                <td><a href="https://www.npmjs.com/package/avatax"><img src="https://img.shields.io/npm/v/avatax.svg?style=plastic"/></a></td>
                 <td><img src="https://api.travis-ci.org/avadev/AvaTax-REST-V2-JS-SDK.svg?branch=master&style=plastic"></td>
                 <td><a class="dev-guide-link" href="https://github.com/avadev/AvaTax-REST-V2-JS-SDK?referrer=&lastReferrer=developer.avalara.com&sessionId=1502456322024">AvaTax-REST-V2-JS-SDK</a></td>
             </tr>
@@ -129,22 +137,10 @@ The AvaTax SDK is fully open source, and you can download the source code for a 
                 <td><a class="dev-guide-link" href="https://github.com/avadev/AvaTax-REST-V2-PHP-SDK?referrer=&lastReferrer=developer.avalara.com&sessionId=1502456322024">AvaTax-REST-V2-PHP-SDK</a></td>
             </tr>
             <tr>
-                <td>Scala</td>
-                <td><a href="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11?referrer=&lastReferrer=developer.avalara.com&sessionId=1502456322024"><img src="https://maven-badges.herokuapp.com/maven-central/net.avalara.avatax/avatax-rest-v2-api-java_2.11/badge.svg?style=plastic"/></a><a href="https://oss.sonatype.org/#nexus-search;gav~net.avalara.avatax~avatax-rest-v2-api-java_2.11~2.17.3.48-SNAPSHOT~~?referrer=&lastReferrer=developer.avalara.com&sessionId=1502456322024"><img src="https://img.shields.io/badge/Sonatype%20Snapshots-2.17.3.48--SNAPSHOT-blue.svg?style=plastic"/></a></td>
-                <td><a href="https://travis-ci.org/avadev/AvaTax-REST-V2-JRE-SDK?referrer=&lastReferrer=developer.avalara.com&sessionId=1502456322024"><img src="https://api.travis-ci.org/avadev/AvaTax-REST-V2-JRE-SDK.svg?branch=master&style=plastic"></a></td>
-                <td><a class="dev-guide-link" href="https://github.com/avadev/AvaTax-REST-V2-JRE-SDK?referrer=&lastReferrer=developer.avalara.com&sessionId=1502456322024">AvaTax-REST-V2-JRE-SDK</a></td>
-            </tr>
-            <tr>
                 <td>Ruby</td>
                 <td><a href="https://rubygems.org/gems/avatax?referrer=&lastReferrer=developer.avalara.com&sessionId=1502456322024"><img src="https://img.shields.io/gem/v/avatax.svg?style=plastic"/></a></td>
                 <td><a href="https://travis-ci.org/avadev/AvaTax-REST-V2-JRE-SDK?referrer=&lastReferrer=developer.avalara.com&sessionId=1502456322024"><img src="https://api.travis-ci.org/avadev/AvaTax-REST-V2-Ruby-SDK.svg?branch=master&style=plastic"></a></td>
                 <td><a class="dev-guide-link" href="https://github.com/avadev/AvaTax-REST-V2-Ruby-SDK?referrer=&lastReferrer=developer.avalara.com&sessionId=1502456322024">AvaTax-REST-V2-Ruby-SDK</a></td>
-            </tr>
-            <tr>
-                <td>SalesForce Apex</td>
-                <td></td>
-                <td></td>
-                <td><a class="dev-guide-link" href="https://github.com/avadev/AvaTax-REST-V2-Apex-SDK?referrer=&lastReferrer=developer.avalara.com&sessionId=1502456322024">AvaTax-REST-V2-Apex-SDK</a></td>
             </tr>
             <tr>
                 <td>IBM I RPG</td>

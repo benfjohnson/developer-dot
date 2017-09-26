@@ -12,19 +12,23 @@ disqus: 1
   <li class="next"><a href="/avatax/dev-guide/getting-started-with-avatax/configure-your-avatax-account/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>
 
-When beginning development with AvaTax, you may often see errors.  Each error message has its own steps to debug and diagnose the problem, and it's important to know how to begin working with these errors.
+Whenever AvaTax is unable to respond to your API call, the software will present you with an AvaTax error code.  Each error code contains a hyperlink to a web page with more information about the error.  As you learn the AvaTax API, it's important that you understand how to read and interpret these error codes.
 
 <h3>Handling Error Messages</h3>
-It's normal at this stage of development to see error messages from the AvaTax API.  We've designed our error messages to clearly tell you what went wrong, what you can do about it, and how to proceed.  We've published documentation that explains <a class="dev-guide-link" href="https://developer.avalara.com/avatax/errors/">all REST error codes and how to interpret them</a>.  
 
-AvaTax identifies all error messages using HTTP response codes between 400 and 499 (for errors in your API call), as well as between 500 and 599 (for errors within AvaTax itself).  If your program gets an HTTP response code between 400 and 499, here's how to proceed:
+We've designed the AvaTax error messages to clearly tell you what went wrong, what you can do about it, and how to proceed.  You can read a list of <a class="dev-guide-link" href="https://developer.avalara.com/avatax/errors/">all AvaTax REST error codes</a> on the developer website - and each error message contains within it a hyperlink to the page for that specific error.  Our community forums team monitors all comments on the developer website, so if you see anything confusing, write us a comment - we'd love to improve our documentation!
+
+To get started hanlding errors, AvaTax identifies all error conditions using the standard HTTP response codes.  Codes between 400 and 499 refer to an error in your API call, and codes between 500 and 599 refer to errors within AvaTax itself.  If your program gets an HTTP response code between 400 and 499, here's how to proceed:
+
 <ul class="dev-guide-list">
-    <li>Parse the error message</li>
-    <li>Display the summary of the error to the user</li>
-    <li>Link the user to the documentation page that explains the error</li>
-    <li>Allow the user to retry their action</li>
+    <li>Parse the error message using a JSON parsing engine.</li>
+    <li>Display the summary of the error to the user.</li>
+    <li>Link the user to the documentation page that explains the error.</li>
+    <li>Allow the user to make a change to their request, or retry their action.</li>
 </ul>
+
 For example, let's examine how to handle an authentication error.  If you make an AvaTax API call you receive the error message <a class="dev-guide-link" href="https://developer.avalara.com/avatax/errors/AuthenticationIncomplete/">AuthenticationIncomplete</a>, here's what you will see:
+
 <pre>
 Request: GET /api/v2/companies/
 Authorization: Basic MYBADCREDENTIALS
@@ -32,30 +36,35 @@ Authorization: Basic MYBADCREDENTIALS
  
 Response: 401 Unauthorized
 {
-  "code": "AuthenticationIncomplete",
-  "target": "Unknown",
-  "details": [
-    {
-      "code": "AuthenticationIncomplete",
-      "number": 34,
-      "message": "Authentication Incomplete.",
-      "description": "You must provide an Authorization header of the type Basic or Bearer to authenticate correctly.",
-      "faultCode": "Client",
-      "helpLink": "http://developer.avalara.com/avatax/errors/AuthenticationIncomplete",
-      "severity": "Exception"
-    }
-  ]
+  "error": {
+    "code": "AuthenticationIncomplete",
+    "message": "Authentication Incomplete.",
+    "target": "HttpRequestHeaders",
+    "details": [
+      {
+        "code": "AuthenticationIncomplete",
+        "number": 34,
+        "message": "Authentication Incomplete.",
+        "description": "You must provide an Authorization header of the type Basic or Bearer to authenticate correctly.  ",
+        "faultCode": "Client",
+        "helpLink": "http://developer.avalara.com/avatax/errors/AuthenticationIncomplete",
+        "severity": "Exception"
+      }
+    ]
+  }
 }
 </pre>
 
 Your next step should be to display an error message in your product.  The error message should have:
 <ul class="dev-guide-list">
-    <li>At a minimum, the error message should have the title of <code>details[0].message</code>.</li>
-    <li>Best practice is to include the <code>details[0].description</code> and the <code>details[0].helpLink</code> values so the customer can learn more about the problem.</li>
-    <li>Some API calls can include more than one error.  You can optionally display information about more than one error message at a time.</li>
+    <li>At a minimum, display the value <code>error.message</code> in your user interface.  That would tell the user "Authentication Incomplete".</li>
+    <li>If your user interface has room for more details, display the value contained in <code>error.details[0].description</code> and the <code>error.details[0].helpLink</code>.  This would allow the user to see the link "<a href="http://developer.avalara.com/avatax/errors/AuthenticationIncomplete">You must provide an Authorization header of the type Basic or Bearer to authenticate correctly.</a>"</li>
+    <li>Some API calls can include more than one error.  For example, if a user is creating a transaction with ten invoice lines, you will receive a list of error messages, one per mistake.  Depending on your user interface, you may wish to parse and display all error messages, or only display the top one.</li>
 </ul>
 
 It's critical that you allow the customer to either make changes and retry the API call or just proceed in their work and bypass the API call.  Your customers may be working offline or with an interrupted Internet connection, and they need to get their work done even if they can't use AvaTax at the moment.  We'll cover offline behavior more in <a class="dev-guide-link" href="/avatax/dev-guide/calculating-tax-offline/">Chapter 11 - Calculating Tax Offline</a>, but for the moment let's review how to properly handle error messages.
+
+Here's a test case that causes an error message to occur.  We will call the <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Companies/QueryCompanies/">QueryCompanies API</a> with an incorrect filter, which produces an error message.  Try this API call and make sure your program can display the error message correctly:
 
 <div class="dev-guide-test" id="test1">
 <div class="dev-guide-test-heading">Test Case - 1.3.1 </div>
@@ -94,21 +103,28 @@ https://sandbox-rest.avatax.com/api/v2/companies?$filter=id = 'abc'
 </div>
 </div>
 
+Now that your software is able to display the error message correctly, let's discuss how to solve common problems.
+
 <h3>Check Your Connection</h3>
-The AvaTax API is available online at the following URLs:
+
+If your software is unable to contact AvaTax, pretty much any API call you make will produce an error.  So let's begin by explaining how we can identify whether a connection problem exists.
+
+First, please visit the AvaTax API server from your desktop computer or mobile phone.  You should try both of these two URLs, one for sandbox and one for production:
+
 <ul class="dev-guide-list">
     <li>Sandbox Environment: <a class="dev-guide-link" href="https://sandbox-rest.avatax.com">https://sandbox-rest.avatax.com</a></li>
     <li>Production Environment: <a class="dev-guide-link" href="https://rest.avatax.com">https://rest.avatax.com</a></li>
 </ul>
 
-Before you proceed, please make sure that your office can contact these URLs.  When you visit these sites, you should see a web page similar to the following:
+If your connection is working correctly, you should see a web page similar to the following:
 
-<img class="dev-guide-pic" src="/avatax/dev-guide/getting-started-with-avatax/connecting-to-avatax.png">
+<img class="dev-guide-pic" src="/avatax/dev-guide/getting-started-with-avatax/connecting-to-avatax.png" style="border: 2px solid orange; width: 80%;">
 
-If you can't see this page, check your connection!
+If you can't see this page on your web browser, check your connection!  There's a chance you have a fi
 
 <h3>Check Your Authentication</h3>
-One good way to begin troubleshooting a problematic connection is to use the <a class="dev-guide-link" href="/api-reference/avatax/soap/methods/ping/">Ping API</a>. The Ping API is useful because it never returns authentication errors; you can call it even if your authorization header is missing.  If your Ping call fails, you know you are having trouble with your internet connection.
+
+A good place to start for your software is the <a class="dev-guide-link" href="/api-reference/avatax/soap/methods/ping/">Ping API</a>.  You can call this API whenever your program starts, to check to ensure that it can contact the AvaTax server - because ping will never return an error message even if you don't provide any authentication.  If your Ping call fails, you know you are having trouble with your internet connection.
 
 Here's how to use ping:
 <pre>
@@ -128,7 +144,12 @@ curl
 }
 </pre>
 
-<h3>Common Problems</h3>
+When your program detects that a ping call has failed, it should notify the user that it can't reach AvaTax, and ask them to check their Internet connection.
+
+Before we move on, let's look at a few other common troubleshooting steps you may encounter as you begin development:
+
+<h3>Other Common Problems</h3>
+
 <div class="mobile-table">
     <table class="styled-table">
         <thead>
@@ -169,7 +190,7 @@ curl
             <tr>
                 <td>Host Files / IP Address Hardcoding / DNS Caching</td>
                 <td>AvaTax does not support hard coded IP addresses or host files. To use AvaTax, you must contact the API via DNS names.              
-                Your DNS server should respect the DNS time-to-live (TTL) values. Avalara publishes DNS TTL values designed to permit our operations team to adjust our connectivity in response to changing network configuration</td>
+                Your DNS server should respect the DNS time-to-live (TTL) values. Avalara publishes DNS TTL values designed to permit our operations team to adjust our connectivity in response to changing network configuration.</td>
             </tr>
             <tr>
                 <td>Proxy Server Problems</td>
@@ -177,37 +198,9 @@ curl
                 If your company policy requires a proxy server by policy, please consult your proxy provider for how to correctly configure the proxy to work with AvaTax.</td>
             </tr>
             <tr>
-                <td>Java Proxy</td>
-                <td>The default Java behavior is to cache DNS lookups indefinitely, which does not follow best practices for Internet hosts. There are two properties that can be used to override the default behavior.
-                <ol>
-                    <li><code>networkaddress.cache.ttl</code>
-                    <ul class="dev-guide-list">
-                        <li>This property indicates the caching policy for successful name lookups from the domain name service. The value is specified as an integer to indicate the number of seconds to cache the successful lookup. The default value of this property is -1, which means the successful DNS lookup value will be cached forever. If the value is set to 0, it means it will not cache successful DNS lookups up at all. Any other positive value indicates that successful DNS lookups will be cached for that many seconds. This value must be set to 60.</li>
-                    </ul>
-                    </li>
-                    <li><code>networkaddress.cache.negative.ttl</code>
-                        <ul class="dev-guide-list">
-                            <li>This property indicates the caching policy for unsuccessful name lookups from the domain name service. The value is specified as an integer to indicate the number of seconds to cache the unsuccessful lookup. The default value of this property is 10, which means that unsuccessful DNS lookup values will be cached for 10 seconds. If the value is set to 0, it means that it will not cache successful DNS lookups up at all. Any other positive value indicates that unsuccessful DNS lookups will be cached for that many seconds. This value must be set to 60 as well.</li>
-                        </ul>
-                    </li>
-                </ol>
-                What needs to be done: <code>networkaddress.cache.ttl</code> and <code>networkaddress.cache.negative.ttl</code> are not typically set Java properties. They are security related properties that can be set in one of two ways:
-                <ol>
-                    <li>Edit the <code>$JAVA_HOME/jre/lib/security/java.security</code> by changing the value of the networkaddress cache properties in the file.
-                        <ul class="dev-guide-list">
-                            <li>The advantage of this solution is that it is a non-programmatic solution.</li>
-                            <li>The disadvantage is that since JVMs are global resources, used by multiple applications, the setting may not work well in applications that have consumed the adapter classes.</li>
-                        </ul>
-                    </li>
-                    <li>Use <code>java.security.Security.setProperty(“propertyname”, “value”)</code> to programmatically set the property.
-                        <ul class="dev-guide-list">
-                            <li>The advantage is that other applications using the same JVM are not affected.</li>
-                            <li>The disadvantage of this solution is that it is a programmatic solution.</li>
-                        </ul>
-                    </li>
-                </ol>
-                Example:
-                <pre>java.security.Security.setProperty ("networkaddress.cache.ttl", "60");</pre>
+                <td>DNS Time-To-Live</td>
+                <td>Avalara makes changes to our domain name system records periodically.  Your software should ensure that you respect the DNS time-to-live values, and that your software periodically contacts DNS to update its name lookups.
+                Some software, including some Java JRE versions, may need to be updated to ensure the "ttl" or "time-to-live" values are correctly handled.  If you experience problems with occasional DNS changes, please check the documentation for your operating system, programming language, or development environment to ensure your software handles TTL values correctly.                
                 </td>
             </tr>
             <tr>
