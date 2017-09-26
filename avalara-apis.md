@@ -12,6 +12,9 @@ doctype: overview
           <li><a href="#compliance">Compliance document management</a></li>
           <li><a href="#returns-filing">Returns and filing</a></li>
       </ul>
+      <ul class="pipe padding-bottom">
+          <li><a href="/avatax/dev-guide/getting-started-with-avatax/">AvaTax Developer Guide</a></li>
+      </ul>
   </div>
 </div>
 <div class="row border-top">
