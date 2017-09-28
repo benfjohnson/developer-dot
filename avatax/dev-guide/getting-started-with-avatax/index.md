@@ -9,6 +9,7 @@ disqus: 1
 ---
 
 <ul class="pager">
+  <li class="previous"><a href="/avatax/dev-guide/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
   <li class="next"><a href="/avatax/dev-guide/getting-started-with-avatax/connecting-to-avatax/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>
 Welcome to the AvaTax Developer Guide!  This document will <a class="dev-guide-link" href="https://www.avalara.com/products/sales-and-use-tax/avatax-2/">introduce you to AvaTax</a>, a powerful and easy-to-use API that provides tax calculations for financial applications.  AvaTax can help your business automate the hard work of calculating, storing, auditing and reporting on transactional taxes.
@@ -26,5 +27,6 @@ Let's begin by getting you connected to AvaTax.
 
 
 <ul class="pager">
+  <li class="previous"><a href="/avatax/dev-guide/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
   <li class="next"><a href="/avatax/dev-guide/getting-started-with-avatax/connecting-to-avatax/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>

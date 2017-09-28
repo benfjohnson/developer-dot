@@ -13,7 +13,7 @@ doctype: overview
           <li><a href="#returns-filing">Returns and filing</a></li>
       </ul>
       <ul class="pipe padding-bottom">
-          <li><a href="/avatax/dev-guide/getting-started-with-avatax/">AvaTax Developer Guide</a></li>
+          <li><a href="/avatax/dev-guide/">AvaTax Developer Guide</a></li>
       </ul>
   </div>
 </div>
