@@ -31,8 +31,10 @@ install:
   - bundle install
   - npm i --progress=false --silent
 before_script:
-  - "echo $JAVA_OPTS"
-  - "export JAVA_OPTS=-Xmx1024m"
+  - uname -a
+  - export JAVA_OPTS="-Xmx1G"
+  - echo $JAVA_OPTS
+  - alias java="java -Xmx1G"
 script:
   - npm run lint
   - npm run test
