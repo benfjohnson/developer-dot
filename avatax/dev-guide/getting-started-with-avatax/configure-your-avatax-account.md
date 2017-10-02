@@ -15,19 +15,23 @@ To use AvaTax, you must configure your company and set up your tax profile.  You
 
 If you are building a connector that links up to AvaTax, you don't have to do any work to setup a company.  Your customers will log onto AvaTax and follow the company setup steps themselves.  No work necessary!
 
-To continue with this developer guide, let's set up a test company right now for our developer guide test cases.  This company will allow us to finish all the test cases within the AvaTax Developer Guide using a company with a known tax profile.  Let's take a look at a sample <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Companies/CompanyInitialize/">CompanyInitialize API</a> call:
+To continue with this developer guide, let's set up a test company right now.  This company will allow us to finish all the test cases within the AvaTax Developer Guide using a company with a known tax profile.  
+
+To set up a company quickly, AvaTax provides the <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Companies/CompanyInitialize/">CompanyInitialize API</a> call, which does most of the work:
+
 <div class="dev-guide-test" id="test1">
-<div class="dev-guide-test-heading">Test Case - 1.4.1 </div>
+<div class="dev-guide-test-heading">Test Case 1.4.1 - Configure a Company</div>
 <div class="dev-guide-test-content">
 <h4>Setup</h4>
 Call <a class="dev-guide-liink" href="/api-reference/avatax/rest/v2/methods/Companies/CompanyInitialize/">CompanyInitialize</a> with these values:
 <ul class="dev-guide-list">
     <li>Name: Developer Guide Company</li>
     <li>CompanyCode: DEVGUIDE</li>
+    <li>Taxpayer ID number: 12-3456789</li>
     <li>Address:
         <ul class="dev-guide-list">
-            <li>123 Main Street</li>
-            <li>Irvine, CA 92615</li>
+            <li>2000 Main Street</li>
+            <li>Irvine, CA 92614</li>
         </ul>
     </li>
     <li>Contact:
@@ -49,7 +53,7 @@ Call <a class="dev-guide-liink" href="/api-reference/avatax/rest/v2/methods/Comp
         </ul>
     </li>
     <li>Company name should be reflected as "Developer Guide"</li>
-    <li>Business is located at 123 Main Street, Irvine, CA 92615</li>
+    <li>Business is located at 2000 Main Street, Irvine, CA 92614</li>
     <li>Tax Payer ID is 12-3456789</li>
 </ul>
 
@@ -64,10 +68,10 @@ Call <a class="dev-guide-liink" href="/api-reference/avatax/rest/v2/methods/Comp
   "name": "Developer Guide Company",
   "companyCode": "DEVGUIDE",
   "taxpayerIdNumber": "12-3456789",
-  "line1": "123 Main Street",
+  "line1": "2000 Main Street",
   "city": "Irvine",
   "region": "CA",
-  "postalCode": "92615",
+  "postalCode": "92614",
   "country": "US",
   "firstName": "Bob",
   "lastName": "Example",
@@ -85,7 +89,7 @@ Call <a class="dev-guide-liink" href="/api-reference/avatax/rest/v2/methods/Comp
 
 <br/>
 
-After this API call has completed, you will see that this company, with the companyCode value set to "DEVGUIDE", is ready for use!
+After this API call has completed, you will see that this company, with the <code>companyCode</code> value set to "DEVGUIDE", is ready for use!
 
 Congratulations!  You have successfully initialized your first AvaTax company. 
 

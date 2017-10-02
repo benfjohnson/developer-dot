@@ -13,30 +13,23 @@ disqus: 1
   <li class="next"><a href="/avatax/dev-guide/customizing-transaction/using-reference-fields/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>
 
-Address types, such as <code>ShipFrom</code> and <code>ShipTo</code>, are used to help determine tax for a given transaction in a given situation.  A retail transaction and an eCommerce transaction are not that much different.  They both use address types, but while the retail location likely has the same <code>ShipFrom</code> and <code>ShipTo</code>. An eCommerce transaction varies in that at least two different addresses are taken into account.  For example, in a retail transaction where the origin and destination are the same, we'd use the <code>SingleLocation</code> address, but for an eCommerce transaction, we'd use <code>ShipFrom</code> and <code>ShipTo</code>.  
+Address types are used to help determine tax for a given transaction in a given situation.  A retail transaction and an eCommerce transaction are not that much different: they both use addresses, but while the retail location generally uses <code>SingleLocation</code> most eCommerce transactions will use the <code>ShipFrom</code> and <code>ShipTo</code> address types.
 
-You can specify addresses at either the document level or the line level.  Let's take a moment to explain how this works in detail:
+You can specify addresses at either the document level or the line level:
 <ul class="dev-guide-list">
-    <li>A transaction, as a whole, uses the document level addresses as a default.  If a transaction does not have any addresses at the line level, each line will be assumed to use the addresses from the document level.</li>
-    <li>Some vendors sell products from multiple warehouses.  In this case, a customer who purchases five items might receive as many as five separate shipments.  In the world of transactional taxes, each one of these shipments might have a different tax calculation - so they need to be treated differently.  We handle this by setting a line-level address for each item whose addresses differs from the transaction as a whole.</li>
+    <li>A transaction, as a whole, uses the document level <code>addresses</code> as a default.  If a transaction does not have any addresses at the line level, each line will be assumed to use the addresses from the document level.</li>
+    <li>Line level <code>addresses</code> represent individual separate shipments.  Any time you set a value on the <code>addresses</code> field on an invoice line, that line will ignore all document-level <code>addresses</code></li>
 </ul>
-
-Let's use a real world scenario to explain this.
-<ul class="dev-guide-list">
-    <li>I work at a mail-order company that also has retail locations.</li>
-    <li>A customer places an order for five widgets.</li>
-    <li>I only have four widgets in stock in my warehouse; I can find a fifth widget in stock at one of my stores.</li>
-</ul>
-
-In this example, we could create a transaction with two line items.  The first line item would represent the four widgets that I shipped from my warehouse, and the second line item would represent the fifth widget shipped from my retail location.  I can specify the warehouse address as the document-level address, and on the line with the fifth widget I can specify a different <code>ShipFrom</code> address.
-
-Let's explore this in more detail.
 
 <h3>Using Document Level Addresses</h3>
 
+When you record a single transaction and all invoice lines on the transaction have the same <code>addresses</code>, you only need to set your address values once at the root level of your transaction, no matter how many invoice lines you are calculating.
+
+For this next test, let's create a single transaction with multiple line items that were shipped from the same origin to the same destination.  Here's how to construct this transaction:
+
 Let's try building a transaction that uses two different addresses and a single line item:
 <div class="dev-guide-test" id="test1">
-    <div class="dev-guide-test-heading">Test Case - 3.2.1</div>
+    <div class="dev-guide-test-heading">Test Case 3.2.1 - Document Level Addresses</div>
 <div class="dev-guide-test-content">
 <h4>Setup</h4>
 <ul class="dev-guide-list">
@@ -66,14 +59,18 @@ Let's try building a transaction that uses two different addresses and a single 
         <li>Line #1:
             <ul class="dev-guide-list">
                 <li>Amount $100</li>
-                <li>TaxCode P0000000</li>
+            </ul>
+        </li>
+        <li>Line #2:
+            <ul class="dev-guide-list">
+                <li>Amount $50</li>
             </ul>
         </li>
     <li>Calculate tax for your transaction using AvaTax.</li>  
 </ul>
 <h4>Assertions</h4>
 <ul class="dev-guide-list">
-    <li>The taxable amount should be $100.00 with a total tax amount of $7.75.</li>
+    <li>The taxable amount should be $150.00 with a total tax amount of $11.63.</li>
     <li>The document should be sourced in California with the following jurisdictions:
         <ul class="dev-guide-list">
             <li>California State</li>
@@ -115,8 +112,11 @@ Let's try building a transaction that uses two different addresses and a single 
   "lines": [
     {
       "number": "1",
-      "amount": 100,
-      "taxCode": "P0000000"
+      "amount": 100
+    },
+    {
+      "number": "2",
+      "amount": 50
     }
   ]
 }
@@ -128,12 +128,20 @@ Let's try building a transaction that uses two different addresses and a single 
 </div>
 
 <h3>Using Line Level Address Types</h3>
-Origin and destination fields are not bound to the document level, they can also be used on the line level to accommodate scenarios in which an item may not be available and is shipping from another location or where a buyer may have multiple locations that they need items shipped.  There are a variety of reasons in which this may occur, but it's important to remember you do not need to specify different addresses for each line.  Document level properties still apply and your origin and destination addresses will only be overridden by the line address property that is different.  For example, if you have two lines and one item is out of stock at the origin and must be shipped from another location, you only need to change the line level origin for that line.  The document level origin and destination will continue to apply.  
 
+Next, let's describe how you can create a transaction where more than one separate shipment occurred.  In this case, each separate line can have its own <code>addresses</code> - or they can inherit their <code>addresses</code> from the document.  You can mix and match these options on as many lines as necessary.
 
-Ok, let's try another test.  In this example, we'll be purchasing an item from a store and would like one item shipped to a secondary address.  The store doesn't carry that item in stock and must send it from one of their other distribution centers.  This would mean that one line item would have both an origin and destination that is different from the document level origin and destination:
+For the next example, let's review how to sell two separate products when each must be shipped from a separate warehouse.  One product will ship from a warehouse in Aberdeen, WA; the other will come from a Bainbridge Island warehouse.
+
+<ul class="dev-guide-list">
+    <li>First set the Bainbridge address at the document level.  With this address at the document level, all lines will automatically inherit that address as its default.</li>
+    <li>Next set the <code>addresses</code> value for the custom line item.  Because this value is set at the line level, it no longer inherits any addresses from the root document level, which means you must set both the <code>ShipFrom</code> and <code>ShipTo</code> values for that line.</li>
+</ul>
+
+Here's what a line-level transaction looks like:
+
 <div class="dev-guide-test" id="test2">
-    <div class="dev-guide-test-heading">Test Case - 3.2.2</div>
+    <div class="dev-guide-test-heading">Test Case 3.2.2 - Line Level Addresses</div>
 <div class="dev-guide-test-content">
 <h4>Setup</h4>
 <ul class="dev-guide-list">
@@ -171,7 +179,7 @@ Ok, let's try another test.  In this example, we'll be purchasing an item from a
                 </li>
                 <li>ShipTo
                     <ul class="dev-guide-list">
-                        <li>21068 Bake Pkwy, Lake Forest, CA 92630</li>
+                        <li>18300 Von Karman Ave, Irvine, CA 92612</li>
                     </ul>
                 </li>
             </ul>
@@ -262,7 +270,8 @@ Ok, let's try another test.  In this example, we'll be purchasing an item from a
 </div>
 </div>
 
-<h3>What do the address types mean?</h3>
+<h3>Address Types</h3>
+
 Most developers instinctively understand the meaning of the address types <code>ShipFrom</code> and <code>ShipTo</code>, but often have questions about the "Point Of Order" address types.  It's worth taking a brief moment to explain address types in more detail.
 
 <div class="mobile-table">
@@ -298,6 +307,10 @@ Most developers instinctively understand the meaning of the address types <code>
         </tbody>
     </table>
 </div>
+
+<br/>
+
+In the United States, some jurisdictions have passed laws that require consideration of the point of order addresses.  Please confer with your tax professional before using these address types.
 
 If you are operating a retail point of presence, and you are physically selling goods and services in person, you can instead opt to use the <code>SingleLocation</code> address type.  When you use <code>SingleLocation</code>, you are asserting that only one address was ever involved in the transaction.
 

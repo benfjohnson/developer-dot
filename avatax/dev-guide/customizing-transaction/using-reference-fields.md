@@ -13,7 +13,9 @@ disqus: 1
   <li class="next"><a href="/avatax/dev-guide/customizing-transaction/chapter-summary/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>
 
-AvaTax provides a number of user reference fields for your convenience.  For example, the <code>ReferenceCode</code> field is an optional field that can be used to tie your transaction back to your accounting system or to link to another transaction. This field exists at the document level, but we also provide two reference fields at the line level. Taken together, all of these reference fields can help you store extra information about the transaction in ways that are appropriate for your accounting system.
+AvaTax provides a number of user reference fields for your convenience.  For example, the <code>referenceCode</code> field is an optional field that can be used to tie your transaction back to your accounting system or to link to another transaction. 
+
+The <code>referenceCode</code> field exists at the document level, and other fields are available at the line level. Taken together, all of these reference fields can help you store extra information about the transaction in ways that are appropriate for your accounting system.
 
 All of these fields are optional and are not required.  Some connectors make use of all of these fields, others keep transactions extremely simple.  It's really up to you how much of this functionality you wish to implement.
 
@@ -73,7 +75,7 @@ Below is a list of the available reference fields available for customizing your
         <tbody>
             <tr>
                 <td>Description</td>
-                <td>Field provided to describe the item/service/shipping method for that given line. NOTE: If you participate in Streamlined Sales Tax, this field is required to be an accurate description of the product. Otherwise, it is optional and has no requirements.</td>
+                <td>Field provided to describe the item/service/shipping method for that given line. NOTE: If you participate in <b>Streamlined Sales Tax</b>, this field is required to be an accurate description of the product. Otherwise, it is optional and has no requirements.</td>
             </tr>
             <tr>
                 <td>RevenueAccount</td>

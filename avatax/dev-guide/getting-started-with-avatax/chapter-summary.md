@@ -36,8 +36,9 @@ Test Connection button - Tests the connection to the AvaTax service and verifies
 
 Tests in this chapter:
 <ul class="dev-guide-list">
-  <li><a class="dev-guide-link" href="/avatax/dev-guide/getting-started-with-avatax/troubleshooting/#test1">1.3.1 - Troubleshooting</a></li>
-  <li><a class="dev-guide-link" href="/avatax/dev-guide/getting-started-with-avatax/configure-your-avatax-account/#test1">1.4.1 - Configure Your AvaTax Account</a></li>
+  <li><a class="dev-guide-link" href="/avatax/dev-guide/getting-started-with-avatax/troubleshooting/#test1">1.3.1 - Handling Errors</a></li>
+  <li><a class="dev-guide-link" href="/avatax/dev-guide/getting-started-with-avatax/troubleshooting/#test1">1.3.2 - Ping API</a></li>
+  <li><a class="dev-guide-link" href="/avatax/dev-guide/getting-started-with-avatax/configure-your-avatax-account/#test1">1.4.1 - Configure a Company</a></li>
 </ul>
 
 <ul class="pager">

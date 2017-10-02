@@ -14,7 +14,7 @@ disqus: 1
 </ul>
 Welcome to the AvaTax Developer Guide!  This document will <a class="dev-guide-link" href="https://www.avalara.com/products/sales-and-use-tax/avatax-2/">introduce you to AvaTax</a>, a powerful and easy-to-use API that provides tax calculations for financial applications.  AvaTax can help your business automate the hard work of calculating, storing, auditing and reporting on transactional taxes.
 
-The AvaTax developer guide will help you learn how to use all the powerful features of the AvaTax API to design your integration.  We will teach you all the core concepts you need to understand so you can build your tax implementation.  We'll provide you with test cases you can use to ensure that your software behaves correctly when faced with common problems and challenges.  At the end of this document, you'll have a full, powerful, responsive, and resilient implementation that handles tax correctly.
+The AvaTax developer guide will help you learn how to use all the powerful features of the AvaTax API to design your integration.  We will teach you all the core concepts you need to understand, and a list of test cases you can use to ensure that your software behaves correctly when faced with common problems and challenges.  At the end of this document, you'll have a full, accurate, responsive, and resilient implementation that handles tax correctly.
 
 In this chapter, you will learn:
 <ul class="dev-guide-list">

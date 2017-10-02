@@ -12,16 +12,17 @@ disqus: 1
   <li class="next"><a href="/avatax/dev-guide/transactions/should-i-commit/">Next<i class="glyphicon glyphicon-chevron-right"></i></a></li>
 </ul>
 
-To accurately calculate tax, you'll need to provide some details about what is being sold. There are a number of options which will be covered in greater detail next chapter, but at minimum you will need to send the details of 1 line item.
+To accurately calculate tax, you'll need to provide some details about what is being sold. There are a number of options which will be covered in greater detail next chapter, but at minimum you will need to send the details of one line item.
+
 <ul class="dev-guide-list">
   <li><code>number</code>: AvaTax automatically numbers lines on your invoice starting with 1.  If you prefer to use your own line numbers, please specify them in this value.</li>
-  <li><code>quantity</code>: This is the quantity of the good or service being sold.  Note that this value does not affect any totals; to determine the price-per-each, you can divided the <code>amount</code> value by the <code>quantity</code> value.  Quantity is an optional field; if you do not provide quantity, the value will be assumed to be one. Please note that while this field is optional, it is import in some scenarios. Certain states have taxability rules based on dollar-amount thresholds and caps per item, and AvaTax use the <code>quantity</code> and <code>amount</code> values to calculate this correctly.</li>
-  <li><code>amount</code>:  This is the price of the good or service being sold. This is the total, fully extended value for the line.</li>
-  <li><code>taxCode</code>: This is how you specify the good or service type that is being sold. This is not a required field, and if a tax code is not sent AvaTax defaults to treating the item as taxable Tangible Personal Property using the tax code <code>P0000000</code>. We'll go into options for other tax codes in <a class="dev-guide-link" href="/avatax/dev-guide/product-taxability/">Chapter 5 - Product Taxability</a>.  For now, it's enough to know that each line is automatically assumed to be <code>P0000000</code></li>
-  <li><code>addresses</code>: Each invoice line can have its own custom <code>shipFrom</code> / <code>shipTo</code> address.  This will be useful later - if we're a large company and we sell things from multiple warehouses, this feature is necessary to correctly represent product shipments.  For the moment, it's important to know that there are only two options: If the "address" field on a line is null or missing, the line will be assumed to use the same addresses at the document level; but if the value is non-null, the line will have its own custom address and will not inherit any address elements from the document level.</li>
+  <li><code>quantity</code>: This is the quantity of goods or services being sold.  Note that this value does not affect any totals; to determine the price-per-each, divide the <code>amount</code> value by the <code>quantity</code> value.  If you do not provide <code>quantity</code>, the value will be assumed to be one. Although this field is optional, some taxes are affected by dollar-amount thresholds and caps per item, and AvaTax uses the <code>quantity</code> and <code>amount</code> values to calculate this correctly.  We strongly recommend providing the correct <code>quantity</code> for each line.</li>
+  <li><code>amount</code>:  This is the total price of goods or services for this line item. This is the total, fully extended value.  For example, if you specify a <code>quantity</code> of 2 and a <code>amount</code> of 10, this means that you have sold two $5 items for a total price of $10.</li>
+  <li><code>taxCode</code>: This is how you specify the type of good or service that is being sold. If you omit the <code>taxCode</code> value, AvaTax defaults to treating the item as taxable Tangible Personal Property using the tax code <code>P0000000</code>. We'll go into detail on tax codes in <a class="dev-guide-link" href="/avatax/dev-guide/product-taxability/">Chapter 5 - Product Taxability</a>.  For now, it's enough to know that each line defaults to tangible personal property.</li>
+  <li><code>addresses</code>: Each invoice line can have its own custom addresses.  If we make one sale that includes multiple separate shipments, we can attach the correct address to each line.  If the <code>addresses</code> field on a line is null or missing, the line will be assumed to use the <code>addresses</code> from the document level; but if the value is non-null, the line will have its own custom <code>addresses</code> and will not inherit any <code>addresses</code> from the document level.</li>
 </ul>
 
-Now that we've covered these additional fields, let's take a look at a more fleshed-out version of a single location transaction. You can see that we've included some additional fields, such as <code>type</code>, <code>companyCode</code>, <code>number</code>, and <code>quantity</code>, as well as specifying a full street address. The additional fields are not strictly required, but it's good practice to include them. Likewise, a full street address is not strictly required, but providing as much address information as is available helps to ensure that you receive the most accurate sales tax calculation.
+Now that we've covered these additional fields, let's take a look at a more fleshed-out version of a single location transaction. You can see that we've included a <code>code</code> value at the document level and added the <code>number</code> and <code>quantity</code> for each line. The additional fields are not strictly required, but it's good practice to include them. Likewise, a full street address is not strictly required, but providing as much address information as is available helps to ensure that you receive the most accurate sales tax calculation.
 
 <div class="dev-guide-test" id="test1">
 <div class="dev-guide-test-heading">Test Case - 2.2.1 </div>
@@ -110,7 +111,9 @@ Your transaction is created.
 </div>
 </div>
 
-As you can see, AvaTax can gradually grow as your transactions increase in complexity.  But let's ask - how can I make a transaction permanent, and report it to the tax authority?
+<br/>
+
+As you can see, the <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Transactions/CreateTransaction/">CreateTransaction API</a> grows as your transactions increase in complexity.  But let's ask - how can I make a transaction permanent, and report it to the tax authority?
 
 <ul class="pager">
   <li class="previous"><a href="/avatax/dev-guide/transactions/simple-transaction/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>

@@ -14,8 +14,8 @@ disqus: 1
 In this chapter you've learned how to create basic single-location transactions, as well as the differences between the available document types. Creating transactions is the core of the AvaTax service, so it's important to have a solid understanding of the basics. You should be able to:
 <ul class="dev-guide-list">
   <li>Create a transaction with the minimum required fields</li>
-  <li>Create a <code>SalesOrder</code> transaction</li>
-  <li>Create a <code>SalesInvoice</code> transaction and view it in the <a class="dev-guide-link" href="https://admin-development.avalara.net/">AvaTax website</a></li>
+  <li>Create an estimate using the <code>SalesOrder</code> transaction type</li>
+  <li>Create a <code>SalesInvoice</code> transaction and view it in the <a class="dev-guide-link" href="https://admin-avatax.avalara.net/">AvaTax website</a></li>
   <li>In the event of a pop-quiz, answer questions on the differences between a <code>SalesInvoice</code> and a <code>PurchaseInvoice</code></li>
 </ul>
 
