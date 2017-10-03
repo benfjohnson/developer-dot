@@ -16,13 +16,13 @@ Now that you've calculated tax on your transaction, your next step is to ensure 
 
 We will look at how to address the following:
 <ul class="normal">
-  <li>Risk: Reporting an estimate as a transaction</li>
-  <li>Risk: Reporting a single transaction more than once</li>
-  <li>Risk: Reporting a transaction that should have been canceled</li>
-  <li>Risk: Mis-reporting a transaction that was adjusted</li>
-  <li>Risk: Refunding the wrong tax amount to a customer</li>
-  <li>Risk: Modifying a transaction after it has been reported</li>
-  <li>Risk: Failing to report a valid transaction</li>
+  <li>Reporting an estimate as a transaction</li>
+  <li>Reporting a single transaction more than once</li>
+  <li>Reporting a transaction that should have been canceled</li>
+  <li>Mis-reporting a transaction that was adjusted</li>
+  <li>Refunding the wrong tax amount to a customer</li>
+  <li>Modifying a transaction after it has been reported</li>
+  <li>Failing to report a valid transaction</li>
 </ul>
 
 To address these challenges, AvaTax separates transactions into those that are <code>Uncommitted</code>, those that are <code>Committed</code>, and those that have been <code>Locked</code> for Reporting.  Here's a brief description of how to use these statuses:
