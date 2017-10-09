@@ -34,7 +34,7 @@ nav: certification
 		</tr>
 		<tr>
 			<td>R</td>
-			<td><a href="/api-reference/avatax/rest/v1/methods/estimateTax">AvaTax Test Connection</a> button</td>
+			<td><a href="/api-reference/avatax/rest/v2/methods/Utilities/Ping/">AvaTax Test Connection</a> button</td>
 			<td>Tests the connection to the AvaTax service and verifies the AvaTax credentials. This is an important element to allow for successful troubleshooting of the AvaTax service.</td>
 		</tr>
 		<tr>

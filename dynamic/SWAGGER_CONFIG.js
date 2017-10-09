@@ -10,12 +10,12 @@ export default {
         product: 'avaTax'
     },
     'avatax/rest/v1.yaml': {
-        name: 'Avatax REST API',
+        name: 'Legacy REST API',
         path: 'avatax/api-reference/tax/v1',
         product: 'avaTax'
     },
     'avatax/rest/v2.json': {
-        name: 'Avatax REST API v2',
+        name: 'Avatax REST API',
         path: 'api-reference/avatax/rest/v2',
         product: 'avaTax'
     },
