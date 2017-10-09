@@ -55,7 +55,7 @@ export default {
         product: 'landedcost'
     },
     'onboarding.yaml': {
-        name: 'Onboarding API',
+        name: 'Legacy Onboarding API',
         path: 'avatax/api-reference/onboarding/v1',
         product: 'avaTax'
     },
