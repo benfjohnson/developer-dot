@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  description: "The AvaTax REST API exposes the most commonly used available for interacting with the AvaTax service, allowing calculation of tax, modification of documents, and validation of addresses. If you're unsure of which API to use, a full comparison of the differences between the functionality provided by our REST and SOAP interfaces is documented [here](http://developer.avalara.com/api-docs/designing-your-integration/soap-or-rest).
+  description: "The legacy AvaTax REST 1.0 API documentation is available online for users who have existing implementations of AvaTax built using REST 1.0.  New integrations should use the full [AvaTax REST 2.0 API](/api-reference/avatax/rest/v2/), which fully replaces REST 1.0.
   
   The [SOAP API reference](/avatax/api-reference/tax/soap/) is also available.
   
@@ -39,7 +39,13 @@ paths:
   '/tax/get':
     post:
       summary: Calculate Tax
-      description: 'Calculates taxes on a document such as a sales order, sales invoice, purchase order, purchase invoice, or credit memo. To use an XML request/response, use the URL `/1.0/tax/get.xml`'
+      description: '*DEPRECATED*
+      
+      This API is replaced by [CreateTransaction API](/api-reference/avatax/rest/v2/methods/Transactions/CreateTransaction/).
+      
+      Documentation for this API is available for reference for customers who have existing integrations that were built with REST 1.0.
+      
+      Calculates taxes on a document such as a sales order, sales invoice, purchase order, purchase invoice, or credit memo. To use an XML request/response, use the URL `/1.0/tax/get.xml`'
       operationId: getTax
       parameters:
         - in: body
@@ -67,7 +73,13 @@ paths:
   '/address/validate':
     get:
       summary: Validate an Address
-      description: 'Normalizes a single US or Canadian address, providing a non-ambiguous USPS address match. To recieve an XML response, use the URL `/1.0/address/validate.xml` and set the request header `Content-Type: text/xml`'
+      description: '*DEPRECATED*
+      
+      This API is replaced by [ResolveAddress API](/api-reference/avatax/rest/v2/methods/Addresses/ResolveAddress/).
+      
+      Documentation for this API is available for reference for customers who have existing integrations that were built with REST 1.0.
+      
+      Normalizes a single US or Canadian address, providing a non-ambiguous USPS address match. To recieve an XML response, use the URL `/1.0/address/validate.xml` and set the request header `Content-Type: text/xml`'
       operationId: validateAddress
       parameters: 
         - name: Line1

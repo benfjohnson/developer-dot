@@ -1,5 +1,5 @@
 # AVATAX
 nav_link:
-    title: Avatax REST API
+    title: Legacy REST API
     path: /api-reference/avatax/rest/v1
 older_api: true

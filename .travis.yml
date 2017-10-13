@@ -8,10 +8,6 @@ services:
 cache:
   bundler: true
 
-  before_script:
-    - "echo $JAVA_OPTS"
-    - "export JAVA_OPTS=-Xmx1024m"
-
 before_install:
   - nvm install 6.0
   # docker specific update and install
@@ -34,10 +30,15 @@ install:
   - gem install s3_website
   - bundle install
   - npm i --progress=false --silent
+before_script:
+  - uname -a
+  - export JAVA_OPTS="-Xmx1G"
+  - echo $JAVA_OPTS
+  - alias java="java -Xmx1G"
 script:
   - npm run lint
   - npm run test
-  # - docker-compose up --abort-on-container-exit --exit-code-from server
+  - docker-compose up --abort-on-container-exit --exit-code-from server
 after_success:
   - if [ -n "$ALGOLIA_API_KEY" ]; then bundle exec jekyll algolia push; fi
   - if [ -n "$secret_key" ] && [ "$TRAVIS_BRANCH" == "master" ]; then bucket_name=developer.avalara.com s3_website push; fi

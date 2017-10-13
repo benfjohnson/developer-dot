@@ -18,7 +18,7 @@ redirects:
   api-documentation: /avalara-apis
   api-documentation/avatax16: /avalara-apis
   api-documentation/avatax-15-api: /avatax
-  api-documentation/avatax-15-api/avatax-rest-api-reference: /api-reference/avatax/rest/v1
+  api-documentation/avatax-15-api/avatax-rest-api-reference: /api-reference/avatax/rest/v2
   api-documentation/avatax-15-api/avatax-soap-api-reference: /api-reference/avatax/soap
   api-documentation/avatax-15-api/api-docs: /avatax
   api-documentation/avatax-15-api/api-docs/ancillary-resources: /api-reference/avatax/soap
@@ -89,7 +89,7 @@ redirects:
   api-documentation/trustfile-api/get-api-key: /trustfile
   api-documentation/trustfile-api/overview: /trustfile
   api-documentation/trustfile-api/provisioning-api-reference: /trustfile/api-reference/provisioning/v3
-  api-reference: /api-reference/avatax/rest/v1
+  api-reference: /api-reference/avatax/rest/v2
   avalara-apis/compare-versions: /avalara-apis
   avalara-certified: /certification
   avalara-certified/avatax-15-certification-checklists: /certification
@@ -108,12 +108,12 @@ redirects:
   resources: /avatax
   resources/self-test: /tests/self-test
   onboarding/api-reference: /avatax/api-reference/onboarding/v1/
-  avatax/api-reference: /api-reference/avatax/rest/v1/
+  avatax/api-reference: /api-reference/avatax/rest/v2/
   certification/preferred-developers: /resources/preferred-developers
   wp-content/apireference/master: /avatax/api-reference
   wp-content/apireference/master/index.html: /api-reference/avatax/soap/
   resources/getting-started/:  /avatax/get-started
-  api-docs/api-reference:  /api-reference/avatax/rest/v1
+  api-docs/api-reference:  /api-reference/avatax/rest/v2
   api-docs/best-practices/technical-notes/ssl-certificates:  /avatax/ssl-certificates
   api-get-started:  /avatax/get-started
   api-docs/certcapture-api:  /certcapture
@@ -138,347 +138,347 @@ redirects:
   free-trial/:  /avatax/get-started
   api-docs/best-practices/messages-results-and-errors/common-errors:  /avatax/common-errors
   api-docs/soap/making-direct-soap-calls:  /api-reference/avatax/soap
-  api-docs/best-practices/technical-notes/profile-client-property:  /api-reference/avatax/rest/v1
-  api-docs/api-reference:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax/get:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-java:  /api-reference/avatax/rest/v1
-  api-docs/avalara-avatax-api-reference:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/soap-java/committax:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/canceltax/feed:  /api-reference/avatax/rest/v1
+  api-docs/best-practices/technical-notes/profile-client-property:  /api-reference/avatax/rest/v2
+  api-docs/api-reference:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax/get:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-java:  /api-reference/avatax/rest/v2
+  api-docs/avalara-avatax-api-reference:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/soap-java/committax:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/canceltax/feed:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-java/gettax:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-csharp/canceltax:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/gettax:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-csharp/canceltax:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/gettax:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-php/validate:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-csharp/gettax/feed:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-csharp/gettax/feed:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-java/ping:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-java/gettax:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/validate/feed:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-java/gettax:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/validate/feed:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-java:  /api-reference/avatax/soap
   api-docs/api-reference/soap-php/gettax:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-curl:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-curl:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-java/gettaxhistory:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-php/validate:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-csharp/validate:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-java/estimatetax:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/estimatetax/feed:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-php/validate/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-get/sample:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-php/validate:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-csharp/validate:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-java/estimatetax:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/estimatetax/feed:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-php/validate/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-get/sample:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-php/isauthorized:  /api-reference/avatax/soap
-  api-docs/rest/tax/post:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/estimatetax:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax:  /api-reference/avatax/rest/v1
+  api-docs/rest/tax/post:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/estimatetax:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-php/gettaxhistory:  /api-reference/avatax/soap
   api-docs/api-reference/soap-csharp/posttax:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-csharp/estimatetax:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/gettax:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-csharp/estimatetax:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/gettax:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-php/canceltax:  /api-reference/avatax/soap
   api-docs/api-reference/soap-csharp/committax:  /api-reference/avatax/soap
   api-docs/api-reference/soap-csharp/gettaxhistory:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-curl/validate:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-php/estimatetax:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-curl/validate:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-php/estimatetax:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp/adjusttax:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-curl/canceltax:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-php/canceltax:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-curl/canceltax:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-php/canceltax:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-php/adjusttax:  /api-reference/avatax/soap
   api-docs/api-reference/soap-csharp/validate:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-csharp/gettax:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-csharp/gettax:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp/ping:  /api-reference/avatax/soap
   api-docs/api-reference/soap-php/posttax:  /api-reference/avatax/soap
   api-docs/api-reference/soap-php/committax:  /api-reference/avatax/soap
   api-docs/api-reference/soap-csharp/canceltax:  /api-reference/avatax/soap
   api-docs/api-reference/soap-php/ping:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-php/gettax:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax/cancel:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-php/gettax:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax/cancel:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp/gettax:  /api-reference/avatax/soap
   api-docs/api-reference/soap-java/posttax:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-php:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-php:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-csharp:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-csharp:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-php:  /api-reference/avatax/soap
-  api-docs/api-reference/address-validation:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-java/canceltax:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/address-validation:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-java/canceltax:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap:  /api-reference/avatax/soap
-  api-docs/rest/address-validation:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-get/:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-java/validate:  /api-reference/avatax/rest/v1
+  api-docs/rest/address-validation:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-get/:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-java/validate:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-java/gettax/feed:  /api-reference/avatax/soap
   api-docs/api-reference/soap-java/validate:  /api-reference/avatax/soap
   api-docs/api-reference/soap-java/canceltax:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-curl/error-messages:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-curl/error-messages:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-java/adjusttax:  /api-reference/avatax/soap
-  api-docs/api-reference/:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-java/isauthorized:  /api-reference/avatax/soap
   api-docs/api-reference/soap-java/isauthorized/feed:  /api-reference/avatax/soap
-  api-docs/rest/tax/taxsummary:  /api-reference/avatax/rest/v1
+  api-docs/rest/tax/taxsummary:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp/validate/feed:  /api-reference/avatax/soap
   api-docs/api-reference/soap-csharp/isauthorized:  /api-reference/avatax/soap
   api-docs/best-practices/soap-or-rest:  /avatax/soap-or-rest
   api-docs/api-reference/gettaxhistory:  /api-reference/avatax/soap
-  api-docs/api-reference/error-messages:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/error-messages:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-java/ping/feed:  /api-reference/avatax/soap
   api-docs/rest/certcapture-api:  /certcapture
   api-docs/api-reference/soap-php/:  /api-reference/avatax/soap
-  api-docs/rest/resources/tax/taxsummary:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/taxsummary:  /api-reference/avatax/rest/v2
   resources/api-get-started:  /avatax/get-started
-  api-docs/rest/resources/tax/get/tax-get/sample-xml-request-successful/:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/get/tax-get/sample-xml-request-successful/:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-java/posttax/feed:  /api-reference/avatax/soap
-  api-docs/rest/resources/address-validation:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/address-validation:  /api-reference/avatax/rest/v2
   api-docs/api-reference/gettaxhistory/feed:  /api-reference/avatax/soap
-  api-docs/rest/resources/tax/get/ver-post/:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/address-validation/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax/post/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax/rest-errors:  /api-reference/avatax/rest/v1
-  api-docs/rest/address-validation/rest-errors:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/get/ver-post/:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/address-validation/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax/post/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax/rest-errors:  /api-reference/avatax/rest/v2
+  api-docs/rest/address-validation/rest-errors:  /api-reference/avatax/rest/v2
   api-docs/best-practices/testing-your-integration-to-avatax:  /avatax/testing-your-integration
-  api-docs/rest/resources/address-validation/feed:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/address-validation/feed:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-java/validate/feed:  /api-reference/avatax/soap
-  api-docs/api-reference/posttax-and-committax:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-php/gettax/feed:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/canceltax:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/address-validation/:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/posttax-and-committax:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-php/gettax/feed:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/canceltax:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/address-validation/:  /api-reference/avatax/rest/v2
   api-docs/best-practices/technical-notes/proxy-server-settings:  /avatax/proxy-server-settings
-  api-docs/rest/resources/tax/:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax/post//1.0/tax/get:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax/post//1.0/tax/get:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp/posttax/feed:  /api-reference/avatax/soap
   api-docs/api-reference/posttax:  /api-reference/avatax/soap
-  api-docs/rest/resources/accessing-resources/tax/:  /api-reference/avatax/rest/v1
-  api-docs/rest/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/cancel:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/accessing-resources/tax/:  /api-reference/avatax/rest/v2
+  api-docs/rest/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/cancel:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp/canceltax/feed:  /api-reference/avatax/soap
   api-docs/rest/accountsvc/tax-profile:  /avatax/api-reference/account/soap
   help:  https://community.avalara.com/avalara/category_sets/developers
   api-docs/api-reference/soap-php/gettaxhistory/feed:  /api-reference/avatax/soap
   api-docs/api-reference/soap-csharp/isauthorized/feed:  /api-reference/avatax/soap
-  api-docs/rest/tax/get/:  /api-reference/avatax/rest/v1
+  api-docs/rest/tax/get/:  /api-reference/avatax/rest/v2
   api-docs/best-practices/document-lifecycle/address-validation/address-validation-errors:  /avatax/common-errors
   api-docs/api-reference/soap-php/ping/feed:  /api-reference/avatax/soap
-  api-docs/rest/resources/tax/post:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-java/validate/feed:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/gettax/feed:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/post:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-java/validate/feed:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/gettax/feed:  /api-reference/avatax/rest/v2
   api-docs/best-practices/document-lifecycle/canceltax:  /avatax/voiding-documents
-  api-docs/rest/resources/tax/get:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/get:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-php/gettax/feed:  /api-reference/avatax/soap
   api-docs/api-reference/soap-csharp/committax/feed:  /api-reference/avatax/soap
-  api-docs/api-reference/canceltax/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/tax-post/address/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/taxsummary/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/cancel/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/response/taxline/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/tax-post/sample-xml-request-successful/:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/canceltax/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/tax-post/address/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/taxsummary/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/cancel/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/response/taxline/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/tax-post/sample-xml-request-successful/:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp/gettaxhistory/feed:  /api-reference/avatax/soap
   api-docs/api-reference/soap-php/isauthorized/feed:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-php/canceltax/feed:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-php/canceltax/feed:  /api-reference/avatax/rest/v2
   api-docs/best-practices/messages-results-and-errors:  /avatax/errors-and-outages
   api-docs/api-reference/soap-java/canceltax/feed:  /api-reference/avatax/soap
   api-docs/api-reference/soap-php/committax/feed:  /api-reference/avatax/soap
-  api-docs/rest/tax/rest-errors/feed:  /api-reference/avatax/rest/v1
+  api-docs/rest/tax/rest-errors/feed:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp/gettax/feed:  /api-reference/avatax/soap
-  api-docs/rest/resources/tax/tax-post/line/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/rest-errors:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/tax-post/line/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/rest-errors:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-php/canceltax/feed:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-java/gettax/feed:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-java/gettax/feed:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-php/validate/feed:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-curl/gettax/:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax/get/rest-errors:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-curl/gettax/:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax/get/rest-errors:  /api-reference/avatax/rest/v2
   api-docs/best-practices/document-lifecycle/gettaxhistory:  /api-reference/avatax/soap
   api-docs/api-reference/soap-java/gettaxhistory/feed:  /api-reference/avatax/soap
   api-docs/api-reference/soap-java/adjusttax/feed:  /api-reference/avatax/soap
-  api-docs/rest/prerequisites/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/:  /api-reference/avatax/rest/v1
+  api-docs/rest/prerequisites/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/:  /api-reference/avatax/rest/v2
   api-docs/best-practices/technical-notes:  /avatax/errors-and-outages
-  api-docs/rest/resources/tax/get/:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/get/:  /api-reference/avatax/rest/v2
   api-docs/best-practices/admin-console-administration:  /avatax/logins
-  api-docs/api-reference/feed:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/feed:  /api-reference/avatax/rest/v2
   api-docs/api-reference/posttax-and-committax/feed:  /api-reference/avatax/soap
-  api-docs/rest/tax/get/ver-get:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-csharp/estimatetax/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/tax-post/sample-request-unsuccessful/:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax/:  /api-reference/avatax/rest/v1
+  api-docs/rest/tax/get/ver-get:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-csharp/estimatetax/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/tax-post/sample-request-unsuccessful/:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax/:  /api-reference/avatax/rest/v2
   api-docs/best-practices/document-lifecycle/address-validation:  /avatax/address-validation
-  api-docs/rest/resources/address-validation/rest-errors/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/address-validation/rest-errors:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/rest-errors/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/address-validation/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/response/taxaddress/:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/address-validation/rest-errors/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/address-validation/rest-errors:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/rest-errors/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/address-validation/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/response/taxaddress/:  /api-reference/avatax/rest/v2
   api-docs/api-reference/gettaxhistory/feed/feed:  /api-reference/avatax/soap
-  api-docs/rest/resources/tax/get/ver-get/response/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/accessing-resources/:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/get/ver-get/response/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/accessing-resources/:  /api-reference/avatax/rest/v2
   api-get-started/thank-you-for-registering/feed/:  /avatax/thank-you-for-registering
-  api-docs/rest/required-request-headers:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-csharp/validate/feed:  /api-reference/avatax/rest/v1
+  api-docs/rest/required-request-headers:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-csharp/validate/feed:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-php/posttax/feed:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-java/api/xmlrpc:  /api-reference/avatax/rest/v1
-  api-docs/rest/common-request-format/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/tax-post/sample-json-request-successful/:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-java/api/xmlrpc:  /api-reference/avatax/rest/v2
+  api-docs/rest/common-request-format/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/tax-post/sample-json-request-successful/:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-php/adjusttax/feed:  /api-reference/avatax/soap
-  api-docs/rest/resources/tax/get/ver-post:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/gettax/trackback/:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/get/ver-post:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/gettax/trackback/:  /api-reference/avatax/rest/v2
   api-get-started/feed:  /avatax/get-started
-  api-docs/rest/resources/tax/get/ver-get/sample-request-unsuccessful:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-get/sample-json-request-successful:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/get/ver-get/sample-request-unsuccessful:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-get/sample-json-request-successful:  /api-reference/avatax/rest/v2
   api-docs/api-reference/posttax-and-committax/feed/feed:  /api-reference/avatax/soap
-  api-docs/api-reference/canceltax/feed/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/best-practices-for-high-availability/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/tax-post/response/taxaddress/:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/error-messages/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax/get/ver-post:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-csharp/canceltax/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/sample-json-request-successful/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/tax-post/response/taxline:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest/feed/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/jsonp-support:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/tax-get/response/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/tax-get/:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/canceltax/feed/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/best-practices-for-high-availability/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/tax-post/response/taxaddress/:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/error-messages/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax/get/ver-post:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-csharp/canceltax/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/sample-json-request-successful/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/tax-post/response/taxline:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest/feed/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/jsonp-support:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/tax-get/response/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/tax-get/:  /api-reference/avatax/rest/v2
   api-docs/best-practices/document-lifecycle/handling-return-invoices:  /avatax/handling-return-invoices
-  api-docs/rest/resources/tax/get/ver-post/address:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/get/ver-post/address:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp/ping/feed:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-java/canceltax/feed:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-java/estimatetax/feed:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-java/canceltax/feed:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-java/estimatetax/feed:  /api-reference/avatax/rest/v2
   api-get-started/thank-you-for-registering/feed:  /avatax/thank-you-for-registering
-  api-docs/rest/resources/tax/cancel/response:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/address:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/sample-xml-request-successful/feed/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/taxsummary/sample-json-request-successful/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/address-validation/rest-errors/feed/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/sample-request-unsuccessful/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/taxsummary/sample-xml-request-successful/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/response/taxdetail/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/response/taxline:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/cancel/response:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/address:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/sample-xml-request-successful/feed/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/taxsummary/sample-json-request-successful/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/address-validation/rest-errors/feed/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/sample-request-unsuccessful/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/taxsummary/sample-xml-request-successful/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/response/taxdetail/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/response/taxline:  /api-reference/avatax/rest/v2
   api-get-started/thank-you-for-registering/:  /avatax/thank-you-for-registering
-  api-docs/rest/common-request-format:  /api-reference/avatax/rest/v1
-  api-docs/rest/common-response-format:  /api-reference/avatax/rest/v1
-  api-docs/rest/common-response-format/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/cancel/response/:  /api-reference/avatax/rest/v1
-  api-docs/rest/required-request-headers/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/cancel/sample-json-request-successful:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-get:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-get/sample-xml-request-successful/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/response/taxdetail:  /api-reference/avatax/rest/v1
+  api-docs/rest/common-request-format:  /api-reference/avatax/rest/v2
+  api-docs/rest/common-response-format:  /api-reference/avatax/rest/v2
+  api-docs/rest/common-response-format/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/cancel/response/:  /api-reference/avatax/rest/v2
+  api-docs/rest/required-request-headers/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/cancel/sample-json-request-successful:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-get:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-get/sample-xml-request-successful/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/response/taxdetail:  /api-reference/avatax/rest/v2
   we-heart-open-source/:  /
-  api-docs/rest/jsonp-support/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/accessing-resources:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/accessing-resources/tax/tax-post/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/address-validation/sample-request-successful:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/address-validation/sample-request-successful/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/tax-get:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-get/sample-json-request-successful/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/response/taxaddress:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/sample-xml-request-successful/:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/canceltax/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/cancel/sample-request-unsuccessful:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/cancel/sample-request-unsuccessful/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-get/sample-request-unsuccessful/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/response/:  /api-reference/avatax/rest/v1
-  api-docs/rest/jsonp-support/feed/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/tax-post/address:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/prerequisites:  /api-reference/avatax/rest/v1
+  api-docs/rest/jsonp-support/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/accessing-resources:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/accessing-resources/tax/tax-post/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/address-validation/sample-request-successful:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/address-validation/sample-request-successful/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/tax-get:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-get/sample-json-request-successful/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/response/taxaddress:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/sample-xml-request-successful/:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/canceltax/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/cancel/sample-request-unsuccessful:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/cancel/sample-request-unsuccessful/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-get/sample-request-unsuccessful/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/response/:  /api-reference/avatax/rest/v2
+  api-docs/rest/jsonp-support/feed/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/tax-post/address:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/prerequisites:  /api-reference/avatax/rest/v2
   api-docs/rest/best-practices-for-high-availability:  /avatax/service-availability-and-performance
-  api-docs/api-reference/rest-php/estimatetax/feed:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-php/estimatetax/feed:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp/adjusttax/feed:  /api-reference/avatax/soap
   api-docs/api-reference/soap-java/committax/feed:  /api-reference/avatax/soap
   api-get-started/thank-you-for-registering/feed/feed:  /avatax/thank-you-for-registering
-  api-docs/rest/resources/tax/tax-get/sample-json-request-successful/:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/address-validation/feed/feed:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/gettax/feed:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/posttax-and-committax/document-status:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/address-validation/implicit-address-validation:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/oauth/using-an-authorization-token/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/address-validation/sample-request-unsuccessful/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/taxsummary/feed/:  /api-reference/avatax/rest/v1
-  api-docs/rest/common-response-format/feed/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/oauth/:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/api-reference/:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/api-reference/api-reference/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/line:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/tax-post/response/:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-php/stylesheets/screen.css:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-php/stylesheets/print.css:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax-get/tax-post/response/taxaddress/:  /api-reference/avatax/rest/v1
-  api-docs/rest/required-request-headers/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/jsonp-support/feed:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/tax-get/sample-json-request-successful/:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/address-validation/feed/feed:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/gettax/feed:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/posttax-and-committax/document-status:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/address-validation/implicit-address-validation:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/oauth/using-an-authorization-token/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/address-validation/sample-request-unsuccessful/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/taxsummary/feed/:  /api-reference/avatax/rest/v2
+  api-docs/rest/common-response-format/feed/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/oauth/:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/api-reference/:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/api-reference/api-reference/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/line:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/tax-post/response/:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-php/stylesheets/screen.css:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-php/stylesheets/print.css:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax-get/tax-post/response/taxaddress/:  /api-reference/avatax/rest/v2
+  api-docs/rest/required-request-headers/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/jsonp-support/feed:  /api-reference/avatax/rest/v2
   api-docs/rest/best-practices-for-high-availability/feed/:  /avatax/service-availability-and-performance
-  api-docs/rest/resources/tax/taxsummary/sample-json-request-successful/feed/:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/taxsummary/sample-json-request-successful/feed/:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp/stylesheets/screen.css:  /api-reference/avatax/soap
   api-docs/api-reference/soap-csharp/stylesheets/print.css:  /api-reference/avatax/soap
-  api-docs/api-reference/rest-curl/stylesheets/screen.css:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/stylesheets/print.css:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/address-validation/get-response/:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/rest-curl/stylesheets/screen.css:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/stylesheets/print.css:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/address-validation/get-response/:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-php/gettax/trackback/:  /api-reference/avatax/soap
-  api-docs/rest/required-request-headers/feed/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/tax-get/sample-json-request-successful/:  /api-reference/avatax/rest/v1
+  api-docs/rest/required-request-headers/feed/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/tax-get/sample-json-request-successful/:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp/:  /api-reference/avatax/soap
-  api-docs/rest/tax/rest-errors/feed/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax/taxsummary/feed/feed:  /api-reference/avatax/rest/v1
+  api-docs/rest/tax/rest-errors/feed/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax/taxsummary/feed/feed:  /api-reference/avatax/rest/v2
   api-docs/rest/certcapture-api/feed:  /certcapture
-  api-docs/api-reference/gettax/feed/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/taxsummary/sample-json-request-successful:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/sample-request-unsuccessful:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/address-validation/sample-request-unsuccessful:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-get/response:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/response:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/taxsummary/sample-xml-request-successful:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/images/navbar.png:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-csharp/stylesheets/screen.css:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/sample-xml-request-successful:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-get/sample-xml-request-successful:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/sample-json-request-successful:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/address-validation/get-response:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/cancel/sample-json-request-successful/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/sample-xml-request-successful/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/address-validation/get-request/:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax/cancel/874:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/javascripts/all.js:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/stylesheets/screen.css:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/stylesheets/print.css:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-csharp/javascripts/all.js:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/gettax/feed/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/taxsummary/sample-json-request-successful:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/sample-request-unsuccessful:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/address-validation/sample-request-unsuccessful:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-get/response:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/response:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/taxsummary/sample-xml-request-successful:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/images/navbar.png:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-csharp/stylesheets/screen.css:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/sample-xml-request-successful:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-get/sample-xml-request-successful:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/sample-json-request-successful:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/address-validation/get-response:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/cancel/sample-json-request-successful/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/sample-xml-request-successful/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/address-validation/get-request/:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax/cancel/874:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/javascripts/all.js:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/stylesheets/screen.css:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/stylesheets/print.css:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-csharp/javascripts/all.js:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-java/stylesheets/screen.css:  /api-reference/avatax/soap
   api-docs/api-reference/soap-csharp/javascripts/all.js:  /api-reference/avatax/soap
-  api-docs/rest/resources/tax/tax-get/sample-request-unsuccessful/:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax/postTaxDetail:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/tax-get/sample-request-unsuccessful/:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax/postTaxDetail:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-php/stylesheets/screen.css:  /api-reference/avatax/soap
   api-docs/api-reference/soap-php/javascripts/all.js:  /api-reference/avatax/soap
   api-docs/api-reference/soap-php/stylesheets/print.css:  /api-reference/avatax/soap
-  api-docs/rest/resources/tax/tax-get/response/:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-csharp/stylesheets/print.css:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/cancel/874:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/cancel/874/:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-php/javascripts/all.js:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/address-validation/sample-request-unsuccessful/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/stylesheets/print.css:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/tax-get/response/:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-csharp/stylesheets/print.css:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/cancel/874:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/cancel/874/:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-php/javascripts/all.js:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/address-validation/sample-request-unsuccessful/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/stylesheets/print.css:  /api-reference/avatax/rest/v2
   api-docs/rest/best-practices-for-high-availability/feed/feed:  /avatax/service-availability-and-performance
   api-docs/api-reference/soap-csharp/gettax/trackback/:  /api-reference/avatax/soap
-  api-docs/rest/tax/stylesheets/screen.css:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax/stylesheets/print.css:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/gettax/document-type:  /api-reference/avatax/rest/v1
+  api-docs/rest/tax/stylesheets/screen.css:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax/stylesheets/print.css:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/gettax/document-type:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp/images/logo.png:  /api-reference/avatax/soap
-  api-docs/api-reference/ttps:/excise.avalara.net/authenticationservice.asmx:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/ttps:/excise.avalara.net/authenticationservice.asmx:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/ttps:/excise.avalara.net/ttps:/excise.avalara.net/authenticationservice.asmx:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax/ttps:/excise.avalara.net/authenticationservice.asmx:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/ttps:/excise.avalara.net/ttps:/excise.avalara.net/authenticationservice.asmx:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax/ttps:/excise.avalara.net/ttps:/excise.avalara.net/authenticationservice.asmx:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/ttps:/excise.avalara.net/ttps:/excise.avalara.net/ttps:/excise.avalara.net/authenticationservice.asmx:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/ttps:/excise.avalara.net/authenticationservice.asmx:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/ttps:/excise.avalara.net/authenticationservice.asmx:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/ttps:/excise.avalara.net/ttps:/excise.avalara.net/authenticationservice.asmx:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax/ttps:/excise.avalara.net/authenticationservice.asmx:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/ttps:/excise.avalara.net/ttps:/excise.avalara.net/authenticationservice.asmx:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax/ttps:/excise.avalara.net/ttps:/excise.avalara.net/authenticationservice.asmx:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/ttps:/excise.avalara.net/ttps:/excise.avalara.net/ttps:/excise.avalara.net/authenticationservice.asmx:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp/images/navbar.png:  /api-reference/avatax/soap
-  api-docs/rest/resources/tax/images/navbar.png:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/javascripts/all.js:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/images/navbar.png:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/javascripts/all.js:  /api-reference/avatax/rest/v2
   api-docs/rest/accountsvc/document-elements:  /avatax/api-reference/account/soap
-  api-docs/rest/resources/tax/tax-get/sample-xml-request-successful/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/summary/sample-xml-request-successful/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/taxsummary/sample-json-request-successful/stylesheets/screen.css:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/taxsummary/sample-json-request-successful/stylesheets/print.css:  /api-reference/avatax/rest/v1
-  api-docs/rest/stylesheets/screen.css:  /api-reference/avatax/rest/v1
-  api-docs/rest/stylesheets/print.css:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/tax-get/sample-request-unsuccessful/:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/tax-get/sample-xml-request-successful/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/summary/sample-xml-request-successful/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/taxsummary/sample-json-request-successful/stylesheets/screen.css:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/taxsummary/sample-json-request-successful/stylesheets/print.css:  /api-reference/avatax/rest/v2
+  api-docs/rest/stylesheets/screen.css:  /api-reference/avatax/rest/v2
+  api-docs/rest/stylesheets/print.css:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/tax-get/sample-request-unsuccessful/:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-java/javascripts/all.js:  /api-reference/avatax/soap
-  api-docs/rest/prerequisites/feed/:  /api-reference/avatax/rest/v1
+  api-docs/rest/prerequisites/feed/:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-java/stylesheets/print.css:  /api-reference/avatax/soap
-  api-docs/rest/common-request-format/feed:  /api-reference/avatax/rest/v1
+  api-docs/rest/common-request-format/feed:  /api-reference/avatax/rest/v2
   api-docs/best-practices/messages-results-and-errors/common-errors:  /avatax/common-errors
   api-docs/soap/finding-your-companyid:  /avatax/finding-your-companyid
   api-docs/best-practices/document-lifecycle/posttax-and-committax:  /avatax/reportable-transactions
@@ -486,9 +486,9 @@ redirects:
   api-docs/soap/soap-or-rest:  /avatax/soap-or-rest
   api-docs/best-practices/technical-notes/proxy-server-settings:  /avatax/proxy-server-settings
   api-docs/best-practices/testing-your-integration-to-avatax:  /avatax/testing-your-integration
-  api-docs/rest/resources/tax/get/tax-post/response:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/get/tax-post/response:  /api-reference/avatax/rest/v2
   api-docs/best-practices/document-lifecycle/address-validation:  /avatax/address-validation
-  api-docs/best-practices/technical-notes/profile-client-property:  /api-reference/avatax/rest/v1
+  api-docs/best-practices/technical-notes/profile-client-property:  /api-reference/avatax/rest/v2
   api-docs/best-practices/document-lifecycle/gettax:  /avatax/use-cases
   api-docs/best-practices/api-integration-checklist:  /avatax/certification
   api-docs/best-practices/document-lifecycle/gettaxhistory:  /api-reference/avatax/soap
@@ -497,55 +497,55 @@ redirects:
   api-docs/best-practices/messages-results-and-errors:  /avatax/common-errors
   api-docs/best-practices/a-note-on-service-outages:  /avatax/service-availability-and-performance
   api-docs/soap/making-direct-soap-calls:  /api-reference/avatax/soap
-  api-docs/rest/tax/cancel/2:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/images/logo.png:  /api-reference/avatax/rest/v1
+  api-docs/rest/tax/cancel/2:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/images/logo.png:  /api-reference/avatax/rest/v2
   api-docs/best-practices/document-lifecycle/address-validation/address-validation-errors:  /avatax/address-validation
   api-docs/best-practices/soap-or-rest:  /avatax/soap-or-rest
-  api-docs/rest/resources/tax/tax-post/response/taxdetail/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/taxsummary/sample-xml-request-successful/feed/:  /api-reference/avatax/rest/v1
-  api-docs/rest/best-practices-for-high-availability/feed:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/gettax/administrator/index.php:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/gettax/admin.php:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/taxsummary/feed:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/tax-post/response/taxdetail/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/taxsummary/sample-xml-request-successful/feed/:  /api-reference/avatax/rest/v2
+  api-docs/rest/best-practices-for-high-availability/feed:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/gettax/administrator/index.php:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/gettax/admin.php:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/taxsummary/feed:  /api-reference/avatax/rest/v2
   api-docs/best-practices/going-live:  /avatax/going-live
   api-docs/best-practices/document-lifecycle/canceltax:  /avatax/use-cases
   api-docs/best-practices/technical-notes:  /avatax/
   we-heart-open-source/:  /
   free-trial/:  /avatax/get-started
   api-docs/api-reference/soap-php/images/navbar.png:  /api-reference/avatax/soap
-  api-docs/rest/resources/tax/summary/:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-curl/administrator/index.php:  /api-reference/avatax/rest/v1
-  api-docs/rest/tax/administrator/index.php:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/rest-csharp/images/navbar.png:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/summary/:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-curl/administrator/index.php:  /api-reference/avatax/rest/v2
+  api-docs/rest/tax/administrator/index.php:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/rest-csharp/images/navbar.png:  /api-reference/avatax/rest/v2
   api-docs/best-practices/document-lifecycle/handling-return-invoices:  /avatax/handling-return-invoices
-  api-docs/rest/resources/tax/get/tax-post/response/taxdetail/:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/get/tax-post/response/taxdetail/:  /api-reference/avatax/rest/v2
   api-docs/best-practices/document-lifecycle/ping:  /avatax/use-cases
-  api-docs/rest/resources/tax/get/ver-post/response/feed/feed:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/get/ver-post/response/feed/feed:  /api-reference/avatax/rest/v2
   api-get-started\':  /avatax/get-started
-  api-docs/rest/resources/tax/get/ver-post/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/accessing-resources/feed/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-get/sample-xml-request-successful/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/rest-errors/feed/:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-get/sample-json-request-successful/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/cancel/response/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/tax-post/response/taxline/:  /api-reference/avatax/rest/v1
+  api-docs/rest/resources/tax/get/ver-post/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/accessing-resources/feed/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-get/sample-xml-request-successful/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/rest-errors/feed/:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-get/sample-json-request-successful/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/cancel/response/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/tax-post/response/taxline/:  /api-reference/avatax/rest/v2
   api-docs/api-reference/soap-csharp/ping/feed/feed:  /api-reference/avatax/soap
-  api-docs/rest/common-response-format/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/address-validation/get-response/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/tax-post:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/taxsummary/sample-xml-request-successful/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/tax-get/sample-json-request-successful:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/taxsummary/sample-json-request-successful/feed:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax-get/tax-post/response/taxline/:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/(.*):  /api-reference/avatax/rest/v1
+  api-docs/rest/common-response-format/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/address-validation/get-response/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/tax-post:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/taxsummary/sample-xml-request-successful/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/tax-get/sample-json-request-successful:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/taxsummary/sample-json-request-successful/feed:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax-get/tax-post/response/taxline/:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/(.*):  /api-reference/avatax/rest/v2
   avalara-certified/avatax-15-certification-checklists/avatax-checklist:  /avatax/certification
-  api-reference:  /api-reference/avatax/rest/v1
+  api-reference:  /api-reference/avatax/rest/v2
   api-documentation:  /avatax/
-  api-docs/api-reference/wp-content/themes/avada-avalara/style.css:  /api-reference/avatax/rest/v1
-  api-docs/api-reference/wp-content/themes/Avada/style.css:  /api-reference/avatax/rest/v1
-  api-docs/rest/wp-content/themes/Avada/style.css:  /api-reference/avatax/rest/v1
-  api-docs/rest/wp-content/themes/avada-avalara/style.css:  /api-reference/avatax/rest/v1
-  wp-content/apireference/master:  /api-reference/avatax/rest/v1
+  api-docs/api-reference/wp-content/themes/avada-avalara/style.css:  /api-reference/avatax/rest/v2
+  api-docs/api-reference/wp-content/themes/Avada/style.css:  /api-reference/avatax/rest/v2
+  api-docs/rest/wp-content/themes/Avada/style.css:  /api-reference/avatax/rest/v2
+  api-docs/rest/wp-content/themes/avada-avalara/style.css:  /api-reference/avatax/rest/v2
+  wp-content/apireference/master:  /api-reference/avatax/rest/v2
   api-documentation/avatax-16-api/rt:  /avalara-apis
   api-documentation/avatax-16-api:  /avalara-apis
   api-documentation/avatax-16-api/getting-started:  /avalara-apis
@@ -562,7 +562,7 @@ redirects:
   api-documentation/avatax-16-api/deploy:  /avalara-apis
   api-documentation/avatax-16-api/avatax-16-v2:  /avalara-apis
   api-reference/avatax16:  /avalara-apis
-  api-reference/avatax15:  /api-reference/avatax/rest/v1
+  api-reference/avatax15:  /api-reference/avatax/rest/v2
   api-reference/trustfile_api:  /trustfile
   api-reference/trustfile_microservice:  /trustfile
   api-reference/trustfile_app:  /trustfile
@@ -573,25 +573,25 @@ redirects:
   api-documentation/avatax-16-api/:  /avalara-apis
   api-documentation/avatax-16-api/api-docs:  /avalara-apis
   api-documentation/avatax-16-api/designing-your-integration:  /avalara-apis
-  api-reference/avatax15.php:  /api-reference/avatax/rest/v1
+  api-reference/avatax15.php:  /api-reference/avatax/rest/v2
   wp-content/apireference/master/:  /api-reference/avatax/soap
   get-started/:  /avatax/get-started
   api-documentation/avatax-16-api/administrator/index.php:  /avalara-apis
   api-docs/designing-your-integration/handling-return-invoices: /avatax/handling-return-invoices
   api-docs/designing-your-integration/handling-return-invoices/invoice-and-return:  /avatax/handling-return-invoices
   api-documentation/certcapture-api:  /certcapture
-  wp-content/apireference/master/wp-admin/admin-ajax.php:  /api-reference/avatax/rest/v1
-  wp-content/apireference/master//wp-admin/options-link.php:  /api-reference/avatax/rest/v1
-  wp-content/apireference/master//wp-admin/includes/themes.php:  /api-reference/avatax/rest/v1
-  wp-content/apireference/master/wp-content/plugins/wp-ecommerce-shop-styling/includes/download.php:  /api-reference/avatax/rest/v1
+  wp-content/apireference/master/wp-admin/admin-ajax.php:  /api-reference/avatax/rest/v2
+  wp-content/apireference/master//wp-admin/options-link.php:  /api-reference/avatax/rest/v2
+  wp-content/apireference/master//wp-admin/includes/themes.php:  /api-reference/avatax/rest/v2
+  wp-content/apireference/master/wp-content/plugins/wp-ecommerce-shop-styling/includes/download.php:  /api-reference/avatax/rest/v2
   api-documentation/avatax-16-api/api-docs/api-sample-code:  /avalara-apis
   api-get-started.:  /avatax/get-started
-  wp-content/apireference/master:  /api-reference/avatax/rest/v1
-  api-docs/rest/resources/tax/get/ver-post/line/:  /api-reference/avatax/rest/v1
-  api-documentation/avatax-15-api/avatax-15-rest-api-reference:  /api-reference/avatax/rest/v1
+  wp-content/apireference/master:  /api-reference/avatax/rest/v2
+  api-docs/rest/resources/tax/get/ver-post/line/:  /api-reference/avatax/rest/v2
+  api-documentation/avatax-15-api/avatax-15-rest-api-reference:  /api-reference/avatax/rest/v2
   api-documentation/landedcost-api:  /landedcost
   api-documentation/api-reference-template:  /avalara-apis
-  wp-content/apireference/master/wp-login.php:  /api-reference/avatax/rest/v1
+  wp-content/apireference/master/wp-login.php:  /api-reference/avatax/rest/v2
   api-documentation/avatax-16-api/avatax-soap-api-reference:  /avalara-apis
   landedcost/api-reference/calculate/v3: /api-reference/landedcost/methods/calculate
   api-docs/soap/accountsvc: /api-reference/avatax/soap

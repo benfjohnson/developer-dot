@@ -15,7 +15,7 @@ disqus: 1
 
 This chapter is all about customizing your transactions to expand on the capabilities of your application.  By the end of this chapter, you will learn the following:
 <ul class="dev-guide-list">
-  <li>How the Document level properties apply to the transaction and the impact of line level adjustments.</li>
+  <li>How the document level properties apply to the transaction, and the impact of line level adjustments.</li>
   <li>How to use multiple addresses at both the document and line levels.</li>
   <li>How reference codes and other user managed meta data can be used for tracking and reporting.</li>
 </ul>

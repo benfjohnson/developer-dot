@@ -1,11 +1,9 @@
 swagger: '2.0'
 info:
-  description: "The AvaTax REST API exposes the most commonly used available for interacting with the AvaTax service, allowing calculation of tax, modification of documents, and validation of addresses. If you're unsure of which API to use, a full comparison of the differences between the functionality provided by our REST and SOAP interfaces is documented [here](/avatax/soap-or-rest).
-  
-  The [SOAP API reference](/api-reference/avatax/soap/) is also available."
+  description: "The legacy AvaTax REST 1.0 API documentation is available online for users who have existing implementations of AvaTax built using REST 1.0.  New integrations should use the full [AvaTax REST 2.0 API](/api-reference/avatax/rest/v2/), which fully replaces REST 1.0."
   
   version: '1.0'
-  title: AvaTax REST API
+  title: Legacy REST API
   termsOfService: 'http://www.avalara.com/terms/'
   contact:
     name: 'For support, visit the Avalara Community'
@@ -37,7 +35,13 @@ paths:
   '/tax/get':
     post:
       summary: Calculate Tax and Record a Document
-      description: 'Calculates taxes on a document such as a sales order, sales invoice, purchase order, purchase invoice, or credit memo. To use an XML request/response, use the URL `/1.0/tax/get.xml`'
+      description: '*DEPRECATED*
+      
+      This API is replaced by [CreateTransaction API](/api-reference/avatax/rest/v2/methods/Transactions/CreateTransaction/).
+      
+      Documentation for this API is available for reference for customers who have existing integrations that were built with REST 1.0.
+      
+      Calculates taxes on a document such as a sales order, sales invoice, purchase order, purchase invoice, or credit memo. To use an XML request/response, use the URL `/1.0/tax/get.xml`'
       operationId: getTax
       parameters:
         - in: body
@@ -66,7 +70,13 @@ paths:
     post:
       operationId: cancelTax
       summary: Void a Document
-      description: 'Voids or deletes and existing transaction record from the AvaTax system. To use the XML for this operation specify the request `Content-Type: text/xml`. No modification needs to be made to the URL.'
+      description: '*DEPRECATED*
+      
+      This API is replaced by [VoidTransaction API](/api-reference/avatax/rest/v2/methods/Transactions/VoidTransaction/).
+      
+      Documentation for this API is available for reference for customers who have existing integrations that were built with REST 1.0.
+      
+      Voids or deletes and existing transaction record from the AvaTax system. To use the XML for this operation specify the request `Content-Type: text/xml`. No modification needs to be made to the URL.'
       parameters:
         - in: body
           name: CancelTaxRequest
@@ -89,7 +99,13 @@ paths:
   '/tax/{latitude},{longitude}/get':
     get:
       summary: Estimate Tax
-      description: 'Retrieves tax rate details for the supplied geographic coordinates and sale amount. Since the REST API does not provide an explicit ping function, this method can also be used to test connectivity to the service. If you would like an XML response, use the URL `/1.0/tax/<latitude>,<longitude>/get.xml` and specify the request header `Content-Type: text/xml`.'
+      description: '*DEPRECATED*
+      
+      This API is replaced by [CreateTransaction API](/api-reference/avatax/rest/v2/methods/Transactions/CreateTransaction/).
+      
+      Documentation for this API is available for reference for customers who have existing integrations that were built with REST 1.0.
+      
+      Retrieves tax rate details for the supplied geographic coordinates and sale amount. Since the REST API does not provide an explicit ping function, this method can also be used to test connectivity to the service. If you would like an XML response, use the URL `/1.0/tax/<latitude>,<longitude>/get.xml` and specify the request header `Content-Type: text/xml`.'
       operationId: estimateTax
       parameters:
         - in: path
@@ -133,7 +149,13 @@ paths:
   '/address/validate':
     get:
       summary: Validate an Address
-      description: 'Normalizes a single US or Canadian address, providing a non-ambiguous USPS address match. To recieve an XML response, use the URL `/1.0/address/validate.xml` and set the request header `Content-Type: text/xml`'
+      description: '*DEPRECATED*
+      
+      This API is replaced by [ResolveAddress API](/api-reference/avatax/rest/v2/methods/Addresses/ResolveAddress/).
+      
+      Documentation for this API is available for reference for customers who have existing integrations that were built with REST 1.0.
+      
+      Normalizes a single US or Canadian address, providing a non-ambiguous USPS address match. To recieve an XML response, use the URL `/1.0/address/validate.xml` and set the request header `Content-Type: text/xml`'
       operationId: validateAddress
       parameters: 
         - name: Line1

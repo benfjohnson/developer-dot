@@ -109,7 +109,7 @@ layout: default
 title: "${methodSubsetName ? `${methodSubsetName} - ` : ''}${apiName}"
 api_console: 1
 api_name: ${apiName}
-${product === 'avaTax' && (apiName !== 'Avatax REST API v2' || apiName !== 'Avatax SOAP API') ? 'old_api: true' : ''}
+${product === 'avaTax' && (apiName !== 'Avatax REST API' || apiName !== 'Avatax SOAP API') ? 'old_api: true' : ''}
 nav: apis
 product: ${product}
 doctype: api_references

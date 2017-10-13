@@ -64,6 +64,7 @@
             <div class="collapse navbar-collapse js-navbar-collapse">
                 <ul class="nav navbar-nav {{page.nav}} {{layout.nav}}">
                     <li class="apis visible-xs-block"><a href="/avalara-apis"><span class="text-uppercase">API</span>s</a></li>
+                    <li class="visible-xs-block"><a href="/avatax/dev-guide/"><span class="text-uppercase">AvaTax Developer Guide</span></a></li>
                     <li class="apis dropdown dropdown-large hidden-xs">
                         <a class="dropdown-toggle" data-toggle="dropdown"><span class="text-uppercase">API</span>s <i class="caret"></i></a>
                         <div class="dropdown-menu dropdown-menu-large">
@@ -80,7 +81,7 @@
                                         <li><a href="{{api_console_hash.path}}">{{api_console_hash.title}}</a></li>
                                         {% endfor %}
                                         <br/>
-                                        <li><a href="/avatax/dev-guide/getting-started-with-avatax/">Developer Guide</a></li>
+                                        <li><a href="/avatax/dev-guide/">Developer Guide</a></li>
                                         <li><a href="/avatax/get-started">Set up your AvaTax sandbox</a></li>
                                     </ul>
                                     {% endif %} {% if site.data.api_consoles.communications.nav_links %}
@@ -221,7 +222,7 @@
                     </form>
                 </ul>
 
-
+                
                 <a href="https://developer.avalara.com/avatax/signup/" class="btn btn-primary btn-signup">Sign up</a>
 
             </div>
@@ -232,7 +233,7 @@
         <div class="recent-blog-posts" id="recentPosts">
             <button class="btn btn-seconndary pull-right" onClick="{document.getElementById('recentPosts').style.display='none';}"><i class="glyphicon glyphicon-remove"></i> Close</button>
             <h1>What's new</h1>
-            <p class="whats-new"><a href="https://register.gotowebinar.com/register/7674352948705262082?elqTrackId=751c1b96fbde4fadac04db46c8bcfd38&elqaid=2376&elqat=2">Sign up</a> for our next upcoming developer webinar on September 19th!</p>
+            <p class="whats-new"><a href="https://register.gotowebinar.com/register/6793209827763645698?elqTrackId=7278ff2427e948fba281a0b63b6b9e43&elqaid=2376&elqat=2">Sign up</a> for our next upcoming developer webinar on October 24th!</p>
             <h2>Recent blog posts</h2>
             {% for post in site.posts limit:4 %}
             <div class="col-md-3">

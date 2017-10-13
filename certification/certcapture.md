@@ -32,9 +32,15 @@ nav: certification
 			</td>
 		</tr>
 		<tr>
+<<<<<<< HEAD
 			<td>Required</td>
 			<td>Test Connection button</td>
 			<td>Tests the connection to the Avalara service and verifies the  credentials. This is an important element to allow for successful troubleshooting of the service.</td>
+=======
+			<td>R</td>
+			<td><a href="/api-reference/avatax/rest/v2/methods/Utilities/Ping/">AvaTax Test Connection</a> button</td>
+			<td>Tests the connection to the AvaTax service and verifies the AvaTax credentials. This is an important element to allow for successful troubleshooting of the AvaTax service.</td>
+>>>>>>> upstream/master
 		</tr>
 		<tr>
 			<td>Required</td>

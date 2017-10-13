@@ -9,7 +9,7 @@
 
                 {% assign allLinks = product_api[1] %}
                 {% assign baseLinks = allLinks.index %}
-                {% if product_api_pretty != "Avatax SOAP API" and product_api_pretty != "Avatax REST API v2" %}
+                {% if product_api_pretty != "Avatax SOAP API" and product_api_pretty != "Avatax REST API" %}
                     <li>
                         <a href="/{{baseLinks.home}}">{{product_api_pretty}}</a>
                         <!-- not quite sure how to do boolean algebra in liquid syntax -->
