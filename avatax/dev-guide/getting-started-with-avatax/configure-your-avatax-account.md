@@ -17,7 +17,7 @@ If you are building a connector that links up to AvaTax, you don't have to do an
 
 To continue with this developer guide, let's set up a test company right now.  This company will allow us to finish all the test cases within the AvaTax Developer Guide using a company with a known tax profile.  
 
-To set up a company quickly, AvaTax provides the <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Companies/CompanyInitialize/">CompanyInitialize API</a> call, which does most of the work:
+To set up a company quickly, AvaTax provides the <a class="dev-guide-link" href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Companies/CompanyInitialize/">CompanyInitialize API</a> call, which does most of the work:
 
 <div class="dev-guide-test" id="test1">
 <div class="dev-guide-test-heading">Test Case 1.4.1 - Configure a Company</div>

@@ -18,7 +18,7 @@ Whenever AvaTax is unable to respond to your API call, the software will present
 
 We've designed the AvaTax error messages to clearly tell you what went wrong, what you can do about it, and how to proceed.  You can read a list of <a class="dev-guide-link" href="https://developer.avalara.com/avatax/errors/">all AvaTax REST error codes</a> on the developer website - and each error message contains within it a hyperlink to the page for that specific error.  Our community forums team monitors all comments on the developer website, so if you see anything confusing, write us a comment - we'd love to improve our documentation!
 
-When an AvaTax API call produces an error, it responds using the standard <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP error response codes</a>.  Response codes between 400 and 499 are called <b>Client Errors</b>, and they indicate that you made a mistake in your API call.  Response codes between 500 and 599 refer to internal errors within AvaTax itself; each internal error is automatically logged and reported to our development team for triage.  
+When an AvaTax API call produces an error, it responds using the standard <a class="dev-guide-link" href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP error response codes</a>.  Response codes between 400 and 499 are called <b>Client Errors</b>, and they indicate that you made a mistake in your API call.  Response codes between 500 and 599 refer to internal errors within AvaTax itself; each internal error is automatically logged and reported to our development team for triage.  
 
 If your program gets an HTTP response code between 400 and 499, here's how to proceed:
 
@@ -59,13 +59,13 @@ Your next step should be to display an error message in your product:
 
 <ul class="dev-guide-list">
     <li>Begin by displaying the value <code>error.message</code> in your user interface.  This helps the user understand the context of the problem without taking up too much space.</li>
-    <li>If your user interface has room for more details, display the value contained in <code>error.details[0].description</code> and the <code>error.details[0].helpLink</code>.  This would allow the user to see the link "<a href="http://developer.avalara.com/avatax/errors/AuthenticationIncomplete">You must provide an Authorization header of the type Basic or Bearer to authenticate correctly.</a>"</li>
+    <li>If your user interface has room for more details, display the value contained in <code>error.details[0].description</code> and the <code>error.details[0].helpLink</code>.  This would allow the user to see the link "<a class="dev-guide-link" href="http://developer.avalara.com/avatax/errors/AuthenticationIncomplete">You must provide an Authorization header of the type Basic or Bearer to authenticate correctly.</a>"</li>
     <li>Some API calls can include more than one error.  For example, if a user is creating a transaction with ten invoice lines, you will receive a list of error messages, one per mistake.  Depending on your user interface, you may wish to parse and display all error messages, or only display the top one.</li>
 </ul>
 
 In the case of an error, it's critical to handle the error and enable the software to continue.  If your program has a user interface, you should allow the user to retry or cancel the API call.  Your customers may be working offline or with an interrupted Internet connection, and they need to get their work done even if they can't use AvaTax at the moment.  We'll cover offline behavior more in <a class="dev-guide-link" href="/avatax/dev-guide/calculating-tax-offline/">Chapter 11 - Calculating Tax Offline</a>, but for the moment let's review how to properly handle error messages.
 
-Here's a test case that causes an error message to occur.  We will call the <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Companies/QueryCompanies/">QueryCompanies API</a> with an incorrect filter, which produces an error message.  Try this API call and make sure your program can display the error message correctly:
+Here's a test case that causes an error message to occur.  We will call the <a class="dev-guide-link" href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Companies/QueryCompanies/">QueryCompanies API</a> with an incorrect filter, which produces an error message.  Try this API call and make sure your program can display the error message correctly:
 
 <div class="dev-guide-test" id="test1">
 <div class="dev-guide-test-heading">Test Case 1.3.1 - Handling Errors</div>
@@ -149,9 +149,9 @@ Here's how to use ping:
 </ul>
 
 <div class="dev-guide-dropdown">
-    <input id="checkbox_toggle" type="checkbox" />
+    <input id="checkbox_toggle1" type="checkbox" />
     <i id="icon-up" class="glyphicon glyphicon-chevron-down"></i><i id="icon-down" class="glyphicon glyphicon-chevron-right"></i>
-    <label for="checkbox_toggle"><h4>Expected API Call</h4></label>
+    <label for="checkbox_toggle1"><h4>Expected API Call</h4></label>
     <ul class="dev-guide-dropdown-content">
         <li>Ping:
             <pre>
@@ -188,7 +188,7 @@ Before we move on, let's look at a few other common troubleshooting steps you ma
                     <li>If the connection is permanent or business-class, does your ISP offer metrics to help you measure response time?</li>
                     <li>If you have a more advanced network using <a class="dev-guide-link" href="https://en.wikipedia.org/wiki/Border_Gateway_Protocol">Border Gateway Protocol</a> routing, you would need to talk to your network engineering team. BGP issues are very challenging to review and are beyond the scope of this article.</li>
                 </ul>
-                Due to security issues, Avalara's servers do not respond to ping requests.  This means that network traces from software like <a href="https://en.wikipedia.org/wiki/Traceroute">traceroute or tracert</a> are not able to provide accurate route timings.
+                Due to security issues, Avalara's servers do not respond to ping requests.  This means that network traces from software like <a class="dev-guide-link"  href="https://en.wikipedia.org/wiki/Traceroute">traceroute or tracert</a> are not able to provide accurate route timings.
                 </td>
             </tr>
             <tr>
