@@ -31,6 +31,12 @@ const BuildLinkOrType = ({modelName, p, propName}) => {
         return p.items.$ref ? buildExternalLink(p.items.$ref, true) : <div>{'Array['}{p.items.type}{']'}</div>;
     default:
         if (p.format) {
+            if (p.format === 'date-time') {
+                if (p['x-date-type']) {
+                    return <span>{p['x-date-type']}<br/></span>;
+                }
+                return <span>{p.format}<br/></span>;
+            }
             return <span>{p.format}<br/></span>;
         }
         if (p.enum) {
@@ -55,6 +61,7 @@ const ModelProperty = ({modelName, name, prop, requiredProps = []}) => {
     return (
         <tr>
             <td>{name}</td>
+
             <td>
                 <BuildLinkOrType modelName={modelName} p={prop} propName={name} />
                 <span>{requiredProps.includes('name') ? 'Required' : 'Optional'}<br/></span>
