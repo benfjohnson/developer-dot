@@ -16,11 +16,11 @@ Transactions can be very simple, very complex, or anywhere in between.  The AvaT
 To learn AvaTax, it's best to start small - so let's look at the minimum information required to calculate a transaction, and why that information is required:
 
 <ul class="dev-guide-list">
-  <li>The <code>companyCode</code> of the company that recorded the transaction.  If you have multiple companies within your account, you need to specify which one is creating this transaction.  For this example, we'll use the DEVGUIDE company you set up in <a href="/avatax/dev-guide/getting-started-with-avatax/">Chapter 1 - Getting Started with AvaTax</a>.</li>
+  <li>The <code>companyCode</code> of the company that recorded the transaction.  If you have multiple companies within your account, you need to specify which one is creating this transaction.  For this example, we'll use the DEVGUIDE company you set up in <a class="dev-guide-link" href="/avatax/dev-guide/getting-started-with-avatax/">Chapter 1 - Getting Started with AvaTax</a>.</li>
   <li>The <code>type</code> of the transaction - for example, sales are recorded as a <code>SalesInvoice</code>, which is a permanent transaction that can be reported to a tax authority.  For this example, we'll get a tax estimate using the type <code>SalesOrder</code>, which is not recorded and won't be reported on a tax filing.</li>
   <li>The <code>date</code> when the transaction took place.  </li>
-  <li>The <code>customerCode</code> of the customer requesting the transaction.  This feature is necessary to allow customers who have exemption certificates to be exempted from sales tax correctly - we'll cover that more in <a href="/avatax/dev-guide/exemptions/">Chapter 8 - Exemptions</a>.</li>
-  <li>The list of <code>addresses</code> involved in the transaction.  For this example, we'll use a <code>singleLocation</code> address element, which means our entire transaction took place at a single location and that no shipments or phone orders were included.  We will cover multi-address transactions in <a href="/avatax/dev-guide/customizing-transaction/">Chapter 3 - Customizing Your Transactions</a>.</li>
+  <li>The <code>customerCode</code> of the customer requesting the transaction.  This feature is necessary to allow customers who have exemption certificates to be exempted from sales tax correctly - we'll cover that more in <a class="dev-guide-link" href="/avatax/dev-guide/exemptions/">Chapter 8 - Exemptions</a>.</li>
+  <li>The list of <code>addresses</code> involved in the transaction.  For this example, we'll use a <code>singleLocation</code> address element, which means our entire transaction took place at a single location and that no shipments or phone orders were included.  We will cover multi-address transactions in <a class="dev-guide-link" href="/avatax/dev-guide/customizing-transaction/">Chapter 3 - Customizing Your Transactions</a>.</li>
   <li>For each of the <code>lines</code> in the invoice, we'll need to know the total dollar <code>amount</code> of the line.</li>
 </ul>
 
@@ -59,11 +59,11 @@ The <code>companyCode</code> value determines what tax rules govern a transactio
 
 If you forget to identify the <code>companyCode</code>, AvaTax will automatically assume that you want to use the default company.  Every AvaTax account has a default company - but since a complex business can have dozens of companies, it is considered best practice to always include the <code>companyCode</code> value.
 
-As a connector developer, most of your users will have a simple company structure.  It's considered best practice to provide a drop-down list of companies in your user interface, but to automatically display (and highlight) the company with the <code>isDefault</code> flag set to true.  To retrieve the list of available companies for your user interface, call the <a href="/api-reference/avatax/rest/v2/methods/Companies/QueryCompanies/">QueryCompanies API</a>.
+As a connector developer, most of your users will have a simple company structure.  It's considered best practice to provide a drop-down list of companies in your user interface, but to automatically display (and highlight) the company with the <code>isDefault</code> flag set to true.  To retrieve the list of available companies for your user interface, call the <a class="dev-guide-link" href="/api-reference/avatax/rest/v2/methods/Companies/QueryCompanies/">QueryCompanies API</a>.
 
 <h3>Document Type</h3>
 
-AvaTax can handle multiple different types of transactions, including Sales, Purchases, Returns, and Inventory Transfer transactions.  We use the <code>type</code> field - often called <a href="/api-reference/avatax/rest/v2/models/enums/DocumentType/">DocumentType</a> or TransactionType - to differentiate between these types of transactions.  Many connectors will only ever work with Sales transactions; but if you are developing a plugin for an accounting system, you should expect to handle all different types of transactions.
+AvaTax can handle multiple different types of transactions, including Sales, Purchases, Returns, and Inventory Transfer transactions.  We use the <code>type</code> field - often called <a class="dev-guide-link" href="/api-reference/avatax/rest/v2/models/enums/DocumentType/">DocumentType</a> or TransactionType - to differentiate between these types of transactions.  Many connectors will only ever work with Sales transactions; but if you are developing a plugin for an accounting system, you should expect to handle all different types of transactions.
 
 Some DocumentTypes are temporary estimates and others are permanent transactions that will be stored and eventually reported to the tax authority.  In AvaTax, estimates are called Orders and permanent transactions are called Invoices.  This means that a temporary sales estimate is a <code>SalesOrder</code>, whereas a permanent sale is a <code>SalesInvoice</code>.
 
@@ -71,7 +71,7 @@ If you forget to include the <code>type</code> field in the <a class="dev-guide-
 
 <h3>Document Code</h3>
 
-In the above example, we did not provide a value for the <code>code</code> field.  The <code>code</code> field is an optional code that identifies this transaction.  When we do not provide one, AvaTax assigns each transaction a <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Globally Unique Identifier</a>, often called a GUID.
+In the above example, we did not provide a value for the <code>code</code> field.  The <code>code</code> field is an optional code that identifies this transaction.  When we do not provide one, AvaTax assigns each transaction a <a class="dev-guide-link" href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Globally Unique Identifier</a>, often called a GUID.
 
 Connector developers may want to use a <code>code</code> value that ties transactions in AvaTax to the transactions in your underlying software.  For example, you can use the ID field of your sale as it is known in your accounting system.  These <code>code</code> values must be unique within each company - if you attempt to create two transactions with the same <code>code</code> for the same company, AvaTax will assume you want to modify the existing transaction and report an error.  
 
@@ -89,7 +89,7 @@ The <code>customerCode</code> value identifies the customer who is transacting w
 
 For example, if the transaction type is a <code>SalesInvoice</code>, the transaction is deemed to be a sale made by the company identified by <code>companyCode</code> sold to the buyer identified by the <code>customerCode</code>. 
 
-This determination is necessary in order for our software to correctly handle exemption certificates.  AvaTax requires this field so that exemptions will work correctly when the user begins working with certificates.   We'll cover this in more detail in <a class="dev-guide-link" href="">Chapter 8 - Exemptions</a>.   
+This determination is necessary in order for our software to correctly handle exemption certificates.  AvaTax requires this field so that exemptions will work correctly when the user begins working with certificates.   We'll cover this in more detail in <a class="dev-guide-link" href="/avatax/dev-guide/exemptions/">Chapter 8 - Exemptions</a>.   
 
 <h3>Addresses</h3>
 
