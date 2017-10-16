@@ -57,7 +57,7 @@ const ModelProperty = ({modelName, name, prop, requiredProps = []}) => {
             <td>{name}</td>
             <td>
                 <BuildLinkOrType modelName={modelName} p={prop} propName={name} />
-                <span>{requiredProps.includes('name') ? 'Required' : 'Optional'}<br/></span>
+                <span>{requiredProps.includes(name) ? 'Required' : 'Optional'}<br/></span>
                 {prop.readOnly ? <span>{'Read Only'}<br/></span> : null}
                 {prop.hasOwnProperty('maxLength') ? <span>{`Max Length: ${prop.maxLength}`}<br/></span> : null}
                 {prop.hasOwnProperty('minLength') ? <span>{`Min Length: ${prop.minLength}`}<br/></span> : null}
