@@ -41,8 +41,9 @@ doctype: overview
                 <h4>Check out the documentation</h4>
             </div>
             <div class="col-md-7 col-md-offset-5 padding-top">
-                <ul class="pipe">
-                    <li><a href="/api-reference/communications/afc-rest">API references</a></li>
+                <ul>
+                    <li><a href="https://github.com/Avalara/Avalara-Communications-SaaS-Pro" target="_blank">API documentation</a></li>
+                    <li><a href="/api-reference/communications/afc-rest">API reference</a></li>
                 </ul>
             </div>
             <div class="col-md-7 col-md-offset-5 padding-top">
