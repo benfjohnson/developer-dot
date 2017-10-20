@@ -76,7 +76,10 @@ const ModelProperty = ({modelName, name, prop, requiredProps = []}) => {
                         <br />
                         <b>{'Example:'}</b>
                         <br />
-                        <pre className='highlight'>{typeof prop.example !== 'object' ? prop.example.toString() : JSON.stringify(prop.example, null, 4).replace(/'/g, '')}</pre>
+                        {prop.format === 'date-time' && prop['x-date-type'] === 'date-only' ?
+                            <pre className='highlight'>{prop.example.toString().split('T')[0]}</pre> :
+                            <pre className='highlight'>{typeof prop.example !== 'object' ? prop.example.toString() : JSON.stringify(prop.example, null, 4).replace(/'/g, '')}</pre>
+                        }
                     </span> : null
                 }
             </td>
