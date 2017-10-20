@@ -113,7 +113,7 @@ Your transaction is created.
 
 <br/>
 
-As you can see, the <a href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Transactions/CreateTransaction/">CreateTransaction API</a> grows as your transactions increase in complexity.  But let's ask - how can I make a transaction permanent, and report it to the tax authority?
+As you can see, the <a class="dev-guide-link" href="https://developer.avalara.com/api-reference/avatax/rest/v2/methods/Transactions/CreateTransaction/">CreateTransaction API</a> grows as your transactions increase in complexity.  But let's ask - how can I make a transaction permanent, and report it to the tax authority?
 
 <ul class="pager">
   <li class="previous"><a href="/avatax/dev-guide/transactions/simple-transaction/"><i class="glyphicon glyphicon-chevron-left"></i>Previous</a></li>
