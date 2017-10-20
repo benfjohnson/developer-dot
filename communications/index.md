@@ -42,7 +42,7 @@ doctype: overview
             </div>
             <div class="col-md-7 col-md-offset-5 padding-top">
                 <ul>
-                    <li><a href="https://github.com/Avalara/Avalara-Communications-SaaS-Pro">API documentation</a></li>
+                    <li><a href="https://github.com/Avalara/Avalara-Communications-SaaS-Pro" target="_blank">API documentation</a></li>
                     <li><a href="/api-reference/communications/afc-rest">API reference</a></li>
                 </ul>
             </div>
