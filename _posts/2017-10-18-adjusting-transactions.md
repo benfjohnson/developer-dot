@@ -2,7 +2,7 @@
 layout: post
 title: Adjusting Transactions
 description: Adjusting Transactions
-date: 2017-10-18 12:00
+date: 2017-10-10 12:00
 author: Mark Withers
 comments: true
 categories:
@@ -11,10 +11,12 @@ doctype: blog
 disqus: 1
 ---
 
-Now that you’re using AvaTax, your software creates transactions with ease.  What happens when a customer reports that they want to make a change?  Most accounting system allow you to adjust invoices or modify transactions in some fashion.  Let’s review how AvaTax provides support for these scenarios.
+<center><img src="/images/adjusting3.png" height="300" width="75%"/></center>
+
+Now that you’re using AvaTax, your software creates transactions with ease.  What happens when a customer reports that they want to make a change?  Most accounting systems allow you to adjust invoices or modify transactions in some fashion.  Let’s review how AvaTax provides support for these scenarios.
 
 <h3>Refresher</h3>
-For previously recorded transactions with a status of committed in AvaTax; the service identifies the transaction in AvaTax is committed and does not permit the transaction to be overwritten.  If your transaction is committed but not locked, you can call <a href="/api-reference/avatax/rest/v2/methods/Transactions/VoidTransaction/">VoidTransaction</a> - that means you caught it before it was reported on a tax return. The transaction will be canceled and you can create a new one with the corrected information.
+For previously recorded transactions with a status of committed in AvaTax; the service identifies the transaction in AvaTax is committed and does not permit the transaction to be overwritten.  If your transaction is committed but not locked, you can call <a href="">VoidTransaction</a> - that means you caught it before it was reported on a tax return. The transaction will be canceled and you can create a new one with the corrected information.
 
 However, if your transaction was locked and reported on a return, we can still help you. If you use Avalara’s Managed Returns service, we can provide help amending your returns. An amended return allows you to notify the state and correct any discrepancies. Reach out to your account manager today and we’ll be happy to help you with any tax reporting challenges!
 
@@ -121,4 +123,4 @@ If you expect to modify transactions regularly, you may choose to use the <a hre
 
 Using <a href="/api-reference/avatax/rest/v2/methods/Transactions/CreateOrAdjustTransaction/">CreateOrAdjustTransaction</a> allows you to call the API for a specified document code without checking in advance if the transaction has yet been recorded in AvaTax.  This makes it a great option to sync up your accounting system or sales pipeline with your tax data.
 
--Mark Withers, Partner Launch Team
+-Mark Withers Partner Launch Team
