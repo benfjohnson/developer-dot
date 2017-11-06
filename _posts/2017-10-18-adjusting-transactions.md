@@ -2,6 +2,7 @@
 layout: post
 title: Adjusting Transactions
 description: Adjusting Transactions
+ogimage: "/images/adjusting3.png"
 date: 2017-10-10 12:00
 author: Mark Withers
 comments: true
