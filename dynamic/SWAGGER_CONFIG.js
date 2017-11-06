@@ -73,50 +73,5 @@ export default {
         name: 'Trustfile - Connector',
         path: 'trustfile/api-reference/connector-management/v3',
         product: 'trustFile'
-    },
-    'avataxbr/auth.json': {
-        name: 'Auth',
-        path: 'avataxbr/api-reference/tax/v2',
-        product: 'avaTaxBr'
-    },
-    'avataxbr/calculation.json': {
-        name: 'Calculation',
-        path: 'avataxbr/api-reference/tax/v2/calculation',
-        product: 'avaTaxBr'
-    },
-    'avataxbr/common.json': {
-        name: 'Common',
-        path: 'avataxbr/api-reference/tax/v2/common',
-        product: 'avaTaxBr'
-    },
-    'avataxbr/compliance.json': {
-        name: 'Compliance',
-        path: 'avataxbr/api-reference/tax/v2/compliance',
-        product: 'avaTaxBr'
-    },
-    'avataxbr/configuration.json': {
-        name: 'Configuration',
-        path: 'avataxbr/api-reference/tax/v2/configuration',
-        product: 'avaTaxBr'
-    },
-    'avataxbr/documents.json': {
-        name: 'Documents',
-        path: 'avataxbr/api-reference/tax/v2/documents',
-        product: 'avaTaxBr'
-    },
-    'avataxbr/index.json': {
-        name: 'Index',
-        path: 'avataxbr/api-reference/tax/v2/index',
-        product: 'avaTaxBr'
-    },
-    'avataxbr/invoice.json': {
-        name: 'Invoices',
-        path: 'avataxbr/api-reference/tax/v2/invoices',
-        product: 'avaTaxBr'
-    },
-    'avataxbr/transaction.json': {
-        name: 'Transaction',
-        path: 'avataxbr/api-reference/tax/v2/transaction',
-        product: 'avaTaxBr'
     }
 };
