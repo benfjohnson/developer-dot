@@ -16,10 +16,9 @@
     {% assign ogtitle = page.ogtitle | default:page.title %}
     <meta property="og:title" content="{% if ogtitle %}{{ogtitle}} | {% endif %}Avalara Developer" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://developer.avalara.com/" />
+    <!--<meta property="og:url" content="https://developer.avalara.com/" />-->
     <meta property="og:site_name" content="Avalara Developer Network" />
     <meta property="og:description" content="{{ page.ogdescription | default:default_desc }}"/>
-    <meta property="og:image" content="{{ page.ogimage }}">
     
     <link rel="apple-touch-icon" sizes="57x57" href="/public/images/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/public/images/favicon/apple-icon-60x60.png">
