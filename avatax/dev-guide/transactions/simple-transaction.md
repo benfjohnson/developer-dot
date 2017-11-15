@@ -30,7 +30,7 @@ POST /api/v2/transactions/create
  
 {
   "companyCode": "DEVGUIDE",
-  "type": "SalesOrder"
+  "type": "SalesOrder",
   "date": "2017-06-15",
   "customerCode": "EXAMPLECUSTOMER",
   "addresses": {
