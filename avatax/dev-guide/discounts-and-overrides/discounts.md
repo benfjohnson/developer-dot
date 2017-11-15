@@ -197,7 +197,7 @@ With this exercise you will pass the complete discounted amount in the <code>dis
     <li>In your connector, create the following transaction:</li>
         <ul class="dev-guide-list">
             <li>Document Type: SalesInvoice</li>
-            <li>Document Code: Chapter-6-Test-5</li>
+            <li>Document Code: Chapter-6-Test-6</li>
             <li>Company Code: DEVGUIDE</li>
             <li>Document Date: 2017-06-15</li>
             <li>CustomerCode: TESTCUSTOMER</li>
@@ -243,7 +243,7 @@ With this exercise you will pass the complete discounted amount in the <code>dis
                 <pre>
 {
   "type": "SalesInvoice",
-  "code": "Chapter-6-Test-5",
+  "code": "Chapter-6-Test-6",
   "companyCode": "DEVGUIDE",
   "date": "2017-06-15",
   "customerCode": "TESTCUSTOMER",
@@ -292,7 +292,7 @@ When working with discounts provided by a 3rd party (ex. manufacturer coupon) th
     <li>In your connector, create the following transaction:</li>
         <ul class="dev-guide-list">
             <li>Document Type: SalesInvoice</li>
-            <li>Document Code: Chapter-6-Test-6</li>
+            <li>Document Code: Chapter-6-Test-7</li>
             <li>Company Code: DEVGUIDE</li>
             <li>Document Date: 2017-06-15</li>
             <li>Customer Code: TESTCUSTOMER</li>
@@ -330,7 +330,7 @@ When working with discounts provided by a 3rd party (ex. manufacturer coupon) th
                 <pre>
 {
   "type": "SalesInvoice",
-  "code": "Chapter-6-Test-6",
+  "code": "Chapter-6-Test-7",
   "companyCode": "DEVGUIDE",
   "date": "2017-06-15",
   "customerCode": "TESTCUSTOMER",
