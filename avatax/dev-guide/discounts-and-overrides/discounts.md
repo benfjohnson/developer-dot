@@ -37,7 +37,7 @@ For this first discount exercise, we are going to perform the discount before se
     <li>In your connector, create the following transaction:</li>
         <ul class="dev-guide-list">
             <li>Document Type: SalesInvoice</li>
-            <li>Document Code: Chapter-6-Test-3</li>
+            <li>Document Code: Chapter-6-Test-4</li>
             <li>Company Code: DEVGUIDE</li>
             <li>Document Date: 2017-06-15</li>
             <li>Customer Code: TESTCUSTOMER</li>
@@ -71,7 +71,7 @@ For this first discount exercise, we are going to perform the discount before se
                 <pre>
 {
   "type": "SalesInvoice",
-  "code": "Chapter-6-Test-3",
+  "code": "Chapter-6-Test-4",
   "companyCode": "DEVGUIDE",
   "date": "2017-06-15",
   "customerCode": "TESTCUSTOMER",
@@ -112,7 +112,7 @@ With this, exercise, you will simply add an additional line that contains the di
     <li>In your connector, create the following transaction:</li>
         <ul class="dev-guide-list">
             <li>Document Type: SalesInvoice</li>
-            <li>Document Code: Chapter-6-Test-4</li>
+            <li>Document Code: Chapter-6-Test-5</li>
             <li>Company Code: DEVGUIDE</li>
             <li>Document Date: 2017-06-15</li>
             <li>CustomerCode: TESTCUSTOMER</li>
@@ -151,7 +151,7 @@ With this, exercise, you will simply add an additional line that contains the di
                 <pre>
 {
   "type": "ReturnInvoice",
-  "code": "Chapter-6-Test-4",
+  "code": "Chapter-6-Test-5",
   "companyCode": "DEVGUIDE",
   "date": "2017-06-15",
   "customerCode": "TESTCUSTOMER",
