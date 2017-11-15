@@ -190,7 +190,7 @@ The examples we have used so far have all shown the <code>TaxAmount</code>/<code
     <li>In your connector, create the following transaction:</li>
         <ul class="dev-guide-list">
             <li>Document Type: SalesInvoice</li>
-            <li>Document Code: Chapter-6-Test-2</li>
+            <li>Document Code: Chapter-6-Test-3</li>
             <li>Company Code: DEVGUIDE</li>
             <li>Document Date: 2017-06-15</li>
             <li>Customer Code: TESTCUSTOMER</li>
