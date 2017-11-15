@@ -12,7 +12,7 @@ doctype: blog
 disqus: 1
 ---
 
-<center><img src="/images/adjusting3.png" height="300" width="75%"/></center>
+<center><img src="/images/adjusting3.jpg" height="300" width="75%"/></center>
 
 Now that you’re using AvaTax, your software creates transactions with ease.  What happens when a customer reports that they want to make a change?  Most accounting systems allow you to adjust invoices or modify transactions in some fashion.  Let’s review how AvaTax provides support for these scenarios.
 
