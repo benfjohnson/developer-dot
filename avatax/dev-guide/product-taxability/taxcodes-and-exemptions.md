@@ -92,7 +92,7 @@ The state of Washington does not have a tax for carbonated juice beverages as of
                 <pre>
 {
   "type": "SalesInvoice",
-  "code": "Chapter-5-Test-1",
+  "code": "Chapter-5-Test-2",
   "companyCode": "DEVGUIDE",
   "date": "2017-06-15",
   "customerCode": "TESTCUSTOMER",
@@ -163,7 +163,7 @@ Let's now try that same transaction in a different address.  The state of New Yo
                 <pre>
 {
   "type": "SalesInvoice",
-  "code": "Chapter-5-Test-2",
+  "code": "Chapter-5-Test-3",
   "companyCode": "DEVGUIDE",
   "date": "2017-06-15",
   "customerCode": "TESTCUSTOMER",
