@@ -596,3 +596,5 @@ redirects:
   landedcost/api-reference/calculate/v3: /api-reference/landedcost/methods/calculate
   api-docs/soap/accountsvc: /api-reference/avatax/soap
   api-docs/designing-your-integration/errors-and-outages/common-errors: /avatax/common-errors
+  # fix for blog redirect
+  blog/2017/11/17/renaming-transactions: /blog/2017/11/14/renaming-transactions
