@@ -186,7 +186,7 @@ With this, exercise, you will simply add an additional line that contains the di
 
 <h3>Automatically Distributed Discounts</h3>
 
-With this exercise you will pass the complete discounted amount in the <code>discount</code> field then identify the lines that are participating in the discount by setting the discounted field to 'True'. Unlike the other methods, you will enter the total discount as a positive integer with this approach. If no lines have the discounted set to 'True', then the discount will NOT be applied. 
+With this exercise you will pass the complete discounted amount in the <code>discount</code> field then identify the lines that are participating in the discount by setting the <code>discounted</code> field to 'True'. Unlike the other methods, you will enter the total discount as a positive integer with this approach. If no lines have the discounted set to 'True', then the discount will NOT be applied. 
 
 <div class="dev-guide-test" id="test3">
     <div class="dev-guide-test-heading">Test Case - 6.2.3</div>
