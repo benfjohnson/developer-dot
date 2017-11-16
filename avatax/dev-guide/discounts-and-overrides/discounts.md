@@ -319,7 +319,7 @@ When working with discounts provided by a 3rd party (ex. manufacturer coupon) th
 </ul>
 <h4>Assertions</h4>
 <ul class="dev-guide-list">
-    <li>The totalTaxCalculated amount should be $8.10. This is the amount that AvaTax determined is correct.</li>
+    <li>The totalTaxCalculated amount should be $9.00. This is the amount that AvaTax determined is correct.</li>
 </ul>
 <div class="dev-guide-dropdown">
         <input id="checkbox_toggle4" type="checkbox" />
