@@ -37,7 +37,7 @@ For this first discount exercise, we are going to perform the discount before se
     <li>In your connector, create the following transaction:</li>
         <ul class="dev-guide-list">
             <li>Document Type: SalesInvoice</li>
-            <li>Document Code: Chapter-6-Test-3</li>
+            <li>Document Code: Chapter-6-Test-4</li>
             <li>Company Code: DEVGUIDE</li>
             <li>Document Date: 2017-06-15</li>
             <li>Customer Code: TESTCUSTOMER</li>
@@ -71,7 +71,7 @@ For this first discount exercise, we are going to perform the discount before se
                 <pre>
 {
   "type": "SalesInvoice",
-  "code": "Chapter-6-Test-3",
+  "code": "Chapter-6-Test-4",
   "companyCode": "DEVGUIDE",
   "date": "2017-06-15",
   "customerCode": "TESTCUSTOMER",
@@ -112,7 +112,7 @@ With this, exercise, you will simply add an additional line that contains the di
     <li>In your connector, create the following transaction:</li>
         <ul class="dev-guide-list">
             <li>Document Type: SalesInvoice</li>
-            <li>Document Code: Chapter-6-Test-4</li>
+            <li>Document Code: Chapter-6-Test-5</li>
             <li>Company Code: DEVGUIDE</li>
             <li>Document Date: 2017-06-15</li>
             <li>CustomerCode: TESTCUSTOMER</li>
@@ -151,7 +151,7 @@ With this, exercise, you will simply add an additional line that contains the di
                 <pre>
 {
   "type": "ReturnInvoice",
-  "code": "Chapter-6-Test-4",
+  "code": "Chapter-6-Test-5",
   "companyCode": "DEVGUIDE",
   "date": "2017-06-15",
   "customerCode": "TESTCUSTOMER",
@@ -186,7 +186,7 @@ With this, exercise, you will simply add an additional line that contains the di
 
 <h3>Automatically Distributed Discounts</h3>
 
-With this exercise you will pass the complete discounted amount in the <code>discount</code> field then identify the lines that are participating in the discount by setting the discounted field to 'True'. Unlike the other methods, you will enter the total discount as a positive integer with this approach. If no lines have the discounted set to 'True', then the discount will NOT be applied. 
+With this exercise you will pass the complete discounted amount in the <code>discount</code> field then identify the lines that are participating in the discount by setting the <code>discounted</code> field to 'True'. Unlike the other methods, you will enter the total discount as a positive integer with this approach. If no lines have the discounted set to 'True', then the discount will NOT be applied. 
 
 <div class="dev-guide-test" id="test3">
     <div class="dev-guide-test-heading">Test Case - 6.2.3</div>
@@ -197,7 +197,7 @@ With this exercise you will pass the complete discounted amount in the <code>dis
     <li>In your connector, create the following transaction:</li>
         <ul class="dev-guide-list">
             <li>Document Type: SalesInvoice</li>
-            <li>Document Code: Chapter-6-Test-5</li>
+            <li>Document Code: Chapter-6-Test-6</li>
             <li>Company Code: DEVGUIDE</li>
             <li>Document Date: 2017-06-15</li>
             <li>CustomerCode: TESTCUSTOMER</li>
@@ -243,7 +243,7 @@ With this exercise you will pass the complete discounted amount in the <code>dis
                 <pre>
 {
   "type": "SalesInvoice",
-  "code": "Chapter-6-Test-5",
+  "code": "Chapter-6-Test-6",
   "companyCode": "DEVGUIDE",
   "date": "2017-06-15",
   "customerCode": "TESTCUSTOMER",
@@ -292,7 +292,7 @@ When working with discounts provided by a 3rd party (ex. manufacturer coupon) th
     <li>In your connector, create the following transaction:</li>
         <ul class="dev-guide-list">
             <li>Document Type: SalesInvoice</li>
-            <li>Document Code: Chapter-6-Test-6</li>
+            <li>Document Code: Chapter-6-Test-7</li>
             <li>Company Code: DEVGUIDE</li>
             <li>Document Date: 2017-06-15</li>
             <li>Customer Code: TESTCUSTOMER</li>
@@ -319,7 +319,7 @@ When working with discounts provided by a 3rd party (ex. manufacturer coupon) th
 </ul>
 <h4>Assertions</h4>
 <ul class="dev-guide-list">
-    <li>The totalTaxCalculated amount should be $8.10. This is the amount that AvaTax determined is correct.</li>
+    <li>The totalTaxCalculated amount should be $9.00. This is the amount that AvaTax determined is correct.</li>
 </ul>
 <div class="dev-guide-dropdown">
         <input id="checkbox_toggle4" type="checkbox" />
@@ -330,7 +330,7 @@ When working with discounts provided by a 3rd party (ex. manufacturer coupon) th
                 <pre>
 {
   "type": "SalesInvoice",
-  "code": "Chapter-6-Test-6",
+  "code": "Chapter-6-Test-7",
   "companyCode": "DEVGUIDE",
   "date": "2017-06-15",
   "customerCode": "TESTCUSTOMER",
